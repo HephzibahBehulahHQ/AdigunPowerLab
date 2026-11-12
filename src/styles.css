@@ -1695,8 +1695,8 @@ tfoot td {
 }
 .tool-layout {
   display: grid;
-  grid-template-columns: 285px minmax(0, 1fr);
-  gap: 25px;
+  grid-template-columns: minmax(0, 1fr) 275px;
+  gap: 14px;
   min-height: 550px;
 }
 .tool-catalog {
@@ -2259,7 +2259,7 @@ details p {
   display: none;
 }
 .with-inspector .tool-layout {
-  grid-template-columns: 220px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) 220px;
 }
 .with-inspector .form-grid.four {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2409,8 +2409,8 @@ details p {
     height: 45px;
   }
   .tool-layout {
-    grid-template-columns: 240px minmax(0, 1fr);
-    gap: 18px;
+    grid-template-columns: minmax(0, 1fr) 245px;
+    gap: 12px;
   }
   .with-inspector .tool-layout {
     grid-template-columns: 1fr;
@@ -2496,7 +2496,7 @@ details p {
     box-shadow: -15px 0 35px #0005;
   }
   .tool-layout {
-    grid-template-columns: 210px minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) 210px;
   }
   .section-title h2 {
     font-size: 18px;

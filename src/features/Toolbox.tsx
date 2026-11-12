@@ -121,58 +121,6 @@ export function Toolbox({
   }
   return (
     <div className="tool-layout">
-      <div className="tool-catalog panel">
-        <div className="search-field">
-          <Search size={17} />
-          <input
-            ref={searchInput}
-            type="search"
-            aria-label={t("Search tools")}
-            placeholder={t("Search tools")}
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-          <span role="status" aria-live="polite" aria-atomic="true">
-            {filtered.length} {t("matching tools")}
-          </span>
-        </div>
-        <div className="tool-list">
-          {filtered.map((tool) => (
-            <button
-              key={tool.id}
-              className={"tool-item " + (selected === tool.id ? "active" : "")}
-              onClick={() => choose(tool.id)}
-            >
-              <span className="tool-id">{tool.id}</span>
-              <span>
-                <strong>{t(tool.title)}</strong>
-                <small>{t(tool.category)}</small>
-              </span>
-              <ArrowRight size={14} />
-            </button>
-          ))}
-          {filtered.length === 0 && (
-            <div className="panel-pad" style={{ gridColumn: "1 / -1" }}>
-              <h3>{t("No matching tools.")}</h3>
-              <p className="muted small">
-                {t(
-                  "Search by name, category, description or tool ID in your language or English.",
-                )}
-              </p>
-              <button
-                className="button"
-                type="button"
-                onClick={() => {
-                  setQuery("");
-                  searchInput.current?.focus();
-                }}
-              >
-                {t("Clear search")}
-              </button>
-            </div>
-          )}
-        </div>
-      </div>
       <div className="tool-workspace">
         {tool ? (
           <>
@@ -405,6 +353,59 @@ export function Toolbox({
           </div>
         )}
       </div>
+      <div className="tool-catalog panel">
+        <div className="search-field">
+          <Search size={17} />
+          <input
+            ref={searchInput}
+            type="search"
+            aria-label={t("Search tools")}
+            placeholder={t("Search tools")}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <span role="status" aria-live="polite" aria-atomic="true">
+            {filtered.length} {t("matching tools")}
+          </span>
+        </div>
+        <div className="tool-list">
+          {filtered.map((tool) => (
+            <button
+              key={tool.id}
+              className={"tool-item " + (selected === tool.id ? "active" : "")}
+              onClick={() => choose(tool.id)}
+            >
+              <span className="tool-id">{tool.id}</span>
+              <span>
+                <strong>{t(tool.title)}</strong>
+                <small>{t(tool.category)}</small>
+              </span>
+              <ArrowRight size={14} />
+            </button>
+          ))}
+          {filtered.length === 0 && (
+            <div className="panel-pad" style={{ gridColumn: "1 / -1" }}>
+              <h3>{t("No matching tools.")}</h3>
+              <p className="muted small">
+                {t(
+                  "Search by name, category, description or tool ID in your language or English.",
+                )}
+              </p>
+              <button
+                className="button"
+                type="button"
+                onClick={() => {
+                  setQuery("");
+                  searchInput.current?.focus();
+                }}
+              >
+                {t("Clear search")}
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+
     </div>
   );
 }
