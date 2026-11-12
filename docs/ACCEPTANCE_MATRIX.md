@@ -2,6 +2,10 @@
 
 Audit date: 12 November 2026. Scope: original specification sections 01–33, fixtures F01–F20 and tools T01–T51, plus the recovered continuation.
 
+## Workflow detail-mode continuation: 12 November 2026
+
+[PRs #24–#27](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pulls?q=is%3Apr+%2324+%2325+%2326+%2327) extend the global detail preference to circuit diagnostics, single-line diagram settings, simulation profile data and Load Schedule bulk actions. Simple mode collapses the applicable secondary information or action panel; Engineering mode opens it. Required calculations, checks and project data remain available. Candidate, merged-main and Pages receipts are in [TEST_EVIDENCE.md](TEST_EVIDENCE.md) and [DEPLOYMENT.md](DEPLOYMENT.md). The #27 browser test uses the existing analytical reference fixture, not client measurements. Public custom-domain HTML and its compiled JavaScript returned HTTP 200 after publication. Coverage in other workflows and every language remains partial.
+
 ## Dated comparison detail mode: 12 November 2026
 
 [PR #20](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/20) connects the dated engineering comparison's methods, assumptions and unresolved checks disclosure to the global detail mode. Simple mode collapses the disclosure while keeping calculated comparison tables and exports visible; Engineering opens it. Candidate, main and Pages receipts are in [TEST_EVIDENCE.md](TEST_EVIDENCE.md) and [DEPLOYMENT.md](DEPLOYMENT.md). The live custom-domain project had no loads, so the comparison was disabled and no customer data was added; the interactive case used an explicitly test-only load in CI.
@@ -34,7 +38,7 @@ The next bounded continuation implements 20 workflow guides and guides for all 5
 
 ## Release conclusion
 
-**The complete original specification is not fully accepted.** Current main `e1e9b8b` is publicly deployed in [Pages run 43258262229](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43258262229). PRs #7–#9 address bounded workspace-layout items; PRs #11, #13 and #14 add method disclosure; PR #16 adds tariff-rule disclosure; PR #18 adds scenario baseline detail disclosure; PR #20 adds dated-comparison method disclosure. External datasets/services, independent review and exhaustive acceptance remain open.
+**The complete original specification is not fully accepted.** Current main `892b3bee8f7267201cdf6910edb271e124774815` is deployed in [Pages run 43278519926](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43278519926). PRs #24–#27 expand detail-mode coverage across circuit diagnostics, diagram settings, simulation profile data and bulk load actions. External engineering datasets/services, independent language/accessibility review and exhaustive workflow acceptance remain open. See [PROJECT_STATUS.md](../PROJECT_STATUS.md) for the next bounded action.
 
 Historical verification source: `93d5e46`. That November 6 candidate passed **331 tests across 21 files**, its production build and **32/32 browser cases** in the independent checkout. Historical release details remain in the sections below and linked PRs; they do not replace the current 12 November release evidence in `TEST_EVIDENCE.md`.
 
