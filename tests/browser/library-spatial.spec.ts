@@ -224,3 +224,21 @@ test("responsive layouts, persisted split widths, reduced motion and keyboard co
     fullPage: true,
   });
 });
+
+test("diagram settings follow global detail mode without changing project data", async ({
+  page,
+}) => {
+  await seed(page);
+  const before = await exported(page);
+  await route(page, "Single-Line Studio");
+  const mode = page.locator(".page-heading .detail-mode-control select");
+  const settings = page.locator(".diagram-settings");
+  await mode.selectOption("simple");
+  await expect(settings).toBeVisible();
+  await expect(settings).toHaveJSProperty("open", false);
+  await mode.selectOption("engineering");
+  await expect(settings).toHaveJSProperty("open", true);
+  await mode.selectOption("simple");
+  await expect(settings).toHaveJSProperty("open", false);
+  expect(await exported(page)).toEqual(before);
+});
