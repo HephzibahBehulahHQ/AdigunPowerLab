@@ -60,10 +60,13 @@ test("cost tariff details follow the global detail mode", async ({ page }) => {
 
   await advanced.locator("summary").click();
   await expect(advanced.getByLabel("Demand averaging method")).toBeVisible();
-  await expect(advanced.getByRole("button", { name: "Add tariff band" })).toBeVisible();
+  await expect(
+    advanced.getByRole("button", { name: "Add tariff band" }),
+  ).toBeVisible();
 
   await mode.selectOption("engineering");
   await expect(advanced).toHaveJSProperty("open", true);
   await expect(advanced.getByLabel("Demand averaging method")).toBeVisible();
   await expect(page.getByLabel("Import price")).toBeVisible();
 });
+
