@@ -55,9 +55,9 @@ test("bulk actions disclosure follows workspace detail mode", async ({
   const details = page.locator(".load-operations details").first();
   const detailLevel = page.getByRole("combobox", { name: "Detail level" });
 
-  await expect(details).toBeOpen();
+  await expect(details).toHaveAttribute("open", "");
   await detailLevel.selectOption("simple");
-  await expect(details).not.toBeOpen();
+  await expect(details).not.toHaveAttribute("open");
   await detailLevel.selectOption("engineering");
   await expect(details).toBeOpen();
 });
