@@ -136,3 +136,51 @@ test("measured CSV review, durable save, backup/clean exports and failed replace
   ).toBeLessThanOrEqual(390);
   expect(errors).toEqual([]);
 });
+
+test("measurement assumptions follow detail mode while missing coverage stays open", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator(".overview-banner")).toBeVisible();
+  await page
+    .locator(".sidebar")
+    .getByRole("button", { name: /^Schedules & Simulation/ })
+    .click();
+  const panel = page.locator(".measurements-panel");
+  const mode = page.locator(".page-heading .detail-mode-control select");
+  await mode.selectOption("simple");
+  await panel.locator("input[type=file]").setInputFiles({
+    name: "continuous-intervals.csv",
+    mimeType: "text/csv",
+    buffer: Buffer.from(
+      "timestamp,power\n2026-11-05T09:00:00Z,1000\n2026-11-05T10:00:00Z,1200",
+    ),
+  });
+  await panel.getByLabel(/^Declared elapsed interval/).fill("60");
+  await panel
+    .getByRole("button", { name: "Preview measured data", exact: true })
+    .click();
+  const warnings = panel.locator(".measurement-warnings");
+  await expect(warnings).toBeVisible();
+  await expect(warnings).toHaveJSProperty("open", false);
+  await mode.selectOption("engineering");
+  await expect(warnings).toHaveJSProperty("open", true);
+  await mode.selectOption("simple");
+  await expect(warnings).toHaveJSProperty("open", false);
+
+  await panel.locator("input[type=file]").setInputFiles({
+    name: "gapped-intervals.csv",
+    mimeType: "text/csv",
+    buffer: Buffer.from(
+      "timestamp,power\n2026-11-05T09:00:00Z,1000\n2026-11-05T11:00:00Z,1200",
+    ),
+  });
+  await panel.getByLabel(/^Declared elapsed interval/).fill("60");
+  await panel
+    .getByRole("button", { name: "Preview measured data", exact: true })
+    .click();
+  await expect(warnings).toContainText("60 minutes of missing coverage");
+  await expect(warnings).toHaveJSProperty("open", true);
+  await mode.selectOption("engineering");
+  await expect(warnings).toHaveJSProperty("open", true);
+});
