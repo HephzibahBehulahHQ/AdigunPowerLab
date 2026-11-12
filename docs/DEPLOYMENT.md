@@ -4,12 +4,13 @@ The owner explicitly authorized pushing, merging and public deployment on 6 and 
 
 ## Latest verified release — 12 November 2026
 
-- Current main: `892b3bee8f7267201cdf6910edb271e124774815` ([PR #27](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/27)).
+- Latest application change: `892b3bee8f7267201cdf6910edb271e124774815` ([PR #27](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/27)); exact app validation and Pages receipts are listed below.
 - Corrected PR #27 candidate `c4cdb7e523f15e26869537d7ec6f892b72bdf7be` passed the complete repository gate in [run 43276924442](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43276924442).
 - Exact-main validation passed in [run 43277711152](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43277711152).
 - Exact-revision Pages publication passed in [run 43278519926](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43278519926).
 - PR #27 makes the Load Schedule bulk actions and clipboard disclosure follow the global detail mode. The browser test verifies Simple/Engineering transitions and existing bulk-action flows; fixture data is analytical and test-only.
 - Post-publication read-only check of `https://adigunpowerlab.hephzibahbehulah.com/`: HTML returned HTTP 200 with title “AdigunPowerLab · Electrical & Engineering Power Studio”; its compiled JavaScript asset returned HTTP 200 with JavaScript content type. This confirms a live response, not full manual interaction with every client workflow.
+- Documentation-only [PR #28](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/28) was validated in [run 43280814410](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43280814410) and published in [run 43281661723](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43281661723); it did not change application files. The latest public-page and asset check was after that deployment.
 - PRs #24–#26 and their exact main/Pages receipts are recorded in [TEST_EVIDENCE.md](TEST_EVIDENCE.md).
 
 
