@@ -1535,7 +1535,8 @@ export default function App() {
             className={
               "workspace-content " +
               (selectedObject || showTrace ? "with-inspector " : "") +
-              (route === "diagram" ? "topology-workspace" : "")
+              (route === "diagram" ? "topology-workspace " : "") +
+              (route === "overview" ? "overview-workspace" : "")
             }
           >
             <main id="workspace" className="main-content">
