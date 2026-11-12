@@ -2,9 +2,11 @@
 
 Date: 12 November 2026. Owner: Hephzibah Behulah.
 
-## Active continuation: Costs & Carbon tariff rules
+## Detail-mode release continuation
 
 - [PR #16](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/16), main `1b538295b43d8eda1ce2ca46f9240c964aaaa34d`: Costs & Carbon keeps the essential rate, demand-price, tax and carbon inputs visible in Simple mode; time-of-use and billing-period rules collapse into a disclosure, while Engineering opens those rules. Candidate `af9c5b804c5d77575b94d7601c4fc8fa6128f1c0` passed the full gate in [run 43244230000](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43244230000), main validation passed in [run 43245232196](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43245232196), and Pages publication passed in [run 43245983581](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43245983581). Live custom-domain verification confirmed Simple collapse, visible core rates and Save, rule expansion, and Engineering expansion. The local empty project identified its source reference as an editable assumption, not a retrieved tariff; no customer tariff data was used.
+
+- [PR #18](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/18), main `bbc7712f0e97a1fb11bc12d1dd511e0ee6a3102b`: the scenario workspace receives the global detail mode; baseline input differences remain expandable in Simple and open in Engineering. Corrected exact candidate `865368920c80e9d095f4ed33e27bb7d0a66124cc` passed the full gate in [run 43249735796](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43249735796); main validation passed in [run 43250741903](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43250741903), and Pages publication passed in [run 43251513566](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43251513566). Live verification after activating the published update confirmed “Changes from baseline (0)” collapsed in Simple and expanded in Engineering; no browser console errors occurred. The workspace remained empty; no client scenario data was used.
 
 ## Client reference workspaces
 
@@ -24,12 +26,12 @@ All three references were compared with the actual empty project. The visual mat
 
 ## Verification for latest release
 
-PR #16's exact candidate, main and Pages runs all passed. CI includes lint/typecheck, unit, build, browser, production-browser, update and offline checks. Exact receipts for PRs #7–#16 are in [TEST_EVIDENCE.md](docs/TEST_EVIDENCE.md); current publication mechanics and receipts are in [DEPLOYMENT.md](docs/DEPLOYMENT.md).
+PR #18's corrected exact candidate, main and Pages runs all passed. CI includes lint/typecheck, unit, build, browser, production-browser, update and offline checks. Exact receipts for PRs #7–#18 are in [TEST_EVIDENCE.md](docs/TEST_EVIDENCE.md); current publication mechanics and receipts are in [DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 ## Product acceptance boundary
 
-These are bounded visual milestones, not full original-spec acceptance. The current app is a local-first engineering planning tool; browser calculations do not certify installation or validate physical equipment. Professional language and independent accessibility review, licensed/current standards and manufacturer datasets, connected AI/cloud/OCR and physical telemetry/control are absent or unverified. See [KNOWN_LIMITATIONS.md](docs/KNOWN_LIMITATIONS.md) and [ACCEPTANCE_MATRIX.md](docs/ACCEPTANCE_MATRIX.md). PRs #11, #13 and #14 add mode-aware method display to the toolbox, Renewables and EV workflows; PR #16 adds mode-aware tariff-rule disclosure to Costs & Carbon. Complete mode coverage across every workflow remains open.
+These are bounded visual milestones, not full original-spec acceptance. The current app is a local-first engineering planning tool; browser calculations do not certify installation or validate physical equipment. Professional language and independent accessibility review, licensed/current standards and manufacturer datasets, connected AI/cloud/OCR and physical telemetry/control are absent or unverified. See [KNOWN_LIMITATIONS.md](docs/KNOWN_LIMITATIONS.md) and [ACCEPTANCE_MATRIX.md](docs/ACCEPTANCE_MATRIX.md). PRs #11, #13 and #14 add mode-aware method display to the toolbox, Renewables and EV workflows; PR #16 adds mode-aware tariff-rule disclosure to Costs & Carbon; PR #18 makes scenario baseline differences follow the global detail mode. Dated comparison methods and coverage across other workflows remain open.
 
 ## Next action
 
-Audit remaining internally implementable full-acceptance gaps: extend detail-mode coverage beyond the toolbox, Renewables, EV and Costs & Carbon workflows, then work through the action/failure-state matrix. Continue small verified PRs; keep external data/service boundaries explicit.
+Next, connect the dated comparison's methods, assumptions and unresolved checks disclosure to the global detail mode, then audit remaining action/failure states. Coverage across all workflows and languages remains open. Continue small verified PRs; keep external data/service boundaries explicit.
