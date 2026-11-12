@@ -228,4 +228,3 @@ test("circuit assessment details follow global detail mode without changing proj
   await page.keyboard.press("Escape");
   expect(await exported(page)).toEqual(before);
 });
-
