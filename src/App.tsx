@@ -1773,6 +1773,7 @@ export default function App() {
                     <EVPlanner
                       project={project}
                       result={result}
+                      detailMode={detailMode}
                       change={change}
                       onComplete={(sessionId, plan, inputs) =>
                         setReportContext((context) => {
