@@ -68,7 +68,9 @@ test("bulk preview and undo, clipboard validation, and explicit German decimals"
   await home(page);
   await route(page, "Load Schedule");
   const bulk = page.locator(".load-operations");
-  await bulk.locator("summary").click();
+  const bulkDisclosure = bulk.locator("details").first();
+  if ((await bulkDisclosure.getAttribute("open")) === null)
+    await bulkDisclosure.locator("summary").click();
   await bulk
     .getByLabel("Select load Lighting (analytical)", { exact: true })
     .check();
