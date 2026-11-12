@@ -16,6 +16,7 @@ import { calculateProject } from "../engine/electrical";
 import { downloadFile, makeCSV, safeName } from "../import-export/files";
 import { PeriodComparison } from "./PeriodComparison";
 import { Field, Notice } from "./ui";
+import type { DetailMode } from "./DetailViews";
 import { parseLocaleNumberList, formatEditableNumber } from "../i18n/numbers";
 import { LanguageContext, useT, numberFormat, money } from "../i18n";
 
@@ -250,6 +251,7 @@ export function RevisionComparison({
 }
 
 export function ScenarioWorkspace({
+  detailMode = "engineering",
   project,
   records,
   onCreate,
@@ -257,6 +259,7 @@ export function ScenarioWorkspace({
   change,
   onTrash,
 }: {
+  detailMode?: DetailMode;
   project: Project;
   records: ProjectRecord[];
   onCreate: (project: Project) => void;
@@ -436,7 +439,10 @@ export function ScenarioWorkspace({
             </tbody>
           </table>
         </div>
-        <details>
+        <details
+          className="advanced-section scenario-baseline-changes"
+          open={detailMode === "engineering"}
+        >
           <summary>
             {t("Changes from baseline")} ({differences.length})
           </summary>

@@ -69,3 +69,24 @@ test("cost tariff details follow the global detail mode", async ({ page }) => {
   await expect(advanced.getByLabel("Demand averaging method")).toBeVisible();
   await expect(page.getByLabel("Import price")).toBeVisible();
 });
+
+test("scenario baseline details follow the global detail mode", async ({
+  page,
+}) => {
+  await page.goto("/#/scenarios");
+  const mode = page.locator(".page-heading .detail-mode-control select");
+  const differences = page.locator(".scenario-baseline-changes");
+
+  await mode.selectOption("simple");
+  await expect(differences).toBeVisible();
+  await expect(differences).toHaveJSProperty("open", false);
+  await expect(differences.locator(":scope > summary")).toContainText(
+    "Changes from baseline",
+  );
+
+  await mode.selectOption("engineering");
+  await expect(differences).toHaveJSProperty("open", true);
+  await expect(
+    differences.getByRole("columnheader", { name: "Object" }),
+  ).toBeVisible();
+});
