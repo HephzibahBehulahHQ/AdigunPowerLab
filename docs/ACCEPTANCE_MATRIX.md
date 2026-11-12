@@ -2,6 +2,10 @@
 
 Audit date: 12 November 2026. Scope: original specification sections 01–33, fixtures F01–F20 and tools T01–T51, plus the recovered continuation.
 
+## Dated comparison detail mode: 12 November 2026
+
+[PR #20](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/20) connects the dated engineering comparison's methods, assumptions and unresolved checks disclosure to the global detail mode. Simple mode collapses the disclosure while keeping calculated comparison tables and exports visible; Engineering opens it. Candidate, main and Pages receipts are in [TEST_EVIDENCE.md](TEST_EVIDENCE.md) and [DEPLOYMENT.md](DEPLOYMENT.md). The live custom-domain project had no loads, so the comparison was disabled and no customer data was added; the interactive case used an explicitly test-only load in CI.
+
 ## Scenario baseline detail mode: 12 November 2026
 
 [PR #18](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/18) connects the scenario workspace's baseline-difference table to the global detail mode. The summary and data remain expandable in Simple mode and open in Engineering mode. Candidate, main and Pages receipts appear in [TEST_EVIDENCE.md](TEST_EVIDENCE.md) and [DEPLOYMENT.md](DEPLOYMENT.md). The live check used an empty workspace with zero baseline differences; no client scenario or equipment data was introduced. Dated comparison assumptions and detail-mode coverage in other workflows remain open.
@@ -30,7 +34,7 @@ The next bounded continuation implements 20 workflow guides and guides for all 5
 
 ## Release conclusion
 
-**The complete original specification is not fully accepted.** Current main `bbc7712` is publicly deployed in [Pages run 43251513566](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43251513566). PRs #7–#9 address bounded workspace-layout items; PRs #11, #13 and #14 add method disclosure; PR #16 adds tariff-rule disclosure; PR #18 adds scenario baseline detail disclosure. External datasets/services, independent review and exhaustive acceptance remain open.
+**The complete original specification is not fully accepted.** Current main `e1e9b8b` is publicly deployed in [Pages run 43258262229](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43258262229). PRs #7–#9 address bounded workspace-layout items; PRs #11, #13 and #14 add method disclosure; PR #16 adds tariff-rule disclosure; PR #18 adds scenario baseline detail disclosure; PR #20 adds dated-comparison method disclosure. External datasets/services, independent review and exhaustive acceptance remain open.
 
 Historical verification source: `93d5e46`. That November 6 candidate passed **331 tests across 21 files**, its production build and **32/32 browser cases** in the independent checkout. Historical release details remain in the sections below and linked PRs; they do not replace the current 12 November release evidence in `TEST_EVIDENCE.md`.
 
@@ -185,7 +189,7 @@ All rows are **implemented and example-verified within the stated method scope**
 ## Remaining work, ordered by impact
 
 1. Continue recording distinct source, validation and deployment receipts for future releases; the current continuation is published.
-2. Extend full-spec acceptance: every action/failure path, detail-mode coverage across remaining workflows (now including Costs & Carbon and scenario baseline differences); date-comparison method disclosure and all four languages, independent accessibility review, storage quota and update-interruption scenarios.
+2. Extend full-spec acceptance: every action/failure path, detail-mode coverage across remaining workflows (now including Costs & Carbon, scenario baseline differences and dated-comparison methods) and all four languages, independent accessibility review, storage quota and update-interruption scenarios.
 3. Obtain actual licensed jurisdiction/manufacturer data and independent engineering validation before enabling automatic standards recommendations, coordination or dynamic equipment claims.
 4. Review the German/Yorùbá/Pidgin technical narratives professionally; existing catalogue and browser checks establish implementation coverage only.
 5. Configure optional connected AI, cloud ownership/sync, OCR/resource feeds or physical telemetry only with real services, explicit scope and live verification. Preserve complete local operation.
