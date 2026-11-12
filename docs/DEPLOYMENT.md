@@ -4,12 +4,13 @@ The owner explicitly authorized pushing, merging and public deployment on 6 and 
 
 ## Latest verified release — 12 November 2026
 
-- Current main: `17524b2d86b07b53a8072a3a198065eceb97f4ed` ([PR #22](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/22)).
-- Corrected exact candidate `23546074122c73489ff5fb6fcc8a867947aa57b9` passed the full repository gate in [run 43263530787](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43263530787).
-- Exact-main validation: [run 43264630710](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43264630710), successful.
-- GitHub Pages publication: [run 43265546630](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43265546630), successful for the same main SHA.
-- PR #22 applies global detail mode to measurement warnings. Assumption warnings collapse in Simple and open in Engineering; missing-coverage warnings remain open in either mode. Its browser test used test-only CSV data; no customer measurements were added.
-- Manual post-deploy custom-domain interaction was not verified because desktop browser control timed out. The automated production-browser check passed.
+- Current main: `892b3bee8f7267201cdf6910edb271e124774815` ([PR #27](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/27)).
+- Corrected PR #27 candidate `c4cdb7e523f15e26869537d7ec6f892b72bdf7be` passed the complete repository gate in [run 43276924442](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43276924442).
+- Exact-main validation passed in [run 43277711152](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43277711152).
+- Exact-revision Pages publication passed in [run 43278519926](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43278519926).
+- PR #27 makes the Load Schedule bulk actions and clipboard disclosure follow the global detail mode. The browser test verifies Simple/Engineering transitions and existing bulk-action flows; fixture data is analytical and test-only.
+- Post-publication read-only check of `https://adigunpowerlab.hephzibahbehulah.com/`: HTML returned HTTP 200 with title “AdigunPowerLab · Electrical & Engineering Power Studio”; its compiled JavaScript asset returned HTTP 200 with JavaScript content type. This confirms a live response, not full manual interaction with every client workflow.
+- PRs #24–#26 and their exact main/Pages receipts are recorded in [TEST_EVIDENCE.md](TEST_EVIDENCE.md).
 
 
 ## Verified publication workflow
