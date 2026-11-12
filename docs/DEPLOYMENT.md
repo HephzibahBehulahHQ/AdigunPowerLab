@@ -4,17 +4,11 @@ The owner explicitly authorized pushing, merging and public deployment on 6 and 
 
 ## Latest verified release — 12 November 2026
 
-- Latest application change: `364c23446bc25a26a62052df66f83e8a2c920453` ([PR #30](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/30)); exact app validation and Pages receipts are listed below.
-- PR #30 candidate `13916fd5d06ce808ef1d7921326ec8f5e8d23c80` passed the complete repository gate in [run 43284982098](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43284982098); merged-main validation passed in [run 43285875565](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43285875565), then Pages publication in [run 43286622309](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43286622309).
-- PR #30 makes Equipment Library version history follow the workspace detail mode. Its browser test verifies open Engineering, collapsed Simple, and reopened Engineering states using test fixtures only.
-- Corrected PR #27 candidate `c4cdb7e523f15e26869537d7ec6f892b72bdf7be` passed the complete repository gate in [run 43276924442](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43276924442).
-- Exact-main validation passed in [run 43277711152](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43277711152).
-- Exact-revision Pages publication passed in [run 43278519926](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43278519926).
-- PR #27 makes the Load Schedule bulk actions and clipboard disclosure follow the global detail mode. The browser test verifies Simple/Engineering transitions and existing bulk-action flows; fixture data is analytical and test-only.
-- Post-publication read-only check of `https://adigunpowerlab.hephzibahbehulah.com/`: HTML returned HTTP 200 with title “AdigunPowerLab · Electrical & Engineering Power Studio”; its compiled JavaScript asset returned HTTP 200 with JavaScript content type. This confirms a live response, not full manual interaction with every client workflow.
-- Post-PR #30 read-only verification on `https://adigunpowerlab.hephzibahbehulah.com/` returned HTTP 200 for the page and its compiled JavaScript bundle (`index-hEw2XYha.js`). This confirms a live response, not full manual interaction with every client workflow.
-- PRs #24–#26 and their exact main/Pages receipts are recorded in [TEST_EVIDENCE.md](TEST_EVIDENCE.md).
-
+- Latest application change: `00c450976f65adb1a5d348fffb9ada0e4d60074e` ([PR #34](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/34)).
+- PR #33 added the Help and Guide entry, workflow illustration, and step-by-step Adigun BOT tour. Its exact candidate [run 43296777011](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43296777011), main validation [run 43297891385](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43297891385), and Pages [run 43298669168](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43298669168) passed.
+- PR #34 enables the deterministic BOT to answer how-to prompts from the real guide catalogue and open the selected workspace. Corrected exact candidate [run 43301019671](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43301019671), main validation [run 43301885696](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43301885696), and Pages [run 43302802464](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43302802464) passed.
+- Direct post-deployment HTTP verification could not be completed because this environment could not resolve the site hostname. Pages publication passed for the exact main revision. This does not verify every live user interaction.
+- Earlier PR #24–#30 candidate/main/Pages receipts remain in [TEST_EVIDENCE.md](TEST_EVIDENCE.md).
 
 ## Verified publication workflow
 
