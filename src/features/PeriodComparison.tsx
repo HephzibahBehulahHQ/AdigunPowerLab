@@ -4,6 +4,7 @@ import type { ComparisonOptions, ScenarioMetrics } from "../engine/comparison";
 import { LanguageContext, numberFormat, useT } from "../i18n";
 import { downloadFile, makeCSV, safeName } from "../import-export/files";
 import { Field, Notice } from "./ui";
+import type { DetailMode } from "./DetailViews";
 const rows = [
   ["installedKW", "Installed load", "kW"],
   ["designKW", "Design demand", "kW"],
@@ -28,9 +29,11 @@ const rows = [
 export function PeriodComparison({
   project,
   baseline,
+  detailMode = "engineering",
 }: {
   project: Project;
   baseline: Project;
+  detailMode?: DetailMode;
 }) {
   const t = useT(),
     locale = useContext(LanguageContext),
@@ -289,7 +292,10 @@ export function PeriodComparison({
               {t("Export dated comparison CSV")}
             </button>
           </div>
-          <details>
+          <details
+            className="advanced-section dated-comparison-assumptions"
+            open={detailMode === "engineering"}
+          >
             <summary>{t("Methods, assumptions and unresolved checks")}</summary>
             {result.current.assumptions.map((value, index) => (
               <p key={index}>{t(value)}</p>

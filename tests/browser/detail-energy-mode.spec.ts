@@ -90,3 +90,48 @@ test("scenario baseline details follow the global detail mode", async ({
     differences.getByRole("columnheader", { name: "Object" }),
   ).toBeVisible();
 });
+
+test("dated comparison details follow the global detail mode", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator(".overview-banner")).toBeVisible();
+
+  await page
+    .getByRole("button", { name: "Add load", exact: true })
+    .first()
+    .click();
+  const dialog = page.getByRole("dialog");
+  await dialog
+    .getByLabel("Name", { exact: true })
+    .fill("Detail mode test load");
+  await dialog.getByLabel(/^Rating/).fill("1");
+  await dialog.getByLabel(/^Operating hours/).fill("1");
+  await dialog.getByLabel(/^Energy duty/).fill("1");
+  await dialog.getByRole("button", { name: "Add load", exact: true }).click();
+  await expect(page.locator(".load-table")).toBeVisible();
+
+  await page
+    .locator(".sidebar")
+    .getByRole("button", { name: /^Scenarios & Optimization/ })
+    .click();
+  const mode = page.locator(".page-heading .detail-mode-control select");
+  await mode.selectOption("simple");
+  await page.getByRole("button", { name: "Run dated comparison" }).click();
+  await expect(
+    page.getByRole("button", { name: "Export dated comparison JSON" }),
+  ).toBeVisible();
+
+  const details = page.locator(".dated-comparison-assumptions");
+  await expect(details).toBeVisible();
+  await expect(details).toHaveJSProperty("open", false);
+  await expect(details.locator(":scope > summary")).toContainText(
+    "Methods, assumptions and unresolved checks",
+  );
+
+  await mode.selectOption("engineering");
+  await expect(details).toHaveJSProperty("open", true);
+  await expect(
+    page.getByRole("button", { name: "Export dated comparison JSON" }),
+  ).toBeVisible();
+});
