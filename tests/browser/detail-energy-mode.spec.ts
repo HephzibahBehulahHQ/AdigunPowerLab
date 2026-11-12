@@ -45,3 +45,25 @@ test("EV planning method follows the global detail mode", async ({ page }) => {
     page.getByText("Sessions reserve conservative on-state demand"),
   ).toBeVisible();
 });
+
+test("cost tariff details follow the global detail mode", async ({ page }) => {
+  await page.goto("/#/costs");
+  const mode = page.locator(".page-heading .detail-mode-control select");
+  await mode.selectOption("simple");
+
+  const advanced = page.locator(".tariff-engineering-details");
+  await expect(advanced).toBeVisible();
+  await expect(advanced).toHaveJSProperty("open", false);
+  await expect(page.getByLabel("Import price")).toBeVisible();
+  await expect(page.getByLabel("Carbon factor")).toBeVisible();
+  await expect(advanced.getByLabel("Demand averaging method")).toBeHidden();
+
+  await advanced.locator("summary").click();
+  await expect(advanced.getByLabel("Demand averaging method")).toBeVisible();
+  await expect(advanced.getByRole("button", { name: "Add tariff band" })).toBeVisible();
+
+  await mode.selectOption("engineering");
+  await expect(advanced).toHaveJSProperty("open", true);
+  await expect(advanced.getByLabel("Demand averaging method")).toBeVisible();
+  await expect(page.getByLabel("Import price")).toBeVisible();
+});
