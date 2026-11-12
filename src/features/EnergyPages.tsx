@@ -714,6 +714,7 @@ export function EVPlanner({
   result,
   change,
   onComplete,
+  detailMode = "engineering",
 }: {
   project: Project;
   result: CalculationResult;
@@ -723,6 +724,7 @@ export function EVPlanner({
     plan: EVPlan,
     inputs: Record<string, unknown>,
   ) => void;
+  detailMode?: DetailMode;
 }) {
   const t = useT();
   const locale = useContext(LanguageContext);
@@ -892,11 +894,25 @@ export function EVPlanner({
           {t("Add session")}
         </button>
       </div>
-      <Notice>
-        Sessions reserve conservative on-state demand within each occupied hour,
-        share site and phase limits in listed order, and preserve their actual
-        duration. {t("All results use entered assumptions.")}
-      </Notice>
+      {detailMode === "simple" ? (
+        <>
+          <details className="tool-formula">
+            <summary>{t("Method")}</summary>
+            <div className="formula">
+              Sessions reserve conservative on-state demand within each occupied
+              hour, share site and phase limits in listed order, and preserve
+              their actual duration.
+            </div>
+          </details>
+          <Notice>{t("All results use entered assumptions.")}</Notice>
+        </>
+      ) : (
+        <Notice>
+          Sessions reserve conservative on-state demand within each occupied
+          hour, share site and phase limits in listed order, and preserve their
+          actual duration. {t("All results use entered assumptions.")}
+        </Notice>
+      )}
       {planning.error && (
         <p className="error-text" role="alert">
           {t(planning.error)}
