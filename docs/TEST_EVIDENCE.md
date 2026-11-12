@@ -1,5 +1,13 @@
 # Test evidence
 
+## Measurement detail-mode continuation: 12 November 2026
+
+- **PR #22:** measurement assumptions follow the global detail preference; missing-coverage warnings stay open in Simple mode. Test-only complete and gapped CSV intervals exercise mode changes.
+- Candidate `23546074122c73489ff5fb6fcc8a867947aa57b9` passed all gates in [run 43263530787](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43263530787).
+- Merged main `17524b2d86b07b53a8072a3a198065eceb97f4ed` passed full validation in [run 43264630710](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43264630710); Pages deployed that SHA in [run 43265546630](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43265546630).
+- No client measurement data was used. Manual live browser inspection was unavailable because desktop browser control timed out; production-browser CI passed.
+
+
 ## Client visual continuation: 12 November 2026
 
 Three individually merged milestones use the client screenshots as layout targets without importing their example data.
