@@ -1846,4 +1846,3 @@ export function Scenarios({
     </>
   );
 }
-
