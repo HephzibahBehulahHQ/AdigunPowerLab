@@ -191,3 +191,40 @@ test("full calendar timeline supports keyboard stepping, retained completion and
     page.getByRole("button", { name: "Freeze report preview" }).first(),
   ).toBeVisible();
 });
+
+test("circuit assessment details follow global detail mode without changing project data", async ({
+  page,
+}) => {
+  await seed(page);
+  const before = await exported(page);
+  await route(page, "Boards & Circuits");
+  const mode = page.locator(".page-heading .detail-mode-control select");
+  await mode.selectOption("simple");
+  await page
+    .getByRole("button", { name: "Configure source and evidence" })
+    .click();
+  let dialog = page.getByRole("dialog");
+  let issues = dialog.locator("details");
+  await expect(issues).toBeVisible();
+  await expect(issues).toHaveJSProperty("open", false);
+  await page.keyboard.press("Escape");
+  await expect(dialog).toHaveCount(0);
+  await mode.selectOption("engineering");
+  await page
+    .getByRole("button", { name: "Configure source and evidence" })
+    .click();
+  dialog = page.getByRole("dialog");
+  issues = dialog.locator("details");
+  await expect(issues).toHaveJSProperty("open", true);
+  await page.keyboard.press("Escape");
+  await expect(dialog).toHaveCount(0);
+  await mode.selectOption("simple");
+  await page
+    .getByRole("button", { name: "Configure source and evidence" })
+    .click();
+  dialog = page.getByRole("dialog");
+  issues = dialog.locator("details");
+  await expect(issues).toHaveJSProperty("open", false);
+  await page.keyboard.press("Escape");
+  expect(await exported(page)).toEqual(before);
+});

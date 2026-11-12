@@ -1638,6 +1638,7 @@ export default function App() {
                       <Boards
                         project={project}
                         result={result}
+                        detailMode={detailMode}
                         change={change}
                         onSelect={setSelected}
                       />
