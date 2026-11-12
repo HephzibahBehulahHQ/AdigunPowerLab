@@ -121,14 +121,13 @@ export function parseLoadProposal(
   };
 }
 
-
 /** Exact-name, single-field edits only. The preview never changes project data. */
 export function parseLoadEditProposal(
   project: Project,
   input: string,
 ): LoadEditProposal | undefined {
   const match =
-    /^edit\\s+load\\s*:\\s*([^;]{1,120})\\s*;\\s*(name|rating_kw|voltage_v|power_factor|hours_per_day|quantity)\\s*;\\s*([^;]{1,120})\\s*$/i.exec(
+    /^edit\s+load\s*:\s*([^;]{1,120})\s*;\s*(name|rating_kw|voltage_v|power_factor|hours_per_day|quantity)\s*;\s*([^;]{1,120})\s*$/i.exec(
       input.trim(),
     );
   if (!match) return undefined;
@@ -159,7 +158,7 @@ export function parseLoadEditProposal(
       throw new Error("Load name must remain unique for future commands.");
     after.name = raw;
   } else {
-    const numeric = /^(\\d+(?:[.,]\\d+)?)$/.exec(raw);
+    const numeric = /^(\d+(?:[.,]\d+)?)$/.exec(raw);
     if (!numeric)
       throw new Error("Enter one positive numeric value for this field.");
     const value = Number(numeric[1].replace(",", "."));

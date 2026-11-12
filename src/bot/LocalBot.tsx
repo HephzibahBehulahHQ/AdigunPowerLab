@@ -105,10 +105,10 @@ const text: Record<string, [string, string, string]> = {
   ],
   "Supported fields: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Use the exact current load name; edits to rating_kw require kW entry mode.":
     [
-    "Felder: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Verwenden Sie den exakten aktuellen Lastnamen; rating_kw gilt nur im kW-Eingabemodus.",
-    "Àwọn pápá: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Lo orúkọ ẹrù tó wà gan-an; rating_kw nílò kW entry mode.",
-    "Fields: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Use the exact current load name; rating_kw needs kW entry mode.",
-  ],
+      "Felder: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Verwenden Sie den exakten aktuellen Lastnamen; rating_kw gilt nur im kW-Eingabemodus.",
+      "Àwọn pápá: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Lo orúkọ ẹrù tó wà gan-an; rating_kw nílò kW entry mode.",
+      "Fields: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Use the exact current load name; rating_kw needs kW entry mode.",
+    ],
   "All proposals require your confirmation.": [
     "Alle Vorschläge benötigen Ihre Bestätigung.",
     "Gbogbo àbá nílò ìfọwọ́sí rẹ.",
