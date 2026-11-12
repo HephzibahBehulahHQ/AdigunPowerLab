@@ -69,4 +69,3 @@ test("cost tariff details follow the global detail mode", async ({ page }) => {
   await expect(advanced.getByLabel("Demand averaging method")).toBeVisible();
   await expect(page.getByLabel("Import price")).toBeVisible();
 });
-
