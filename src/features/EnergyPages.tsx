@@ -1238,10 +1238,12 @@ export function Costs({
   project,
   result,
   change,
+  detailMode = "engineering",
 }: {
   project: Project;
   result: CalculationResult;
   change: Change;
+  detailMode?: DetailMode;
 }) {
   const t = useT();
   const locale = useContext(LanguageContext);
@@ -1367,6 +1369,13 @@ export function Costs({
             onChange={(e) => setTariff({ ...tariff, source: e.target.value })}
           />
         </Field>
+        <details
+          className="advanced-section tariff-engineering-details"
+          open={detailMode === "engineering"}
+        >
+          <summary>
+            {t("Time-of-use bands")} / {t("Demand and billing-period rules")}
+          </summary>
         <h3>{t("Time-of-use bands")}</h3>
         <Notice>
           {t(
@@ -1687,7 +1696,7 @@ export function Costs({
             </Field>
           </div>
         </details>
-        <div className="button-row">
+          <div className="button-row">
           <button
             type="button"
             className="button"
@@ -1710,6 +1719,9 @@ export function Costs({
             <Plus size={16} />
             {t("Add tariff band")}
           </button>
+          </div>
+        </details>
+        <div className="button-row">
           <button className="button primary">
             <Save size={16} />
             {t("Save")}
