@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { createLoad, createProject } from "../src/domain/project";
 import {
   applyProposal,
+  parseLoadEditProposal,
   parseLoadProposal,
   proposePhaseBalance,
   runLocalCommand,
@@ -41,6 +42,39 @@ describe("typed local assistant boundary", () => {
     applyProposal(project, proposal);
     expect(() => applyProposal(project, proposal)).toThrow(/already/);
     expect(project.loads).toHaveLength(1);
+  });
+  it("a unique load edit is previewed, validated, and applied only after confirmation", () => {
+    const project = createProject();
+    const load = createLoad({ name: "Heater", rating: 2.3 });
+    project.loads = [load];
+    const before = structuredClone(project);
+    const proposal = parseLoadEditProposal(
+      project,
+      "edit load: Heater; rating_kw; 3.1",
+    )!;
+    expect(project).toEqual(before);
+    expect(proposal.beforeKW).toBeCloseTo(2.3, 10);
+    expect(proposal.afterKW).toBeCloseTo(3.1, 10);
+    applyProposal(project, proposal);
+    expect(project.loads[0].rating).toBe(3.1);
+    expect(() => applyProposal(project, proposal)).toThrow(/changed/);
+  });
+  it("rejects ambiguous names, unsupported units, and invalid edits", () => {
+    const project = createProject();
+    project.loads = [
+      createLoad({ name: "Heater" }),
+      createLoad({ name: "Heater" }),
+    ];
+    expect(() =>
+      parseLoadEditProposal(project, "edit load: Heater; quantity; 2"),
+    ).toThrow(/ambiguous/);
+    project.loads = [createLoad({ name: "Heater", entryMode: "amps" })];
+    expect(() =>
+      parseLoadEditProposal(project, "edit load: Heater; rating_kw; 2"),
+    ).toThrow(/kW mode/);
+    expect(() =>
+      parseLoadEditProposal(project, "edit load: Heater; power_factor; 2"),
+    ).toThrow();
   });
   it("unknown natural language gets honest local help, not fabricated answers", () => {
     const response = runLocalCommand(createProject(), "What is the weather?");

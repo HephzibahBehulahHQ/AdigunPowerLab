@@ -15,6 +15,7 @@ export const LOCAL_CAPABILITIES = [
   { id: "runCalculation", mutates: false },
   { id: "proposePhaseBalance", mutates: false },
   { id: "proposeLoads", mutates: false },
+  { id: "proposeLoadEdits", mutates: false },
   { id: "previewProjectChanges", mutates: false },
   { id: "applyConfirmedChanges", mutates: true, requiresConfirmation: true },
   { id: "prepareReportNarrative", mutates: false },
@@ -34,7 +35,16 @@ export interface PhaseProposal {
   revision: number;
   plan: BalancePlan;
 }
-export type Proposal = LoadProposal | PhaseProposal;
+export interface LoadEditProposal {
+  kind: "load-edit";
+  projectId: string;
+  revision: number;
+  before: Load;
+  after: Load;
+  beforeKW: number;
+  afterKW: number;
+}
+export type Proposal = LoadProposal | PhaseProposal | LoadEditProposal;
 export interface LocalResponse {
   kind:
     "summary" | "explain" | "issues" | "balance" | "load" | "report" | "help";
@@ -111,6 +121,73 @@ export function parseLoadProposal(
   };
 }
 
+/** Exact-name, single-field edits only. The preview never changes project data. */
+export function parseLoadEditProposal(
+  project: Project,
+  input: string,
+): LoadEditProposal | undefined {
+  const match =
+    /^edit\s+load\s*:\s*([^;]{1,120})\s*;\s*(name|rating_kw|voltage_v|power_factor|hours_per_day|quantity)\s*;\s*([^;]{1,120})\s*$/i.exec(
+      input.trim(),
+    );
+  if (!match) return undefined;
+  const name = match[1].trim();
+  const matches = project.loads.filter(
+    (load) =>
+      load.name.localeCompare(name, undefined, { sensitivity: "accent" }) === 0,
+  );
+  if (matches.length !== 1)
+    throw new Error(
+      matches.length
+        ? "Load name is ambiguous. Use a unique load name."
+        : "No load with that exact name was found.",
+    );
+  const before = matches[0];
+  const field = match[2].toLocaleLowerCase();
+  const after = structuredClone(before);
+  const raw = match[3].trim();
+  if (field === "name") {
+    if (!raw) throw new Error("Load name cannot be empty.");
+    if (
+      project.loads.some(
+        (load) =>
+          load.id !== before.id &&
+          load.name.toLocaleLowerCase() === raw.toLocaleLowerCase(),
+      )
+    )
+      throw new Error("Load name must remain unique for future commands.");
+    after.name = raw;
+  } else {
+    const numeric = /^(\d+(?:[.,]\d+)?)$/.exec(raw);
+    if (!numeric)
+      throw new Error("Enter one positive numeric value for this field.");
+    const value = Number(numeric[1].replace(",", "."));
+    if (field === "rating_kw") {
+      if (before.entryMode !== "kw")
+        throw new Error("rating_kw can only edit loads entered in kW mode.");
+      after.rating = value;
+    } else if (field === "voltage_v") after.voltage = value;
+    else if (field === "power_factor") after.pf = value;
+    else if (field === "hours_per_day") after.hoursPerDay = value;
+    else after.quantity = value;
+  }
+  const normalized = normalizeLoad(after);
+  if (!normalized.valid)
+    throw new Error(normalized.issues.map((issue) => issue.message).join(" "));
+  const afterLoads = project.loads.map((load) =>
+    load.id === before.id ? after : load,
+  );
+  return {
+    kind: "load-edit",
+    projectId: project.id,
+    revision: project.revision,
+    before: structuredClone(before),
+    after,
+    beforeKW: calculateProject(project).designKW,
+    afterKW: calculateProject({ ...project, loads: afterLoads }).designKW,
+  };
+}
+
 export function runLocalCommand(
   project: Project,
   input: string,
@@ -120,6 +197,9 @@ export function runLocalCommand(
   const base = { projectId: project.id, revision: project.revision, result };
   const loadProposal = parseLoadProposal(project, input);
   if (loadProposal) return { ...base, kind: "load", proposal: loadProposal };
+  const loadEditProposal = parseLoadEditProposal(project, input);
+  if (loadEditProposal)
+    return { ...base, kind: "load", proposal: loadEditProposal };
   const command = input.trim().toLocaleLowerCase();
   if (/balance|phasen|ìdọ́gba|ido.gba|phases/.test(command))
     return { ...base, kind: "balance", proposal: proposePhaseBalance(project) };
@@ -159,7 +239,7 @@ export function applyProposal(draft: Project, proposal: Proposal): void {
     // The root command layer owns revision increments and undo history.
     draft.loads = next.loads;
     draft.circuits = next.circuits;
-  } else {
+  } else if (proposal.kind === "load") {
     const normalized = normalizeLoad(proposal.load);
     if (
       !normalized.valid ||
@@ -167,5 +247,20 @@ export function applyProposal(draft: Project, proposal: Proposal): void {
     )
       throw new Error("Load proposal is invalid or already applied.");
     draft.loads.push(structuredClone(proposal.load));
+  } else {
+    const index = draft.loads.findIndex(
+      (load) => load.id === proposal.before.id,
+    );
+    if (
+      index < 0 ||
+      JSON.stringify(draft.loads[index]) !== JSON.stringify(proposal.before)
+    )
+      throw new Error(
+        "Load changed after this preview. Request a new proposal before applying changes.",
+      );
+    const normalized = normalizeLoad(proposal.after);
+    if (!normalized.valid || proposal.after.id !== proposal.before.id)
+      throw new Error("Load edit is invalid.");
+    draft.loads[index] = structuredClone(proposal.after);
   }
 }

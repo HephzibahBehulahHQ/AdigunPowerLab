@@ -98,6 +98,17 @@ const text: Record<string, [string, string, string]> = {
     "Àṣẹ ẹrù tí a kọ",
     "Typed load command",
   ],
+  "Typed load edit command": [
+    "Strukturierter Befehl zum Ändern einer Last",
+    "Àṣẹ láti ṣàtúnṣe ẹrù tí a kọ",
+    "Typed command to edit one load",
+  ],
+  "Supported fields: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Use the exact current load name; edits to rating_kw require kW entry mode.":
+    [
+      "Felder: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Verwenden Sie den exakten aktuellen Lastnamen; rating_kw gilt nur im kW-Eingabemodus.",
+      "Àwọn pápá: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Lo orúkọ ẹrù tó wà gan-an; rating_kw nílò kW entry mode.",
+      "Fields: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Use the exact current load name; rating_kw needs kW entry mode.",
+    ],
   "All proposals require your confirmation.": [
     "Alle Vorschläge benötigen Ihre Bestätigung.",
     "Gbogbo àbá nílò ìfọwọ́sí rẹ.",
@@ -610,7 +621,7 @@ export default function LocalBot({
                   <p>{t("No phase moves required")}</p>
                 )}
               </>
-            ) : (
+            ) : proposal.kind === "load" ? (
               <>
                 <p>
                   {proposal.load.name} · {proposal.load.rating} kW ·{" "}
@@ -621,6 +632,25 @@ export default function LocalBot({
                   {l(
                     "Preview defaults: one single-phase unit on L1, start 08:00, duty 1, utilization 1. Review before applying.",
                   )}
+                </p>
+                <p>
+                  {t("Design demand")}: {format(proposal.beforeKW)} →{" "}
+                  {format(proposal.afterKW)} kW
+                </p>
+              </>
+            ) : (
+              <>
+                <p>
+                  {t("Before")}: {proposal.before.name} ·{" "}
+                  {proposal.before.rating} {proposal.before.entryMode} ·{" "}
+                  {proposal.before.voltage} V · PF {proposal.before.pf} · ×
+                  {proposal.before.quantity} · {proposal.before.hoursPerDay} h
+                </p>
+                <p>
+                  {t("After")}: {proposal.after.name} · {proposal.after.rating}{" "}
+                  {proposal.after.entryMode} · {proposal.after.voltage} V · PF{" "}
+                  {proposal.after.pf} · ×{proposal.after.quantity} ·{" "}
+                  {proposal.after.hoursPerDay} h
                 </p>
                 <p>
                   {t("Design demand")}: {format(proposal.beforeKW)} →{" "}
@@ -707,6 +737,13 @@ export default function LocalBot({
               <p>{l("No supported command found. Choose an action below.")}</p>
               <p>{l("Typed load command")}:</p>
               <code>load: Heater; 2.3 kW; 230 V; PF 1; 8 h</code>
+              <p>{l("Typed load edit command")}:</p>
+              <code>edit load: Heater; rating_kw; 3.1</code>
+              <small>
+                {l(
+                  "Supported fields: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Use the exact current load name; edits to rating_kw require kW entry mode.",
+                )}
+              </small>
               <p>{l("All proposals require your confirmation.")}</p>
             </>
           )
