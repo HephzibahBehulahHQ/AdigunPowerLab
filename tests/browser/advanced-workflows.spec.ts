@@ -47,6 +47,21 @@ async function apply(page: Page) {
   await expect(page.getByRole("dialog")).toHaveCount(0);
 }
 
+test("bulk actions disclosure follows workspace detail mode", async ({
+  page,
+}) => {
+  await home(page);
+  await route(page, "Load Schedule");
+  const details = page.locator(".load-operations details").first();
+  const detailLevel = page.getByRole("combobox", { name: "Detail level" });
+
+  await expect(details).toBeOpen();
+  await detailLevel.selectOption("simple");
+  await expect(details).not.toBeOpen();
+  await detailLevel.selectOption("engineering");
+  await expect(details).toBeOpen();
+});
+
 test("bulk preview and undo, clipboard validation, and explicit German decimals", async ({
   page,
 }) => {
