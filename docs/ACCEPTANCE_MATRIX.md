@@ -2,6 +2,10 @@
 
 Audit date: 12 November 2026. Scope: original specification sections 01–33, fixtures F01–F20 and tools T01–T51, plus the recovered continuation.
 
+## Scenario baseline detail mode: 12 November 2026
+
+[PR #18](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/18) connects the scenario workspace's baseline-difference table to the global detail mode. The summary and data remain expandable in Simple mode and open in Engineering mode. Candidate, main and Pages receipts appear in [TEST_EVIDENCE.md](TEST_EVIDENCE.md) and [DEPLOYMENT.md](DEPLOYMENT.md). The live check used an empty workspace with zero baseline differences; no client scenario or equipment data was introduced. Dated comparison assumptions and detail-mode coverage in other workflows remain open.
+
 ## Costs & Carbon tariff detail mode: 12 November 2026
 
 [PR #16](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/16) passes the global detail mode into Costs & Carbon. In Simple mode, essential tariff inputs and Save remain available while time-of-use bands and demand/billing-period rules collapse into a disclosure. Expanding it reveals the rules and Add tariff band; Engineering opens the section. Candidate, main and Pages receipts are recorded in [TEST_EVIDENCE.md](TEST_EVIDENCE.md) and [DEPLOYMENT.md](DEPLOYMENT.md). The live empty project labels its €0.30/kWh import-price default as an editable planning assumption, with the source reference stating it is not a retrieved tariff. No customer tariff or equipment data was added. This closes only the Costs & Carbon mode-control gap; coverage across every workflow and all languages remains open.
@@ -26,7 +30,7 @@ The next bounded continuation implements 20 workflow guides and guides for all 5
 
 ## Release conclusion
 
-**The complete original specification is not fully accepted.** Current main `1b53829` is publicly deployed in [Pages run 43245983581](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43245983581). PRs #7–#9 address bounded workspace-layout items; PRs #11, #13 and #14 add method disclosure, and PR #16 adds tariff-rule disclosure, in selected detail-mode workflows. External datasets/services, independent review and exhaustive acceptance remain open.
+**The complete original specification is not fully accepted.** Current main `bbc7712` is publicly deployed in [Pages run 43251513566](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43251513566). PRs #7–#9 address bounded workspace-layout items; PRs #11, #13 and #14 add method disclosure; PR #16 adds tariff-rule disclosure; PR #18 adds scenario baseline detail disclosure. External datasets/services, independent review and exhaustive acceptance remain open.
 
 Historical verification source: `93d5e46`. That November 6 candidate passed **331 tests across 21 files**, its production build and **32/32 browser cases** in the independent checkout. Historical release details remain in the sections below and linked PRs; they do not replace the current 12 November release evidence in `TEST_EVIDENCE.md`.
 
@@ -181,7 +185,7 @@ All rows are **implemented and example-verified within the stated method scope**
 ## Remaining work, ordered by impact
 
 1. Continue recording distinct source, validation and deployment receipts for future releases; the current continuation is published.
-2. Extend full-spec acceptance: every action/failure path, detail-mode coverage across remaining workflows (now including Costs & Carbon) and all four languages, independent accessibility review, storage quota and update-interruption scenarios.
+2. Extend full-spec acceptance: every action/failure path, detail-mode coverage across remaining workflows (now including Costs & Carbon and scenario baseline differences); date-comparison method disclosure and all four languages, independent accessibility review, storage quota and update-interruption scenarios.
 3. Obtain actual licensed jurisdiction/manufacturer data and independent engineering validation before enabling automatic standards recommendations, coordination or dynamic equipment claims.
 4. Review the German/Yorùbá/Pidgin technical narratives professionally; existing catalogue and browser checks establish implementation coverage only.
 5. Configure optional connected AI, cloud ownership/sync, OCR/resource feeds or physical telemetry only with real services, explicit scope and live verification. Preserve complete local operation.
