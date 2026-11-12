@@ -6,7 +6,7 @@ Audit date: 6 November 2026. Scope: original specification sections 01–33, fix
 
 Main commit [`cf271d7`](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/commit/cf271d73f26eec6b913a2ebd02b86dea4d9ed8b4) adds dashboard, cable/protection worksheet and single-line studio mockups. Use their navy, cyan and gold engineering-workspace treatment, panel hierarchy, density and control placement as visual targets. The project names, equipment identities, circuit values, telemetry, dates, manufacturer/model labels and PASS/WARNING states shown in those images are illustrative and are not verified customer or engineering evidence. Never seed or present those values as real.
 
-All three references have now been compared against the actual empty project at 1280 × 720. The single-line route keeps object/board selection visible, with page/display settings in a translated disclosure. The Cables route opens a blank T16 worksheet beside its complete searchable 11-tool catalog and retains the cumulative feeder assessment below. The dashboard shows its current supply inputs, calculated zero-load metrics, project health and first-study actions; its visual alignment with the reference is partial. Reference telemetry and sample values are explicitly excluded from the project model. Original-spec acceptance remains partial under the boundaries below.
+All three references have now been compared against the actual empty project at 1280 × 720. The single-line route keeps object/board selection visible, with page/display settings in a translated disclosure. The Cables route opens a blank T16 worksheet beside its complete searchable 11-tool catalog and retains the cumulative feeder assessment below. The dashboard release [PR #9](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/9) compacts current supply inputs, calculated zero-load metrics and first-study actions; the deployed overview was checked after Pages run 43224476885. Its visual alignment with the client reference remains partial. Reference telemetry and sample values are explicitly excluded from the project model. Original-spec acceptance remains partial under the boundaries below.
 
 ## Localized toolbox search and custom-domain continuation
 
@@ -22,9 +22,9 @@ The next bounded continuation implements 20 workflow guides and guides for all 5
 
 ## Release conclusion
 
-**The complete original specification is not fully accepted.** The current local continuation adds substantial working behavior and closes the implementation gaps listed below; external datasets/services and exhaustive acceptance remain separate. This is not a claim that the new candidate is public.
+**The complete original specification is not fully accepted.** The current main revision is publicly deployed (main `8d1fb60`, Pages run `43224476885`). The 12 November visual releases close only bounded workspace-layout items; external datasets/services, independent review and exhaustive acceptance remain open.
 
-Verification source candidate: `93d5e46`. The numerical gate passed **331 tests across 21 files**, and the production build passed. **32/32 browser cases passed** in the independent checkout. Offline root/subpath and clean-checkout gates passed; exact command/revision evidence is in `TEST_EVIDENCE.md`. Following explicit owner authorization, the continuation passed complete GitHub validation, merged through PR #2 and deployed main revision `92d5c437f7b48f2f6ea65ae55c5aa3d2992aefa9` through successful Pages run `42169441584`.
+Historical verification source: `93d5e46`. That November 6 candidate passed **331 tests across 21 files**, its production build and **32/32 browser cases** in the independent checkout. Historical release details remain in the sections below and linked PRs; they do not replace the current 12 November release evidence in `TEST_EVIDENCE.md`.
 
 The E/S/P/U/B1/B2/R/I/L/N/O evidence codes below include historical initial-release evidence. Continuation files and new regression evidence are specified in the current section table; historical performance figures must not be presented as a new candidate measurement.
 
