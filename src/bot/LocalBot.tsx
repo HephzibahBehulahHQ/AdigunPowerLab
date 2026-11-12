@@ -103,7 +103,8 @@ const text: Record<string, [string, string, string]> = {
     "Àṣẹ láti ṣàtúnṣe ẹrù tí a kọ",
     "Typed command to edit one load",
   ],
-  "Supported fields: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Use the exact current load name; edits to rating_kw require kW entry mode.": [
+  "Supported fields: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Use the exact current load name; edits to rating_kw require kW entry mode.":
+    [
     "Felder: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Verwenden Sie den exakten aktuellen Lastnamen; rating_kw gilt nur im kW-Eingabemodus.",
     "Àwọn pápá: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Lo orúkọ ẹrù tó wà gan-an; rating_kw nílò kW entry mode.",
     "Fields: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Use the exact current load name; rating_kw needs kW entry mode.",
@@ -640,13 +641,20 @@ export default function LocalBot({
             ) : (
               <>
                 <p>
-                  {t("Before")}: {proposal.before.name} · {proposal.before.rating} {proposal.before.entryMode} · {proposal.before.voltage} V · PF {proposal.before.pf} · ×{proposal.before.quantity} · {proposal.before.hoursPerDay} h
+                  {t("Before")}: {proposal.before.name} ·{" "}
+                  {proposal.before.rating} {proposal.before.entryMode} ·{" "}
+                  {proposal.before.voltage} V · PF {proposal.before.pf} · ×
+                  {proposal.before.quantity} · {proposal.before.hoursPerDay} h
                 </p>
                 <p>
-                  {t("After")}: {proposal.after.name} · {proposal.after.rating} {proposal.after.entryMode} · {proposal.after.voltage} V · PF {proposal.after.pf} · ×{proposal.after.quantity} · {proposal.after.hoursPerDay} h
+                  {t("After")}: {proposal.after.name} · {proposal.after.rating}{" "}
+                  {proposal.after.entryMode} · {proposal.after.voltage} V · PF{" "}
+                  {proposal.after.pf} · ×{proposal.after.quantity} ·{" "}
+                  {proposal.after.hoursPerDay} h
                 </p>
                 <p>
-                  {t("Design demand")}: {format(proposal.beforeKW)} → {format(proposal.afterKW)} kW
+                  {t("Design demand")}: {format(proposal.beforeKW)} →{" "}
+                  {format(proposal.afterKW)} kW
                 </p>
               </>
             )}

@@ -135,8 +135,7 @@ export function parseLoadEditProposal(
   const name = match[1].trim();
   const matches = project.loads.filter(
     (load) =>
-      load.name.localeCompare(name, undefined, { sensitivity: "accent" }) ===
-      0,
+      load.name.localeCompare(name, undefined, { sensitivity: "accent" }) === 0,
   );
   if (matches.length !== 1)
     throw new Error(
