@@ -59,7 +59,7 @@ test("bulk actions disclosure follows workspace detail mode", async ({
   await detailLevel.selectOption("simple");
   await expect(details).not.toHaveAttribute("open");
   await detailLevel.selectOption("engineering");
-  await expect(details).toBeOpen();
+  await expect(details).toHaveAttribute("open", "");
 });
 
 test("bulk preview and undo, clipboard validation, and explicit German decimals", async ({
