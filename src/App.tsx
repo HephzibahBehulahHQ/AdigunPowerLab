@@ -28,6 +28,7 @@ import {
   BookOpen,
   History,
   Settings2,
+  LifeBuoy,
   PanelLeftClose,
   PanelLeftOpen,
   Plus,
@@ -255,6 +256,7 @@ const routes = [
     group: "Resources",
   },
   { id: "settings", label: "Settings", icon: Settings2, group: "Resources" },
+  { id: "help", label: "Help and Guide", icon: LifeBuoy, group: "Resources" },
 ];
 const equipment: [string, string, number, number, number][] = [
   ["LED lighting point", "Lighting", 0.01, 1, 5],
@@ -361,6 +363,7 @@ export default function App() {
     revision: number;
   }>();
   const [botOpen, setBotOpen] = useState(false);
+  const [botTourRequest, setBotTourRequest] = useState(0);
   const [reportTab, setReportTab] = useState<"engineering" | "billing">(
     "engineering",
   );
@@ -1295,10 +1298,21 @@ export default function App() {
                         <button
                           key={r.id}
                           className={
-                            "nav-item " + (route === r.id ? "active" : "")
+                            "nav-item " +
+                            (route === r.id ||
+                            (r.id === "help" && dialog === "help")
+                              ? "active"
+                              : "")
                           }
-                          onClick={() => go(r.id)}
-                          aria-current={route === r.id ? "page" : undefined}
+                          onClick={() =>
+                            r.id === "help" ? openHelp() : go(r.id)
+                          }
+                          aria-current={
+                            route === r.id ||
+                            (r.id === "help" && dialog === "help")
+                              ? "page"
+                              : undefined
+                          }
                         >
                           <r.icon size={17} />
                           <span>{t(r.label)}</span>
@@ -2296,6 +2310,16 @@ export default function App() {
               result={result}
               selectedId={selected}
               onChange={change}
+              onNavigate={(nextRoute, nextToolId) => {
+                if (updateBlockers().length) return false;
+                if (nextToolId) {
+                  setToolId(nextToolId);
+                  setToolRequest((request) => request + 1);
+                }
+                go(nextRoute);
+                return true;
+              }}
+              tourRequest={botTourRequest}
               onClose={() => setBotOpen(false)}
               onReport={() => void pdf()}
             />
@@ -2885,6 +2909,11 @@ export default function App() {
             )}
             <HelpSupport
               initialQuery={helpQuery}
+              onStartTour={() => {
+                setDialog(null);
+                setBotOpen(true);
+                setBotTourRequest((request) => request + 1);
+              }}
               onNavigate={(nextRoute, nextToolId) => {
                 if (updateBlockers().length) {
                   setHelpNavigationBlocked(true);
