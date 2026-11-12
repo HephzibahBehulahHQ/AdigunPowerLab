@@ -1815,6 +1815,7 @@ export default function App() {
                   {route === "scenarios" && (
                     <ScenarioWorkspace
                       key={project.id}
+                      detailMode={detailMode}
                       change={change}
                       onTrash={(id) =>
                         void setTrashed(id, true)
