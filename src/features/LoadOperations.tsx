@@ -17,14 +17,17 @@ import { CommandReview } from "./CommandReview";
 import { Field, Modal, Notice } from "./ui";
 import { LanguageContext, useT } from "../i18n";
 import { formatEditableNumber, parseLocaleNumber } from "../i18n/numbers";
+import type { DetailMode } from "./DetailViews";
 import "./topology.css";
 
 export function LoadOperations({
   project,
   change,
+  detailMode,
 }: {
   project: Project;
   change: ProjectChange;
+  detailMode: DetailMode;
 }) {
   const t = useT();
   const locale = useContext(LanguageContext);
@@ -176,7 +179,7 @@ export function LoadOperations({
   }
   return (
     <section className="panel panel-pad load-operations">
-      <details>
+      <details open={detailMode === "engineering"}>
         <summary>
           <strong>{t("Bulk actions & clipboard")}</strong>{" "}
           <span className="muted">

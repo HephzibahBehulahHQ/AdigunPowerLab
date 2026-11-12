@@ -47,13 +47,30 @@ async function apply(page: Page) {
   await expect(page.getByRole("dialog")).toHaveCount(0);
 }
 
+test("bulk actions disclosure follows workspace detail mode", async ({
+  page,
+}) => {
+  await home(page);
+  await route(page, "Load Schedule");
+  const details = page.locator(".load-operations details").first();
+  const detailLevel = page.getByRole("combobox", { name: "Detail level" });
+
+  await expect(details).toHaveAttribute("open", "");
+  await detailLevel.selectOption("simple");
+  await expect(details).not.toHaveAttribute("open");
+  await detailLevel.selectOption("engineering");
+  await expect(details).toHaveAttribute("open", "");
+});
+
 test("bulk preview and undo, clipboard validation, and explicit German decimals", async ({
   page,
 }) => {
   await home(page);
   await route(page, "Load Schedule");
   const bulk = page.locator(".load-operations");
-  await bulk.locator("summary").click();
+  const bulkDisclosure = bulk.locator("details").first();
+  if ((await bulkDisclosure.getAttribute("open")) === null)
+    await bulkDisclosure.locator("summary").click();
   await bulk
     .getByLabel("Select load Lighting (analytical)", { exact: true })
     .check();

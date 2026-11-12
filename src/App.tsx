@@ -1594,7 +1594,11 @@ export default function App() {
                   )}
                   {route === "loads" && (
                     <>
-                      <LoadOperations project={project} change={change} />
+                      <LoadOperations
+                        project={project}
+                        change={change}
+                        detailMode={detailMode}
+                      />
                       <button className="button" onClick={() => go("library")}>
                         {t("Add from library")}
                       </button>
