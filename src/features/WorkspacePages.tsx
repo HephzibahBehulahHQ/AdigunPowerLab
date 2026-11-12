@@ -781,11 +781,13 @@ export function Loads({
 export function Boards({
   project,
   result,
+  detailMode,
   change,
   onSelect,
 }: {
   project: Project;
   result: CalculationResult;
+  detailMode: DetailMode;
   change: Change;
   onSelect: (id: string) => void;
 }) {
@@ -1311,7 +1313,7 @@ export function Boards({
                   }
                 />
               </Field>
-              <details>
+              <details open={detailMode === "engineering"}>
                 <summary>{t("Issues")}</summary>
                 <pre className="trace-pre">
                   {JSON.stringify(assessCircuit(project, circuit.id), null, 2)}
