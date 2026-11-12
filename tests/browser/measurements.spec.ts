@@ -175,6 +175,7 @@ test("measurement assumptions follow detail mode while missing coverage stays op
       "timestamp,power\n2026-11-05T09:00:00Z,1000\n2026-11-05T11:00:00Z,1200",
     ),
   });
+  await panel.getByLabel(/^Declared elapsed interval/).fill("60");
   await panel
     .getByRole("button", { name: "Preview measured data", exact: true })
     .click();
