@@ -174,6 +174,38 @@ test("local BOT proposes a real load, requires confirmation, and supports undo",
   await page.getByRole("button", { name: "Undo", exact: true }).click();
   await expect(page.getByText("Build your first power study")).toBeVisible();
 });
+test("local BOT reviews and applies a validated single-load edit", async ({
+  page,
+}) => {
+  await ready(page);
+  await page
+    .getByRole("button", { name: "Open Adigun BOT", exact: true })
+    .click();
+  const bot = page.locator(".local-bot");
+  const composer = bot.locator("textarea");
+  await composer.fill("load: BOT edit target; 2.3 kW; 230 V; PF 1; 8 h");
+  await bot.getByRole("button", { name: "Send", exact: true }).click();
+  await bot
+    .getByRole("button", { name: "Apply confirmed changes", exact: true })
+    .click();
+  await composer.fill("edit load: BOT edit target; quantity; 2");
+  await bot.getByRole("button", { name: "Send", exact: true }).click();
+  await expect(bot.locator(".bot-proposal")).toContainText("×1");
+  await expect(bot.locator(".bot-proposal")).toContainText("×2");
+  await bot
+    .getByRole("button", { name: "Apply confirmed changes", exact: true })
+    .click();
+  await page
+    .locator(".sidebar")
+    .getByRole("button", { name: /^Load Schedule/ })
+    .click();
+  await page
+    .getByRole("button", { name: "Edit BOT edit target", exact: true })
+    .click();
+  await expect(
+    page.getByRole("dialog").getByLabel("Quantity", { exact: true }),
+  ).toHaveValue("2");
+});
 test("four language controls, light theme and mobile layout preserve working data", async ({
   page,
 }) => {
