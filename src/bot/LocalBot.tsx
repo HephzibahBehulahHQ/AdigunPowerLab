@@ -610,7 +610,7 @@ export default function LocalBot({
                   <p>{t("No phase moves required")}</p>
                 )}
               </>
-            ) : (
+            ) : proposal.kind === "load" ? (
               <>
                 <p>
                   {proposal.load.name} · {proposal.load.rating} kW ·{" "}
@@ -625,6 +625,18 @@ export default function LocalBot({
                 <p>
                   {t("Design demand")}: {format(proposal.beforeKW)} →{" "}
                   {format(proposal.afterKW)} kW
+                </p>
+              </>
+            ) : (
+              <>
+                <p>
+                  {t("Before")}: {proposal.before.name} · {proposal.before.rating} {proposal.before.entryMode} · {proposal.before.voltage} V · PF {proposal.before.pf} · ×{proposal.before.quantity} · {proposal.before.hoursPerDay} h
+                </p>
+                <p>
+                  {t("After")}: {proposal.after.name} · {proposal.after.rating} {proposal.after.entryMode} · {proposal.after.voltage} V · PF {proposal.after.pf} · ×{proposal.after.quantity} · {proposal.after.hoursPerDay} h
+                </p>
+                <p>
+                  {t("Design demand")}: {format(proposal.beforeKW)} → {format(proposal.afterKW)} kW
                 </p>
               </>
             )}
