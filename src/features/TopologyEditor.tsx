@@ -26,12 +26,14 @@ import {
 import { downloadFile, safeName } from "../import-export/files";
 import { Field, Modal, Notice } from "./ui";
 import { CommandReview } from "./CommandReview";
+import type { DetailMode } from "./DetailViews";
 import { useT } from "../i18n";
 import "./topology.css";
 
 type EditorProps = {
   project: Project;
   result: CalculationResult;
+  detailMode: DetailMode;
   onSelect: (id: string) => void;
   change: ProjectChange;
   selectedId?: string;
@@ -41,6 +43,7 @@ type Point = { x: number; y: number };
 export function TopologyEditor({
   project,
   result,
+  detailMode,
   onSelect,
   change,
   selectedId,
@@ -322,7 +325,10 @@ export function TopologyEditor({
           </select>
         </Field>
       </div>
-      <details className="diagram-settings">
+      <details
+        className="diagram-settings"
+        open={detailMode === "engineering"}
+      >
         <summary>{t("Diagram settings")}</summary>
         <div className="form-grid">
           <Field label={t("Diagram page size")}>

@@ -1664,6 +1664,7 @@ export default function App() {
                         <TopologyEditor
                           project={project}
                           result={result}
+                          detailMode={detailMode}
                           onSelect={setSelected}
                           selectedId={selected}
                           change={change}
