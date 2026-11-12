@@ -1808,6 +1808,7 @@ export default function App() {
                       key={project.id}
                       project={project}
                       result={result}
+                      detailMode={detailMode}
                       change={change}
                     />
                   )}
