@@ -4,13 +4,13 @@ The owner explicitly authorized pushing, merging and public deployment on 6 and 
 
 ## Latest verified release — 12 November 2026
 
-- Current main: `e1e9b8bb2490c3ad194e1b8432349f9d19181592` ([PR #20](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/20)).
-- Corrected exact candidate `ebeff8a4cc189d02395e02e05c37b8f875e233d1` passed the full repository gate in [run 43254725006](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43254725006).
-- Exact-main validation: [run 43257414900](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43257414900), successful.
-- GitHub Pages publication: [run 43258262229](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43258262229), successful for the same main SHA.
-- Live custom-domain verification: the Scenarios & Optimization route loaded the published release with an empty project. Its dated comparison remained disabled because the project had no loads; the user workspace was not populated to force a live calculation. The full detail-mode interaction was covered by CI with a test-only load. No browser console errors occurred; Engineering mode was restored.
+- Current main: `17524b2d86b07b53a8072a3a198065eceb97f4ed` ([PR #22](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/22)).
+- Corrected exact candidate `23546074122c73489ff5fb6fcc8a867947aa57b9` passed the full repository gate in [run 43263530787](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43263530787).
+- Exact-main validation: [run 43264630710](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43264630710), successful.
+- GitHub Pages publication: [run 43265546630](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43265546630), successful for the same main SHA.
+- PR #22 applies global detail mode to measurement warnings. Assumption warnings collapse in Simple and open in Engineering; missing-coverage warnings remain open in either mode. Its browser test used test-only CSV data; no customer measurements were added.
+- Manual post-deploy custom-domain interaction was not verified because desktop browser control timed out. The automated production-browser check passed.
 
-Previous client-reference milestones are PRs #7–#9; selected detail-mode releases are PRs #11, #13, #14, #16, #18 and #20. See [TEST_EVIDENCE.md](TEST_EVIDENCE.md) for candidate and validation coverage.
 
 ## Verified publication workflow
 

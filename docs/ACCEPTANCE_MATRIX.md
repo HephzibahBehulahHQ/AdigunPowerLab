@@ -186,10 +186,19 @@ All rows are **implemented and example-verified within the stated method scope**
 | T50  | Payback/break-even                 | `src/tools/economics.ts`    | U: 5-year simple payback; B1 example executed                                                           |
 | T51  | NPV/sensitivity                    | `src/tools/economics.ts`    | U: 41.322314 currency-unit NPV; B1 example executed                                                     |
 
+## Measurement detail mode: 12 November 2026
+
+PR #22 applies the global Simple/Engineering preference to measurement assumptions and coverage warnings. Assumption/method warnings start collapsed in Simple and open in Engineering. Missing-coverage warnings remain open in Simple because omitted measured energy must stay visible. The browser case checks complete and gapped intervals while switching modes.
+
+- Candidate `23546074122c73489ff5fb6fcc8a867947aa57b9`: [CI run 43263530787](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43263530787) passed.
+- Main `17524b2d86b07b53a8072a3a198065eceb97f4ed): [validation run 43264630710](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43264630710) and [Pages run 43265546630](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43265546630) passed.
+- Tests used test-only CSV inputs. No client measurement data was added.
+- Manual live interaction was not verified because desktop browser control timed out; automated production-browser CI passed.
+
 ## Remaining work, ordered by impact
 
 1. Continue recording distinct source, validation and deployment receipts for future releases; the current continuation is published.
-2. Extend full-spec acceptance: every action/failure path, detail-mode coverage across remaining workflows (now including Costs & Carbon, scenario baseline differences and dated-comparison methods) and all four languages, independent accessibility review, storage quota and update-interruption scenarios.
+2. Extend full-spec acceptance: every action/failure path, detail-mode coverage across remaining workflows (now including Costs & Carbon, scenario baseline differences, dated-comparison methods and measurement assumptions) and all four languages, independent accessibility review, storage quota and update-interruption scenarios.
 3. Obtain actual licensed jurisdiction/manufacturer data and independent engineering validation before enabling automatic standards recommendations, coordination or dynamic equipment claims.
 4. Review the German/Yorùbá/Pidgin technical narratives professionally; existing catalogue and browser checks establish implementation coverage only.
 5. Configure optional connected AI, cloud ownership/sync, OCR/resource feeds or physical telemetry only with real services, explicit scope and live verification. Preserve complete local operation.
