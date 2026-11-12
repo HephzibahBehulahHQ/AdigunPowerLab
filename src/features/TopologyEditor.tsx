@@ -325,10 +325,7 @@ export function TopologyEditor({
           </select>
         </Field>
       </div>
-      <details
-        className="diagram-settings"
-        open={detailMode === "engineering"}
-      >
+      <details className="diagram-settings" open={detailMode === "engineering"}>
         <summary>{t("Diagram settings")}</summary>
         <div className="form-grid">
           <Field label={t("Diagram page size")}>
