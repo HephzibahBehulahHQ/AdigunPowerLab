@@ -16,6 +16,7 @@ import { useT, LanguageContext, numberFormat } from "../i18n";
 import { parseLocaleNumber, formatEditableNumber } from "../i18n/numbers";
 import type { Project } from "../domain/types";
 import { ToolboxApply } from "./ToolboxApply";
+import type { DetailMode } from "./DetailViews";
 import { downloadFile, safeName } from "../import-export/files";
 export function Toolbox({
   category,
@@ -23,12 +24,14 @@ export function Toolbox({
   project,
   change,
   selectedId,
+  detailMode = "engineering",
 }: {
   category?: string;
   initialTool?: string;
   project: Project;
   change: (mutator: (draft: Project) => void) => boolean | void;
   selectedId?: string;
+  detailMode?: DetailMode;
 }) {
   const t = useT();
   const locale = useContext(LanguageContext);
@@ -260,7 +263,14 @@ export function Toolbox({
                     </div>
                   ))}
                 </div>
-                <div className="formula">{t(result.formula)}</div>
+                {detailMode === "simple" ? (
+                  <details className="tool-formula">
+                    <summary>{t("Method")}</summary>
+                    <div className="formula">{t(result.formula)}</div>
+                  </details>
+                ) : (
+                  <div className="formula">{t(result.formula)}</div>
+                )}
                 {result.warnings?.map((w, i) => (
                   <Notice key={i} tone="warning">
                     {t(w)}

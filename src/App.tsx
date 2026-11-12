@@ -1725,6 +1725,7 @@ export default function App() {
                   )}
                   {["cables", "motors", "quality", "tools"].includes(route) && (
                     <Toolbox
+                      detailMode={detailMode}
                       project={project}
                       change={change}
                       selectedId={selected}
