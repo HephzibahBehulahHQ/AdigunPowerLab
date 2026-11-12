@@ -58,7 +58,7 @@ test("cost tariff details follow the global detail mode", async ({ page }) => {
   await expect(page.getByLabel("Carbon factor")).toBeVisible();
   await expect(advanced.getByLabel("Demand averaging method")).toBeHidden();
 
-  await advanced.locator("summary").click();
+  await advanced.locator(":scope > summary").click();
   await expect(advanced.getByLabel("Demand averaging method")).toBeVisible();
   await expect(
     advanced.getByRole("button", { name: "Add tariff band" }),
