@@ -567,7 +567,11 @@ export function ScenarioWorkspace({
           </>
         )}
       </section>
-      <PeriodComparison project={project} baseline={base as Project} />
+      <PeriodComparison
+        project={project}
+        baseline={base as Project}
+        detailMode={detailMode}
+      />
       <section className="panel panel-pad">
         <h3>{t("Sensitivity study")}</h3>
         <Notice>
