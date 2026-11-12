@@ -1712,7 +1712,7 @@ export default function App() {
                           </div>
                         }
                       >
-                        <Measurements projectId={project.id} />
+                        <Measurements projectId={project.id} detailMode={detailMode} />
                       </Suspense>
                     </>
                   )}

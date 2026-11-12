@@ -3,6 +3,7 @@ import { Activity, Download, FolderOpen, RefreshCw, Save } from "lucide-react";
 import { Field, LineChart, Notice } from "./ui";
 import { LanguageContext, numberFormat, useT } from "../i18n";
 import { useUpdateGuard } from "../pwa/useUpdateGuard";
+import type { DetailMode } from "./DetailViews";
 import {
   parseMeasurementCSV,
   type MeasurementImport,
@@ -29,7 +30,13 @@ const initialOptions: MeasurementOptions = {
   powerColumn: "",
   intervalMinutes: 15,
 };
-export function Measurements({ projectId }: { projectId: string }) {
+export function Measurements({
+  projectId,
+  detailMode,
+}: {
+  projectId: string;
+  detailMode: DetailMode;
+}) {
   const t = useT(),
     locale = useContext(LanguageContext),
     operation = useRef(0),
@@ -492,9 +499,12 @@ export function Measurements({ projectId }: { projectId: string }) {
           {!!preview?.warnings.length && (
             <details
               className="measurement-warnings"
-              open={preview.warnings.some((warning) =>
-                warning.includes("missing coverage"),
-              )}
+              open={
+                detailMode === "engineering" ||
+                preview.warnings.some((warning) =>
+                  warning.includes("missing coverage"),
+                )
+              }
             >
               <summary>
                 {t("Measurement assumptions and coverage warnings")} (
