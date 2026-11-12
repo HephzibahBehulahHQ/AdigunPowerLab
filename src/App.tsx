@@ -1722,16 +1722,15 @@ export default function App() {
                       onSelect={setSelected}
                     />
                   )}
-                  {route === "cables" && (
-                    <FeederAssessment project={project} onChange={change} />
-                  )}
                   {["cables", "motors", "quality", "tools"].includes(route) && (
                     <Toolbox
                       project={project}
                       change={change}
                       selectedId={selected}
                       key={`${route}:${toolId}:${toolRequest}`}
-                      initialTool={toolId}
+                      initialTool={
+                        toolId || (route === "cables" ? "T16" : undefined)
+                      }
                       category={
                         route === "cables"
                           ? "Cables|Protection"
@@ -1742,6 +1741,9 @@ export default function App() {
                               : undefined
                       }
                     />
+                  )}
+                  {route === "cables" && (
+                    <FeederAssessment project={project} onChange={change} />
                   )}
                   {route === "renewables" && (
                     <Renewables
