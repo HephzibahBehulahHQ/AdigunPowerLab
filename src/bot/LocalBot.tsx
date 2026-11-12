@@ -187,6 +187,23 @@ function local(key: string, locale: Locale): string {
     ? key
     : (text[key]?.[locale === "de" ? 0 : locale === "yo" ? 1 : 2] ?? key);
 }
+const helpQuestionWords = new Set(
+  "how do i use what is are the a an can could please tell me about for to show find where why help me with wie was ist sind der die das ein eine ich du bitte mir mit über bawo ni mo se lo kini ta ni e je ka how e fit make abeg wetin dey na"
+    .toLocaleLowerCase()
+    .split(/\s+/),
+);
+function findBotHelpTopic(
+  query: string,
+  locale: Locale,
+): HelpTopic | undefined {
+  const terms = query
+    .toLocaleLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .trim()
+    .split(/\s+/)
+    .filter((term) => term && !helpQuestionWords.has(term));
+  return searchHelp(terms.join(" "), locale, 1)[0];
+}
 function clampGeometry(g: Geometry): Geometry {
   return clampBotGeometry(g, {
     width: window.innerWidth,
@@ -423,7 +440,7 @@ export default function LocalBot({
         );
         const helpTopic =
           response.kind === "help"
-            ? searchHelp(command, locale, 1)[0]
+            ? findBotHelpTopic(command, locale)
             : undefined;
         const responseId = nextMessageId++;
         if (id === commandId.current)
