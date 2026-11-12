@@ -32,7 +32,7 @@ export interface LocalBotProps {
   result: CalculationResult;
   selectedId?: string;
   onChange: (mutator: (draft: Project) => void) => void | boolean;
-  onNavigate: (route: string, toolId?: string) => void;
+  onNavigate: (route: string, toolId?: string) => boolean;
   tourRequest: number;
   onClose: () => void;
   onReport: () => void;
@@ -221,6 +221,7 @@ export default function LocalBot({
   const setInput = (value: string) => sessions.setDraft(project.id, value);
   const [busy, setBusy] = useState(false);
   const [tourIndex, setTourIndex] = useState<number | null>(null);
+  const [tourNavigationBlocked, setTourNavigationBlocked] = useState(false);
   const tourTopics = helpTopics
     .filter((topic) => topic.kind === "workflow" && topic.route)
     .filter(
@@ -787,20 +788,89 @@ export default function LocalBot({
             {l("Deterministic tools. No external AI connection.")}
           </div>
           {tourIndex === null ? (
-            <button className="button secondary bot-tour-start" type="button" onClick={() => setTourIndex(0)}>
+            <button
+              className="button secondary bot-tour-start"
+              type="button"
+              onClick={() => setTourIndex(0)}
+            >
               {t("Start guided tour")}
             </button>
           ) : (
-            <section className="bot-tour" aria-live="polite" aria-label={t("Guided workspace tour")}>
-              <div className="bot-tour-progress">{t("Workspace tour")} · {tourIndex + 1}/{tourTopics.length}</div>
-              <h3>{t(tourTopics[tourIndex]?.title ?? "Guided workspace tour")}</h3>
-              <p>{t(tourTopics[tourIndex]?.summary ?? "The tour is complete.")}</p>
-              <ol>{tourTopics[tourIndex]?.steps.map((step) => <li key={step}>{t(step)}</li>)}</ol>
-              <div className="bot-actions">
-                {tourTopics[tourIndex]?.route && <button className="button" type="button" onClick={() => onNavigate(tourTopics[tourIndex].route!, tourTopics[tourIndex].toolId)}>{t("Open this workspace")}</button>}
-                <button className="button secondary" type="button" disabled={tourIndex === 0} onClick={() => setTourIndex((index) => Math.max(0, (index ?? 0) - 1))}>{t("Previous tour step")}</button>
-                {tourIndex < tourTopics.length - 1 ? <button className="button secondary" type="button" onClick={() => setTourIndex((index) => Math.min(tourTopics.length - 1, (index ?? 0) + 1))}>{t("Next tour step")}</button> : <button className="button secondary" type="button" onClick={() => setTourIndex(null)}>{t("Finish tour")}</button>}
+            <section
+              className="bot-tour"
+              aria-live="polite"
+              aria-label={t("Guided workspace tour")}
+            >
+              <div className="bot-tour-progress">
+                {t("Workspace tour")} · {tourIndex + 1}/{tourTopics.length}
               </div>
+              <h3>
+                {t(tourTopics[tourIndex]?.title ?? "Guided workspace tour")}
+              </h3>
+              <p>
+                {t(tourTopics[tourIndex]?.summary ?? "The tour is complete.")}
+              </p>
+              <ol>
+                {tourTopics[tourIndex]?.steps.map((step) => (
+                  <li key={step}>{t(step)}</li>
+                ))}
+              </ol>
+              <div className="bot-actions">
+                {tourTopics[tourIndex]?.route && (
+                  <button
+                    className="button"
+                    type="button"
+                    onClick={() =>
+                      setTourNavigationBlocked(
+                        !onNavigate(
+                          tourTopics[tourIndex].route!,
+                          tourTopics[tourIndex].toolId,
+                        ),
+                      )
+                    }
+                  >
+                    {t("Open this workspace")}
+                  </button>
+                )}
+                <button
+                  className="button secondary"
+                  type="button"
+                  disabled={tourIndex === 0}
+                  onClick={() =>
+                    setTourIndex((index) => Math.max(0, (index ?? 0) - 1))
+                  }
+                >
+                  {t("Previous tour step")}
+                </button>
+                {tourIndex < tourTopics.length - 1 ? (
+                  <button
+                    className="button secondary"
+                    type="button"
+                    onClick={() =>
+                      setTourIndex((index) =>
+                        Math.min(tourTopics.length - 1, (index ?? 0) + 1),
+                      )
+                    }
+                  >
+                    {t("Next tour step")}
+                  </button>
+                ) : (
+                  <button
+                    className="button secondary"
+                    type="button"
+                    onClick={() => setTourIndex(null)}
+                  >
+                    {t("Finish tour")}
+                  </button>
+                )}
+              </div>
+              {tourNavigationBlocked && (
+                <p role="status">
+                  {t(
+                    "Finish or cancel your current edits before opening another workspace.",
+                  )}
+                </p>
+              )}
             </section>
           )}
           <details className="bot-settings">

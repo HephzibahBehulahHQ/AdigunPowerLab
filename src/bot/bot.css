@@ -318,10 +318,21 @@
   border-radius: 12px;
   background: var(--panel);
 }
-.bot-tour h3 { margin: 6px 0; }
-.bot-tour p, .bot-tour li { color: var(--muted); }
-.bot-tour-progress { color: var(--cyan); font-size: 12px; font-weight: 700; }
-.bot-tour-start { margin: 8px 0; }
+.bot-tour h3 {
+  margin: 6px 0;
+}
+.bot-tour p,
+.bot-tour li {
+  color: var(--muted);
+}
+.bot-tour-progress {
+  color: var(--cyan);
+  font-size: 12px;
+  font-weight: 700;
+}
+.bot-tour-start {
+  margin: 8px 0;
+}
 @media (max-width: 599px) {
   .local-bot {
     border-radius: 14px;

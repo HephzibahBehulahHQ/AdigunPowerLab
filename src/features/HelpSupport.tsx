@@ -64,19 +64,56 @@ export function HelpSupport({
         <div>
           <span className="eyebrow">{t("Recommended path")}</span>
           <h3 id="help-tour-title">{t("Start with a guided tour")}</h3>
-          <p>{t("Adigun BOT can walk through each workspace and open it for you. It can also summarize results, identify missing inputs, prepare a load or phase-balance proposal, and open the real report exporter. It will not apply engineering changes without your confirmation.")}</p>
+          <p>
+            {t(
+              "Adigun BOT can walk through each workspace and open it for you. It can also summarize results, identify missing inputs, prepare a load or phase-balance proposal, and open the real report exporter. It will not apply engineering changes without your confirmation.",
+            )}
+          </p>
         </div>
         <button className="button primary" type="button" onClick={onStartTour}>
           {t("Start guided tour")}
         </button>
-        <svg className="help-journey" viewBox="0 0 900 92" role="img" aria-labelledby="help-journey-title help-journey-desc">
+        <svg
+          className="help-journey"
+          viewBox="0 0 900 92"
+          role="img"
+          aria-labelledby="help-journey-title help-journey-desc"
+        >
           <title id="help-journey-title">{t("Typical project journey")}</title>
-          <desc id="help-journey-desc">{t("Create a project, set supply assumptions, add loads, organize circuits, review analysis, and prepare reports.")}</desc>
-          {(["Project", "Settings", "Load Schedule", "Boards & Circuits", "Analysis", "Reports"] as const).map((label, index) => (
+          <desc id="help-journey-desc">
+            {t(
+              "Create a project, set supply assumptions, add loads, organize circuits, review analysis, and prepare reports.",
+            )}
+          </desc>
+          {(
+            [
+              "Project",
+              "Settings",
+              "Load Schedule",
+              "Boards & Circuits",
+              "Analysis",
+              "Reports",
+            ] as const
+          ).map((label, index) => (
             <g key={label} transform={`translate(${index * 150 + 3} 18)`}>
-              {index > 0 && <path d="M-20 24h17m-5-5 5 5-5 5" fill="none" stroke="currentColor" strokeWidth="2" />}
-              <rect width="132" height="52" rx="12" fill="var(--panel)" stroke="var(--line)" />
-              <text x="66" y="31" textAnchor="middle">{t(label)}</text>
+              {index > 0 && (
+                <path
+                  d="M-20 24h17m-5-5 5 5-5 5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+              )}
+              <rect
+                width="132"
+                height="52"
+                rx="12"
+                fill="var(--panel)"
+                stroke="var(--line)"
+              />
+              <text x="66" y="31" textAnchor="middle">
+                {t(label)}
+              </text>
             </g>
           ))}
         </svg>

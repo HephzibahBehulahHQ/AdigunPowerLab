@@ -1299,7 +1299,8 @@ export default function App() {
                           key={r.id}
                           className={
                             "nav-item " +
-                            (route === r.id || (r.id === "help" && dialog === "help")
+                            (route === r.id ||
+                            (r.id === "help" && dialog === "help")
                               ? "active"
                               : "")
                           }
@@ -1307,7 +1308,8 @@ export default function App() {
                             r.id === "help" ? openHelp() : go(r.id)
                           }
                           aria-current={
-                            route === r.id || (r.id === "help" && dialog === "help")
+                            route === r.id ||
+                            (r.id === "help" && dialog === "help")
                               ? "page"
                               : undefined
                           }
@@ -2309,12 +2311,13 @@ export default function App() {
               selectedId={selected}
               onChange={change}
               onNavigate={(nextRoute, nextToolId) => {
-                if (updateBlockers().length) return;
+                if (updateBlockers().length) return false;
                 if (nextToolId) {
                   setToolId(nextToolId);
                   setToolRequest((request) => request + 1);
                 }
                 go(nextRoute);
+                return true;
               }}
               tourRequest={botTourRequest}
               onClose={() => setBotOpen(false)}
