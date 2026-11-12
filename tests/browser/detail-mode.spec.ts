@@ -26,7 +26,8 @@ test("simple and engineering modes present tool methods progressively", async ({
   await expect(method.locator(".formula")).toContainText("I =");
 
   await mode.selectOption("engineering");
-  await expect(method).toHaveJSProperty("open", true);
+  await expect(result.locator(".formula")).toContainText("I =");
+  await expect(result.locator(".tool-formula")).toHaveCount(0);
   await expect(form.getByLabel(/^Voltage/)).toHaveValue("230");
   await expect(form.getByLabel(/^Resistance/)).toHaveValue("23");
 });
