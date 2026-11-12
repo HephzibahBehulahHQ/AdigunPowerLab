@@ -295,34 +295,36 @@ export function TopologyEditor({
           {t(exporting ? "Generating PDF…" : "Export diagram PDF")}
         </button>
       </div>
+      <div className="form-grid diagram-navigation-controls">
+        <Field label={t("Select diagram object")}>
+          <select
+            value={node?.id ?? ""}
+            onChange={(e) => select(e.target.value)}
+          >
+            {selectOptions}
+          </select>
+        </Field>
+        <Field label={t("Isolate board")}>
+          <select
+            value={isolate}
+            onChange={(e) => {
+              setIsolate(e.target.value);
+              setZoom(1);
+              setPan({ x: 0, y: 0 });
+            }}
+          >
+            <option value="">{t("All boards")}</option>
+            {project.boards.map((board) => (
+              <option value={board.id} key={board.id}>
+                {board.name}
+              </option>
+            ))}
+          </select>
+        </Field>
+      </div>
       <details className="diagram-settings">
         <summary>{t("Diagram settings")}</summary>
         <div className="form-grid">
-          <Field label={t("Select diagram object")}>
-            <select
-              value={node?.id ?? ""}
-              onChange={(e) => select(e.target.value)}
-            >
-              {selectOptions}
-            </select>
-          </Field>
-          <Field label={t("Isolate board")}>
-            <select
-              value={isolate}
-              onChange={(e) => {
-                setIsolate(e.target.value);
-                setZoom(1);
-                setPan({ x: 0, y: 0 });
-              }}
-            >
-              <option value="">{t("All boards")}</option>
-              {project.boards.map((board) => (
-                <option value={board.id} key={board.id}>
-                  {board.name}
-                </option>
-              ))}
-            </select>
-          </Field>
           <Field label={t("Diagram page size")}>
             <select
               value={settings.pageSize}

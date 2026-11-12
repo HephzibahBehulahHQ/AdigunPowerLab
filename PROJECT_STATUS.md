@@ -6,15 +6,16 @@ Date: 12 November 2026. Owner: Hephzibah Behulah.
 
 The client supplied three visual references in main commit [`cf271d7`](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/commit/cf271d73f26eec6b913a2ebd02b86dea4d9ed8b4). Work continues on `codex/client-reference-diagram-layout`, based on that revision. The screenshots set a visual target; their example project names, equipment, measurements, dates, status badges and calculation values are not product data and must not be copied into new projects.
 
-This milestone makes the Single-Line Studio use a compact, three-panel desktop layout: navigation remains available, the editable diagram and selected-object inspector share the main workspace, and page/label settings collapse into a translated disclosure. The actual source and board values come from the open project. No customer or equipment examples were seeded.
+This milestone makes the Single-Line Studio use a compact, three-panel desktop layout: navigation remains available, the editable diagram and selected-object inspector share the main workspace, object/board selection stays directly available, and page/label settings collapse into a translated disclosure. The actual source and board values come from the open project. No customer or equipment examples were seeded.
 
 ## Verification for this milestone
 
 - `npm ci` completed from the pinned lockfile; npm reported zero known advisories.
 - `npm test`: 386 tests across 26 files passed.
 - The local app rendered at 1280 × 720. The blank local project showed its actual grid/source model, main board, editable diagram controls and source inspector.
-- `npm run lint` could not complete: the installed TypeScript 7 native compiler panicked while resolving its bundled `lib.d.ts`, although the file exists in `node_modules`. Treat typecheck, build and release CI as pending until a clean runner verifies this candidate.
-- The official production/browser gates have not yet run on this candidate. No deployment was made.
+- Local `npm run lint` could not complete because the installed TypeScript 7 native compiler panicked while resolving `lib.d.ts`; the file exists. On initial candidate `0d82559`, clean GitHub runner lint, 386 unit tests and production build passed.
+- That runner passed 57 browser cases and timed out in the editable-graph case: object selection had been hidden inside the closed diagram-settings disclosure. The implementation now keeps object/board selection visible and collapses only print/display settings. Fresh browser, production-browser and update/offline gates are pending for the corrected head.
+- The focused local Playwright attempt could not complete because this Windows browser host cancelled its download; the clean-runner failure above was independently traced to the hidden selection control. No deployment was made.
 
 ## Product acceptance boundary
 
@@ -24,4 +25,4 @@ Previously verified release and live-site receipts remain in [PR #6](https://git
 
 ## Next action
 
-Complete clean-runner typecheck, build and browser gates for this branch, then continue visual acceptance for the dashboard and cable/protection workspaces without copying reference data.
+Rerun the full PR gates on the corrected branch head, then continue visual acceptance for the dashboard and cable/protection workspaces without copying reference data.
