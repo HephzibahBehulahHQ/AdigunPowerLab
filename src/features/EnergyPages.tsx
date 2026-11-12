@@ -34,6 +34,7 @@ import {
 import type { EnergyResult, EnergyOptions } from "../engine/simulation";
 import type { EVPlan } from "../engine/planning";
 import { EnergySettingsFields } from "./EnergySettingsFields";
+import type { DetailMode } from "./DetailViews";
 import { formatEditableNumber, parseLocaleNumberList } from "../i18n/numbers";
 import { scheduleEV, conservativeDemandProfile } from "../engine/planning";
 import { Field, Notice, Modal, LineChart } from "./ui";
@@ -45,10 +46,12 @@ export function Renewables({
   project,
   change,
   onComplete,
+  detailMode = "engineering",
 }: {
   project: Project;
   change: Change;
   onComplete?: (result: EnergyResult, inputs: Record<string, unknown>) => void;
+  detailMode?: DetailMode;
 }) {
   const t = useT();
   const locale = useContext(LanguageContext);
@@ -514,11 +517,24 @@ export function Renewables({
           </p>
         )}
       </form>
-      <Notice>
-        {t("Daily energy")} PV = kWp × h × PR. {t("Calculated")}:{" "}
-        {f(pvDailyEstimate(project))} kWh.{" "}
-        {t("All results use entered assumptions.")}
-      </Notice>
+      {detailMode === "simple" ? (
+        <>
+          <Notice>
+            {t("Daily energy")}: {f(pvDailyEstimate(project))} kWh.{" "}
+            {t("All results use entered assumptions.")}
+          </Notice>
+          <details className="tool-formula">
+            <summary>{t("Method")}</summary>
+            <div className="formula">PV = kWp × h × PR</div>
+          </details>
+        </>
+      ) : (
+        <Notice>
+          {t("Daily energy")} PV = kWp × h × PR. {t("Calculated")}:{" "}
+          {f(pvDailyEstimate(project))} kWh.{" "}
+          {t("All results use entered assumptions.")}
+        </Notice>
+      )}
       {result && result.revision === project.revision && (
         <>
           <Notice>{t(result.method)}</Notice>

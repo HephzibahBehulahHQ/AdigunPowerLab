@@ -1751,6 +1751,7 @@ export default function App() {
                     <Renewables
                       key={project.id}
                       project={project}
+                      detailMode={detailMode}
                       change={change}
                       onComplete={(calculated, inputs) =>
                         setReportContext((context) => ({
