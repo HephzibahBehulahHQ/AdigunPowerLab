@@ -1621,11 +1621,13 @@ function midnight(date: string, timezone: string) {
 export function Simulation({
   project,
   result,
+  detailMode,
   onComplete,
   animationsPaused = false,
 }: {
   project: Project;
   result: CalculationResult;
+  detailMode: DetailMode;
   onComplete?: (result: CalendarResult, inputs: RangeOptions) => void;
   animationsPaused?: boolean;
 }) {
@@ -1999,7 +2001,7 @@ export function Simulation({
             {cursorLabel} · {numberFormat(cursorValue, 3, locale)} kW
           </strong>
         </div>
-        <details className="panel-pad">
+        <details className="panel-pad" open={detailMode === "engineering"}>
           <summary>
             {t("24-hour estimate")} · {t("Show details")}
           </summary>

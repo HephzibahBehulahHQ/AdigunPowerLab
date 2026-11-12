@@ -263,3 +263,19 @@ test("wind/PV dispatch retains completed results, reconciles curtailment and exp
     page.getByRole("button", { name: "Export series", exact: true }),
   ).toHaveCount(0);
 });
+
+test("24-hour profile disclosure follows global detail mode", async ({
+  page,
+}) => {
+  await fixture(page, "calendar");
+  await route(page, "Schedules & Simulation");
+  const mode = page.locator(".page-heading .detail-mode-control select");
+  const estimate = page.locator("details.panel-pad");
+  await expect(estimate).toBeVisible();
+  await mode.selectOption("simple");
+  await expect(estimate).toHaveJSProperty("open", false);
+  await mode.selectOption("engineering");
+  await expect(estimate).toHaveJSProperty("open", true);
+  await mode.selectOption("simple");
+  await expect(estimate).toHaveJSProperty("open", false);
+});
