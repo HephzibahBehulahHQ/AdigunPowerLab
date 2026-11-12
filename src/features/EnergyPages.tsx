@@ -899,9 +899,9 @@ export function EVPlanner({
           <details className="tool-formula">
             <summary>{t("Method")}</summary>
             <div className="formula">
-              Sessions reserve conservative on-state demand within each
-              occupied hour, share site and phase limits in listed order, and
-              preserve their actual duration.
+              Sessions reserve conservative on-state demand within each occupied
+              hour, share site and phase limits in listed order, and preserve
+              their actual duration.
             </div>
           </details>
           <Notice>{t("All results use entered assumptions.")}</Notice>
