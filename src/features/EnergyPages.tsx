@@ -1376,349 +1376,349 @@ export function Costs({
           <summary>
             {t("Time-of-use bands")} / {t("Demand and billing-period rules")}
           </summary>
-        <h3>{t("Time-of-use bands")}</h3>
-        <Notice>
-          {t(
-            "Tariff dates and weekdays use local calendar time. Overlaps are rejected. Choose an explicit base-rate fallback or require complete band coverage. Overview remains a repeated-day estimate; the calendar bill applies actual aligned or rolling demand windows.",
-          )}
-        </Notice>
-        {tariff.bands.map((band, i) => (
-          <div className="tariff-row" key={band.id}>
-            <input
-              aria-label={t("Band name")}
-              value={band.name}
-              onChange={(e) =>
-                setTariff((d) => ({
-                  ...d,
-                  bands: d.bands.map((b, j) =>
-                    j === i ? { ...b, name: e.target.value } : b,
-                  ),
-                }))
-              }
-            />
-            {(
-              ["startHour", "endHour", "importRate", "exportRate"] as const
-            ).map((k) => (
-              <Field key={k} label={k}>
-                <OptionalLocaleNumberInput
-                  step="any"
-                  min={k === "importRate" || k === "exportRate" ? undefined : 0}
-                  max={
-                    k === "importRate" || k === "exportRate" ? undefined : 24
+          <h3>{t("Time-of-use bands")}</h3>
+          <Notice>
+            {t(
+              "Tariff dates and weekdays use local calendar time. Overlaps are rejected. Choose an explicit base-rate fallback or require complete band coverage. Overview remains a repeated-day estimate; the calendar bill applies actual aligned or rolling demand windows.",
+            )}
+          </Notice>
+          {tariff.bands.map((band, i) => (
+            <div className="tariff-row" key={band.id}>
+              <input
+                aria-label={t("Band name")}
+                value={band.name}
+                onChange={(e) =>
+                  setTariff((d) => ({
+                    ...d,
+                    bands: d.bands.map((b, j) =>
+                      j === i ? { ...b, name: e.target.value } : b,
+                    ),
+                  }))
+                }
+              />
+              {(
+                ["startHour", "endHour", "importRate", "exportRate"] as const
+              ).map((k) => (
+                <Field key={k} label={k}>
+                  <OptionalLocaleNumberInput
+                    step="any"
+                    min={k === "importRate" || k === "exportRate" ? undefined : 0}
+                    max={
+                      k === "importRate" || k === "exportRate" ? undefined : 24
+                    }
+                    value={band[k] ?? undefined}
+                    onValueChange={(value) =>
+                      setTariff((d) => ({
+                        ...d,
+                        bands: d.bands.map((b, j) =>
+                          j === i
+                            ? {
+                                ...b,
+                                [k]:
+                                  k === "exportRate" && value === undefined
+                                    ? undefined
+                                    : value,
+                              }
+                            : b,
+                        ),
+                      }))
+                    }
+                  />
+                </Field>
+              ))}
+              {(["effectiveFrom", "effectiveTo"] as const).map((key) => (
+                <Field
+                  key={key}
+                  label={t(
+                    key === "effectiveFrom" ? "Effective from" : "Effective to",
+                  )}
+                >
+                  <input
+                    type="date"
+                    value={band[key] ?? ""}
+                    onChange={(e) =>
+                      setTariff((draft) => ({
+                        ...draft,
+                        bands: draft.bands.map((row, j) =>
+                          j === i
+                            ? { ...row, [key]: e.target.value || undefined }
+                            : row,
+                        ),
+                      }))
+                    }
+                  />
+                </Field>
+              ))}
+              <Field label={t("Active tariff weekdays")}>
+                <select
+                  multiple
+                  value={
+                    band.weekdays?.map(String) ?? [
+                      "0",
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "5",
+                      "6",
+                    ]
                   }
-                  value={band[k] ?? undefined}
-                  onValueChange={(value) =>
-                    setTariff((d) => ({
-                      ...d,
-                      bands: d.bands.map((b, j) =>
-                        j === i
-                          ? {
-                              ...b,
-                              [k]:
-                                k === "exportRate" && value === undefined
-                                  ? undefined
-                                  : value,
-                            }
-                          : b,
-                      ),
-                    }))
-                  }
-                />
-              </Field>
-            ))}
-            {(["effectiveFrom", "effectiveTo"] as const).map((key) => (
-              <Field
-                key={key}
-                label={t(
-                  key === "effectiveFrom" ? "Effective from" : "Effective to",
-                )}
-              >
-                <input
-                  type="date"
-                  value={band[key] ?? ""}
-                  onChange={(e) =>
+                  onChange={(e) => {
+                    const days = [...e.target.selectedOptions].map((option) =>
+                      Number(option.value),
+                    );
                     setTariff((draft) => ({
                       ...draft,
                       bands: draft.bands.map((row, j) =>
-                        j === i
-                          ? { ...row, [key]: e.target.value || undefined }
-                          : row,
+                        j === i ? { ...row, weekdays: days } : row,
                       ),
-                    }))
+                    }));
+                  }}
+                >
+                  {[
+                    "Sunday",
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                  ].map((day, index) => (
+                    <option key={day} value={index}>
+                      {t(day)}
+                    </option>
+                  ))}
+                </select>
+              </Field>
+              <button
+                type="button"
+                className="icon-button danger"
+                aria-label={t("Delete")}
+                onClick={() =>
+                  setTariff((d) => ({
+                    ...d,
+                    bands: d.bands.filter((_, j) => j !== i),
+                  }))
+                }
+              >
+                <Trash2 size={16} />
+              </button>
+            </div>
+          ))}
+          <h3>{t("Demand and billing-period rules")}</h3>
+          <div className="form-grid three">
+            <Field label={t("Demand averaging method")}>
+              <select
+                value={demandRule.method}
+                onChange={(e) =>
+                  setDemand({ method: e.target.value as "aligned" | "rolling" })
+                }
+              >
+                <option value="aligned">{t("Aligned intervals")}</option>
+                <option value="rolling">{t("Rolling windows")}</option>
+              </select>
+            </Field>
+            <Field label={t("Demand window")} unit="min">
+              <LocaleNumberInput
+                min={1}
+                max={1440}
+                step="1"
+                value={demandRule.windowMinutes}
+                onValueChange={(value) =>
+                  setDemand({
+                    windowMinutes: value,
+                    stepMinutes: Math.min(demandRule.stepMinutes, value),
+                  })
+                }
+              />
+            </Field>
+            <Field label={t("Rolling step")} unit="min">
+              <LocaleNumberInput
+                min={1}
+                max={demandRule.windowMinutes}
+                step="1"
+                value={demandRule.stepMinutes}
+                onValueChange={(value) => setDemand({ stepMinutes: value })}
+              />
+            </Field>
+            <Field label={t("Demand billing period")}>
+              <select
+                value={demandRule.period}
+                onChange={(e) =>
+                  setDemand({
+                    period: e.target.value as "range" | "calendar-month",
+                  })
+                }
+              >
+                <option value="range">{t("Selected billing period")}</option>
+                <option value="calendar-month">
+                  {t("Each local calendar month")}
+                </option>
+              </select>
+            </Field>
+            <Field label={t("Alignment origin (optional UTC offset)")}>
+              <input
+                value={demandRule.alignmentOrigin ?? ""}
+                onChange={(e) =>
+                  setDemand({ alignmentOrigin: e.target.value || undefined })
+                }
+              />
+            </Field>
+            <Field label={t("Tax basis")}>
+              <select
+                value={tariff.taxBasis ?? "net"}
+                onChange={(e) =>
+                  setTariff({
+                    ...tariff,
+                    taxBasis: e.target.value as "net" | "imports-and-fixed",
+                  })
+                }
+              >
+                <option value="net">
+                  {t("Net bill including export credit")}
+                </option>
+                <option value="imports-and-fixed">
+                  {t("Import, demand and standing charges")}
+                </option>
+              </select>
+            </Field>
+            <Field label={t("Standing-charge day basis")}>
+              <select
+                value={tariff.standingBasis ?? "elapsed-24h"}
+                onChange={(e) =>
+                  setTariff({
+                    ...tariff,
+                    standingBasis: e.target.value as
+                      "elapsed-24h" | "local-calendar-days",
+                  })
+                }
+              >
+                <option value="elapsed-24h">
+                  {t("Elapsed 24-hour periods")}
+                </option>
+                <option value="local-calendar-days">
+                  {t("Each local calendar date touched")}
+                </option>
+              </select>
+            </Field>
+            <Field label={t("Tariff coverage")}>
+              <select
+                value={tariff.coverage ?? "base-rate"}
+                onChange={(e) =>
+                  setTariff({
+                    ...tariff,
+                    coverage: e.target.value as "base-rate" | "complete-bands",
+                  })
+                }
+              >
+                <option value="base-rate">
+                  {t("Explicit base-rate fallback")}
+                </option>
+                <option value="complete-bands">
+                  {t("Require complete bands")}
+                </option>
+              </select>
+            </Field>
+          </div>
+          <details>
+            <summary>{t("Demand-charge time restrictions")}</summary>
+            <div className="form-grid">
+              <Field label={t("Eligible demand start hour (optional)")}>
+                <OptionalLocaleNumberInput
+                  min={0}
+                  max={23.999}
+                  step="any"
+                  value={demandRule.startHour ?? undefined}
+                  onValueChange={(value) =>
+                    setDemand({
+                      startHour: value === undefined ? undefined : value,
+                      endHour:
+                        value === undefined
+                          ? undefined
+                          : (demandRule.endHour ?? 24),
+                    })
                   }
                 />
               </Field>
-            ))}
-            <Field label={t("Active tariff weekdays")}>
-              <select
-                multiple
-                value={
-                  band.weekdays?.map(String) ?? [
-                    "0",
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                  ]
-                }
-                onChange={(e) => {
-                  const days = [...e.target.selectedOptions].map((option) =>
-                    Number(option.value),
-                  );
-                  setTariff((draft) => ({
-                    ...draft,
-                    bands: draft.bands.map((row, j) =>
-                      j === i ? { ...row, weekdays: days } : row,
-                    ),
-                  }));
-                }}
-              >
-                {[
-                  "Sunday",
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                ].map((day, index) => (
-                  <option key={day} value={index}>
-                    {t(day)}
-                  </option>
-                ))}
-              </select>
-            </Field>
+              <Field label={t("Eligible demand end hour (optional)")}>
+                <OptionalLocaleNumberInput
+                  min={0}
+                  max={24}
+                  step="any"
+                  value={demandRule.endHour ?? undefined}
+                  onValueChange={(value) =>
+                    setDemand({
+                      endHour: value === undefined ? undefined : value,
+                      startHour:
+                        value === undefined
+                          ? undefined
+                          : (demandRule.startHour ?? 0),
+                    })
+                  }
+                />
+              </Field>
+              <Field label={t("Eligible demand weekdays")}>
+                <select
+                  multiple
+                  value={
+                    demandRule.weekdays?.map(String) ?? [
+                      "0",
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "5",
+                      "6",
+                    ]
+                  }
+                  onChange={(e) =>
+                    setDemand({
+                      weekdays: [...e.target.selectedOptions].map((option) =>
+                        Number(option.value),
+                      ),
+                    })
+                  }
+                >
+                  {[
+                    "Sunday",
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                  ].map((day, index) => (
+                    <option key={day} value={index}>
+                      {t(day)}
+                    </option>
+                  ))}
+                </select>
+              </Field>
+            </div>
+          </details>
+          <div className="button-row">
             <button
               type="button"
-              className="icon-button danger"
-              aria-label={t("Delete")}
+              className="button"
               onClick={() =>
                 setTariff((d) => ({
                   ...d,
-                  bands: d.bands.filter((_, j) => j !== i),
+                  bands: [
+                    ...d.bands,
+                    {
+                      id: crypto.randomUUID(),
+                      name: "",
+                      startHour: 0,
+                      endHour: 6,
+                      importRate: 0,
+                    },
+                  ],
                 }))
               }
             >
-              <Trash2 size={16} />
+              <Plus size={16} />
+              {t("Add tariff band")}
             </button>
-          </div>
-        ))}
-        <h3>{t("Demand and billing-period rules")}</h3>
-        <div className="form-grid three">
-          <Field label={t("Demand averaging method")}>
-            <select
-              value={demandRule.method}
-              onChange={(e) =>
-                setDemand({ method: e.target.value as "aligned" | "rolling" })
-              }
-            >
-              <option value="aligned">{t("Aligned intervals")}</option>
-              <option value="rolling">{t("Rolling windows")}</option>
-            </select>
-          </Field>
-          <Field label={t("Demand window")} unit="min">
-            <LocaleNumberInput
-              min={1}
-              max={1440}
-              step="1"
-              value={demandRule.windowMinutes}
-              onValueChange={(value) =>
-                setDemand({
-                  windowMinutes: value,
-                  stepMinutes: Math.min(demandRule.stepMinutes, value),
-                })
-              }
-            />
-          </Field>
-          <Field label={t("Rolling step")} unit="min">
-            <LocaleNumberInput
-              min={1}
-              max={demandRule.windowMinutes}
-              step="1"
-              value={demandRule.stepMinutes}
-              onValueChange={(value) => setDemand({ stepMinutes: value })}
-            />
-          </Field>
-          <Field label={t("Demand billing period")}>
-            <select
-              value={demandRule.period}
-              onChange={(e) =>
-                setDemand({
-                  period: e.target.value as "range" | "calendar-month",
-                })
-              }
-            >
-              <option value="range">{t("Selected billing period")}</option>
-              <option value="calendar-month">
-                {t("Each local calendar month")}
-              </option>
-            </select>
-          </Field>
-          <Field label={t("Alignment origin (optional UTC offset)")}>
-            <input
-              value={demandRule.alignmentOrigin ?? ""}
-              onChange={(e) =>
-                setDemand({ alignmentOrigin: e.target.value || undefined })
-              }
-            />
-          </Field>
-          <Field label={t("Tax basis")}>
-            <select
-              value={tariff.taxBasis ?? "net"}
-              onChange={(e) =>
-                setTariff({
-                  ...tariff,
-                  taxBasis: e.target.value as "net" | "imports-and-fixed",
-                })
-              }
-            >
-              <option value="net">
-                {t("Net bill including export credit")}
-              </option>
-              <option value="imports-and-fixed">
-                {t("Import, demand and standing charges")}
-              </option>
-            </select>
-          </Field>
-          <Field label={t("Standing-charge day basis")}>
-            <select
-              value={tariff.standingBasis ?? "elapsed-24h"}
-              onChange={(e) =>
-                setTariff({
-                  ...tariff,
-                  standingBasis: e.target.value as
-                    "elapsed-24h" | "local-calendar-days",
-                })
-              }
-            >
-              <option value="elapsed-24h">
-                {t("Elapsed 24-hour periods")}
-              </option>
-              <option value="local-calendar-days">
-                {t("Each local calendar date touched")}
-              </option>
-            </select>
-          </Field>
-          <Field label={t("Tariff coverage")}>
-            <select
-              value={tariff.coverage ?? "base-rate"}
-              onChange={(e) =>
-                setTariff({
-                  ...tariff,
-                  coverage: e.target.value as "base-rate" | "complete-bands",
-                })
-              }
-            >
-              <option value="base-rate">
-                {t("Explicit base-rate fallback")}
-              </option>
-              <option value="complete-bands">
-                {t("Require complete bands")}
-              </option>
-            </select>
-          </Field>
-        </div>
-        <details>
-          <summary>{t("Demand-charge time restrictions")}</summary>
-          <div className="form-grid">
-            <Field label={t("Eligible demand start hour (optional)")}>
-              <OptionalLocaleNumberInput
-                min={0}
-                max={23.999}
-                step="any"
-                value={demandRule.startHour ?? undefined}
-                onValueChange={(value) =>
-                  setDemand({
-                    startHour: value === undefined ? undefined : value,
-                    endHour:
-                      value === undefined
-                        ? undefined
-                        : (demandRule.endHour ?? 24),
-                  })
-                }
-              />
-            </Field>
-            <Field label={t("Eligible demand end hour (optional)")}>
-              <OptionalLocaleNumberInput
-                min={0}
-                max={24}
-                step="any"
-                value={demandRule.endHour ?? undefined}
-                onValueChange={(value) =>
-                  setDemand({
-                    endHour: value === undefined ? undefined : value,
-                    startHour:
-                      value === undefined
-                        ? undefined
-                        : (demandRule.startHour ?? 0),
-                  })
-                }
-              />
-            </Field>
-            <Field label={t("Eligible demand weekdays")}>
-              <select
-                multiple
-                value={
-                  demandRule.weekdays?.map(String) ?? [
-                    "0",
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                  ]
-                }
-                onChange={(e) =>
-                  setDemand({
-                    weekdays: [...e.target.selectedOptions].map((option) =>
-                      Number(option.value),
-                    ),
-                  })
-                }
-              >
-                {[
-                  "Sunday",
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                ].map((day, index) => (
-                  <option key={day} value={index}>
-                    {t(day)}
-                  </option>
-                ))}
-              </select>
-            </Field>
-          </div>
-        </details>
-          <div className="button-row">
-          <button
-            type="button"
-            className="button"
-            onClick={() =>
-              setTariff((d) => ({
-                ...d,
-                bands: [
-                  ...d.bands,
-                  {
-                    id: crypto.randomUUID(),
-                    name: "",
-                    startHour: 0,
-                    endHour: 6,
-                    importRate: 0,
-                  },
-                ],
-              }))
-            }
-          >
-            <Plus size={16} />
-            {t("Add tariff band")}
-          </button>
           </div>
         </details>
         <div className="button-row">
