@@ -4,9 +4,10 @@ The owner explicitly authorized pushing, merging and public deployment on 6 and 
 
 ## Latest verified release — 12 November 2026
 
-- Latest application change: `00c450976f65adb1a5d348fffb9ada0e4d60074e` ([PR #34](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/34)).
+- Latest application change: `4604b3f460c05a6e7b182dd83a5f2b1b8960c06d` ([PR #36](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/36)).
 - PR #33 added the Help and Guide entry, workflow illustration, and step-by-step Adigun BOT tour. Its exact candidate [run 43296777011](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43296777011), main validation [run 43297891385](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43297891385), and Pages [run 43298669168](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43298669168) passed.
 - PR #34 enables the deterministic BOT to answer how-to prompts from the real guide catalogue and open the selected workspace. Corrected exact candidate [run 43301019671](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43301019671), main validation [run 43301885696](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43301885696), and Pages [run 43302802464](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43302802464) passed.
+- [PR #36](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/36), current application revision `4604b3f460c05a6e7b182dd83a5f2b1b8960c06d`: Adigun BOT can propose a validated single-field edit to one uniquely named load, show the before/after inputs and demand, and apply it only after confirmation through project history. Candidate [run 43314525218](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43314525218), exact-main [run 43315394007](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43315394007), and Pages [run 43316149834](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43316149834) passed.
 - Direct post-deployment HTTP verification could not be completed because this environment could not resolve the site hostname. Pages publication passed for the exact main revision. This does not verify every live user interaction.
 - Earlier PR #24–#30 candidate/main/Pages receipts remain in [TEST_EVIDENCE.md](TEST_EVIDENCE.md).
 
