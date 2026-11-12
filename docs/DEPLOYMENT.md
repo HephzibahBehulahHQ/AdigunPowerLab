@@ -2,6 +2,15 @@
 
 The owner explicitly authorized pushing, merging and public deployment on 6 and 7 November 2026. The configured custom domain is `adigunpowerlab.hephzibahbehulah.com`; its final HTTPS and release verification is recorded in [PR #6](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/6). The previous GitHub Pages URL is [AdigunPowerLab](https://hephzibahbehulahhq.github.io/AdigunPowerLab/). Current implementation and acceptance status remain in `PROJECT_STATUS.md`; this document records publication mechanics and receipts.
 
+## Latest verified release — 12 November 2026
+
+- Current main: `8d1fb60ccba760534bf4091be77147d088dfcae2` ([PR #9](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/9)).
+- Exact-main validation: [run 43223694766](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43223694766), successful.
+- GitHub Pages publication: [run 43224476885](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43224476885), successful.
+- Live custom-domain overview reloaded and visually verified at 1280 × 720. The interface showed model-derived zero metrics and first-study actions; no reference telemetry was seeded.
+
+Previous reference-workspace releases are PR #7 / Pages run 43219911880 and PR #8 / Pages run 43222118888. See [TEST_EVIDENCE.md](TEST_EVIDENCE.md) for exact candidate and validation coverage.
+
 ## Verified publication workflow
 
 `.github/workflows/deploy.yml` publishes automatically after a successful **Validate PowerLab** push run on `main`. Pull-request runs, feature branches, failed validation and foreign repository artifacts cannot publish. The workflow checks the actual `ci.yml` workflow ID, successful completed run, source repository, current main SHA and the artifact's originating run/SHA before preparing Pages.
