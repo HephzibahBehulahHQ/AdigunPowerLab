@@ -13,6 +13,9 @@ Three individually merged milestones use the client screenshots as layout target
 
 The update smoke fixture reported interrupted-install preservation, waiting-update survival across reload, unsaved-bill activation guard, saved-bill update recovery, old-cache cleanup, previous-valid-cache retention, unrelated-cache preservation and current navigation shell preservation as true, with zero page errors. It ran at both `/` and `/AdigunPowerLab/`.
 
+- **PR #13 / Renewables detail mode:** candidate head `82809ba30fb7ef6c1d07a30fe4853f2ff970358e` passed in [run 43232433695](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43232433695); merged main `2f865242cf10808b3f08b5a2ed1385344c478146` passed [run 43233246035](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43233246035); Pages publication passed [run 43233917943](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43233917943). Live Simple view retained the PV daily estimate and collapsed its method; Engineering showed `PV = kWp × h × PR`.
+- **PR #14 / EV detail mode:** corrected candidate head `981a138c1112e79a00821c22307f31465d85e117` passed in [run 43235233184](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43235233184); merged main `cc7b83370e1ee57a032c79151edc8ddd0907e360` passed [run 43236165699](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43236165699); Pages publication passed [run 43237057255](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43237057255). Live Simple view showed a collapsed Method and visible assumptions note; Engineering showed the EV scheduling method.
+
 These are repository and browser checks, not customer engineering data, regulatory certification, hardware tests, professional language review or an independent accessibility audit.
 
 ## Localized toolbox continuation: 7 November 2026
