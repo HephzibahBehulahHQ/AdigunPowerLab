@@ -1407,103 +1407,1654 @@ export default function App() {
                 <button onClick={() => fileInput.current?.click()}>
                   {t("Import project")}
                 </button>
-                <button onClick=×Ý¶öÚ$z{-®éÜj×ˆ
-Âˆ‹‹œ›ÝËˆ›Ý]Nˆ›[ÝÜœÈ‹ˆJJKˆ‹‹Š›Ú™XÝ™\]Z\Y[Xœ˜\žHÏÈ×JK›X\
-
-›ÝÊHOˆ
-Âˆ‹‹œ›ÝËˆ›Ý]Nˆ›Xœ˜\žH‹ˆJJKˆBˆ™š[\Š
-›ÝÊHO‚ˆ›ÝË›˜[YBˆÓØØ[SÝÙ\Ø\ÙJ
-Bˆš[˜ÛY\Ê]Y\žKÓØØ[SÝÙ\Ø\ÙJ
-JKˆ
-BˆœÛXÙJLŠBˆ›X\
-
-›ÝÊHOˆ
-ˆ]Û‚ˆÙ^O^Ü›ÝËšYBˆÛÛXÚÏ^Ê
-HOˆÂˆÙ]Ù[XÝY
-›ÝËšY
-NÂˆÛÊ›ÝËœ›Ý]JNÂˆ_Bˆ‚ˆ™]ÛÜšÈÚ^™O^ÌMßHÏ‚ˆÜ›ÝË›˜[Y_BˆÚ]œ›Û”šYÚÚ^™O^ÌMHÏ‚ˆØ]Û‚ˆ
-J_BˆÙ]‚ˆÙ]‚ˆÓ[Ù[‚ˆ
-_BˆÙX[ÙÈOOHš[ˆ	‰ˆ
-ˆ[Ù[ˆ]O^Ý
-’[	ˆÝ\ÜŠ_BˆÛÛÜÙO^Ê
-HOˆÙ]X[ÙÊ[
-_Bˆ™]\›‘›ØÝ\Ï^Ú[Ü[™\‹˜Ý\œ™[BˆÚYBˆ‚ˆÚ[˜]šYØ][Û›ØÚÙY	‰ˆ
-ˆ]ˆ›ÛOHœÝ]\È‚ˆ›ÝXÙHÛ™OHØ\›š[™È‚ˆÝ
-ˆ‘š[š\ÚÜˆØ[˜Ù[[Ý\ˆÝ\œ™[Y]È™Y›Ü™HÜ[š[™È[›Ý\ˆÛÜšÜÜXÙKˆ‹ˆ
-_BˆÓ›ÝXÙO‚ˆÙ]‚ˆ
-_Bˆ[Ý\Üˆ[š]X[]Y\žO^Ú[]Y\ž_BˆÛ“˜]šYØ]O^Ê™^›Ý]K™^ÛÛY
-HOˆÂˆYˆ
-\]P›ØÚÙ\œÊ
-K›[™Ý
-HÂˆÙ][˜]šYØ][Û›ØÚÙY
-YJNÂˆ™]\›ŽÂˆBˆYˆ
-™^ÛÛY
-HÂˆÙ]ÛÛY
-™^ÛÛY
-NÂˆÙ]ÛÛ™\]Y\Ý
-
-™\]Y\Ý
-HOˆ™\]Y\Ý
-ÈJNÂˆBˆÛÊ™^›Ý]JNÂˆ_BˆÏ‚ˆÓ[Ù[‚ˆ
-_BˆÙ]‚ˆÓ[™ÝXYÙPÛÛ^”›ÝšY\‚ˆ
-NÂŸB™[˜Ý[Ûˆ›Ú™XÝÙ][™ÜÊÂˆ›Ú™XÝˆÚ[™ÙKŸNˆÂˆ›Ú™XÝˆ›Ú™XÝÂˆÚ[™ÙNˆ
-]]]ÜŽˆ
-ˆ›Ú™XÝ
-HOˆ›ÚY
-HOˆ›ÚYÂŸJHÂˆÛÛœÝÙ˜YÙ]˜YHH\ÙTÝ]JÝXÝ\™YÛÛ™J›Ú™XÝ
-JNÂˆÛÛœÝÝ[œØ]™Y[œ]Ù][œØ]™Y[œ]HH\ÙTÝ]J˜[ÙJNÂˆÛÛœÝÙ\œ›Ü‹Ù]\œ›Ü—HH\ÙTÝ]JˆŠNÂˆÛÛœÝØØ[HH\ÙPÛÛ^ØØ[J
-NÂˆÛÛœÝH
-ÎˆÝš[™ÊHOˆ˜[œÛ]JËØØ[JNÂˆ\ÙU\]QÝX\™
-[œØ]™Y[œ]
-”›Ú™XÝÙ][™ÜÈŠJNÂˆ™]\›ˆ
-ˆ›Ü›BˆÛ\ÜÓ˜[YOHœ[™[[™[\Y‚ˆÛÚ[™ÙPØ\\™O^Ê
-HOˆÙ][œØ]™Y[œ]
-YJ_BˆÛ”ÝX›Z]^ÊJHOˆÂˆKœ™]™[Y˜][
-
-NÂˆÛÛœÝˆH˜[Y]T›Ú™XÝ[\Ü
-˜Y
-NÂˆYˆ
-]‹˜[Y
-HÂˆÙ]\œ›ÜŠ‹™\œ›ÜœËš›Ú[ŠˆŠJNÂˆ™]\›ŽÂˆBˆÚ[™ÙJ
-
-HOˆÂˆ›˜[YHH˜Y›˜[YNÂˆ˜ÛÛ^H˜Y˜ÛÛ^Âˆ˜Ý\œ™[˜ÞHH˜Y˜Ý\œ™[˜ÞNÂˆ[Y^›Û™HH˜Y[Y^›Û™NÂˆš\š\ÙXÝ[ÛˆH˜Yš\š\ÙXÝ[ÛŽÂˆœÝ\HH˜YœÝ\NÂˆ˜ÛÚ[˜ÚY[˜ÙHH˜Y˜ÛÚ[˜ÚY[˜ÙNÂˆ™Ü›ÝÝ\˜Ù[H˜Y™Ü›ÝÝ\˜Ù[Âˆ››Ý\ÈH˜Y››Ý\ÎÂˆJNÂˆÙ]\œ›ÜŠˆŠNÂˆÙ][œØ]™Y[œ]
-˜[ÙJNÂˆ_Bˆ‚ˆÏžÝ
-”›Ú™XÝÙ][™ÜÈŠ_OÚÏ‚ˆ]ˆÛ\ÜÓ˜[YOH™›Ü›KYÜšY™YH‚ˆšY[X™[^Ý
-”›Ú™XÝ˜[YHŠ_O‚ˆ[œ]ˆ™\]Z\™Yˆ˜[YO^Ù˜Y›˜[Y_BˆÛÚ[™ÙO^ÊJHOˆÙ]˜Y
-È‹‹™˜Y˜[YNˆK\™Ù]˜[YHJ_BˆÏ‚ˆÑšY[‚ˆšY[X™[^Ý
-ÛÛ^Š_O‚ˆÙ[XÝˆ˜[YO^Ù˜Y˜ÛÛ^BˆÛÚ[™ÙO^ÊJHOˆÙ]˜Y
-È‹‹™˜YÛÛ^ˆK\™Ù]˜[YHJ_Bˆ‚ˆÖÂˆ”™\ÚY[X[‹ˆÛÛ[Y\˜ÚX[‹ˆ•ÛÜšÜÚÜ‹ˆ’[™\ÝšX[‹ˆYÜšXÝ[\˜[‹ˆÛÛ[][š]H‹ˆK›X\
-
-ÊHOˆ
-ˆÜ[ÛˆÙ^O^ØßOžØßOÛÜ[Û‚ˆ
-J_BˆÜÙ[XÝ‚ˆÑšY[‚ˆšY[X™[^Ý
-Ý\œ™[˜ÞHŠ_O‚ˆÙ[XÝˆ˜[YO^Ù˜Y˜Ý\œ™[˜Þ_BˆÛÚ[™ÙO^ÊJHOˆÙ]˜Y
-È‹‹™˜YÝ\œ™[˜ÞNˆK\™Ù]˜[YHJ_Bˆ‚ˆÖÈ‘UTˆ‹“‘Óˆ‹•TÑ‹‘Ð”‹’”H‹’ÕÑ—K›X\
-
-ÊHOˆ
-ˆÜ[ÛˆÙ^O^ØßOžØßOÛÜ[Û‚ˆ
-J_BˆÜÙ[XÝ‚ˆÑšY[‚ˆšY[X™[^Ý
-•[Y^›Û™HŠ_O‚ˆ[œ]ˆ™\]Z\™Yˆ˜[YO^Ù˜Y[Y^›Û™_BˆÛÚ[™ÙO^ÊJHOˆÙ]˜Y
-È‹‹™˜Y[Y^›Û™NˆK\™Ù]˜[YHJ_BˆÏ‚ˆÑšY[‚ˆšY[X™[^Ý
-’\š\ÙXÝ[ÛˆŠ_O‚ˆ[œ]ˆ˜[YO^Ù˜Yš\š\ÙXÝ[ÛŸBˆÛÚ[™ÙO^ÊJHO‚ˆÙ]˜Y
-È‹‹™˜Y\š\ÙXÝ[ÛŽˆK\™Ù]˜[YHJBˆBˆÏ‚ˆÑšY[‚ˆÖÂˆÈ›ÛYÙSˆ‹“8 $Óˆ›ÛYÙH‹•ˆ—KˆÈ›ÛYÙS‹“8 $Ó›ÛYÙH‹•ˆ—KˆÈ™œ™\]Y[˜ÞH‹‘œ™\]Y[˜ÞH‹’ˆ—KˆÈ›[Z]H‹”Ý\H[Z]‹H—KˆK›X\
-
-ÚÙ^KX™[[š]JHOˆ
-ˆšY[Ù^O^ÚÙ^_HX™[^Ý
-X™[
-_H[š]^Ý[š]O‚ˆØØ[S[X™\’[œ]ˆ™\]Z\™YˆZ[^ÌŒ_Bˆ˜[YO^Ù˜YœÝ\VÚÙ^H\ÈÙ^[Ùˆ\[Ùˆ˜YœÝ\W_BˆÛ•˜[YPÚ[™ÙO^Ê˜[YJHO‚ˆÙ]˜Y
-Âˆ‹‹™˜YˆÝ\NˆÈ‹‹™˜YœÝ\KÚÙ^WNˆ˜[YHKˆJBˆBˆÏ‚ˆÑšY[‚ˆ
-J_BˆšY[X™[^Ý
-ÛÚ[˜ÚY[˜ÙH˜XÝÜˆŠ_H[š]HŒ8 $ÌH‚ˆØØ[S[X™\’[œ]ˆ™\]Z\™YˆZ[^ÌBˆX^^Ì_Bˆ˜[YO^Ù˜Y˜ÛÚ[˜ÚY[˜Ù_BˆÛ•˜[YPÚ[™ÙO^Ê˜[YJHO‚ˆÙ]˜Y
-È‹‹™˜YÛÚ[˜ÚY[˜ÙNˆ˜[YHJBˆBˆÏ‚ˆÑšY[‚ˆšY[X™[^Ý
-‘Ü›ÝÝ[ÝØ[˜ÙHŠ_H[š]H‰H‚ˆØØ[S[X™\’[œ]ˆ™\]Z\™YˆZ[^ÌBˆ˜[YO^Ù˜Y™Ü›ÝÝ\˜Ù[BˆÛ•˜[YPÚ[™ÙO^Ê˜[YJHO‚ˆÙ]˜Y
-È‹‹™˜YÜ›ÝÝ\˜Ù[ˆ˜[YHJBˆBˆÏ‚ˆÑšY[‚ˆÙ]‚ˆšY[X™[^Ý
-“›Ý\ÈŠ_O‚ˆ^\™XBˆ›ÝÜÏ^ÌßBˆ˜[YO^Ù˜Y››Ý\ßBˆÛÚ[™ÙO^ÊJHOˆÙ]˜Y
-È‹‹™˜Y›Ý\ÎˆK\™Ù]˜[YHJ_BˆÏ‚ˆÑšY[‚ˆÙ\œ›Üˆ	‰ˆ
-ˆ›ÛOH˜[\ˆÛ\ÜÓ˜[YOH™\œ›Ü‹]^‚ˆÙ\œ›ÜŸBˆÜ‚ˆ
-_Bˆ]ÛˆÛ\ÜÓ˜[YOH˜]Ûˆš[X\žH‚ˆØ]™HÚ^™O^ÌMŸHÏ‚ˆÝ
-”Ø]™HŠ_BˆØ]Û‚ˆÙ›Ü›O‚ˆ
-NÂŸBš[\ÜÈ\ÙPÛÛ^Hœ›ÛHœ™XXÝŽÂ™[˜Ý[Ûˆ\ÙPÛÛ^ØØ[J
-HÂˆ™]\›ˆ\ÙPÛÛ^
-[™ÝXYÙPÛÛ^
-NÂŸB
+                <button onClick={() => go("history")}>
+                  {t("Revision history")}
+                </button>
+                <button
+                  onClick={() => {
+                    setDialog("projects");
+                    void refreshRecords();
+                  }}
+                >
+                  {t("Restore from trash")}
+                </button>
+                <button onClick={() => void closeProject(false)}>
+                  {t("Close project")}
+                </button>
+                <button
+                  className="danger"
+                  onClick={() => {
+                    if (confirm(t("Move to trash") + " " + project.name + "?"))
+                      void closeProject(true);
+                  }}
+                >
+                  {t("Move to trash")}
+                </button>
+              </div>
+            </details>
+            <div className="history-buttons">
+              <button
+                className="icon-button"
+                title={t("Undo") + " Â· Ctrl Z"}
+                aria-label={t("Undo")}
+                disabled={!undo.current.length}
+                onClick={undoChange}
+              >
+                <Undo2 size={17} />
+              </button>
+              <button
+                className="icon-button"
+                title={t("Redo")}
+                aria-label={t("Redo")}
+                disabled={!redo.current.length}
+                onClick={redoChange}
+              >
+                <Redo2 size={17} />
+              </button>
+            </div>
+            <button
+              className="button small-button"
+              onClick={() => void persist()}
+            >
+              <Save size={15} />
+              <span>{t("Save")}</span>
+            </button>
+            <button
+              className="button small-button"
+              onClick={() => exportProject(project)}
+            >
+              <Download size={15} />
+              <span>{t("Export project")}</span>
+            </button>
+            <button
+              className="button primary small-button"
+              onClick={() => {
+                setShowTrace(true);
+                setMessage(result.complete ? t("Calculated") : t("Incomplete"));
+              }}
+            >
+              <Activity size={15} />
+              {t("Calculate")}
+            </button>
+          </div>
+          {error && (
+            <div className="app-alert" role="alert">
+              <AlertTriangle size={17} />
+              <span>{error}</span>
+              <button
+                className="button small-button"
+                onClick={() => exportProject(project)}
+              >
+                {t("Export project")}
+              </button>
+              <button
+                className="button small-button"
+                onClick={async () => {
+                  try {
+                    const copy = duplicateProject(
+                      latest.current,
+                      latest.current.name + " Â· recovered copy",
+                    );
+                    await saveProject(copy);
+                    lastSaved.current.set(copy.id, copy.revision);
+                    undo.current = [];
+                    redo.current = [];
+                    setHistoryTick((n) => n + 1);
+                    latest.current = copy;
+                    setProject(copy);
+                    setSelected(undefined);
+                    setShowTrace(false);
+                    setError("");
+                    await refreshRecords();
+                  } catch (e) {
+                    setError((e as Error).message);
+                  }
+                }}
+              >
+                {t("Save a copy")}
+              </button>
+              <button
+                className="icon-button"
+                onClick={() => setError("")}
+                aria-label={t("Close")}
+              >
+                <X size={17} />
+              </button>
+            </div>
+          )}
+          <UpdateBanner
+            save={() => persist()}
+            version={`${project.id}:${project.revision}`}
+            projectNeedsSave={() =>
+              loaded &&
+              lastSaved.current.get(latest.current.id) !==
+                latest.current.revision
+            }
+          />
+          <div
+            className={
+              "workspace-content " +
+              (selectedObject || showTrace ? "with-inspector " : "") +
+              (route === "diagram" ? "topology-workspace " : "") +
+              (route === "overview" ? "overview-workspace" : "")
+            }
+          >
+            <main id="workspace" className="main-content">
+              <div className="page-heading">
+                <div>
+                  <span className="eyebrow">
+                    ELECTRICAL & ENGINEERING POWER STUDIO
+                  </span>
+                  <h2>{t(current?.label || "Overview")}</h2>
+                </div>
+                <DetailModeControl
+                  value={detailMode}
+                  onChange={setDetailMode}
+                />
+                <button
+                  className="button small-button help-launch"
+                  onClick={() => openHelp()}
+                >
+                  <HelpCircle size={17} aria-hidden="true" />
+                  {t("Help & Support")}
+                </button>
+                {project.referenceCase && (
+                  <span className="tag amber">
+                    <BookOpen size={13} />
+                    {t("Worked reference case")}
+                  </span>
+                )}
+              </div>
+              {route !== "diagram" && (
+                <p className="detail-help detail-mode-intro">
+                  {t(
+                    detailMode === "simple"
+                      ? "Essential inputs and explained results. Your project stays the same."
+                      : "All assumptions and calculation values are shown.",
+                  )}{" "}
+                  {t("Checks remain visible in both views.")}
+                </p>
+              )}
+              {!loaded ? (
+                <div className="loading">
+                  <LoaderCircle className="spin" />
+                  {t("Open project")}â€¦
+                </div>
+              ) : (
+                <>
+                  {route === "overview" && (
+                    <Overview
+                      project={project}
+                      result={result}
+                      detailMode={detailMode}
+                      onAdd={() => setEditor({})}
+                      onReference={() => setDialog("references")}
+                      onRoute={go}
+                    />
+                  )}
+                  {route === "loads" && (
+                    <>
+                      <LoadOperations
+                        project={project}
+                        change={change}
+                        detailMode={detailMode}
+                      />
+                      <button className="button" onClick={() => go("library")}>
+                        {t("Add from library")}
+                      </button>
+                      <Loads
+                        project={project}
+                        result={result}
+                        detailMode={detailMode}
+                        selected={selected}
+                        onAdd={() => setEditor({})}
+                        onEdit={(load) => setEditor({ load })}
+                        onSelect={(id) => {
+                          setSelected(id);
+                          setShowTrace(false);
+                        }}
+                        onDuplicate={(load) =>
+                          change((p) =>
+                            p.loads.push({
+                              ...structuredClone(load),
+                              id: crypto.randomUUID(),
+                              name: load.name + " Â· copy",
+                            }),
+                          )
+                        }
+                        onDelete={(id) =>
+                          setCommandReview({
+                            preview: previewProjectCommand(project, {
+                              kind: "loads.delete",
+                              ids: [id],
+                            }),
+                          })
+                        }
+                        onImport={() => fileInput.current?.click()}
+                        onExport={() => exportLoads(project)}
+                        onLibrary={() => go("library")}
+                      />
+                    </>
+                  )}
+                  {route === "boards" && (
+                    <>
+                      <ProjectOrganization project={project} change={change} />
+                      <Boards
+                        project={project}
+                        result={result}
+                        detailMode={detailMode}
+                        change={change}
+                        onSelect={setSelected}
+                      />
+                    </>
+                  )}
+                  {route === "diagram" && (
+                    <>
+                      <div className="tab-bar">
+                        <button
+                          className={diagramView === "single" ? "active" : ""}
+                          onClick={() => setDiagramView("single")}
+                        >
+                          {t("Single-line diagram")}
+                        </button>
+                        <button
+                          className={diagramView === "spatial" ? "active" : ""}
+                          onClick={() => setDiagramView("spatial")}
+                        >
+                          {t("Analytical spatial view")}
+                        </button>
+                      </div>
+                      {diagramView === "single" ? (
+                        <TopologyEditor
+                          project={project}
+                          result={result}
+                          detailMode={detailMode}
+                          onSelect={setSelected}
+                          selectedId={selected}
+                          change={change}
+                        />
+                      ) : (
+                        <Suspense
+                          fallback={
+                            <div className="loading">
+                              <LoaderCircle className="spin" />
+                            </div>
+                          }
+                        >
+                          <SpatialView
+                            project={project}
+                            result={result}
+                            onSelect={setSelected}
+                          />
+                        </Suspense>
+                      )}
+                    </>
+                  )}
+                  {route === "simulation" && (
+                    <>
+                      <Simulation
+                        project={project}
+                        result={result}
+                        detailMode={detailMode}
+                        onComplete={rememberCalendar}
+                        animationsPaused={motion === "paused"}
+                      />
+                      <details
+                        className="advanced-section"
+                        open={detailMode === "engineering"}
+                      >
+                        <summary>
+                          {t("Advanced schedules, starts and flexible loads")}
+                        </summary>
+                        <AdvancedPlanning
+                          project={project}
+                          onChange={change}
+                          onCalendarComplete={rememberCalendar}
+                        />
+                      </details>
+                      <Suspense
+                        fallback={
+                          <div className="loading">
+                            <LoaderCircle className="spin" />
+                          </div>
+                        }
+                      >
+                        <Measurements
+                          projectId={project.id}
+                          detailMode={detailMode}
+                        />
+                      </Suspense>
+                    </>
+                  )}
+                  {route === "motors" && (
+                    <SourceRegistry
+                      project={project}
+                      change={change}
+                      onSelect={setSelected}
+                    />
+                  )}
+                  {["cables", "motors", "quality", "tools"].includes(route) && (
+                    <Toolbox
+                      detailMode={detailMode}
+                      project={project}
+                      change={change}
+                      selectedId={selected}
+                      key={`${route}:${toolId}:${toolRequest}`}
+                      initialTool={
+                        toolId || (route === "cables" ? "T16" : undefined)
+                      }
+                      category={
+                        route === "cables"
+                          ? "Cables|Protection"
+                          : route === "motors"
+                            ? "Motors|Supply|Distribution"
+                            : route === "quality"
+                              ? "Quality"
+                              : undefined
+                      }
+                    />
+                  )}
+                  {route === "cables" && (
+                    <FeederAssessment project={project} onChange={change} />
+                  )}
+                  {route === "renewables" && (
+                    <Renewables
+                      key={project.id}
+                      project={project}
+                      detailMode={detailMode}
+                      change={change}
+                      onComplete={(calculated, inputs) =>
+                        setReportContext((context) => ({
+                          ...context,
+                          energy: {
+                            projectId: latest.current.id,
+                            revision: calculated.revision,
+                            calculatedAt: new Date().toISOString(),
+                            result: calculated,
+                            inputs: inputs as EnergyOptions,
+                            source:
+                              "Completed renewable/storage dispatch with entered profiles",
+                          },
+                        }))
+                      }
+                    />
+                  )}
+                  {route === "ev" && (
+                    <EVPlanner
+                      project={project}
+                      result={result}
+                      detailMode={detailMode}
+                      change={change}
+                      onComplete={(sessionId, plan, inputs) =>
+                        setReportContext((context) => {
+                          const revision = latest.current.revision;
+                          const prior =
+                            context.ev?.revision === revision
+                              ? context.ev.result
+                              : [];
+                          return {
+                            ...context,
+                            ev: {
+                              projectId: latest.current.id,
+                              revision,
+                              calculatedAt: new Date().toISOString(),
+                              result: [
+                                ...prior.filter(
+                                  (row) => row.sessionId !== sessionId,
+                                ),
+                                { sessionId, plan },
+                              ],
+                              inputs,
+                              source:
+                                "Completed dated EV allocation with entered session constraints",
+                            },
+                          };
+                        })
+                      }
+                    />
+                  )}
+                  {route === "costs" && (
+                    <Costs
+                      key={project.id}
+                      project={project}
+                      result={result}
+                      detailMode={detailMode}
+                      change={change}
+                    />
+                  )}
+                  {route === "scenarios" && (
+                    <ScenarioWorkspace
+                      key={project.id}
+                      detailMode={detailMode}
+                      change={change}
+                      onTrash={(id) =>
+                        void setTrashed(id, true)
+                          .then(refreshRecords)
+                          .catch((e) => setError(e.message))
+                      }
+                      project={project}
+                      records={records}
+                      onCreate={(p) => void createAndOpen(p)}
+                      onOpen={(p) => void openProject(p)}
+                    />
+                  )}
+                  {route === "library" && libraryPage()}
+                  {route === "reports" && (
+                    <>
+                      <div className="tab-bar">
+                        <button
+                          className={
+                            reportTab === "engineering" ? "active" : ""
+                          }
+                          onClick={() => setReportTab("engineering")}
+                        >
+                          <FileText size={16} />
+                          {t("Engineering report")}
+                        </button>
+                        <button
+                          className={reportTab === "billing" ? "active" : ""}
+                          onClick={() => setReportTab("billing")}
+                        >
+                          <CircleDollarSign size={16} />
+                          {t("Customer bill")}
+                        </button>
+                      </div>
+                      {reportTab === "billing" ? (
+                        <Suspense
+                          fallback={
+                            <div className="loading">
+                              <LoaderCircle className="spin" />
+                            </div>
+                          }
+                        >
+                          <Billing
+                            projectId={project.id}
+                            projectName={project.name}
+                            currency={project.currency}
+                            locale={locale}
+                          />
+                        </Suspense>
+                      ) : (
+                        <Suspense
+                          fallback={
+                            <div className="loading">
+                              <LoaderCircle className="spin" />
+                            </div>
+                          }
+                        >
+                          <ReportWorkspace
+                            project={project}
+                            result={result}
+                            locale={locale}
+                            context={{
+                              ...reportContext,
+                              scenarios: records
+                                .filter(
+                                  (r) =>
+                                    !r.deleted &&
+                                    r.id !== project.id &&
+                                    (r.project.scenarioOf === project.id ||
+                                      r.id === project.scenarioOf ||
+                                      (project.scenarioOf &&
+                                        r.project.scenarioOf ===
+                                          project.scenarioOf)),
+                                )
+                                .map((r) => ({
+                                  project: r.project,
+                                  result: calculateProject(r.project),
+                                  label: r.project.name,
+                                })),
+                            }}
+                            onDetailsChange={(details) =>
+                              change((p) => {
+                                p.reportDetails = details;
+                              })
+                            }
+                            onOpenBilling={() => setReportTab("billing")}
+                          />
+                        </Suspense>
+                      )}
+                    </>
+                  )}
+                  {route === "reference" && referencePage()}
+                  {route === "history" && historyPage()}
+                  {route === "settings" && (
+                    <>
+                      <ProjectSettings
+                        key={project.id}
+                        project={project}
+                        change={change}
+                      />
+                      <section className="panel panel-pad">
+                        <h3>{t("Settings")}</h3>
+                        <div className="form-grid three">
+                          <Field label={t("Language")}>
+                            <select
+                              value={locale}
+                              onChange={(e) =>
+                                setLocale(e.target.value as Locale)
+                              }
+                            >
+                              {Object.entries(languages).map(([l, n]) => (
+                                <option key={l} value={l}>
+                                  {n}
+                                </option>
+                              ))}
+                            </select>
+                          </Field>
+                          <Field label={t("Detail level")}>
+                            <select
+                              value={detailMode}
+                              onChange={(e) =>
+                                setDetailMode(e.target.value as DetailMode)
+                              }
+                            >
+                              <option value="simple">{t("Simple")}</option>
+                              <option value="engineering">
+                                {t("Engineering")}
+                              </option>
+                            </select>
+                          </Field>
+                          <Field label={t("Theme")}>
+                            <select
+                              value={theme}
+                              onChange={(e) => setTheme(e.target.value)}
+                            >
+                              {["dark", "light", "system"].map((v) => (
+                                <option key={v} value={v}>
+                                  {t(v[0].toUpperCase() + v.slice(1))}
+                                </option>
+                              ))}
+                            </select>
+                          </Field>
+                          <Field label={t("Motion")}>
+                            <select
+                              value={motion}
+                              onChange={(e) => setMotion(e.target.value)}
+                            >
+                              {["system", "reduced", "full", "paused"].map(
+                                (v) => (
+                                  <option key={v} value={v}>
+                                    {t(v[0].toUpperCase() + v.slice(1))}
+                                  </option>
+                                ),
+                              )}
+                            </select>
+                          </Field>
+                        </div>
+                        <div className="form-grid three">
+                          <Field label={t("Navigation width")} unit="px">
+                            <input
+                              type="range"
+                              min="190"
+                              max="390"
+                              value={sidebarWidth}
+                              onChange={(e) =>
+                                setSidebarWidth(Number(e.target.value))
+                              }
+                            />
+                          </Field>
+                          <Field label={t("Inspector width")} unit="px">
+                            <input
+                              type="range"
+                              min="250"
+                              max="550"
+                              value={inspectorWidth}
+                              onChange={(e) =>
+                                setInspectorWidth(Number(e.target.value))
+                              }
+                            />
+                          </Field>
+                          <button
+                            className="button"
+                            onClick={() => {
+                              setSidebarWidth(240);
+                              setInspectorWidth(300);
+                              setCollapsedGroups([]);
+                              setSidebar(innerWidth > 900);
+                              setDetailMode("engineering");
+                            }}
+                          >
+                            {t("Reset layout")}
+                          </button>
+                        </div>
+                        <Notice>
+                          {t("Local only")}.{" "}
+                          {t(
+                            "Use Workspace backup to export projects, histories, bills and measurements together. Local browser storage is not a remote backup.",
+                          )}
+                        </Notice>
+                        <div className="button-row">
+                          <button
+                            className="button"
+                            onClick={() => exportProject(project)}
+                          >
+                            <Download size={16} />
+                            {t("Export project")}
+                          </button>
+                          <button
+                            className="button"
+                            onClick={() => fileInput.current?.click()}
+                          >
+                            <Upload size={16} />
+                            {t("Import")}
+                          </button>
+                          <button
+                            className="button"
+                            onClick={() => {
+                              setDialog("projects");
+                              void refreshRecords();
+                            }}
+                          >
+                            {t("Trash")}
+                          </button>
+                        </div>
+                      </section>
+                      <WorkspaceRecovery
+                        activeProject={project}
+                        onRestored={async ({ activeIds }) => {
+                          await refreshRecords();
+                          const saved = await listProjects();
+                          const restored = saved.find(
+                            (record) =>
+                              activeIds.includes(record.id) && !record.deleted,
+                          );
+                          if (restored) await openProject(restored.project);
+                        }}
+                      />
+                      <section className="panel panel-pad">
+                        <h3>Adigun BOT</h3>
+                        <p>
+                          {t("Local engineering help")}.{" "}
+                          {t("No connected AI service")}.
+                        </p>
+                        <button
+                          className="button"
+                          onClick={() => {
+                            resetBotWindowState();
+                            setBotOpen(true);
+                          }}
+                        >
+                          <Bot size={16} />
+                          Open / restore Adigun BOT
+                        </button>
+                        <p className="muted small">
+                          Connected AI requires an authenticated backend. API
+                          keys are never stored in this browser application.
+                        </p>
+                      </section>
+                    </>
+                  )}
+                </>
+              )}
+            </main>
+            {(selectedObject || showTrace) && (
+              <aside className="inspector">
+                <ResizeHandle
+                  value={inspectorWidth}
+                  min={250}
+                  max={550}
+                  variable="--inspector"
+                  label={t("Inspector width")}
+                  reverse
+                  onChange={setInspectorWidth}
+                />
+                <div className="inspector-head">
+                  <span>
+                    {t(showTrace ? "Calculation trace" : "Selected object")}
+                  </span>
+                  <button
+                    className="icon-button"
+                    aria-label={t("Close")}
+                    onClick={() => {
+                      setSelected(undefined);
+                      setShowTrace(false);
+                    }}
+                  >
+                    <X size={17} />
+                  </button>
+                </div>
+                {showTrace ? (
+                  <>
+                    <div className="inspector-section">
+                      <span className="tag cyan">{t("Calculated")}</span>
+                      <h3>{project.name}</h3>
+                      <dl className="detail-list">
+                        <dt>{t("Revision")}</dt>
+                        <dd>{result.revision}</dd>
+                        <dt>{t("Engine")}</dt>
+                        <dd>{result.engineVersion}</dd>
+                        <dt>{t("Origin")}</dt>
+                        <dd>{result.trace.origin}</dd>
+                        <dt>{t("Method")}</dt>
+                        <dd>{t(result.trace.method)}</dd>
+                      </dl>
+                      <div className="formula">{result.trace.formula}</div>
+                    </div>
+                    <div className="inspector-section">
+                      <h4>{t("Assumptions")}</h4>
+                      {result.trace.assumptions.map((a, i) => (
+                        <p className="small muted" key={i}>
+                          {t(a)}
+                        </p>
+                      ))}
+                    </div>
+                    <div className="inspector-section">
+                      <h4>{t("Issues")}</h4>
+                      {result.issues.map((i) => (
+                        <p className="small" key={i.id}>
+                          {t(i.message)}
+                        </p>
+                      ))}
+                    </div>
+                  </>
+                ) : selectedObject && !selectedLoad ? (
+                  <div className="inspector-section">
+                    <span className="tag">
+                      {t(
+                        selectedBoard
+                          ? "Board"
+                          : selectedCircuit
+                            ? "Circuit"
+                            : "Source equipment",
+                      )}
+                    </span>
+                    <h3>{selectedObject.name}</h3>
+                    <dl className="detail-list">
+                      {Object.entries(selectedObject)
+                        .filter(([key]) => key !== "id" && key !== "name")
+                        .map(([key, value]) => (
+                          <div key={key}>
+                            <dt>{t(key)}</dt>
+                            <dd>
+                              {typeof value === "object" ? (
+                                <details>
+                                  <summary>{t("Show details")}</summary>
+                                  <pre className="comparison-value">
+                                    {JSON.stringify(value, null, 2)}
+                                  </pre>
+                                </details>
+                              ) : (
+                                String(value ?? "â€”")
+                              )}
+                            </dd>
+                          </div>
+                        ))}
+                    </dl>
+                    <button
+                      className="button"
+                      onClick={() => go(selectedSource ? "motors" : "boards")}
+                    >
+                      {t("Edit selected object")}
+                    </button>
+                    <button
+                      className="text-button"
+                      onClick={() => setShowTrace(true)}
+                    >
+                      {t("Calculation trace")}
+                    </button>
+                  </div>
+                ) : (
+                  selectedLoad && (
+                    <>
+                      <div className="inspector-section">
+                        <div className="selected-icon">
+                          <Zap size={24} />
+                        </div>
+                        <span className="eyebrow">{selectedLoad.category}</span>
+                        <h3>{selectedLoad.name}</h3>
+                        <span className="tag">{selectedLoad.source.kind}</span>
+                      </div>
+                      <div className="inspector-section">
+                        <dl className="detail-list">
+                          <dt>{t("Rating")}</dt>
+                          <dd>
+                            {selectedLoad.rating}{" "}
+                            {selectedLoad.entryMode === "amps"
+                              ? "A"
+                              : selectedLoad.entryMode === "kva"
+                                ? "kVA"
+                                : "kW"}
+                          </dd>
+                          <dt>{t("Voltage")}</dt>
+                          <dd>{selectedLoad.voltage} V</dd>
+                          <dt>{t("Phase")}</dt>
+                          <dd>{selectedLoad.phase}</dd>
+                          <dt>{t("Power factor")}</dt>
+                          <dd>{selectedLoad.pf}</dd>
+                          <dt>{t("Operating hours")}</dt>
+                          <dd>{selectedLoad.hoursPerDay} h</dd>
+                          <dt>{t("Energy duty")}</dt>
+                          <dd>{selectedLoad.duty * 100}%</dd>
+                        </dl>
+                        <LoadCalculationDetails
+                          load={selectedLoad}
+                          result={selectedResult}
+                          mode={detailMode}
+                        />
+                        <button
+                          className="button full-width"
+                          onClick={() => setEditor({ load: selectedLoad })}
+                        >
+                          <SlidersHorizontal size={16} />
+                          {t("Edit load")}
+                        </button>
+                      </div>
+                      <div className="inspector-section">
+                        <h4>{t("Provenance")}</h4>
+                        <p className="small muted">
+                          {selectedLoad.source.reference ||
+                            t("User assumption")}
+                        </p>
+                        <p className="small muted">{selectedLoad.notes}</p>
+                        <button
+                          className="text-button"
+                          onClick={() => setShowTrace(true)}
+                        >
+                          {t("Explain result")}
+                          <ArrowRight size={15} />
+                        </button>
+                      </div>
+                    </>
+                  )
+                )}
+              </aside>
+            )}
+          </div>
+          <footer className="statusbar">
+            <span>
+              <span className="local-dot" /> {t("Local only")}
+            </span>
+            <span>
+              {project.loads.length} loads Â· {project.circuits.length} circuits
+              Â· {t("Revision")} {project.revision}
+            </span>
+            <span className="spacer" />
+            <span>
+              {t("Engine")} {result.engineVersion}
+            </span>
+            <span>{t("Engineering estimate, not installation approval.")}</span>
+            <button onClick={() => go("history")} className="status-issues">
+              <AlertTriangle size={13} />
+              {result.issues.length}
+            </button>
+          </footer>
+        </div>
+        <button
+          className={"bot-launcher " + (botOpen ? "hidden" : "")}
+          onClick={() => setBotOpen(true)}
+          aria-label="Open Adigun BOT"
+        >
+          <Bot size={23} />
+          <span>Adigun BOT</span>
+          <span className="bot-status-dot" />
+        </button>
+        {botOpen && (
+          <Suspense fallback={null}>
+            <LocalBot
+              project={project}
+              result={result}
+              selectedId={selected}
+              onChange={change}
+              onClose={() => setBotOpen(false)}
+              onReport={() => void pdf()}
+            />
+          </Suspense>
+        )}
+        {message && (
+          <div className="toast" role="status">
+            <Check size={16} />
+            {message}
+          </div>
+        )}
+        <input
+          type="file"
+          accept=".json,.csv"
+          ref={fileInput}
+          hidden
+          onChange={(e) => {
+            if (e.target.files?.[0]) void importFile(e.target.files[0]);
+          }}
+        />
+        {editor && (
+          <LoadEditor
+            load={editor.load}
+            project={project}
+            detailMode={detailMode}
+            onDetailModeChange={setDetailMode}
+            onSave={saveLoad}
+            onClose={() => setEditor(null)}
+          />
+        )}
+        {dialog === "references" && (
+          <Modal
+            title={t("Worked reference case")}
+            onClose={() => setDialog(null)}
+            wide
+          >
+            <div className="modal-body">
+              <Notice>
+                These are opt-in analytical cases with entered assumptions and
+                independent expected results. They are saved as new projects.
+              </Notice>
+              <div className="reference-grid">
+                {REFERENCE_CASES.map((c) => (
+                  <button
+                    className="reference-card"
+                    key={c.id}
+                    onClick={() =>
+                      void createAndOpen(createReferenceProject(c.id))
+                    }
+                  >
+                    <BookOpen size={22} />
+                    <strong>{c.name}</strong>
+                    <small>{c.description}</small>
+                    <span>
+                      {c.expected.installedKW.toFixed(3)} kW Â·{" "}
+                      {c.expected.dailyKWh.toFixed(3)} kWh/day
+                    </span>
+                    <p>{c.assumptions.join(" ")}</p>
+                    <span className="text-button">
+                      {t("Open")}
+                      <ArrowRight size={14} />
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </Modal>
+        )}
+        {dialog === "rename" && (
+          <Modal title={t("Rename project")} onClose={() => setDialog(null)}>
+            <form
+              onSubmit={(event) => {
+                event.preventDefault();
+                if (
+                  change((draft) => {
+                    if (!name.trim()) throw new Error("Enter a project name.");
+                    draft.name = name.trim();
+                  })
+                )
+                  setDialog(null);
+              }}
+            >
+              <div className="modal-body">
+                <Field label={t("Project name")}>
+                  <input
+                    autoFocus
+                    required
+                    maxLength={160}
+                    value={name}
+                    onChange={(event) => setName(event.target.value)}
+                  />
+                </Field>
+              </div>
+              <div className="modal-footer">
+                <button
+                  className="button"
+                  type="button"
+                  onClick={() => setDialog(null)}
+                >
+                  {t("Cancel")}
+                </button>
+                <button className="button primary">{t("Save")}</button>
+              </div>
+            </form>
+          </Modal>
+        )}
+        {dialog === "projects" && (
+          <Modal title={t("Open project")} onClose={() => setDialog(null)} wide>
+            <div className="modal-body">
+              <form
+                className="inline-form"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  void createAndOpen(createProject(name.trim()));
+                  setName("");
+                }}
+              >
+                <Field label={t("New project")}>
+                  <input
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    maxLength={160}
+                  />
+                </Field>
+                <button className="button primary">
+                  <Plus size={16} />
+                  {t("Create")}
+                </button>
+              </form>
+              <div className="project-list">
+                {records
+                  .filter((r) => !r.deleted)
+                  .map((r) => (
+                    <div key={r.id}>
+                      <button onClick={() => void openProject(r.project)}>
+                        <FolderOpen size={20} />
+                        <span>
+                          <strong>{r.project.name}</strong>
+                          <small>
+                            {r.project.loads.length} loads Â·{" "}
+                            {new Date(r.savedAt).toLocaleString()}
+                          </small>
+                        </span>
+                        {r.id === project.id && (
+                          <span className="tag cyan">{t("Open")}</span>
+                        )}
+                      </button>
+                      <button
+                        className="icon-button"
+                        aria-label={t("Duplicate") + " " + r.project.name}
+                        onClick={() =>
+                          void createAndOpen(
+                            duplicateProject(
+                              r.project,
+                              r.project.name + " Â· copy",
+                            ),
+                          )
+                        }
+                      >
+                        <Copy size={17} />
+                      </button>
+                      <button
+                        className="icon-button danger"
+                        disabled={r.id === project.id}
+                        title={
+                          r.id === project.id
+                            ? "Open another project before moving this one to trash"
+                            : t("Move to trash")
+                        }
+                        aria-label={t("Move to trash") + " " + r.project.name}
+                        onClick={() => {
+                          if (
+                            confirm(
+                              t("Move to trash") + " " + r.project.name + "?",
+                            )
+                          )
+                            void setTrashed(r.id, true).then(refreshRecords);
+                        }}
+                      >
+                        <Trash2 size={17} />
+                      </button>
+                    </div>
+                  ))}
+              </div>
+              <details>
+                <summary>
+                  {t("Trash")} ({records.filter((r) => r.deleted).length})
+                </summary>
+                {records
+                  .filter((r) => r.deleted)
+                  .map((r) => (
+                    <div className="trash-row" key={r.id}>
+                      <span>{r.project.name}</span>
+                      <button
+                        className="button"
+                        onClick={() =>
+                          void setTrashed(r.id, false).then(refreshRecords)
+                        }
+                      >
+                        {t("Restore")}
+                      </button>
+                    </div>
+                  ))}
+              </details>
+              <div className="button-row">
+                <button
+                  className="button"
+                  onClick={() => fileInput.current?.click()}
+                >
+                  <Upload size={16} />
+                  {t("Import")}
+                </button>
+                <button
+                  className="button"
+                  onClick={() => setDialog("references")}
+                >
+                  <BookOpen size={16} />
+                  {t("Open reference case")}
+                </button>
+              </div>
+            </div>
+          </Modal>
+        )}
+        {commandReview && (
+          <CommandReview
+            project={project}
+            preview={commandReview.preview}
+            change={change}
+            onClose={() => setCommandReview(undefined)}
+            onApplied={() => {
+              setSelected(commandReview.selectedId);
+              setCommandReview(undefined);
+              go("loads");
+            }}
+          />
+        )}
+        {dialog === "import" && preview && (
+          <Modal
+            title={t("Preview import")}
+            onClose={() => setDialog(null)}
+            wide
+          >
+            <div className="modal-body">
+              {csvFile && (
+                <details open={preview.errors.length > 0}>
+                  <summary>{t("CSV column and unit mapping")}</summary>
+                  <div className="form-grid three">
+                    {[
+                      "name",
+                      "rating",
+                      "quantity",
+                      "entrymode",
+                      "voltage",
+                      "connection",
+                      "pf",
+                      "phase",
+                      "hoursperday",
+                      "starthour",
+                      "duty",
+                      "utilization",
+                      "efficiency",
+                      "reactive",
+                      "standbyw",
+                      "pfkind",
+                      "reactivekvar",
+                      "phasepair",
+                      "source",
+                    ].map((field) => (
+                      <Field key={field} label={field}>
+                        <select
+                          value={csvMapping.columns?.[field] ?? ""}
+                          onChange={(e) => {
+                            const columns = { ...csvMapping.columns };
+                            if (e.target.value === "") delete columns[field];
+                            else columns[field] = Number(e.target.value);
+                            setCSVMapping({ ...csvMapping, columns });
+                            setMappingDirty(true);
+                          }}
+                        >
+                          <option value="">{t("Use default / omit")}</option>
+                          {csvHeaders.map((header, index) => (
+                            <option key={index} value={index}>
+                              {header}
+                            </option>
+                          ))}
+                        </select>
+                      </Field>
+                    ))}
+                    <Field label={t("Imported rating unit")}>
+                      <select
+                        value={csvMapping.ratingUnit ?? "native"}
+                        onChange={(e) => {
+                          setCSVMapping({
+                            ...csvMapping,
+                            ratingUnit: e.target
+                              .value as CSVImportMapping["ratingUnit"],
+                          });
+                          setMappingDirty(true);
+                        }}
+                      >
+                        {["native", "W", "kW", "VA", "kVA", "A"].map((unit) => (
+                          <option key={unit} value={unit}>
+                            {unit === "native"
+                              ? t("Use entry-mode column (default kW)")
+                              : unit}
+                          </option>
+                        ))}
+                      </select>
+                    </Field>
+                  </div>
+                  <p className="small muted">
+                    {t(
+                      "CSV numeric values use decimal points. Explicit rating units override the entry-mode column; W and VA are converted to kW and kVA.",
+                    )}
+                  </p>
+                  <button
+                    className="button"
+                    disabled={importBusy}
+                    onClick={async () => {
+                      setImportBusy(true);
+                      try {
+                        const next = await previewImport(csvFile, csvMapping);
+                        next.project = {
+                          ...createProject(
+                            csvFile.name.replace(/\.[^.]+$/, ""),
+                          ),
+                          loads: next.loads,
+                        };
+                        setPreview(next);
+                        setMappingDirty(false);
+                        setImportTarget({
+                          id: project.id,
+                          revision: project.revision,
+                        });
+                        setError("");
+                      } catch (error) {
+                        setError((error as Error).message);
+                      } finally {
+                        setImportBusy(false);
+                      }
+                    }}
+                  >
+                    {t("Refresh import preview")}
+                  </button>
+                </details>
+              )}
+              <div className="metric-strip">
+                <div>
+                  <span>{t("Valid rows")}</span>
+                  <strong>
+                    {preview.kind === "project"
+                      ? preview.project?.loads.length
+                      : preview.loads.length}
+                  </strong>
+                </div>
+                <div>
+                  <span>{t("Errors")}</span>
+                  <strong>{preview.errors.length}</strong>
+                </div>
+              </div>
+              {preview.warnings.map((w, i) => (
+                <Notice key={i} tone="warning">
+                  {w}
+                </Notice>
+              ))}
+              {preview.errors.map((e, i) => (
+                <p className="error-text" key={i}>
+                  {e}
+                </p>
+              ))}
+              <Field label={t("Import destination")}>
+                <select
+                  value={importMode}
+                  onChange={(e) =>
+                    setImportMode(e.target.value as typeof importMode)
+                  }
+                >
+                  <option value="new">{t("New project")}</option>
+                  <option value="merge">
+                    {t("Merge into current project")}
+                  </option>
+                  <option value="replace">
+                    {t("Replace current project contents")}
+                  </option>
+                </select>
+              </Field>
+              <p>
+                {importMode === "new" ? preview.project?.name : project.name} Â·{" "}
+                {t("Revision")} {importTarget?.revision}
+              </p>
+              <Notice tone={importMode === "replace" ? "warning" : "info"}>
+                {t(
+                  importMode === "merge"
+                    ? "Imports objects with new IDs and their dependencies. Current supply, tariff, energy, baseline and diagram settings are retained."
+                    : importMode === "replace"
+                      ? "Replaces the current project contents. The prior state remains available through Undo and saved history."
+                      : "Creates a separate project. Imported object IDs and evidence are preserved.",
+                )}
+              </Notice>
+              <p className="small muted">
+                {preview.project?.boards.length ?? 0} {t("Boards")} Â·{" "}
+                {preview.project?.circuits.length ?? 0} {t("Circuits")} Â·{" "}
+                {preview.project?.loads.length ?? 0} {t("Loads")}
+              </p>
+              {error && <Notice tone="error">{error}</Notice>}
+              <div className="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>{t("Name")}</th>
+                      <th>{t("Rating")}</th>
+                      <th>{t("Voltage")}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {(preview.project?.loads || preview.loads)
+                      .slice(0, 10)
+                      .map((l) => (
+                        <tr key={l.id}>
+                          <td>{l.name}</td>
+                          <td>{l.rating}</td>
+                          <td>{l.voltage} V</td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button className="button" onClick={() => setDialog(null)}>
+                {t("Cancel")}
+              </button>
+              <button
+                className="button primary"
+                disabled={
+                  preview.errors.length > 0 || importBusy || mappingDirty
+                }
+                onClick={() => void applyImport()}
+              >
+                {t("Apply import")}
+              </button>
+            </div>
+          </Modal>
+        )}
+        {dialog === "commands" && (
+          <Modal title={t("Search")} onClose={() => setDialog(null)}>
+            <div className="modal-body">
+              <div className="search-field large">
+                <Search size={19} />
+                <input
+                  autoFocus
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder={t("Search tools, loads and pages")}
+                />
+              </div>
+              <div className="command-results">
+                <button onClick={() => openHelp(query)}>
+                  <HelpCircle size={17} />
+                  {t("Help & Support")}
+                  <ChevronRight size={14} />
+                </button>
+                {query.trim() &&
+                  searchHelp(query, locale, 6).map((topic) => (
+                    <button
+                      key={`help-${topic.id}`}
+                      onClick={() => openHelp(t(topic.title))}
+                    >
+                      <BookOpen size={17} />
+                      {t("Help")} Â· {t(topic.title)}
+                      <ChevronRight size={14} />
+                    </button>
+                  ))}
+                {routes
+                  .filter(
+                    (r) =>
+                      t(r.label).toLowerCase().includes(query.toLowerCase()) ||
+                      r.label.toLowerCase().includes(query.toLowerCase()),
+                  )
+                  .map((r) => (
+                    <button key={r.id} onClick={() => go(r.id)}>
+                      <r.icon size={17} />
+                      {t(r.label)}
+                      <ChevronRight size={14} />
+                    </button>
+                  ))}
+                {query &&
+                  tools
+                    .filter((tool) =>
+                      [tool.title, tool.id]
+                        .join(" ")
+                        .toLowerCase()
+                        .includes(query.toLowerCase()),
+                    )
+                    .slice(0, 8)
+                    .map((tool) => (
+                      <button
+                        key={tool.id}
+                        onClick={() => {
+                          setToolId(tool.id);
+                          setToolRequest((request) => request + 1);
+                          go("tools");
+                        }}
+                      >
+                        <Calculator size={17} />
+                        {tool.id} Â· {tool.title}
+                        <ChevronRight size={14} />
+                      </button>
+                    ))}
+                {query &&
+                  project.loads
+                    .filter((l) =>
+                      l.name.toLowerCase().includes(query.toLowerCase()),
+                    )
+                    .slice(0, 8)
+                    .map((l) => (
+                      <button
+                        key={l.id}
+                        onClick={() => {
+                          setSelected(l.id);
+                          go("loads");
+                        }}
+                      >
+                        <Zap size={17} />
+                        {l.name}
+                        <ChevronRight size={14} />
+                      </button>
+                    ))}
+                {!!query &&
+                  [
+                    ...project.boards.map((row) => ({
+                      ...row,
+                      route: "boards",
+                    })),
+                    ...project.circuits.map((row) => ({
+                      ...row,
+                      route: "boards",
+                    })),
+                    ...(project.sources ?? []).map((row) => ({
+                      ...row,
+                      route: "motors",
+                    })),
+                    ...(project.equipmentLibrary ?? []).map((row) => ({
+                      ...row,
+                      route: "library",
+                    })),
+                  ]
+                    .filter((row) =>
+                      row.name
+                        .toLocaleLowerCase()
+                        .includes(query.toLocaleLowerCase()),
+                    )
+                    .slice(0, 12)
+                    .map((row) => (
+                      <button
+                        key={row.id}
+                        onClick={() => {
+                          setSelected(row.id);
+                          go(row.route);
+                        }}
+                      >
+                        <Network size={17} />
+                        {row.name}
+                        <ChevronRight size={14} />
+                      </button>
+                    ))}
+              </div>
+            </div>
+          </Modal>
+        )}
+        {dialog === "help" && (
+          <Modal
+            title={t("Help & Support")}
+            onClose={() => setDialog(null)}
+            returnFocus={helpOpener.current}
+            wide
+          >
+            {helpNavigationBlocked && (
+              <div role="status">
+                <Notice tone="warning">
+                  {t(
+                    "Finish or cancel your current edits before opening another workspace.",
+                  )}
+                </Notice>
+              </div>
+            )}
+            <HelpSupport
+              initialQuery={helpQuery}
+              onNavigate={(nextRoute, nextToolId) => {
+                if (updateBlockers().length) {
+                  setHelpNavigationBlocked(true);
+                  return;
+                }
+                if (nextToolId) {
+                  setToolId(nextToolId);
+                  setToolRequest((request) => request + 1);
+                }
+                go(nextRoute);
+              }}
+            />
+          </Modal>
+        )}
+      </div>
+    </LanguageContext.Provider>
+  );
+}
+function ProjectSettings({
+  project,
+  change,
+}: {
+  project: Project;
+  change: (mutator: (p: Project) => void) => void;
+}) {
+  const [draft, setDraft] = useState(structuredClone(project));
+  const [unsavedInput, setUnsavedInput] = useState(false);
+  const [error, setError] = useState("");
+  const locale = useContextLocale();
+  const t = (s: string) => translate(s, locale);
+  useUpdateGuard(unsavedInput, t("Project settings"));
+  return (
+    <form
+      className="panel panel-pad"
+      onChangeCapture={() => setUnsavedInput(true)}
+      onSubmit={(e) => {
+        e.preventDefault();
+        const v = validateProjectImport(draft);
+        if (!v.valid) {
+          setError(v.errors.join(" "));
+          return;
+        }
+        change((p) => {
+          p.name = draft.name;
+          p.context = draft.context;
+          p.currency = draft.currency;
+          p.timezone = draft.timezone;
+          p.jurisdiction = draft.jurisdiction;
+          p.supply = draft.supply;
+          p.coincidence = draft.coincidence;
+          p.growthPercent = draft.growthPercent;
+          p.notes = draft.notes;
+        });
+        setError("");
+        setUnsavedInput(false);
+      }}
+    >
+      <h3>{t("Project settings")}</h3>
+      <div className="form-grid three">
+        <Field label={t("Project name")}>
+          <input
+            required
+            value={draft.name}
+            onChange={(e) => setDraft({ ...draft, name: e.target.value })}
+          />
+        </Field>
+        <Field label={t("Context")}>
+          <select
+            value={draft.context}
+            onChange={(e) => setDraft({ ...draft, context: e.target.value })}
+          >
+            {[
+              "Residential",
+              "Commercial",
+              "Workshop",
+              "Industrial",
+              "Agricultural",
+              "Community",
+            ].map((c) => (
+              <option key={c}>{c}</option>
+            ))}
+          </select>
+        </Field>
+        <Field label={t("Currency")}>
+          <select
+            value={draft.currency}
+            onChange={(e) => setDraft({ ...draft, currency: e.target.value })}
+          >
+            {["EUR", "NGN", "USD", "GBP", "JPY", "KWD"].map((c) => (
+              <option key={c}>{c}</option>
+            ))}
+          </select>
+        </Field>
+        <Field label={t("Timezone")}>
+          <input
+            required
+            value={draft.timezone}
+            onChange={(e) => setDraft({ ...draft, timezone: e.target.value })}
+          />
+        </Field>
+        <Field label={t("Jurisdiction")}>
+          <input
+            value={draft.jurisdiction}
+            onChange={(e) =>
+              setDraft({ ...draft, jurisdiction: e.target.value })
+            }
+          />
+        </Field>
+        {[
+          ["voltageLN", "Lâ€“N voltage", "V"],
+          ["voltageLL", "Lâ€“L voltage", "V"],
+          ["frequency", "Frequency", "Hz"],
+          ["limitA", "Supply limit", "A"],
+        ].map(([key, label, unit]) => (
+          <Field key={key} label={t(label)} unit={unit}>
+            <LocaleNumberInput
+              required
+              min={0.01}
+              value={draft.supply[key as keyof typeof draft.supply]}
+              onValueChange={(value) =>
+                setDraft({
+                  ...draft,
+                  supply: { ...draft.supply, [key]: value },
+                })
+              }
+            />
+          </Field>
+        ))}
+        <Field label={t("Coincidence factor")} unit="0â€“1">
+          <LocaleNumberInput
+            required
+            min={0}
+            max={1}
+            value={draft.coincidence}
+            onValueChange={(value) =>
+              setDraft({ ...draft, coincidence: value })
+            }
+          />
+        </Field>
+        <Field label={t("Growth allowance")} unit="%">
+          <LocaleNumberInput
+            required
+            min={0}
+            value={draft.growthPercent}
+            onValueChange={(value) =>
+              setDraft({ ...draft, growthPercent: value })
+            }
+          />
+        </Field>
+      </div>
+      <Field label={t("Notes")}>
+        <textarea
+          rows={3}
+          value={draft.notes}
+          onChange={(e) => setDraft({ ...draft, notes: e.target.value })}
+        />
+      </Field>
+      {error && (
+        <p role="alert" className="error-text">
+          {error}
+        </p>
+      )}
+      <button className="button primary">
+        <Save size={16} />
+        {t("Save")}
+      </button>
+    </form>
+  );
+}
+import { useContext } from "react";
+function useContextLocale() {
+  return useContext(LanguageContext);
+}
