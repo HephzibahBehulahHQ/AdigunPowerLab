@@ -15,6 +15,20 @@ async function openHelp(page: Page) {
   return page.getByRole("dialog", { name: "Help & Support", exact: true });
 }
 
+test("Help and Guide sidebar opens the illustrated workflow and Bot tour", async ({ page }) => {
+  await ready(page);
+  await page.getByRole("button", { name: "Help and Guide", exact: true }).click();
+  const help = page.getByRole("dialog", { name: "Help & Support", exact: true });
+  await expect(help.locator(".help-journey")).toBeVisible();
+  await help.getByRole("button", { name: "Start guided tour", exact: true }).click();
+  const bot = page.getByRole("region", { name: "Adigun BOT" });
+  await expect(bot.getByRole("heading", { name: "Start a project and find your way" })).toBeVisible();
+  await bot.getByRole("button", { name: "Open this workspace", exact: true }).click();
+  await expect(page.locator(".page-heading")).toContainText("Overview");
+  await bot.getByRole("button", { name: "Next tour step", exact: true }).click();
+  await expect(bot.getByRole("heading", { name: "Save, reopen and recover work" })).toBeVisible();
+});
+
 async function openOhmGuideTool(page: Page) {
   const help = await openHelp(page);
   await help

@@ -1,6 +1,30 @@
 .help-support {
   min-width: 0;
 }
+.help-tour-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px 20px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel-soft, var(--panel));
+}
+.help-tour-card h3 { margin: 4px 0; }
+.help-tour-card p { max-width: 70ch; margin: 0; color: var(--muted); }
+.help-journey {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  color: var(--text);
+}
+.help-journey text { fill: currentColor; font: 600 12px system-ui, sans-serif; }
+@media (max-width: 680px) {
+  .help-tour-card { grid-template-columns: 1fr; overflow-x: auto; }
+  .help-journey { min-width: 720px; }
+}
 .help-intro {
   color: var(--muted);
   margin: 0 0 14px;
