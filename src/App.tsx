@@ -1728,7 +1728,9 @@ export default function App() {
                       change={change}
                       selectedId={selected}
                       key={`${route}:${toolId}:${toolRequest}`}
-                      initialTool={toolId || (route === "cables" ? "T16" : undefined)}
+                      initialTool={
+                        toolId || (route === "cables" ? "T16" : undefined)
+                      }
                       category={
                         route === "cables"
                           ? "Cables|Protection"

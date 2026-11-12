@@ -405,7 +405,6 @@ export function Toolbox({
           )}
         </div>
       </div>
-
     </div>
   );
 }
