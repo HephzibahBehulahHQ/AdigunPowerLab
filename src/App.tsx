@@ -1534,7 +1534,8 @@ export default function App() {
           <div
             className={
               "workspace-content " +
-              (selectedObject || showTrace ? "with-inspector" : "")
+              (selectedObject || showTrace ? "with-inspector " : "") +
+              (route === "diagram" ? "topology-workspace" : "")
             }
           >
             <main id="workspace" className="main-content">
@@ -1563,14 +1564,16 @@ export default function App() {
                   </span>
                 )}
               </div>
-              <p className="detail-help detail-mode-intro">
-                {t(
-                  detailMode === "simple"
-                    ? "Essential inputs and explained results. Your project stays the same."
-                    : "All assumptions and calculation values are shown.",
-                )}{" "}
-                {t("Checks remain visible in both views.")}
-              </p>
+              {route !== "diagram" && (
+                <p className="detail-help detail-mode-intro">
+                  {t(
+                    detailMode === "simple"
+                      ? "Essential inputs and explained results. Your project stays the same."
+                      : "All assumptions and calculation values are shown.",
+                  )}{" "}
+                  {t("Checks remain visible in both views.")}
+                </p>
+              )}
               {!loaded ? (
                 <div className="loading">
                   <LoaderCircle className="spin" />

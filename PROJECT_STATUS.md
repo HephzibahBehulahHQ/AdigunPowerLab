@@ -1,40 +1,27 @@
 # AdigunPowerLab — current status
 
-Date: 7 November 2026. Owner: Hephzibah Behulah.
+Date: 12 November 2026. Owner: Hephzibah Behulah.
 
-## Active continuation: localized toolbox search and custom-domain publication
+## Active continuation: client reference workspaces
 
-The owner authorized continuation, commits, merge into main and public deployment. The integration branch is `feat/continuation-2026-11-07`, based on main `18f7a04ebc33697dd0c3f011dce9ba4f4000e3f2`. The original local checkout contained older uncommitted translations and was preserved; implementation continues in a separate worktree.
+The client supplied three visual references in main commit [`cf271d7`](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/commit/cf271d73f26eec6b913a2ebd02b86dea4d9ed8b4). Work continues on `codex/client-reference-diagram-layout`, based on that revision. The screenshots set a visual target; their example project names, equipment, measurements, dates, status badges and calculation values are not product data and must not be copied into new projects.
 
-**The current candidate, integration, validation, deployment and live receipts belong in [PR #6](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/6).** A checkpoint is a backup, not a release receipt. Full original-spec acceptance remains partial.
+This milestone makes the Single-Line Studio use a compact, three-panel desktop layout: navigation remains available, the editable diagram and selected-object inspector share the main workspace, and page/label settings collapse into a translated disclosure. The actual source and board values come from the open project. No customer or equipment examples were seeded.
 
-## Changes in this continuation
+## Verification for this milestone
 
-- Engineering Toolbox searches displayed tool titles, categories and descriptions in the selected language as well as English. Search ignores case, accents and punctuation, and continues to match tool IDs.
-- Localized result announcements and an empty-state Clear search action support keyboard recovery without changing worksheet inputs or calculated results.
-- Production browser checks include the localized toolbox search flows.
-- Pages preparation rejects branch publication. Existing exact-revision validation, artifact provenance and stale-main guards remain required.
+- `npm ci` completed from the pinned lockfile; npm reported zero known advisories.
+- `npm test`: 386 tests across 26 files passed.
+- The local app rendered at 1280 × 720. The blank local project showed its actual grid/source model, main board, editable diagram controls and source inspector.
+- `npm run lint` could not complete: the installed TypeScript 7 native compiler panicked while resolving its bundled `lib.d.ts`, although the file exists in `node_modules`. Treat typecheck, build and release CI as pending until a clean runner verifies this candidate.
+- The official production/browser gates have not yet run on this candidate. No deployment was made.
 
-## Observed deployment repair
+## Product acceptance boundary
 
-The owner's custom-domain commit added `adigunpowerlab.hephzibahbehulah.com` and changed Pages Source to **Deploy from a branch**. Main validation [42286471020](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/42286471020) and validated publication [42287072522](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/42287072522) succeeded, but a second [Jekyll publisher](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/42286470908) also built repository source.
+This change addresses only the single-line reference workspace. Dashboard and cable/protection reference layouts still require direct comparison. Full original-spec acceptance also remains partial: independent accessibility and professional language review, licensed/current standards and manufacturer datasets, connected AI/cloud/OCR and physical telemetry/control are absent or unverified. The current application is a local-first engineering planning tool; browser calculations do not establish installation approval or hardware validation. See [KNOWN_LIMITATIONS.md](docs/KNOWN_LIMITATIONS.md) and [ACCEPTANCE_MATRIX.md](docs/ACCEPTANCE_MATRIX.md).
 
-Pages Source was restored to **GitHub Actions** on 7 November while preserving the configured custom domain. GitHub confirmed the setting. The custom-domain application subsequently loaded over HTTPS and Enforce HTTPS was enabled. This continuation's final publication and live functional checks are recorded in PR #6 when observed. The root CNAME is retained; relative asset, manifest and service-worker URLs support both root and repository-subpath hosting.
-
-## Verification
-
-Focused verification passed 15 localized search unit cases, TypeScript checking, two browser flows, YAML parsing and 10 publication-guard cases. Browser checks cover all four languages, English fallback, German categories/descriptions, Yoruba accents, preserved 230 V / 23 Ω calculation exports, and keyboard recovery.
-
-Complete candidate gates, clean-checkout recovery and final publication remain pending at this source checkpoint; PR #6 records their actual conclusions. No unrun check is counted as passed.
-
-## Previously completed release
-
-[PR #5](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/5) merged searchable Help & Support with 71 guides in four languages and tested-artifact automatic publication. Its exact main revision, successful full validation, Pages deployment and live calculation receipts are retained in that PR. Do not repeat the accepted help, field-usability or recovery work as unfinished implementation.
-
-## Remaining original-spec scope
-
-Connected AI, account-backed cloud synchronization, OCR/resource feeds, physical telemetry/control, licensed jurisdiction/manufacturer datasets, professional translation review and an independent accessibility audit remain external or unverified. See `docs/KNOWN_LIMITATIONS.md` and `docs/ACCEPTANCE_MATRIX.md`. This continuation changes no engineering formula, storage schema, dependency or configured external integration.
+Previously verified release and live-site receipts remain in [PR #6](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/6), including the 10 November main publication run [`42745301400`](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/42745301400). The local candidate is not that deployed revision.
 
 ## Next action
 
-Complete PR #6's candidate gates and fresh-checkout recovery, merge the exact validated revision, verify Pages publication and the custom-domain interface, and record the observed release receipts in PR #6.
+Complete clean-runner typecheck, build and browser gates for this branch, then continue visual acceptance for the dashboard and cable/protection workspaces without copying reference data.

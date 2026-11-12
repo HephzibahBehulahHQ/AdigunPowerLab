@@ -605,6 +605,26 @@ small,
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
 }
+.topology-workspace .main-content {
+  padding: 14px 16px 22px;
+}
+.topology-workspace .page-heading {
+  margin-bottom: 10px;
+}
+.topology-workspace .page-heading h2 {
+  font-size: 21px;
+}
+.topology-workspace .tab-bar {
+  margin-bottom: 0.65rem;
+}
+.topology-workspace .topology-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(245px, 285px);
+  gap: 0.65rem;
+}
+.topology-workspace .topology-viewport {
+  height: min(62vh, calc(100vh - 330px));
+  min-height: 320px;
+}
 .page-heading {
   display: flex;
   align-items: center;
