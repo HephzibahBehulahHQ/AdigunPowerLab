@@ -4,13 +4,13 @@ The owner explicitly authorized pushing, merging and public deployment on 6 and 
 
 ## Latest verified release — 12 November 2026
 
-- Current main: `bbc7712f0e97a1fb11bc12d1dd511e0ee6a3102b` ([PR #18](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/18)).
-- Corrected exact candidate `865368920c80e9d095f4ed33e27bb7d0a66124cc` passed the full repository gate in [run 43249735796](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43249735796).
-- Exact-main validation: [run 43250741903](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43250741903), successful.
-- GitHub Pages publication: [run 43251513566](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43251513566), successful for the same main SHA.
-- Live custom-domain verification: “Changes from baseline (0)” on Scenarios & Optimization was collapsed in Simple and expanded in Engineering after activating the published update. No browser console errors occurred; the local empty project was used and no client scenario data was introduced.
+- Current main: `e1e9b8bb2490c3ad194e1b8432349f9d19181592` ([PR #20](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/20)).
+- Corrected exact candidate `ebeff8a4cc189d02395e02e05c37b8f875e233d1` passed the full repository gate in [run 43254725006](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43254725006).
+- Exact-main validation: [run 43257414900](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43257414900), successful.
+- GitHub Pages publication: [run 43258262229](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43258262229), successful for the same main SHA.
+- Live custom-domain verification: the Scenarios & Optimization route loaded the published release with an empty project. Its dated comparison remained disabled because the project had no loads; the user workspace was not populated to force a live calculation. The full detail-mode interaction was covered by CI with a test-only load. No browser console errors occurred; Engineering mode was restored.
 
-Previous client-reference milestones are PRs #7–#9; selected detail-mode releases are PRs #11, #13, #14, #16 and #18. See [TEST_EVIDENCE.md](TEST_EVIDENCE.md) for exact candidate and validation coverage.
+Previous client-reference milestones are PRs #7–#9; selected detail-mode releases are PRs #11, #13, #14, #16, #18 and #20. See [TEST_EVIDENCE.md](TEST_EVIDENCE.md) for candidate and validation coverage.
 
 ## Verified publication workflow
 
