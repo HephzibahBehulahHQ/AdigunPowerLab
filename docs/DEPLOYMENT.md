@@ -71,4 +71,3 @@ These checks ran through the supported cloud browser. A terminal-browser attempt
 - Pages source: GitHub Actions; default public HTTPS domain, no new paid service or custom domain.
 - Live verification: the application opened publicly and T01 calculated 230 V / 23 Ω = 10 A and 2,300 W. The live browser showed the actual result and saved local workspace.
 - Screenshot: `screenshots/public-launch-1793926727604.jpg`.
-

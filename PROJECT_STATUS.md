@@ -44,4 +44,3 @@ These are bounded visual milestones, not full original-spec acceptance. The curr
 ## Next action
 
 Continue the detail-mode audit in remaining workflows and all four interface languages, then work through action/failure states. The latest application revision is `364c23446bc25a26a62052df66f83e8a2c920453`, deployed in Pages run `43286622309`; the public page and bundle returned HTTP 200. Independent accessibility, language and engineering reviews remain open; do not represent planning calculations as certification. Continue with one bounded, browser-verified workflow at a time.
-
