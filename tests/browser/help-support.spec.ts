@@ -44,6 +44,19 @@ test("Help and Guide sidebar opens the illustrated workflow and Bot tour", async
   await expect(
     bot.getByRole("heading", { name: "Save, reopen and recover work" }),
   ).toBeVisible();
+  await bot
+    .getByRole("textbox", { name: "Ask about your project", exact: true })
+    .fill("How do I use Cables & Protection?");
+  await bot.getByRole("button", { name: "Send", exact: true }).click();
+  await expect(
+    bot.getByText("Cables & Protection", { exact: true }),
+  ).toBeVisible();
+  await bot
+    .getByRole("button", { name: "Open workspace", exact: true })
+    .click();
+  await expect(page.locator(".page-heading")).toContainText(
+    "Cables & Protection",
+  );
 });
 
 async function openOhmGuideTool(page: Page) {

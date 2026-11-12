@@ -9,7 +9,7 @@ import {
   type PointerEvent as ReactPointerEvent,
 } from "react";
 import type { CalculationResult, Project } from "../domain/types";
-import { helpTopics } from "../help/content";
+import { helpTopics, searchHelp, type HelpTopic } from "../help/content";
 import { LanguageContext, numberFormat, useT, type Locale } from "../i18n";
 import {
   applyProposal,
@@ -42,6 +42,7 @@ interface Message {
   role: "user" | "assistant";
   text?: string;
   response?: LocalResponse;
+  helpTopic?: HelpTopic;
   applied?: boolean;
   dismissed?: boolean;
 }
@@ -420,11 +421,15 @@ export default function LocalBot({
           command,
           captured.selectedId,
         );
+        const helpTopic =
+          response.kind === "help"
+            ? searchHelp(command, locale, 1)[0]
+            : undefined;
         const responseId = nextMessageId++;
         if (id === commandId.current)
           setMessages((previous) => [
             ...previous,
-            { id: responseId, role: "assistant", response },
+            { id: responseId, role: "assistant", response, helpTopic },
           ]);
       } catch (cause) {
         setError(
@@ -645,13 +650,48 @@ export default function LocalBot({
             )}
           </div>
         )}
-        {response.kind === "help" && (
+        {response.kind === "help" && message.helpTopic ? (
           <>
-            <p>{l("No supported command found. Choose an action below.")}</p>
-            <p>{l("Typed load command")}:</p>
-            <code>load: Heater; 2.3 kW; 230 V; PF 1; 8 h</code>
-            <p>{l("All proposals require your confirmation.")}</p>
+            <strong>{t(message.helpTopic.title)}</strong>
+            <p>{t(message.helpTopic.summary)}</p>
+            <ol>
+              {message.helpTopic.steps.map((step) => (
+                <li key={step}>{t(step)}</li>
+              ))}
+            </ol>
+            {message.helpTopic.route && (
+              <button
+                className="button"
+                type="button"
+                onClick={() =>
+                  setTourNavigationBlocked(
+                    !onNavigate(
+                      message.helpTopic!.route!,
+                      message.helpTopic!.toolId,
+                    ),
+                  )
+                }
+              >
+                {t("Open workspace")}
+              </button>
+            )}
+            {tourNavigationBlocked && (
+              <p role="status">
+                {t(
+                  "Finish or cancel your current edits before opening another workspace.",
+                )}
+              </p>
+            )}
           </>
+        ) : (
+          response.kind === "help" && (
+            <>
+              <p>{l("No supported command found. Choose an action below.")}</p>
+              <p>{l("Typed load command")}:</p>
+              <code>load: Heater; 2.3 kW; 230 V; PF 1; 8 h</code>
+              <p>{l("All proposals require your confirmation.")}</p>
+            </>
+          )
         )}
         <button
           className="bot-copy"
