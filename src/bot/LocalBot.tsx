@@ -188,7 +188,7 @@ function local(key: string, locale: Locale): string {
     : (text[key]?.[locale === "de" ? 0 : locale === "yo" ? 1 : 2] ?? key);
 }
 const helpQuestionWords = new Set(
-  "how do i use what is are the a an can could please tell me about for to show find where why help me with wie was ist sind der die das ein eine ich du bitte mir mit über bawo ni mo se lo kini ta ni e je ka how e fit make abeg wetin dey na"
+  "how do i use what is are the a an can could please tell me about for to show find where why help me with wie was ist sind der die das ein eine ich du bitte mir mit über benutzen benutzt benutze bawo ni mo se lo kini ta ni e je ka how e fit make abeg wetin dey na"
     .toLocaleLowerCase()
     .split(/\s+/),
 );
@@ -202,6 +202,7 @@ function findBotHelpTopic(
     .trim()
     .split(/\s+/)
     .filter((term) => term && !helpQuestionWords.has(term));
+  if (!terms.length) return undefined;
   return searchHelp(terms.join(" "), locale, 1)[0];
 }
 function clampGeometry(g: Geometry): Geometry {
