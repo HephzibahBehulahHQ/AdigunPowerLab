@@ -1136,6 +1136,47 @@ small,
   background: #a78bfa08;
   border: 1px solid #a78bfa35;
 }
+.overview-workspace .page-heading {
+  margin-bottom: 10px;
+}
+.overview-workspace .detail-mode-intro {
+  display: none;
+}
+.overview-workspace .overview-banner {
+  padding: 14px 20px;
+  margin-bottom: 12px;
+}
+.overview-workspace .overview-banner h2 {
+  font-size: 18px;
+  margin-bottom: 3px;
+}
+.overview-workspace .kpi-grid {
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.overview-workspace .kpi-card {
+  padding: 12px 14px;
+}
+.overview-workspace .kpi-value {
+  font-size: 24px;
+  margin: 8px 0 6px;
+}
+.overview-workspace .empty-project-blank {
+  min-height: 170px;
+}
+.overview-workspace .empty-project-blank .empty-state {
+  min-height: 150px;
+  padding: 18px 22px;
+}
+.overview-workspace .empty-project-blank .empty-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+}
+.overview-workspace .empty-project-blank .empty-grid-diagram {
+  height: 125px;
+}
+
 .page-actions {
   display: flex;
   align-items: center;

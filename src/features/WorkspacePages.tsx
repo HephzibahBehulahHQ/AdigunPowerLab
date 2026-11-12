@@ -167,7 +167,7 @@ export function Overview({
         </p>
       )}
       {project.loads.length === 0 ? (
-        <div className="panel empty-project">
+        <div className="panel empty-project empty-project-blank">
           <Empty
             icon={<Zap size={32} />}
             heading={t("Build your first power study")}
