@@ -64,6 +64,13 @@ test("library favorites, linked replacement review, version history and undo", a
   const initial = await exported(page);
   await route(page, "Equipment Library");
   const library = page.locator(".equipment-workspace");
+  const history = library.locator("details").first();
+  const detailLevel = page.getByRole("combobox", { name: "Detail level" });
+  await expect(history).toHaveAttribute("open", "");
+  await detailLevel.selectOption("simple");
+  await expect(history).not.toHaveAttribute("open");
+  await detailLevel.selectOption("engineering");
+  await expect(history).toHaveAttribute("open", "");
   await library
     .getByLabel("Save an existing load as a template", { exact: true })
     .selectOption(initial.loads[0].id);

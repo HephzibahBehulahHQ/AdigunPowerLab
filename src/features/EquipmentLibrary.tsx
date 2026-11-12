@@ -445,7 +445,7 @@ export function EquipmentLibrary({
           </tbody>
         </table>
       </div>
-      <details>
+      <details open={detailMode === "engineering"}>
         <summary>{t("Equipment version history")}</summary>
         <div className="table-wrap">
           <table>
