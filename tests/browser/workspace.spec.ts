@@ -190,8 +190,8 @@ test("local BOT reviews and applies a validated single-load edit", async ({
     .click();
   await composer.fill("edit load: BOT edit target; quantity; 2");
   await bot.getByRole("button", { name: "Send", exact: true }).click();
-  await expect(bot.locator(".bot-proposal")).toContainText("×1");
-  await expect(bot.locator(".bot-proposal")).toContainText("×2");
+  await expect(bot.locator(".bot-proposal").last()).toContainText("×1");
+  await expect(bot.locator(".bot-proposal").last()).toContainText("×2");
   await bot
     .getByRole("button", { name: "Apply confirmed changes", exact: true })
     .click();
