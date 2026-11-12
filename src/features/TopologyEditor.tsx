@@ -295,7 +295,7 @@ export function TopologyEditor({
           {t(exporting ? "Generating PDF…" : "Export diagram PDF")}
         </button>
       </div>
-      <div className="form-grid">
+      <div className="form-grid diagram-navigation-controls">
         <Field label={t("Select diagram object")}>
           <select
             value={node?.id ?? ""}
@@ -321,57 +321,62 @@ export function TopologyEditor({
             ))}
           </select>
         </Field>
-        <Field label={t("Diagram page size")}>
-          <select
-            value={settings.pageSize}
-            onChange={(e) =>
-              saveView({
-                ...settings,
-                pageSize: e.target.value as DiagramSettings["pageSize"],
-              })
-            }
-          >
-            <option value="a4">A4</option>
-            <option value="a3">A3</option>
-          </select>
-        </Field>
-        <Field label={t("Diagram orientation")}>
-          <select
-            value={settings.orientation}
-            onChange={(e) =>
-              saveView({
-                ...settings,
-                orientation: e.target.value as DiagramSettings["orientation"],
-              })
-            }
-          >
-            <option value="landscape">{t("Landscape")}</option>
-            <option value="portrait">{t("Portrait")}</option>
-          </select>
-        </Field>
       </div>
-      <div className="check-row">
-        <label>
-          <input
-            type="checkbox"
-            checked={settings.showLabels}
-            onChange={(e) =>
-              saveView({ ...settings, showLabels: e.target.checked })
-            }
-          />
-          {t("Show connection labels")}
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            checked={settings.showRatings}
-            onChange={(e) =>
-              saveView({ ...settings, showRatings: e.target.checked })
-            }
-          />
-          {t("Show component ratings")}
-        </label>
-      </div>
+      <details className="diagram-settings">
+        <summary>{t("Diagram settings")}</summary>
+        <div className="form-grid">
+          <Field label={t("Diagram page size")}>
+            <select
+              value={settings.pageSize}
+              onChange={(e) =>
+                saveView({
+                  ...settings,
+                  pageSize: e.target.value as DiagramSettings["pageSize"],
+                })
+              }
+            >
+              <option value="a4">A4</option>
+              <option value="a3">A3</option>
+            </select>
+          </Field>
+          <Field label={t("Diagram orientation")}>
+            <select
+              value={settings.orientation}
+              onChange={(e) =>
+                saveView({
+                  ...settings,
+                  orientation: e.target.value as DiagramSettings["orientation"],
+                })
+              }
+            >
+              <option value="landscape">{t("Landscape")}</option>
+              <option value="portrait">{t("Portrait")}</option>
+            </select>
+          </Field>
+        </div>
+        <div className="check-row">
+          <label>
+            <input
+              type="checkbox"
+              checked={settings.showLabels}
+              onChange={(e) =>
+                saveView({ ...settings, showLabels: e.target.checked })
+              }
+            />
+            {t("Show connection labels")}
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={settings.showRatings}
+              onChange={(e) =>
+                saveView({ ...settings, showRatings: e.target.checked })
+              }
+            />
+            {t("Show component ratings")}
+          </label>
+        </div>
+      </details>
       <div className="topology-grid">
         <div>
           <div className="topology-viewport">

@@ -398,6 +398,11 @@ export const workspaceMessages: Record<string, [string, string, string]> = {
     "Fi pátákó kan hàn lọ́tọ̀",
     "Show board alone",
   ],
+  "Diagram settings": [
+    "Diagrammeinstellungen",
+    "Ètò àwòrán",
+    "Diagram settings",
+  ],
   "Diagram page size": [
     "Diagrammpapierformat",
     "Ìwọ̀n ojú ìwé àwòrán",
