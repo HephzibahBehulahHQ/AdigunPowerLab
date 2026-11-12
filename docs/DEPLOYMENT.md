@@ -4,13 +4,13 @@ The owner explicitly authorized pushing, merging and public deployment on 6 and 
 
 ## Latest verified release — 12 November 2026
 
-- Current main: `cc7b83370e1ee57a032c79151edc8ddd0907e360` ([PR #14](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/14)).
-- PR #14 corrected exact candidate `981a138c1112e79a00821c22307f31465d85e117` passed the full repository gate in [run 43235233184](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43235233184).
-- Exact-main validation: [run 43236165699](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43236165699), successful.
-- GitHub Pages publication: [run 43237057255](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43237057255), successful.
-- Live custom-domain checks: T01 calculation formulas and PV daily-energy method respond to Simple/Engineering mode; EV scheduling method is collapsed in Simple and visible in Engineering. No customer project data was used.
+- Current main: `1b538295b43d8eda1ce2ca46f9240c964aaaa34d` ([PR #16](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/16)).
+- Corrected exact candidate `af9c5b804c5d77575b94d7601c4fc8fa6128f1c0` passed the full repository gate in [run 43244230000](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43244230000).
+- Exact-main validation: [run 43245232196](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43245232196), successful.
+- GitHub Pages publication: [run 43245983581](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43245983581), successful for the same main SHA.
+- Live custom-domain verification: Costs & Carbon Simple mode kept essential tariff prices and Save visible while advanced rules were collapsed; expanding showed demand and billing rules and Add tariff band. Engineering mode opened the rules. The empty project source reference says the tariff is an editable assumption, not retrieved data; no customer data was used.
 
-Previous reference-workspace releases are PR #7 / Pages run 43219911880 and PR #8 / Pages run 43222118888. See [TEST_EVIDENCE.md](TEST_EVIDENCE.md) for exact candidate and validation coverage.
+Previous reference-workspace releases are PRs #7–#9 and the selected detail-mode releases are PRs #11, #13 and #14. See [TEST_EVIDENCE.md](TEST_EVIDENCE.md) for candidate and validation coverage.
 
 ## Verified publication workflow
 
