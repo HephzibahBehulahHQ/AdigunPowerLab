@@ -1691,6 +1691,7 @@ export default function App() {
                       <Simulation
                         project={project}
                         result={result}
+                        detailMode={detailMode}
                         onComplete={rememberCalendar}
                         animationsPaused={motion === "paused"}
                       />
