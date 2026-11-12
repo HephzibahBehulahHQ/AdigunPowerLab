@@ -1402,7 +1402,9 @@ export function Costs({
                 <Field key={k} label={k}>
                   <OptionalLocaleNumberInput
                     step="any"
-                    min={k === "importRate" || k === "exportRate" ? undefined : 0}
+                    min={
+                      k === "importRate" || k === "exportRate" ? undefined : 0
+                    }
                     max={
                       k === "importRate" || k === "exportRate" ? undefined : 24
                     }
@@ -1844,3 +1846,4 @@ export function Scenarios({
     </>
   );
 }
+
