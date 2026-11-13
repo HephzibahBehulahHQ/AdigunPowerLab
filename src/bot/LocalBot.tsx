@@ -690,33 +690,26 @@ export default function LocalBot({
             ) : (
               <>
                 <p>{proposal.preview.summary}</p>
-                {proposal.preview.command.kind === "loads.assign" && (
-                  <p>
-                    {proposal.preview.changes.find(
+                {proposal.preview.command.kind === "loads.assign" &&
+                  (() => {
+                    const command = proposal.preview.command;
+                    if (command.kind !== "loads.assign") return null;
+                    const circuit = project.circuits.find(
+                      (item) => item.id === command.circuitId,
+                    );
+                    const board = project.boards.find(
+                      (item) => item.id === circuit?.boardId,
+                    );
+                    const load = proposal.preview.changes.find(
                       (change) => change.field === "circuitId",
-                    )?.name}{" "}
-                    →{" "}
-                    {project.circuits.find(
-                      (circuit) =>
-                        circuit.id === proposal.preview.command.circuitId,
-                    )?.name}{" "}
-                    ·{" "}
-                    {project.boards.find(
-                      (board) =>
-                        board.id ===
-                        project.circuits.find(
-                          (circuit) =>
-                            circuit.id ===
-                            proposal.preview.command.circuitId,
-                        )?.boardId,
-                    )?.name}{" "}
-                    ·{" "}
-                    {project.circuits.find(
-                      (circuit) =>
-                        circuit.id === proposal.preview.command.circuitId,
-                    )?.phase}
-                  </p>
-                )}
+                    );
+                    return (
+                      <p>
+                        {load?.name} → {circuit?.name} · {board?.name} ·{" "}
+                        {circuit?.phase}
+                      </p>
+                    );
+                  })()}
                 <ul>
                   {proposal.preview.changes.map((change, index) => (
                     <li key={`${change.objectId}:${change.field}:${index}`}>
