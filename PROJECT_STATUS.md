@@ -2,6 +2,10 @@
 
 Date: 13 November 2026. Owner: Hephzibah Behulah.
 
+## Source equipment assessment detail-mode continuation: 13 November 2026
+
+[PR #42](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/42), merged as `5452c70113bce43eb6183aa52d5ed489f80f4075`, makes the source-equipment assessment method follow the shared detail preference: collapsed in Simple mode and open in Engineering mode. Assessment check results remain visible in both modes. Candidate [run 43349206656](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43349206656), exact-main [run 43349934690](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43349934690), and Pages [run 43350626746](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43350626746) passed. The browser fixture used an entered test-only source record; no client project data was used.
+
 ## BOT phase assignment continuation: 13 November 2026
 
 [PR #40](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/40), merged as `fe2fc976a053eb9b16476a3191a3e0bafc29056e`, adds a deterministic `phase load: Name; L2` task. It targets one exact unique load name, previews validated affected circuit changes (including locked-phase behavior), shows the before/after fields and applies only after confirmation through project history. Candidate validation passed in [run 43341542625](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43341542625); exact-main validation passed in [run 43344985411](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43344985411); Pages publication passed in [run 43345697205](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43345697205). [PR #39](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/39) records prior feeder detail-mode release receipts. Candidate data used no client project.
@@ -51,4 +55,4 @@ These are bounded visual milestones, not full original-spec acceptance. The curr
 
 ## Next action
 
-The menu guide, tour, guide-backed answers, confirmed load edits, feeder method detail mode and confirmed phase assignment are deployed. Continue remaining workflow/detail-mode coverage and interface-language review; expand BOT task support only through backed deterministic commands with reviewable effects. Independent accessibility, language and engineering review, licensed/current datasets, and full original-spec acceptance remain open. Exact-main Pages publication passed for PR #40; direct custom-domain HTTP verification remains unavailable in this environment.
+The menu guide, tour, guide-backed answers, confirmed load edits, feeder method detail mode, confirmed phase assignment and source assessment detail mode are deployed. Continue remaining workflow/detail-mode coverage and interface-language review; expand BOT task support only through backed deterministic commands with reviewable effects. Independent accessibility, language and engineering review, licensed/current datasets, and full original-spec acceptance remain open. Exact-main Pages publication passed for PR #40; direct custom-domain HTTP verification remains unavailable in this environment.
