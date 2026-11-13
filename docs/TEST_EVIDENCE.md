@@ -1,5 +1,17 @@
 # Test evidence
 
+## PR #56 Load Schedule context-menu acceptance: 13 November 2026
+
+- **PR #56:** browser acceptance verifies pointer and Shift+F10 opening, arrow/Home/End navigation, Escape focus return and the Edit action. It uses an isolated analytical heater fixture; no client data is touched.
+- Candidate full CI passed in [run 43374323130](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43374323130).
+- Merged main `acafc46e0285434abba82984657fc553fdbc60d4` passed full CI in [run 43374887506](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43374887506); Pages deployed the exact SHA in [run 43375409749](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43375409749). Its summary identifies validation run 43374887506 and source artifact 14013394007; the Pages artifact is 14014108069.
+
+## PR #55 documentation deployment receipt: 13 November 2026
+
+- **PR #55:** records PR #54's release evidence; this documentation-only change does not alter application behavior.
+- Candidate full CI passed in [run 43373318062](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43373318062).
+- Merged main `177e38623e46b13f3ab1f464f736ffe6953fdeeb` passed full CI in [run 43373893178](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43373893178); Pages deployed the exact SHA in [run 43374451469](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43374451469). Its summary identifies validation run 43373893178 and source artifact 14013578423; the Pages artifact is 14013912704.
+
 ## Confirmed BOT load-to-board assignment: 13 November 2026
 
 - **PR #50:** exact-name load-to-board assignment shows the destination and circuit detachment before confirmation; unit and browser fixtures use isolated project records.
