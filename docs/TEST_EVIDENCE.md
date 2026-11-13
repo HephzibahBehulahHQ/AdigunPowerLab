@@ -1,5 +1,12 @@
 # Test evidence
 
+## Confirmed BOT load-to-circuit assignment: 13 November 2026
+
+- **PR #46:** exact-name BOT assignment uses a reviewed preview and explicit confirmation; board and phase side effects are visible before applying.
+- Candidate full CI passed in [run 43357419432](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43357419432).
+- Merged main `b2ff3a38045020a3489f8c9cc6652adbd0973ee5` passed full CI in [run 43358065181](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43358065181); Pages deployed that SHA in [run 43358633684](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43358633684).
+- Browser coverage uses an isolated project fixture. No client project data was used.
+
 ## Spatial object inspection detail mode: 13 November 2026
 
 - **PR #44:** the selected spatial object’s descriptive detail follows Simple/Engineering mode. Its name and representative kW value remain visible in both modes.
