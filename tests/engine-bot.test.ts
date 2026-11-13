@@ -1,8 +1,13 @@
 import { describe, expect, it } from "vitest";
-import { createLoad, createProject } from "../src/domain/project";
+import {
+  createCircuit,
+  createLoad,
+  createProject,
+} from "../src/domain/project";
 import {
   applyProposal,
   parseLoadEditProposal,
+  parseLoadPhaseProposal,
   parseLoadProposal,
   proposePhaseBalance,
   runLocalCommand,
@@ -75,6 +80,52 @@ describe("typed local assistant boundary", () => {
     expect(() =>
       parseLoadEditProposal(project, "edit load: Heater; power_factor; 2"),
     ).toThrow();
+  });
+  it("phase proposals preview all affected circuit loads and apply only after confirmation", () => {
+    const project = createProject();
+    const circuit = createCircuit(project.boards[0].id, {
+      name: "Pump circuit",
+    });
+    project.circuits = [circuit];
+    project.loads = [
+      createLoad({
+        name: "Pump",
+        boardId: project.boards[0].id,
+        circuitId: circuit.id,
+        phase: "L1",
+      }),
+      createLoad({
+        name: "Fan",
+        boardId: project.boards[0].id,
+        circuitId: circuit.id,
+        phase: "L1",
+      }),
+    ];
+    const before = structuredClone(project);
+    const proposal = parseLoadPhaseProposal(project, "phase load: Pump; L2")!;
+    expect(project).toEqual(before);
+    expect(proposal.preview.changes.map((change) => change.name)).toContain(
+      "Fan",
+    );
+    applyProposal(project, proposal);
+    expect(project.loads.map((load) => load.phase)).toEqual(["L2", "L2"]);
+    expect(project.circuits[0].phase).toBe("L2");
+    expect(() => applyProposal(project, proposal)).toThrow();
+  });
+  it("rejects locked, ambiguous and already-satisfied phase changes", () => {
+    const project = createProject();
+    project.loads = [createLoad({ name: "Pump", locked: true, phase: "L1" })];
+    expect(() =>
+      parseLoadPhaseProposal(project, "phase load: Pump; L2"),
+    ).toThrow(/locked/);
+    project.loads.push(createLoad({ name: "Pump" }));
+    expect(() =>
+      parseLoadPhaseProposal(project, "phase load: Pump; L2"),
+    ).toThrow(/ambiguous/);
+    project.loads = [createLoad({ name: "Pump", phase: "L2" })];
+    expect(() =>
+      parseLoadPhaseProposal(project, "phase load: Pump; L2"),
+    ).toThrow(/already assigned/);
   });
   it("unknown natural language gets honest local help, not fabricated answers", () => {
     const response = runLocalCommand(createProject(), "What is the weather?");

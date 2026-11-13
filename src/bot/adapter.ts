@@ -1,11 +1,17 @@
 import { createLoad } from "../domain/project";
 import type { CalculationResult, Issue, Load, Project } from "../domain/types";
+import type { Phase } from "../domain/types";
 import { calculateProject, normalizeLoad } from "../engine/electrical";
 import {
   applyPhaseBalance,
   previewPhaseBalance,
   type BalancePlan,
 } from "../engine/planning";
+import {
+  applyProjectCommand,
+  previewProjectCommand,
+  type CommandPreview,
+} from "../commands/projectCommands";
 
 export const LOCAL_CAPABILITIES = [
   { id: "getProjectSummary", mutates: false },
@@ -14,6 +20,7 @@ export const LOCAL_CAPABILITIES = [
   { id: "listMissingInputs", mutates: false },
   { id: "runCalculation", mutates: false },
   { id: "proposePhaseBalance", mutates: false },
+  { id: "proposeLoadPhase", mutates: false },
   { id: "proposeLoads", mutates: false },
   { id: "proposeLoadEdits", mutates: false },
   { id: "previewProjectChanges", mutates: false },
@@ -44,7 +51,12 @@ export interface LoadEditProposal {
   beforeKW: number;
   afterKW: number;
 }
-export type Proposal = LoadProposal | PhaseProposal | LoadEditProposal;
+export interface CommandProposal {
+  kind: "command";
+  preview: CommandPreview;
+}
+export type Proposal =
+  LoadProposal | PhaseProposal | LoadEditProposal | CommandProposal;
 export interface LocalResponse {
   kind:
     "summary" | "explain" | "issues" | "balance" | "load" | "report" | "help";
@@ -188,6 +200,38 @@ export function parseLoadEditProposal(
   };
 }
 
+/** Typed load-phase command; the project command layer validates all connected loads. */
+export function parseLoadPhaseProposal(
+  project: Project,
+  input: string,
+): CommandProposal | undefined {
+  const match = /^phase\s+load\s*:\s*([^;]{1,120})\s*;\s*(L[123])\s*$/i.exec(
+    input.trim(),
+  );
+  if (!match) return undefined;
+  const name = match[1].trim();
+  const matches = project.loads.filter(
+    (load) =>
+      load.name.localeCompare(name, undefined, { sensitivity: "accent" }) === 0,
+  );
+  if (matches.length !== 1)
+    throw new Error(
+      matches.length
+        ? "Load name is ambiguous. Use a unique load name."
+        : "No load with that exact name was found.",
+    );
+  const phase = match[2].toUpperCase() as Phase;
+  const preview = previewProjectCommand(project, {
+    kind: "loads.phase",
+    ids: [matches[0].id],
+    phase,
+  });
+  if (preview.errors.length) throw new Error(preview.errors.join(" "));
+  if (!preview.changes.length)
+    throw new Error(`${matches[0].name} is already assigned to ${phase}.`);
+  return { kind: "command", preview };
+}
+
 export function runLocalCommand(
   project: Project,
   input: string,
@@ -200,6 +244,9 @@ export function runLocalCommand(
   const loadEditProposal = parseLoadEditProposal(project, input);
   if (loadEditProposal)
     return { ...base, kind: "load", proposal: loadEditProposal };
+  const phaseProposal = parseLoadPhaseProposal(project, input);
+  if (phaseProposal)
+    return { ...base, kind: "balance", proposal: phaseProposal };
   const command = input.trim().toLocaleLowerCase();
   if (/balance|phasen|ìdọ́gba|ido.gba|phases/.test(command))
     return { ...base, kind: "balance", proposal: proposePhaseBalance(project) };
@@ -226,7 +273,13 @@ export function runLocalCommand(
 
 /** Run inside the owner's single undoable command. Stale proposal data never changes a newer project. */
 export function applyProposal(draft: Project, proposal: Proposal): void {
-  if (draft.id !== proposal.projectId || draft.revision !== proposal.revision)
+  const projectId =
+    proposal.kind === "command"
+      ? proposal.preview.projectId
+      : proposal.projectId;
+  const revision =
+    proposal.kind === "command" ? proposal.preview.revision : proposal.revision;
+  if (draft.id !== projectId || draft.revision !== revision)
     throw new Error(
       "Project changed after this preview. Request a new proposal before applying changes.",
     );
@@ -247,7 +300,7 @@ export function applyProposal(draft: Project, proposal: Proposal): void {
     )
       throw new Error("Load proposal is invalid or already applied.");
     draft.loads.push(structuredClone(proposal.load));
-  } else {
+  } else if (proposal.kind === "load-edit") {
     const index = draft.loads.findIndex(
       (load) => load.id === proposal.before.id,
     );
@@ -262,5 +315,7 @@ export function applyProposal(draft: Project, proposal: Proposal): void {
     if (!normalized.valid || proposal.after.id !== proposal.before.id)
       throw new Error("Load edit is invalid.");
     draft.loads[index] = structuredClone(proposal.after);
+  } else {
+    Object.assign(draft, applyProjectCommand(draft, proposal.preview));
   }
 }
