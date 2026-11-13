@@ -1,5 +1,17 @@
 # Test evidence
 
+## PR #62 Adigun BOT invalid numeric edit rejection: 13 November 2026
+
+- **PR #62:** browser acceptance verifies invalid nonnumeric quantity input returns the actual validation error, produces no proposal or apply action, and preserves the saved quantity.
+- Candidate full CI passed in [run 43384735224](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43384735224).
+- Merged main `0e7a42aad932aabc3e1b6e6a0af99c4890227ed0` passed full CI in [run 43385494386](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43385494386); Pages deployed the exact SHA in [run 43386104306](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43386104306). Its summary identifies validation run 43385494386 and source artifact 14018457563; the Pages artifact is 14018128993.
+
+## PR #61 documentation deployment receipts: 13 November 2026
+
+- **PR #61:** records PR #59 and #60 release evidence; documentation only, with no application behavior change.
+- Candidate full CI passed in [run 43382996724](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43382996724).
+- Merged main `2b1091f0a164bdd44b59736a40abfc546cf54be9` passed full CI in [run 43383782916](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43383782916); Pages deployed the exact SHA in [run 43384403523](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43384403523). Its summary identifies validation run 43383782916 and source artifact 14018155456; the Pages artifact is 14018225324.
+
 ## PR #60 Adigun BOT ambiguous-target rejection: 13 November 2026
 
 - **PR #60:** browser acceptance verifies an exact-name edit is rejected when the load name matches two records, no confirmation proposal is offered, and both fixture loads remain intact.
