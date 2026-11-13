@@ -483,9 +483,11 @@ test("load context menu inspection, duplication and reviewed deletion work as pr
 }) => {
   await ready(page);
   await addLoad(page);
-  const original = page
-    .locator("tbody tr")
-    .filter({ hasText: "Analytical heater" });
+  const original = page.locator("tbody tr").filter({
+    has: page
+      .locator("button.load-name")
+      .getByText("Analytical heater", { exact: true }),
+  });
   const originalOpener = original.locator("button.load-name");
 
   await originalOpener.click({ button: "right" });
