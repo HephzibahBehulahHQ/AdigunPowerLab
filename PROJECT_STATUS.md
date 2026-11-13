@@ -2,6 +2,10 @@
 
 Date: 13 November 2026. Owner: Hephzibah Behulah.
 
+## Confirmed BOT load-to-circuit assignment: 13 November 2026
+
+[PR #46](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/46), merged as `b2ff3a38045020a3489f8c9cc6652adbd0973ee5`, adds exact-name `assign load: Heater; circuit: Lighting circuit` to Adigun BOT. The operation uses the existing preview, confirmation, history, and undo path. The preview identifies the target circuit, served board, and phase; incompatible DC assignments and locked phase mismatches are rejected. Candidate [run 43357419432](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43357419432), exact-main [run 43358065181](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43358065181), and Pages [run 43358633684](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43358633684) passed. Browser coverage uses isolated fixture data.
+
 ## Spatial object inspection detail-mode continuation: 13 November 2026
 
 [PR #44](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/44), merged as `4d5fd78d2efc4aabeb5ef9a8078e864e41d50ed1`, connects the analytical spatial view’s selected-object description to the global detail preference. Simple mode collapses the description while retaining object name and representative kW; Engineering opens the description. Candidate [run 43353163135](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43353163135), exact-main [run 43353747498](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43353747498), and Pages [run 43354410218](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43354410218) passed. Browser coverage uses the existing test-only analytical fixture, not client data.

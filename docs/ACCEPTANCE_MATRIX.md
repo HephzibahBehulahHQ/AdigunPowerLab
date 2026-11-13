@@ -2,6 +2,10 @@
 
 Audit date: 13 November 2026. Scope: original specification sections 01–33, fixtures F01–F20 and tools T01–T51, plus the recovered continuation.
 
+## Confirmed BOT load-to-circuit assignment: 13 November 2026
+
+[PR #46](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/46) adds confirmed assignment of one uniquely named load to one uniquely named circuit. The proposal shows circuit, served board, and phase effects before applying the existing project command; unsupported or incompatible assignments fail safely. Candidate, exact-main, and Pages receipts are in [TEST_EVIDENCE.md](TEST_EVIDENCE.md) and [DEPLOYMENT.md](DEPLOYMENT.md). Browser verification uses test-only records; it does not imply client project changes.
+
 ## Spatial object inspection detail mode: 13 November 2026
 
 [PR #44](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/44) connects the analytical spatial view's selected-object description to the global Simple/Engineering preference. Simple mode collapses that description and preserves object identity and representative kW; Engineering opens it. Candidate, exact-main and Pages receipts are recorded in [TEST_EVIDENCE.md](TEST_EVIDENCE.md) and [DEPLOYMENT.md](DEPLOYMENT.md). The browser fixture is analytical test data and makes no physical survey or telemetry claim.
