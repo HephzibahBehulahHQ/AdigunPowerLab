@@ -162,7 +162,14 @@ describe("typed local assistant boundary", () => {
         "assign load: Heater; circuit: Lighting circuit",
       ),
     ).toThrow(/ambiguous/);
-    project.loads = [createLoad({ name: "Heater", phase: "L2" })];
+    project.loads = [
+      createLoad({
+        name: "Heater",
+        boardId: circuit.boardId,
+        circuitId: circuit.id,
+        phase: "L2",
+      }),
+    ];
     expect(() =>
       parseLoadCircuitAssignmentProposal(
         project,
