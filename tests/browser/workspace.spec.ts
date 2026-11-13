@@ -242,9 +242,11 @@ test("BOT circuit assignment previews destination and applies only after confirm
   page,
 }) => {
   await ready(page);
-  await page.evaluate(async () => {
-    const domain = await import("/src/domain/project.ts");
-    const storage = await import("/src/storage/projects.ts");
+  const boardName = await page.evaluate(async () => {
+    const domainPath = "/src/domain/project.ts";
+    const storagePath = "/src/storage/projects.ts";
+    const domain = await import(/* @vite-ignore */ domainPath);
+    const storage = await import(/* @vite-ignore */ storagePath);
     const project = domain.createProject("BOT circuit assignment fixture");
     const circuit = domain.createCircuit(project.boards[0].id, {
       name: "Lighting circuit",
@@ -260,6 +262,7 @@ test("BOT circuit assignment previews destination and applies only after confirm
     ];
     await storage.saveProject(project);
     storage.writePreference("currentProject", project.id);
+    return project.boards[0].name;
   });
   await page.reload();
   await page
@@ -275,7 +278,7 @@ test("BOT circuit assignment previews destination and applies only after confirm
   await expect(proposal).toContainText("BOT assignment target");
   await expect(proposal).toContainText("Lighting circuit");
   await expect(proposal).toContainText("L2");
-  await expect(proposal).toContainText("board");
+  await expect(proposal).toContainText(boardName);
   await expect(
     proposal.getByRole("button", {
       name: "Apply confirmed changes",
