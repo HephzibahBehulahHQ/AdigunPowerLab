@@ -1,5 +1,11 @@
 # Test evidence
 
+## BOT window lifecycle acceptance: 13 November 2026
+
+- **PR #48:** browser coverage verifies keyboard repositioning, minimize/restore, maximize/restore, close/reopen, persisted geometry and session conversation retention.
+- Candidate full CI passed in [run 43361011720](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43361011720).
+- Merged main `52a3165d8d0856196602258469aba5307c128db3` passed full CI in [run 43361669486](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43361669486); Pages deployed that SHA in [run 43362136134](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43362136134).
+
 ## Confirmed BOT load-to-circuit assignment: 13 November 2026
 
 - **PR #46:** exact-name BOT assignment uses a reviewed preview and explicit confirmation; board and phase side effects are visible before applying.

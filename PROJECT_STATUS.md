@@ -2,6 +2,10 @@
 
 Date: 13 November 2026. Owner: Hephzibah Behulah.
 
+## BOT window lifecycle acceptance: 13 November 2026
+
+[PR #48](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/48), merged as `52a3165d8d0856196602258469aba5307c128db3`, verifies keyboard repositioning, minimize/restore, maximize/restore, close/reopen, persisted window geometry, and session conversation retention in the browser. Candidate [run 43361011720](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43361011720), exact-main [run 43361669486](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43361669486), and Pages [run 43362136134](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43362136134) passed.
+
 ## Confirmed BOT load-to-circuit assignment: 13 November 2026
 
 [PR #46](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/46), merged as `b2ff3a38045020a3489f8c9cc6652adbd0973ee5`, adds exact-name `assign load: Heater; circuit: Lighting circuit` to Adigun BOT. The operation uses the existing preview, confirmation, history, and undo path. The preview identifies the target circuit, served board, and phase; incompatible DC assignments and locked phase mismatches are rejected. Candidate [run 43357419432](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43357419432), exact-main [run 43358065181](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43358065181), and Pages [run 43358633684](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43358633684) passed. Browser coverage uses isolated fixture data.
@@ -63,4 +67,4 @@ These are bounded visual milestones, not full original-spec acceptance. The curr
 
 ## Next action
 
-The menu guide, tour, guide-backed answers, confirmed load edits, feeder method detail mode, confirmed phase assignment and source assessment detail mode and spatial object detail mode are deployed. Continue remaining workflow/detail-mode coverage and interface-language review; expand BOT task support only through backed deterministic commands with reviewable effects. Independent accessibility, language and engineering review, licensed/current datasets, and full original-spec acceptance remain open. Exact-main Pages publication passed for PR #40; direct custom-domain HTTP verification remains unavailable in this environment.
+The menu guide, tour, guide-backed answers, confirmed load edits, feeder method detail mode, confirmed phase assignment, source assessment and spatial detail modes, confirmed load-to-circuit assignment and BOT window lifecycle coverage are deployed. Continue remaining workflow/detail-mode coverage, action/failure paths and interface-language review; expand BOT task support only through backed deterministic commands with reviewable effects. Independent accessibility, language and engineering review, licensed/current datasets, and full original-spec acceptance remain open. Exact-main Pages publication passed for PR #48; direct custom-domain HTTP verification remains unavailable in this environment.
