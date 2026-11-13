@@ -602,3 +602,44 @@ test("local BOT rejects nonnumeric load edits without a proposal or mutation", a
   await expect(dialog.getByLabel("Quantity", { exact: true })).toHaveValue("1");
   await dialog.getByRole("button", { name: "Close", exact: true }).click();
 });
+
+test("local BOT rejects missing exact-name edit targets without a proposal or mutation", async ({
+  page,
+}) => {
+  await ready(page);
+  await addLoad(page, { name: "Existing BOT target" });
+  const row = page
+    .locator("tbody tr")
+    .filter({ hasText: "Existing BOT target" });
+
+  await page
+    .getByRole("button", { name: "Open Adigun BOT", exact: true })
+    .click();
+  const bot = page.locator(".local-bot");
+  await bot
+    .locator("textarea")
+    .fill("edit load: Missing BOT target; quantity; 2");
+  await bot.getByRole("button", { name: "Send", exact: true }).click();
+
+  await expect(bot.getByRole("alert")).toHaveText(
+    "No load with that exact name was found.",
+  );
+  await expect(bot.locator(".bot-proposal")).toHaveCount(0);
+  await expect(
+    bot.getByRole("button", { name: "Apply confirmed changes", exact: true }),
+  ).toHaveCount(0);
+  await expect(row).toHaveCount(1);
+
+  await row
+    .getByRole("button", {
+      name: "Edit Existing BOT target",
+      exact: true,
+    })
+    .click();
+  const dialog = page.getByRole("dialog", {
+    name: "Edit load",
+    exact: true,
+  });
+  await expect(dialog.getByLabel("Quantity", { exact: true })).toHaveValue("1");
+  await dialog.getByRole("button", { name: "Close", exact: true }).click();
+});
