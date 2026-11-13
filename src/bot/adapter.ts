@@ -23,6 +23,7 @@ export const LOCAL_CAPABILITIES = [
   { id: "proposeLoadPhase", mutates: false },
   { id: "proposeLoads", mutates: false },
   { id: "proposeLoadEdits", mutates: false },
+  { id: "proposeLoadBoardAssignment", mutates: false },
   { id: "previewProjectChanges", mutates: false },
   { id: "applyConfirmedChanges", mutates: true, requiresConfirmation: true },
   { id: "prepareReportNarrative", mutates: false },
@@ -281,6 +282,55 @@ export function parseLoadCircuitAssignmentProposal(
   return { kind: "command", preview };
 }
 
+/** Typed exact-name board assignment; moving a load off a circuit is previewed. */
+export function parseLoadBoardAssignmentProposal(
+  project: Project,
+  input: string,
+): CommandProposal | undefined {
+  const match =
+    /^assign\s+load\s*:\s*([^;]{1,120})\s*;\s*board\s*:\s*([^;]{1,120})\s*$/i.exec(
+      input.trim(),
+    );
+  if (!match) return undefined;
+  const loadName = match[1].trim();
+  const boardName = match[2].trim();
+  const loads = project.loads.filter(
+    (load) =>
+      load.name.localeCompare(loadName, undefined, {
+        sensitivity: "accent",
+      }) === 0,
+  );
+  if (loads.length !== 1)
+    throw new Error(
+      loads.length
+        ? "Load name is ambiguous. Use a unique load name."
+        : "No load with that exact name was found.",
+    );
+  const boards = project.boards.filter(
+    (board) =>
+      board.name.localeCompare(boardName, undefined, {
+        sensitivity: "accent",
+      }) === 0,
+  );
+  if (boards.length !== 1)
+    throw new Error(
+      boards.length
+        ? "Board name is ambiguous. Use a unique board name."
+        : "No board with that exact name was found.",
+    );
+  const preview = previewProjectCommand(project, {
+    kind: "loads.assign",
+    ids: [loads[0].id],
+    boardId: boards[0].id,
+  });
+  if (preview.errors.length) throw new Error(preview.errors.join(" "));
+  if (!preview.changes.length)
+    throw new Error(
+      `${loads[0].name} is already assigned to ${boards[0].name}.`,
+    );
+  return { kind: "command", preview };
+}
+
 export function runLocalCommand(
   project: Project,
   input: string,
@@ -302,6 +352,12 @@ export function runLocalCommand(
   );
   if (circuitAssignmentProposal)
     return { ...base, kind: "load", proposal: circuitAssignmentProposal };
+  const boardAssignmentProposal = parseLoadBoardAssignmentProposal(
+    project,
+    input,
+  );
+  if (boardAssignmentProposal)
+    return { ...base, kind: "load", proposal: boardAssignmentProposal };
   const command = input.trim().toLocaleLowerCase();
   if (/balance|phasen|ìdọ́gba|ido.gba|phases/.test(command))
     return { ...base, kind: "balance", proposal: proposePhaseBalance(project) };
