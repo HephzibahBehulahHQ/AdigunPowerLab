@@ -339,4 +339,3 @@ test("source assessment details follow mode while check results remain visible",
   await mode.selectOption("engineering");
   await expect(method).toHaveJSProperty("open", true);
 });
-
