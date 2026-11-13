@@ -748,4 +748,19 @@ export const uiMessages: Record<string, [string, string, string]> = {
     "Tẹ nọ́ńbà odindi sí ààlà tí a gbà.",
     "Enter whole number inside supported range.",
   ],
+  "Load name is ambiguous. Use a unique load name.": [
+    "Der Name der Last ist nicht eindeutig. Verwenden Sie einen eindeutigen Namen für die Last.",
+    "Orúkọ ẹrù náà kò ṣe kedere. Lo orúkọ ẹrù mìíràn tó yàtọ̀.",
+    "This load name match more than one load. Use another unique load name.",
+  ],
+  "Enter one positive numeric value for this field.": [
+    "Geben Sie für dieses Feld genau einen positiven Zahlenwert ein.",
+    "Tẹ iye nọ́mbà rere kan ṣoṣo fún pápá yìí.",
+    "Enter one positive number for this field.",
+  ],
+  "No load with that exact name was found.": [
+    "Es wurde keine Last mit genau diesem Namen gefunden.",
+    "A kò rí ẹrù tó ní orúkọ yẹn gan-an.",
+    "We no find any load with that exact name.",
+  ],
 };
