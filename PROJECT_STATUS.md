@@ -2,6 +2,14 @@
 
 Date: 13 November 2026. Owner: Hephzibah Behulah.
 
+## PR #66 Adigun BOT validation-message localization — 13 November 2026
+
+[PR #66](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/66) adds German, Yorùbá and Nigerian Pidgin translations for the three covered load-edit rejection errors (ambiguous target, invalid numeric entry, and missing exact-name target), with exact translation tests for all four locales. Initial candidate [run 43408661877](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43408661877) stopped at lint on test formatting; corrected candidate [run 43408751207](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43408751207), exact-main [run 43409514890](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43409514890), and Pages [run 43410192205](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43410192205) passed. Main `7ae0dce814a20ddd581341b7936d631995789943` is deployed; Pages used validated source artifact 14029725629 (Pages output artifact 14029660706). Candidate artifact 14029290832. Broader technical language review remains open.
+
+## PR #65 documentation deployment receipts — 13 November 2026
+
+[PR #65](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/65) records PR #63 and #64 release receipts. Candidate [run 43406796206](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43406796206), exact-main [run 43407547594](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43407547594), and Pages [run 43408249009](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43408249009) passed. Main `fd4b8f9286c1411a15a6e7017033b8e1642d8bff` is deployed; Pages verified source artifact 14028311943 (Pages output artifact 14027144850). Documentation only.
+
 ## PR #64 Adigun BOT missing-target rejection coverage — 13 November 2026
 
 [PR #64](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/64) adds browser acceptance for an edit naming no existing load. It checks the exact validation error, absence of a change proposal or apply action, and that the existing synthetic load quantity remains 1. Candidate [run 43405037858](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43405037858), exact-main [run 43405812091](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43405812091), and Pages [run 43406413405](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43406413405) passed. Main `eca076187c9d1efc0d0ada12f73389351048947c` is deployed; Pages selected validation run 43405812091 and source artifact 14026419689 (Pages output artifact 14027088565). Candidate artifact 14027810345. Synthetic isolated data only.
