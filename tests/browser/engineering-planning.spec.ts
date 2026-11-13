@@ -78,24 +78,26 @@ async function fixture(page: Page, kind: "calendar" | "feeder" | "dispatch" | "s
         }),
       ];
     } else if (kind === "source") {
-      project.sources = [{
-        id: "browser-grid",
-        name: "Planning grid",
-        type: "grid",
-        boardId: project.boards[0].id,
-        connection: "three",
-        voltageV: project.supply.voltageLL,
-        continuousKW: 100,
-        continuousKVA: 125,
-        derating: 1,
-        islandCapable: false,
-        gridForming: false,
-        transferIsolationVerified: false,
-        blackStart: false,
-        restartSeconds: 0,
-        source: { kind: "user", reference: "Browser fixture only" },
-        notes: "",
-      }];
+      project.sources = [
+        {
+          id: "browser-grid",
+          name: "Planning grid",
+          type: "grid",
+          boardId: project.boards[0].id,
+          connection: "three",
+          voltageV: project.supply.voltageLL,
+          continuousKW: 100,
+          continuousKVA: 125,
+          derating: 1,
+          islandCapable: false,
+          gridForming: false,
+          transferIsolationVerified: false,
+          blackStart: false,
+          restartSeconds: 0,
+          source: { kind: "user", reference: "Browser fixture only" },
+          notes: "",
+        },
+      ];
     } else
       Object.assign(project.energy, {
         pvKW: 2,
