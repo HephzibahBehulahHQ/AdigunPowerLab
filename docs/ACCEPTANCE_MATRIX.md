@@ -1,6 +1,10 @@
 # AdigunPowerLab acceptance audit
 
-Audit date: 12 November 2026. Scope: original specification sections 01–33, fixtures F01–F20 and tools T01–T51, plus the recovered continuation.
+Audit date: 13 November 2026. Scope: original specification sections 01–33, fixtures F01–F20 and tools T01–T51, plus the recovered continuation.
+
+## Confirmed BOT phase assignment: 13 November 2026
+
+[PR #40](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/40) adds a typed, deterministic phase assignment proposal using an exact unique load name. The validated preview shows affected circuit load phase changes and locked-phase behavior; confirmation is required before changes are applied through project history. Candidate, exact-main and Pages receipts are recorded in [TEST_EVIDENCE.md](TEST_EVIDENCE.md) and [DEPLOYMENT.md](DEPLOYMENT.md). No client data was used. Other BOT task types remain intentionally limited to implemented, backed commands.
 
 ## Workflow detail-mode continuation: 12 November 2026
 

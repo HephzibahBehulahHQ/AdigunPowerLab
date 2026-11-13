@@ -1,6 +1,10 @@
 # AdigunPowerLab — current status
 
-Date: 12 November 2026. Owner: Hephzibah Behulah.
+Date: 13 November 2026. Owner: Hephzibah Behulah.
+
+## BOT phase assignment continuation: 13 November 2026
+
+[PR #40](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/40), merged as `fe2fc976a053eb9b16476a3191a3e0bafc29056e`, adds a deterministic `phase load: Name; L2` task. It targets one exact unique load name, previews validated affected circuit changes (including locked-phase behavior), shows the before/after fields and applies only after confirmation through project history. Candidate validation passed in [run 43341542625](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43341542625); exact-main validation passed in [run 43344985411](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43344985411); Pages publication passed in [run 43345697205](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43345697205). [PR #39](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/39) records prior feeder detail-mode release receipts. Candidate data used no client project.
 
 ## Detail-mode release continuation
 
@@ -47,4 +51,4 @@ These are bounded visual milestones, not full original-spec acceptance. The curr
 
 ## Next action
 
-The menu guide, tour, guide-backed answers, confirmed load edits and feeder method detail mode are deployed. Continue remaining workflow/detail-mode coverage and interface-language review; expand BOT task support only through backed deterministic commands with reviewable effects. Independent accessibility, language and engineering review, licensed/current datasets, and full original-spec acceptance remain open. Direct post-deploy HTTP verification could not run because this environment could not resolve the custom domain; the exact-main Pages publication succeeded.
+The menu guide, tour, guide-backed answers, confirmed load edits, feeder method detail mode and confirmed phase assignment are deployed. Continue remaining workflow/detail-mode coverage and interface-language review; expand BOT task support only through backed deterministic commands with reviewable effects. Independent accessibility, language and engineering review, licensed/current datasets, and full original-spec acceptance remain open. Exact-main Pages publication passed for PR #40; direct custom-domain HTTP verification remains unavailable in this environment.
