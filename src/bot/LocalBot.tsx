@@ -767,8 +767,8 @@ export default function LocalBot({
                     const isAssignment =
                       proposal.preview.command.kind === "loads.assign";
                     const readable = (field: string, value: string) => {
-                      if (!isAssignment || !value)
-                        return value || l("Unassigned");
+                      if (!isAssignment) return value;
+                      if (!value || value === "—") return l("Unassigned");
                       if (field === "boardId")
                         return (
                           project.boards.find((board) => board.id === value)
