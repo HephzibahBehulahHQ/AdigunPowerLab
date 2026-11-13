@@ -603,7 +603,6 @@ test("local BOT rejects nonnumeric load edits without a proposal or mutation", a
   await dialog.getByRole("button", { name: "Close", exact: true }).click();
 });
 
-
 test("local BOT rejects missing exact-name edit targets without a proposal or mutation", async ({
   page,
 }) => {
