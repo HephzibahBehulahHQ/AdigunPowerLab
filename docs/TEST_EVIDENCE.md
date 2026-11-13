@@ -1,5 +1,18 @@
 # Test evidence
 
+## PR #64 Adigun BOT missing-target rejection coverage: 13 November 2026
+
+- **PR #64:** browser acceptance checks that editing a nonexistent exact-name load returns the validation error, creates no proposal or apply action, and leaves the existing fixture quantity unchanged.
+- Candidate full CI passed in [run 43405037858](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43405037858).
+- Merged main `eca076187c9d1efc0d0ada12f73389351048947c` passed full CI in [run 43405812091](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43405812091); Pages deployed the exact SHA in [run 43406413405](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43406413405). Pages selected validation artifact 14026419689; its output artifact is 14027088565. Candidate artifact 14027810345.
+- All test records are synthetic and isolated.
+
+## PR #63 documentation deployment receipts: 13 November 2026
+
+- **PR #63:** records PR #61 and #62 release evidence; documentation only.
+- Candidate full CI passed in [run 43386533381](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43386533381).
+- Merged main `def2872fbb535c1e9de6c1a49b6d9254cf3ac843` passed full CI in [run 43387181107](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43387181107); Pages deployed the exact SHA in [run 43387757736](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43387757736). Pages source artifact 14018744305; Pages output artifact 14019019231.
+
 ## PR #62 Adigun BOT invalid numeric edit rejection: 13 November 2026
 
 - **PR #62:** browser acceptance verifies invalid nonnumeric quantity input returns the actual validation error, produces no proposal or apply action, and preserves the saved quantity.
