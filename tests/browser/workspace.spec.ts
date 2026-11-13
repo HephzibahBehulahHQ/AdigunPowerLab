@@ -293,6 +293,56 @@ test("BOT circuit assignment previews destination and applies only after confirm
   );
 });
 
+test("BOT previews board assignment and circuit removal before applying", async ({
+  page,
+}) => {
+  await ready(page);
+  const boardName = await page.evaluate(async () => {
+    const domainPath = "/src/domain/project.ts";
+    const storagePath = "/src/storage/projects.ts";
+    const domain = await import(/* @vite-ignore */ domainPath);
+    const storage = await import(/* @vite-ignore */ storagePath);
+    const project = domain.createProject("BOT board assignment fixture");
+    const currentBoard = project.boards[0];
+    const targetBoard = domain.createBoard({ name: "Workshop board" });
+    const circuit = domain.createCircuit(currentBoard.id, {
+      name: "Existing circuit",
+    });
+    project.boards.push(targetBoard);
+    project.circuits = [circuit];
+    project.loads = [
+      domain.createLoad({
+        name: "BOT board target",
+        boardId: currentBoard.id,
+        circuitId: circuit.id,
+      }),
+    ];
+    await storage.saveProject(project);
+    storage.writePreference("currentProject", project.id);
+    return targetBoard.name;
+  });
+  await page.reload();
+  await page
+    .getByRole("button", { name: "Open Adigun BOT", exact: true })
+    .click();
+  const bot = page.locator(".local-bot");
+  const composer = bot.locator("textarea");
+  await composer.fill(`assign load: BOT board target; board: ${boardName}`);
+  await bot.getByRole("button", { name: "Send", exact: true }).click();
+  const proposal = bot.locator(".bot-proposal").last();
+  await expect(proposal).toContainText("BOT board target");
+  await expect(proposal).toContainText("Workshop board");
+  await expect(proposal).toContainText("Existing circuit");
+  await expect(proposal).toContainText("Unassigned");
+  await proposal
+    .getByRole("button", { name: "Apply confirmed changes", exact: true })
+    .click();
+  await expect(proposal).toContainText(
+    "Applied through project history. Use Undo to restore.",
+  );
+  await expect(proposal).toContainText("Workshop board");
+});
+
 test("Adigun BOT window controls and conversation survive close and reopen", async ({
   page,
 }) => {

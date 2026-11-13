@@ -125,6 +125,23 @@ const text: Record<string, [string, string, string]> = {
       "Ìsopọ̀ yìí máa ṣe àtúnṣe pátákó tó ń pèsè iná, ó sì máa mú fásì ẹrù fásì-kan tí kò ní lock bá fásì síkítì mu. A ó kọ ìsopọ̀ tí kò bá yẹ.",
       "Assignment go update the board wey circuit dey serve and match unlocked single-phase load phase with circuit phase. Wrong assignment no go pass.",
     ],
+  "Typed board assignment command": [
+    "Strukturierter Verteilungszuweisungsbefehl",
+    "Àṣẹ láti so ẹrù mọ́ pátákó",
+    "Typed command to assign a load to a board",
+  ],
+  "A board-only assignment removes the load from its current circuit. Review that change before confirming.":
+    [
+      "Eine reine Verteilungszuweisung löst die Last von ihrem aktuellen Stromkreis. Prüfen Sie diese Änderung vor der Bestätigung.",
+      "Ìsopọ̀ sí pátákó nìkan yóò yọ ẹrù kúrò lórí síkítì tó wà. Ṣàyẹ̀wò àtúnṣe yìí kí o tó fọwọ́sí.",
+      "Board assignment alone go remove the load from the circuit wey e dey on. Check the change before you confirm.",
+    ],
+  Unassigned: ["Nicht zugewiesen", "A kò tíì yàn", "No assignment"],
+  "This assignment removes the existing circuit:": [
+    "Diese Zuweisung löst den vorhandenen Stromkreis:",
+    "Ìsopọ̀ yìí yóò yọ síkítì tó wà:",
+    "This assignment go remove the existing circuit:",
+  ],
   "Supported fields: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Use the exact current load name; edits to rating_kw require kW entry mode.":
     [
       "Felder: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Verwenden Sie den exakten aktuellen Lastnamen; rating_kw gilt nur im kW-Eingabemodus.",
@@ -691,9 +708,11 @@ export default function LocalBot({
               <>
                 <p>{proposal.preview.summary}</p>
                 {proposal.preview.command.kind === "loads.assign" &&
+                  proposal.preview.command.circuitId &&
                   (() => {
                     const command = proposal.preview.command;
-                    if (command.kind !== "loads.assign") return null;
+                    if (command.kind !== "loads.assign" || !command.circuitId)
+                      return null;
                     const circuit = project.circuits.find(
                       (item) => item.id === command.circuitId,
                     );
@@ -710,13 +729,67 @@ export default function LocalBot({
                       </p>
                     );
                   })()}
+                {proposal.preview.command.kind === "loads.assign" &&
+                  !proposal.preview.command.circuitId &&
+                  proposal.preview.command.boardId &&
+                  (() => {
+                    const command = proposal.preview.command;
+                    if (command.kind !== "loads.assign" || command.circuitId)
+                      return null;
+                    const board = project.boards.find(
+                      (item) => item.id === command.boardId,
+                    );
+                    const load = proposal.preview.changes.find(
+                      (change) => change.field === "boardId",
+                    );
+                    const circuitChange = proposal.preview.changes.find(
+                      (change) => change.field === "circuitId",
+                    );
+                    const priorCircuit = project.circuits.find(
+                      (item) => item.id === circuitChange?.before,
+                    );
+                    return (
+                      <>
+                        <p>
+                          {load?.name} → {board?.name ?? l("Unassigned")}
+                        </p>
+                        {circuitChange?.before && (
+                          <p>
+                            {l("This assignment removes the existing circuit:")}{" "}
+                            {priorCircuit?.name ?? circuitChange.before}
+                          </p>
+                        )}
+                      </>
+                    );
+                  })()}
                 <ul>
-                  {proposal.preview.changes.map((change, index) => (
-                    <li key={`${change.objectId}:${change.field}:${index}`}>
-                      <strong>{change.name}</strong> · {change.field}:{" "}
-                      {change.before} → {change.after}
-                    </li>
-                  ))}
+                  {proposal.preview.changes.map((change, index) => {
+                    const isAssignment =
+                      proposal.preview.command.kind === "loads.assign";
+                    const readable = (field: string, value: string) => {
+                      if (!isAssignment) return value;
+                      if (!value || value === "—") return l("Unassigned");
+                      if (field === "boardId")
+                        return (
+                          project.boards.find((board) => board.id === value)
+                            ?.name ?? value
+                        );
+                      if (field === "circuitId")
+                        return (
+                          project.circuits.find(
+                            (circuit) => circuit.id === value,
+                          )?.name ?? value
+                        );
+                      return value;
+                    };
+                    return (
+                      <li key={`${change.objectId}:${change.field}:${index}`}>
+                        <strong>{change.name}</strong> · {change.field}:{" "}
+                        {readable(change.field, change.before)} →{" "}
+                        {readable(change.field, change.after)}
+                      </li>
+                    );
+                  })}
                 </ul>
                 {proposal.preview.command.kind === "loads.phase" && (
                   <p>
@@ -725,13 +798,22 @@ export default function LocalBot({
                     )}
                   </p>
                 )}
-                {proposal.preview.command.kind === "loads.assign" && (
-                  <p>
-                    {l(
-                      "Assignment updates the served board and aligns an unlocked single-phase load with the circuit phase. Incompatible assignments are rejected.",
-                    )}
-                  </p>
-                )}
+                {proposal.preview.command.kind === "loads.assign" &&
+                  proposal.preview.command.circuitId && (
+                    <p>
+                      {l(
+                        "Assignment updates the served board and aligns an unlocked single-phase load with the circuit phase. Incompatible assignments are rejected.",
+                      )}
+                    </p>
+                  )}
+                {proposal.preview.command.kind === "loads.assign" &&
+                  !proposal.preview.command.circuitId && (
+                    <p>
+                      {l(
+                        "A board-only assignment removes the load from its current circuit. Review that change before confirming.",
+                      )}
+                    </p>
+                  )}
               </>
             )}
             {message.applied ? (
@@ -821,6 +903,13 @@ export default function LocalBot({
               <small>
                 {l(
                   "Supported fields: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Use the exact current load name; edits to rating_kw require kW entry mode.",
+                )}
+              </small>
+              <p>{l("Typed board assignment command")}:</p>
+              <code>assign load: Heater; board: Main board</code>
+              <small>
+                {l(
+                  "A board-only assignment removes the load from its current circuit. Review that change before confirming.",
                 )}
               </small>
               <p>{l("Typed circuit assignment command")}:</p>

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  createBoard,
   createCircuit,
   createLoad,
   createProject,
@@ -8,6 +9,7 @@ import {
   applyProposal,
   parseLoadEditProposal,
   parseLoadCircuitAssignmentProposal,
+  parseLoadBoardAssignmentProposal,
   parseLoadPhaseProposal,
   parseLoadProposal,
   proposePhaseBalance,
@@ -140,6 +142,56 @@ describe("typed local assistant boundary", () => {
     expect(project.loads[0].boardId).toBe(circuit.boardId);
     expect(project.loads[0].phase).toBe("L2");
     expect(() => applyProposal(project, proposal)).toThrow();
+  });
+  it("board assignment previews circuit detachment and applies only after confirmation", () => {
+    const project = createProject();
+    const targetBoard = createBoard({ name: "Workshop board" });
+    project.boards.push(targetBoard);
+    const circuit = createCircuit(project.boards[0].id, {
+      name: "Existing circuit",
+    });
+    project.circuits = [circuit];
+    project.loads = [
+      createLoad({
+        name: "Workshop heater",
+        boardId: circuit.boardId,
+        circuitId: circuit.id,
+      }),
+    ];
+    const before = structuredClone(project);
+    const proposal = parseLoadBoardAssignmentProposal(
+      project,
+      "assign load: Workshop heater; board: Workshop board",
+    )!;
+    expect(project).toEqual(before);
+    expect(proposal.preview.changes.map((change) => change.field)).toEqual(
+      expect.arrayContaining(["boardId", "circuitId"]),
+    );
+    applyProposal(project, proposal);
+    expect(project.loads[0].boardId).toBe(targetBoard.id);
+    expect(project.loads[0].circuitId).toBeUndefined();
+    expect(() => applyProposal(project, proposal)).toThrow();
+  });
+  it("rejects ambiguous board assignment targets and unchanged assignments", () => {
+    const project = createProject();
+    const first = createBoard({ name: "Workshop board" });
+    const second = createBoard({ name: "Workshop board" });
+    project.boards.push(first, second);
+    project.loads = [createLoad({ name: "Workshop heater" })];
+    expect(() =>
+      parseLoadBoardAssignmentProposal(
+        project,
+        "assign load: Workshop heater; board: Workshop board",
+      ),
+    ).toThrow(/ambiguous/);
+    project.boards = [first];
+    project.loads[0].boardId = first.id;
+    expect(() =>
+      parseLoadBoardAssignmentProposal(
+        project,
+        "assign load: Workshop heater; board: Workshop board",
+      ),
+    ).toThrow(/already assigned/);
   });
   it("rejects ambiguous, incompatible, locked and already-satisfied assignments", () => {
     const project = createProject();
