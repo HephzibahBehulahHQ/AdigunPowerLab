@@ -1745,6 +1745,7 @@ export default function App() {
                       project={project}
                       change={change}
                       onSelect={setSelected}
+                      detailMode={detailMode}
                     />
                   )}
                   {["cables", "motors", "quality", "tools"].includes(route) && (

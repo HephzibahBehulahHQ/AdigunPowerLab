@@ -7,16 +7,19 @@ import { LanguageContext, numberFormat, useT } from "../i18n";
 import { LocaleNumberInput } from "../i18n/LocaleNumberInput";
 import { downloadFile, safeName } from "../import-export/files";
 import { Field, Modal, Notice } from "./ui";
+import type { DetailMode } from "./DetailViews";
 type Change = (mutator: (project: Project) => void) => boolean | void;
 
 export function SourceRegistry({
   project,
   change,
   onSelect,
+  detailMode = "engineering",
 }: {
   project: Project;
   change: Change;
   onSelect?: (id: string) => void;
+  detailMode?: DetailMode;
 }) {
   const t = useT(),
     locale = useContext(LanguageContext);
@@ -281,7 +284,15 @@ export function SourceRegistry({
                   </tbody>
                 </table>
               </div>
-              <p className="small muted">{t(assessment.result.method)}</p>
+              <details
+                className="advanced-section"
+                open={detailMode === "engineering"}
+              >
+                <summary>
+                  {t("Methods, assumptions and unresolved checks")}
+                </summary>
+                <p className="small muted">{t(assessment.result.method)}</p>
+              </details>
               <button
                 className="button"
                 onClick={() =>
