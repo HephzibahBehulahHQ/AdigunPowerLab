@@ -449,10 +449,8 @@ test("load context menu supports pointer and keyboard navigation with focus retu
 }) => {
   await ready(page);
   await addLoad(page);
-  const opener = page.getByRole("button", {
-    name: "Analytical heater",
-    exact: true,
-  });
+  const row = page.locator("tbody tr").filter({ hasText: "Analytical heater" });
+  const opener = row.locator("button.load-name");
 
   await opener.focus();
   await page.keyboard.press("Shift+F10");
