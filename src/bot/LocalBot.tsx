@@ -114,6 +114,17 @@ const text: Record<string, [string, string, string]> = {
       "Àtúnṣe fásì lè tún gbé àwọn ẹrù fásì-kan míì tó wà lórí síkítì kan náà. Àwọn fásì tó ní lock kì í yí padà.",
       "Phase change fit also move other single-phase loads for that same circuit. Locked phases no go change.",
     ],
+  "Typed circuit assignment command": [
+    "Strukturierter Stromkreiszuweisungsbefehl",
+    "Àṣẹ láti so ẹrù mọ́ síkítì",
+    "Typed command to assign a load to a circuit",
+  ],
+  "Assignment updates the served board and aligns an unlocked single-phase load with the circuit phase. Incompatible assignments are rejected.":
+    [
+      "Die Zuweisung aktualisiert die versorgende Verteilung und passt eine nicht gesperrte einphasige Last an die Stromkreisphase an. Unzulässige Zuweisungen werden abgelehnt.",
+      "Ìsopọ̀ yìí máa ṣe àtúnṣe pátákó tó ń pèsè iná, ó sì máa mú fásì ẹrù fásì-kan tí kò ní lock bá fásì síkítì mu. A ó kọ ìsopọ̀ tí kò bá yẹ.",
+      "Assignment go update the board wey circuit dey serve and match unlocked single-phase load phase with circuit phase. Wrong assignment no go pass.",
+    ],
   "Supported fields: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Use the exact current load name; edits to rating_kw require kW entry mode.":
     [
       "Felder: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Verwenden Sie den exakten aktuellen Lastnamen; rating_kw gilt nur im kW-Eingabemodus.",
@@ -679,6 +690,33 @@ export default function LocalBot({
             ) : (
               <>
                 <p>{proposal.preview.summary}</p>
+                {proposal.preview.command.kind === "loads.assign" && (
+                  <p>
+                    {proposal.preview.changes.find(
+                      (change) => change.field === "circuitId",
+                    )?.name}{" "}
+                    →{" "}
+                    {project.circuits.find(
+                      (circuit) =>
+                        circuit.id === proposal.preview.command.circuitId,
+                    )?.name}{" "}
+                    ·{" "}
+                    {project.boards.find(
+                      (board) =>
+                        board.id ===
+                        project.circuits.find(
+                          (circuit) =>
+                            circuit.id ===
+                            proposal.preview.command.circuitId,
+                        )?.boardId,
+                    )?.name}{" "}
+                    ·{" "}
+                    {project.circuits.find(
+                      (circuit) =>
+                        circuit.id === proposal.preview.command.circuitId,
+                    )?.phase}
+                  </p>
+                )}
                 <ul>
                   {proposal.preview.changes.map((change, index) => (
                     <li key={`${change.objectId}:${change.field}:${index}`}>
@@ -687,11 +725,20 @@ export default function LocalBot({
                     </li>
                   ))}
                 </ul>
-                <p>
-                  {l(
-                    "Phase changes can also move other single-phase loads on the same circuit. Locked phases stay unchanged.",
-                  )}
-                </p>
+                {proposal.preview.command.kind === "loads.phase" && (
+                  <p>
+                    {l(
+                      "Phase changes can also move other single-phase loads on the same circuit. Locked phases stay unchanged.",
+                    )}
+                  </p>
+                )}
+                {proposal.preview.command.kind === "loads.assign" && (
+                  <p>
+                    {l(
+                      "Assignment updates the served board and aligns an unlocked single-phase load with the circuit phase. Incompatible assignments are rejected.",
+                    )}
+                  </p>
+                )}
               </>
             )}
             {message.applied ? (
@@ -781,6 +828,13 @@ export default function LocalBot({
               <small>
                 {l(
                   "Supported fields: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Use the exact current load name; edits to rating_kw require kW entry mode.",
+                )}
+              </small>
+              <p>{l("Typed circuit assignment command")}:</p>
+              <code>assign load: Heater; circuit: Lighting circuit</code>
+              <small>
+                {l(
+                  "Assignment updates the served board and aligns an unlocked single-phase load with the circuit phase. Incompatible assignments are rejected.",
                 )}
               </small>
               <p>{l("Typed phase command")}:</p>
