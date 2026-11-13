@@ -35,6 +35,27 @@ test("load dialog keeps keyboard focus inside and restores the opening control",
   ).toBeVisible();
 });
 
+test("command search shortcuts open and restore keyboard focus", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const opener = page.getByRole("button", { name: "Add load", exact: true });
+  const dialog = page.getByRole("dialog", { name: "Search", exact: true });
+  const search = dialog.getByPlaceholder("Search tools, loads and pages", {
+    exact: true,
+  });
+
+  for (const shortcut of ["Control+k", "Meta+k"]) {
+    await opener.focus();
+    await page.keyboard.press(shortcut);
+    await expect(dialog).toBeVisible();
+    await expect(search).toBeFocused();
+    await page.keyboard.press("Escape");
+    await expect(dialog).toHaveCount(0);
+    await expect(opener).toBeFocused();
+  }
+});
+
 test("navigation width has a keyboard alternative to dragging", async ({
   page,
 }) => {
