@@ -2,6 +2,14 @@
 
 Date: 13 November 2026. Owner: Hephzibah Behulah.
 
+## PR #58 Load Schedule context-menu actions — 13 November 2026
+
+[PR #58](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/58) verifies Inspect selection, Duplicate, and Delete review cancellation/confirmation from the Load Schedule context menu. Its first candidate [run 43377155127](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43377155127) exposed an ambiguous test locator; the selector was narrowed, and corrected candidate [run 43377948197](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43377948197), exact-main [run 43378669557](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43378669557), and Pages [run 43379271903](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43379271903) passed. Main `cc392fac1933fe595dbadec47b185231cb92436f` is deployed; Pages verified validation run 43378669557 and source artifact 14015941593 (Pages artifact 14015777416). The analytical heater is an isolated fixture; no client data or product behavior changed.
+
+## PR #57 documentation deployment receipts — 13 November 2026
+
+[PR #57](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/57) records PR #55 and #56 release receipts. Candidate [run 43375668435](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43375668435), exact-main [run 43376375253](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43376375253), and Pages [run 43376891970](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43376891970) passed. Main `8f783be117fc3b461789d1e1367f3f7944a21656` is deployed; Pages verified validation run 43376375253 and source artifact 14014742472 (Pages artifact 14014837606). No application behavior changed in this documentation PR.
+
 ## PR #56 Load Schedule context-menu acceptance — 13 November 2026
 
 [PR #56](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/56) verifies the existing context menu opens by pointer and Shift+F10, supports arrow/Home/End action navigation, restores focus on Escape, and invokes Edit. Candidate [run 43374323130](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43374323130), exact-main [run 43374887506](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43374887506), and Pages [run 43375409749](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43375409749) passed. Main `acafc46e0285434abba82984657fc553fdbc60d4` is deployed; Pages verified validation run 43374887506 and source artifact 14013394007 (Pages artifact 14014108069). The analytical heater is an isolated fixture; no client data or app behavior changed.
