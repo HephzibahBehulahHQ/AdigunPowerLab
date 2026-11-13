@@ -103,6 +103,17 @@ const text: Record<string, [string, string, string]> = {
     "Àṣẹ láti ṣàtúnṣe ẹrù tí a kọ",
     "Typed command to edit one load",
   ],
+  "Typed phase command": [
+    "Strukturierter Phasenbefehl",
+    "Àṣẹ fásì tí a kọ",
+    "Typed command to change a load phase",
+  ],
+  "Phase changes can also move other single-phase loads on the same circuit. Locked phases stay unchanged.":
+    [
+      "Eine Phasenänderung kann auch andere einphasige Lasten desselben Stromkreises verschieben. Gesperrte Phasen bleiben unverändert.",
+      "Àtúnṣe fásì lè tún gbé àwọn ẹrù fásì-kan míì tó wà lórí síkítì kan náà. Àwọn fásì tó ní lock kì í yí padà.",
+      "Phase change fit also move other single-phase loads for that same circuit. Locked phases no go change.",
+    ],
   "Supported fields: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Use the exact current load name; edits to rating_kw require kW entry mode.":
     [
       "Felder: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Verwenden Sie den exakten aktuellen Lastnamen; rating_kw gilt nur im kW-Eingabemodus.",
@@ -471,9 +482,17 @@ export default function LocalBot({
   };
   const apply = (proposal: Proposal, messageId: number) => {
     try {
+      const proposalProjectId =
+        proposal.kind === "command"
+          ? proposal.preview.projectId
+          : proposal.projectId;
+      const proposalRevision =
+        proposal.kind === "command"
+          ? proposal.preview.revision
+          : proposal.revision;
       if (
-        project.id !== proposal.projectId ||
-        project.revision !== proposal.revision
+        project.id !== proposalProjectId ||
+        project.revision !== proposalRevision
       )
         throw new Error(l("This preview is stale. Request a new one."));
       const accepted = onChange((draft) => applyProposal(draft, proposal));
@@ -638,7 +657,7 @@ export default function LocalBot({
                   {format(proposal.afterKW)} kW
                 </p>
               </>
-            ) : (
+            ) : proposal.kind === "load-edit" ? (
               <>
                 <p>
                   {t("Before")}: {proposal.before.name} ·{" "}
@@ -657,6 +676,23 @@ export default function LocalBot({
                   {format(proposal.afterKW)} kW
                 </p>
               </>
+            ) : (
+              <>
+                <p>{proposal.preview.summary}</p>
+                <ul>
+                  {proposal.preview.changes.map((change, index) => (
+                    <li key={`${change.objectId}:${change.field}:${index}`}>
+                      <strong>{change.name}</strong> · {change.field}:{" "}
+                      {change.before} → {change.after}
+                    </li>
+                  ))}
+                </ul>
+                <p>
+                  {l(
+                    "Phase changes can also move other single-phase loads on the same circuit. Locked phases stay unchanged.",
+                  )}
+                </p>
+              </>
             )}
             {message.applied ? (
               <p role="status">
@@ -673,8 +709,11 @@ export default function LocalBot({
                 <button
                   className="button"
                   disabled={
-                    proposal.kind === "balance" &&
-                    proposal.plan.moves.length === 0
+                    (proposal.kind === "balance" &&
+                      proposal.plan.moves.length === 0) ||
+                    (proposal.kind === "command" &&
+                      (!proposal.preview.changes.length ||
+                        proposal.preview.errors.length > 0))
                   }
                   onClick={() => apply(proposal, message.id)}
                 >
@@ -742,6 +781,13 @@ export default function LocalBot({
               <small>
                 {l(
                   "Supported fields: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Use the exact current load name; edits to rating_kw require kW entry mode.",
+                )}
+              </small>
+              <p>{l("Typed phase command")}:</p>
+              <code>phase load: Heater; L2</code>
+              <small>
+                {l(
+                  "Phase changes can also move other single-phase loads on the same circuit. Locked phases stay unchanged.",
                 )}
               </small>
               <p>{l("All proposals require your confirmation.")}</p>

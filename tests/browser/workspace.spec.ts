@@ -206,6 +206,38 @@ test("local BOT reviews and applies a validated single-load edit", async ({
     page.getByRole("dialog").getByLabel("Quantity", { exact: true }),
   ).toHaveValue("2");
 });
+test("local BOT previews a circuit-wide phase change before applying it", async ({
+  page,
+}) => {
+  await ready(page);
+  await page
+    .getByRole("button", { name: "Open Adigun BOT", exact: true })
+    .click();
+  const bot = page.locator(".local-bot");
+  const composer = bot.locator("textarea");
+  await composer.fill("load: BOT phase target; 2.3 kW; 230 V; PF 1; 8 h");
+  await bot.getByRole("button", { name: "Send", exact: true }).click();
+  await bot
+    .getByRole("button", { name: "Apply confirmed changes", exact: true })
+    .click();
+  await composer.fill("phase load: BOT phase target; L2");
+  await bot.getByRole("button", { name: "Send", exact: true }).click();
+  const proposal = bot.locator(".bot-proposal").last();
+  await expect(proposal).toContainText("phase: L1 → L2");
+  await proposal
+    .getByRole("button", { name: "Apply confirmed changes", exact: true })
+    .click();
+  await page
+    .locator(".sidebar")
+    .getByRole("button", { name: /^Load Schedule/ })
+    .click();
+  await page
+    .getByRole("button", { name: "Edit BOT phase target", exact: true })
+    .click();
+  await expect(
+    page.getByRole("dialog").getByLabel("Phase", { exact: true }),
+  ).toHaveValue("L2");
+});
 test("four language controls, light theme and mobile layout preserve working data", async ({
   page,
 }) => {
