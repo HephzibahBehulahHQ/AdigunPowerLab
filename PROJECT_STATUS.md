@@ -2,6 +2,14 @@
 
 Date: 13 November 2026. Owner: Hephzibah Behulah.
 
+## PR #60 Adigun BOT ambiguous-target rejection — 13 November 2026
+
+[PR #60](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/60) verifies that editing a duplicated exact load name returns an ambiguity error, creates no proposal, and leaves both loads unchanged. Candidate [run 43381259544](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43381259544), exact-main [run 43382006964](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43382006964), and Pages [run 43382706488](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43382706488) passed. Main `dea20cd2708758cdfbaa172ef5663abb7c2f1ad9` is deployed; Pages verified validation run 43382006964 and source artifact 14017501602 (Pages artifact 14017740914). Test data is synthetic and isolated; no client project data was used.
+
+## PR #59 documentation deployment receipts — 13 November 2026
+
+[PR #59](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/59) records PR #57 and #58 releases. Candidate [run 43379723844](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43379723844), exact-main [run 43380437451](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43380437451), and Pages [run 43381059156](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43381059156) passed. Main `a5a5134dbeaa664d17e8df79736f835db6bdf8ae` is deployed; Pages verified validation run 43380437451 and source artifact 14016358931 (Pages artifact 14016408467). No application behavior changed in this documentation PR.
+
 ## PR #58 Load Schedule context-menu actions — 13 November 2026
 
 [PR #58](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/58) verifies Inspect selection, Duplicate, and Delete review cancellation/confirmation from the Load Schedule context menu. Its first candidate [run 43377155127](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43377155127) exposed an ambiguous test locator; the selector was narrowed, and corrected candidate [run 43377948197](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43377948197), exact-main [run 43378669557](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43378669557), and Pages [run 43379271903](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43379271903) passed. Main `cc392fac1933fe595dbadec47b185231cb92436f` is deployed; Pages verified validation run 43378669557 and source artifact 14015941593 (Pages artifact 14015777416). The analytical heater is an isolated fixture; no client data or product behavior changed.
