@@ -2,6 +2,10 @@
 
 Date: 13 November 2026. Owner: Hephzibah Behulah.
 
+## Spatial object inspection detail-mode continuation: 13 November 2026
+
+[PR #44](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/44), merged as `4d5fd78d2efc4aabeb5ef9a8078e864e41d50ed1`, connects the analytical spatial view’s selected-object description to the global detail preference. Simple mode collapses the description while retaining object name and representative kW; Engineering opens the description. Candidate [run 43353163135](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43353163135), exact-main [run 43353747498](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43353747498), and Pages [run 43354410218](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43354410218) passed. Browser coverage uses the existing test-only analytical fixture, not client data.
+
 ## Source equipment assessment detail-mode continuation: 13 November 2026
 
 [PR #42](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/42), merged as `5452c70113bce43eb6183aa52d5ed489f80f4075`, makes the source-equipment assessment method follow the shared detail preference: collapsed in Simple mode and open in Engineering mode. Assessment check results remain visible in both modes. Candidate [run 43349206656](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43349206656), exact-main [run 43349934690](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43349934690), and Pages [run 43350626746](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43350626746) passed. The browser fixture used an entered test-only source record; no client project data was used.
@@ -55,4 +59,4 @@ These are bounded visual milestones, not full original-spec acceptance. The curr
 
 ## Next action
 
-The menu guide, tour, guide-backed answers, confirmed load edits, feeder method detail mode, confirmed phase assignment and source assessment detail mode are deployed. Continue remaining workflow/detail-mode coverage and interface-language review; expand BOT task support only through backed deterministic commands with reviewable effects. Independent accessibility, language and engineering review, licensed/current datasets, and full original-spec acceptance remain open. Exact-main Pages publication passed for PR #40; direct custom-domain HTTP verification remains unavailable in this environment.
+The menu guide, tour, guide-backed answers, confirmed load edits, feeder method detail mode, confirmed phase assignment and source assessment detail mode and spatial object detail mode are deployed. Continue remaining workflow/detail-mode coverage and interface-language review; expand BOT task support only through backed deterministic commands with reviewable effects. Independent accessibility, language and engineering review, licensed/current datasets, and full original-spec acceptance remain open. Exact-main Pages publication passed for PR #40; direct custom-domain HTTP verification remains unavailable in this environment.
