@@ -532,3 +532,32 @@ test("load context menu inspection, duplication and reviewed deletion work as pr
   await expect(copy).toHaveCount(0);
   await expect(original).toHaveCount(1);
 });
+
+test("local BOT rejects duplicate exact-name targets without proposing a change", async ({
+  page,
+}) => {
+  await ready(page);
+  await addLoad(page, { name: "Ambiguous heater" });
+  await addLoad(page, { name: "Ambiguous heater" });
+  const targets = page
+    .locator("tbody tr")
+    .filter({ hasText: "Ambiguous heater" });
+  await expect(targets).toHaveCount(2);
+
+  await page
+    .getByRole("button", { name: "Open Adigun BOT", exact: true })
+    .click();
+  const bot = page.locator(".local-bot");
+  await bot
+    .locator("textarea")
+    .fill("edit load: Ambiguous heater; quantity; 2");
+  await bot.getByRole("button", { name: "Send", exact: true }).click();
+
+  await expect(bot.getByRole("alert")).toHaveText(
+    "Load name is ambiguous. Use a unique load name.",
+  );
+  await expect(
+    bot.getByRole("button", { name: "Apply confirmed changes", exact: true }),
+  ).toHaveCount(0);
+  await expect(targets).toHaveCount(2);
+});
