@@ -136,13 +136,12 @@ const text: Record<string, [string, string, string]> = {
       "Ìsopọ̀ sí pátákó nìkan yóò yọ ẹrù kúrò lórí síkítì tó wà. Ṣàyẹ̀wò àtúnṣe yìí kí o tó fọwọ́sí.",
       "Board assignment alone go remove the load from the circuit wey e dey on. Check the change before you confirm.",
     ],
-  "Unassigned": ["Nicht zugewiesen", "A kò tíì yàn", "No assignment"],
-  "This assignment removes the existing circuit:":
-    [
-      "Diese Zuweisung löst den vorhandenen Stromkreis:",
-      "Ìsopọ̀ yìí yóò yọ síkítì tó wà:",
-      "This assignment go remove the existing circuit:",
-    ],
+  Unassigned: ["Nicht zugewiesen", "A kò tíì yàn", "No assignment"],
+  "This assignment removes the existing circuit:": [
+    "Diese Zuweisung löst den vorhandenen Stromkreis:",
+    "Ìsopọ̀ yìí yóò yọ síkítì tó wà:",
+    "This assignment go remove the existing circuit:",
+  ],
   "Supported fields: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Use the exact current load name; edits to rating_kw require kW entry mode.":
     [
       "Felder: name, rating_kw, voltage_v, power_factor, hours_per_day, quantity. Verwenden Sie den exakten aktuellen Lastnamen; rating_kw gilt nur im kW-Eingabemodus.",
@@ -768,7 +767,8 @@ export default function LocalBot({
                     const isAssignment =
                       proposal.preview.command.kind === "loads.assign";
                     const readable = (field: string, value: string) => {
-                      if (!isAssignment || !value) return value || l("Unassigned");
+                      if (!isAssignment || !value)
+                        return value || l("Unassigned");
                       if (field === "boardId")
                         return (
                           project.boards.find((board) => board.id === value)
@@ -776,8 +776,9 @@ export default function LocalBot({
                         );
                       if (field === "circuitId")
                         return (
-                          project.circuits.find((circuit) => circuit.id === value)
-                            ?.name ?? value
+                          project.circuits.find(
+                            (circuit) => circuit.id === value,
+                          )?.name ?? value
                         );
                       return value;
                     };
