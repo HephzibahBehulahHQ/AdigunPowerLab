@@ -293,6 +293,59 @@ test("BOT circuit assignment previews destination and applies only after confirm
   );
 });
 
+test("Adigun BOT window controls and conversation survive close and reopen", async ({
+  page,
+}) => {
+  await ready(page);
+  await page
+    .getByRole("button", { name: "Open Adigun BOT", exact: true })
+    .click();
+  let bot = page.locator(".local-bot");
+  const readState = () =>
+    page.evaluate(() =>
+      JSON.parse(
+        localStorage.getItem("adigunpowerlab.bot.window.v2") ?? "null",
+      ),
+    );
+  const initial = await readState();
+  const header = bot.locator(".bot-header");
+  await header.focus();
+  await header.press("ArrowLeft");
+  await expect
+    .poll(async () => (await readState()).geometry.x)
+    .toBe(initial.geometry.x - 10);
+  await expect(bot).toHaveCSS("left", `${initial.geometry.x - 10}px`);
+
+  await bot.getByRole("button", { name: "Minimize", exact: true }).click();
+  await expect(bot).toHaveClass(/is-minimized/);
+  await expect.poll(async () => (await readState()).minimized).toBe(true);
+  await bot.getByRole("button", { name: "Restore", exact: true }).click();
+  await expect(bot).not.toHaveClass(/is-minimized/);
+  await expect.poll(async () => (await readState()).minimized).toBe(false);
+
+  await bot.getByRole("button", { name: "Maximize", exact: true }).click();
+  await expect.poll(async () => (await readState()).maximized).toBe(true);
+  await expect(bot).toHaveCSS("left", "8px");
+  await bot.getByRole("button", { name: "Restore", exact: true }).click();
+  await expect.poll(async () => (await readState()).maximized).toBe(false);
+  await expect(bot).toHaveCSS("left", `${initial.geometry.x - 10}px`);
+
+  await bot.getByRole("button", { name: "Overview", exact: true }).click();
+  await expect(bot.locator(".bot-message.assistant").last()).toBeVisible();
+  await bot.getByRole("button", { name: "Close", exact: true }).click();
+  await expect(bot).toHaveCount(0);
+
+  await page
+    .getByRole("button", { name: "Open Adigun BOT", exact: true })
+    .click();
+  bot = page.locator(".local-bot");
+  await expect(bot).toHaveCSS("left", `${initial.geometry.x - 10}px`);
+  await expect(bot.locator(".bot-message.assistant")).toHaveCount(1);
+  await expect
+    .poll(async () => (await readState()).geometry.x)
+    .toBe(initial.geometry.x - 10);
+});
+
 test("four language controls, light theme and mobile layout preserve working data", async ({
   page,
 }) => {
