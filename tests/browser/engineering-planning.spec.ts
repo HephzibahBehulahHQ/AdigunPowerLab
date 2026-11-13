@@ -331,7 +331,7 @@ test("source assessment details follow mode while check results remain visible",
   await mode.selectOption("simple");
   await expect(method).toHaveJSProperty("open", false);
   await expect(
-    page.locator("table").filter({ hasText: "Equipment evidence" }),
+    page.locator("table").filter({ hasText: "Served load data" }),
   ).toBeVisible();
   await expect(
     page.getByText("incomplete", { exact: true }).first(),
@@ -339,3 +339,4 @@ test("source assessment details follow mode while check results remain visible",
   await mode.selectOption("engineering");
   await expect(method).toHaveJSProperty("open", true);
 });
+
