@@ -1699,6 +1699,7 @@ export default function App() {
                             project={project}
                             result={result}
                             onSelect={setSelected}
+                            detailMode={detailMode}
                           />
                         </Suspense>
                       )}

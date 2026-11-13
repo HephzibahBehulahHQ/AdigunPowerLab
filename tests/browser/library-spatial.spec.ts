@@ -168,6 +168,14 @@ test("spatial graph follows real objects and hourly flow with keyboard orbit and
     .getByLabel("Inspect spatial object", { exact: true })
     .selectOption({ label: "Analytical heater" });
   await expect(page.locator(".inspector")).toContainText("Analytical heater");
+  const mode = page.locator(".page-heading .detail-mode-control select");
+  const objectDetail = spatial.locator(".spatial-object-detail");
+  await mode.selectOption("simple");
+  await expect(objectDetail).toHaveJSProperty("open", false);
+  await expect(spatial).toContainText("Analytical heater");
+  await expect(spatial).toContainText("0 kW");
+  await mode.selectOption("engineering");
+  await expect(objectDetail).toHaveJSProperty("open", true);
   const pending = page.waitForEvent("download");
   await spatial
     .getByRole("button", { name: "Export spatial SVG", exact: true })

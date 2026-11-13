@@ -5,16 +5,19 @@ import { dailyProfile } from "../engine/electrical";
 import { LanguageContext, numberFormat, useT } from "../i18n";
 import { downloadFile, safeName } from "../import-export/files";
 import { Field, Notice } from "./ui";
+import type { DetailMode } from "./DetailViews";
 
 /** Perspective projection of the actual graph; coordinates describe hierarchy, never an installation survey. */
 export default function SpatialView({
   project,
   result,
   onSelect,
+  detailMode = "engineering",
 }: {
   project: Project;
   result: CalculationResult;
   onSelect: (id: string) => void;
+  detailMode?: DetailMode;
 }) {
   const t = useT(),
     locale = useContext(LanguageContext),
@@ -360,10 +363,19 @@ export default function SpatialView({
         </select>
       </Field>
       {selectedNode && (
-        <p>
-          {selectedNode.name} · {selectedNode.detail} ·{" "}
-          {numberFormat(quantities.get(selectedNode.id) ?? 0, 3, locale)} kW
-        </p>
+        <div className="spatial-object-inspector">
+          <p>
+            {selectedNode.name} ·{" "}
+            {numberFormat(quantities.get(selectedNode.id) ?? 0, 3, locale)} kW
+          </p>
+          <details
+            className="spatial-object-detail"
+            open={detailMode === "engineering"}
+          >
+            <summary>{t("Show details")}</summary>
+            <p>{selectedNode.detail}</p>
+          </details>
+        </div>
       )}
     </section>
   );
