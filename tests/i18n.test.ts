@@ -112,6 +112,35 @@ describe("four-language core and tool navigation", () => {
       ),
     ).toEqual([]);
   });
+  it("translates BOT load-edit validation errors in all locales", () => {
+    const cases = [
+      [
+        "Load name is ambiguous. Use a unique load name.",
+        "Der Name der Last ist nicht eindeutig. Verwenden Sie einen eindeutigen Namen für die Last.",
+        "Orúkọ ẹrù náà kò ṣe kedere. Lo orúkọ ẹrù mìíràn tó yàtọ̀.",
+        "This load name match more than one load. Use another unique load name.",
+      ],
+      [
+        "Enter one positive numeric value for this field.",
+        "Geben Sie für dieses Feld genau einen positiven Zahlenwert ein.",
+        "Tẹ iye nọ́mbà rere kan ṣoṣo fún pápá yìí.",
+        "Enter one positive number for this field.",
+      ],
+      [
+        "No load with that exact name was found.",
+        "Es wurde keine Last mit genau diesem Namen gefunden.",
+        "A kò rí ẹrù tó ní orúkọ yẹn gan-an.",
+        "We no find any load with that exact name.",
+      ],
+    ] as const;
+    for (const [source, german, yoruba, pidgin] of cases) {
+      expect(translate(source, "en")).toBe(source);
+      expect(translate(source, "de")).toBe(german);
+      expect(translate(source, "yo")).toBe(yoruba);
+      expect(translate(source, "pcm")).toBe(pidgin);
+      for (const locale of secondary) expect(hasTranslation(source, locale)).toBe(true);
+    }
+  });
   it("retains Unicode labels and uses locale-aware numeric formatting", () => {
     expect(translate("Open project", "yo")).toBe("Ṣí iṣẹ́");
     expect(translate("Add load", "de")).toBe("Last hinzufügen");
