@@ -7,6 +7,7 @@ import {
 import {
   applyProposal,
   parseLoadEditProposal,
+  parseLoadCircuitAssignmentProposal,
   parseLoadPhaseProposal,
   parseLoadProposal,
   proposePhaseBalance,
@@ -111,6 +112,77 @@ describe("typed local assistant boundary", () => {
     expect(project.loads.map((load) => load.phase)).toEqual(["L2", "L2"]);
     expect(project.circuits[0].phase).toBe("L2");
     expect(() => applyProposal(project, proposal)).toThrow();
+  });
+  it("circuit assignment previews board and phase effects before confirmation", () => {
+    const project = createProject();
+    const circuit = createCircuit(project.boards[0].id, {
+      name: "Lighting circuit",
+      phase: "L2",
+    });
+    const load = createLoad({
+      name: "Heater",
+      boardId: project.boards[0].id,
+      phase: "L1",
+    });
+    project.circuits = [circuit];
+    project.loads = [load];
+    const before = structuredClone(project);
+    const proposal = parseLoadCircuitAssignmentProposal(
+      project,
+      "assign load: Heater; circuit: Lighting circuit",
+    )!;
+    expect(project).toEqual(before);
+    expect(proposal.preview.changes.map((change) => change.field)).toEqual(
+      expect.arrayContaining(["circuitId", "phase"]),
+    );
+    applyProposal(project, proposal);
+    expect(project.loads[0].circuitId).toBe(circuit.id);
+    expect(project.loads[0].boardId).toBe(circuit.boardId);
+    expect(project.loads[0].phase).toBe("L2");
+    expect(() => applyProposal(project, proposal)).toThrow();
+  });
+  it("rejects ambiguous, incompatible, locked and already-satisfied assignments", () => {
+    const project = createProject();
+    const circuit = createCircuit(project.boards[0].id, {
+      name: "Lighting circuit",
+      phase: "L2",
+    });
+    project.circuits = [circuit];
+    project.loads = [createLoad({ name: "Heater", phase: "L1", locked: true })];
+    expect(() =>
+      parseLoadCircuitAssignmentProposal(
+        project,
+        "assign load: Heater; circuit: Lighting circuit",
+      ),
+    ).toThrow(/unlock its phase/);
+    project.loads.push(createLoad({ name: "Heater" }));
+    expect(() =>
+      parseLoadCircuitAssignmentProposal(
+        project,
+        "assign load: Heater; circuit: Lighting circuit",
+      ),
+    ).toThrow(/ambiguous/);
+    project.loads = [
+      createLoad({
+        name: "Heater",
+        boardId: circuit.boardId,
+        circuitId: circuit.id,
+        phase: "L2",
+      }),
+    ];
+    expect(() =>
+      parseLoadCircuitAssignmentProposal(
+        project,
+        "assign load: Heater; circuit: Lighting circuit",
+      ),
+    ).toThrow(/already assigned/);
+    project.loads = [createLoad({ name: "DC load", connection: "dc" })];
+    expect(() =>
+      parseLoadCircuitAssignmentProposal(
+        project,
+        "assign load: DC load; circuit: Lighting circuit",
+      ),
+    ).toThrow(/DC connection/);
   });
   it("rejects locked, ambiguous and already-satisfied phase changes", () => {
     const project = createProject();

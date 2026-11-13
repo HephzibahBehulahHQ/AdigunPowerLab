@@ -232,6 +232,55 @@ export function parseLoadPhaseProposal(
   return { kind: "command", preview };
 }
 
+/** Typed exact-name assignment; the preview exposes board and phase side effects. */
+export function parseLoadCircuitAssignmentProposal(
+  project: Project,
+  input: string,
+): CommandProposal | undefined {
+  const match =
+    /^assign\s+load\s*:\s*([^;]{1,120})\s*;\s*circuit\s*:\s*([^;]{1,120})\s*$/i.exec(
+      input.trim(),
+    );
+  if (!match) return undefined;
+  const loadName = match[1].trim();
+  const circuitName = match[2].trim();
+  const loads = project.loads.filter(
+    (load) =>
+      load.name.localeCompare(loadName, undefined, {
+        sensitivity: "accent",
+      }) === 0,
+  );
+  if (loads.length !== 1)
+    throw new Error(
+      loads.length
+        ? "Load name is ambiguous. Use a unique load name."
+        : "No load with that exact name was found.",
+    );
+  const circuits = project.circuits.filter(
+    (circuit) =>
+      circuit.name.localeCompare(circuitName, undefined, {
+        sensitivity: "accent",
+      }) === 0,
+  );
+  if (circuits.length !== 1)
+    throw new Error(
+      circuits.length
+        ? "Circuit name is ambiguous. Use a unique circuit name."
+        : "No circuit with that exact name was found.",
+    );
+  const preview = previewProjectCommand(project, {
+    kind: "loads.assign",
+    ids: [loads[0].id],
+    circuitId: circuits[0].id,
+  });
+  if (preview.errors.length) throw new Error(preview.errors.join(" "));
+  if (!preview.changes.length)
+    throw new Error(
+      `${loads[0].name} is already assigned to ${circuits[0].name}.`,
+    );
+  return { kind: "command", preview };
+}
+
 export function runLocalCommand(
   project: Project,
   input: string,
@@ -247,6 +296,12 @@ export function runLocalCommand(
   const phaseProposal = parseLoadPhaseProposal(project, input);
   if (phaseProposal)
     return { ...base, kind: "balance", proposal: phaseProposal };
+  const circuitAssignmentProposal = parseLoadCircuitAssignmentProposal(
+    project,
+    input,
+  );
+  if (circuitAssignmentProposal)
+    return { ...base, kind: "load", proposal: circuitAssignmentProposal };
   const command = input.trim().toLocaleLowerCase();
   if (/balance|phasen|ìdọ́gba|ido.gba|phases/.test(command))
     return { ...base, kind: "balance", proposal: proposePhaseBalance(project) };
