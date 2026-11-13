@@ -1769,7 +1769,11 @@ export default function App() {
                     />
                   )}
                   {route === "cables" && (
-                    <FeederAssessment project={project} onChange={change} />
+                    <FeederAssessment
+                      project={project}
+                      onChange={change}
+                      detailMode={detailMode}
+                    />
                   )}
                   {route === "renewables" && (
                     <Renewables
