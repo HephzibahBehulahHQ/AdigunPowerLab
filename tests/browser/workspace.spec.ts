@@ -307,6 +307,7 @@ test("Adigun BOT window controls and conversation survive close and reopen", asy
         localStorage.getItem("adigunpowerlab.bot.window.v2") ?? "null",
       ),
     );
+  await expect.poll(readState).not.toBeNull();
   const initial = await readState();
   const header = bot.locator(".bot-header");
   await header.focus();
