@@ -2,6 +2,11 @@
 
 Date: 13 November 2026. Owner: Hephzibah Behulah.
 
+## Command search keyboard shortcut acceptance: 13 November 2026
+
+[PR #52](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/52), merged as `7253f4831d54b524a0d33477b609a963397dd8ea`, adds browser acceptance for Ctrl+K and Meta+K opening command search, focus moving to the search field, and Escape restoring focus to the original control. Candidate [run 43369067105](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43369067105) and exact-main [run 43369622020](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43369622020) passed. Pages [run 43370107595](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43370107595) published that exact main SHA; its summary identifies validation run 43369622020 and artifact 14012281414. The live custom-domain workspace opened after publication with an empty local project. No client project data was changed.
+
+
 ## Confirmed BOT load-to-board assignment: 13 November 2026
 
 [PR #50](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/50), merged as `f90c3346a0c713fbfcb35e991233ac508f4861b6`, adds exact-name `assign load: Heater; board: Main board`. The preview identifies the destination board and any existing circuit that will be removed; applying uses the existing project history/undo path. Candidate [run 43365964376](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43365964376), exact-main [run 43366668790](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43366668790), and Pages [run 43367266954](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43367266954) passed. Browser coverage uses isolated project data.
