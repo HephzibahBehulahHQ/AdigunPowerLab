@@ -1,5 +1,19 @@
 # Test evidence
 
+## BOT phase assignment continuation: 13 November 2026
+
+- **PR #40:** deterministic exact-name `phase load: Name; L2` proposal; previews affected circuit load changes, shows changed fields, requires confirmation, and applies via project history.
+- Candidate full CI passed in [run 43341542625](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43341542625).
+- Merged main `fe2fc976a053eb9b16476a3191a3e0bafc29056e` passed full validation in [run 43344985411](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43344985411); Pages deployed that SHA in [run 43345697205](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43345697205).
+- Targeted local validation: TypeScript typecheck and 13 BOT unit tests passed. Full candidate and exact-main gates include browser, production-browser, update and offline checks. No client project data was used.
+
+## Feeder method detail-mode release receipts: 13 November 2026
+
+- **PR #38:** candidate [run 43338929618](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43338929618), exact-main [run 43339729808](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43339729808), and Pages [run 43340449448](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43340449448) passed.
+- **PR #39** records those receipts; its candidate [run 43340848186](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43340848186), exact-main [run 43341616807](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43341616807), and Pages [run 43342350512](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43342350512) passed.
+
+
+
 ## Measurement detail-mode continuation: 12 November 2026
 
 - **PR #22:** measurement assumptions follow the global detail preference; missing-coverage warnings stay open in Simple mode. Test-only complete and gapped CSV intervals exercise mode changes.
