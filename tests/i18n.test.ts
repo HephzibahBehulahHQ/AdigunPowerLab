@@ -138,7 +138,8 @@ describe("four-language core and tool navigation", () => {
       expect(translate(source, "de")).toBe(german);
       expect(translate(source, "yo")).toBe(yoruba);
       expect(translate(source, "pcm")).toBe(pidgin);
-      for (const locale of secondary) expect(hasTranslation(source, locale)).toBe(true);
+      for (const locale of secondary)
+        expect(hasTranslation(source, locale)).toBe(true);
     }
   });
   it("retains Unicode labels and uses locale-aware numeric formatting", () => {
