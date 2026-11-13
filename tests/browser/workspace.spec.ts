@@ -644,7 +644,6 @@ test("local BOT rejects missing exact-name edit targets without a proposal or mu
   await dialog.getByRole("button", { name: "Close", exact: true }).click();
 });
 
-
 test("local BOT rejects zero quantity edits without a proposal or mutation", async ({
   page,
 }) => {
