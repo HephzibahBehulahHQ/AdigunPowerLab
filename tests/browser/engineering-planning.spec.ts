@@ -183,12 +183,22 @@ test("feeder route uses shared current, blocks invalid numeric drafts and update
     name: "Cumulative feeder assessment",
     exact: true,
   });
+  const mode = page.getByLabel("Detail level", { exact: true });
+  await mode.focus();
+  await mode.selectOption("simple");
   await panel
     .getByRole("button", { name: "Assess complete route", exact: true })
     .click();
   await expect(
     panel.locator(".kpi-card").filter({ hasText: "Signed cumulative drop" }),
   ).toContainText("8 V");
+  const method = panel.locator(".feeder-methods");
+  await expect(method).toHaveJSProperty("open", false);
+  await expect(method.locator("summary")).toBeVisible();
+  await expect(panel.locator("table").first()).toBeVisible();
+  await mode.focus();
+  await mode.selectOption("engineering");
+  await expect(method).toHaveJSProperty("open", true);
   const field = panel.getByLabel("Outgoing conductor resistance");
   await field.fill("not a number");
   await panel

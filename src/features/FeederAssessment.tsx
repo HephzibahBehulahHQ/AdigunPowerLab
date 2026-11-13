@@ -4,6 +4,7 @@ import {
 } from "../i18n/LocaleNumberInput";
 import { useContext, useEffect, useState, useRef } from "react";
 import type { Cable, Project } from "../domain/types";
+import type { DetailMode } from "./DetailViews";
 import { validateProjectImport } from "../domain/project";
 import { assessEndpointRoute, type FeederRouteResult } from "../engine/feeders";
 import { LanguageContext, numberFormat, useT } from "../i18n";
@@ -15,9 +16,11 @@ import { PlanningNumberList, validPlanningInputs } from "./PlanningInputs";
 export function FeederAssessment({
   project,
   onChange,
+  detailMode = "engineering",
 }: {
   project: Project;
   onChange: (mutator: (draft: Project) => void) => void;
+  detailMode?: DetailMode;
 }) {
   const t = useT(),
     locale = useContext(LanguageContext);
@@ -359,7 +362,13 @@ export function FeederAssessment({
               </tbody>
             </table>
           </div>
-          <Notice>{t(result.method)}</Notice>
+          <details
+            className="feeder-methods"
+            open={detailMode === "engineering"}
+          >
+            <summary>{t("Methods, assumptions and unresolved checks")}</summary>
+            <Notice>{t(result.method)}</Notice>
+          </details>
           {result.issues.map((issue, i) => (
             <Notice key={`${issue.id}:${i}`}>{t(issue.message)}</Notice>
           ))}
