@@ -1,5 +1,11 @@
 # Test evidence
 
+## Confirmed BOT load-to-board assignment: 13 November 2026
+
+- **PR #50:** exact-name load-to-board assignment shows the destination and circuit detachment before confirmation; unit and browser fixtures use isolated project records.
+- Candidate full CI passed in [run 43365964376](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43365964376).
+- Merged main `f90c3346a0c713fbfcb35e991233ac508f4861b6` passed full CI in [run 43366668790](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43366668790); Pages deployed that SHA in [run 43367266954](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43367266954).
+
 ## BOT window lifecycle acceptance: 13 November 2026
 
 - **PR #48:** browser coverage verifies keyboard repositioning, minimize/restore, maximize/restore, close/reopen, persisted geometry and session conversation retention.
