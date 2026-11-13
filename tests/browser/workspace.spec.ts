@@ -238,6 +238,58 @@ test("local BOT previews a circuit-wide phase change before applying it", async 
     page.getByRole("dialog").getByLabel("Phase", { exact: true }),
   ).toHaveValue("L2");
 });
+test("BOT circuit assignment previews destination and applies only after confirmation", async ({
+  page,
+}) => {
+  await ready(page);
+  await page.evaluate(async () => {
+    const domain = await import("/src/domain/project.ts");
+    const storage = await import("/src/storage/projects.ts");
+    const project = domain.createProject("BOT circuit assignment fixture");
+    const circuit = domain.createCircuit(project.boards[0].id, {
+      name: "Lighting circuit",
+      phase: "L2",
+    });
+    project.circuits = [circuit];
+    project.loads = [
+      domain.createLoad({
+        name: "BOT assignment target",
+        boardId: project.boards[0].id,
+        phase: "L1",
+      }),
+    ];
+    await storage.saveProject(project);
+    storage.writePreference("currentProject", project.id);
+  });
+  await page.reload();
+  await page
+    .getByRole("button", { name: "Open Adigun BOT", exact: true })
+    .click();
+  const bot = page.locator(".local-bot");
+  const composer = bot.locator("textarea");
+  await composer.fill(
+    "assign load: BOT assignment target; circuit: Lighting circuit",
+  );
+  await bot.getByRole("button", { name: "Send", exact: true }).click();
+  const proposal = bot.locator(".bot-proposal").last();
+  await expect(proposal).toContainText("BOT assignment target");
+  await expect(proposal).toContainText("Lighting circuit");
+  await expect(proposal).toContainText("L2");
+  await expect(proposal).toContainText("board");
+  await expect(
+    proposal.getByRole("button", {
+      name: "Apply confirmed changes",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await proposal
+    .getByRole("button", { name: "Apply confirmed changes", exact: true })
+    .click();
+  await expect(proposal).toContainText(
+    "Applied through project history. Use Undo to restore.",
+  );
+});
+
 test("four language controls, light theme and mobile layout preserve working data", async ({
   page,
 }) => {
