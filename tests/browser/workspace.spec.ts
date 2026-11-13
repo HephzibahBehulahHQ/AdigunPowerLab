@@ -443,3 +443,37 @@ test("four language controls, light theme and mobile layout preserve working dat
     fullPage: true,
   });
 });
+
+test("load context menu supports pointer and keyboard navigation with focus return", async ({
+  page,
+}) => {
+  await ready(page);
+  await addLoad(page);
+  const row = page.locator("tbody tr").filter({ hasText: "Analytical heater" });
+  const opener = row.locator("button.load-name");
+
+  await opener.focus();
+  await page.keyboard.press("Shift+F10");
+  const menu = page.getByRole("menu", { name: "Load actions", exact: true });
+  const items = menu.getByRole("menuitem");
+  await expect(menu).toBeVisible();
+  await expect(items).toHaveCount(4);
+  await expect(items.nth(0)).toBeFocused();
+  await page.keyboard.press("ArrowDown");
+  await expect(items.nth(1)).toBeFocused();
+  await page.keyboard.press("End");
+  await expect(items.nth(3)).toBeFocused();
+  await page.keyboard.press("Home");
+  await expect(items.nth(0)).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(menu).toHaveCount(0);
+  await expect(opener).toBeFocused();
+
+  await opener.click({ button: "right" });
+  await expect(menu).toBeVisible();
+  await menu.getByRole("menuitem", { name: "Edit load", exact: true }).click();
+  const dialog = page.getByRole("dialog", { name: "Edit load", exact: true });
+  await expect(dialog.getByLabel("Name", { exact: true })).toHaveValue(
+    "Analytical heater",
+  );
+});
