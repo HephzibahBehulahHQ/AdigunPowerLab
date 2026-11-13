@@ -327,9 +327,7 @@ test("BOT previews board assignment and circuit removal before applying", async 
     .click();
   const bot = page.locator(".local-bot");
   const composer = bot.locator("textarea");
-  await composer.fill(
-    `assign load: BOT board target; board: ${boardName}`,
-  );
+  await composer.fill(`assign load: BOT board target; board: ${boardName}`);
   await bot.getByRole("button", { name: "Send", exact: true }).click();
   const proposal = bot.locator(".bot-proposal").last();
   await expect(proposal).toContainText("BOT board target");
