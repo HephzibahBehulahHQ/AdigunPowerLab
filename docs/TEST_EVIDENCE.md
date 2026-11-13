@@ -1,5 +1,17 @@
 # Test evidence
 
+## PR #60 Adigun BOT ambiguous-target rejection: 13 November 2026
+
+- **PR #60:** browser acceptance verifies an exact-name edit is rejected when the load name matches two records, no confirmation proposal is offered, and both fixture loads remain intact.
+- Candidate full CI passed in [run 43381259544](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43381259544).
+- Merged main `dea20cd2708758cdfbaa172ef5663abb7c2f1ad9` passed full CI in [run 43382006964](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43382006964); Pages deployed the exact SHA in [run 43382706488](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43382706488). Its summary identifies validation run 43382006964 and source artifact 14017501602; the Pages artifact is 14017740914.
+
+## PR #59 documentation deployment receipts: 13 November 2026
+
+- **PR #59:** records PR #57 and #58 release evidence; this documentation-only change did not change application behavior.
+- Candidate full CI passed in [run 43379723844](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43379723844).
+- Merged main `a5a5134dbeaa664d17e8df79736f835db6bdf8ae` passed full CI in [run 43380437451](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43380437451); Pages deployed the exact SHA in [run 43381059156](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43381059156). Its summary identifies validation run 43380437451 and source artifact 14016358931; the Pages artifact is 14016408467.
+
 ## PR #58 Load Schedule context-menu actions: 13 November 2026
 
 - **PR #58:** browser acceptance covers Inspect selection, Duplicate, and Delete review cancellation/confirmation. The isolated analytical heater fixture does not use client data.
