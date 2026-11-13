@@ -2,6 +2,10 @@
 
 Audit date: 13 November 2026. Scope: original specification sections 01–33, fixtures F01–F20 and tools T01–T51, plus the recovered continuation.
 
+## Source equipment assessment detail mode: 13 November 2026
+
+[PR #42](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/42) connects the source register assessment method to the shared Simple/Engineering preference. Simple mode collapses the method details and Engineering opens them; assessment check results stay visible in both modes. Candidate, exact-main and Pages receipts are recorded in [TEST_EVIDENCE.md](TEST_EVIDENCE.md) and [DEPLOYMENT.md](DEPLOYMENT.md). Automated browser coverage uses a test-only source record and does not claim equipment validation.
+
 ## Confirmed BOT phase assignment: 13 November 2026
 
 [PR #40](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/40) adds a typed, deterministic phase assignment proposal using an exact unique load name. The validated preview shows affected circuit load phase changes and locked-phase behavior; confirmation is required before changes are applied through project history. Candidate, exact-main and Pages receipts are recorded in [TEST_EVIDENCE.md](TEST_EVIDENCE.md) and [DEPLOYMENT.md](DEPLOYMENT.md). No client data was used. Other BOT task types remain intentionally limited to implemented, backed commands.

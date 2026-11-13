@@ -1,5 +1,13 @@
 # Test evidence
 
+## Source equipment assessment detail mode: 13 November 2026
+
+- **PR #42:** source-equipment assessment method collapses in Simple mode and opens in Engineering mode; check results remain visible. Browser coverage switches modes on a test-only entered source record.
+- Candidate full CI passed in [run 43349206656](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43349206656).
+- Merged main `5452c70113bce43eb6183aa52d5ed489f80f4075` passed full validation in [run 43349934690](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43349934690); Pages deployed that SHA in [run 43350626746](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43350626746).
+
+
+
 ## BOT phase assignment continuation: 13 November 2026
 
 - **PR #40:** deterministic exact-name `phase load: Name; L2` proposal; previews affected circuit load changes, shows changed fields, requires confirmation, and applies via project history.
