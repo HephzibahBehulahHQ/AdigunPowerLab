@@ -2,6 +2,14 @@
 
 Date: 13 November 2026. Owner: Hephzibah Behulah.
 
+## PR #56 Load Schedule context-menu acceptance — 13 November 2026
+
+[PR #56](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/56) verifies the existing context menu opens by pointer and Shift+F10, supports arrow/Home/End action navigation, restores focus on Escape, and invokes Edit. Candidate [run 43374323130](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43374323130), exact-main [run 43374887506](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43374887506), and Pages [run 43375409749](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43375409749) passed. Main `acafc46e0285434abba82984657fc553fdbc60d4` is deployed; Pages verified validation run 43374887506 and source artifact 14013394007 (Pages artifact 14014108069). The analytical heater is an isolated fixture; no client data or app behavior changed.
+
+## PR #55 documentation deployment receipt — 13 November 2026
+
+[PR #55](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/55) records PR #54 release evidence. Candidate [run 43373318062](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43373318062), exact-main [run 43373893178](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43373893178), and Pages [run 43374451469](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43374451469) passed. Main `177e38623e46b13f3ab1f464f736ffe6953fdeeb` is deployed; Pages verified validation run 43373893178 and source artifact 14013578423 (Pages artifact 14013912704). No application behavior changed in this documentation PR.
+
 ## PR #54 documentation deployment receipt — 13 November 2026
 
 [PR #54](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/54) records PR #53 release evidence. Candidate [run 43371837583](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43371837583), exact-main [run 43372375564](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43372375564), and Pages [run 43373115498](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43373115498) passed. Main `ab05396b8bf0d7f43cd2c9c1bf4821e0597b2e89` is the publication source; Pages verified the exact SHA, validation run 43372375564, and artifact 14013685966. No application behavior changed in this documentation PR.
