@@ -1,5 +1,14 @@
 # Test evidence
 
+## Spatial object inspection detail mode: 13 November 2026
+
+- **PR #44:** the selected spatial object’s descriptive detail follows Simple/Engineering mode. Its name and representative kW value remain visible in both modes.
+- Candidate full CI passed in [run 43353163135](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43353163135).
+- Merged main `4d5fd78d2efc4aabeb5ef9a8078e864e41d50ed1` passed full validation in [run 43353747498](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43353747498); Pages deployed that SHA in [run 43354410218](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43354410218).
+- Browser coverage uses the existing test-only analytical spatial fixture. No client graph or measured telemetry was added.
+
+
+
 ## Source equipment assessment detail mode: 13 November 2026
 
 - **PR #42:** source-equipment assessment method collapses in Simple mode and opens in Engineering mode; check results remain visible. Browser coverage switches modes on a test-only entered source record.

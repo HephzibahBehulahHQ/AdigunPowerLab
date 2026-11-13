@@ -2,6 +2,10 @@
 
 Audit date: 13 November 2026. Scope: original specification sections 01–33, fixtures F01–F20 and tools T01–T51, plus the recovered continuation.
 
+## Spatial object inspection detail mode: 13 November 2026
+
+[PR #44](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/44) connects the analytical spatial view's selected-object description to the global Simple/Engineering preference. Simple mode collapses that description and preserves object identity and representative kW; Engineering opens it. Candidate, exact-main and Pages receipts are recorded in [TEST_EVIDENCE.md](TEST_EVIDENCE.md) and [DEPLOYMENT.md](DEPLOYMENT.md). The browser fixture is analytical test data and makes no physical survey or telemetry claim.
+
 ## Source equipment assessment detail mode: 13 November 2026
 
 [PR #42](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/42) connects the source register assessment method to the shared Simple/Engineering preference. Simple mode collapses the method details and Engineering opens them; assessment check results stay visible in both modes. Candidate, exact-main and Pages receipts are recorded in [TEST_EVIDENCE.md](TEST_EVIDENCE.md) and [DEPLOYMENT.md](DEPLOYMENT.md). Automated browser coverage uses a test-only source record and does not claim equipment validation.
@@ -54,7 +58,7 @@ The next bounded continuation implements 20 workflow guides and guides for all 5
 
 ## Release conclusion
 
-**The complete original specification is not fully accepted.** Application revision `177163d0227083009cbfe05576eaa3ee36cfcc80` (PR #38) is deployed in [Pages run 43340449448](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43340449448). PRs #33–#34 added the Help and Guide sidebar, illustrated project path, guided BOT workspace tour and catalogue-backed answers; PR #36 added confirmed single-load edits; PR #38 connected feeder methods to detail mode. The exact candidate, main, and Pages receipts are in [TEST_EVIDENCE.md](TEST_EVIDENCE.md). External engineering datasets/services, independent language/accessibility review, direct live HTTP verification for this deployment, and exhaustive workflow acceptance remain open. See [PROJECT_STATUS.md](../PROJECT_STATUS.md) for the next bounded action.
+**The complete original specification is not fully accepted.** Application revision `4d5fd78d2efc4aabeb5ef9a8078e864e41d50ed1` (PR #44) is deployed in [Pages run 43354410218](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43354410218). PRs #33–#34 added the Help and Guide sidebar, illustrated project path, guided BOT workspace tour and catalogue-backed answers; PR #36 added confirmed single-load edits; PRs #38, #42 and #44 connect feeder, source-equipment and spatial inspection details to the shared mode; PR #40 adds confirmed BOT phase assignment. The exact candidate, main, and Pages receipts are in [TEST_EVIDENCE.md](TEST_EVIDENCE.md). External engineering datasets/services, independent language/accessibility review, direct live HTTP verification for this deployment, and exhaustive workflow acceptance remain open. See [PROJECT_STATUS.md](../PROJECT_STATUS.md) for the next bounded action.
 
 Historical verification source: `93d5e46`. That November 6 candidate passed **331 tests across 21 files**, its production build and **32/32 browser cases** in the independent checkout. Historical release details remain in the sections below and linked PRs; they do not replace the current 12 November release evidence in `TEST_EVIDENCE.md`.
 
