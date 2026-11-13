@@ -1,5 +1,17 @@
 # Test evidence
 
+## PR #58 Load Schedule context-menu actions: 13 November 2026
+
+- **PR #58:** browser acceptance covers Inspect selection, Duplicate, and Delete review cancellation/confirmation. The isolated analytical heater fixture does not use client data.
+- The first candidate [run 43377155127](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43377155127) caught a test selector that matched both original and copied rows. After narrowing the selector, corrected full CI passed in [run 43377948197](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43377948197).
+- Merged main `cc392fac1933fe595dbadec47b185231cb92436f` passed full CI in [run 43378669557](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43378669557); Pages deployed the same SHA in [run 43379271903](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43379271903). Its summary identifies validation run 43378669557 and source artifact 14015941593; the Pages artifact is 14015777416.
+
+## PR #57 documentation deployment receipts: 13 November 2026
+
+- **PR #57:** records the verified releases of PR #55 and PR #56; documentation only, with no application behavior change.
+- Candidate full CI passed in [run 43375668435](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43375668435).
+- Merged main `8f783be117fc3b461789d1e1367f3f7944a21656` passed full CI in [run 43376375253](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43376375253); Pages deployed the same SHA in [run 43376891970](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43376891970). Its summary identifies validation run 43376375253 and source artifact 14014742472; the Pages artifact is 14014837606.
+
 ## PR #56 Load Schedule context-menu acceptance: 13 November 2026
 
 - **PR #56:** browser acceptance verifies pointer and Shift+F10 opening, arrow/Home/End navigation, Escape focus return and the Edit action. It uses an isolated analytical heater fixture; no client data is touched.
