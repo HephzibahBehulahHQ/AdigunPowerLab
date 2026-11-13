@@ -599,7 +599,9 @@ test("local BOT rejects nonnumeric load edits without a proposal or mutation", a
     name: "Edit load",
     exact: true,
   });
-  await expect(dialog.getByLabel("Quantity", { exact: true })).toHaveValue("1");
+  await expect(
+    dialog.getByLabel("Quantity", { exact: true }),
+  ).toHaveValue("1");
   await dialog.getByRole("button", { name: "Close", exact: true }).click();
 });
 
