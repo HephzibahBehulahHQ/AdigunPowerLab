@@ -477,3 +477,58 @@ test("load context menu supports pointer and keyboard navigation with focus retu
     "Analytical heater",
   );
 });
+
+test("load context menu inspection, duplication and reviewed deletion work as previewed", async ({
+  page,
+}) => {
+  await ready(page);
+  await addLoad(page);
+  const original = page.locator("tbody tr").filter({
+    has: page
+      .locator("button.load-name")
+      .getByText("Analytical heater", { exact: true }),
+  });
+  const originalOpener = original.locator("button.load-name");
+
+  await originalOpener.click({ button: "right" });
+  let menu = page.getByRole("menu", { name: "Load actions", exact: true });
+  await menu.getByRole("menuitem", { name: "Inspect", exact: true }).click();
+  await expect(original).toHaveClass(/selected-row/);
+
+  await originalOpener.click({ button: "right" });
+  menu = page.getByRole("menu", { name: "Load actions", exact: true });
+  await menu.getByRole("menuitem", { name: "Duplicate", exact: true }).click();
+  const copy = page
+    .locator("tbody tr")
+    .filter({ hasText: "Analytical heater · copy" });
+  await expect(copy).toHaveCount(1);
+  await expect(original).toHaveCount(1);
+
+  const copyOpener = copy.locator("button.load-name");
+  await copyOpener.click({ button: "right" });
+  menu = page.getByRole("menu", { name: "Load actions", exact: true });
+  await menu.getByRole("menuitem", { name: "Delete", exact: true }).click();
+  let review = page.getByRole("dialog", {
+    name: "Review project changes",
+    exact: true,
+  });
+  await expect(
+    review.getByRole("button", { name: "Apply reviewed changes", exact: true }),
+  ).toBeEnabled();
+  await review.getByRole("button", { name: "Cancel", exact: true }).click();
+  await expect(review).toHaveCount(0);
+  await expect(copy).toHaveCount(1);
+
+  await copyOpener.click({ button: "right" });
+  menu = page.getByRole("menu", { name: "Load actions", exact: true });
+  await menu.getByRole("menuitem", { name: "Delete", exact: true }).click();
+  review = page.getByRole("dialog", {
+    name: "Review project changes",
+    exact: true,
+  });
+  await review
+    .getByRole("button", { name: "Apply reviewed changes", exact: true })
+    .click();
+  await expect(copy).toHaveCount(0);
+  await expect(original).toHaveCount(1);
+});
