@@ -2,7 +2,10 @@ import { test, expect } from "./fixtures";
 import { readFile } from "node:fs/promises";
 import type { Page } from "@playwright/test";
 
-async function fixture(page: Page, kind: "calendar" | "feeder" | "dispatch") {
+async function fixture(
+  page: Page,
+  kind: "calendar" | "feeder" | "dispatch" | "source",
+) {
   await page.goto("/");
   await expect(page.locator(".overview-banner")).toBeVisible();
   await page.evaluate(async (kind) => {
@@ -76,6 +79,27 @@ async function fixture(page: Page, kind: "calendar" | "feeder" | "dispatch") {
           rating: 2.3,
           boardId: project.boards[0].id,
         }),
+      ];
+    } else if (kind === "source") {
+      project.sources = [
+        {
+          id: "browser-grid",
+          name: "Planning grid",
+          type: "grid",
+          boardId: project.boards[0].id,
+          connection: "three",
+          voltageV: project.supply.voltageLL,
+          continuousKW: 100,
+          continuousKVA: 125,
+          derating: 1,
+          islandCapable: false,
+          gridForming: false,
+          transferIsolationVerified: false,
+          blackStart: false,
+          restartSeconds: 0,
+          source: { kind: "user", reference: "Browser fixture only" },
+          notes: "",
+        },
       ];
     } else
       Object.assign(project.energy, {
@@ -288,4 +312,30 @@ test("24-hour profile disclosure follows global detail mode", async ({
   await expect(estimate).toHaveJSProperty("open", true);
   await mode.selectOption("simple");
   await expect(estimate).toHaveJSProperty("open", false);
+});
+
+test("source assessment details follow mode while check results remain visible", async ({
+  page,
+}) => {
+  await fixture(page, "source");
+  await route(page, "Motors & Supply");
+  await page
+    .getByRole("button", { name: "Planning grid", exact: true })
+    .click();
+  const method = page.locator(".advanced-section").filter({
+    has: page.getByText("Methods, assumptions and unresolved checks", {
+      exact: true,
+    }),
+  });
+  const mode = page.getByLabel("Detail level", { exact: true });
+  await mode.selectOption("simple");
+  await expect(method).toHaveJSProperty("open", false);
+  await expect(
+    page.locator("table").filter({ hasText: "Served load data" }),
+  ).toBeVisible();
+  await expect(
+    page.getByText("incomplete", { exact: true }).first(),
+  ).toBeVisible();
+  await mode.selectOption("engineering");
+  await expect(method).toHaveJSProperty("open", true);
 });
