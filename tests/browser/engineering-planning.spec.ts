@@ -2,7 +2,10 @@ import { test, expect } from "./fixtures";
 import { readFile } from "node:fs/promises";
 import type { Page } from "@playwright/test";
 
-async function fixture(page: Page, kind: "calendar" | "feeder" | "dispatch" | "source") {
+async function fixture(
+  page: Page,
+  kind: "calendar" | "feeder" | "dispatch" | "source",
+) {
   await page.goto("/");
   await expect(page.locator(".overview-banner")).toBeVisible();
   await page.evaluate(async (kind) => {
@@ -311,31 +314,28 @@ test("24-hour profile disclosure follows global detail mode", async ({
   await expect(estimate).toHaveJSProperty("open", false);
 });
 
-test(
-  "source assessment details follow mode while check results remain visible",
-  async ({ page }) => {
-    await fixture(page, "source");
-    await route(page, "Motors & Supply");
-    await page
-      .getByRole("button", { name: "Planning grid", exact: true })
-      .click();
-    const method = page.locator(".advanced-section").filter({
-      has: page.getByText(
-        "Methods, assumptions and unresolved checks",
-        { exact: true },
-      ),
-    });
-    const mode = page.getByLabel("Detail level", { exact: true });
-    await mode.selectOption("simple");
-    await expect(method).toHaveJSProperty("open", false);
-    await expect(
-      page.locator("table").filter({ hasText: "Equipment evidence" }),
-    ).toBeVisible();
-    await expect(
-      page.getByText("incomplete", { exact: true }).first(),
-    ).toBeVisible();
-    await mode.selectOption("engineering");
-    await expect(method).toHaveJSProperty("open", true);
-  },
-);
-
+test("source assessment details follow mode while check results remain visible", async ({
+  page,
+}) => {
+  await fixture(page, "source");
+  await route(page, "Motors & Supply");
+  await page
+    .getByRole("button", { name: "Planning grid", exact: true })
+    .click();
+  const method = page.locator(".advanced-section").filter({
+    has: page.getByText("Methods, assumptions and unresolved checks", {
+      exact: true,
+    }),
+  });
+  const mode = page.getByLabel("Detail level", { exact: true });
+  await mode.selectOption("simple");
+  await expect(method).toHaveJSProperty("open", false);
+  await expect(
+    page.locator("table").filter({ hasText: "Equipment evidence" }),
+  ).toBeVisible();
+  await expect(
+    page.getByText("incomplete", { exact: true }).first(),
+  ).toBeVisible();
+  await mode.selectOption("engineering");
+  await expect(method).toHaveJSProperty("open", true);
+});
