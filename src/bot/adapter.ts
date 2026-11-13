@@ -276,10 +276,7 @@ export function parseLoadCircuitAssignmentProposal(
   if (preview.errors.length) throw new Error(preview.errors.join(" "));
   if (!preview.changes.length)
     throw new Error(
-      loads[0].name +
-        " is already assigned to " +
-        circuits[0].name +
-        ".",
+      `${loads[0].name} is already assigned to ${circuits[0].name}.`,
     );
   return { kind: "command", preview };
 }
