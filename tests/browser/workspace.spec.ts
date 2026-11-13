@@ -640,8 +640,6 @@ test("local BOT rejects missing exact-name edit targets without a proposal or mu
     name: "Edit load",
     exact: true,
   });
-  await expect(
-    dialog.getByLabel("Quantity", { exact: true }),
-  ).toHaveValue("1");
+  await expect(dialog.getByLabel("Quantity", { exact: true })).toHaveValue("1");
   await dialog.getByRole("button", { name: "Close", exact: true }).click();
 });
