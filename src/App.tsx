@@ -1225,7 +1225,20 @@ export default function App() {
             className={
               "save-badge " + (saveState === "Save failed" ? "bad" : "")
             }
-            title={t(saveState)}
+            title={t(
+              saveState === "Save failed"
+                ? "Saving failed. Keep this tab open and export a backup or save a copy before leaving."
+                : saveState === "Unsaved changes"
+                  ? "Unsaved changes may be lost if you leave before they are saved locally."
+                  : saveState,
+            )}
+            aria-label={t(
+              saveState === "Save failed"
+                ? "Saving failed. Keep this tab open and export a backup or save a copy before leaving."
+                : saveState === "Unsaved changes"
+                  ? "Unsaved changes may be lost if you leave before they are saved locally."
+                  : saveState,
+            )}
           >
             {saveState === "Saving" ? (
               <LoaderCircle size={13} className="spin" />

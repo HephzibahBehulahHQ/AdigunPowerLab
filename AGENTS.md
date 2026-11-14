@@ -31,7 +31,12 @@ Read this file, the one current status and the relevant specification sections; 
 
 Make the first useful remote WIP checkpoint within five minutes of changed implementation work, then changed checkpoints at most five minutes apart and before long operations or handoffs. No empty commits, secrets, unrelated files or force-pushes. The integration owner checks the current remote head and verifies the exact synchronized revision. At ten minutes of unresolved synchronization, stop feature expansion unless an authorized bounded offline exception applies; preserve recoverable work and report the actual barrier. WIP backup may contain unfinished work; full release gates still apply.
 
+## Help and support maintenance
+
+When a user-visible capability or workflow changes, update the relevant in-app Help and Support topic, all four supported translations, automated help coverage, and `docs/USER_GUIDE.md` in the same implementation slice. Update the acceptance matrix when the change affects a stated acceptance boundary. Do not describe browser-native prompts as having custom wording that browsers may suppress.
+
 # GLOBAL CODEX OPERATING DIRECTIVE
+
 ## STRICT TOKEN DISCIPLINE, NETWORK EFFICIENCY & AUTONOMOUS PROJECT EXECUTION
 
 **SCOPE: ALL PROJECTS, REPOSITORIES, TASKS, AND WORKSPACES.**
