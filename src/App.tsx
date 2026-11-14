@@ -1532,6 +1532,7 @@ export default function App() {
                     redo.current = [];
                     setHistoryTick((n) => n + 1);
                     latest.current = copy;
+                    writePreference("currentProject", copy.id);
                     setProject(copy);
                     setSelected(undefined);
                     setShowTrace(false);
