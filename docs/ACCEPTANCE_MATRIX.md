@@ -6,6 +6,10 @@ Audit date: 13 November 2026. Scope: original specification sections 01–33, fi
 
 The implementation is live at `https://adigunpowerlab.hephzibahbehulah.com/#POWERGRID`. Candidate [run 43628170719](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43628170719), exact-main [run 43628826181](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43628826181), and Pages [run 43629332412](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43629332412) passed. Full-M1 status and remaining JSON/mobile checks are listed in [`POWERGRID_ACCEPTANCE.md`](POWERGRID_ACCEPTANCE.md); milestones 2–6 are not claimed complete.
 
+## POWERGRID LAB Milestone 2 progress
+
+The radial AC calculation engine is being added with focused numerical coverage for multiple feeders, load groups, branch outages, constraints and solver diagnostics. Its first five tests pass locally. Scenario comparison, editable browser controls and expanded lessons are still open; see [`POWERGRID_ACCEPTANCE.md`](POWERGRID_ACCEPTANCE.md).
+
 ## Confirmed BOT exact-name circuit removal: 14 November 2026
 
 [PR #85](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/85) verifies unique exact-name circuit resolution, a preview naming the circuit and connected loads, Apply that removes only the circuit and leaves its loads unassigned, and Undo restoring the previous assignments. Missing and ambiguous names are rejected. Help and Guide covers the action in all four supported locales. Candidate, exact-main and Pages receipts are recorded in [TEST_EVIDENCE.md](TEST_EVIDENCE.md) and [DEPLOYMENT.md](DEPLOYMENT.md).
