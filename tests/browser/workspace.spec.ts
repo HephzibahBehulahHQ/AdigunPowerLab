@@ -728,7 +728,9 @@ test("local BOT protects amps-entered ratings from kW-only edits", async ({
   await expect(reopened.getByLabel("Entry mode", { exact: true })).toHaveValue(
     "amps",
   );
-  await expect(reopened.getByLabel("Rating", { exact: true })).toHaveValue("12");
+  await expect(reopened.getByLabel("Rating", { exact: true })).toHaveValue(
+    "12",
+  );
   await reopened.getByRole("button", { name: "Close", exact: true }).click();
 });
 
