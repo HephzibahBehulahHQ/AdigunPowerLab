@@ -9,8 +9,13 @@ import {
   validatePowerGridInputs,
 } from "../engine/powergrid";
 import type { PowerGridInputs, PowerGridReading } from "../engine/powergrid";
+import {
+  applyRegionalTeachingPreset,
+  NIGERIA_TEACHING_PRESET,
+} from "../engine/powergridRegions";
 import { RadialFeederExperiment } from "./RadialFeederExperiment";
 import { PvPerformanceExperiment } from "./PvPerformanceExperiment";
+import { RegionalGridPreset } from "./RegionalGridPreset";
 
 const SAVE_KEY = "adigunpowerlab.powergrid.experiment.v1";
 const copy: Record<Locale, Record<string, string>> = {
@@ -319,6 +324,14 @@ export function PowerGridLab() {
         </div>
       </header>
       <p className="pg-isolation">{text.independent}</p>
+      <RegionalGridPreset
+        onApply={() => {
+          setInputs((previous) =>
+            applyRegionalTeachingPreset(previous, NIGERIA_TEACHING_PRESET),
+          );
+          setSaved(false);
+        }}
+      />
       <section
         className="panel panel-pad pg-panel"
         aria-labelledby="pg-path-title"

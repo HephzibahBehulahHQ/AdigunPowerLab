@@ -6,16 +6,22 @@
 - Solver candidate `d658b906e4fd00f76d6eff7523f39048e9ebeae8`, [run 43631680915](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43631680915), passed the full hosted gate. Merged main `5172bcf8191da0e1c98ff0bc907f4a0e745acf04` passed exact-main [run 43632250030](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43632250030); Pages deployed that SHA in [run 43632711123](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43632711123), artifact 14127789492.
 - PR #92 candidate [run 43635520709](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43635520709) passed lint, all unit tests, build, full browser and production-browser suites, and update/offline/base-path smoke checks. Exact-main [run 43636068361](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43636068361) passed. Pages [run 43636663764](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43636663764) deployed `4e7d96e5e9186f5bf983fae288eec017a2a64dcc`, artifact 14130169246. Live browser inspection confirmed the radial feeder section and editable controls.
 
-
 ## POWERGRID LAB Milestone 3 PV model local checkpoint
 
 - `tests/pvPerformance.test.ts`: 4/4 tests passed for the calculated default operating point, zero irradiance, temperature response, and invalid input rejection.
 - Strict standalone TypeScript check passed with the repository compiler.
 - Hosted candidate, browser, production-browser, build and regression checks are pending. No local browser result is claimed.
 - Equation sources: [Sandia PVPMC cell-temperature relation](https://pvpmc.sandia.gov/modeling-guide/2-dc-module-iv/cell-temperature/sandia-cell-temperature-model/) and [NREL PVWatts V5 manual](https://pvwatts.nrel.gov/downloads/pvwattsv5.pdf).
+
+## POWERGRID LAB regional preset local checkpoint
+
+- Adds an engine-level Nigeria-inspired teaching preset sourced to NERC Grid Code Version 02 and a browser case that checks displayed region metadata, 132/330/33 kV application, preservation of the consumer voltage, and the source link.
+- Focused unit test, lint, build, browser checks and hosted candidate validation are pending. The preset has no regional resource/demand profile and does not calculate frequency response.
+
 ## POWERGRID LAB Milestone 1 focused acceptance release — 14 November 2026
 
 - PR #91 adds parsed JSON download-content and 390 × 844 mobile layout checks. Candidate [run 43633459567](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43633459567) and exact-main [run 43634068700](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43634068700) passed the complete hosted validation. Pages [run 43634569359](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43634569359) deployed `36ac8fb1d98e46311b87a2b85f17d933b5f14a7c`, artifact 14129153822.
+
 ## POWERGRID LAB Milestone 1 local checkpoint: 14 November 2026
 
 - Candidate source is being prepared from main `c9876d2afbc8e973c5af0fcbcac6e097e2f6b731`; candidate SHA and hosted receipts will be added after push.

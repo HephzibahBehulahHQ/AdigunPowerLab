@@ -37,3 +37,9 @@ The cell-temperature form follows the [Sandia PV Performance Modeling Collaborat
 
 This single-point teaching estimate excludes weather retrieval, annual energy, orientation/transposition, shading, module I–V curves, mismatch, wiring loss, dynamic response and degradation. It does not imply a selected module or compliance with an installation design.
 Source documents were consulted on 14 November 2026. This worksheet uses the cited simplified equations, not the complete PVWatts thermal, inverter-curve, system-loss or annual-energy model.
+
+## Regional teaching scenario — Nigeria-inspired
+
+The first regional scenario is implemented in `src/engine/powergridRegions.ts`. It records the NERC Grid Code Version 02 public-consultation nominal stages 330, 132, 33 and 11 kV and 50 Hz, with source and access date in the scenario data. Applying the preset writes 132 kV, 330 kV and 33 kV into the existing step-up worksheet; the other voltage fields are preserved. This describes which voltage conventions the teaching worksheet is using and does not extend its solver topology.
+
+The current steady-state solvers do not model frequency response. `NGN` and `Africa/Lagos` are metadata only. No regional weather, renewable availability, generation dispatch or demand profile is loaded. The scenario is an educational context, not an operational replica; see [`POWERGRID_DATA_SOURCES.md`](POWERGRID_DATA_SOURCES.md) for source, date and simplifications. Other regional, rural-microgrid and custom presets remain unimplemented.
