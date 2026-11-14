@@ -50,6 +50,11 @@ test("Help and Guide sidebar opens the illustrated workflow and Bot tour", async
   await search.fill("delete load");
   await expect(botGuide).toContainText("delete load: Heater");
   await expect(botGuide).toContainText("Undo restores the complete change");
+  await search.fill("remove circuit");
+  await expect(botGuide).toContainText("remove circuit: Lighting circuit");
+  await expect(botGuide).toContainText(
+    "keeps those loads in the project unassigned",
+  );
   await search.fill("");
   await help
     .getByRole("button", { name: "Start guided tour", exact: true })
