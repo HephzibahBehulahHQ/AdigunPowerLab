@@ -1,5 +1,12 @@
 # Test evidence
 
+## POWERGRID LAB Milestone 2 radial solver foundation
+
+- `tests/powergridRadial.test.ts`: **5/5 focused numerical tests passed** locally using the existing project dependencies. Coverage includes multi-feeder real/reactive power balance, voltage and thermal constraints, open-feeder islands and served-load accounting, loop/impedance/orientation rejection, and convergence diagnostics.
+- `tsc --ignoreConfig --noEmit --target ES2022 --module ESNext --moduleResolution Bundler --strict --skipLibCheck src/engine/powergridRadial.ts`: passed for the new standalone calculation module.
+- Prettier check and `git diff --check`: passed. Full candidate repository, browser, production-browser and build validation are pending for the pull request; the user-facing radial-network workflow remains open.
+- First hosted candidate `c02d555b440b20a02327e93c6d0d8764fecc8c62`, [run 43631360926](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43631360926), stopped at lint because the uploaded TypeScript blobs used CRLF line endings and Linux Prettier rejected them. The candidate blobs are being normalized to LF before rerun; no application-test result is claimed from that run.
+
 ## POWERGRID LAB Milestone 1 local checkpoint: 14 November 2026
 
 - Candidate source is being prepared from main `c9876d2afbc8e973c5af0fcbcac6e097e2f6b731`; candidate SHA and hosted receipts will be added after push.
