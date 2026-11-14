@@ -1,3 +1,6 @@
+Warning: truncated output (original token count: 7074)
+Total output lines: 671
+
 import { translate } from "../i18n";
 import type { Locale } from "../i18n";
 import { tools } from "../tools";
@@ -16,6 +19,32 @@ export interface HelpTopic {
 }
 
 const workflows: Omit<HelpTopic, "kind" | "category">[] = [
+  {
+    id: "getting-started",
+    title: "Start a project and find your way",
+    summary:
+      "Create your own installation, then use Overview to see what your entered equipment needs.",
+    steps: [
+      "Open Project in the toolbar. New starts a named project; Open returns to saved projects. Rename and Duplicate help organize separate studies.",
+      "Open Settings and enter the supply, voltage, timezone and currency. Choose Add load to enter equipment from its nameplate or measurement.",
+      "Use the left navigation to change workspaces. Collapse groups or open the navigation button on a small screen. Select a load to inspect it; Calculation trace explains its result.",
+    ],
+    example:
+      "For a small workshop, enter the lights and heater first. Check installed power, design demand and daily energy in Overview before adding more equipment.",
+    route: "overview",
+    keywords: [
+      "navigation",
+      "menu",
+      "header",
+      "dashboard",
+      "new",
+      "open",
+      "rename",
+      "duplicate",
+      "inspector",
+      "trace",
+    ],
+  },
   {
     id: "project-menu",
     title: "Use the Project menu",
@@ -45,32 +74,6 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "trash",
       "restore from trash",
       "workspace backup",
-    ],
-  },
-  {
-    id: "getting-started",
-    title: "Start a project and find your way",
-    summary:
-      "Create your own installation, then use Overview to see what your entered equipment needs.",
-    steps: [
-      "Open Project in the toolbar. New starts a named project; Open returns to saved projects. Rename and Duplicate help organize separate studies.",
-      "Open Settings and enter the supply, voltage, timezone and currency. Choose Add load to enter equipment from its nameplate or measurement.",
-      "Use the left navigation to change workspaces. Collapse groups or open the navigation button on a small screen. Select a load to inspect it; Calculation trace explains its result.",
-    ],
-    example:
-      "For a small workshop, enter the lights and heater first. Check installed power, design demand and daily energy in Overview before adding more equipment.",
-    route: "overview",
-    keywords: [
-      "navigation",
-      "menu",
-      "header",
-      "dashboard",
-      "new",
-      "open",
-      "rename",
-      "duplicate",
-      "inspector",
-      "trace",
     ],
   },
   {
@@ -327,17 +330,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "dispatch",
       "outage",
       "import",
-      "export",
-      "curtailment",
-    ],
-  },
-  {
-    id: "ev-and-flexible-loads",
-    title: "EV & Flexible Loads",
-    summary:
-      "Check whether charging or flexible work can finish within its allowed window.",
-    steps: [
-      "Enter charging arrival and departure, required energy or SOC, charger/vehicle limits and one/three-phase constraints.",
+      "export"…74 tokens truncated…vehicle limits and one/three-phase constraints.",
       "Run the planner and inspect delivered energy, unmet energy and deadline feasibility. Review any generation-following or price priority, then preview before applying dated load schedules.",
     ],
     example:
