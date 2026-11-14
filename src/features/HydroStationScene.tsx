@@ -958,7 +958,7 @@ export function HydroStationScene({ locale }: { locale: keyof typeof names }) {
             />
             <path d="M813 93 943 63l132 30" className="pg-control-roof" />
             <path
-              d="M831 106h34v25h-34zm49 0h34v25h-34zm99 0h25v49h-25z"
+              d="M831 106h34v25h-34zM875 106h20v25h-20zM1010 106h25v49h-25z"
               className="pg-control-window"
             />
             <text x="831" y="173" className="pg-svg-small">
