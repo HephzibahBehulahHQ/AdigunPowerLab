@@ -127,6 +127,7 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
 
   await page
     .getByRole("button", { name: "Inspect: Overhead three-phase circuit" })
+    .last()
     .focus();
   await page.keyboard.press("Enter");
   await expect(
@@ -157,13 +158,17 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
 
   const language = page.getByLabel("Language", { exact: true });
   await language.selectOption("de");
-  await page.getByRole("button", { name: /Prüfen: Synchrongenerator/ }).click();
+  await page
+    .getByRole("button", { name: /Prüfen: Synchrongenerator/ })
+    .first()
+    .click();
   await expect(
     page.getByRole("heading", { name: /Synchrongenerator/ }),
   ).toBeVisible();
   await language.selectOption("yo");
   await page
     .getByRole("button", { name: /Ṣàyẹ̀wò: Synchronous generator/ })
+    .first()
     .click();
   await expect(
     page.getByRole("heading", { name: /Synchronous generator/ }),
@@ -171,6 +176,7 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
   await language.selectOption("pcm");
   await page
     .getByRole("button", { name: /Inspect: Synchronous generator/ })
+    .first()
     .click();
   await expect(
     page.getByRole("heading", { name: /Synchronous generator/ }),
