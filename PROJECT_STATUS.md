@@ -2,6 +2,20 @@
 
 Date: 14 November 2026. Owner: Hephzibah Behulah.
 
+## PR #78 unsaved-project safety and Help updates — 14 November 2026
+
+[PR #78](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/78) warns before leaving unsaved edits, reopens the last committed project on refresh, keeps clean loads from being marked dirty, and documents these behaviors in Help and Support in all four locales. The Help guide now also covers the BOT tour and duplicate load-name rejection; repository instructions require relevant help, translations, tests and user-guide updates when features change. Initial candidates exposed clean-load metadata and recovery-copy selection regressions; both were corrected before the final candidate passed.
+
+Candidate `1cc3112e062cfd5bc81813039dc5a6b9a95d3950` passed the complete gate in [run 43604816765](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43604816765), artifact 14117752333. Merged main `2917b0858a708668585a586cbf595781a9a8e88c` passed [run 43605406593](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43605406593), artifact 14118108213; Pages deployed the exact SHA in [run 43605816807](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43605816807), output artifact 14118038347. The public page and compiled bundle returned HTTP 200; the bundle contains the unsaved-warning and clean-load logic.
+
+## PR #77 BOT duplicate-load proposal guard — 14 November 2026
+
+Candidate `aecf4759e773ac6ccb760e650892b69339e1e7a3` passed in [run 43600464867](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43600464867), artifact 14116456475. Main `9160d7072a73ab8c6a78b1b661b91e7c527ade92` passed [run 43600926807](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43600926807), artifact 14116412540; Pages [run 43601437856](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43601437856) deployed it, artifact 14116129842.
+
+## PR #76 deployment-receipt update — 14 November 2026
+
+Candidate [run 43598835538](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43598835538), main validation [run 43599397505](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43599397505), and Pages [run 43599902573](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43599902573) passed. Main `27cab8c1084f5ddbe1938cee97df636f93e395bd` is deployed; candidate artifact 14114749719, validated main artifact 14116465690 and Pages output artifact 14116300873. Documentation only.
+
 ## PR #75 documentation deployment receipts — 14 November 2026
 
 [PR #75](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/75) records PR #73 and #74 release evidence. Candidate [run 43597753191](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43597753191), exact-main [run 43598231509](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43598231509), and Pages [run 43598693643](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43598693643) passed. Main `6796ef4ed2bf5ae93ce6cf64d1d8b373ff328d00` is deployed; candidate artifact 14114849492, validated main artifact 14114249813, Pages output artifact 14114763737. Documentation only.
@@ -168,4 +182,4 @@ These are bounded visual milestones, not full original-spec acceptance. The curr
 
 ## Next action
 
-The menu guide, tour, guide-backed answers, reviewed load edits and assignments, and BOT window lifecycle coverage remain deployed. PRs #60, #62, #64, #66, #68, #70, #72 and #74 cover ambiguous, invalid numeric, missing-target, localized validation-message, zero-quantity, duplicate-name rename, empty-name and unsupported-entry-mode rejection. Continue other deterministic BOT action/failure paths, remaining detail-mode workflows and language coverage. Independent accessibility, professional language and engineering review, licensed/current datasets, exhaustive storage/update-interruption scenarios and full original-spec acceptance remain open. Candidate, exact-main and Pages gates passed for PR #74; validated artifact 14114413057 was published as Pages artifact 14114893256. PRs #73 and #75 also passed all three gates.
+The Help and Guide sidebar, workflow topics, all 51 worksheet guides, BOT guided tour and confirmed local task proposals remain deployed. PR #78 adds a leave-page warning and reliable clean-load recovery. Next, audit remaining menu/action guidance and add real, privacy-safe screenshots or short videos only where the guided tour leaves users without enough context; continue expanding reviewed BOT actions. Independent accessibility, professional language and engineering review, licensed/current datasets, exhaustive storage/update-interruption scenarios and full original-spec acceptance remain open.

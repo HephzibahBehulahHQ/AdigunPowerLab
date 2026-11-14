@@ -1,5 +1,20 @@
 # Test evidence
 
+## PR #78 unsaved-project safety: 14 November 2026
+
+- Candidate `1cc3112e062cfd5bc81813039dc5a6b9a95d3950` passed the complete repository gate in [run 43604816765](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43604816765), artifact 14117752333. This includes the real quota-failure beforeunload prompt, discarded unsaved draft, clean saved-state reload, and recovery-copy selection checks.
+- Main `2917b0858a708668585a586cbf595781a9a8e88c` passed exact-main validation in [run 43605406593](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43605406593), artifact 14118108213. Pages published that exact SHA in [run 43605816807](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43605816807), output artifact 14118038347. The public page and compiled bundle returned HTTP 200, and the bundle includes the new warning and clean-load behavior.
+- Initial candidate runs 43603762965 and 43604298371 exposed saved-metadata and recovery-copy preference regressions; both were fixed before the passing candidate. No customer data was used.
+
+## PR #77 BOT duplicate-load proposal guard: 14 November 2026
+
+- Candidate `aecf4759e773ac6ccb760e650892b69339e1e7a3` passed in [run 43600464867](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43600464867), artifact 14116456475.
+- Main `9160d7072a73ab8c6a78b1b661b91e7c527ade92` passed [run 43600926807](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43600926807), artifact 14116412540; Pages deployed the exact SHA in [run 43601437856](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43601437856), artifact 14116129842.
+
+## PR #76 release-documentation receipt: 14 November 2026
+
+- Documentation candidate passed in [run 43598835538](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43598835538), artifact 14114749719. Main `27cab8c1084f5ddbe1938cee97df636f93e395bd` passed in [run 43599397505](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43599397505), artifact 14116465690; Pages deployed the exact SHA in [run 43599902573](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43599902573), artifact 14116300873.
+
 ## PR #75 documentation deployment receipts: 14 November 2026
 
 - **PR #75:** records candidate, exact-main and Pages receipts for PRs #73 and #74; documentation only.
