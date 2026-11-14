@@ -65,6 +65,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "three phase",
       "experiment",
       "export",
+      "why",
     ],
   },
   {
