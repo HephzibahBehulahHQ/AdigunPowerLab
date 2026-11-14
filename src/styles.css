@@ -3363,7 +3363,7 @@ details p {
 }
 .pg-region header p,
 .pg-region-scope,
-.pg-region-source {
+.pg-region-sources {
   color: var(--muted);
 }
 .pg-region-facts {
@@ -3388,10 +3388,11 @@ details p {
   font-weight: 600;
 }
 .pg-region-scope,
-.pg-region-source {
+.pg-region-sources {
   font-size: 13px;
+  padding-left: 20px;
 }
-.pg-region-source a {
+.pg-region-sources a {
   overflow-wrap: anywhere;
 }
 .pg-panel {

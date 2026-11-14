@@ -591,8 +591,8 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "The radial model uses one fixed-voltage source, balanced constant-P/Q consumer loads and per-phase series impedance. It reports convergence and disconnected islands; shunt capacitance, transformer taps, generator limits, meshed flow, protection and dynamics are outside this model.",
       "In PV source performance, enter DC nameplate, plane-of-array irradiance, module temperature, cell temperature rise, power coefficient and inverter limits. Read the calculated DC/AC output, conversion loss and clipping, save a comparison reference, then export the case or readings.",
       "This is an instantaneous calculation from entered values; it does not retrieve weather or calculate annual energy, shading, module IV curves, mismatch, wiring losses or transient response. Open the assumptions panel for the Sandia and NREL model references.",
-      "The Nigeria-inspired regional teaching scenario shows 50 Hz, NGN, Africa/Lagos and the sourced nominal 330/132/33/11 kV stages. Apply sets only 132, 330 and 33 kV in the voltage experiment; generator and consumer fields stay as entered. It loads no regional generation, weather or demand profile and is not an operating-grid replica.",
-      "The regional voltage context cites the Nigerian Grid Code Version 02 public consultation copy. Frequency is informational only in the present steady-state worksheets; use the source link in the regional panel to inspect the document.",
+      "The regional panel offers Nigeria-inspired and Germany-inspired (50Hertz grid-area) teaching scenarios. Nigeria displays sourced 330/132/33/11 kV stages; Germany displays 380/220/110 kV, a clearly illustrative 20 kV within the documented 15–30 kV medium-voltage range, and 0.4 kV consumer service. Each shows its frequency, currency and time-zone context separately. Select a region and Apply its supported voltage fields; unrelated inputs remain unchanged.",
+      "The regional scenarios are teaching contexts, not operational replicas. Their source links and dates appear in the panel. No regional generation, weather or demand profile is loaded, and the balanced steady-state worksheets do not simulate frequency response. Germany's transmission example is scoped to the 50Hertz area.",
     ],
     example:
       "At 100 MW, PF 1, 5 Ω/phase, 132 kV gives about 437.4 A and 2.87 MW line loss. At 330 kV the same simplified assumptions give about 175 A and 0.459 MW loss.",
@@ -623,6 +623,9 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "50 Hz",
       "330 kV",
       "NERC",
+      "Germany",
+      "50Hertz",
+      "380 kV",
     ],
   },
 ];

@@ -15,8 +15,8 @@
 
 ## POWERGRID LAB regional preset local checkpoint
 
-- Adds an engine-level Nigeria-inspired teaching preset sourced to NERC Grid Code Version 02 and a browser case that checks displayed region metadata, 132/330/33 kV application, preservation of the consumer voltage, and the source link.
-- Focused unit test, lint, build, browser checks and hosted candidate validation are pending. The preset has no regional resource/demand profile and does not calculate frequency response.
+- PR #94 deployed the NERC-sourced Nigeria teaching context. Candidate run 43641715412 (artifact 14132353578), exact-main run 43642322293 (artifact 14132742971), and Pages run 43642875461 (artifact 14133250374) passed. Live `#POWERGRID` inspection confirmed the source-linked regional panel.
+- The next candidate adds a Germany-inspired 50Hertz-area context. Its unit and browser cases check only the supported voltage inputs change, that the generator terminal is preserved, and that 50Hertz/Bundesnetzagentur source links are rendered. Hosted checks are pending; this worktree has no dependencies for local Vitest/browser execution.
 
 ## POWERGRID LAB Milestone 1 focused acceptance release — 14 November 2026
 
