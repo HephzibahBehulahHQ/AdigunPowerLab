@@ -4,7 +4,7 @@ Audit date: 13 November 2026. Scope: original specification sections 01–33, fi
 
 ## POWERGRID LAB Milestone 1 checkpoint: 14 November 2026
 
-The working implementation has a dedicated acceptance record in [`POWERGRID_ACCEPTANCE.md`](POWERGRID_ACCEPTANCE.md). Local typecheck, two numerical fixtures and production build passed. Hosted candidate browser/history/save/export checks, existing-project regression, full repository gate and deployment are pending; no full-lab acceptance is claimed.
+The working implementation has a dedicated acceptance record in [`POWERGRID_ACCEPTANCE.md`](POWERGRID_ACCEPTANCE.md). Local typecheck, 407 unit tests, two numerical fixtures and production build passed. Hosted candidate run 43625392065 passed lint, unit and build; browser recorded 89 passes, one existing skip and two failures. Direct route/history/save/export passed; Help onboarding order and the new guide-search test were corrected. The hosted browser rerun, production-browser suite and deployment are pending; no full-lab acceptance is claimed.
 
 ## Confirmed BOT exact-name circuit removal: 14 November 2026
 

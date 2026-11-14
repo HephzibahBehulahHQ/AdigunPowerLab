@@ -53,10 +53,8 @@ test("PowerGrid rejects impossible losses and Help searches its guide", async ({
   await expect(
     page.getByRole("button", { name: "Export readings CSV" }),
   ).toBeDisabled();
-  await page.locator(".command-button").click();
-  await page
-    .getByLabel("Search tools, loads and pages")
-    .fill("Why step up voltage");
+  await page.locator(".help-launch").click();
+  await page.getByLabel("Search help").fill("Why step up voltage");
   await expect(
     page.getByText("POWERGRID LAB: compare transmission voltage"),
   ).toBeVisible();

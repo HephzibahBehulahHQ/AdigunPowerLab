@@ -7,6 +7,7 @@
 - `npm test -- --run tests/powergrid.test.ts` passed 2 tests: 132 kV / 330 kV reference values and invalid/reversed/impossible-loss input rejection.
 - `npm run build` passed.
 - `npx playwright test tests/browser/powergrid.spec.ts` did not start: the local Playwright web server did not initialize in this restricted environment; stopped without claiming a browser result. Hosted candidate browser and production-browser checks are pending.
+- Hosted candidate `c106bcb6eedbc0a8e3edc66081d11dfdcf6af1ed`, [run 43625392065](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43625392065): lint, unit tests and build passed. Full browser suite: 89 passed, one existing test skipped, two failed. The new direct-route/history/save/reload/CSV test passed. The failures were Help/BOT onboarding order after inserting the new guide first, and a new guide-search test using global command search. The guide is now after the existing default onboarding topic, and the test opens Help then uses its real search field; correction is awaiting hosted rerun.
 
 ## PR #85 reviewed BOT circuit removal: 14 November 2026
 
