@@ -2,6 +2,18 @@
 
 Date: 14 November 2026. Owner: Hephzibah Behulah.
 
+## PR #81 Project menu Help guide — 14 November 2026
+
+[PR #81](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/81) adds a searchable, four-language walkthrough of create/open, rename/duplicate, save/export/import, history, trash recovery and close. The tour keeps onboarding first. Coverage verifies all 18 non-Help sidebar destinations have a workflow guide; the existing 51 worksheet guides, journey illustration and BOT tour remain. Candidate `e6716a2d782958405bc44cd57ddeb323ee7de6a0` passed [run 43610941434](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43610941434). Merged main `48a6aedaec397709749dd3b50f5888636b517e6d` passed [run 43611545819](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43611545819); Pages published that exact SHA in [run 43612079405](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43612079405). The live custom-domain Help search displayed the guide and its four action steps.
+
+## PR #80 Adigun BOT command guidance — 14 November 2026
+
+[PR #80](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/80) aligns Help and the manual with verified BOT commands for load edits, phase changes, board/circuit assignment, previews and confirmation safeguards. Candidate `7470e1d56ffc1e5c400ff5ed9eecb67c5f578478` passed [run 43607280097](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43607280097); merged main `c950a9561a794aa48bad040f7200e31fc00f6cca` passed [run 43607828871](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43607828871); Pages deployed it in [run 43608405600](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43608405600).
+
+## PR #79 PR 78 release receipts — 14 November 2026
+
+[PR #79](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/79) recorded candidate, exact-main and Pages evidence for PR #78. Candidate `e3cc54f0357f4362335746f1421c3987485870b8` passed [run 43606238930](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43606238930); merged main `9c3f3f7c3aa53c2dbc18d746233d6802e0c5bc8a` passed [run 43606773298](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43606773298); Pages deployed it in [run 43607211932](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43607211932). Documentation only.
+
 ## PR #78 unsaved-project safety and Help updates — 14 November 2026
 
 [PR #78](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/78) warns before leaving unsaved edits, reopens the last committed project on refresh, keeps clean loads from being marked dirty, and documents these behaviors in Help and Support in all four locales. The Help guide now also covers the BOT tour and duplicate load-name rejection; repository instructions require relevant help, translations, tests and user-guide updates when features change. Initial candidates exposed clean-load metadata and recovery-copy selection regressions; both were corrected before the final candidate passed.
@@ -182,4 +194,4 @@ These are bounded visual milestones, not full original-spec acceptance. The curr
 
 ## Next action
 
-The Help and Guide sidebar, workflow topics, all 51 worksheet guides, BOT guided tour and confirmed local task proposals remain deployed. PR #78 adds a leave-page warning and reliable clean-load recovery. Next, audit remaining menu/action guidance and add real, privacy-safe screenshots or short videos only where the guided tour leaves users without enough context; continue expanding reviewed BOT actions. Independent accessibility, professional language and engineering review, licensed/current datasets, exhaustive storage/update-interruption scenarios and full original-spec acceptance remain open.
+The Help and Guide sidebar now contains 21 workflow topics, a Project menu walkthrough, all 51 worksheet guides, the BOT tour and the journey illustration. Tests verify all 18 non-Help sidebar destinations map to a workflow guide. This menu audit found no additional screenshot/video gap. Next, audit the remaining task-specific actions against their actual controls and expand reviewed BOT proposals with explicit confirmation. Independent accessibility, professional language and engineering review, licensed/current datasets, exhaustive storage/update-interruption scenarios and full original-spec acceptance remain open.
