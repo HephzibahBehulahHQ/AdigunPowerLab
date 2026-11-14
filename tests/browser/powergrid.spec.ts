@@ -118,6 +118,7 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
 
   await page
     .getByRole("button", { name: "Inspect: Three-phase switchyard busbar" })
+    .last()
     .click();
   await expect(
     page.getByRole("heading", { name: "Three-phase switchyard busbar" }),
