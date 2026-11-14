@@ -1,5 +1,21 @@
 # Test evidence
 
+## PR #81 Project menu guide and navigation coverage: 14 November 2026
+
+- Candidate `e6716a2d782958405bc44cd57ddeb323ee7de6a0` passed the complete gate in [run 43610941434](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43610941434), artifact 14120576971. The suite checks the Project menu Help search, all 18 non-Help sidebar route mappings, preserved onboarding-first tour order, and the full browser/production-browser gates.
+- Merged main `48a6aedaec397709749dd3b50f5888636b517e6d` passed exact-main validation in [run 43611545819](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43611545819), artifact 14120059224. Pages published that exact SHA in [run 43612079405](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43612079405), output artifact 14120318756. The live custom-domain Help search displayed the Project menu article and its create/open, copy, import/export, history and trash-recovery steps.
+- Earlier candidates caught a case-sensitive assertion (43609442046), a tour-order regression (43610072073), and a truncated source upload detected by lint (43610622127). Each was corrected before the passing candidate. No customer data was used.
+
+## PR #80 Adigun BOT command guide: 14 November 2026
+
+- Candidate `7470e1d56ffc1e5c400ff5ed9eecb67c5f578478` passed in [run 43607280097](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43607280097), artifact 14118512065.
+- Main `c950a9561a794aa48bad040f7200e31fc00f6cca` passed exact-main validation in [run 43607828871](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43607828871), artifact 14118599245; Pages deployed that exact SHA in [run 43608405600](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43608405600), output artifact 14119143020.
+
+## PR #79 PR 78 release-documentation receipt: 14 November 2026
+
+- Documentation candidate `e3cc54f0357f4362335746f1421c3987485870b8` passed in [run 43606238930](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43606238930), artifact 14118074831.
+- Main `9c3f3f7c3aa53c2dbc18d746233d6802e0c5bc8a` passed exact-main validation in [run 43606773298](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43606773298), artifact 14119025956; Pages deployed the exact SHA in [run 43607211932](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43607211932), output artifact 14119445278. Documentation only.
+
 ## PR #78 unsaved-project safety: 14 November 2026
 
 - Candidate `1cc3112e062cfd5bc81813039dc5a6b9a95d3950` passed the complete repository gate in [run 43604816765](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43604816765), artifact 14117752333. This includes the real quota-failure beforeunload prompt, discarded unsaved draft, clean saved-state reload, and recovery-copy selection checks.
