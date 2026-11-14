@@ -152,6 +152,41 @@ test("calendar worker integrates a DST day and cancels on a project edit", async
   const csv = await readFile((await file.path())!, "utf8");
   expect(csv.split("\r\n").length).toBe(101);
 });
+test("local BOT refuses a new load with a duplicate name", async ({ page }) => {
+  await ready(page);
+  await addLoad(page, { name: "Duplicate BOT load" });
+  const row = page
+    .locator("tbody tr")
+    .filter({ hasText: "Duplicate BOT load" });
+
+  await page
+    .getByRole("button", { name: "Open Adigun BOT", exact: true })
+    .click();
+  const bot = page.locator(".local-bot");
+  await bot
+    .locator("textarea")
+    .fill("load: duplicate bot load; 2.3 kW; 230 V; PF 1; 8 h");
+  await bot.getByRole("button", { name: "Send", exact: true }).click();
+
+  await expect(bot.getByRole("alert")).toHaveText(
+    "Load name must remain unique for future commands.",
+  );
+  await expect(bot.locator(".bot-proposal")).toHaveCount(0);
+  await expect(
+    bot.getByRole("button", { name: "Apply confirmed changes", exact: true }),
+  ).toHaveCount(0);
+  await expect(row).toHaveCount(1);
+
+  await row
+    .getByRole("button", { name: "Edit Duplicate BOT load", exact: true })
+    .click();
+  const dialog = page.getByRole("dialog", { name: "Edit load", exact: true });
+  await expect(dialog.getByLabel("Name", { exact: true })).toHaveValue(
+    "Duplicate BOT load",
+  );
+  await dialog.getByRole("button", { name: "Close", exact: true }).click();
+});
+
 test("local BOT proposes a real load, requires confirmation, and supports undo", async ({
   page,
 }) => {
