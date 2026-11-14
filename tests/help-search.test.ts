@@ -76,6 +76,14 @@ describe("help search used by the guide and command palette", () => {
     expect(topic?.steps.join(" ")).toContain("Restore from trash");
   });
 
+  it("finds the reviewed BOT load-removal workflow", () => {
+    const [topic] = searchHelp("delete load", "en");
+    expect(topic?.id).toBe("local-bot");
+    expect(topic?.steps.join(" ")).toContain(
+      "Undo restores the complete change",
+    );
+  });
+
   it.each([
     ["en", "Ohm's law"],
     ["de", "Ohmsches Gesetz"],

@@ -47,6 +47,9 @@ test("Help and Guide sidebar opens the illustrated workflow and Bot tour", async
     "assign load: Heater; circuit: Lighting circuit",
   );
   await expect(botGuide).toContainText("rating_kw requires kW entry mode");
+  await search.fill("delete load");
+  await expect(botGuide).toContainText("delete load: Heater");
+  await expect(botGuide).toContainText("Undo restores the complete change");
   await search.fill("");
   await help
     .getByRole("button", { name: "Start guided tour", exact: true })
