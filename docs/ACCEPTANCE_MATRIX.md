@@ -2,6 +2,10 @@
 
 Audit date: 13 November 2026. Scope: original specification sections 01–33, fixtures F01–F20 and tools T01–T51, plus the recovered continuation.
 
+## Confirmed BOT exact-name load deletion: 14 November 2026
+
+[PR #83](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/83) verifies that `delete load: Heater` resolves one exact unique current load, previews dependent start-event and flexible-load removal, requires explicit Apply, and supports Undo. Missing and ambiguous names leave project state unchanged. Help and Guide documents the workflow in all four supported locales. Candidate, exact-main, and Pages receipts are recorded in [TEST_EVIDENCE.md](TEST_EVIDENCE.md) and [DEPLOYMENT.md](DEPLOYMENT.md).
+
 ## Confirmed BOT load-to-board assignment: 13 November 2026
 
 [PR #50](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/50) adds a typed exact-name board assignment. The reviewed preview names the target board and any circuit detachment before the user applies it. Candidate, exact-main and Pages receipts appear in [TEST_EVIDENCE.md](TEST_EVIDENCE.md) and [DEPLOYMENT.md](DEPLOYMENT.md).

@@ -2,6 +2,10 @@
 
 Date: 14 November 2026. Owner: Hephzibah Behulah.
 
+## PR #83 reviewed BOT load deletion — 14 November 2026
+
+[PR #83](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/83) adds an exact-name `delete load: Heater` proposal. The preview identifies the load and warns when linked start events or flexible-load plans will also be removed; Apply is explicit, Undo restores the complete previous project, and missing or ambiguous names are rejected without mutation. The workflow and translations are in Help and Guide and the user manual. Candidate `d03d088e56abc8ecfd464ebc851383dd6b607324` passed the full gate in [run 43615716912](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43615716912), artifact 14122267292. Main `28cacbdf1fad5c92871ccbb38f2261a85227699a` passed exact-main CI in [run 43616319272](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43616319272), artifact 14122387659; Pages deployed that SHA in [run 43616757924](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43616757924), output artifact 14122316989. The public custom-domain app loaded after publication.
+
 ## PR #81 Project menu Help guide — 14 November 2026
 
 [PR #81](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/81) adds a searchable, four-language walkthrough of create/open, rename/duplicate, save/export/import, history, trash recovery and close. The tour keeps onboarding first. Coverage verifies all 18 non-Help sidebar destinations have a workflow guide; the existing 51 worksheet guides, journey illustration and BOT tour remain. Candidate `e6716a2d782958405bc44cd57ddeb323ee7de6a0` passed [run 43610941434](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43610941434). Merged main `48a6aedaec397709749dd3b50f5888636b517e6d` passed [run 43611545819](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43611545819); Pages published that exact SHA in [run 43612079405](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43612079405). The live custom-domain Help search displayed the guide and its four action steps.

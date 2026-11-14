@@ -1,5 +1,10 @@
 # Test evidence
 
+## PR #83 reviewed BOT load deletion: 14 November 2026
+
+- Candidate `d03d088e56abc8ecfd464ebc851383dd6b607324` passed the complete gate in [run 43615716912](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43615716912), artifact 14122267292: lint, 402 unit tests, build, 88 browser tests, 17 production-browser tests, update smoke checks and offline smoke checks. Coverage verifies exact-name lookup, missing/ambiguous-name safety, dependent schedule cleanup through the command adapter, and preview/Apply/Undo through the live BOT UI.
+- Main `28cacbdf1fad5c92871ccbb38f2261a85227699a` passed the same complete gate in [run 43616319272](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43616319272), artifact 14122387659. Pages deployed the exact SHA in [run 43616757924](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43616757924), output artifact 14122316989. The public custom-domain app loaded after publication.
+
 ## PR #81 Project menu guide and navigation coverage: 14 November 2026
 
 - Candidate `e6716a2d782958405bc44cd57ddeb323ee7de6a0` passed the complete gate in [run 43610941434](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43610941434), artifact 14120576971. The suite checks the Project menu Help search, all 18 non-Help sidebar route mappings, preserved onboarding-first tour order, and the full browser/production-browser gates.
