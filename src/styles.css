@@ -3565,7 +3565,65 @@ details p {
   display: flex;
   justify-content: center;
 }
+.pg-pv {
+  display: grid;
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+  border-top: 2px solid var(--gold);
+  padding-top: 16px;
+}
+.pg-pv-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.pg-pv-inputs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 10px;
+}
+.pg-pv-results {
+  min-width: 0;
+}
+.pg-pv-results h4 {
+  margin-top: 0;
+}
+.pg-pv-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  gap: 8px;
+}
+.pg-pv-metrics > div {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 9px;
+}
+.pg-pv-metrics dt {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.pg-pv-metrics dd {
+  margin: 4px 0 0;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.pg-pv-reference {
+  border-left: 3px solid var(--gold);
+  padding: 8px 12px;
+  background: var(--surface);
+}
 @media (max-width: 900px) {
+  .pg-pv-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .pg-pv-inputs {
+    grid-template-columns: minmax(0, 1fr);
+  }
   .pg-schematic {
     min-width: 740px;
   }

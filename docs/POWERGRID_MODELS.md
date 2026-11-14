@@ -26,3 +26,14 @@ Open branches may leave radial islands. The solver reports unreachable buses as 
 The radial workflow exposes the solver through editable consumer-group and feeder controls, explicit in-service switches, bus/branch instruments, a captured comparison reference, isolated local save and JSON/CSV downloads. Its lesson and Help entry describe the workflow and model limits in English, German, Yoruba and Nigerian Pidgin. It remains an educational analysis, not equipment certification or a utility-grade planning package.
 
 The radial model assumes one balanced source with fixed voltage, positive-sequence balanced loads modeled as constant P and Q, no shunt capacitance, no transformer tap or impedance model, no generation limits, no protection action and no time variation. Regional presets and a validated meshed-network solver remain later milestone work.
+
+## Milestone 3 foundation: instantaneous PV source model
+
+`src/engine/pvPerformance.ts` adds an explicit source-specific PV estimate using only the entered array, irradiance, temperature and inverter values. It does not fetch weather or infer a regional resource profile.
+
+The steady-state cell temperature relation is `Tcell = Tmodule + (EPOA / 1000) × ΔT`. DC output is `Pdc = (EPOA / 1000) × Pdc0 × max(0, 1 + γ × (Tcell − 25 °C))`. AC before the inverter limit is `Pdc × ηinv`; delivered AC is the lower of that value and the entered inverter AC rating. Conversion loss and AC clipping are reported separately.
+
+The cell-temperature form follows the [Sandia PV Performance Modeling Collaborative model](https://pvpmc.sandia.gov/modeling-guide/2-dc-module-iv/cell-temperature/sandia-cell-temperature-model/); the irradiance/linear-temperature DC equation follows the [NREL PVWatts V5 manual](https://pvwatts.nrel.gov/downloads/pvwattsv5.pdf). The user supplies the irradiance, module temperature, cell-to-module temperature difference, temperature coefficient, inverter efficiency and AC rating; illustrative defaults are not local weather or a product datasheet.
+
+This single-point teaching estimate excludes weather retrieval, annual energy, orientation/transposition, shading, module I–V curves, mismatch, wiring loss, dynamic response and degradation. It does not imply a selected module or compliance with an installation design.
+Source documents were consulted on 14 November 2026. This worksheet uses the cited simplified equations, not the complete PVWatts thermal, inverter-curve, system-loss or annual-energy model.

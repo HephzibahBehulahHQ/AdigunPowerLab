@@ -99,6 +99,12 @@ test("PowerGrid rejects impossible losses and Help searches its guide", async ({
       name: "POWERGRID LAB: compare transmission voltage",
     }),
   ).toBeVisible();
+  await page.getByLabel("Search help").fill("PVWatts");
+  await expect(
+    page.getByRole("heading", {
+      name: "POWERGRID LAB: compare transmission voltage",
+    }),
+  ).toBeVisible();
 });
 
 test("radial feeder solves loads, compares an outage, saves and exports readings", async ({
@@ -155,4 +161,58 @@ test("radial feeder solves loads, compares an outage, saves and exports readings
   const csvText = await readFile((await csv.path())!, "utf8");
   expect(csvText).toContain("bus,north_feeder");
   expect(csvText).toContain("branch,main_north");
+});
+
+test("PV source model responds to inputs, saves a reference and exports results", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  await expect(
+    page.getByRole("heading", { name: "PV source performance experiment" }),
+  ).toBeVisible();
+  await expect(page.getByText("71.232 kW", { exact: true })).toBeVisible();
+  await expect(page.getByText("60 kW", { exact: true })).toBeVisible();
+  await expect(page.getByText("9.095 kW", { exact: true })).toBeVisible();
+
+  await page
+    .getByRole("button", { name: "Save current case as reference" })
+    .click();
+  const irradiance = page.getByLabel("Plane-of-array irradiance (W/m²)");
+  await irradiance.fill("500");
+  await expect(page.getByText("-16.641 kW", { exact: false })).toBeVisible();
+  await page.getByRole("button", { name: "Save inputs locally" }).click();
+
+  const jsonPromise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export PV case JSON" }).click();
+  const json = await jsonPromise;
+  expect(json.suggestedFilename()).toBe("powergrid-pv-performance.json");
+  const exported = JSON.parse(await readFile((await json.path())!, "utf8"));
+  expect(exported.model).toBe("steady-state-pvwatts-style-instantaneous");
+  expect(exported.inputs.planeOfArrayIrradianceWm2).toBe(500);
+  expect(exported.result.dcPowerKW).toBeCloseTo(44.7, 2);
+  expect(exported.sourceReferences).toHaveLength(2);
+
+  const csvPromise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export PV readings CSV" }).click();
+  const csv = await csvPromise;
+  expect(csv.suggestedFilename()).toBe("powergrid-pv-readings.csv");
+  const csvText = await readFile((await csv.path())!, "utf8");
+  const acRow = csvText
+    .split("\r\n")
+    .find((row) => row.startsWith('"delivered AC output"'));
+  expect(Number(acRow?.split(",")[1]?.replaceAll('"', ""))).toBeCloseTo(
+    43.359,
+    3,
+  );
+  expect(csvText).toContain('"inverter clipping","0","kW"');
+
+  await page.reload();
+  await expect(irradiance).toHaveValue("500");
+  await irradiance.fill("1600");
+  await expect(
+    page.getByRole("button", { name: "Export PV case JSON" }),
+  ).toBeDisabled();
+  await expect(
+    page.getByText("Plane-of-array irradiance must be from 0 to 1500 W/m²."),
+  ).toBeVisible();
 });

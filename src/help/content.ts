@@ -579,7 +579,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
     id: "powergrid-lab",
     title: "POWERGRID LAB: compare transmission voltage",
     summary:
-      "Open the isolated PowerGrid learning lab, compare transmission losses, solve a radial feeder, inspect outages, save scenarios or export actual results.",
+      "Open the isolated PowerGrid learning lab, compare transmission losses, solve a radial feeder, inspect outages, calculate instantaneous PV performance, save scenarios or export actual results.",
     steps: [
       "Select POWERGRID LAB in the top bar or enter #POWERGRID in the address bar. The exact hash opens the lab directly; refresh keeps it open and browser Back/Forward follows route changes.",
       "Edit transmitted real power, power factor, per-phase line resistance and the two transmission voltages. The generator, distribution and consumer voltages label the schematic scenario.",
@@ -589,6 +589,8 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "Save the radial scenario locally or export its actual solved values as JSON or CSV. The saved radial scenario uses a separate browser key from the step-up experiment and the active customer project.",
       "The model assumes balanced three-phase operation, constant transmitted power and power factor, equal resistance per phase, and ideal transformer voltage changes. It does not solve distribution losses, receiving-end voltage, transformer efficiency or a network load flow.",
       "The radial model uses one fixed-voltage source, balanced constant-P/Q consumer loads and per-phase series impedance. It reports convergence and disconnected islands; shunt capacitance, transformer taps, generator limits, meshed flow, protection and dynamics are outside this model.",
+      "In PV source performance, enter DC nameplate, plane-of-array irradiance, module temperature, cell temperature rise, power coefficient and inverter limits. Read the calculated DC/AC output, conversion loss and clipping, save a comparison reference, then export the case or readings.",
+      "This is an instantaneous calculation from entered values; it does not retrieve weather or calculate annual energy, shading, module IV curves, mismatch, wiring losses or transient response. Open the assumptions panel for the Sandia and NREL model references.",
     ],
     example:
       "At 100 MW, PF 1, 5 Ω/phase, 132 kV gives about 437.4 A and 2.87 MW line loss. At 330 kV the same simplified assumptions give about 175 A and 0.459 MW loss.",
@@ -609,6 +611,11 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "bus voltage",
       "thermal limit",
       "unserved load",
+      "photovoltaic",
+      "solar irradiance",
+      "module temperature",
+      "PVWatts",
+      "inverter clipping",
     ],
   },
 ];
