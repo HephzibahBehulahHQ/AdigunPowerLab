@@ -1,5 +1,10 @@
 # Test evidence
 
+## PR #85 reviewed BOT circuit removal: 14 November 2026
+
+- Candidate `8899824efdb87f4ea2eaa8a842e424dd7a549f84` passed the complete gate in [run 43621266571](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43621266571), artifact 14124377035: lint, 405 unit tests, build, 89 browser tests, 17 production-browser tests, update smoke checks and offline smoke checks. Coverage checks exact-name lookup, missing and ambiguous-name rejection, no mutation before Apply, keeping connected loads unassigned after circuit removal, Undo restoring assignments, and the Help guidance.
+- Main `a492ece59ba238e2aa7c4d7ac5e22dd47928b247` passed the same complete gate in [run 43621865533](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43621865533), artifact 14125010983. Pages deployed that exact SHA in [run 43622340824](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43622340824), output artifact 14124358028.
+
 ## PR #83 reviewed BOT load deletion: 14 November 2026
 
 - Candidate `d03d088e56abc8ecfd464ebc851383dd6b607324` passed the complete gate in [run 43615716912](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43615716912), artifact 14122267292: lint, 402 unit tests, build, 88 browser tests, 17 production-browser tests, update smoke checks and offline smoke checks. Coverage verifies exact-name lookup, missing/ambiguous-name safety, dependent schedule cleanup through the command adapter, and preview/Apply/Undo through the live BOT UI.
@@ -189,15 +194,11 @@
 - Merged main `4d5fd78d2efc4aabeb5ef9a8078e864e41d50ed1` passed full validation in [run 43353747498](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43353747498); Pages deployed that SHA in [run 43354410218](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43354410218).
 - Browser coverage uses the existing test-only analytical spatial fixture. No client graph or measured telemetry was added.
 
-
-
 ## Source equipment assessment detail mode: 13 November 2026
 
 - **PR #42:** source-equipment assessment method collapses in Simple mode and opens in Engineering mode; check results remain visible. Browser coverage switches modes on a test-only entered source record.
 - Candidate full CI passed in [run 43349206656](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43349206656).
 - Merged main `5452c70113bce43eb6183aa52d5ed489f80f4075` passed full validation in [run 43349934690](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43349934690); Pages deployed that SHA in [run 43350626746](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43350626746).
-
-
 
 ## BOT phase assignment continuation: 13 November 2026
 
@@ -211,15 +212,12 @@
 - **PR #38:** candidate [run 43338929618](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43338929618), exact-main [run 43339729808](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43339729808), and Pages [run 43340449448](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43340449448) passed.
 - **PR #39** records those receipts; its candidate [run 43340848186](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43340848186), exact-main [run 43341616807](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43341616807), and Pages [run 43342350512](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43342350512) passed.
 
-
-
 ## Measurement detail-mode continuation: 12 November 2026
 
 - **PR #22:** measurement assumptions follow the global detail preference; missing-coverage warnings stay open in Simple mode. Test-only complete and gapped CSV intervals exercise mode changes.
 - Candidate `23546074122c73489ff5fb6fcc8a867947aa57b9` passed all gates in [run 43263530787](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43263530787).
 - Merged main `17524b2d86b07b53a8072a3a198065eceb97f4ed` passed full validation in [run 43264630710](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43264630710); Pages deployed that SHA in [run 43265546630](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43265546630).
 - No client measurement data was used. Manual live browser inspection was unavailable because desktop browser control timed out; production-browser CI passed.
-
 
 ## Client visual continuation: 12 November 2026
 
@@ -367,7 +365,6 @@ These runs are software/browser checks, not physical hardware validation, licens
 - **PR #33 / Help and Guide sidebar and BOT tour:** candidate `34dd56f995c158ab3d087ebab2f465167b8fe85f` passed the full gate in [run 43296777011](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43296777011); merged main `b939c83688b131262063cd431438fc45cf264219` passed [run 43297891385](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43297891385), and Pages publication passed in [run 43298669168](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43298669168). Browser coverage verifies the sidebar entry, SVG path, guided tour, workspace navigation and step progression. New interface labels are translated into German, Yorùbá and Nigerian Pidgin.
 - **PR #34 / Adigun BOT help lookup:** corrected exact candidate `370a60410a6ff25b259817dfc1210405f659afdb` passed the full gate in [run 43301019671](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43301019671); merged main `00c450976f65adb1a5d348fffb9ada0e4d60074e` passed [run 43301885696](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43301885696), and Pages passed in [run 43302802464](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43302802464). Browser coverage asks a how-to question, verifies the actual catalogue guide appears, and opens its workspace. The BOT continues to require confirmation for changes.
 - [PR #36](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/36), current application revision `4604b3f460c05a6e7b182dd83a5f2b1b8960c06d`: Adigun BOT can propose a validated single-field edit to one uniquely named load, show the before/after inputs and demand, and apply it only after confirmation through project history. Candidate [run 43314525218](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43314525218), exact-main [run 43315394007](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43315394007), and Pages [run 43316149834](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43316149834) passed.
-
 
 - **PR #36 / confirmed Adigun BOT load edits:** exact candidate `9b59d675d0136f2b6735b94f520d5d7cc017e218` passed the complete repository gate in [run 43314525218](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43314525218), including lint/typecheck, unit tests, production build, browser and production-browser suites, and base-path/offline update smoke checks. Merged main `4604b3f460c05a6e7b182dd83a5f2b1b8960c06d` passed all gates in [run 43315394007](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43315394007); exact-main Pages publication passed in [run 43316149834](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43316149834). Tests reject ambiguous, stale, invalid and unsupported edits and verify proposal review, confirmation and the saved quantity in Load Schedule.
 
