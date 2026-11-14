@@ -141,7 +141,8 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
     }),
   ).toHaveAttribute("href", /energy\.gov/);
   await page
-    .getByRole("button", { name: "Inspect: Protection and SCADA panel" })
+    .locator(".pg-station-svg text")
+    .getByText("PROTECTION / SCADA")
     .click();
   await expect(
     page.getByRole("heading", { name: "Protection and SCADA panel" }),
@@ -149,7 +150,7 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
   await expect(
     page.getByText(/does not simulate live telemetry/i),
   ).toBeVisible();
-  await page.getByRole("button", { name: "Inspect: Surge arrester" }).click();
+  await page.locator(".pg-station-svg text").getByText("Surge arrester").click();
   await expect(
     page.getByRole("heading", { name: "Surge arrester" }),
   ).toBeVisible();
