@@ -133,7 +133,7 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
     page.getByRole("heading", { name: "Overhead three-phase circuit" }),
   ).toBeVisible();
   await expect(
-    page.getByText(/no neutral conductor in this example/i),
+    page.getByText(/no neutral on this depicted transmission circuit/i),
   ).toBeVisible();
   await expect(
     page.getByRole("link", {
