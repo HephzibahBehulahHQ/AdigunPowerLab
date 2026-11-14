@@ -8,6 +8,12 @@ In **Why step up voltage?**, edit transmitted real power, power factor, per-phas
 
 The exercise assumes a balanced three-phase system, constant transmitted real power and power factor, the same per-phase resistance in both cases, and ideal transformer voltage changes. Generator, distribution and consumer voltages are schematic scenario inputs. It does not calculate transformer efficiency, distribution losses, receiving-end voltage or a network load flow. These are educational component calculations, not a validated grid study.
 
+### Hydro station inspection
+
+The hydro station scene separates a physical powerhouse cutaway from the electrical single-line path. Select the reservoir, trash rack, intake gate, penstock, draft tube, Francis turbine, generator, generator step-up transformer, breaker, disconnector, earthing switch, CT/VT, surge arrester, busbar, control house, SCADA panel, overhead conductors, tower or station earth. The information panel explains each selected item and identifies its shown terminals or connections. Keyboard users can focus an item and press Enter or Space. On a narrow screen, scroll the drawing horizontally inside its own frame.
+
+This is an explicitly illustrative station configuration, not an as-built plant: it shows a generator star point brought out and grounded through an impedance, a delta generator-side / grounded-star grid-side step-up transformer, a simple bus bay and an overhead three-phase line. The site-specific vector group, neutral grounding, breaker arrangement, ratings, clearances and protection coordination must come from actual project documents. The generator neutral N, protective earth PE and the separate overhead shield wire are drawn as different connections. The brown/black/grey phase colors identify schematic conductors; bare high-voltage line conductors do not have those insulation colors. The scene does not add physical plant measurements to the numerical worksheet.
+
 ## POWERGRID LAB — radial feeder experiment
 
 Scroll to **Radial feeder: voltage drop and outages** to explore the second working experiment. Its clearly labelled illustrative training case contains two feeder branches and three consumer groups. Edit source line-to-line voltage, each group's active/reactive load and minimum voltage, and each branch's resistance, reactance and thermal limit. The balanced AC solver recalculates bus voltage, branch current, sending/receiving P and Q, real/reactive losses, constraint flags and convergence diagnostics as inputs change.

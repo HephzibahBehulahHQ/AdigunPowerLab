@@ -1,5 +1,16 @@
 # POWERGRID LAB learning path
 
+## Station visit — hydro source to transmission line
+
+1. Trace the separate water path: reservoir and trash rack → intake gate → penstock → Francis runner → draft tube and tailrace.
+2. Follow the mechanical shaft from the turbine into the generator cutaway; identify rotor, stator and the U1/V1/W1 phase leads.
+3. Inspect the shown generator star point N, its impedance grounding, and the generator-frame PE bond. Explain why N and PE are not interchangeable.
+4. Trace the generator-side delta and grid-side grounded-star windings through the step-up transformer. The configuration is illustrative; compare with the transformer vector group and connection drawing from a real station before applying it elsewhere.
+5. Follow each phase through the three-pole breaker, disconnector and CT/VT bay to the A/B/C bus and lattice tower. Inspect the surge arrester's separate earth lead, the control house and its SCADA/protection panel. Identify the overhead shield/earth wire and station earth grid.
+6. Select equipment and read its function and terminals in the inspection panel. Compare the physical cutaway with the one-line circuit; neither view adds data to the transmission-loss or feeder calculations.
+
+The diagram uses a sourced, representative hydro process sequence and an explicit example wiring topology. It is not an as-built station, switching procedure, protection design, or site-specific construction drawing. The complete receiving-substation, distribution, residential and industrial visual route is still a separate milestone.
+
 ## Lesson 1 — Why step up voltage?
 
 1. Start with the prefilled, clearly identified analytical exercise or change its inputs.
