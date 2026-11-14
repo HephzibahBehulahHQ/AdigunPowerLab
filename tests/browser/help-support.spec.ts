@@ -53,7 +53,7 @@ test("Help and Guide sidebar opens the illustrated workflow and Bot tour", async
   await search.fill("remove circuit");
   await expect(botGuide).toContainText("remove circuit: Lighting circuit");
   await expect(botGuide).toContainText(
-    "keeps those loads in the project unassigned",
+    "leaves those loads in the project unassigned",
   );
   await search.fill("");
   await help

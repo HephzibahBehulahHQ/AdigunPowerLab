@@ -409,6 +409,18 @@ test("BOT previews circuit removal, keeps loads unassigned, and supports Undo", 
 }) => {
   await ready(page);
   await addLoad(page, { name: "BOT circuit target" });
+  const readSavedProject = () =>
+    page.evaluate(async () => {
+      const storage = await import(
+        /* @vite-ignore */ "/src/storage/projects.ts" as string
+      );
+      const id = JSON.parse(
+        localStorage.getItem("powerlab:ui:currentProject") ?? "null",
+      );
+      return (await storage.listProjects()).find(
+        (record: { id: string }) => record.id === id,
+      )?.project;
+    });
   await route(page, "Boards & Circuits");
   await page
     .getByLabel("Add circuit", { exact: true })
@@ -443,14 +455,30 @@ test("BOT previews circuit removal, keeps loads unassigned, and supports Undo", 
   await expect(proposal).toContainText(
     "Applied through project history. Use Undo to restore.",
   );
-  await route(page, "Boards & Circuits");
-  await expect(
-    page.getByLabel("BOT circuit target Circuit", { exact: true }),
-  ).toHaveValue("");
+  await expect(page.locator(".save-badge")).toContainText("Saved locally");
+  const detached = (await readSavedProject()) as {
+    circuits: { id: string; name: string }[];
+    loads: { name: string; circuitId?: string }[];
+  };
+  expect(detached.circuits.some((c) => c.name === "BOT lighting circuit")).toBe(
+    false,
+  );
+  expect(
+    detached.loads.find((load) => load.name === "BOT circuit target"),
+  ).not.toHaveProperty("circuitId");
   await page.getByRole("button", { name: "Undo", exact: true }).click();
-  await expect(
-    page.getByLabel("BOT circuit target Circuit", { exact: true }),
-  ).toHaveValue(/.+/);
+  await expect(page.locator(".save-badge")).toContainText("Saved locally");
+  const restored = (await readSavedProject()) as {
+    circuits: { id: string; name: string }[];
+    loads: { name: string; circuitId?: string }[];
+  };
+  expect(restored.circuits.some((c) => c.name === "BOT lighting circuit")).toBe(
+    true,
+  );
+  expect(
+    restored.loads.find((load) => load.name === "BOT circuit target")
+      ?.circuitId,
+  ).toBe(restored.circuits.find((c) => c.name === "BOT lighting circuit")?.id);
 });
 
 test("Adigun BOT window controls and conversation survive close and reopen", async ({
