@@ -440,8 +440,7 @@ test("BOT previews load deletion, removes linked schedules, and supports Undo", 
       const id = storage.readPreference("currentProject", "");
       return (await storage.listProjects()).find(
         (item: { id: string; project: Project }) => item.id === id,
-      )
-        ?.project;
+      )?.project;
     });
   await expect.poll(async () => (await readProject())?.loads.length).toBe(1);
   await proposal
