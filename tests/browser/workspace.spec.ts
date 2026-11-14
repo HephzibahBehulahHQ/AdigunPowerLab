@@ -685,6 +685,53 @@ test("local BOT rejects zero quantity edits without a proposal or mutation", asy
   await dialog.getByRole("button", { name: "Close", exact: true }).click();
 });
 
+test("local BOT protects amps-entered ratings from kW-only edits", async ({
+  page,
+}) => {
+  await ready(page);
+  await addLoad(page, { name: "Amps mode target", rating: "12" });
+  const row = page.locator("tbody tr").filter({ hasText: "Amps mode target" });
+
+  await row
+    .getByRole("button", { name: "Edit Amps mode target", exact: true })
+    .click();
+  const dialog = page.getByRole("dialog", { name: "Edit load", exact: true });
+  const entryMode = dialog.getByLabel("Entry mode", { exact: true });
+  await entryMode.selectOption("amps");
+  await dialog.getByRole("button", { name: "Save", exact: true }).click();
+
+  await page
+    .getByRole("button", { name: "Open Adigun BOT", exact: true })
+    .click();
+  const bot = page.locator(".local-bot");
+  await bot
+    .locator("textarea")
+    .fill("edit load: Amps mode target; rating_kw; 3.1");
+  await bot.getByRole("button", { name: "Send", exact: true }).click();
+
+  await expect(bot.getByRole("alert")).toHaveText(
+    "rating_kw can only edit loads entered in kW mode.",
+  );
+  await expect(bot.locator(".bot-proposal")).toHaveCount(0);
+  await expect(
+    bot.getByRole("button", { name: "Apply confirmed changes", exact: true }),
+  ).toHaveCount(0);
+  await expect(row).toHaveCount(1);
+
+  await row
+    .getByRole("button", { name: "Edit Amps mode target", exact: true })
+    .click();
+  const reopened = page.getByRole("dialog", {
+    name: "Edit load",
+    exact: true,
+  });
+  await expect(reopened.getByLabel("Entry mode", { exact: true })).toHaveValue(
+    "amps",
+  );
+  await expect(reopened.getByLabel("Rating", { exact: true })).toHaveValue("12");
+  await reopened.getByRole("button", { name: "Close", exact: true }).click();
+});
+
 test("local BOT rejects an empty load name without proposing a change", async ({
   page,
 }) => {
