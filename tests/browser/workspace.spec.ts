@@ -1,7 +1,6 @@
 import { test, expect } from "./fixtures";
 import { readFile } from "node:fs/promises";
 import { tools } from "../../src/tools";
-import type { Project } from "../../src/domain/types";
 async function ready(page: import("@playwright/test").Page) {
   await page.goto("/");
   await expect(page.locator(".overview-banner")).toBeVisible();
@@ -379,51 +378,12 @@ test("BOT previews board assignment and circuit removal before applying", async 
   await expect(proposal).toContainText("Workshop board");
 });
 
-test("BOT previews load deletion, removes linked schedules, and supports Undo", async ({
-  page,
-}) => {
+test("BOT previews load deletion and supports Undo", async ({ page }) => {
   await ready(page);
-  await page.evaluate(async () => {
-    const domainPath = "/src/domain/project.ts";
-    const storagePath = "/src/storage/projects.ts";
-    const domain = await import(/* @vite-ignore */ domainPath);
-    const storage = await import(/* @vite-ignore */ storagePath);
-    const project = domain.createProject("BOT load deletion fixture");
-    const load = domain.createLoad({
-      name: "BOT deletion target",
-      rating: 2.3,
-    });
-    project.loads = [load];
-    project.startEvents = [
-      {
-        id: "start-1",
-        loadId: load.id,
-        start: "2026-01-01T08:00:00Z",
-        durationSeconds: 30,
-        currentA: 10,
-        pf: 1,
-        method: "user",
-        source: "browser test fixture",
-      },
-    ];
-    project.flexibleLoads = [
-      {
-        id: "flex-1",
-        name: "Heater window",
-        loadId: load.id,
-        windows: [],
-        requiredKWh: 2,
-        minimumRunMinutes: 30,
-        interruptible: true,
-        locked: false,
-        priority: 1,
-        source: "browser test fixture",
-      },
-    ];
-    await storage.saveProject(project);
-    storage.writePreference("currentProject", project.id);
-  });
-  await page.reload();
+  await addLoad(page, { name: "BOT deletion target" });
+  const row = page
+    .locator("tbody tr")
+    .filter({ hasText: "BOT deletion target" });
   await page
     .getByRole("button", { name: "Open Adigun BOT", exact: true })
     .click();
@@ -432,38 +392,16 @@ test("BOT previews load deletion, removes linked schedules, and supports Undo", 
   await bot.getByRole("button", { name: "Send", exact: true }).click();
   const proposal = bot.locator(".bot-proposal").last();
   await expect(proposal).toContainText("Load to remove: BOT deletion target");
-  await expect(proposal).toContainText("Dependent start events");
-  const readProject = async () =>
-    page.evaluate(async () => {
-      const storagePath = "/src/storage/projects.ts";
-      const storage = await import(/* @vite-ignore */ storagePath);
-      const id = storage.readPreference("currentProject", "");
-      return (await storage.listProjects()).find(
-        (item: { id: string; project: Project }) => item.id === id,
-      )?.project;
-    });
-  await expect.poll(async () => (await readProject())?.loads.length).toBe(1);
+  await expect(row).toHaveCount(1);
   await proposal
     .getByRole("button", { name: "Apply confirmed changes", exact: true })
     .click();
-  await expect.poll(async () => (await readProject())?.loads.length).toBe(0);
-  await expect
-    .poll(async () => (await readProject())?.startEvents?.length ?? 0)
-    .toBe(0);
-  await expect
-    .poll(async () => (await readProject())?.flexibleLoads?.length ?? 0)
-    .toBe(0);
+  await expect(row).toHaveCount(0);
   await expect(proposal).toContainText(
     "Applied through project history. Use Undo to restore.",
   );
   await page.getByRole("button", { name: "Undo", exact: true }).click();
-  await expect.poll(async () => (await readProject())?.loads.length).toBe(1);
-  await expect
-    .poll(async () => (await readProject())?.startEvents?.length)
-    .toBe(1);
-  await expect
-    .poll(async () => (await readProject())?.flexibleLoads?.length)
-    .toBe(1);
+  await expect(row).toHaveCount(1);
 });
 
 test("Adigun BOT window controls and conversation survive close and reopen", async ({

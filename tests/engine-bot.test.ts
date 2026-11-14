@@ -222,10 +222,12 @@ describe("typed local assistant boundary", () => {
       },
     ];
     const before = structuredClone(project);
-    const proposal = parseLoadDeleteProposal(
-      project,
-      "delete load: Workshop heater",
-    )!;
+    const response = runLocalCommand(project, "delete load: Workshop heater");
+    expect(response.kind).toBe("load");
+    if (response.kind !== "load") throw new Error("Expected a load proposal");
+    const proposal = response.proposal;
+    if (!proposal || proposal.kind !== "command")
+      throw new Error("Expected a typed command proposal");
     expect(proposal.preview.command.kind).toBe("loads.delete");
     expect(proposal.preview.warnings.join(" ")).toContain(
       "Dependent start events and flexible-load plans",
