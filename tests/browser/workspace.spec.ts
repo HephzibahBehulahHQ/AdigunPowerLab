@@ -684,3 +684,43 @@ test("local BOT rejects zero quantity edits without a proposal or mutation", asy
   await expect(dialog.getByLabel("Quantity", { exact: true })).toHaveValue("1");
   await dialog.getByRole("button", { name: "Close", exact: true }).click();
 });
+
+test("local BOT rejects renaming a load to an existing name", async ({
+  page,
+}) => {
+  await ready(page);
+  await addLoad(page, { name: "Rename source" });
+  await addLoad(page, { name: "Rename target" });
+  const source = page.locator("tbody tr").filter({ hasText: "Rename source" });
+  const target = page.locator("tbody tr").filter({ hasText: "Rename target" });
+
+  await page
+    .getByRole("button", { name: "Open Adigun BOT", exact: true })
+    .click();
+  const bot = page.locator(".local-bot");
+  await bot
+    .locator("textarea")
+    .fill("edit load: Rename source; name; Rename target");
+  await bot.getByRole("button", { name: "Send", exact: true }).click();
+
+  await expect(bot.getByRole("alert")).toHaveText(
+    "Load name must remain unique for future commands.",
+  );
+  await expect(bot.locator(".bot-proposal")).toHaveCount(0);
+  await expect(
+    bot.getByRole("button", { name: "Apply confirmed changes", exact: true }),
+  ).toHaveCount(0);
+  await expect(source).toHaveCount(1);
+  await expect(target).toHaveCount(1);
+
+  await source
+    .getByRole("button", { name: "Edit Rename source", exact: true })
+    .click();
+  const dialog = page.getByRole("dialog", {
+    name: "Edit load",
+    exact: true,
+  });
+  const nameInput = dialog.getByLabel("Name", { exact: true });
+  await expect(nameInput).toHaveValue("Rename source");
+  await dialog.getByRole("button", { name: "Close", exact: true }).click();
+});
