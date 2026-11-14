@@ -1,5 +1,17 @@
 # Test evidence
 
+## PR #70 Adigun BOT duplicate-name rename rejection: 14 November 2026
+
+- **PR #70:** browser acceptance verifies renaming a load to an existing exact name is rejected without proposal or apply action and preserves both synthetic loads. The rejection message has exact translations in all four locales.
+- Initial candidate [runs 43590624060](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43590624060) and [43590885196](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43590885196) stopped at lint for formatting. Corrected full candidate CI passed in [run 43591257915](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43591257915), artifact 14112372571.
+- Main `6b90f0663e116a6d52c9af0f18c46f4899898555` passed full CI in [run 43591679610](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43591679610), artifact 14112727768; Pages deployed the exact SHA in [run 43592075725](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43592075725), output artifact 14112917165.
+
+## PR #69 documentation deployment receipts: 14 November 2026
+
+- **PR #69:** records PR #67 and #68 candidate, main and Pages receipts; no application behavior changed.
+- Candidate full CI passed in [run 43589512290](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43589512290), artifact 14112141190.
+- Main `c7faf38fc3cd07538bc61e1a53b9ae5068e5abab` passed full CI in [run 43589973832](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43589973832), artifact 14111123851; Pages deployed the exact SHA in [run 43590375885](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43590375885), output artifact 14111859672.
+
 ## PR #68 Adigun BOT zero-quantity edit rejection: 14 November 2026
 
 - **PR #68:** browser acceptance submits a numeric zero quantity and verifies the positive-integer error, no proposal or apply action, and unchanged quantity 1. Exact translations are checked in English, German, Yorùbá and Nigerian Pidgin.
