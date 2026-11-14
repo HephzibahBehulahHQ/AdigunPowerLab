@@ -507,6 +507,10 @@ export default function App() {
   }
   useEffect(() => {
     if (!loaded) return;
+    if (lastSaved.current.get(project.id) === project.revision) {
+      setSaveState("Saved locally");
+      return;
+    }
     setSaveState("Unsaved changes");
     const id = setTimeout(() => {
       void persist(project);
