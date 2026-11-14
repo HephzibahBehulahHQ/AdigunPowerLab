@@ -17,6 +17,31 @@ export interface HelpTopic {
 
 const workflows: Omit<HelpTopic, "kind" | "category">[] = [
   {
+    id: "powergrid-lab",
+    title: "POWERGRID LAB: compare transmission voltage",
+    summary:
+      "Open the isolated PowerGrid learning lab, compare current and line losses, save the experiment or export its actual results.",
+    steps: [
+      "Select POWERGRID LAB in the top bar or enter #POWERGRID in the address bar. The exact hash opens the lab directly; refresh keeps it open and browser Back/Forward follows route changes.",
+      "Edit transmitted real power, power factor, per-phase line resistance and the two transmission voltages. The generator, distribution and consumer voltages label the schematic scenario.",
+      "Read the calculated three-phase line current and resistive loss at both transmission voltages. Save stores this lab experiment separately in this browser; JSON and CSV exports contain the displayed inputs and calculated readings.",
+      "The model assumes balanced three-phase operation, constant transmitted power and power factor, equal resistance per phase, and ideal transformer voltage changes. It does not solve distribution losses, receiving-end voltage, transformer efficiency or a network load flow.",
+    ],
+    example:
+      "At 100 MW, PF 1, 5 Ω/phase, 132 kV gives about 437.4 A and 2.87 MW line loss. At 330 kV the same simplified assumptions give about 175 A and 0.459 MW loss.",
+    route: "powergrid",
+    keywords: [
+      "powergrid",
+      "power grid",
+      "transmission",
+      "step up voltage",
+      "line losses",
+      "three phase",
+      "experiment",
+      "export",
+    ],
+  },
+  {
     id: "getting-started",
     title: "Start a project and find your way",
     summary:

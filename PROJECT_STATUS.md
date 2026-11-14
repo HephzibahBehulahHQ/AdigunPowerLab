@@ -2,6 +2,12 @@
 
 Date: 14 November 2026. Owner: Hephzibah Behulah.
 
+## POWERGRID LAB Milestone 1 — implementation checkpoint
+
+GitHub issue [#86](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/issues/86) acknowledged. Implementation branch `codex/powergrid-m1-work` is based on current main `c9876d2afbc8e973c5af0fcbcac6e097e2f6b731`, which includes PR #87's unrelated release receipts. The user requested progressive delivery; this checkpoint adds the exact `#POWERGRID` route and history handling, branded top-bar entry, isolated schematic/experiment, validated constant-power three-phase voltage/current/loss calculations, local experiment save and actual JSON/CSV exports. Help, all four supported locales and the user guide describe the implemented scope and limits.
+
+Local checks: `npm run typecheck` passed; `npm test -- --run tests/powergrid.test.ts` passed (2 numerical tests); `npm run build` passed. Local Playwright could not start its web server in this network-restricted environment and was stopped; hosted candidate browser, regression, production-browser, and deployment gates remain pending. The entire PowerGrid lab and later owner-prompt milestones are not yet accepted or deployed.
+
 ## PR #85 reviewed BOT circuit removal — 14 November 2026
 
 [PR #85](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/85) adds `remove circuit: Lighting circuit` as an exact-name BOT proposal. Its preview names the circuit and connected loads; Apply removes the circuit while retaining the loads unassigned, and Undo restores the prior project and assignments. Missing and ambiguous circuit names are rejected. Help and Guide, all four locales, browser coverage and the user manual are updated. Candidate `8899824efdb87f4ea2eaa8a842e424dd7a549f84` passed the full gate in [run 43621266571](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43621266571), artifact 14124377035. Main `a492ece59ba238e2aa7c4d7ac5e22dd47928b247` passed exact-main CI in [run 43621865533](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43621865533), artifact 14125010983; Pages deployed that exact SHA in [run 43622340824](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43622340824), output artifact 14124358028.

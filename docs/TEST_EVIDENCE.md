@@ -1,5 +1,13 @@
 # Test evidence
 
+## POWERGRID LAB Milestone 1 local checkpoint: 14 November 2026
+
+- Candidate source is being prepared from main `c9876d2afbc8e973c5af0fcbcac6e097e2f6b731`; candidate SHA and hosted receipts will be added after push.
+- `npm run typecheck` passed.
+- `npm test -- --run tests/powergrid.test.ts` passed 2 tests: 132 kV / 330 kV reference values and invalid/reversed/impossible-loss input rejection.
+- `npm run build` passed.
+- `npx playwright test tests/browser/powergrid.spec.ts` did not start: the local Playwright web server did not initialize in this restricted environment; stopped without claiming a browser result. Hosted candidate browser and production-browser checks are pending.
+
 ## PR #85 reviewed BOT circuit removal: 14 November 2026
 
 - Candidate `8899824efdb87f4ea2eaa8a842e424dd7a549f84` passed the complete gate in [run 43621266571](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43621266571), artifact 14124377035: lint, 405 unit tests, build, 89 browser tests, 17 production-browser tests, update smoke checks and offline smoke checks. Coverage checks exact-name lookup, missing and ambiguous-name rejection, no mutation before Apply, keeping connected loads unassigned after circuit removal, Undo restoring assignments, and the Help guidance.

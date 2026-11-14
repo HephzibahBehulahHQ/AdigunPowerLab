@@ -3310,3 +3310,211 @@ details p {
   background: var(--surface2);
   outline: 2px solid var(--cyan);
 }
+.powergrid-entry {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid color-mix(in srgb, var(--gold) 65%, var(--border));
+  border-radius: 7px;
+  padding: 7px 10px;
+  color: var(--gold);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.powergrid-entry:hover,
+.powergrid-entry[aria-current="page"] {
+  background: color-mix(in srgb, var(--gold) 14%, transparent);
+  text-decoration: none;
+}
+.pg-lab {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.pg-heading h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pg-heading h2 svg {
+  color: var(--gold);
+}
+.pg-heading p,
+.pg-isolation,
+.pg-equation,
+.pg-limit p {
+  color: var(--muted);
+}
+.pg-isolation {
+  margin: 0;
+  border-left: 3px solid var(--gold);
+  padding: 8px 12px;
+  background: var(--surface);
+}
+.pg-panel {
+  min-width: 0;
+}
+.pg-schematic {
+  display: block;
+  width: 100%;
+  min-height: 145px;
+  overflow: visible;
+}
+.pg-schematic path {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 3;
+}
+.pg-schematic circle {
+  fill: var(--surface2);
+  stroke: var(--gold);
+  stroke-width: 3;
+}
+.pg-node text {
+  fill: var(--text);
+  text-anchor: middle;
+  font:
+    600 12px system-ui,
+    sans-serif;
+}
+.pg-node text:last-child {
+  fill: var(--muted);
+  font-weight: 400;
+}
+.pg-equation {
+  margin: 8px 0 0;
+  font-family: ui-monospace, monospace;
+}
+.pg-columns,
+.pg-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.pg-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.pg-field {
+  display: grid;
+  gap: 5px;
+  color: var(--muted);
+}
+.pg-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.pg-input-wrap input {
+  width: 100%;
+}
+.pg-input-wrap b {
+  min-width: 62px;
+  color: var(--text);
+  font-size: 12px;
+}
+.pg-result {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  min-width: 0;
+}
+.pg-result h4 {
+  margin: 0 0 10px;
+  color: var(--gold);
+}
+.pg-result dl {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+.pg-result dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.pg-result dt {
+  color: var(--muted);
+}
+.pg-result dd {
+  margin: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.pg-delta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 14px;
+}
+.pg-delta span {
+  display: grid;
+  color: var(--muted);
+}
+.pg-delta b {
+  color: var(--green);
+  font-size: 20px;
+}
+.pg-errors {
+  border: 1px solid var(--red);
+  border-radius: 7px;
+  padding: 10px;
+  color: var(--red);
+}
+.pg-errors ul {
+  margin: 5px 0 0;
+  padding-left: 20px;
+}
+.pg-limit summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+.pg-limit p {
+  margin-bottom: 0;
+}
+.pg-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.pg-actions .button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.pg-saved {
+  color: var(--green);
+}
+.pg-export-warning {
+  color: var(--red);
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .pg-schematic {
+    min-width: 740px;
+  }
+  .pg-panel:has(.pg-schematic) {
+    overflow-x: auto;
+  }
+  .pg-columns {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 580px) {
+  .powergrid-entry {
+    padding: 7px;
+  }
+  .powergrid-entry span:first-of-type {
+    max-width: 76px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .pg-fields,
+  .pg-results {
+    grid-template-columns: 1fr;
+  }
+}

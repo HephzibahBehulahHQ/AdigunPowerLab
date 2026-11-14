@@ -2,6 +2,10 @@
 
 Audit date: 13 November 2026. Scope: original specification sections 01–33, fixtures F01–F20 and tools T01–T51, plus the recovered continuation.
 
+## POWERGRID LAB Milestone 1 checkpoint: 14 November 2026
+
+The working implementation has a dedicated acceptance record in [`POWERGRID_ACCEPTANCE.md`](POWERGRID_ACCEPTANCE.md). Local typecheck, two numerical fixtures and production build passed. Hosted candidate browser/history/save/export checks, existing-project regression, full repository gate and deployment are pending; no full-lab acceptance is claimed.
+
 ## Confirmed BOT exact-name circuit removal: 14 November 2026
 
 [PR #85](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/85) verifies unique exact-name circuit resolution, a preview naming the circuit and connected loads, Apply that removes only the circuit and leaves its loads unassigned, and Undo restoring the previous assignments. Missing and ambiguous names are rejected. Help and Guide covers the action in all four supported locales. Candidate, exact-main and Pages receipts are recorded in [TEST_EVIDENCE.md](TEST_EVIDENCE.md) and [DEPLOYMENT.md](DEPLOYMENT.md).

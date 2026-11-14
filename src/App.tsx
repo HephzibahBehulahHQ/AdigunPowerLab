@@ -107,6 +107,7 @@ import type {
 import { Modal, Field, Notice, ResizeHandle } from "./features/ui";
 import { LoadEditor } from "./features/LoadEditor";
 import { HelpSupport } from "./features/HelpSupport";
+import { PowerGridLab } from "./features/PowerGridLab";
 import { searchHelp } from "./help/content";
 import {
   DetailModeControl,
@@ -168,6 +169,7 @@ const LocalBot = lazy(() =>
   import("./bot/LocalBot").then((m) => ({ default: m.LocalBot })),
 );
 const routes = [
+  { id: "powergrid", label: "POWERGRID LAB", icon: Zap, group: "Engineering" },
   {
     id: "overview",
     label: "Overview",
@@ -258,6 +260,11 @@ const routes = [
   { id: "settings", label: "Settings", icon: Settings2, group: "Resources" },
   { id: "help", label: "Help and Guide", icon: LifeBuoy, group: "Resources" },
 ];
+function routeFromHash(hash: string): string {
+  if (hash === "#POWERGRID") return "powergrid";
+  const route = hash.startsWith("#/") ? hash.slice(2) : "";
+  return routes.some((entry) => entry.id === route) ? route : "overview";
+}
 const equipment: [string, string, number, number, number][] = [
   ["LED lighting point", "Lighting", 0.01, 1, 5],
   ["LED panel", "Lighting", 0.04, 0.95, 8],
@@ -288,10 +295,16 @@ export default function App() {
   );
   const [loaded, setLoaded] = useState(false);
   const [records, setRecords] = useState<ProjectRecord[]>([]);
-  const [route, setRoute] = useState(() => {
-    const r = location.hash.slice(2);
-    return routes.some((x) => x.id === r) ? r : "overview";
-  });
+  const [route, setRoute] = useState(() => routeFromHash(location.hash));
+  useEffect(() => {
+    const syncRoute = () => setRoute(routeFromHash(location.hash));
+    window.addEventListener("hashchange", syncRoute);
+    window.addEventListener("popstate", syncRoute);
+    return () => {
+      window.removeEventListener("hashchange", syncRoute);
+      window.removeEventListener("popstate", syncRoute);
+    };
+  }, []);
   const [saveState, setSaveState] = useState("Saving");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
@@ -592,7 +605,8 @@ export default function App() {
   }
   function go(r: string) {
     setRoute(r);
-    history.replaceState(null, "", "#/" + r);
+    const target = r === "powergrid" ? "#POWERGRID" : "#/" + r;
+    if (location.hash !== target) history.pushState(null, "", target);
     setDialog(null);
     setQuery("");
     if (innerWidth < 900) setSidebar(false);
@@ -1177,7 +1191,7 @@ export default function App() {
       </>
     );
   }
-  const current = routes.find((r) => r.id === route)!;
+  const current = routes.find((r) => r.id === route) ?? routes[0];
   return (
     <LanguageContext.Provider value={locale}>
       <div
@@ -1214,50 +1228,63 @@ export default function App() {
             </div>
             <span className="brand-divider" />
           </div>
-          <button
-            className="project-switch"
-            onClick={() => {
-              setDialog("projects");
-              void refreshRecords();
-            }}
-          >
-            <FolderOpen size={16} />
-            <span>{project.name}</span>
-            <ChevronDown size={14} />
-          </button>
-          <span
-            className={
-              "save-badge " + (saveState === "Save failed" ? "bad" : "")
-            }
-            title={t(
-              saveState === "Save failed"
-                ? "Saving failed. Keep this tab open and export a backup or save a copy before leaving."
-                : saveState === "Unsaved changes"
-                  ? "Unsaved changes may be lost if you leave before they are saved locally."
-                  : saveState,
-            )}
-            aria-label={t(
-              saveState === "Save failed"
-                ? "Saving failed. Keep this tab open and export a backup or save a copy before leaving."
-                : saveState === "Unsaved changes"
-                  ? "Unsaved changes may be lost if you leave before they are saved locally."
-                  : saveState,
-            )}
-          >
-            {saveState === "Saving" ? (
-              <LoaderCircle size={13} className="spin" />
-            ) : saveState === "Saved locally" ? (
-              <Check size={13} />
-            ) : (
-              <span className="small-dot" />
-            )}
-            <span>{t(saveState)}</span>
-          </span>
+          {route !== "powergrid" && (
+            <button
+              className="project-switch"
+              onClick={() => {
+                setDialog("projects");
+                void refreshRecords();
+              }}
+            >
+              <FolderOpen size={16} />
+              <span>{project.name}</span>
+              <ChevronDown size={14} />
+            </button>
+          )}
+          {route !== "powergrid" && (
+            <span
+              className={
+                "save-badge " + (saveState === "Save failed" ? "bad" : "")
+              }
+              title={t(
+                saveState === "Save failed"
+                  ? "Saving failed. Keep this tab open and export a backup or save a copy before leaving."
+                  : saveState === "Unsaved changes"
+                    ? "Unsaved changes may be lost if you leave before they are saved locally."
+                    : saveState,
+              )}
+              aria-label={t(
+                saveState === "Save failed"
+                  ? "Saving failed. Keep this tab open and export a backup or save a copy before leaving."
+                  : saveState === "Unsaved changes"
+                    ? "Unsaved changes may be lost if you leave before they are saved locally."
+                    : saveState,
+              )}
+            >
+              {saveState === "Saving" ? (
+                <LoaderCircle size={13} className="spin" />
+              ) : saveState === "Saved locally" ? (
+                <Check size={13} />
+              ) : (
+                <span className="small-dot" />
+              )}
+              <span>{t(saveState)}</span>
+            </span>
+          )}
           <span className="spacer" />
           <button className="command-button" onClick={openCommands}>
             <Search size={16} />
             <span>{t("Search")}</span>
             <kbd>⌘ K</kbd>
+          </button>
+          <button
+            className="powergrid-entry"
+            onClick={() => go("powergrid")}
+            aria-current={route === "powergrid" ? "page" : undefined}
+          >
+            <Zap size={15} aria-hidden="true" />
+            <span>POWERGRID LAB</span>
+            <span aria-hidden="true">→</span>
           </button>
           <select
             className="language-select"
@@ -1388,81 +1415,89 @@ export default function App() {
               <strong>{t(current?.label || "Overview")}</strong>
             </div>
             <span className="spacer" />
-            <details className="project-actions">
-              <summary className="button small-button">{t("Project")}</summary>
-              <div
-                className="project-menu"
-                role="group"
-                aria-label={t("Project actions")}
-                onClick={(event) => {
-                  if ((event.target as HTMLElement).closest("button"))
-                    (
-                      event.currentTarget.parentElement as HTMLDetailsElement
-                    ).open = false;
-                }}
-              >
-                <button
-                  onClick={() => {
-                    setName("");
-                    setDialog("projects");
-                    void refreshRecords();
+            {route !== "powergrid" && (
+              <details className="project-actions">
+                <summary className="button small-button">
+                  {t("Project")}
+                </summary>
+                <div
+                  className="project-menu"
+                  role="group"
+                  aria-label={t("Project actions")}
+                  onClick={(event) => {
+                    if ((event.target as HTMLElement).closest("button"))
+                      (
+                        event.currentTarget.parentElement as HTMLDetailsElement
+                      ).open = false;
                   }}
                 >
-                  {t("New project")}
-                </button>
-                <button
-                  onClick={() => {
-                    setDialog("projects");
-                    void refreshRecords();
-                  }}
-                >
-                  {t("Open project")}
-                </button>
-                <button
-                  onClick={() => {
-                    setName(project.name);
-                    setDialog("rename");
-                  }}
-                >
-                  {t("Rename project")}
-                </button>
-                <button
-                  onClick={() => void createAndOpen(duplicateProject(project))}
-                >
-                  {t("Duplicate project")}
-                </button>
-                <button onClick={() => void persist()}>{t("Save")}</button>
-                <button onClick={() => exportProject(project)}>
-                  {t("Export project")}
-                </button>
-                <button onClick={() => fileInput.current?.click()}>
-                  {t("Import project")}
-                </button>
-                <button onClick={() => go("history")}>
-                  {t("Revision history")}
-                </button>
-                <button
-                  onClick={() => {
-                    setDialog("projects");
-                    void refreshRecords();
-                  }}
-                >
-                  {t("Restore from trash")}
-                </button>
-                <button onClick={() => void closeProject(false)}>
-                  {t("Close project")}
-                </button>
-                <button
-                  className="danger"
-                  onClick={() => {
-                    if (confirm(t("Move to trash") + " " + project.name + "?"))
-                      void closeProject(true);
-                  }}
-                >
-                  {t("Move to trash")}
-                </button>
-              </div>
-            </details>
+                  <button
+                    onClick={() => {
+                      setName("");
+                      setDialog("projects");
+                      void refreshRecords();
+                    }}
+                  >
+                    {t("New project")}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setDialog("projects");
+                      void refreshRecords();
+                    }}
+                  >
+                    {t("Open project")}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setName(project.name);
+                      setDialog("rename");
+                    }}
+                  >
+                    {t("Rename project")}
+                  </button>
+                  <button
+                    onClick={() =>
+                      void createAndOpen(duplicateProject(project))
+                    }
+                  >
+                    {t("Duplicate project")}
+                  </button>
+                  <button onClick={() => void persist()}>{t("Save")}</button>
+                  <button onClick={() => exportProject(project)}>
+                    {t("Export project")}
+                  </button>
+                  <button onClick={() => fileInput.current?.click()}>
+                    {t("Import project")}
+                  </button>
+                  <button onClick={() => go("history")}>
+                    {t("Revision history")}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setDialog("projects");
+                      void refreshRecords();
+                    }}
+                  >
+                    {t("Restore from trash")}
+                  </button>
+                  <button onClick={() => void closeProject(false)}>
+                    {t("Close project")}
+                  </button>
+                  <button
+                    className="danger"
+                    onClick={() => {
+                      if (
+                        confirm(t("Move to trash") + " " + project.name + "?")
+                      )
+                        void closeProject(true);
+                    }}
+                  >
+                    {t("Move to trash")}
+                  </button>
+                </div>
+              </details>
+            )}
             <div className="history-buttons">
               <button
                 className="icon-button"
@@ -1597,7 +1632,7 @@ export default function App() {
                   </span>
                 )}
               </div>
-              {route !== "diagram" && (
+              {route !== "diagram" && route !== "powergrid" && (
                 <p className="detail-help detail-mode-intro">
                   {t(
                     detailMode === "simple"
@@ -1607,7 +1642,9 @@ export default function App() {
                   {t("Checks remain visible in both views.")}
                 </p>
               )}
-              {!loaded ? (
+              {route === "powergrid" ? (
+                <PowerGridLab />
+              ) : !loaded ? (
                 <div className="loading">
                   <LoaderCircle className="spin" />
                   {t("Open project")}…
@@ -2299,34 +2336,40 @@ export default function App() {
               </aside>
             )}
           </div>
-          <footer className="statusbar">
-            <span>
-              <span className="local-dot" /> {t("Local only")}
-            </span>
-            <span>
-              {project.loads.length} loads · {project.circuits.length} circuits
-              · {t("Revision")} {project.revision}
-            </span>
-            <span className="spacer" />
-            <span>
-              {t("Engine")} {result.engineVersion}
-            </span>
-            <span>{t("Engineering estimate, not installation approval.")}</span>
-            <button onClick={() => go("history")} className="status-issues">
-              <AlertTriangle size={13} />
-              {result.issues.length}
-            </button>
-          </footer>
+          {route !== "powergrid" && (
+            <footer className="statusbar">
+              <span>
+                <span className="local-dot" /> {t("Local only")}
+              </span>
+              <span>
+                {project.loads.length} loads · {project.circuits.length}{" "}
+                circuits · {t("Revision")} {project.revision}
+              </span>
+              <span className="spacer" />
+              <span>
+                {t("Engine")} {result.engineVersion}
+              </span>
+              <span>
+                {t("Engineering estimate, not installation approval.")}
+              </span>
+              <button onClick={() => go("history")} className="status-issues">
+                <AlertTriangle size={13} />
+                {result.issues.length}
+              </button>
+            </footer>
+          )}
         </div>
-        <button
-          className={"bot-launcher " + (botOpen ? "hidden" : "")}
-          onClick={() => setBotOpen(true)}
-          aria-label="Open Adigun BOT"
-        >
-          <Bot size={23} />
-          <span>Adigun BOT</span>
-          <span className="bot-status-dot" />
-        </button>
+        {route !== "powergrid" && (
+          <button
+            className={"bot-launcher " + (botOpen ? "hidden" : "")}
+            onClick={() => setBotOpen(true)}
+            aria-label="Open Adigun BOT"
+          >
+            <Bot size={23} />
+            <span>Adigun BOT</span>
+            <span className="bot-status-dot" />
+          </button>
+        )}
         {botOpen && (
           <Suspense fallback={null}>
             <LocalBot

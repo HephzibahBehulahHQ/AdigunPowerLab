@@ -857,4 +857,45 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Ó ń ṣí GitHub ní ojú ìwé tuntun. Ṣàyẹ̀wò ohun tí o pín; a kì í fi dátà iṣẹ́ tàbí oníbàárà ránṣẹ́ fúnra rẹ̀.",
       "Opens GitHub for new tab. Check wetin you share; project or customer data no dey send automatically.",
     ],
+  "POWERGRID LAB: compare transmission voltage": [
+    "POWERGRID LAB: Übertragungsspannung vergleichen",
+    "POWERGRID LAB: Fi foliteji gbigbe wé",
+    "POWERGRID LAB: Compare transmission voltage",
+  ],
+  "Open the isolated PowerGrid learning lab, compare current and line losses, save the experiment or export its actual results.":
+    [
+      "Öffnen Sie das getrennte PowerGrid-Lernlabor, vergleichen Sie Strom und Leitungsverluste, speichern Sie das Experiment oder exportieren Sie die berechneten Ergebnisse.",
+      "Ṣí yàrá ìkẹ́kọ̀ọ́ PowerGrid tó yà sọ́tọ̀, fi ìṣàn àti ipadánù waya wé, fi ìdánwò pamọ́ tàbí gba àbájáde gidi jáde.",
+      "Open di separate PowerGrid learning lab, compare current and line losses, save di experiment or export di real results.",
+    ],
+  "Select POWERGRID LAB in the top bar or enter #POWERGRID in the address bar. The exact hash opens the lab directly; refresh keeps it open and browser Back/Forward follows route changes.":
+    [
+      "Wählen Sie POWERGRID LAB in der oberen Leiste oder geben Sie #POWERGRID in die Adresszeile ein. Der genaue Hash öffnet das Labor direkt; Aktualisieren lässt es geöffnet, Zurück und Vorwärts folgen den Routenwechseln.",
+      "Yan POWERGRID LAB lókè tàbí tẹ #POWERGRID sínú àdírẹ́sì. Hash náà ṣí yàrá náà tààrà; refresh kò pa á, Back àti Forward sì ń tẹ̀lé ìyípadà ojú-ọ̀nà.",
+      "Select POWERGRID LAB for top bar or enter #POWERGRID for address bar. Exact hash opens di lab direct; refresh keeps am open, Back/Forward follows route changes.",
+    ],
+  "Edit transmitted real power, power factor, per-phase line resistance and the two transmission voltages. The generator, distribution and consumer voltages label the schematic scenario.":
+    [
+      "Bearbeiten Sie übertragene Wirkleistung, Leistungsfaktor, Phasenwiderstand und beide Übertragungsspannungen. Generator-, Verteilungs- und Verbraucherspannung beschriften das Szenario.",
+      "Ṣàtúnṣe agbára gidi, power factor, ìdènà waya fún aláfàsẹ́ kọ̀ọ̀kan àti foliteji ìrìnàjò méjèèjì. Foliteji generator, pípín àti oníbàárà jẹ́ àmì scenario.",
+      "Edit transmitted real power, power factor, line resistance per phase and both transmission voltages. Generator, distribution and consumer voltage label di scenario drawing.",
+    ],
+  "Read the calculated three-phase line current and resistive loss at both transmission voltages. Save stores this lab experiment separately in this browser; JSON and CSV exports contain the displayed inputs and calculated readings.":
+    [
+      "Lesen Sie den berechneten Dreiphasen-Leitungsstrom und Widerstandsverlust für beide Spannungen ab. Speichern legt dieses Laborexperiment getrennt in diesem Browser ab; JSON- und CSV-Exporte enthalten Eingaben und berechnete Werte.",
+      "Ka ìṣàn waya aláfàsẹ́ mẹ́ta àti ipadánù ìdènà tí a ṣírò fún foliteji méjèèjì. Save fi ìdánwò yàrá yìí pamọ́ lọ́tọ̀ sí browser yìí; JSON àti CSV ní ìwọlé àti àbájáde ìṣirò.",
+      "Read di calculated three-phase line current and resistance loss for both voltages. Save stores this lab experiment separate for this browser; JSON and CSV exports carry inputs and calculated readings.",
+    ],
+  "The model assumes balanced three-phase operation, constant transmitted power and power factor, equal resistance per phase, and ideal transformer voltage changes. It does not solve distribution losses, receiving-end voltage, transformer efficiency or a network load flow.":
+    [
+      "Das Modell nimmt symmetrischen Dreiphasenbetrieb, konstante übertragene Leistung und konstanten Leistungsfaktor, gleichen Phasenwiderstand und ideale Transformator-Spannungsänderungen an. Es berechnet keine Verteilungsverluste, Empfangsspannung, Transformatorwirkungsgrade oder Netzlastflüsse.",
+      "Àwòṣe náà gba aláfàsẹ́ mẹ́ta tó dọ́gba, agbára àti power factor tó dúró, ìdènà aláfàsẹ́ tó dọ́gba, àti transformer tó péye. Kò ṣe ìṣirò ipadánù pípín, foliteji ibi tí agbára dé, efficiency transformer tàbí load flow.",
+      "Di model assumes balanced three-phase, same transmitted power and PF, equal resistance per phase, ideal transformer voltage change. E no calculate distribution loss, receiving voltage, transformer efficiency or network load flow.",
+    ],
+  "At 100 MW, PF 1, 5 Ω/phase, 132 kV gives about 437.4 A and 2.87 MW line loss. At 330 kV the same simplified assumptions give about 175 A and 0.459 MW loss.":
+    [
+      "Bei 100 MW, PF 1, 5 Ω/Phase und 132 kV ergeben sich etwa 437,4 A und 2,87 MW Leitungsverlust. Bei 330 kV ergeben dieselben vereinfachten Annahmen etwa 175 A und 0,459 MW Verlust.",
+      "Ní 100 MW, PF 1, 5 Ω/phase àti 132 kV, ó tó 437.4 A àti 2.87 MW ni ipadánù waya. Ní 330 kV, àwòṣe rọrùn kan náà fún 175 A àti 0.459 MW.",
+      "For 100 MW, PF 1, 5 Ω/phase, 132 kV gives about 437.4 A and 2.87 MW line loss. For 330 kV, same simple assumptions gives about 175 A and 0.459 MW loss.",
+    ],
 };
