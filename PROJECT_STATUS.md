@@ -1,6 +1,14 @@
 # AdigunPowerLab — current status
 
-Date: 13 November 2026. Owner: Hephzibah Behulah.
+Date: 14 November 2026. Owner: Hephzibah Behulah.
+
+## PR #68 Adigun BOT zero-quantity edit rejection — 14 November 2026
+
+[PR #68](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/68) verifies that a numeric zero quantity is rejected with a validation error, produces no proposal or apply action, and leaves the synthetic load quantity at 1. Candidate [run 43412558377](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43412558377), exact-main [run 43588909128](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43588909128), and Pages [run 43589261888](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43589261888) passed. Main `f2cb9698f0d8469d41acfad028c7075b357b182c` is deployed; Pages validated source artifact 14111312228 (Pages output artifact 14111498060). Candidate artifact 14031000720. The validation error is translated in all four locales. Synthetic fixture only.
+
+## PR #67 documentation deployment receipts — 14 November 2026
+
+[PR #67](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/67) records PR #65 and #66 release receipts. Candidate [run 43410664316](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43410664316), exact-main [run 43411388409](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43411388409), and Pages [run 43412132909](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43412132909) passed. Main `f39be13183f94b66c94009bbdaccb4fa97d1ed75` is deployed; Pages used source artifact 14030515152 (Pages output artifact 14030440430). Documentation only.
 
 ## PR #66 Adigun BOT validation-message localization — 13 November 2026
 
@@ -132,4 +140,4 @@ These are bounded visual milestones, not full original-spec acceptance. The curr
 
 ## Next action
 
-The menu guide, tour, guide-backed answers, confirmed load edits, feeder method detail mode, confirmed phase assignment, source assessment and spatial detail modes, confirmed circuit and board assignment, and BOT window lifecycle coverage are deployed. Continue remaining workflow/detail-mode coverage, action/failure paths and interface-language review; expand BOT task support only through backed deterministic commands with reviewable effects. Independent accessibility, language and engineering review, licensed/current datasets, and full original-spec acceptance remain open. Exact-main Pages publication passed for PR #50; direct custom-domain HTTP verification remains unavailable in this environment.
+The menu guide, tour, guide-backed answers, reviewed load edits and assignments, and BOT window lifecycle coverage remain deployed. PRs #60, #62, #64, #66 and #68 now cover ambiguous, invalid numeric, missing-target, localized validation-message and zero-quantity edit rejection. Continue other deterministic BOT action/failure paths, remaining detail-mode workflows and language coverage. Independent accessibility, professional language and engineering review, licensed/current datasets, storage quota/update interruption scenarios and full original-spec acceptance remain open. Candidate, exact-main and Pages gates passed for PR #68; its validated source artifact 14111312228 was published as Pages artifact 14111498060.

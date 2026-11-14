@@ -1,5 +1,17 @@
 # Test evidence
 
+## PR #68 Adigun BOT zero-quantity edit rejection: 14 November 2026
+
+- **PR #68:** browser acceptance submits a numeric zero quantity and verifies the positive-integer error, no proposal or apply action, and unchanged quantity 1. Exact translations are checked in English, German, Yorùbá and Nigerian Pidgin.
+- Candidate full CI passed in [run 43412558377](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43412558377).
+- Main `f2cb9698f0d8469d41acfad028c7075b357b182c` passed full CI in [run 43588909128](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43588909128); Pages deployed the exact SHA in [run 43589261888](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43589261888). Validated source artifact 14111312228; Pages output artifact 14111498060. Candidate artifact 14031000720.
+
+## PR #67 documentation deployment receipts: 14 November 2026
+
+- **PR #67:** records PR #65 and #66 candidate, main and Pages evidence; documentation only.
+- Candidate full CI passed in [run 43410664316](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43410664316).
+- Main `f39be13183f94b66c94009bbdaccb4fa97d1ed75` passed full CI in [run 43411388409](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43411388409); Pages deployed the exact SHA in [run 43412132909](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43412132909). Validated source artifact 14030515152; Pages output artifact 14030440430.
+
 ## PR #66 Adigun BOT validation-message localization: 13 November 2026
 
 - **PR #66:** adds German, Yorùbá and Nigerian Pidgin translations for ambiguous-target, invalid-numeric and missing-target load-edit errors; exact translations are checked in all four locales.
