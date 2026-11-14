@@ -10,6 +10,40 @@ export const helpMessages: Record<string, [string, string, string]> = {
     "Ìrànlọ́wọ́ àti Ìtọ́sọ́nà",
     "Help and Guide",
   ],
+  "Use the Project menu": [
+    "Das Projektmenü verwenden",
+    "Lo àkójọ iṣẹ́",
+    "Use the Project menu",
+  ],
+  "Create, reopen, copy, import and organize projects from the toolbar.": [
+    "Erstellen, öffnen, kopieren, importieren und organisieren Sie Projekte über die Symbolleiste.",
+    "Ṣẹ̀dá, tún ṣí, ṣe ẹ̀dà, kó wọlé, kí o sì ṣètò àwọn iṣẹ́ láti inú toolbar.",
+    "Create, reopen, copy, import and arrange projects from the toolbar.",
+  ],
+  "Open Project in the header. New project creates a named blank workspace; Open project lists saved workspaces. Choose one to continue that saved project.":
+    [
+      "Öffnen Sie „Projekt“ in der Kopfzeile. „Neues Projekt“ erstellt einen leeren Arbeitsbereich mit Namen; „Projekt öffnen“ zeigt gespeicherte Arbeitsbereiche. Wählen Sie einen aus, um das gespeicherte Projekt fortzusetzen.",
+      "Ṣí Project ní orí ojú ìwé. New project máa ṣẹ̀dá ibi iṣẹ́ òfo tó ní orúkọ; Open project máa ṣàfihàn àwọn ibi iṣẹ́ tó ti fipamọ́. Yan ọ̀kan láti tẹ̀síwájú iṣẹ́ náà.",
+      "Open Project for the header. New project go create named empty workspace; Open project go list saved workspaces. Choose one to continue that saved project.",
+    ],
+  "Rename project changes the active name. Duplicate project opens an independent copy so you can keep a separate study. Close project saves the active workspace and opens a blank one.":
+    [
+      "„Projekt umbenennen“ ändert den aktiven Namen. „Projekt duplizieren“ öffnet eine unabhängige Kopie für eine separate Studie. „Projekt schließen“ speichert den aktiven Arbeitsbereich und öffnet einen leeren.",
+      "Rename project máa yí orúkọ iṣẹ́ tó ṣí padà. Duplicate project máa ṣí ẹ̀dà olómìnira kí o lè pa ìwádìí mìíràn mọ́. Close project máa fipamọ́ ibi iṣẹ́ tó ṣí, ó sì máa ṣí ibi òfo.",
+      "Rename project go change the active name. Duplicate project go open independent copy for separate study. Close project go save the active workspace and open empty one.",
+    ],
+  "Save stores the current engineering project in this browser. Export project downloads its engineering JSON. Import project first previews and validates a file, then lets you create a new project, merge into the current project or replace its contents. Read the preview and warnings before applying it.":
+    [
+      "„Speichern“ sichert das aktuelle technische Projekt in diesem Browser. „Projekt exportieren“ lädt die technische JSON-Datei herunter. „Projekt importieren“ prüft und zeigt die Datei zuerst an. Danach können Sie ein neues Projekt erstellen, in das aktuelle Projekt zusammenführen oder dessen Inhalt ersetzen. Lesen Sie Vorschau und Warnungen, bevor Sie die Änderung übernehmen.",
+      "Save máa fipamọ́ iṣẹ́ ẹ̀rọ lọ́wọ́lọ́wọ́ sínú browser yìí. Export project máa gbé fáìlì engineering JSON rẹ̀ kalẹ̀. Import project máa kọ́kọ́ ṣàyẹ̀wò fáìlì kí ó sì fi àbájáde hàn; lẹ́yìn náà o lè dá iṣẹ́ tuntun, so mọ́ iṣẹ́ lọ́wọ́lọ́wọ́, tàbí rọ́pò àkóónú rẹ̀. Ka àbájáde àti ìkìlọ̀ kí o tó lò ó.",
+      "Save go store current engineering project for this browser. Export project go download the engineering JSON. Import project go first preview and check a file, then you fit make new project, merge into current one, or replace its contents. Read preview and warnings before you apply am.",
+    ],
+  "Revision history opens History & Issues. Move to trash removes the active project after confirmation; use Open project then Restore from trash to recover it. Save a workspace backup in Settings before moving work to another browser or device.":
+    [
+      "„Revisionsverlauf“ öffnet „Verlauf & Probleme“. „In den Papierkorb“ verschiebt das aktive Projekt nach Bestätigung. Öffnen Sie „Projekt öffnen“ und dann „Aus dem Papierkorb wiederherstellen“, um es zurückzuholen. Sichern Sie den Arbeitsbereich in den Einstellungen, bevor Sie auf einen anderen Browser oder ein anderes Gerät wechseln.",
+      "Revision history máa ṣí History & Issues. Move to trash máa gbé iṣẹ́ tó ṣí sí trash lẹ́yìn ìfọwọ́sí; lo Open project, lẹ́yìn náà Restore from trash láti mú un padà. Fipamọ́ workspace backup nínú Settings kí o tó gbé iṣẹ́ sí browser tàbí ẹ̀rọ mìíràn.",
+      "Revision history go open History & Issues. Move to trash go remove the active project after you confirm; use Open project, then Restore from trash to bring am back. Save workspace backup in Settings before moving work to another browser or device.",
+    ],
   "Recommended path": [
     "Empfohlener Ablauf",
     "Ọ̀nà iṣẹ́ tí a dábàá",

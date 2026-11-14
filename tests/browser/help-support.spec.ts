@@ -31,6 +31,13 @@ test("Help and Guide sidebar opens the illustrated workflow and Bot tour", async
     name: "Search help",
     exact: true,
   });
+  await search.fill("project menu");
+  const projectGuide = help.getByRole("article", {
+    name: "Use the Project menu",
+    exact: true,
+  });
+  await expect(projectGuide).toContainText("merge into the current project");
+  await expect(projectGuide).toContainText("Restore from trash");
   await search.fill("assign load");
   const botGuide = help.getByRole("article", {
     name: "Use Adigun BOT",

@@ -37,6 +37,45 @@ describe("help search used by the guide and command palette", () => {
     },
   );
 
+  it("finds a route-linked guide for each sidebar destination", () => {
+    const sidebarRoutes = [
+      "overview",
+      "loads",
+      "boards",
+      "diagram",
+      "simulation",
+      "cables",
+      "motors",
+      "quality",
+      "tools",
+      "renewables",
+      "ev",
+      "scenarios",
+      "costs",
+      "library",
+      "reports",
+      "reference",
+      "history",
+      "settings",
+    ];
+    const guidedRoutes = new Set(
+      helpTopics
+        .filter((topic) => topic.kind === "workflow")
+        .map((topic) => topic.route),
+    );
+    expect(sidebarRoutes.filter((route) => !guidedRoutes.has(route))).toEqual(
+      [],
+    );
+  });
+
+  it("makes the complete Project toolbar menu searchable", () => {
+    const [topic] = searchHelp("project menu", "en");
+    expect(topic?.id).toBe("project-menu");
+    expect(topic?.route).toBe("overview");
+    expect(topic?.steps.join(" ")).toContain("merge into the current project");
+    expect(topic?.steps.join(" ")).toContain("Restore from trash");
+  });
+
   it.each([
     ["en", "Ohm's law"],
     ["de", "Ohmsches Gesetz"],

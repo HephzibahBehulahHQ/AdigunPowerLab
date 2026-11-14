@@ -43,6 +43,37 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
     ],
   },
   {
+    id: "project-menu",
+    title: "Use the Project menu",
+    summary:
+      "Create, reopen, copy, import and organize projects from the toolbar.",
+    steps: [
+      "Open Project in the header. New project creates a named blank workspace; Open project lists saved workspaces. Choose one to continue that saved project.",
+      "Rename project changes the active name. Duplicate project opens an independent copy so you can keep a separate study. Close project saves the active workspace and opens a blank one.",
+      "Save stores the current engineering project in this browser. Export project downloads its engineering JSON. Import project first previews and validates a file, then lets you create a new project, merge into the current project or replace its contents. Read the preview and warnings before applying it.",
+      "Revision history opens History & Issues. Move to trash removes the active project after confirmation; use Open project then Restore from trash to recover it. Save a workspace backup in Settings before moving work to another browser or device.",
+    ],
+    route: "overview",
+    keywords: [
+      "project menu",
+      "toolbar",
+      "new project",
+      "open project",
+      "rename project",
+      "duplicate project",
+      "close project",
+      "save",
+      "export",
+      "import",
+      "merge",
+      "replace",
+      "revision history",
+      "trash",
+      "restore from trash",
+      "workspace backup",
+    ],
+  },
+  {
     id: "save-and-recover",
     title: "Save, reopen and recover work",
     summary:
