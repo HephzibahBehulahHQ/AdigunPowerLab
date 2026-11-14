@@ -768,6 +768,11 @@ export const uiMessages: Record<string, [string, string, string]> = {
     "Iye rẹ̀ gbọdọ̀ jẹ́ odidi nọ́mbà tó ju òdo lọ.",
     "Quantity must be a whole number wey pass zero.",
   ],
+  "rating_kw can only edit loads entered in kW mode.": [
+    "rating_kw kann nur bei Lasten bearbeitet werden, die im kW-Modus eingegeben wurden.",
+    "rating_kw lè ṣàtúnṣe àwọn ẹrù tí a fi wọlé ní ipo kW nìkan.",
+    "rating_kw fit edit loads wey dem enter for kW mode only.",
+  ],
   "Load name cannot be empty.": [
     "Der Name der Last darf nicht leer sein.",
     "Orúkọ ẹrù kò gbọdọ̀ ṣófo.",
