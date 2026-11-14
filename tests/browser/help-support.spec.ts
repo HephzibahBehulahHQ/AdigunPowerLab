@@ -36,7 +36,7 @@ test("Help and Guide sidebar opens the illustrated workflow and Bot tour", async
     name: "Use the Project menu",
     exact: true,
   });
-  await expect(projectGuide).toContainText("Merge into the current project");
+  await expect(projectGuide).toContainText("merge into the current project");
   await expect(projectGuide).toContainText("Restore from trash");
   await search.fill("assign load");
   const botGuide = help.getByRole("article", {
