@@ -140,7 +140,7 @@ export function parseLoadEditProposal(
   input: string,
 ): LoadEditProposal | undefined {
   const match =
-    /^edit\s+load\s*:\s*([^;]{1,120})\s*;\s*(name|rating_kw|voltage_v|power_factor|hours_per_day|quantity)\s*;\s*([^;]{1,120})\s*$/i.exec(
+    /^edit\s+load\s*:\s*([^;]{1,120})\s*;\s*(name|rating_kw|voltage_v|power_factor|hours_per_day|quantity)\s*;\s*([^;]{0,120})\s*$/i.exec(
       input.trim(),
     );
   if (!match) return undefined;
