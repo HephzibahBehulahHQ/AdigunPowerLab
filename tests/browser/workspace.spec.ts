@@ -398,7 +398,7 @@ test("BOT previews load deletion, removes linked schedules, and supports Undo", 
       {
         id: "start-1",
         loadId: load.id,
-        start: "08:00",
+        start: "2026-01-01T08:00:00Z",
         durationSeconds: 30,
         currentA: 10,
         pf: 1,
