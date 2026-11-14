@@ -86,6 +86,101 @@ test("Germany-inspired scenario applies the 50Hertz-area voltage context", async
   ).toHaveAttribute("href", /MonitoringberichtEnergie2024\.pdf/);
 });
 
+test("hydro station cutaway traces real equipment, phase conductors and distinct grounding", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  await expect(
+    page.getByRole("heading", {
+      name: "Hydroelectric generating station · teaching cutaway",
+    }),
+  ).toBeVisible();
+  await expect(
+    page.getByText("PHYSICAL POWERHOUSE AND SWITCHYARD · illustrative layout"),
+  ).toBeVisible();
+  await expect(
+    page.locator(".pg-station-svg .pg-wire-a").first(),
+  ).toBeVisible();
+  await expect(
+    page.locator(".pg-station-svg .pg-wire-b").first(),
+  ).toBeVisible();
+  await expect(
+    page.locator(".pg-station-svg .pg-wire-c").first(),
+  ).toBeVisible();
+  await expect(
+    page.locator(".pg-station-svg .pg-neutral-wire").first(),
+  ).toBeVisible();
+  await expect(
+    page.locator(".pg-station-svg .pg-ground-line").first(),
+  ).toBeVisible();
+  await expect(
+    page.locator(".pg-station-svg .pg-shield-wire").first(),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: /synchronous generator/i }),
+  ).toBeVisible();
+  await expect(page.getByText(/N is not PE/i)).toBeVisible();
+
+  await page
+    .getByRole("button", { name: "Inspect: Three-phase switchyard busbar" })
+    .click();
+  await expect(
+    page.getByRole("heading", { name: "Three-phase switchyard busbar" }),
+  ).toBeVisible();
+  await expect(page.getByText(/separate rigid phase bars/i)).toBeVisible();
+
+  await page
+    .getByRole("button", { name: "Inspect: Overhead three-phase circuit" })
+    .focus();
+  await page.keyboard.press("Enter");
+  await expect(
+    page.getByRole("heading", { name: "Overhead three-phase circuit" }),
+  ).toBeVisible();
+  await expect(
+    page.getByText(/no neutral conductor in this example/i),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", {
+      name: "DOE · Hydropower supply chain and unit cutaway",
+    }),
+  ).toHaveAttribute("href", /energy\.gov/);
+  await page
+    .getByRole("button", { name: "Inspect: Protection and SCADA panel" })
+    .click();
+  await expect(
+    page.getByRole("heading", { name: "Protection and SCADA panel" }),
+  ).toBeVisible();
+  await expect(
+    page.getByText(/does not simulate live telemetry/i),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Inspect: Surge arrester" }).click();
+  await expect(
+    page.getByRole("heading", { name: "Surge arrester" }),
+  ).toBeVisible();
+  await expect(page.getByText(/phase-to-earth arrester/i)).toBeVisible();
+
+  const language = page.getByLabel("Language", { exact: true });
+  await language.selectOption("de");
+  await page.getByRole("button", { name: /Prüfen: Synchrongenerator/ }).click();
+  await expect(
+    page.getByRole("heading", { name: /Synchrongenerator/ }),
+  ).toBeVisible();
+  await language.selectOption("yo");
+  await page
+    .getByRole("button", { name: /Ṣàyẹ̀wò: Synchronous generator/ })
+    .click();
+  await expect(
+    page.getByRole("heading", { name: /Synchronous generator/ }),
+  ).toBeVisible();
+  await language.selectOption("pcm");
+  await page
+    .getByRole("button", { name: /Inspect: Synchronous generator/ })
+    .click();
+  await expect(
+    page.getByRole("heading", { name: /Synchronous generator/ }),
+  ).toBeVisible();
+});
+
 test("PowerGrid direct hash, history, local save and real JSON/CSV exports", async ({
   page,
 }) => {
@@ -149,9 +244,7 @@ test("PowerGrid controls and schematic stay usable on a narrow screen", async ({
   ).toBeVisible();
   await expect(page.getByLabel("Transmitted real power (MW)")).toBeVisible();
   const layout = await page.evaluate(() => {
-    const panel = document.querySelector<HTMLElement>(
-      ".pg-panel:has(.pg-schematic)",
-    );
+    const panel = document.querySelector<HTMLElement>(".pg-station-scroll");
     return {
       documentWidth: document.documentElement.scrollWidth,
       viewportWidth: window.innerWidth,

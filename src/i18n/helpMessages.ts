@@ -862,17 +862,41 @@ export const helpMessages: Record<string, [string, string, string]> = {
     "POWERGRID LAB: Fi foliteji gbigbe wé",
     "POWERGRID LAB: Compare transmission voltage",
   ],
-  "Open the isolated PowerGrid learning lab, compare transmission losses, solve a radial feeder, inspect outages, calculate instantaneous PV performance, save scenarios or export actual results.":
+  "Open the isolated PowerGrid lab, inspect a selectable hydro station cutaway and its terminals, trace separated three-phase, neutral and earth connections, compare transmission losses, solve a radial feeder, inspect outages, calculate instantaneous PV performance, save scenarios or export actual results.":
     [
-      "Öffnen Sie das getrennte PowerGrid-Lernlabor, vergleichen Sie Übertragungsverluste, lösen Sie einen radialen Abzweig, prüfen Sie Ausfälle, berechnen Sie die momentane PV-Leistung, speichern Sie Szenarien oder exportieren Sie Ergebnisse.",
-      "Ṣí yàrá ìkẹ́kọ̀ọ́ PowerGrid tó yà sọ́tọ̀, fi ipadánù gbigbe wé, ṣírò ẹ̀ka radial àti iṣẹ́ PV fún àkókò kan, ṣàyẹ̀wò ìjákulẹ̀, fi scenario pamọ́ tàbí gba àbájáde gidi jáde.",
-      "Open di separate PowerGrid lab, compare transmission loss, solve radial feeder, check outages, calculate one-time PV performance, save scenarios or export real results.",
+      "Öffnen Sie das getrennte PowerGrid-Lernlabor, prüfen Sie den auswählbaren Wasserkraft-Schnitt und seine Klemmen, verfolgen Sie die getrennten Dreiphasen-, Neutral- und Erdungsverbindungen, vergleichen Sie Übertragungsverluste, lösen Sie einen radialen Abzweig, prüfen Sie Ausfälle, berechnen Sie die momentane PV-Leistung, speichern Sie Szenarien oder exportieren Sie Ergebnisse.",
+      "Ṣí yàrá ìkẹ́kọ̀ọ́ PowerGrid tó yà sọ́tọ̀, ṣàyẹ̀wò àwòrán ibùdó hydro tó lè yan àti terminal rẹ̀, tọ asopọ aláfàsẹ́ mẹ́ta, neutral àti earth tó yà sọ́tọ̀, fi ipadánù gbigbe wé, ṣírò radial feeder, ṣàyẹ̀wò outages, PV performance, fi scenario pamọ́ tàbí gba àbájáde gidi jáde.",
+      "Open di separate PowerGrid lab, inspect di selectable hydro station cutaway and terminals, trace separate three-phase, neutral and earth, compare transmission loss, solve radial feeder, check outages, calculate PV performance, save scenarios or export real results.",
     ],
   "Select POWERGRID LAB in the top bar or enter #POWERGRID in the address bar. The exact hash opens the lab directly; refresh keeps it open and browser Back/Forward follows route changes.":
     [
       "Wählen Sie POWERGRID LAB in der oberen Leiste oder geben Sie #POWERGRID in die Adresszeile ein. Der genaue Hash öffnet das Labor direkt; Aktualisieren lässt es geöffnet, Zurück und Vorwärts folgen den Routenwechseln.",
       "Yan POWERGRID LAB lókè tàbí tẹ #POWERGRID sínú àdírẹ́sì. Hash náà ṣí yàrá náà tààrà; refresh kò pa á, Back àti Forward sì ń tẹ̀lé ìyípadà ojú-ọ̀nà.",
       "Select POWERGRID LAB for top bar or enter #POWERGRID for address bar. Exact hash opens di lab direct; refresh keeps am open, Back/Forward follows route changes.",
+    ],
+  "Scroll to the hydro station cutaway. Select Reservoir, trash rack, intake gate, penstock, draft tube, turbine, generator, transformer, control house/SCADA, breaker, disconnector, CT/VT, surge arrester, busbar, tower, conductors or earth grid. The inspection card names the equipment, explains its job and identifies its shown terminals. Keyboard users can Tab to a device and press Enter or Space.":
+    [
+      "Scrollen Sie zum Wasserkraft-Schnitt. Wählen Sie Stausee, Rechen, Einlauftor, Druckleitung, Saugrohr, Turbine, Generator, Transformator, Leitgebäude/SCADA, Leistungsschalter, Trenner, CT/VT, Überspannungsableiter, Sammelschiene, Mast, Leiter oder Erdungsnetz. Die Infokarte nennt das Gerät, seine Aufgabe und die gezeigten Klemmen. Mit Tab Gerät fokussieren und Enter oder Leertaste drücken.",
+      "Lọ sí àwòrán ibùdó hydro. Yan reservoir, trash rack, intake gate, penstock, draft tube, turbine, generator, transformer, control house/SCADA, breaker, disconnector, CT/VT, surge arrester, busbar, tower, conductor tàbí earth grid. Káàdì àlàyé ń sọ orúkọ ẹrọ, iṣẹ́ rẹ̀ àti terminal rẹ̀. Lo Tab láti dé ẹrọ; tẹ Enter tàbí Space.",
+      "Go to di hydro station cutaway. Select reservoir, rack, intake gate, penstock, draft tube, turbine, generator, transformer, control house/SCADA, breaker, disconnector, CT/VT, surge arrester, busbar, tower, wires or earth grid. Di info card names each equipment, wetin e do and terminals we show. Use Tab to reach am; press Enter or Space.",
+    ],
+  "In the upper view, follow water from reservoir and trash rack through the intake gate and penstock to the Francis runner; follow the shaft to the generator. The separate lower one-line shows the electrical path through the generator, step-up transformer, three-pole breaker, CT, busbar and transmission conductors.":
+    [
+      "Folgen Sie oben dem Wasser vom Stausee und Rechen durch Einlauftor und Druckleitung zum Francis-Laufrad; dann der Welle zum Generator. Die getrennte Einliniendarstellung darunter zeigt den Stromweg über Generator, Maschinentransformator, dreipoligen Leistungsschalter, Stromwandler, Sammelschiene und Freileitung.",
+      "Lókè, tọ omi láti reservoir àti rack gba intake gate àti penstock dé Francis runner; lẹ́yìn náà tọ ọ̀pá sí generator. Àwòrán one-line tó wà ní ìsàlẹ̀ yàtọ̀ ń fi ọ̀nà iná hàn láti generator gba step-up transformer, breaker, CT àti busbar dé transmission conductor.",
+      "For di top view, follow water from reservoir and rack through intake gate and penstock to Francis runner; follow shaft enter generator. Di separate one-line below show electricity through generator, step-up transformer, three-pole breaker, CT, busbar and transmission wires.",
+    ],
+  "Read the phase labels and colors as schematic conductor identifiers. At the source, the example brings out generator star point N and grounds it through an impedance; generator-frame PE is separately bonded to station earth. The overhead shield wire also has its own path to tower footing. The illustrated high-voltage line has three phases and no neutral conductor.":
+    [
+      "Lesen Sie Phasenbezeichnungen und Farben als Kennzeichnung im Schema. Das Beispiel führt den Generatorsternpunkt N heraus und erdet ihn über eine Impedanz; Gehäuse-PE ist getrennt mit Stations-Erde verbunden. Das Erdseil der Freileitung hat einen eigenen Weg zum Mastfundament. Die dargestellte Hochspannungsleitung hat drei Phasen und keinen Neutralleiter.",
+      "Ka àmì phase àti àwọ̀ gẹ́gẹ́ bí ìdánimọ̀ waya lórí schema. Àpẹẹrẹ yìí mú generator star point N jáde, ó sì so ó mọ́ earth gba impedance; generator frame PE lọ lọ́tọ̀ sí station earth. Shield wire lókè náà ní ipa tirẹ̀ sí tower footing. HV line àwòrán ní phase mẹ́ta, kò sì ní neutral.",
+      "Read phase names and colors as schematic wire tags. Dis example bring generator star point N out and ground am through impedance; generator-frame PE bond separate to station earth. Overhead shield wire get its own way to tower footing. Di HV line here get three phases and no neutral wire.",
+    ],
+  "The cutaway shows an illustrative generator wye and delta/grounded-star transformer arrangement, not an as-built station. Real terminal boards, transformer vector groups, neutral grounding, ratings and bay layouts vary; inspect the actual machine and project drawings before applying this example.":
+    [
+      "Der Schnitt zeigt beispielhaft einen Generator in Sternschaltung und einen Transformator mit Dreieck-/geerdeter Sternwicklung, keine Bestandsanlage. Klemmenbretter, Schaltgruppen, Neutralpunkterdung, Nennwerte und Feldanordnung variieren. Maßgeblich sind das tatsächliche Typenschild und die Projektpläne.",
+      "Àwòrán yìí jẹ́ àpẹẹrẹ generator wye àti transformer delta/grounded-star, kì í ṣe station gidi tí a ti kọ́. Terminal board, vector group, neutral grounding, rating àti layout lè yàtọ̀; wo machine àti drawing project gidi kí o tó lo àpẹẹrẹ yìí.",
+      "Di cutaway show sample generator wye and delta/grounded-star transformer; e no be as-built station. Real terminal boards, vector group, neutral grounding, ratings and bay layout fit differ; check actual machine plate and project drawing before using am.",
     ],
   "Edit transmitted real power, power factor, per-phase line resistance and the two transmission voltages. The generator, distribution and consumer voltages label the schematic scenario.":
     [

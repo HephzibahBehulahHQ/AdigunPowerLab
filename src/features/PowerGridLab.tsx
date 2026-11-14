@@ -13,6 +13,7 @@ import { applyRegionalTeachingPreset } from "../engine/powergridRegions";
 import { RadialFeederExperiment } from "./RadialFeederExperiment";
 import { PvPerformanceExperiment } from "./PvPerformanceExperiment";
 import { RegionalGridPreset } from "./RegionalGridPreset";
+import { HydroStationScene } from "./HydroStationScene";
 
 const SAVE_KEY = "adigunpowerlab.powergrid.experiment.v1";
 const copy: Record<Locale, Record<string, string>> = {
@@ -329,76 +330,8 @@ export function PowerGridLab() {
           setSaved(false);
         }}
       />
-      <section
-        className="panel panel-pad pg-panel"
-        aria-labelledby="pg-path-title"
-      >
-        <h3 id="pg-path-title">{text.schematic}</h3>
-        <svg
-          className="pg-schematic"
-          viewBox="0 0 960 170"
-          role="img"
-          aria-label={`${text.generator} → ${text.stepUp} → ${text.line} → ${text.stepDown} → ${text.network} → ${text.load}`}
-        >
-          <path d="M90 88H870" />
-          <path d="m860 80 12 8-12 8" />
-          {[90, 245, 415, 585, 755, 870].map((x) => (
-            <circle key={x} cx={x} cy="88" r="8" />
-          ))}
-          <g className="pg-node" transform="translate(30 24)">
-            <text x="60" y="0">
-              {text.generator}
-            </text>
-            <text x="60" y="134">
-              {fmt(inputs.generationVoltageKV, 1)} kV
-            </text>
-          </g>
-          <g className="pg-node" transform="translate(180 24)">
-            <text x="65" y="0">
-              {text.stepUp}
-            </text>
-            <text x="65" y="134">
-              {fmt(inputs.generationVoltageKV, 1)} →{" "}
-              {fmt(inputs.baseVoltageKV, 1)} kV
-            </text>
-          </g>
-          <g className="pg-node" transform="translate(350 24)">
-            <text x="65" y="0">
-              {text.line}
-            </text>
-            <text x="65" y="134">
-              {fmt(inputs.baseVoltageKV, 1)} / {fmt(inputs.raisedVoltageKV, 1)}{" "}
-              kV
-            </text>
-          </g>
-          <g className="pg-node" transform="translate(520 24)">
-            <text x="65" y="0">
-              {text.stepDown}
-            </text>
-            <text x="65" y="134">
-              {fmt(inputs.baseVoltageKV, 1)} →{" "}
-              {fmt(inputs.distributionVoltageKV, 1)} kV
-            </text>
-          </g>
-          <g className="pg-node" transform="translate(690 24)">
-            <text x="65" y="0">
-              {text.network}
-            </text>
-            <text x="65" y="134">
-              {fmt(inputs.distributionVoltageKV, 1)} kV
-            </text>
-          </g>
-          <g className="pg-node" transform="translate(810 24)">
-            <text x="60" y="0">
-              {text.load}
-            </text>
-            <text x="60" y="134">
-              {fmt(inputs.consumerVoltageKV, 2)} kV
-            </text>
-          </g>
-        </svg>
-        <p className="pg-equation">{text.formula}</p>
-      </section>
+      <HydroStationScene locale={locale} />
+      <p className="pg-equation">{text.formula}</p>
       <div className="pg-columns">
         <section
           className="panel panel-pad pg-panel"

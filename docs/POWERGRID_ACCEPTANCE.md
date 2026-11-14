@@ -19,6 +19,18 @@ Candidate [run 43628170719](https://github.com/HephzibahBehulahHQ/AdigunPowerLab
 
 General network load flow, meshed topology, dynamic simulation, generation/resource forecasting, regulatory compliance, hardware validation and the remaining owner-prompt milestones are not claimed complete.
 
+## Owner-directed hydro station visual slice — pending hosted validation
+
+| Requirement                                                                                                                              | Evidence target                                                                | Status                                         |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------- |
+| Recognizable hydro process cutaway with waterway, turbine, shaft and generator                                                           | Source-linked custom SVG; manual and curriculum                                | Implemented in candidate; browser gate pending |
+| Explicit 3-phase path, generator/transformer example windings and terminals, switchyard protection devices, bus, tower and overhead line | Equipment selection panel plus distinct one-line                               | Implemented in candidate; browser gate pending |
+| Control house, SCADA/protection panel, breaker, disconnector, earth switch and surge arrester inspection                                 | Selectable equipment drawings, terminal descriptions and no-telemetry boundary | Implemented in candidate; browser gate pending |
+| Separate generator neutral, protective earth and overhead shield wire; phase colors identified as schematic only                         | SVG labels, terminal descriptions and browser interaction assertions           | Implemented in candidate; browser gate pending |
+| Four-locale equipment descriptions, keyboard interaction and narrow-screen local scrolling                                               | Browser tests, Help and user guide                                             | Implemented in candidate; browser gate pending |
+
+The cutaway and delta/wye grounding topology are illustrative, explicitly not an as-built station. They do not add simulated plant ratings or fabricate site-specific values. The receiver substation, distribution, house and industrial machinery scene is still open work.
+
 ## Milestone 2 — radial feeder workflow deployed; scoped acceptance passed
 
 | Requirement                                            | Candidate evidence                                                                   | Status                                                                         |
