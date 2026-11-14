@@ -3472,6 +3472,7 @@ details p {
 .pg-station-bg {
   fill: #0c1827;
   stroke: #26394f;
+  pointer-events: none;
 }
 .pg-svg-divider {
   stroke: #293a4c;
