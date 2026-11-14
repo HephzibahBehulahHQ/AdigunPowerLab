@@ -1,5 +1,17 @@
 # Test evidence
 
+## PR #72 Adigun BOT empty load-name rejection: 14 November 2026
+
+- **PR #72:** recognizes an edit command with an empty name value, shows a specific validation error and does not propose or apply a change. Parser immutability, exact translations and browser feedback are covered; all test records are synthetic.
+- Candidate full CI passed in [run 43593949538](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43593949538), artifact 14113577858.
+- Main `43896c8e4c6780da2d566d626ee735db8009e2ec` passed full CI in [run 43594406795](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43594406795), artifact 14114037141; Pages deployed the exact SHA in [run 43594831964](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43594831964), output artifact 14113803042.
+
+## PR #71 documentation deployment receipts: 14 November 2026
+
+- **PR #71:** records PR #69 and #70 release receipts and updates the deployment checkpoint; documentation only.
+- Candidate full CI passed in [run 43592360700](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43592360700), artifact 14112624062.
+- Main `e17fd88d7bd4f89b1c6476d8003925fa8ff85507` passed full CI in [run 43592734619](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43592734619), artifact 14113017515; Pages deployed the exact SHA in [run 43593121674](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43593121674), output artifact 14112744468.
+
 ## PR #70 Adigun BOT duplicate-name rename rejection: 14 November 2026
 
 - **PR #70:** browser acceptance verifies renaming a load to an existing exact name is rejected without proposal or apply action and preserves both synthetic loads. The rejection message has exact translations in all four locales.
