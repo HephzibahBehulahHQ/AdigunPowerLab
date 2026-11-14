@@ -1,6 +1,3 @@
-Warning: truncated output (original token count: 7074)
-Total output lines: 671
-
 import { translate } from "../i18n";
 import type { Locale } from "../i18n";
 import { tools } from "../tools";
@@ -330,7 +327,17 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "dispatch",
       "outage",
       "import",
-      "export"…74 tokens truncated…vehicle limits and one/three-phase constraints.",
+      "export",
+      "curtailment",
+    ],
+  },
+  {
+    id: "ev-and-flexible-loads",
+    title: "EV & Flexible Loads",
+    summary:
+      "Check whether charging or flexible work can finish within its allowed window.",
+    steps: [
+      "Enter charging arrival and departure, required energy or SOC, charger/vehicle limits and one/three-phase constraints.",
       "Run the planner and inspect delivered energy, unmet energy and deadline feasibility. Review any generation-following or price priority, then preview before applying dated load schedules.",
     ],
     example:
