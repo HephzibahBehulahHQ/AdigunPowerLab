@@ -131,11 +131,11 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Àwọn iṣẹ́ tí a fi pamọ́ wà nínú aṣàwákiri yìí. Gba àfipamọ́ sílẹ̀ láti ní ẹ̀dà tí o lè gbé lọ sí ibòmíràn.",
       "Saved projects dey inside this browser. Download backup so you get copy wey you fit carry go another device.",
     ],
-  "Engineering changes autosave. Use Project → Save or Ctrl/Cmd+S and wait for Saved locally. Open project resumes a saved project. Close saves it and opens a blank workspace; a failed save keeps the current work.":
+  "Engineering changes autosave. Use Project → Save or Ctrl/Cmd+S and wait for Saved locally before refreshing or closing this tab. If changes are still unsaved, the browser asks whether to stay or leave; leaving discards only edits not yet saved. The next load opens the last saved project. Open project resumes a saved project. Close saves it and opens a blank workspace; a failed save keeps the current work so you can export a backup or save a copy.":
     [
-      "Technische Änderungen werden automatisch gespeichert. Nutzen Sie Projekt → Speichern oder Ctrl/Cmd+S und warten Sie auf Lokal gespeichert. Projekt öffnen setzt ein gespeichertes Projekt fort. Schließen speichert es und öffnet einen leeren Arbeitsbereich; bei einem Speicherfehler bleibt die aktuelle Arbeit erhalten.",
-      "Àwọn àtúnṣe ìmọ̀ ẹ̀rọ ń fi ara wọn pamọ́. Lo Iṣẹ́ → Fipamọ́ tàbí Ctrl/Cmd+S kí o dúró de A ti fipamọ́. Ṣí iṣẹ́ ń tẹ̀síwájú pẹ̀lú iṣẹ́ tí a fi pamọ́. Pa ń fi í pamọ́, ó sì ṣí àyè iṣẹ́ òfo; bí ìfipamọ́ bá kùnà, iṣẹ́ lọ́wọ́lọ́wọ́ dúró.",
-      "Engineering changes dey save automatically. Use Project → Save or Ctrl/Cmd+S and wait for Saved locally. Open project resumes saved work. Close saves am and opens blank workspace; if save fail, your current work stays.",
+      "Technische Änderungen werden automatisch gespeichert. Nutzen Sie Projekt → Speichern oder Ctrl/Cmd+S und warten Sie vor dem Aktualisieren oder Schließen des Tabs auf Lokal gespeichert. Bei ungespeicherten Änderungen fragt der Browser, ob Sie bleiben oder die Seite verlassen möchten; beim Verlassen gehen nur noch nicht gespeicherte Änderungen verloren. Beim nächsten Laden wird das zuletzt gespeicherte Projekt geöffnet. Projekt öffnen setzt ein gespeichertes Projekt fort. Schließen speichert es und öffnet einen leeren Arbeitsbereich; bei einem Speicherfehler bleibt die aktuelle Arbeit für Export oder Kopie erhalten.",
+      "Àwọn àtúnṣe ìmọ̀ ẹ̀rọ ń fi ara wọn pamọ́. Lo Iṣẹ́ → Fipamọ́ tàbí Ctrl/Cmd+S kí o dúró de A ti fipamọ́ kí o tó tún ojú-ìwé ṣe tàbí pa taabu yìí. Bí àtúnṣe kò tíì pamọ́, aṣàwákiri yóò béèrè bóyá o fẹ́ dúró tàbí jáde; bí o bá jáde, àtúnṣe tí a kò tíì fi pamọ́ nìkan ni yóò sọnù. Nígbà tí o bá tún ṣí i, iṣẹ́ tí a fi pamọ́ kẹ́yìn ló máa hàn. Ṣí iṣẹ́ ń tẹ̀síwájú pẹ̀lú iṣẹ́ tí a fi pamọ́. Pa ń fi í pamọ́, ó sì ṣí àyè iṣẹ́ òfo; bí ìfipamọ́ bá kùnà, iṣẹ́ lọ́wọ́lọ́wọ́ dúró fún ẹ̀dà àfipamọ́.",
+      "Engineering changes dey save automatically. Use Project → Save or Ctrl/Cmd+S and wait for Saved locally before refresh or close this tab. If changes never save, browser go ask whether to stay or leave; if you leave, only changes wey never save go lost. Next load go open the last saved project. Open project resumes saved work. Close saves am and opens blank workspace; if save fail, your current work still dey for export backup or save copy.",
     ],
   "Export project saves engineering JSON; Export loads saves CSV. Import previews and validates a file before New project, Merge or Replace. A failed validation leaves the current project intact.":
     [
@@ -643,6 +643,18 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Ein strukturierter Lastbefehl kann eine vorgeschlagene Last vorbereiten. Prüfen Sie Werte und Bedarfswirkung und wählen Sie ausdrücklich Anwenden. Projektänderungen machen ältere Vorschläge ungültig.",
       "Àṣẹ ẹrù tí a ṣètò lè pèsè àbá ẹrù. Ṣàyẹ̀wò iye rẹ̀ àti ipa rẹ̀ lórí ẹrù, kí o sì yan Lò ní kedere. Àtúnṣe iṣẹ́ ń sọ àbá àtijọ́ di aláìwúlò.",
       "Structured load command fit prepare proposed load. Inspect values and demand impact, then choose Apply yourself. Editing project makes older proposal invalid.",
+    ],
+  "From Help and Guide, choose Start guided tour. Adigun BOT walks through the guide topics and can open the related section; use Next or Previous to move between steps.":
+    [
+      "Wählen Sie in Hilfe und Anleitung die geführte Tour. Adigun BOT führt durch die Hilfethemen und kann den passenden Abschnitt öffnen. Mit Weiter und Zurück wechseln Sie die Schritte.",
+      "Nínú Ìrànlọ́wọ́ àti Ìtọ́sọ́nà, yan Bẹ̀rẹ̀ ìrìn-àjò. Adigun BOT yóò tọ́ ọ gba àwọn kókó ìtọ́sọ́nà, ó sì lè ṣí apá tó bá mu. Lo Tẹ̀síwájú tàbí Padà láti yí ìgbésẹ̀ padà.",
+      "For Help and Guide, choose Start guided tour. Adigun BOT go walk through the guide topics and fit open the matching section; use Next or Previous to move the steps.",
+    ],
+  "A structured load command can prepare a proposed load. Use a unique load name, inspect its values and demand impact, then explicitly Apply. A name that duplicates an existing load is rejected. Editing the project invalidates an older proposal.":
+    [
+      "Ein strukturierter Lastbefehl kann eine vorgeschlagene Last vorbereiten. Verwenden Sie einen eindeutigen Lastnamen, prüfen Sie Werte und Bedarfswirkung und wählen Sie ausdrücklich Anwenden. Ein vorhandener Lastname wird abgelehnt. Projektänderungen machen ältere Vorschläge ungültig.",
+      "Àṣẹ ẹrù tí a ṣètò lè pèsè àbá ẹrù. Lo orúkọ ẹrù tó yàtọ̀, ṣàyẹ̀wò iye rẹ̀ àti ipa rẹ̀ lórí ẹrù, kí o sì yan Lò ní kedere. A ó kọ orúkọ tó bá èyí tó ti wà mu. Àtúnṣe iṣẹ́ ń sọ àbá àtijọ́ di aláìwúlò.",
+      "Structured load command fit prepare proposed load. Use a unique load name, inspect values and demand impact, then choose Apply yourself. Existing load name go reject. Editing project makes older proposal invalid.",
     ],
   "Close, minimize, maximize and restore control the assistant window. Chat context stays with each project during the session; it is not part of the engineering backup.":
     [

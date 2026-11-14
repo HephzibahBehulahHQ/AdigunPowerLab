@@ -178,19 +178,27 @@ test("real quota rejection preserves the saved project and exports the current w
   await cdp.send("Storage.overrideQuotaForOrigin", {
     origin: new URL(page.url()).origin,
   });
-  await page.getByRole("button", { name: "Save", exact: true }).click();
-  await expect(page.locator(".save-badge")).toContainText("Saved locally");
-  expect(
-    await page.evaluate(() => {
-      const event = new Event("beforeunload", { cancelable: true });
-      window.dispatchEvent(event);
-      return event.defaultPrevented;
-    }),
-  ).toBe(false);
+  let leavePrompted = false;
+  page.once("dialog", async (dialog) => {
+    expect(dialog.type()).toBe("beforeunload");
+    leavePrompted = true;
+    await dialog.accept();
+  });
   await page.reload();
-  await expect(page.locator(".load-table")).toContainText(
-    "Quota recovery heater",
-  );
+  expect(leavePrompted).toBe(true);
+  await expect(page.locator(".save-badge")).toContainText("Saved locally");
+  await expect(
+    page.getByText("Quota recovery heater", { exact: true }),
+  ).toHaveCount(0);
+  const reopened = await page.evaluate(async (id: string) => {
+    const store = await import(
+      /* @vite-ignore */ "/src/storage/projects.ts" as string
+    );
+    return (await store.listProjects()).find(
+      (row: { id: string }) => row.id === id,
+    );
+  }, before.row.id);
+  expect(reopened).toEqual(before.row);
 });
 
 test("a blocked open is cancelled without a late schema change and can be retried", async ({

@@ -49,7 +49,7 @@ Quick daily and 30-day figures are planning estimates. Use the calendar simulati
 
 ## Save, back up and recover
 
-Engineering edits autosave locally. The header shows the actual save state. **Ctrl/Cmd+S** requests an explicit save. If a save fails, export a backup before reloading. If another tab has a newer revision, preserve your changes through export or a copy, then reopen the saved project.
+Engineering edits autosave locally. The header shows the actual save state. **Ctrl/Cmd+S** requests an explicit save. Wait until **Saved locally** before refreshing or closing the browser tab. While edits are unsaved, the browser shows its leave-page confirmation; choose to stay and wait for the save, or choose to leave knowing only edits not yet saved will be discarded. The next load opens the last successfully saved project. Browser security rules control the wording of this confirmation. If a save fails, the app keeps the current work open so you can export a backup or save a copy before reloading. If another tab has a newer revision, preserve your changes through export or a copy, then reopen the saved project.
 
 **Export project** creates native PowerLab engineering JSON. **Export loads** creates a spreadsheet-friendly CSV schedule. Import opens a preview with validation errors before applying changes; invalid input preserves the current project. Unsupported schemas are rejected unless an explicitly implemented adapter recognizes them. See `LEGACY_MIGRATION.md` for the current legacy support boundary.
 

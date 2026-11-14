@@ -48,7 +48,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
     summary:
       "Saved projects belong to this browser. Download a backup to keep a portable copy.",
     steps: [
-      "Engineering changes autosave. Use Project → Save or Ctrl/Cmd+S and wait for Saved locally. Open project resumes a saved project. Close saves it and opens a blank workspace; a failed save keeps the current work.",
+      "Engineering changes autosave. Use Project → Save or Ctrl/Cmd+S and wait for Saved locally before refreshing or closing this tab. If changes are still unsaved, the browser asks whether to stay or leave; leaving discards only edits not yet saved. The next load opens the last saved project. Open project resumes a saved project. Close saves it and opens a blank workspace; a failed save keeps the current work so you can export a backup or save a copy.",
       "Export project saves engineering JSON; Export loads saves CSV. Import previews and validates a file before New project, Merge or Replace. A failed validation leaves the current project intact.",
       "Settings → Workspace backup includes saved projects, revisions, bills, measurements and library records. Save each draft first. Validate the archive and review its restore mode before restoring.",
       "Use History & Issues to compare or restore revisions, and Undo/Redo for project edits. Move to trash and Restore are in the project switcher. A downloaded backup is needed on another device.",
@@ -482,7 +482,8 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "The local assistant explains actual project results and prepares proposals for your review.",
     steps: [
       "Open the Adigun BOT launcher. Ask about results, missing inputs, phase balance or report context. Local mode works without an online model provider.",
-      "A structured load command can prepare a proposed load. Inspect its values and demand impact, then explicitly Apply. Editing the project invalidates an older proposal.",
+      "From Help and Guide, choose Start guided tour. Adigun BOT walks through the guide topics and can open the related section; use Next or Previous to move between steps.",
+      "A structured load command can prepare a proposed load. Use a unique load name, inspect its values and demand impact, then explicitly Apply. A name that duplicates an existing load is rejected. Editing the project invalidates an older proposal.",
       "Close, minimize, maximize and restore control the assistant window. Chat context stays with each project during the session; it is not part of the engineering backup.",
     ],
     example:

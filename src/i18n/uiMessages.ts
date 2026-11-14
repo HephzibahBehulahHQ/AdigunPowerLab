@@ -1,5 +1,16 @@
 /** Product UI translations. Technical/native-speaker review status is recorded separately in docs. */
 export const uiMessages: Record<string, [string, string, string]> = {
+  "Unsaved changes may be lost if you leave before they are saved locally.": [
+    "Ungespeicherte Änderungen gehen möglicherweise verloren, wenn Sie die Seite vor dem lokalen Speichern verlassen.",
+    "Àtúnṣe tí a kò tíì fi pamọ́ lè sọnù bí o bá jáde kí a tó fi wọ́n pamọ́ sínú ẹ̀rọ yìí.",
+    "Unsaved changes fit lost if you leave before dem save locally.",
+  ],
+  "Saving failed. Keep this tab open and export a backup or save a copy before leaving.":
+    [
+      "Speichern fehlgeschlagen. Lassen Sie diesen Tab geöffnet und exportieren Sie eine Sicherung oder speichern Sie eine Kopie, bevor Sie die Seite verlassen.",
+      "Ìfipamọ́ kùnà. Má pa taabu yìí; gba ẹ̀dà àfipamọ́ jáde tàbí fi ẹ̀dà míì pamọ́ kí o tó jáde.",
+      "Save no work. Keep this tab open and export backup or save a copy before you leave.",
+    ],
   "Report snapshot frozen. Preview and exports use this exact revision.": [
     "Berichtssnapshot eingefroren. Vorschau und Exporte verwenden genau diese Revision.",
     "A ti di ẹ̀dà ìròyìn mú. Àwòrán ṣáájú àti fáìlì tí o gba lo àtúnṣe yìí gan-an.",
