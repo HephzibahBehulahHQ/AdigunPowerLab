@@ -4,7 +4,7 @@ Audit date: 13 November 2026. Scope: original specification sections 01–33, fi
 
 ## POWERGRID LAB Milestone 1 checkpoint: 14 November 2026
 
-The working implementation has a dedicated acceptance record in [`POWERGRID_ACCEPTANCE.md`](POWERGRID_ACCEPTANCE.md). Local typecheck, 407 unit tests, two numerical fixtures and production build passed. Hosted runs 43625392065, 43626174287 and 43627519047 passed lint, unit and build; each browser run had 89 passes, one existing skip and two failures. Direct route/history/save/export passed. The PowerGrid guide now follows all existing guides to preserve their BOT tour order, and the guide-search assertion uses a unique heading. Hosted browser rerun, production-browser suite and deployment remain pending; no full-lab acceptance is claimed.
+The implementation is live at `https://adigunpowerlab.hephzibahbehulah.com/#POWERGRID`. Candidate [run 43628170719](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43628170719), exact-main [run 43628826181](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43628826181), and Pages [run 43629332412](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43629332412) passed. Full-M1 status and remaining JSON/mobile checks are listed in [`POWERGRID_ACCEPTANCE.md`](POWERGRID_ACCEPTANCE.md); milestones 2–6 are not claimed complete.
 
 ## Confirmed BOT exact-name circuit removal: 14 November 2026
 
