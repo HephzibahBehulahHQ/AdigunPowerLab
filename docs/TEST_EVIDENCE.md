@@ -1,5 +1,17 @@
 # Test evidence
 
+## PR #74 Adigun BOT kW rating guard: 14 November 2026
+
+- **PR #74:** browser acceptance changes a synthetic load to amps entry mode, submits a kW-only rating edit and verifies a localized mode error, no proposal/apply control, and unchanged saved entry mode and rating.
+- Initial candidate [run 43596330967](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43596330967) caught a browser assertion that omitted the editor’s unit-qualified Rating label. Corrected full candidate CI passed in [run 43596817884](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43596817884), artifact 14114538581.
+- Main `767fdfc89845064ce0c0432ea55b6005bd3db7b7` passed full CI in [run 43597191329](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43597191329), artifact 14114413057; Pages deployed the exact SHA in [run 43597548115](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43597548115), output artifact 14114893256.
+
+## PR #73 documentation deployment receipts: 14 November 2026
+
+- **PR #73:** records candidate, exact-main and Pages evidence for PRs #71 and #72; documentation only.
+- Candidate full CI passed in [run 43595044387](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43595044387), artifact 14113799154.
+- Main `f14d86c4ecadfd4cf3c63d4c27f420fe3a8efae4` passed full CI in [run 43595474128](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43595474128), artifact 14114565917; Pages deployed the exact SHA in [run 43595879055](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43595879055), output artifact 14114730595.
+
 ## PR #72 Adigun BOT empty load-name rejection: 14 November 2026
 
 - **PR #72:** recognizes an edit command with an empty name value, shows a specific validation error and does not propose or apply a change. Parser immutability, exact translations and browser feedback are covered; all test records are synthetic.
