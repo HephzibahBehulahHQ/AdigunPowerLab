@@ -63,6 +63,54 @@ export interface RadialNetworkResult {
   validationErrors: string[];
 }
 
+export function isRadialNetworkInput(
+  value: unknown,
+): value is RadialNetworkInput {
+  if (!value || typeof value !== "object") return false;
+  const candidate = value as Partial<RadialNetworkInput>;
+  if (
+    typeof candidate.sourceBusId !== "string" ||
+    typeof candidate.sourceVoltageKV !== "number" ||
+    !Array.isArray(candidate.buses) ||
+    !Array.isArray(candidate.branches)
+  )
+    return false;
+  const validBus = (bus: unknown) => {
+    if (!bus || typeof bus !== "object") return false;
+    const item = bus as Partial<RadialBus>;
+    return (
+      typeof item.id === "string" &&
+      typeof item.loadMW === "number" &&
+      typeof item.loadMvar === "number" &&
+      (item.minVoltagePU === undefined ||
+        typeof item.minVoltagePU === "number") &&
+      (item.maxVoltagePU === undefined || typeof item.maxVoltagePU === "number")
+    );
+  };
+  const validBranch = (branch: unknown) => {
+    if (!branch || typeof branch !== "object") return false;
+    const item = branch as Partial<RadialBranch>;
+    return (
+      typeof item.id === "string" &&
+      typeof item.fromBusId === "string" &&
+      typeof item.toBusId === "string" &&
+      typeof item.resistanceOhm === "number" &&
+      typeof item.reactanceOhm === "number" &&
+      typeof item.inService === "boolean" &&
+      (item.thermalLimitA === undefined ||
+        typeof item.thermalLimitA === "number")
+    );
+  };
+  return (
+    candidate.buses.every(validBus) &&
+    candidate.branches.every(validBranch) &&
+    (candidate.tolerancePU === undefined ||
+      typeof candidate.tolerancePU === "number") &&
+    (candidate.maxIterations === undefined ||
+      typeof candidate.maxIterations === "number")
+  );
+}
+
 interface Complex {
   re: number;
   im: number;

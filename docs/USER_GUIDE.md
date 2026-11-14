@@ -8,6 +8,14 @@ In **Why step up voltage?**, edit transmitted real power, power factor, per-phas
 
 The exercise assumes a balanced three-phase system, constant transmitted real power and power factor, the same per-phase resistance in both cases, and ideal transformer voltage changes. Generator, distribution and consumer voltages are schematic scenario inputs. It does not calculate transformer efficiency, distribution losses, receiving-end voltage or a network load flow. These are educational component calculations, not a validated grid study.
 
+## POWERGRID LAB — radial feeder experiment
+
+Scroll to **Radial feeder: voltage drop and outages** to explore the second working experiment. Its clearly labelled illustrative training case contains two feeder branches and three consumer groups. Edit source line-to-line voltage, each group's active/reactive load and minimum voltage, and each branch's resistance, reactance and thermal limit. The balanced AC solver recalculates bus voltage, branch current, sending/receiving P and Q, real/reactive losses, constraint flags and convergence diagnostics as inputs change.
+
+Switch a branch's **In service** control off to model an open feeder. Downstream consumer groups are listed as unserved and excluded from served load and source balance; the app does not invent an alternate path. Before editing a case, select **Set comparison reference**. The comparison reports the change in minimum served voltage, real losses and unserved demand. Save stores this radial case separately in this browser. JSON contains the model inputs and full solver result; CSV contains bus and branch readings.
+
+This is a balanced radial teaching model with one fixed-voltage source, constant-P/Q loads and per-phase series impedance. It rejects closed loops and invalid inputs, reports islands and numerical convergence, and does not model shunt capacitance, transformer taps, generator limits, protection, meshed power flow or dynamics. Constraint flags are not equipment ratings or certification.
+
 ## Help inside the application
 
 Select **Help & Support** beside the detail-level control on any workspace. The same guide is available from the sidebar help icon and **Ctrl/Cmd+K** search. Search in the selected language or English, or enter an exact tool number such as **T01**. Filters separate workflow guides from tool guides. Every tool guide displays its actual input names, units, conditions and catalogue example values.

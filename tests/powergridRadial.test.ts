@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  isRadialNetworkInput,
   solveRadialNetwork,
   type RadialNetworkInput,
   validateRadialNetwork,
@@ -46,6 +47,18 @@ const feeder: RadialNetworkInput = {
 };
 
 describe("POWERGRID balanced radial AC feeder", () => {
+  it("safely recognizes persisted input shapes before validation", () => {
+    expect(isRadialNetworkInput(feeder)).toBe(true);
+    expect(isRadialNetworkInput({ ...feeder, buses: [null] })).toBe(false);
+    expect(
+      isRadialNetworkInput({
+        ...feeder,
+        branches: [{ ...feeder.branches[0], inService: "yes" }],
+      }),
+    ).toBe(false);
+    expect(isRadialNetworkInput(null)).toBe(false);
+  });
+
   it("solves separate consumer groups and accounts for line losses", () => {
     const result = solveRadialNetwork(feeder);
     expect(result.status).toBe("converged");
