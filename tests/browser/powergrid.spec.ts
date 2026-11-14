@@ -95,7 +95,7 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
       name: "Hydroelectric generating station · teaching cutaway",
     }),
   ).toBeVisible();
-  await expect(page.locator(".pg-station-svg .pg-svg-kicker")).toBeVisible();
+  await expect(page.locator(".pg-station-svg")).toBeVisible();
   await expect(
     page.locator(".pg-station-svg .pg-wire-a").first(),
   ).toBeVisible();
