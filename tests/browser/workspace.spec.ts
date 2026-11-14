@@ -703,9 +703,7 @@ test("local BOT rejects an empty load name without proposing a change", async ({
     .fill("edit load: Empty name target; name;");
   await bot.getByRole("button", { name: "Send", exact: true }).click();
 
-  await expect(bot.getByRole("alert")).toHaveText(
-    "Load name cannot be empty.",
-  );
+  await expect(bot.getByRole("alert")).toHaveText("Load name cannot be empty.");
   await expect(bot.locator(".bot-proposal")).toHaveCount(0);
   await expect(
     bot.getByRole("button", { name: "Apply confirmed changes", exact: true }),
@@ -719,9 +717,8 @@ test("local BOT rejects an empty load name without proposing a change", async ({
     name: "Edit load",
     exact: true,
   });
-  await expect(dialog.getByLabel("Name", { exact: true })).toHaveValue(
-    "Empty name target",
-  );
+  const nameInput = dialog.getByLabel("Name", { exact: true });
+  await expect(nameInput).toHaveValue("Empty name target");
   await dialog.getByRole("button", { name: "Close", exact: true }).click();
 });
 
