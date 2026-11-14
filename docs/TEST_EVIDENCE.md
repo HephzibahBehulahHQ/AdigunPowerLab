@@ -403,3 +403,7 @@ Documentation candidate `4ceb636d3a358d198068a2575e9d263cb91c553f` passed the co
 ## PR #54 / command search deployment receipt — 13 November 2026
 
 Documentation candidate `7e1c701404393020bcefe1cd33d2704fb2bd1210` passed the complete repository gate in [run 43371837583](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43371837583). Merged main `ab05396b8bf0d7f43cd2c9c1bf4821e0597b2e89` passed exact-main validation in [run 43372375564](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43372375564), including browser, production-browser, update and offline checks. Pages [run 43373115498](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43373115498) succeeded for that SHA; the publication summary links validation run 43372375564 and artifact 14013685966. This was a documentation-only update.
+
+## POWERGRID LAB Milestone 1 focused acceptance follow-up
+
+- PR #91 adds a browser assertion that reads and parses the actual downloaded JSON, and a 390 × 844 layout check covering document overflow, locally scrollable schematic, visible inputs and recalculation. Candidate `454f216ac5ca3671fa28ffaa0a893d520dfd9ef0`, [run 43632195086](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43632195086), passed before sync; this change is rebased on the verified M2 main commit and its updated candidate run is pending. Hosted Chromium runs the browser check; no local browser result is claimed.
