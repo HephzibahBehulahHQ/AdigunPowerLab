@@ -83,6 +83,13 @@ describe("help search used by the guide and command palette", () => {
       "Undo restores the complete change",
     );
   });
+  it("finds the reviewed BOT circuit-removal workflow", () => {
+    const [topic] = searchHelp("remove circuit", "en");
+    expect(topic?.id).toBe("local-bot");
+    expect(topic?.steps.join(" ")).toContain(
+      "keeps those loads in the project unassigned",
+    );
+  });
 
   it.each([
     ["en", "Ohm's law"],

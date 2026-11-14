@@ -404,6 +404,55 @@ test("BOT previews load deletion and supports Undo", async ({ page }) => {
   await expect(row).toHaveCount(1);
 });
 
+test("BOT previews circuit removal, keeps loads unassigned, and supports Undo", async ({
+  page,
+}) => {
+  await ready(page);
+  await addLoad(page, { name: "BOT circuit target" });
+  await route(page, "Boards & Circuits");
+  await page
+    .getByLabel("Add circuit", { exact: true })
+    .fill("BOT lighting circuit");
+  await page.getByRole("button", { name: "Add circuit", exact: true }).click();
+  await page
+    .getByLabel("BOT circuit target Circuit", { exact: true })
+    .selectOption({ label: "BOT lighting circuit" });
+  await expect(
+    page.getByLabel("BOT circuit target Circuit", { exact: true }),
+  ).toHaveValue("");
+  const row = page
+    .locator("tbody tr")
+    .filter({ hasText: "BOT circuit target" });
+  await page
+    .getByRole("button", { name: "Open Adigun BOT", exact: true })
+    .click();
+  const bot = page.locator(".local-bot");
+  await bot.locator("textarea").fill("remove circuit: BOT lighting circuit");
+  await bot.getByRole("button", { name: "Send", exact: true }).click();
+  const proposal = bot.locator(".bot-proposal").last();
+  await expect(proposal).toContainText(
+    "Circuit to remove: BOT lighting circuit",
+  );
+  await expect(proposal).toContainText("Loads to unassign: BOT circuit target");
+  await route(page, "Load Schedule");
+  await expect(row).toHaveCount(1);
+  await proposal
+    .getByRole("button", { name: "Apply confirmed changes", exact: true })
+    .click();
+  await expect(row).toHaveCount(1);
+  await expect(proposal).toContainText(
+    "Applied through project history. Use Undo to restore.",
+  );
+  await route(page, "Boards & Circuits");
+  await expect(
+    page.getByLabel("BOT circuit target Circuit", { exact: true }),
+  ).toHaveValue("");
+  await page.getByRole("button", { name: "Undo", exact: true }).click();
+  await expect(
+    page.getByLabel("BOT circuit target Circuit", { exact: true }),
+  ).toHaveValue(/.+/);
+});
+
 test("Adigun BOT window controls and conversation survive close and reopen", async ({
   page,
 }) => {
