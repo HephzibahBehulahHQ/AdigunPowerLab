@@ -3474,6 +3474,11 @@ details p {
   stroke: #26394f;
   pointer-events: none;
 }
+.pg-control-building,
+.pg-control-roof,
+.pg-control-window {
+  pointer-events: none;
+}
 .pg-svg-divider {
   stroke: #293a4c;
   stroke-width: 1.5;
