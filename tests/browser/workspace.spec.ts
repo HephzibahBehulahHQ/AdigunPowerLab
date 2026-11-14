@@ -691,12 +691,8 @@ test("local BOT rejects renaming a load to an existing name", async ({
   await ready(page);
   await addLoad(page, { name: "Rename source" });
   await addLoad(page, { name: "Rename target" });
-  const source = page
-    .locator("tbody tr")
-    .filter({ hasText: "Rename source" });
-  const target = page
-    .locator("tbody tr")
-    .filter({ hasText: "Rename target" });
+  const source = page.locator("tbody tr").filter({ hasText: "Rename source" });
+  const target = page.locator("tbody tr").filter({ hasText: "Rename target" });
 
   await page
     .getByRole("button", { name: "Open Adigun BOT", exact: true })
