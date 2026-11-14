@@ -16,7 +16,9 @@ The radial solver and user workflow are deployed. PR #92 candidate run 436355207
 
 PR #93 added the instantaneous, user-input PV performance worksheet and merged as `5f880dd8b55ccd24f50f33e6d9d642afe4a2d536`. Candidate run 43639137814, exact-main run 43639652323 and Pages run 43640116019 all passed; the deployed route is [POWERGRID LAB](https://adigunpowerlab.hephzibahbehulah.com/#POWERGRID). The worksheet uses the Sandia steady-state cell-temperature relation and NREL PVWatts linear irradiance/temperature equation with explicit inverter conversion and AC clipping. It supports comparison, local save and actual JSON/CSV exports; full sources and model limits are documented.
 
-The current bounded follow-up adds one Nigeria-inspired regional teaching scenario with sourced 50 Hz and nominal 330/132/33/11 kV context. It applies only the existing 132/330/33 kV worksheet fields and preserves other inputs. This does not yet provide regional resource or demand profiles, frequency simulation, the remaining regions, full generation/storage catalogue or chronological dispatch; these stay open for separate slices.
+PR #94's Nigeria-inspired regional context merged as `1d4d5574284ca67ada7c287fefce95f5640e19c2`. Candidate run 43641715412 (artifact 14132353578), exact-main run 43642322293 (artifact 14132742971), and Pages run 43642875461 (artifact 14133250374) passed. Live browser refresh confirmed the regional panel and NERC source link on the deployed `#POWERGRID` route. The next bounded candidate adds a selectable Germany-inspired scenario scoped to the 50Hertz transmission area, with source links and a clearly labeled illustrative 20 kV value. It awaits candidate validation.
+
+M3 remains in progress. Other national/regional examples, rural microgrid/custom scenarios, complete source catalogue, chronological dispatch and critical-load requirements remain open for separate slices.
 
 ## PR #85 reviewed BOT circuit removal — 14 November 2026
 

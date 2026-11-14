@@ -6,6 +6,7 @@ import {
 } from "../src/engine/powergrid";
 import {
   applyRegionalTeachingPreset,
+  GERMANY_TEACHING_PRESET,
   NIGERIA_TEACHING_PRESET,
 } from "../src/engine/powergridRegions";
 
@@ -61,6 +62,25 @@ describe("PowerGrid transmission experiment", () => {
       baseVoltageKV: 132,
       raisedVoltageKV: 330,
       distributionVoltageKV: 33,
+    });
+    expect(validatePowerGridInputs(inputs)).toEqual([]);
+  });
+
+  it("applies the sourced 50Hertz-area voltage context with its service voltage", () => {
+    const inputs = applyRegionalTeachingPreset(
+      { ...DEFAULT_POWERGRID_INPUTS, powerMW: 75, generationVoltageKV: 13.8 },
+      GERMANY_TEACHING_PRESET,
+    );
+
+    expect(GERMANY_TEACHING_PRESET.frequencyHz).toBe(50);
+    expect(GERMANY_TEACHING_PRESET.timeZone).toBe("Europe/Berlin");
+    expect(inputs).toMatchObject({
+      powerMW: 75,
+      generationVoltageKV: 13.8,
+      baseVoltageKV: 220,
+      raisedVoltageKV: 380,
+      distributionVoltageKV: 110,
+      consumerVoltageKV: 0.4,
     });
     expect(validatePowerGridInputs(inputs)).toEqual([]);
   });

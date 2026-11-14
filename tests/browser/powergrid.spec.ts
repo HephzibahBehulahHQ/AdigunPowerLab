@@ -42,6 +42,50 @@ test("regional teaching scenario applies sourced voltage stages only", async ({
   ).toHaveAttribute("href", /nerc\.gov\.ng/);
 });
 
+test("Germany-inspired scenario applies the 50Hertz-area voltage context", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  await page.getByLabel("Engineering region").selectOption("germany-inspired");
+  await expect(
+    page.getByText(
+      "50Hertz-area example · not a complete national grid replica",
+    ),
+  ).toBeVisible();
+  await expect(page.getByText("Europe/Berlin", { exact: true })).toBeVisible();
+  await expect(page.getByText("EUR", { exact: true })).toBeVisible();
+  await expect(
+    page.getByText("380 kV · 220 kV · 110 kV · 20 kV · 0.4 kV"),
+  ).toBeVisible();
+  await page.getByLabel("Base transmission voltage (kV)").fill("200");
+  await page.getByLabel("Raised transmission voltage (kV)").fill("350");
+  await page.getByLabel("Distribution voltage (kV)").fill("22");
+  await page.getByLabel("Generator voltage (kV)").fill("13.8");
+  await page.getByLabel("Consumer voltage (kV)").fill("0.23");
+  await page
+    .getByRole("button", { name: "Apply 220 / 380 / 110 / 0.4 kV stages" })
+    .click();
+  await expect(page.getByLabel("Base transmission voltage (kV)")).toHaveValue(
+    "220",
+  );
+  await expect(page.getByLabel("Raised transmission voltage (kV)")).toHaveValue(
+    "380",
+  );
+  await expect(page.getByLabel("Distribution voltage (kV)")).toHaveValue("110");
+  await expect(page.getByLabel("Generator voltage (kV)")).toHaveValue("13.8");
+  await expect(page.getByLabel("Consumer voltage (kV)")).toHaveValue("0.4");
+  await expect(
+    page.getByRole("link", {
+      name: "50Hertz transmission grid and network levels",
+    }),
+  ).toHaveAttribute("href", "https://www.50hertz.com/en/Grid");
+  await expect(
+    page.getByRole("link", {
+      name: "Bundesnetzagentur Monitoringbericht Energie 2024",
+    }),
+  ).toHaveAttribute("href", /MonitoringberichtEnergie2024\.pdf/);
+});
+
 test("PowerGrid direct hash, history, local save and real JSON/CSV exports", async ({
   page,
 }) => {

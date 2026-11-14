@@ -9,10 +9,7 @@ import {
   validatePowerGridInputs,
 } from "../engine/powergrid";
 import type { PowerGridInputs, PowerGridReading } from "../engine/powergrid";
-import {
-  applyRegionalTeachingPreset,
-  NIGERIA_TEACHING_PRESET,
-} from "../engine/powergridRegions";
+import { applyRegionalTeachingPreset } from "../engine/powergridRegions";
 import { RadialFeederExperiment } from "./RadialFeederExperiment";
 import { PvPerformanceExperiment } from "./PvPerformanceExperiment";
 import { RegionalGridPreset } from "./RegionalGridPreset";
@@ -325,9 +322,9 @@ export function PowerGridLab() {
       </header>
       <p className="pg-isolation">{text.independent}</p>
       <RegionalGridPreset
-        onApply={() => {
+        onApply={(preset) => {
           setInputs((previous) =>
-            applyRegionalTeachingPreset(previous, NIGERIA_TEACHING_PRESET),
+            applyRegionalTeachingPreset(previous, preset),
           );
           setSaved(false);
         }}
