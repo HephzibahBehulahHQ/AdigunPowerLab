@@ -724,8 +724,7 @@ test("local BOT rejects renaming a load to an existing name", async ({
     name: "Edit load",
     exact: true,
   });
-  await expect(dialog.getByLabel("Name", { exact: true })).toHaveValue(
-    "Rename source",
-  );
+  const nameInput = dialog.getByLabel("Name", { exact: true });
+  await expect(nameInput).toHaveValue("Rename source");
   await dialog.getByRole("button", { name: "Close", exact: true }).click();
 });
