@@ -27,6 +27,20 @@ test("Help and Guide sidebar opens the illustrated workflow and Bot tour", async
     exact: true,
   });
   await expect(help.locator(".help-journey")).toBeVisible();
+  const search = help.getByRole("searchbox", {
+    name: "Search help",
+    exact: true,
+  });
+  await search.fill("assign load");
+  const botGuide = help.getByRole("article", {
+    name: "Use Adigun BOT",
+    exact: true,
+  });
+  await expect(botGuide).toContainText(
+    "assign load: Heater; circuit: Lighting circuit",
+  );
+  await expect(botGuide).toContainText("rating_kw requires kW entry mode");
+  await search.fill("");
   await help
     .getByRole("button", { name: "Start guided tour", exact: true })
     .click();
