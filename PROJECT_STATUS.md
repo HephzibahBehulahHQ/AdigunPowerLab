@@ -2,15 +2,19 @@
 
 Date: 14 November 2026. Owner: Hephzibah Behulah.
 
-## POWERGRID LAB Milestone 1 — released; follow-up acceptance ongoing
+## POWERGRID LAB Milestone 1 — deployed; focused acceptance passed
 
 GitHub issue [#86](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/issues/86) acknowledged. [PR #88](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/88) merged as `c50ff66ca1865e866410f00b832c35fd4effe8a2`. The public lab is live at [https://adigunpowerlab.hephzibahbehulah.com/#POWERGRID](https://adigunpowerlab.hephzibahbehulah.com/#POWERGRID). Browser inspection on 14 November confirmed the exact hash renders the branded lab, schematic, editable inputs and 132/330 kV results.
 
 Candidate [run 43628170719](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43628170719), artifact 14127183215, and exact-main [run 43628826181](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43628826181), artifact 14126429450, passed lint, all unit tests, production build, full browser suite, production-browser suite, update smoke and offline/base-path checks. Pages [run 43629332412](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43629332412) deployed that exact main SHA; output artifact 14126688875. Earlier failed browser runs and their fixes are recorded in `docs/TEST_EVIDENCE.md`. PR #91 merged as `36ac8fb1d98e46311b87a2b85f17d933b5f14a7c`; candidate run 43633459567 and exact-main run 43634068700 passed, and Pages run 43634569359 deployed it (artifact 14129153822). JSON-content and 390 × 844 mobile acceptance now pass. Later owner-prompt milestones remain open.
 
-## POWERGRID LAB Milestone 2 — radial feeder workflow in candidate validation
+## POWERGRID LAB Milestone 2 — radial feeder workflow deployed; scoped acceptance passed
 
-The radial solver is merged and deployed. This candidate adds editable feeder and consumer groups, outage handling, solved bus/branch instruments, local saving, comparison, JSON/CSV exports, and an expanded lesson/Help in four locales. Six focused numerical tests and a scoped strict TypeScript check pass locally; the hosted end-to-end candidate is pending. M2 remains open through exact-main validation and UI deployment. The model boundary is documented in [`docs/POWERGRID_MODELS.md`](docs/POWERGRID_MODELS.md).
+The radial solver and user workflow are deployed. PR #92 candidate run 43635520709 and exact-main run 43636068361 passed; Pages run 43636663764 deployed `4e7d96e5e9186f5bf983fae288eec017a2a64dcc`, artifact 14130169246. The full browser suite covers feeder edits, outage/unserved loads, comparison, local save and actual JSON/CSV. Live browser inspection confirmed the public radial feeder section and editable controls. Scoped M2 acceptance is passed; regional generation, full source catalogue and later prompt milestones remain open. The model boundary is documented in [`docs/POWERGRID_MODELS.md`](docs/POWERGRID_MODELS.md).
+
+## POWERGRID LAB Milestone 3 — source-specific PV model foundation in progress
+
+Added an instantaneous, user-input PV performance engine and learning worksheet after the radial feeder. It uses the Sandia steady-state cell-temperature relation and the NREL PVWatts linear irradiance/temperature equation; inverter conversion and AC clipping are explicit. Four focused numerical tests pass locally. The hosted UI acceptance is pending, and this slice does not claim the remaining M3 source catalogue, regional presets or chronological dispatch work.
 ## PR #85 reviewed BOT circuit removal — 14 November 2026
 
 [PR #85](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/85) adds `remove circuit: Lighting circuit` as an exact-name BOT proposal. Its preview names the circuit and connected loads; Apply removes the circuit while retaining the loads unassigned, and Undo restores the prior project and assignments. Missing and ambiguous circuit names are rejected. Help and Guide, all four locales, browser coverage and the user manual are updated. Candidate `8899824efdb87f4ea2eaa8a842e424dd7a549f84` passed the full gate in [run 43621266571](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43621266571), artifact 14124377035. Main `a492ece59ba238e2aa7c4d7ac5e22dd47928b247` passed exact-main CI in [run 43621865533](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43621865533), artifact 14125010983; Pages deployed that exact SHA in [run 43622340824](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43622340824), output artifact 14124358028.

@@ -19,3 +19,13 @@ Discuss the assumptions before interpreting the comparison: balanced three-phase
 5. Change a bus minimum voltage or branch thermal limit to observe a constraint flag without hiding the solved result. Save or export the actual scenario when useful.
 
 The exercise uses balanced three-phase RMS quantities, a fixed source voltage, constant-P/Q consumer loads and per-phase series R/X. It uses a radial backward/forward sweep and exposes convergence status. It excludes shunt capacitance, transformer taps, generator limits, protection, dynamics and meshed power flow; an outage does not trigger automatic switching or an invented alternate route.
+
+## Lesson 3 — PV irradiance, cell temperature and inverter clipping
+
+1. Open **PV source performance experiment** below the radial feeder section.
+2. Read the input provenance and model limits in the assumptions panel. The values are worksheet inputs; no weather service or site profile is used.
+3. Set DC nameplate, plane-of-array irradiance, module temperature, cell-to-module temperature rise and a module power temperature coefficient.
+4. Compare the estimated cell temperature, PV array DC power, inverter AC before its limit, delivered AC power, conversion loss and clipping.
+5. Capture the current case as a reference, change irradiance or temperature, and compare the new AC output. Save the inputs locally or export actual JSON/CSV readings.
+
+The cell-temperature and DC equations reference Sandia PVPMC and the NREL PVWatts V5 manual, linked in the experiment. The entered coefficient, environment and inverter efficiency must match the intended equipment before using the values in any engineering study; the worksheet is not an annual-yield or installation design tool.

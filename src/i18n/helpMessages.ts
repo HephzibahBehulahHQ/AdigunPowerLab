@@ -862,11 +862,11 @@ export const helpMessages: Record<string, [string, string, string]> = {
     "POWERGRID LAB: Fi foliteji gbigbe wé",
     "POWERGRID LAB: Compare transmission voltage",
   ],
-  "Open the isolated PowerGrid learning lab, compare transmission losses, solve a radial feeder, inspect outages, save scenarios or export actual results.":
+  "Open the isolated PowerGrid learning lab, compare transmission losses, solve a radial feeder, inspect outages, calculate instantaneous PV performance, save scenarios or export actual results.":
     [
-      "Öffnen Sie das getrennte PowerGrid-Lernlabor, vergleichen Sie Übertragungsverluste, lösen Sie einen radialen Abzweig, prüfen Sie Ausfälle, speichern Sie Szenarien oder exportieren Sie Ergebnisse.",
-      "Ṣí yàrá ìkẹ́kọ̀ọ́ PowerGrid tó yà sọ́tọ̀, fi ipadánù gbigbe wé, ṣírò ẹ̀ka radial, ṣàyẹ̀wò ìjákulẹ̀, fi scenario pamọ́ tàbí gba àbájáde gidi jáde.",
-      "Open di separate PowerGrid lab, compare transmission losses, solve radial feeder, check outages, save scenarios or export real results.",
+      "Öffnen Sie das getrennte PowerGrid-Lernlabor, vergleichen Sie Übertragungsverluste, lösen Sie einen radialen Abzweig, prüfen Sie Ausfälle, berechnen Sie die momentane PV-Leistung, speichern Sie Szenarien oder exportieren Sie Ergebnisse.",
+      "Ṣí yàrá ìkẹ́kọ̀ọ́ PowerGrid tó yà sọ́tọ̀, fi ipadánù gbigbe wé, ṣírò ẹ̀ka radial àti iṣẹ́ PV fún àkókò kan, ṣàyẹ̀wò ìjákulẹ̀, fi scenario pamọ́ tàbí gba àbájáde gidi jáde.",
+      "Open di separate PowerGrid lab, compare transmission loss, solve radial feeder, check outages, calculate one-time PV performance, save scenarios or export real results.",
     ],
   "Select POWERGRID LAB in the top bar or enter #POWERGRID in the address bar. The exact hash opens the lab directly; refresh keeps it open and browser Back/Forward follows route changes.":
     [
@@ -909,6 +909,18 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Das Radialmodell nutzt eine Quelle mit fester Spannung, symmetrische Konstant-P/Q-Lasten und Serienimpedanz je Phase. Es meldet Konvergenz und getrennte Inseln. Quer-Kapazität, Transformatorstufen, Generatorgrenzen, vermaschter Lastfluss, Schutz und Dynamik sind nicht enthalten.",
       "Àwòṣe radial lo orísun kan tó ní foliteji dúró, load P/Q tó dọ́gba àti impedance fún phase kan. Ó ń fi convergence àti àwọn island hàn; capacitance, transformer taps, ààlà generator, network loop, protection àti dynamics kò sí nínú rẹ̀.",
       "Di radial model uses one fixed-voltage source, balanced constant P/Q loads and per-phase series impedance. It reports convergence and islands; capacitance, transformer taps, generator limits, meshed flow, protection and dynamics no dey inside.",
+    ],
+  "In PV source performance, enter DC nameplate, plane-of-array irradiance, module temperature, cell temperature rise, power coefficient and inverter limits. Read the calculated DC/AC output, conversion loss and clipping, save a comparison reference, then export the case or readings.":
+    [
+      "Geben Sie im PV-Erzeugungsmodell DC-Nennleistung, Einstrahlung in Modulebene, Modultemperatur, Zelltemperaturanstieg, Leistungskoeffizient und Wechselrichtergrenzen ein. Lesen Sie DC-/AC-Leistung, Umwandlungsverlust und Begrenzung ab, speichern Sie eine Referenz und exportieren Sie Fall oder Messwerte.",
+      "Nínú PV source performance, tẹ DC nameplate, irradiance lórí panel, module temperature, cell temperature rise, power coefficient àti inverter limits sínú. Ka DC/AC output, conversion loss àti clipping, fi reference pamọ́, kí o sì export case tàbí readings.",
+      "For PV source performance, enter DC nameplate, irradiance on panel, module temperature, cell temperature rise, power coefficient and inverter limits. Read DC/AC output, conversion loss and clipping, save reference, then export case or readings.",
+    ],
+  "This is an instantaneous calculation from entered values; it does not retrieve weather or calculate annual energy, shading, module IV curves, mismatch, wiring losses or transient response. Open the assumptions panel for the Sandia and NREL model references.":
+    [
+      "Dies ist eine Momentanberechnung aus eingegebenen Werten. Es werden weder Wetterdaten abgerufen noch Jahresenergie, Verschattung, Modul-IV-Kurven, Mismatch, Leitungsverluste oder transientes Verhalten berechnet. Die Annahmen enthalten die Sandia- und NREL-Quellen.",
+      "Èyí jẹ́ ìṣirò àkókò kan láti iye tí a tẹ̀ wọlé; kò gba weather tàbí ṣírò annual energy, shading, module IV curves, mismatch, wiring losses tàbí transient response. Ṣí model assumptions fún Sandia àti NREL references.",
+      "Na one-time calculation from entered values; e no fetch weather or calculate annual energy, shading, module IV curves, mismatch, wiring loss or transient response. Open model assumptions for Sandia and NREL references.",
     ],
   "The model assumes balanced three-phase operation, constant transmitted power and power factor, equal resistance per phase, and ideal transformer voltage changes. It does not solve distribution losses, receiving-end voltage, transformer efficiency or a network load flow.":
     [

@@ -106,3 +106,7 @@ These checks ran through the supported cloud browser. A terminal-browser attempt
 - Pages source: GitHub Actions; default public HTTPS domain, no new paid service or custom domain.
 - Live verification: the application opened publicly and T01 calculated 230 V / 23 Ω = 10 A and 2,300 W. The live browser showed the actual result and saved local workspace.
 - Screenshot: `screenshots/public-launch-1793926727604.jpg`.
+
+## POWERGRID LAB Milestone 2 radial workflow release — 14 November 2026
+
+PR #92 merged main `4e7d96e5e9186f5bf983fae288eec017a2a64dcc` after candidate run 43635520709 and exact-main run 43636068361 passed. Pages [run 43636663764](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43636663764) deployed that SHA with artifact 14130169246. Browser verification on the public `#POWERGRID` route confirmed the radial feeder controls, solved status and branch instrument table.
