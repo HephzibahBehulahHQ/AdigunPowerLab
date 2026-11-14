@@ -1,5 +1,11 @@
 # Test evidence
 
+## PR #75 documentation deployment receipts: 14 November 2026
+
+- **PR #75:** records candidate, exact-main and Pages receipts for PRs #73 and #74; documentation only.
+- Candidate full CI passed in [run 43597753191](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43597753191), artifact 14114849492.
+- Main `6796ef4ed2bf5ae93ce6cf64d1d8b373ff328d00` passed full CI in [run 43598231509](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43598231509), artifact 14114249813; Pages deployed the exact SHA in [run 43598693643](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43598693643), output artifact 14114763737.
+
 ## PR #74 Adigun BOT kW rating guard: 14 November 2026
 
 - **PR #74:** browser acceptance changes a synthetic load to amps entry mode, submits a kW-only rating edit and verifies a localized mode error, no proposal/apply control, and unchanged saved entry mode and rating.
