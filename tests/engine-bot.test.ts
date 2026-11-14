@@ -10,6 +10,7 @@ import {
   parseLoadEditProposal,
   parseLoadCircuitAssignmentProposal,
   parseLoadBoardAssignmentProposal,
+  parseLoadDeleteProposal,
   parseLoadPhaseProposal,
   parseLoadProposal,
   proposePhaseBalance,
@@ -189,6 +190,70 @@ describe("typed local assistant boundary", () => {
     expect(project.loads[0].boardId).toBe(targetBoard.id);
     expect(project.loads[0].circuitId).toBeUndefined();
     expect(() => applyProposal(project, proposal)).toThrow();
+  });
+  it("load deletion previews dependent cleanup and applies only after confirmation", () => {
+    const project = createProject();
+    const load = createLoad({ name: "Workshop heater", rating: 2.3 });
+    project.loads = [load];
+    project.startEvents = [
+      {
+        id: "start-1",
+        loadId: load.id,
+        start: "08:00",
+        durationSeconds: 30,
+        currentA: 10,
+        pf: 1,
+        method: "user",
+        source: "test fixture",
+      },
+    ];
+    project.flexibleLoads = [
+      {
+        id: "flex-1",
+        name: "Heater window",
+        loadId: load.id,
+        windows: [],
+        requiredKWh: 2,
+        minimumRunMinutes: 30,
+        interruptible: true,
+        locked: false,
+        priority: 1,
+        source: "test fixture",
+      },
+    ];
+    const before = structuredClone(project);
+    const response = runLocalCommand(project, "delete load: Workshop heater");
+    expect(response.kind).toBe("load");
+    if (response.kind !== "load") throw new Error("Expected a load proposal");
+    const proposal = response.proposal;
+    if (!proposal || proposal.kind !== "command")
+      throw new Error("Expected a typed command proposal");
+    expect(proposal.preview.command.kind).toBe("loads.delete");
+    expect(proposal.preview.warnings.join(" ")).toContain(
+      "Dependent start events and flexible-load plans",
+    );
+    expect(project).toEqual(before);
+    applyProposal(project, proposal);
+    expect(project.loads).toEqual([]);
+    expect(project.startEvents).toEqual([]);
+    expect(project.flexibleLoads).toEqual([]);
+    expect(() => applyProposal(project, proposal)).toThrow(/changed/);
+  });
+  it("rejects missing and ambiguous load deletion names without mutation", () => {
+    const project = createProject();
+    const load = createLoad({ name: "Heater" });
+    project.loads = [load];
+    const before = structuredClone(project);
+    expect(() =>
+      parseLoadDeleteProposal(project, "delete load: Missing"),
+    ).toThrow("No load with that exact name was found.");
+    expect(project).toEqual(before);
+    project.loads.push({ ...load, id: "duplicate-load" });
+    const beforeAmbiguous = structuredClone(project);
+    expect(() =>
+      parseLoadDeleteProposal(project, "delete load: Heater"),
+    ).toThrow("Load name is ambiguous. Use a unique load name.");
+    expect(project).toEqual(beforeAmbiguous);
   });
   it("rejects ambiguous board assignment targets and unchanged assignments", () => {
     const project = createProject();

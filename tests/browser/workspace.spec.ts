@@ -378,6 +378,32 @@ test("BOT previews board assignment and circuit removal before applying", async 
   await expect(proposal).toContainText("Workshop board");
 });
 
+test("BOT previews load deletion and supports Undo", async ({ page }) => {
+  await ready(page);
+  await addLoad(page, { name: "BOT deletion target" });
+  const row = page
+    .locator("tbody tr")
+    .filter({ hasText: "BOT deletion target" });
+  await page
+    .getByRole("button", { name: "Open Adigun BOT", exact: true })
+    .click();
+  const bot = page.locator(".local-bot");
+  await bot.locator("textarea").fill("delete load: BOT deletion target");
+  await bot.getByRole("button", { name: "Send", exact: true }).click();
+  const proposal = bot.locator(".bot-proposal").last();
+  await expect(proposal).toContainText("Load to remove: BOT deletion target");
+  await expect(row).toHaveCount(1);
+  await proposal
+    .getByRole("button", { name: "Apply confirmed changes", exact: true })
+    .click();
+  await expect(row).toHaveCount(0);
+  await expect(proposal).toContainText(
+    "Applied through project history. Use Undo to restore.",
+  );
+  await page.getByRole("button", { name: "Undo", exact: true }).click();
+  await expect(row).toHaveCount(1);
+});
+
 test("Adigun BOT window controls and conversation survive close and reopen", async ({
   page,
 }) => {

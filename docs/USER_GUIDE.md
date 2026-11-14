@@ -93,9 +93,12 @@ edit load: Workshop heater; rating_kw; 3.1
 phase load: Workshop heater; L2
 assign load: Workshop heater; board: Main board
 assign load: Workshop heater; circuit: Lighting circuit
+delete load: Workshop heater
 ```
 
 Load edits support `name`, `rating_kw`, `voltage_v`, `power_factor`, `hours_per_day` and `quantity`; `rating_kw` requires kW entry mode. A board-only assignment removes the load from its current circuit. Circuit assignment also updates the served board and may align an unlocked single-phase load to the circuit phase. Phase changes can move other unlocked single-phase loads on the same circuit. The assistant previews changes and demand impact; review each proposal and explicitly apply it through the undoable project workflow. Names must be unique, and editing the project invalidates stale proposals. Unsupported or incompatible commands do not mutate the project. This deterministic local command set is not a generative AI backend, OCR, telemetry or account service.
+
+Load removal requires the exact current load name. Review the preview for linked start events and flexible-load plans that will also be removed; choosing Apply performs the change, and Undo restores the full prior project. Missing or ambiguous names are rejected.
 
 The assistant window supports close, minimize, maximize and restore, with retained context for each project during the session. Chat text is local session content; it is not included in the engineering project backup.
 

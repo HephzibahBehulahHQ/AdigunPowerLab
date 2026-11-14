@@ -24,6 +24,7 @@ export const LOCAL_CAPABILITIES = [
   { id: "proposeLoads", mutates: false },
   { id: "proposeLoadEdits", mutates: false },
   { id: "proposeLoadBoardAssignment", mutates: false },
+  { id: "proposeLoadDeletion", mutates: false },
   { id: "previewProjectChanges", mutates: false },
   { id: "applyConfirmedChanges", mutates: true, requiresConfirmation: true },
   { id: "prepareReportNarrative", mutates: false },
@@ -340,6 +341,34 @@ export function parseLoadBoardAssignmentProposal(
   return { kind: "command", preview };
 }
 
+/** Exact-name, preview-first removal; applying remains an explicit user action. */
+export function parseLoadDeleteProposal(
+  project: Project,
+  input: string,
+): CommandProposal | undefined {
+  const match = /^delete\s+load\s*:\s*([^;]{1,120})\s*$/i.exec(input.trim());
+  if (!match) return undefined;
+  const name = match[1].trim();
+  const matches = project.loads.filter(
+    (load) =>
+      load.name.localeCompare(name, undefined, { sensitivity: "accent" }) === 0,
+  );
+  if (matches.length !== 1)
+    throw new Error(
+      matches.length
+        ? "Load name is ambiguous. Use a unique load name."
+        : "No load with that exact name was found.",
+    );
+  const preview = previewProjectCommand(project, {
+    kind: "loads.delete",
+    ids: [matches[0].id],
+  });
+  if (preview.errors.length) throw new Error(preview.errors.join(" "));
+  if (!preview.changes.length)
+    throw new Error(`${matches[0].name} is already removed.`);
+  return { kind: "command", preview };
+}
+
 export function runLocalCommand(
   project: Project,
   input: string,
@@ -367,6 +396,9 @@ export function runLocalCommand(
   );
   if (boardAssignmentProposal)
     return { ...base, kind: "load", proposal: boardAssignmentProposal };
+  const loadDeleteProposal = parseLoadDeleteProposal(project, input);
+  if (loadDeleteProposal)
+    return { ...base, kind: "load", proposal: loadDeleteProposal };
   const command = input.trim().toLocaleLowerCase();
   if (/balance|phasen|ìdọ́gba|ido.gba|phases/.test(command))
     return { ...base, kind: "balance", proposal: proposePhaseBalance(project) };
