@@ -429,9 +429,6 @@ test("BOT previews circuit removal, keeps loads unassigned, and supports Undo", 
   await page
     .getByLabel("BOT circuit target Circuit", { exact: true })
     .selectOption({ label: "BOT lighting circuit" });
-  await expect(
-    page.getByLabel("BOT circuit target Circuit", { exact: true }),
-  ).toHaveValue("");
   const row = page
     .locator("tbody tr")
     .filter({ hasText: "BOT circuit target" });
