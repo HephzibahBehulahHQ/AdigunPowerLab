@@ -37,6 +37,18 @@ describe("typed local assistant boundary", () => {
     expect(project.loads).toHaveLength(1);
     expect(calculateProject(project).phaseCurrents.L1).toBeCloseTo(10, 10);
   });
+  it("rejects a new load name that would make exact-name commands ambiguous", () => {
+    const project = createProject();
+    project.loads = [createLoad({ name: "Heater" })];
+    const before = structuredClone(project);
+    expect(() =>
+      parseLoadProposal(
+        project,
+        "load: heater; 2.3 kW; 230 V; PF 1; 8 h",
+      ),
+    ).toThrow("Load name must remain unique for future commands.");
+    expect(project).toEqual(before);
+  });
   it("stale previews and duplicate application are rejected without mutation", () => {
     const project = createProject();
     const proposal = parseLoadProposal(
