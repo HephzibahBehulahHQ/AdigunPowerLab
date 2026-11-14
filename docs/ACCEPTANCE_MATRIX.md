@@ -4,7 +4,7 @@ Audit date: 13 November 2026. Scope: original specification sections 01–33, fi
 
 ## POWERGRID LAB Milestone 1 checkpoint: 14 November 2026
 
-The implementation is live at `https://adigunpowerlab.hephzibahbehulah.com/#POWERGRID`. Candidate [run 43628170719](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43628170719), exact-main [run 43628826181](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43628826181), and Pages [run 43629332412](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43629332412) passed. Full-M1 status and remaining JSON/mobile checks are listed in [`POWERGRID_ACCEPTANCE.md`](POWERGRID_ACCEPTANCE.md); milestones 2–6 are not claimed complete.
+The implementation is live at `https://adigunpowerlab.hephzibahbehulah.com/#POWERGRID`. Candidate [run 43628170719](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43628170719), exact-main [run 43628826181](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43628826181), and Pages [run 43629332412](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43629332412) passed. PR #91 adds the outstanding JSON-content and mobile-layout browser checks; their hosted result is pending. Full-M1 status and later open milestones are listed in [`POWERGRID_ACCEPTANCE.md`](POWERGRID_ACCEPTANCE.md).
 
 ## POWERGRID LAB Milestone 2 progress
 
