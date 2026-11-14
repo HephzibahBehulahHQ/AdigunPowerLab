@@ -116,6 +116,15 @@ export function parseLoadProposal(
         "Explicit typed local-assistant proposal; accepted only after review.",
     },
   });
+  if (
+    project.loads.some(
+      (existing) =>
+        existing.name.localeCompare(load.name, undefined, {
+          sensitivity: "accent",
+        }) === 0,
+    )
+  )
+    throw new Error("Load name must remain unique for future commands.");
   const normalized = normalizeLoad(load);
   if (!normalized.valid)
     throw new Error(normalized.issues.map((issue) => issue.message).join(" "));
