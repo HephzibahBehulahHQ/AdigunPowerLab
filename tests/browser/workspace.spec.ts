@@ -690,17 +690,13 @@ test("local BOT rejects an empty load name without proposing a change", async ({
 }) => {
   await ready(page);
   await addLoad(page, { name: "Empty name target" });
-  const row = page
-    .locator("tbody tr")
-    .filter({ hasText: "Empty name target" });
+  const row = page.locator("tbody tr").filter({ hasText: "Empty name target" });
 
   await page
     .getByRole("button", { name: "Open Adigun BOT", exact: true })
     .click();
   const bot = page.locator(".local-bot");
-  await bot
-    .locator("textarea")
-    .fill("edit load: Empty name target; name;");
+  await bot.locator("textarea").fill("edit load: Empty name target; name;");
   await bot.getByRole("button", { name: "Send", exact: true }).click();
 
   await expect(bot.getByRole("alert")).toHaveText("Load name cannot be empty.");
