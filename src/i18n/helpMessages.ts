@@ -862,11 +862,11 @@ export const helpMessages: Record<string, [string, string, string]> = {
     "POWERGRID LAB: Fi foliteji gbigbe wé",
     "POWERGRID LAB: Compare transmission voltage",
   ],
-  "Open the isolated PowerGrid learning lab, compare current and line losses, save the experiment or export its actual results.":
+  "Open the isolated PowerGrid learning lab, compare transmission losses, solve a radial feeder, inspect outages, save scenarios or export actual results.":
     [
-      "Öffnen Sie das getrennte PowerGrid-Lernlabor, vergleichen Sie Strom und Leitungsverluste, speichern Sie das Experiment oder exportieren Sie die berechneten Ergebnisse.",
-      "Ṣí yàrá ìkẹ́kọ̀ọ́ PowerGrid tó yà sọ́tọ̀, fi ìṣàn àti ipadánù waya wé, fi ìdánwò pamọ́ tàbí gba àbájáde gidi jáde.",
-      "Open di separate PowerGrid learning lab, compare current and line losses, save di experiment or export di real results.",
+      "Öffnen Sie das getrennte PowerGrid-Lernlabor, vergleichen Sie Übertragungsverluste, lösen Sie einen radialen Abzweig, prüfen Sie Ausfälle, speichern Sie Szenarien oder exportieren Sie Ergebnisse.",
+      "Ṣí yàrá ìkẹ́kọ̀ọ́ PowerGrid tó yà sọ́tọ̀, fi ipadánù gbigbe wé, ṣírò ẹ̀ka radial, ṣàyẹ̀wò ìjákulẹ̀, fi scenario pamọ́ tàbí gba àbájáde gidi jáde.",
+      "Open di separate PowerGrid lab, compare transmission losses, solve radial feeder, check outages, save scenarios or export real results.",
     ],
   "Select POWERGRID LAB in the top bar or enter #POWERGRID in the address bar. The exact hash opens the lab directly; refresh keeps it open and browser Back/Forward follows route changes.":
     [
@@ -885,6 +885,30 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Lesen Sie den berechneten Dreiphasen-Leitungsstrom und Widerstandsverlust für beide Spannungen ab. Speichern legt dieses Laborexperiment getrennt in diesem Browser ab; JSON- und CSV-Exporte enthalten Eingaben und berechnete Werte.",
       "Ka ìṣàn waya aláfàsẹ́ mẹ́ta àti ipadánù ìdènà tí a ṣírò fún foliteji méjèèjì. Save fi ìdánwò yàrá yìí pamọ́ lọ́tọ̀ sí browser yìí; JSON àti CSV ní ìwọlé àti àbájáde ìṣirò.",
       "Read di calculated three-phase line current and resistance loss for both voltages. Save stores this lab experiment separate for this browser; JSON and CSV exports carry inputs and calculated readings.",
+    ],
+  "In Radial feeder, edit source line-to-line voltage and each consumer group's active/reactive load and minimum voltage. Read solved bus voltages, branch currents, sending/receiving P and Q, and voltage constraints.":
+    [
+      "Bearbeiten Sie im radialen Abzweig die Quellenspannung, Wirk-/Blindleistung und Mindestspannung jeder Verbrauchergruppe. Prüfen Sie berechnete Knotenspannungen, Abzweigströme, Sende-/Empfangs-P/Q und Spannungsgrenzen.",
+      "Nínú Radial feeder, ṣàtúnṣe foliteji orísun, agbára gidi/reactive àti foliteji tó kéré jù fún ẹgbẹ́ oníbàárà kọ̀ọ̀kan. Ka foliteji bus, current ẹ̀ka, P/Q tó ń jáde/tó ń dé àti ààlà foliteji.",
+      "For Radial feeder, edit source voltage, active/reactive load and minimum voltage for each consumer group. Read solved bus voltage, branch current, sending/receiving P and Q and voltage limits.",
+    ],
+  "Edit branch resistance, reactance and thermal limit. Turn off In service to open a feeder; downstream consumer groups are reported as unserved. Set a comparison reference before editing to compare served voltage, real losses and unserved demand.":
+    [
+      "Bearbeiten Sie Widerstand, Reaktanz und Stromgrenze. Schalten Sie In Betrieb aus, um einen Abzweig zu öffnen; nachgelagerte Gruppen gelten dann als unversorgt. Speichern Sie vor Änderungen eine Vergleichsreferenz, um Spannung, Wirkverluste und unversorgte Last zu vergleichen.",
+      "Ṣàtúnṣe ìdènà, reactance àti ààlà current. Pa In service láti ṣí ẹ̀ka; solver yóò fi àwọn ẹgbẹ́ tó wà lẹ́yìn rẹ̀ hàn gẹ́gẹ́ bí aláìní agbára. Fi ìfiwéra ìbẹ̀rẹ̀ pamọ́ kí o tó yí iye padà, kí o lè fi foliteji, ipadánù àti ẹrù tí kò rí agbára wé.",
+      "Edit resistance, reactance and thermal limit. Switch In service off to open a feeder; downstream groups show as unserved. Save a comparison reference before edits to compare voltage, real loss and unserved demand.",
+    ],
+  "Save the radial scenario locally or export its actual solved values as JSON or CSV. The saved radial scenario uses a separate browser key from the step-up experiment and the active customer project.":
+    [
+      "Speichern Sie das radiale Szenario lokal oder exportieren Sie berechnete Werte als JSON oder CSV. Der Abzweig hat einen eigenen Browser-Speicher getrennt vom Spannungs-Experiment und Kundenprojekt.",
+      "Fi scenario radial pamọ́ sí ẹ̀rọ yìí tàbí gba àbájáde tó ṣírò jáde gẹ́gẹ́ bí JSON/CSV. Ibi ìpamọ́ rẹ̀ yàtọ̀ sí ìdánwò gbígbé foliteji sókè àti project oníbàárà.",
+      "Save di radial scenario local or export solved values as JSON or CSV. Its browser save is separate from di step-up experiment and active customer project.",
+    ],
+  "The radial model uses one fixed-voltage source, balanced constant-P/Q consumer loads and per-phase series impedance. It reports convergence and disconnected islands; shunt capacitance, transformer taps, generator limits, meshed flow, protection and dynamics are outside this model.":
+    [
+      "Das Radialmodell nutzt eine Quelle mit fester Spannung, symmetrische Konstant-P/Q-Lasten und Serienimpedanz je Phase. Es meldet Konvergenz und getrennte Inseln. Quer-Kapazität, Transformatorstufen, Generatorgrenzen, vermaschter Lastfluss, Schutz und Dynamik sind nicht enthalten.",
+      "Àwòṣe radial lo orísun kan tó ní foliteji dúró, load P/Q tó dọ́gba àti impedance fún phase kan. Ó ń fi convergence àti àwọn island hàn; capacitance, transformer taps, ààlà generator, network loop, protection àti dynamics kò sí nínú rẹ̀.",
+      "Di radial model uses one fixed-voltage source, balanced constant P/Q loads and per-phase series impedance. It reports convergence and islands; capacitance, transformer taps, generator limits, meshed flow, protection and dynamics no dey inside.",
     ],
   "The model assumes balanced three-phase operation, constant transmitted power and power factor, equal resistance per phase, and ideal transformer voltage changes. It does not solve distribution losses, receiving-end voltage, transformer efficiency or a network load flow.":
     [

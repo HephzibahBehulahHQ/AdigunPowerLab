@@ -9,6 +9,7 @@ import {
   validatePowerGridInputs,
 } from "../engine/powergrid";
 import type { PowerGridInputs, PowerGridReading } from "../engine/powergrid";
+import { RadialFeederExperiment } from "./RadialFeederExperiment";
 
 const SAVE_KEY = "adigunpowerlab.powergrid.experiment.v1";
 const copy: Record<Locale, Record<string, string>> = {
@@ -496,6 +497,7 @@ export function PowerGridLab() {
           {text.reset}
         </button>
       </div>
+      <RadialFeederExperiment />
     </section>
   );
 }

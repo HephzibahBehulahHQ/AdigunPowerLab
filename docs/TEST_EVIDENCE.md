@@ -1,12 +1,14 @@
 # Test evidence
 
-## POWERGRID LAB Milestone 2 radial solver foundation
+## POWERGRID LAB Milestone 2 radial feeder workflow
 
-- `tests/powergridRadial.test.ts`: **5/5 focused numerical tests passed** locally using the existing project dependencies. Coverage includes multi-feeder real/reactive power balance, voltage and thermal constraints, open-feeder islands and served-load accounting, loop/impedance/orientation rejection, and convergence diagnostics.
-- `tsc --ignoreConfig --noEmit --target ES2022 --module ESNext --moduleResolution Bundler --strict --skipLibCheck src/engine/powergridRadial.ts`: passed for the new standalone calculation module.
-- Prettier check and `git diff --check`: passed. Full candidate repository, browser, production-browser and build validation are pending for the pull request; the user-facing radial-network workflow remains open.
-- First hosted candidate `c02d555b440b20a02327e93c6d0d8764fecc8c62`, [run 43631360926](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43631360926), stopped at lint because the uploaded TypeScript blobs used CRLF line endings and Linux Prettier rejected them. The candidate blobs are being normalized to LF before rerun; no application-test result is claimed from that run.
+- `tests/powergridRadial.test.ts`: **6/6 focused numerical tests passed** locally, covering real/reactive balance, constraints, outages and disconnected load, topology and impedance rejection, convergence diagnostics, and validation of saved input shapes. Scoped strict TypeScript, Prettier, and `git diff --check` passed.
+- Solver candidate `d658b906e4fd00f76d6eff7523f39048e9ebeae8`, [run 43631680915](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43631680915), passed the full hosted gate. Merged main `5172bcf8191da0e1c98ff0bc907f4a0e745acf04` passed exact-main [run 43632250030](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43632250030); Pages deployed that SHA in [run 43632711123](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43632711123), artifact 14127789492.
+- The current UI candidate adds editable feeders/load groups, outage and unserved-load reporting, bus voltage and branch P/Q/current/loss instruments, local save, comparison, real JSON/CSV downloads, and translated lessons/help. Full browser coverage checks solving, outage comparison, reload and exported file contents; hosted candidate validation is pending. No local browser result is claimed.
 
+## POWERGRID LAB Milestone 1 focused acceptance release — 14 November 2026
+
+- PR #91 adds parsed JSON download-content and 390 × 844 mobile layout checks. Candidate [run 43633459567](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43633459567) and exact-main [run 43634068700](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43634068700) passed the complete hosted validation. Pages [run 43634569359](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43634569359) deployed `36ac8fb1d98e46311b87a2b85f17d933b5f14a7c`, artifact 14129153822.
 ## POWERGRID LAB Milestone 1 local checkpoint: 14 November 2026
 
 - Candidate source is being prepared from main `c9876d2afbc8e973c5af0fcbcac6e097e2f6b731`; candidate SHA and hosted receipts will be added after push.
@@ -406,4 +408,4 @@ Documentation candidate `7e1c701404393020bcefe1cd33d2704fb2bd1210` passed the co
 
 ## POWERGRID LAB Milestone 1 focused acceptance follow-up
 
-- PR #91 adds a browser assertion that reads and parses the actual downloaded JSON, and a 390 × 844 layout check covering document overflow, locally scrollable schematic, visible inputs and recalculation. Candidate `454f216ac5ca3671fa28ffaa0a893d520dfd9ef0`, [run 43632195086](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43632195086), passed before sync; this change is rebased on the verified M2 main commit and its updated candidate run is pending. Hosted Chromium runs the browser check; no local browser result is claimed.
+- PR #91 merged as `36ac8fb1d98e46311b87a2b85f17d933b5f14a7c`. Candidate [run 43633459567](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43633459567), exact-main [run 43634068700](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43634068700) and Pages [run 43634569359](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43634569359) passed. Hosted Chromium verified the downloaded JSON contents and 390 × 844 mobile layout; Pages artifact 14129153822 deployed that main SHA.

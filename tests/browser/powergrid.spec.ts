@@ -100,3 +100,59 @@ test("PowerGrid rejects impossible losses and Help searches its guide", async ({
     }),
   ).toBeVisible();
 });
+
+test("radial feeder solves loads, compares an outage, saves and exports readings", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  await expect(
+    page.getByRole("heading", {
+      name: "Radial feeder: voltage drop and outages",
+    }),
+  ).toBeVisible();
+  await expect(page.getByText(/Converged ·/)).toBeVisible();
+  await page.getByRole("button", { name: "Set comparison reference" }).click();
+
+  await page.getByLabel("In service: Main north feeder").uncheck();
+  await expect(
+    page.getByText("Islanded: some consumer groups are unserved"),
+  ).toBeVisible();
+  await expect(page.getByText("0 → 0.22 MW")).toBeVisible();
+  await page.getByLabel("In service: Main north feeder").check();
+
+  const load = page.getByLabel("North feeder group Active load (MW)");
+  await load.fill("0.2");
+  await page.getByRole("button", { name: "Save feeder locally" }).click();
+  await expect(page.getByText("Feeder saved in this browser")).toBeVisible();
+  await page.reload();
+  await expect(
+    page.getByLabel("North feeder group Active load (MW)"),
+  ).toHaveValue("0.2");
+
+  const jsonPromise = page.waitForEvent("download");
+  await page
+    .getByRole("button", { name: "Export solved scenario JSON" })
+    .click();
+  const json = await jsonPromise;
+  expect(json.suggestedFilename()).toBe("powergrid-radial-scenario.json");
+  const scenario = JSON.parse(await readFile((await json.path())!, "utf8"));
+  expect(scenario.model).toBe(
+    "balanced-radial-constant-pq-backward-forward-sweep",
+  );
+  expect(
+    scenario.input.buses.find(
+      (bus: { id: string }) => bus.id === "north_feeder",
+    ).loadMW,
+  ).toBe(0.2);
+  expect(scenario.result.status).toBe("converged");
+
+  const csvPromise = page.waitForEvent("download");
+  await page
+    .getByRole("button", { name: "Export bus and branch readings CSV" })
+    .click();
+  const csv = await csvPromise;
+  expect(csv.suggestedFilename()).toBe("powergrid-radial-readings.csv");
+  const csvText = await readFile((await csv.path())!, "utf8");
+  expect(csvText).toContain("bus,north_feeder");
+  expect(csvText).toContain("branch,main_north");
+});

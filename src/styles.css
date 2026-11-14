@@ -3493,6 +3493,78 @@ details p {
   color: var(--red);
   margin: 0;
 }
+.pg-radial {
+  display: grid;
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+  border-top: 2px solid var(--gold);
+  padding-top: 16px;
+}
+.pg-source-field {
+  max-width: 340px;
+  margin-bottom: 14px;
+}
+.pg-radial-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 10px 0 18px;
+}
+.pg-radial-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+}
+.pg-radial-table th,
+.pg-radial-table td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px;
+  text-align: left;
+  vertical-align: middle;
+}
+.pg-radial-table th {
+  color: var(--muted);
+}
+.pg-radial-table input[type="number"] {
+  width: 100%;
+  min-width: 76px;
+}
+.pg-radial-table input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+.pg-radial-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin: 12px 0;
+}
+.pg-radial-summary span {
+  display: grid;
+  gap: 5px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--muted);
+  min-width: 0;
+}
+.pg-radial-summary b {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.pg-status {
+  border-left: 3px solid var(--green);
+  padding: 8px 12px;
+  background: var(--surface);
+}
+.pg-status-islanded,
+.pg-status-not-converged {
+  border-color: var(--red);
+}
+.pg-switch {
+  display: flex;
+  justify-content: center;
+}
 @media (max-width: 900px) {
   .pg-schematic {
     min-width: 740px;
