@@ -3353,6 +3353,47 @@ details p {
   padding: 8px 12px;
   background: var(--surface);
 }
+.pg-region header .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pg-region h3 {
+  margin-bottom: 6px;
+}
+.pg-region header p,
+.pg-region-scope,
+.pg-region-source {
+  color: var(--muted);
+}
+.pg-region-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 12px 0;
+}
+.pg-region-facts div {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+}
+.pg-region-facts dt {
+  color: var(--muted);
+  font-size: 12px;
+}
+.pg-region-facts dd {
+  margin: 4px 0 0;
+  overflow-wrap: anywhere;
+  font-weight: 600;
+}
+.pg-region-scope,
+.pg-region-source {
+  font-size: 13px;
+}
+.pg-region-source a {
+  overflow-wrap: anywhere;
+}
 .pg-panel {
   min-width: 0;
 }
@@ -3621,6 +3662,9 @@ details p {
   }
 }
 @media (max-width: 640px) {
+  .pg-region-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .pg-pv-inputs {
     grid-template-columns: minmax(0, 1fr);
   }

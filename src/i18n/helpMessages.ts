@@ -922,6 +922,18 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Èyí jẹ́ ìṣirò àkókò kan láti iye tí a tẹ̀ wọlé; kò gba weather tàbí ṣírò annual energy, shading, module IV curves, mismatch, wiring losses tàbí transient response. Ṣí model assumptions fún Sandia àti NREL references.",
       "Na one-time calculation from entered values; e no fetch weather or calculate annual energy, shading, module IV curves, mismatch, wiring loss or transient response. Open model assumptions for Sandia and NREL references.",
     ],
+  "The Nigeria-inspired regional teaching scenario shows 50 Hz, NGN, Africa/Lagos and the sourced nominal 330/132/33/11 kV stages. Apply sets only 132, 330 and 33 kV in the voltage experiment; generator and consumer fields stay as entered. It loads no regional generation, weather or demand profile and is not an operating-grid replica.":
+    [
+      "Das Nigeria-inspirierte Lehrszenario zeigt 50 Hz, NGN, Africa/Lagos und die belegten Nennstufen 330/132/33/11 kV. Anwenden setzt nur 132, 330 und 33 kV im Spannungsexperiment; Generator- und Verbraucherfelder bleiben unverändert. Es lädt keine regionalen Erzeugungs-, Wetter- oder Lastprofile und bildet kein Betriebsnetz nach.",
+      "Àpẹẹrẹ Nigeria fún ìkẹ́kọ̀ọ́ fi 50 Hz, NGN, Africa/Lagos àti àwọn ipele nominal 330/132/33/11 kV tó ní orísun hàn. Apply yóò ṣètò 132, 330 àti 33 kV nìkan; àwọn field generator àti consumer kò ní yí padà. Kò ní generation, weather tàbí demand profile agbègbè, kì í sì í ṣe àwòrán grid iṣẹ́ gidi.",
+      "Di Nigeria-inspired teaching scenario dey show 50 Hz, NGN, Africa/Lagos and sourced nominal 330/132/33/11 kV stages. Apply sets only 132, 330 and 33 kV; generator and consumer fields remain as you entered. E no load regional generation, weather or demand profiles, and e no be operating-grid replica.",
+    ],
+  "The regional voltage context cites the Nigerian Grid Code Version 02 public consultation copy. Frequency is informational only in the present steady-state worksheets; use the source link in the regional panel to inspect the document.":
+    [
+      "Der regionale Spannungskontext verweist auf die öffentliche Konsultationsfassung des Nigerian Grid Code Version 02. Die Frequenz ist in den aktuellen stationären Arbeitsblättern nur informativ. Öffnen Sie das Quelldokument über den Link im Regionalbereich.",
+      "Àyíká foliteji agbègbè tọ́ka sí ẹ̀dà Nigerian Grid Code Version 02 fún ìjíròrò gbogbo ènìyàn. Frequency jẹ́ àlàyé nìkan nínú worksheet tó dúró. Lo link orísun inú panel agbègbè láti wo ìwé náà.",
+      "Di regional voltage context cite Nigerian Grid Code Version 02 public consultation copy. Frequency na information only for the steady-state worksheets now. Use source link for di regional panel to inspect am.",
+    ],
   "The model assumes balanced three-phase operation, constant transmitted power and power factor, equal resistance per phase, and ideal transformer voltage changes. It does not solve distribution losses, receiving-end voltage, transformer efficiency or a network load flow.":
     [
       "Das Modell nimmt symmetrischen Dreiphasenbetrieb, konstante übertragene Leistung und konstanten Leistungsfaktor, gleichen Phasenwiderstand und ideale Transformator-Spannungsänderungen an. Es berechnet keine Verteilungsverluste, Empfangsspannung, Transformatorwirkungsgrade oder Netzlastflüsse.",

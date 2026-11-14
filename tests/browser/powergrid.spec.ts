@@ -1,6 +1,47 @@
 import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
 
+test("regional teaching scenario applies sourced voltage stages only", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  await expect(
+    page.getByRole("heading", { name: "Regional teaching scenario" }),
+  ).toBeVisible();
+  await expect(
+    page.getByText(
+      "Nigeria-inspired · educational, not an operational grid replica",
+    ),
+  ).toBeVisible();
+  await expect(page.getByText("50 Hz", { exact: true })).toBeVisible();
+  await expect(page.getByText("NGN", { exact: true })).toBeVisible();
+  await expect(page.getByText("Africa/Lagos", { exact: true })).toBeVisible();
+  await page.getByLabel("Base transmission voltage (kV)").fill("120");
+  await page.getByLabel("Raised transmission voltage (kV)").fill("250");
+  await page.getByLabel("Distribution voltage (kV)").fill("22");
+  await page
+    .getByRole("button", { name: "Apply 132 / 330 / 33 kV stages" })
+    .click();
+  await expect(page.getByLabel("Base transmission voltage (kV)")).toHaveValue(
+    "132",
+  );
+  await expect(page.getByLabel("Raised transmission voltage (kV)")).toHaveValue(
+    "330",
+  );
+  await expect(page.getByLabel("Distribution voltage (kV)")).toHaveValue("33");
+  await expect(page.getByLabel("Consumer voltage (kV)")).toHaveValue("0.4");
+  await expect(
+    page
+      .getByRole("status")
+      .getByText("Applied to the voltage comparison and schematic"),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", {
+      name: "Nigerian Grid Code, Version 02, public consultation copy",
+    }),
+  ).toHaveAttribute("href", /nerc\.gov\.ng/);
+});
+
 test("PowerGrid direct hash, history, local save and real JSON/CSV exports", async ({
   page,
 }) => {
