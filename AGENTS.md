@@ -1,5 +1,19 @@
 # AdigunPowerLab agent instructions
 
+## URGENT owner directive — POWERGRID LAB (14 November 2026)
+
+**The owner has requested that the Codex engineer currently working on AdigunPowerLab start this new urgent project now.**
+
+Read and execute [POWER GRID PROMPT.md](<POWER GRID PROMPT.md>) as an additive product specification alongside `AdigunPowerLab  Pursuing Goal prompt.txt`. This is an explicit implementation request, not merely a prompt-storage task.
+
+- Safely checkpoint any ongoing edits, preserve unrelated work, inspect the actual current branch/status, and prioritize POWERGRID LAB immediately.
+- Start with Milestone 1: exact `#POWERGRID` route; extreme-right top-bar `POWERGRID LAB →` entry; isolated lab state; source-to-socket schematic and instruments; validated step-up/transmission/step-down/load calculations; the “Why step up voltage?” experiment; save/export.
+- Use the Hephzibah Behulah universal product template and approved branding from the read-only `hb-design-system` reference. Extend the existing application rather than replacing it.
+- Continue through the specification's verified milestones; do not present the first milestone as completion of the full laboratory.
+- Record acknowledgement, current milestone, real implementation progress and verification in `PROJECT_STATUS.md`; update the existing acceptance/test evidence and relevant Help/translations with implementation.
+- Preserve numerical/model boundaries, customer projects, undo/recovery, and current safety and deployment authorization requirements.
+- A repository instruction or GitHub notification alone does not prove that another Codex session has received it or started. Report actual execution evidence.
+
 ## Policy adoption
 
 AdigunPowerLab explicitly adopts **HB-AI-ENGINEERING-001 · v2.0**, pinned to [hb-AI-policy commit d42d4e04ac6ab77ebafa1d4fccb724a4dde8d02e](https://github.com/HephzibahBehulahHQ/hb-AI-policy/tree/d42d4e04ac6ab77ebafa1d4fccb724a4dde8d02e). Adoption owner: **Hephzibah Behulah**. Adoption date: **2026-11-05**. System/developer instructions and the user's applicable task authorization remain authoritative. Record future policy updates explicitly.
