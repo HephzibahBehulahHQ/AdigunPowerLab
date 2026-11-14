@@ -481,9 +481,11 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
     summary:
       "The local assistant explains actual project results and prepares proposals for your review.",
     steps: [
-      "Open the Adigun BOT launcher. Ask about results, missing inputs, phase balance or report context. Local mode works without an online model provider.",
+      "Open the Adigun BOT launcher. Ask about project results or missing inputs. Type balance to preview phase balancing, or ask for a report to open the actual report exporter. These questions do not change equipment. Local mode works without an online model provider.",
       "From Help and Guide, choose Start guided tour. Adigun BOT walks through the guide topics and can open the related section; use Next or Previous to move between steps.",
-      "A structured load command can prepare a proposed load. Use a unique load name, inspect its values and demand impact, then explicitly Apply. A name that duplicates an existing load is rejected. Editing the project invalidates an older proposal.",
+      "Add a load with this command form: load: Heater; 2.3 kW; 230 V; PF 1; 8 h. Use a unique name. Review the proposed values and demand impact, then explicitly choose Apply. A name that duplicates an existing load is rejected.",
+      "For an existing load, supported commands are edit load: Heater; rating_kw; 3.1, phase load: Heater; L2, assign load: Heater; board: Main board, and assign load: Heater; circuit: Lighting circuit. Use the exact current load name. Supported edit fields are name, rating_kw, voltage_v, power_factor, hours_per_day and quantity; rating_kw requires kW entry mode.",
+      "Review every proposal before choosing Apply. Board-only assignment clears the current circuit; circuit assignment updates the served board and may align an unlocked single-phase load. Phase changes may move other unlocked single-phase loads on that circuit. Invalid, incompatible or stale proposals do not change the project.",
       "Close, minimize, maximize and restore control the assistant window. Chat context stays with each project during the session; it is not part of the engineering backup.",
     ],
     example:
@@ -495,6 +497,13 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "AI",
       "proposal",
       "apply",
+      "load",
+      "edit load",
+      "phase load",
+      "assign load",
+      "rating_kw",
+      "board",
+      "circuit",
       "maximize",
       "minimize",
       "local",

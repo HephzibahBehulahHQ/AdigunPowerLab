@@ -632,11 +632,11 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Olùrànlọ́wọ́ abẹ́lé ń ṣàlàyé èsì iṣẹ́ gidi, ó sì ń ṣètò àbá fún àyẹ̀wò rẹ.",
       "Local assistant explains actual project results and prepares proposals for you to review.",
     ],
-  "Open the Adigun BOT launcher. Ask about results, missing inputs, phase balance or report context. Local mode works without an online model provider.":
+  "Open the Adigun BOT launcher. Ask about project results or missing inputs. Type balance to preview phase balancing, or ask for a report to open the actual report exporter. These questions do not change equipment. Local mode works without an online model provider.":
     [
-      "Öffnen Sie den Adigun-BOT-Starter. Fragen Sie nach Ergebnissen, fehlenden Eingaben, Phasenausgleich oder Berichtskontext. Der lokale Modus arbeitet ohne Online-Modellanbieter.",
-      "Ṣí bọ́tìnì Adigun BOT. Béèrè nípa èsì, dátà ìwọlé tí kò sí, ìdọ́gba fásì tàbí àyíká ìròyìn. Ìpo abẹ́lé ń ṣiṣẹ́ láìsí olùpèsè àwòṣe lórí ayélujára.",
-      "Open Adigun BOT launcher. Ask about results, missing inputs, phase balance or report context. Local mode works without online model provider.",
+      "Öffnen Sie Adigun BOT. Fragen Sie nach Projektergebnissen oder fehlenden Eingaben. Mit „balance“ erhalten Sie einen Vorschlag zum Phasenausgleich; eine Berichtsfrage öffnet den tatsächlichen Berichtsexport. Diese Fragen ändern keine Geräte. Der lokale Modus funktioniert ohne Online-Modellanbieter.",
+      "Ṣí bọ́tìnì Adigun BOT. Béèrè nípa èsì iṣẹ́ tàbí dátà ìwọlé tó sọnù. Tẹ “balance” láti rí àbá ìdọ́gba fásì, tàbí béèrè fún ìròyìn kí ó ṣí ibi ìgbàsílẹ̀ ìròyìn gidi. Àwọn ìbéèrè wọ̀nyí kì í yí ẹ̀rọ padà. Ìpo abẹ́lé ń ṣiṣẹ́ láìsí olùpèsè àwòṣe lórí ayélujára.",
+      "Open Adigun BOT. Ask about project results or missing inputs. Type balance to preview phase balance, or ask for a report to open the real report exporter. Those questions no change equipment. Local mode works without online model provider.",
     ],
   "A structured load command can prepare a proposed load. Inspect its values and demand impact, then explicitly Apply. Editing the project invalidates an older proposal.":
     [
@@ -650,11 +650,23 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú Ìrànlọ́wọ́ àti Ìtọ́sọ́nà, yan Bẹ̀rẹ̀ ìrìn-àjò. Adigun BOT yóò tọ́ ọ gba àwọn kókó ìtọ́sọ́nà, ó sì lè ṣí apá tó bá mu. Lo Tẹ̀síwájú tàbí Padà láti yí ìgbésẹ̀ padà.",
       "For Help and Guide, choose Start guided tour. Adigun BOT go walk through the guide topics and fit open the matching section; use Next or Previous to move the steps.",
     ],
-  "A structured load command can prepare a proposed load. Use a unique load name, inspect its values and demand impact, then explicitly Apply. A name that duplicates an existing load is rejected. Editing the project invalidates an older proposal.":
+  "Add a load with this command form: load: Heater; 2.3 kW; 230 V; PF 1; 8 h. Use a unique name. Review the proposed values and demand impact, then explicitly choose Apply. A name that duplicates an existing load is rejected.":
     [
-      "Ein strukturierter Lastbefehl kann eine vorgeschlagene Last vorbereiten. Verwenden Sie einen eindeutigen Lastnamen, prüfen Sie Werte und Bedarfswirkung und wählen Sie ausdrücklich Anwenden. Ein vorhandener Lastname wird abgelehnt. Projektänderungen machen ältere Vorschläge ungültig.",
-      "Àṣẹ ẹrù tí a ṣètò lè pèsè àbá ẹrù. Lo orúkọ ẹrù tó yàtọ̀, ṣàyẹ̀wò iye rẹ̀ àti ipa rẹ̀ lórí ẹrù, kí o sì yan Lò ní kedere. A ó kọ orúkọ tó bá èyí tó ti wà mu. Àtúnṣe iṣẹ́ ń sọ àbá àtijọ́ di aláìwúlò.",
-      "Structured load command fit prepare proposed load. Use a unique load name, inspect values and demand impact, then choose Apply yourself. Existing load name go reject. Editing project makes older proposal invalid.",
+      "Mit diesem Befehlsformat fügen Sie eine Last hinzu: load: Heater; 2.3 kW; 230 V; PF 1; 8 h. Verwenden Sie einen eindeutigen Namen. Prüfen Sie die vorgeschlagenen Werte und die Bedarfswirkung und wählen Sie ausdrücklich Anwenden. Ein vorhandener Lastname wird abgelehnt.",
+      "Lo ọ̀nà àṣẹ yìí láti fi ẹrù kún un: load: Heater; 2.3 kW; 230 V; PF 1; 8 h. Lo orúkọ tó yàtọ̀. Ṣàyẹ̀wò iye àbá àti ipa ẹrù rẹ̀, kí o sì yan Lò ní kedere. A ó kọ orúkọ tó ti wà tẹ́lẹ̀.",
+      "Use this command form to add a load: load: Heater; 2.3 kW; 230 V; PF 1; 8 h. Use a unique name. Review the proposed values and demand impact, then choose Apply yourself. Existing load names go reject.",
+    ],
+  "For an existing load, supported commands are edit load: Heater; rating_kw; 3.1, phase load: Heater; L2, assign load: Heater; board: Main board, and assign load: Heater; circuit: Lighting circuit. Use the exact current load name. Supported edit fields are name, rating_kw, voltage_v, power_factor, hours_per_day and quantity; rating_kw requires kW entry mode.":
+    [
+      "Für vorhandene Lasten gibt es diese Befehle: edit load: Heater; rating_kw; 3.1, phase load: Heater; L2, assign load: Heater; board: Main board und assign load: Heater; circuit: Lighting circuit. Verwenden Sie den exakten aktuellen Lastnamen. Bearbeitbare Felder sind name, rating_kw, voltage_v, power_factor, hours_per_day und quantity. rating_kw setzt den kW-Eingabemodus voraus.",
+      "Fún ẹrù tó ti wà, àwọn àṣẹ wọ̀nyí wà: edit load: Heater; rating_kw; 3.1, phase load: Heater; L2, assign load: Heater; board: Main board, àti assign load: Heater; circuit: Lighting circuit. Lo orúkọ ẹrù tó wà gan-an. Àwọn pápá àtúnṣe ni name, rating_kw, voltage_v, power_factor, hours_per_day àti quantity. rating_kw nílò kW entry mode.",
+      "For load wey don dey, use these commands: edit load: Heater; rating_kw; 3.1, phase load: Heater; L2, assign load: Heater; board: Main board, and assign load: Heater; circuit: Lighting circuit. Use the exact current load name. Supported fields be name, rating_kw, voltage_v, power_factor, hours_per_day and quantity. rating_kw needs kW entry mode.",
+    ],
+  "Review every proposal before choosing Apply. Board-only assignment clears the current circuit; circuit assignment updates the served board and may align an unlocked single-phase load. Phase changes may move other unlocked single-phase loads on that circuit. Invalid, incompatible or stale proposals do not change the project.":
+    [
+      "Prüfen Sie jeden Vorschlag vor Anwenden. Eine reine Verteilerzuweisung entfernt die Last aus ihrem Stromkreis. Eine Stromkreiszuweisung aktualisiert den versorgenden Verteiler und kann die Phase einer nicht gesperrten einphasigen Last angleichen. Eine Phasenänderung kann weitere nicht gesperrte einphasige Lasten desselben Stromkreises verschieben. Ungültige, unzulässige oder veraltete Vorschläge ändern das Projekt nicht.",
+      "Ṣàyẹ̀wò gbogbo àbá kí o tó yan Lò. Yíyan board nìkan yóò yọ ẹrù kúrò ní circuit tó wà. Yíyan circuit ń ṣe àtúnṣe board tó ń pèsè agbára, ó sì lè mú kí fásì ẹrù fásì-kan tí kò ní lock bá a mu. Àtúnṣe fásì lè gbé àwọn ẹrù fásì-kan míì tí kò ní lock tó wà lórí circuit náà. Àbá tí kò bójú mu tàbí tó ti gbó kì í yí iṣẹ́ padà.",
+      "Check every proposal before you choose Apply. Board-only assignment go remove the load from its current circuit; circuit assignment updates the board and fit align unlocked single-phase load phase. Phase change fit move other unlocked single-phase loads on that circuit. Wrong, incompatible or stale proposal no go change project.",
     ],
   "Close, minimize, maximize and restore control the assistant window. Chat context stays with each project during the session; it is not part of the engineering backup.":
     [
