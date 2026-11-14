@@ -96,24 +96,21 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
     }),
   ).toBeVisible();
   await expect(page.locator(".pg-station-svg")).toBeVisible();
-  await expect(
-    page.locator(".pg-station-svg .pg-wire-a").first(),
-  ).toBeVisible();
-  await expect(
-    page.locator(".pg-station-svg .pg-wire-b").first(),
-  ).toBeVisible();
-  await expect(
-    page.locator(".pg-station-svg .pg-wire-c").first(),
-  ).toBeVisible();
-  await expect(
-    page.locator(".pg-station-svg .pg-neutral-wire").first(),
-  ).toBeVisible();
-  await expect(
-    page.locator(".pg-station-svg .pg-ground-line").first(),
-  ).toBeVisible();
-  await expect(
-    page.locator(".pg-station-svg .pg-shield-wire").first(),
-  ).toBeVisible();
+  const phaseA = page.locator(".pg-station-svg .pg-wire-a").first();
+  const phaseB = page.locator(".pg-station-svg .pg-wire-b").first();
+  const phaseC = page.locator(".pg-station-svg .pg-wire-c").first();
+  const neutral = page.locator(".pg-station-svg .pg-neutral-wire").first();
+  const earth = page.locator(".pg-station-svg .pg-ground-line").first();
+  const shield = page.locator(".pg-station-svg .pg-shield-wire").first();
+  for (const conductor of [phaseA, phaseB, phaseC, neutral, earth, shield]) {
+    await expect(conductor).toBeAttached();
+  }
+  await expect(phaseA).toHaveCSS("stroke", "rgb(155, 89, 55)");
+  await expect(phaseB).toHaveCSS("stroke", "rgb(34, 43, 54)");
+  await expect(phaseC).toHaveCSS("stroke", "rgb(170, 178, 191)");
+  await expect(neutral).toHaveCSS("stroke", "rgb(55, 143, 224)");
+  await expect(earth).toHaveClass(/pg-ground-line/);
+  await expect(shield).toHaveClass(/pg-shield-wire/);
   await expect(
     page.getByRole("heading", { name: /synchronous generator/i }),
   ).toBeVisible();
