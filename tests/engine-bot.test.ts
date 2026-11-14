@@ -84,6 +84,14 @@ describe("typed local assistant boundary", () => {
       parseLoadEditProposal(project, "edit load: Heater; power_factor; 2"),
     ).toThrow();
   });
+  it("rejects an empty load name edit", () => {
+    const project = createProject();
+    project.loads = [createLoad({ name: "Heater" })];
+    expect(() =>
+      parseLoadEditProposal(project, "edit load: Heater; name;"),
+    ).toThrow("Load name cannot be empty.");
+    expect(project.loads[0].name).toBe("Heater");
+  });
   it("phase proposals preview all affected circuit loads and apply only after confirmation", () => {
     const project = createProject();
     const circuit = createCircuit(project.boards[0].id, {
