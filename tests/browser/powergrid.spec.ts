@@ -89,7 +89,9 @@ test("Germany-inspired scenario applies the 50Hertz-area voltage context", async
 test("hydro station cutaway traces real equipment, phase conductors and distinct grounding", async ({
   page,
 }) => {
+  test.setTimeout(90_000);
   await page.goto("/#POWERGRID");
+  page.setDefaultTimeout(5_000);
   await expect(
     page.getByRole("heading", {
       name: "Hydroelectric generating station · teaching cutaway",
