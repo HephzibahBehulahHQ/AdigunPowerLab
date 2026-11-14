@@ -25,6 +25,7 @@ export const LOCAL_CAPABILITIES = [
   { id: "proposeLoadEdits", mutates: false },
   { id: "proposeLoadBoardAssignment", mutates: false },
   { id: "proposeLoadDeletion", mutates: false },
+  { id: "proposeCircuitRemoval", mutates: false },
   { id: "previewProjectChanges", mutates: false },
   { id: "applyConfirmedChanges", mutates: true, requiresConfirmation: true },
   { id: "prepareReportNarrative", mutates: false },
@@ -369,6 +370,35 @@ export function parseLoadDeleteProposal(
   return { kind: "command", preview };
 }
 
+/** Exact-name circuit removal keeps connected loads and previews their detachment. */
+export function parseCircuitRemovalProposal(
+  project: Project,
+  input: string,
+): CommandProposal | undefined {
+  const match = /^remove\s+circuit\s*:\s*([^;]{1,120})\s*$/i.exec(input.trim());
+  if (!match) return undefined;
+  const name = match[1].trim();
+  const matches = project.circuits.filter(
+    (circuit) =>
+      circuit.name.localeCompare(name, undefined, { sensitivity: "accent" }) ===
+      0,
+  );
+  if (matches.length !== 1)
+    throw new Error(
+      matches.length
+        ? "Circuit name is ambiguous. Use a unique circuit name."
+        : "No circuit with that exact name was found.",
+    );
+  const preview = previewProjectCommand(project, {
+    kind: "circuit.remove",
+    id: matches[0].id,
+  });
+  if (preview.errors.length) throw new Error(preview.errors.join(" "));
+  if (!preview.changes.length)
+    throw new Error(`${matches[0].name} is already removed.`);
+  return { kind: "command", preview };
+}
+
 export function runLocalCommand(
   project: Project,
   input: string,
@@ -399,6 +429,9 @@ export function runLocalCommand(
   const loadDeleteProposal = parseLoadDeleteProposal(project, input);
   if (loadDeleteProposal)
     return { ...base, kind: "load", proposal: loadDeleteProposal };
+  const circuitRemovalProposal = parseCircuitRemovalProposal(project, input);
+  if (circuitRemovalProposal)
+    return { ...base, kind: "load", proposal: circuitRemovalProposal };
   const command = input.trim().toLocaleLowerCase();
   if (/balance|phasen|ìdọ́gba|ido.gba|phases/.test(command))
     return { ...base, kind: "balance", proposal: proposePhaseBalance(project) };

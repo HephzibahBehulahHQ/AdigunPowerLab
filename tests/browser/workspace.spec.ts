@@ -404,6 +404,80 @@ test("BOT previews load deletion and supports Undo", async ({ page }) => {
   await expect(row).toHaveCount(1);
 });
 
+test("BOT previews circuit removal, keeps loads unassigned, and supports Undo", async ({
+  page,
+}) => {
+  await ready(page);
+  await addLoad(page, { name: "BOT circuit target" });
+  const readSavedProject = () =>
+    page.evaluate(async () => {
+      const storage = await import(
+        /* @vite-ignore */ "/src/storage/projects.ts" as string
+      );
+      const id = JSON.parse(
+        localStorage.getItem("powerlab:ui:currentProject") ?? "null",
+      );
+      return (await storage.listProjects()).find(
+        (record: { id: string }) => record.id === id,
+      )?.project;
+    });
+  await route(page, "Boards & Circuits");
+  await page
+    .getByLabel("Add circuit", { exact: true })
+    .fill("BOT lighting circuit");
+  await page.getByRole("button", { name: "Add circuit", exact: true }).click();
+  await page
+    .getByLabel("BOT circuit target Circuit", { exact: true })
+    .selectOption({ label: "BOT lighting circuit" });
+  const row = page
+    .locator("tbody tr")
+    .filter({ hasText: "BOT circuit target" });
+  await page
+    .getByRole("button", { name: "Open Adigun BOT", exact: true })
+    .click();
+  const bot = page.locator(".local-bot");
+  await bot.locator("textarea").fill("remove circuit: BOT lighting circuit");
+  await bot.getByRole("button", { name: "Send", exact: true }).click();
+  const proposal = bot.locator(".bot-proposal").last();
+  await expect(proposal).toContainText(
+    "Circuit to remove: BOT lighting circuit",
+  );
+  await expect(proposal).toContainText("Loads to unassign: BOT circuit target");
+  await route(page, "Load Schedule");
+  await expect(row).toHaveCount(1);
+  await proposal
+    .getByRole("button", { name: "Apply confirmed changes", exact: true })
+    .click();
+  await expect(row).toHaveCount(1);
+  await expect(proposal).toContainText(
+    "Applied through project history. Use Undo to restore.",
+  );
+  await expect(page.locator(".save-badge")).toContainText("Saved locally");
+  const detached = (await readSavedProject()) as {
+    circuits: { id: string; name: string }[];
+    loads: { name: string; circuitId?: string }[];
+  };
+  expect(detached.circuits.some((c) => c.name === "BOT lighting circuit")).toBe(
+    false,
+  );
+  expect(
+    detached.loads.find((load) => load.name === "BOT circuit target"),
+  ).not.toHaveProperty("circuitId");
+  await page.getByRole("button", { name: "Undo", exact: true }).click();
+  await expect(page.locator(".save-badge")).toContainText("Saved locally");
+  const restored = (await readSavedProject()) as {
+    circuits: { id: string; name: string }[];
+    loads: { name: string; circuitId?: string }[];
+  };
+  expect(restored.circuits.some((c) => c.name === "BOT lighting circuit")).toBe(
+    true,
+  );
+  expect(
+    restored.loads.find((load) => load.name === "BOT circuit target")
+      ?.circuitId,
+  ).toBe(restored.circuits.find((c) => c.name === "BOT lighting circuit")?.id);
+});
+
 test("Adigun BOT window controls and conversation survive close and reopen", async ({
   page,
 }) => {

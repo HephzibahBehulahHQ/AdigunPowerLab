@@ -11,6 +11,7 @@ import {
   parseLoadCircuitAssignmentProposal,
   parseLoadBoardAssignmentProposal,
   parseLoadDeleteProposal,
+  parseCircuitRemovalProposal,
   parseLoadPhaseProposal,
   parseLoadProposal,
   proposePhaseBalance,
@@ -253,6 +254,52 @@ describe("typed local assistant boundary", () => {
     expect(() =>
       parseLoadDeleteProposal(project, "delete load: Heater"),
     ).toThrow("Load name is ambiguous. Use a unique load name.");
+    expect(project).toEqual(beforeAmbiguous);
+  });
+  it("previews exact-name circuit removal, keeps loads, and unassigns them only after Apply", () => {
+    const project = createProject();
+    const circuit = createCircuit(project.boards[0].id, {
+      name: "Lighting circuit",
+    });
+    const load = createLoad({ name: "Ceiling lights" });
+    load.boardId = circuit.boardId;
+    load.circuitId = circuit.id;
+    project.circuits = [circuit];
+    project.loads = [load];
+    const before = structuredClone(project);
+    const response = runLocalCommand(
+      project,
+      "remove circuit: Lighting circuit",
+    );
+    expect(response.kind).toBe("load");
+    if (response.kind !== "load") throw new Error("Expected a BOT proposal");
+    const proposal = response.proposal;
+    if (!proposal || proposal.kind !== "command")
+      throw new Error("Expected a typed command proposal");
+    expect(proposal.preview.command.kind).toBe("circuit.remove");
+    expect(project).toEqual(before);
+    applyProposal(project, proposal);
+    expect(project.circuits).toEqual([]);
+    expect(project.loads).toHaveLength(1);
+    expect(project.loads[0]).not.toHaveProperty("boardId");
+    expect(project.loads[0]).not.toHaveProperty("circuitId");
+  });
+  it("rejects missing and ambiguous circuit removal names without mutation", () => {
+    const project = createProject();
+    const first = createCircuit(project.boards[0].id, {
+      name: "Lighting circuit",
+    });
+    project.circuits = [first];
+    const before = structuredClone(project);
+    expect(() =>
+      parseCircuitRemovalProposal(project, "remove circuit: Missing"),
+    ).toThrow("No circuit with that exact name was found.");
+    expect(project).toEqual(before);
+    project.circuits.push({ ...first, id: "duplicate-circuit" });
+    const beforeAmbiguous = structuredClone(project);
+    expect(() =>
+      parseCircuitRemovalProposal(project, "remove circuit: Lighting circuit"),
+    ).toThrow("Circuit name is ambiguous. Use a unique circuit name.");
     expect(project).toEqual(beforeAmbiguous);
   });
   it("rejects ambiguous board assignment targets and unchanged assignments", () => {

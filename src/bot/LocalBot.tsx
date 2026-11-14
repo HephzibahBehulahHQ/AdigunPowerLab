@@ -158,6 +158,27 @@ const text: Record<string, [string, string, string]> = {
     "Ẹrù láti yọ kúrò",
     "Load to remove",
   ],
+  "Circuit to remove": [
+    "Zu entfernender Stromkreis",
+    "Síkítì láti yọ",
+    "Circuit to remove",
+  ],
+  "Loads to unassign": [
+    "Zu lösende Lasten",
+    "Àwọn ẹrù láti yọ kúrò ní ìsopọ̀",
+    "Loads to unassign",
+  ],
+  "No connected loads": [
+    "Keine verbundenen Lasten",
+    "Kò sí ẹrù tó so mọ́ ọn",
+    "No connected loads",
+  ],
+  "Loads remain in the project but become unassigned. Undo restores the complete previous project.":
+    [
+      "Die Lasten bleiben im Projekt, werden aber nicht mehr zugewiesen. Mit Rückgängig wird das vollständige vorherige Projekt wiederhergestellt.",
+      "Àwọn ẹrù yóò dúró nínú iṣẹ́ náà, ṣùgbọ́n wọn kò ní sí nínú board tàbí circuit mọ́. Dápadà yóò mú gbogbo iṣẹ́ àtijọ́ padà.",
+      "Loads go remain for the project, but dem go unassigned. Undo go restore the full previous project.",
+    ],
   "Dependent start events and flexible-load plans are removed with the loads. Undo restores the complete previous project.":
     [
       "Zugehörige Startvorgänge und Pläne für flexible Lasten werden ebenfalls entfernt. Mit Rückgängig wird das vollständige vorherige Projekt wiederhergestellt.",
@@ -736,6 +757,35 @@ export default function LocalBot({
                       <p key={warning}>{l(warning)}</p>
                     ))}
                   </>
+                ) : proposal.preview.command.kind === "circuit.remove" ? (
+                  (() => {
+                    const command = proposal.preview.command;
+                    if (command.kind !== "circuit.remove") return null;
+                    const circuit = project.circuits.find(
+                      (item) => item.id === command.id,
+                    );
+                    const loads = project.loads.filter(
+                      (item) => item.circuitId === command.id,
+                    );
+                    return (
+                      <>
+                        <p>
+                          {l("Circuit to remove")}: {circuit?.name}
+                        </p>
+                        <p>
+                          {l("Loads to unassign")}:{" "}
+                          {loads.length
+                            ? loads.map((item) => item.name).join(", ")
+                            : l("No connected loads")}
+                        </p>
+                        <p>
+                          {l(
+                            "Loads remain in the project but become unassigned. Undo restores the complete previous project.",
+                          )}
+                        </p>
+                      </>
+                    );
+                  })()
                 ) : (
                   <p>{proposal.preview.summary}</p>
                 )}
@@ -794,37 +844,40 @@ export default function LocalBot({
                       </>
                     );
                   })()}
-                {proposal.preview.command.kind !== "loads.delete" && (
-                  <ul>
-                    {proposal.preview.changes.map((change, index) => {
-                      const isAssignment =
-                        proposal.preview.command.kind === "loads.assign";
-                      const readable = (field: string, value: string) => {
-                        if (!isAssignment) return value;
-                        if (!value || value === "—") return l("Unassigned");
-                        if (field === "boardId")
-                          return (
-                            project.boards.find((board) => board.id === value)
-                              ?.name ?? value
-                          );
-                        if (field === "circuitId")
-                          return (
-                            project.circuits.find(
-                              (circuit) => circuit.id === value,
-                            )?.name ?? value
-                          );
-                        return value;
-                      };
-                      return (
-                        <li key={`${change.objectId}:${change.field}:${index}`}>
-                          <strong>{change.name}</strong> · {change.field}:{" "}
-                          {readable(change.field, change.before)} →{" "}
-                          {readable(change.field, change.after)}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
+                {proposal.preview.command.kind !== "loads.delete" &&
+                  proposal.preview.command.kind !== "circuit.remove" && (
+                    <ul>
+                      {proposal.preview.changes.map((change, index) => {
+                        const isAssignment =
+                          proposal.preview.command.kind === "loads.assign";
+                        const readable = (field: string, value: string) => {
+                          if (!isAssignment) return value;
+                          if (!value || value === "—") return l("Unassigned");
+                          if (field === "boardId")
+                            return (
+                              project.boards.find((board) => board.id === value)
+                                ?.name ?? value
+                            );
+                          if (field === "circuitId")
+                            return (
+                              project.circuits.find(
+                                (circuit) => circuit.id === value,
+                              )?.name ?? value
+                            );
+                          return value;
+                        };
+                        return (
+                          <li
+                            key={`${change.objectId}:${change.field}:${index}`}
+                          >
+                            <strong>{change.name}</strong> · {change.field}:{" "}
+                            {readable(change.field, change.before)} →{" "}
+                            {readable(change.field, change.after)}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
                 {proposal.preview.command.kind === "loads.phase" && (
                   <p>
                     {l(
