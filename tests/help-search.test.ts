@@ -87,7 +87,7 @@ describe("help search used by the guide and command palette", () => {
     const [topic] = searchHelp("remove circuit", "en");
     expect(topic?.id).toBe("local-bot");
     expect(topic?.steps.join(" ")).toContain(
-      "keeps those loads in the project unassigned",
+      "leaves those loads in the project unassigned",
     );
   });
 
