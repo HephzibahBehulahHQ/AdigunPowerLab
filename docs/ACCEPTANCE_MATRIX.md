@@ -239,4 +239,4 @@ PR #22 applies the global Simple/Engineering preference to measurement assumptio
 4. Review the German/Yorùbá/Pidgin technical narratives professionally; existing catalogue and browser checks establish implementation coverage only.
 5. Configure optional connected AI, cloud ownership/sync, OCR/resource feeds or physical telemetry only with real services, explicit scope and live verification. Preserve complete local operation.
 
-Unified backup, radial graph editing, source/library workflows, cumulative feeders, calendar/flexible planning, selected reports and model-derived BOM are now implemented; they are not remaining empty-page work. Their supported boundaries and untested combinations remain explicit.
+Unified backup, radial graph editing, source/library workflows, cumulative feeders, calendar/flexible planning, selected reports and model-derived BOM are now implemented; they are not remaining empty-page work. Their supported boundaries and untested combinations remain explicit.
