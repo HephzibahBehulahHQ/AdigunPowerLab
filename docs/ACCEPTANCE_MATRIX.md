@@ -4,7 +4,7 @@ Audit date: 13 November 2026. Scope: original specification sections 01–33, fi
 
 ## POWERGRID LAB Milestone 1 checkpoint: 14 November 2026
 
-The working implementation has a dedicated acceptance record in [`POWERGRID_ACCEPTANCE.md`](POWERGRID_ACCEPTANCE.md). Local typecheck, 407 unit tests, two numerical fixtures and production build passed. Hosted runs 43625392065 and 43626174287 passed lint, unit and build; each browser run had 89 passes, one existing skip and two failures. Direct route/history/save/export passed. Current correction makes the onboarding-first tour order explicit and indexes “why” for the guide search. Hosted browser rerun, production-browser suite and deployment remain pending; no full-lab acceptance is claimed.
+The working implementation has a dedicated acceptance record in [`POWERGRID_ACCEPTANCE.md`](POWERGRID_ACCEPTANCE.md). Local typecheck, 407 unit tests, two numerical fixtures and production build passed. Hosted runs 43625392065, 43626174287 and 43627519047 passed lint, unit and build; each browser run had 89 passes, one existing skip and two failures. Direct route/history/save/export passed. The PowerGrid guide now follows all existing guides to preserve their BOT tour order, and the guide-search assertion uses a unique heading. Hosted browser rerun, production-browser suite and deployment remain pending; no full-lab acceptance is claimed.
 
 ## Confirmed BOT exact-name circuit removal: 14 November 2026
 
