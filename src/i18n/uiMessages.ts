@@ -768,6 +768,11 @@ export const uiMessages: Record<string, [string, string, string]> = {
     "Iye rẹ̀ gbọdọ̀ jẹ́ odidi nọ́mbà tó ju òdo lọ.",
     "Quantity must be a whole number wey pass zero.",
   ],
+  "Load name cannot be empty.": [
+    "Der Name der Last darf nicht leer sein.",
+    "Orúkọ ẹrù kò gbọdọ̀ ṣófo.",
+    "Load name no fit empty.",
+  ],
   "Load name must remain unique for future commands.": [
     "Der Name der Last muss für zukünftige Befehle eindeutig bleiben.",
     "Orúkọ ẹrù gbọdọ̀ yàtọ̀ sí àwọn míì kí àṣẹ ọjọ́ iwájú lè rí i dáadáa.",
