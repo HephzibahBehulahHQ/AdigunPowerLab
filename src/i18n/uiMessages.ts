@@ -763,4 +763,9 @@ export const uiMessages: Record<string, [string, string, string]> = {
     "A kò rí ẹrù tó ní orúkọ yẹn gan-an.",
     "We no find any load with that exact name.",
   ],
+  "Quantity must be a positive integer.": [
+    "Die Menge muss eine positive ganze Zahl sein.",
+    "Iye rẹ̀ gbọdọ̀ jẹ́ odidi nọ́mbà tó ju òdo lọ.",
+    "Quantity must be a whole number wey pass zero.",
+  ],
 };
