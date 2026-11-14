@@ -329,6 +329,10 @@ export default function LocalBot({
       (topic, index, topics) =>
         topics.findIndex((candidate) => candidate.route === topic.route) ===
         index,
+    )
+    .sort(
+      (a, b) =>
+        Number(b.id === "getting-started") - Number(a.id === "getting-started"),
     );
   const [error, setError] = useState("");
   const [initialWindow] = useState(() => readBotWindowState());

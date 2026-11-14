@@ -1,5 +1,13 @@
 # AdigunPowerLab user guide
 
+## POWERGRID LAB — Milestone 1
+
+Select **POWERGRID LAB →** at the right side of the top bar or open the exact address `#POWERGRID`. Refresh keeps the lab open; browser Back and Forward follow route changes. This workspace uses a separate versioned local save and does not edit the active customer project. Its schematic follows generation → step-up transformer → transmission → step-down transformer → distribution → consumer.
+
+In **Why step up voltage?**, edit transmitted real power, power factor, per-phase line resistance, and the two transmission voltages. The instrument cards recalculate three-phase line current, resistive line loss, loss share and power remaining after the modeled line loss. Save stores the experiment in this browser; JSON and CSV downloads contain the actual entered values and computed readings. Re-entering the lab restores the last saved experiment.
+
+The exercise assumes a balanced three-phase system, constant transmitted real power and power factor, the same per-phase resistance in both cases, and ideal transformer voltage changes. Generator, distribution and consumer voltages are schematic scenario inputs. It does not calculate transformer efficiency, distribution losses, receiving-end voltage or a network load flow. These are educational component calculations, not a validated grid study.
+
 ## Help inside the application
 
 Select **Help & Support** beside the detail-level control on any workspace. The same guide is available from the sidebar help icon and **Ctrl/Cmd+K** search. Search in the selected language or English, or enter an exact tool number such as **T01**. Filters separate workflow guides from tool guides. Every tool guide displays its actual input names, units, conditions and catalogue example values.
