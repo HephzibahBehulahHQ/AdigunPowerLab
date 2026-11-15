@@ -4,13 +4,13 @@
 
 Acceptance is limited to the checks reported for the reviewed revision. A passing component test or build does not mark the complete lab or later milestones accepted.
 
-## Practical equipment gallery — PR #97 in progress
+## Practical equipment gallery — PR #97 deployed
 
-| Requirement                                                                                                       | Evidence target                                                      | Status                                        |
-| ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | --------------------------------------------- |
-| Stage-matched views for hydro, steam/gas, transformer/switchyard, transmission, distribution and test equipment   | Browser image-load checks and review of the rendered #POWERGRID page | Pending candidate CI and live deployment      |
-| Checklist names typical equipment and explains its purpose at each stage                                          | Help search/translation tests, user guide review and rendered page   | Pending candidate CI                          |
-| Training renders are distinguished from photographs; operating limits and energized-work cautions remain explicit | Alt/caption review, Help, manual and accessibility checks            | Implemented locally; pending candidate review |
+| Requirement                                                                                                       | Evidence target                                                      | Status                                                                                        |
+| ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Stage-matched views for hydro, steam/gas, transformer/switchyard, transmission, distribution and test equipment   | Browser image-load checks and review of the rendered #POWERGRID page | Candidate and exact-main gates passed; deployed; route and all seven images returned HTTP 200 |
+| Checklist names typical equipment and explains its purpose at each stage                                          | Help search/translation tests, user guide review and rendered page   | Candidate and exact-main gates passed; Help and manual deployed                               |
+| Training renders are distinguished from photographs; operating limits and energized-work cautions remain explicit | Alt/caption review, Help, manual and accessibility checks            | Deployed; illustrations are labeled as training images and safety limits are stated           |
 
 | Requirement                                                          | Evidence target                          | Status                                                                            |
 | -------------------------------------------------------------------- | ---------------------------------------- | --------------------------------------------------------------------------------- |
