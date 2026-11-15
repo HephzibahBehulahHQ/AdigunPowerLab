@@ -33,6 +33,89 @@ test("receiving substation scene follows editable voltage inputs and exposes sel
   ).toBeVisible();
 });
 
+test("generation plant studies switch real illustrations and expose equipment interfaces", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const studies = page.locator("section.pg-generation-study");
+  await expect(
+    studies.getByRole("heading", { name: "Explore other generation plants" }),
+  ).toBeVisible();
+  const image = studies.locator("figure img");
+  await expect(image).toHaveAttribute(
+    "src",
+    "/assets/thermal-gas-powerhouse.png",
+  );
+  await expect
+    .poll(() => image.evaluate((img: HTMLImageElement) => img.naturalWidth))
+    .toBeGreaterThan(0);
+  await studies.getByRole("button", { name: "Utility-scale solar PV" }).click();
+  await expect(image).toHaveAttribute(
+    "src",
+    "/assets/solar-plant-illustration.jpg",
+  );
+  await expect(image).toHaveAttribute(
+    "alt",
+    /custom training illustration tracing utility photovoltaic/i,
+  );
+  await studies
+    .getByRole("button", { name: "PV modules and string circuits" })
+    .click();
+  await expect(
+    studies.getByRole("heading", { name: "PV modules and string circuits" }),
+  ).toBeVisible();
+  await expect(
+    studies.getByText(/DC string positive and negative conductors/),
+  ).toBeVisible();
+  await studies.getByRole("button", { name: "Central inverter" }).click();
+  await expect(studies.getByText(/DC input and AC output/)).toBeVisible();
+
+  await studies.getByRole("button", { name: "Utility wind plant" }).click();
+  await expect(image).toHaveAttribute(
+    "src",
+    "/assets/wind-plant-illustration.jpg",
+  );
+  await studies
+    .getByRole("button", { name: "Rotor blades, hub and pitch system" })
+    .focus();
+  await page.keyboard.press("Enter");
+  await expect(
+    studies.getByRole("heading", {
+      name: "Rotor blades, hub and pitch system",
+    }),
+  ).toBeVisible();
+  await expect(
+    studies.getByText(/no external electrical terminals/),
+  ).toBeVisible();
+  await expect
+    .poll(() => image.evaluate((img: HTMLImageElement) => img.naturalWidth))
+    .toBeGreaterThan(0);
+
+  await studies.getByRole("button", { name: "Utility-scale solar PV" }).click();
+  const language = page.locator(".language-select");
+  for (const [locale, title, caption] of [
+    [
+      "de",
+      "Weitere Kraftwerkstypen erkunden",
+      "Eigene Lehrillustration · Photovoltaik-Solarpark",
+    ],
+    [
+      "yo",
+      "Ṣàyẹ̀wò àwọn irú ilé-iṣẹ́ ìṣẹ̀dá agbára mìíràn",
+      "Àwòrán ẹ̀kọ́ àtilẹ̀wá · utility solar PV plant",
+    ],
+    [
+      "pcm",
+      "Explore other generation plants",
+      "Custom training illustration · utility solar PV plant",
+    ],
+  ]) {
+    await language.selectOption(locale);
+    await expect(studies.getByRole("heading", { name: title })).toBeVisible();
+    await expect(studies.locator("figcaption")).toHaveText(caption);
+  }
+});
+
 test("regional teaching scenario applies sourced voltage stages only", async ({
   page,
 }) => {

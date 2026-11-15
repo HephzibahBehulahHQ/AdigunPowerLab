@@ -16,6 +16,12 @@ The hydro station scene separates a physical powerhouse cutaway from the electri
 
 The gallery below the schematic pairs each station stage with an image and a practical equipment checklist. The generated images are training illustrations, not photographs of an identified plant. Use them to recognize typical equipment; use the interactive electrical schematic for connection details, and never approach or test energized equipment based on an illustration.
 
+### Combined-cycle, solar and wind plant studies
+
+Below the hydro cutaway, choose **Combined-cycle gas plant**, **Utility-scale solar PV** or **Utility wind plant**. The image updates to the selected plant. Select the equipment controls to inspect its purpose and representative process or electrical interfaces: gas turbine → heat-recovery steam generator → steam turbine; PV strings → DC combiner → inverter → AC collection and transformer; or wind rotor → drivetrain → generator/converter → collector. The selector supports keyboard operation and the picture is lazy-loaded only when its plant is selected. All three are custom training illustrations, not photos of identified sites.
+
+Read interface labels as representative connection points, not universal terminal markings. Actual conductor IDs, ratings, grounding, protection and arrangement depend on the manufacturer and site. Confirm them from approved equipment data and project drawings. These plant views are instructional and do not simulate plant power output, dynamics, protection or interconnection compliance. Source references and illustration provenance are in [`POWERGRID_DATA_SOURCES.md`](POWERGRID_DATA_SOURCES.md).
+
 ### Receiving substation, distribution and customers
 
 Below the hydro scene, scroll the second interactive drawing to follow the transmission entry through the receiving line bay, disconnectors, breaker, CT/VT and arrester to the receiving step-down transformer. Continue along the medium-voltage bus and feeder recloser to a local pole-mounted distribution transformer, low-voltage feeder pillar, residential meter and main board, and industrial MCC and three-phase motor. Select any labeled device or conductor; its inspection card describes its purpose and represented terminals. Tab to an item and press Enter or Space. The shown receiving, medium-voltage and consumer voltage labels follow the editable raised-voltage, distribution-voltage and consumer-voltage inputs in the experiment above.

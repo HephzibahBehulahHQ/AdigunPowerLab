@@ -14,6 +14,7 @@ import { RadialFeederExperiment } from "./RadialFeederExperiment";
 import { PvPerformanceExperiment } from "./PvPerformanceExperiment";
 import { RegionalGridPreset } from "./RegionalGridPreset";
 import { HydroStationScene } from "./HydroStationScene";
+import { GenerationPlantScene } from "./GenerationPlantScene";
 import { DistributionNetworkScene } from "./DistributionNetworkScene";
 
 const SAVE_KEY = "adigunpowerlab.powergrid.experiment.v1";
@@ -332,6 +333,7 @@ export function PowerGridLab() {
         }}
       />
       <HydroStationScene locale={locale} />
+      <GenerationPlantScene />
       <DistributionNetworkScene locale={locale} inputs={inputs} />
       <p className="pg-equation">{text.formula}</p>
       <div className="pg-columns">
