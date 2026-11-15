@@ -159,7 +159,7 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
   ).toBeVisible();
   await expect(page.getByText(/phase-to-earth arrester/i)).toBeVisible();
 
-  const language = page.getByLabel("Language", { exact: true });
+  const language = page.locator(".language-select");
   await language.selectOption("de");
   await page
     .getByRole("button", { name: /Prüfen: Synchrongenerator/ })
