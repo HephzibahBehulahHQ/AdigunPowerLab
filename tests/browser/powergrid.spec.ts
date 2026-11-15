@@ -17,7 +17,7 @@ test("receiving substation scene follows editable voltage inputs and exposes sel
   await page.getByLabel("Raised transmission voltage (kV)").fill("275");
   await expect(scene.getByText("275 kV → 33 kV → 0.4 kV")).toBeVisible();
   await scene
-    .getByRole("button", { name: /Inspect: Three-phase industrial motor/ })
+    .getByRole("button", { name: /Inspect: Three-phase motor/ })
     .click();
   await expect(
     scene.getByRole("heading", { name: "Three-phase industrial motor" }),
