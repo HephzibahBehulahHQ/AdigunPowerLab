@@ -53,30 +53,6 @@ async function exported(page: Page): Promise<Project> {
   await page
     .getByRole("button", { name: "Single-line diagram", exact: true })
     .click();
-  const diagramHeater = page.locator(
-    '.topology-node[aria-label$="Analytical heater"]',
-  );
-  await expect(diagramHeater).toHaveAttribute("aria-pressed", "true");
-  await page
-    .getByRole("button", { name: "Analytical spatial view", exact: true })
-    .click();
-  await expect(
-    scene.getByRole("button", { name: /Analytical heater$/ }),
-  ).toHaveAttribute("aria-pressed", "true");
-  await page
-    .getByRole("button", { name: "Single-line diagram", exact: true })
-    .click();
-  const diagramCircuit = page.locator(
-    '.topology-node[aria-label$="Validation circuit"]',
-  );
-  await diagramCircuit.click();
-  await expect(diagramCircuit).toHaveAttribute("aria-pressed", "true");
-  await page
-    .getByRole("button", { name: "Analytical spatial view", exact: true })
-    .click();
-  await expect(
-    scene.getByRole("button", { name: /Validation circuit$/ }),
-  ).toHaveAttribute("aria-pressed", "true");
   const pending = page.waitForEvent("download");
   await page
     .getByRole("button", { name: "Export project", exact: true })
@@ -207,6 +183,33 @@ test("spatial graph follows real objects and hourly flow with keyboard orbit and
   await expect(spatial).toContainText("0 kW");
   await mode.selectOption("engineering");
   await expect(objectDetail).toHaveJSProperty("open", true);
+  await page
+    .getByRole("button", { name: "Single-line diagram", exact: true })
+    .click();
+  const diagramHeater = page.locator(
+    '.topology-node[aria-label$="Analytical heater"]',
+  );
+  await expect(diagramHeater).toHaveAttribute("aria-pressed", "true");
+  await page
+    .getByRole("button", { name: "Analytical spatial view", exact: true })
+    .click();
+  await expect(
+    scene.getByRole("button", { name: /Analytical heater$/ }),
+  ).toHaveAttribute("aria-pressed", "true");
+  await page
+    .getByRole("button", { name: "Single-line diagram", exact: true })
+    .click();
+  const diagramCircuit = page.locator(
+    '.topology-node[aria-label$="Validation circuit"]',
+  );
+  await diagramCircuit.click();
+  await expect(diagramCircuit).toHaveAttribute("aria-pressed", "true");
+  await page
+    .getByRole("button", { name: "Analytical spatial view", exact: true })
+    .click();
+  await expect(
+    scene.getByRole("button", { name: /Validation circuit$/ }),
+  ).toHaveAttribute("aria-pressed", "true");
   const pending = page.waitForEvent("download");
   await spatial
     .getByRole("button", { name: "Export spatial SVG", exact: true })
