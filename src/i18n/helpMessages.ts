@@ -1634,6 +1634,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Ṣí yàrá ìkẹ́kọ̀ọ́ PowerGrid tó yà sọ́tọ̀, ṣàyẹ̀wò àwòrán ibùdó hydro tó lè yan àti terminal rẹ̀, tọ asopọ aláfàsẹ́ mẹ́ta, neutral àti earth tó yà sọ́tọ̀, fi ipadánù gbigbe wé, ṣírò radial feeder, ṣàyẹ̀wò outages, PV performance, fi scenario pamọ́ tàbí gba àbájáde gidi jáde.",
       "Open di separate PowerGrid lab, inspect di selectable hydro station cutaway and terminals, trace separate three-phase, neutral and earth, compare transmission loss, solve radial feeder, check outages, calculate PV performance, save scenarios or export real results.",
     ],
+  "Open the isolated PowerGrid lab, inspect selectable generation and distribution equipment, compare transmission losses, solve a radial feeder, calculate PV and NREL reference-wind performance from entered data, save scenarios or export actual results.":
+    [
+      "Öffnen Sie das getrennte PowerGrid-Labor, prüfen Sie auswählbare Erzeugungs- und Verteilungsgeräte, vergleichen Sie Übertragungsverluste, lösen Sie einen radialen Abzweig, berechnen Sie PV- und NREL-Referenz-Windleistung aus eingegebenen Daten, speichern Sie Szenarien oder exportieren Sie Ergebnisse.",
+      "Ṣí yàrá PowerGrid tó yà sọ́tọ̀, ṣàyẹ̀wò àwọn ẹ̀rọ ìṣẹ̀dá àti pípín tí a lè yan, fi ipadánù gbigbe wé, yanju radial feeder, ṣírò PV àti NREL reference-wind láti data tí a tẹ̀ wọlé, fi scenario pamọ́ tàbí export àbájáde.",
+      "Open di separate PowerGrid lab, inspect generation and distribution equipment wey you fit select, compare transmission loss, solve radial feeder, calculate PV and NREL reference-wind performance from entered data, save scenarios or export real results.",
+    ],
   "Select POWERGRID LAB in the top bar or enter #POWERGRID in the address bar. The exact hash opens the lab directly; refresh keeps it open and browser Back/Forward follows route changes.":
     [
       "Wählen Sie POWERGRID LAB in der oberen Leiste oder geben Sie #POWERGRID in die Adresszeile ein. Der genaue Hash öffnet das Labor direkt; Aktualisieren lässt es geöffnet, Zurück und Vorwärts folgen den Routenwechseln.",
@@ -1717,6 +1723,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Geben Sie im PV-Erzeugungsmodell DC-Nennleistung, Einstrahlung in Modulebene, Modultemperatur, Zelltemperaturanstieg, Leistungskoeffizient und Wechselrichtergrenzen ein. Lesen Sie DC-/AC-Leistung, Umwandlungsverlust und Begrenzung ab, speichern Sie eine Referenz und exportieren Sie Fall oder Messwerte.",
       "Nínú PV source performance, tẹ DC nameplate, irradiance lórí panel, module temperature, cell temperature rise, power coefficient àti inverter limits sínú. Ka DC/AC output, conversion loss àti clipping, fi reference pamọ́, kí o sì export case tàbí readings.",
       "For PV source performance, enter DC nameplate, irradiance on panel, module temperature, cell temperature rise, power coefficient and inverter limits. Read DC/AC output, conversion loss and clipping, save reference, then export case or readings.",
+    ],
+  "In Wind resource and generation, enter one wind speed per equal-duration interval. The study interpolates the published NREL 6 MW reference-turbine power curve, multiplies by the entered turbine count, and reports interval power, energy, mean output and profile capacity factor. Entered winds are teaching assumptions, not measured site weather; inspect the source and limits before interpreting results. Save inputs locally or export the case as JSON and interval readings as CSV.":
+    [
+      "Geben Sie im Windexperiment eine Windgeschwindigkeit je Intervall gleicher Dauer ein. Die veröffentlichte Leistungskurve der NREL-6-MW-Referenzanlage wird interpoliert und mit der Anlagenzahl multipliziert. Angezeigt werden Intervallleistung, Energie, mittlere Leistung und Profil-Kapazitätsfaktor. Die Eingaben sind Lehrwerte, keine gemessenen Standortdaten. Prüfen Sie Quelle und Grenzen; speichern Sie lokal oder exportieren Sie JSON und CSV.",
+      "Nínú Wind resource and generation, tẹ wind speed kan fún interval kọ̀ọ̀kan tó ní àkókò kan náà. A máa interpolate NREL 6 MW reference-turbine power curve tí a tẹ̀ jáde, a sì sọ ọ́ di iye turbine. A ó fi power, energy, mean output àti capacity factor profile hàn. Wind tí a tẹ̀ jẹ́ input ìkọ́ni, kì í ṣe weather tí a wọn. Ṣàyẹ̀wò orísun àti ààlà; fi pamọ́ sí browser tàbí export JSON/CSV.",
+      "For Wind resource and generation, enter one wind speed for each equal-time interval. Di app dey interpolate di published NREL 6 MW reference-turbine power curve and multiply am by turbine count. E show interval power, energy, average output and profile capacity factor. Entered wind na teaching assumption, no be measured site weather. Check source and limits, save locally or export JSON and CSV.",
     ],
   "This is an instantaneous calculation from entered values; it does not retrieve weather or calculate annual energy, shading, module IV curves, mismatch, wiring losses or transient response. Open the assumptions panel for the Sandia and NREL model references.":
     [

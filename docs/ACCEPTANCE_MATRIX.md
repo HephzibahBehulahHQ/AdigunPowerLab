@@ -256,3 +256,7 @@ PR #22 applies the global Simple/Engineering preference to measurement assumptio
 5. Configure optional connected AI, cloud ownership/sync, OCR/resource feeds or physical telemetry only with real services, explicit scope and live verification. Preserve complete local operation.
 
 Unified backup, radial graph editing, source/library workflows, cumulative feeders, calendar/flexible planning, selected reports and model-derived BOM are now implemented; they are not remaining empty-page work. Their supported boundaries and untested combinations remain explicit.
+
+## POWERGRID LAB implementation state
+
+A source-backed NREL research reference-wind curve worksheet is in candidate implementation. It uses user-entered interval wind speeds and does not fetch site weather or claim commercial turbine or dispatch performance. Remaining Milestone 3 generation dispatch, storage and regional profiles are open.

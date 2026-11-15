@@ -29,3 +29,9 @@ The utility-PV path follows DOE references for [solar PV system design](https://
 The wind equipment path follows DOE's [wind turbine component guide](https://www.energy.gov/cmei/systems/explore-wind-turbine-text-version), which describes the rotor, pitch, drivetrain, gearbox or direct drive, generator and controller, and its [wind turbine operation overview](https://www.energy.gov/cmei/systems/how-do-wind-turbines-work). Turbine converter, transformer, collector and substation are shown as representative project interfaces. Specific generator topology, converter arrangement and collection ratings vary by turbine and site.
 
 The solar and wind images are custom teaching illustrations generated for this product, not documentary photographs or evidence of an identified site's construction. They must not be used to infer dimensions, ratings, clearances, exact terminal labels or the installed arrangement.
+
+## Wind reference curve exercise
+
+The worksheet uses Appendix D's tabulated NREL 6 MW (2015) reference turbine curve from [NREL/TP-6A20-67414](https://www.nrel.gov/docs/fy17osti/67414.pdf) (2017 report). This is a research reference turbine, not a commercial machine selected for a site. The model linearly interpolates the supplied wind-speed/power points, including the published zero-output cut-out point.
+
+Wind speeds, interval duration and turbine count are user-entered teaching inputs. The example sequence exercises zero, partial-load, rated and cut-out regions; it is not measured weather or a regional profile. Air density, hub-height adjustment, turbulence, wakes, electrical conversion, availability, curtailment, control strategy and long-term energy yield are outside scope.

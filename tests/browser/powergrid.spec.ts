@@ -543,3 +543,52 @@ test("PV source model responds to inputs, saves a reference and exports results"
     page.getByText("Plane-of-array irradiance must be from 0 to 1500 W/m²."),
   ).toBeVisible();
 });
+
+test("NREL reference wind curve calculates, saves and exports entered intervals", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const title = page.locator("#pg-wind-title");
+  const section = page.locator(".pg-pv").filter({ has: title });
+  await expect(title).toBeVisible();
+  await expect(section.getByText("15,129 kWh")).toBeVisible();
+  const wind = section.getByRole("textbox", {
+    name: "Wind speed by interval (m/s, comma-separated)",
+  });
+  await wind.fill("4, 5, 12, 26");
+  await expect(section.getByText("6,808 kWh")).toBeVisible();
+  await section
+    .getByRole("button", { name: "Save inputs for this browser" })
+    .click();
+  await expect(
+    section.getByRole("status", { name: "Saved in this browser" }),
+  ).toBeVisible();
+
+  const jsonPromise = page.waitForEvent("download");
+  await section.getByRole("button", { name: "Export wind case JSON" }).click();
+  const json = await jsonPromise;
+  expect(json.suggestedFilename()).toBe("powergrid-wind-reference-case.json");
+  const jsonPath = await json.path();
+  expect(jsonPath).toBeTruthy();
+  const jsonContent = await readFile(jsonPath!, "utf8");
+  expect(JSON.parse(jsonContent).result.totalEnergyKWh).toBe(6808);
+
+  const csvPromise = page.waitForEvent("download");
+  await section
+    .getByRole("button", { name: "Export wind readings CSV" })
+    .click();
+  const csv = await csvPromise;
+  expect(csv.suggestedFilename()).toBe("powergrid-wind-readings.csv");
+  const csvPath = await csv.path();
+  const csvContent = await readFile(csvPath!, "utf8");
+  expect(csvContent).toContain("12,6000,6000,6000");
+
+  await page.reload();
+  const restored = page
+    .locator("#pg-wind-title")
+    .locator("..")
+    .getByRole("textbox", {
+      name: "Wind speed by interval (m/s, comma-separated)",
+    });
+  await expect(restored).toHaveValue("4, 5, 12, 26");
+});

@@ -4369,9 +4369,58 @@ details p {
   padding: 8px 12px;
   background: var(--surface);
 }
+
+.pg-wind-controls {
+  display: grid;
+  grid-template-columns: minmax(220px, 2fr) repeat(2, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-block: 1rem;
+}
+
+.pg-wind-controls textarea,
+.pg-wind-controls input {
+  width: 100%;
+  border: 1px solid var(--border, #475569);
+  border-radius: 0.5rem;
+  padding: 0.65rem;
+  color: inherit;
+  background: var(--surface, #0b1220);
+  font: inherit;
+}
+
+.pg-wind-metrics {
+  margin-block: 1rem;
+}
+
+.pg-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.pg-wind-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pg-wind-table th,
+.pg-wind-table td {
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--border, #475569);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.pg-wind-table thead th:first-child,
+.pg-wind-table tbody th {
+  text-align: left;
+}
 @media (max-width: 900px) {
   .pg-pv-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pg-wind-controls {
+    grid-template-columns: 1fr;
   }
 }
 @media (max-width: 640px) {

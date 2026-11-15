@@ -49,3 +49,12 @@ The cell-temperature and DC equations reference Sandia PVPMC and the NREL PVWatt
 4. Explain why frequency is shown as context only and why no country-specific resource, weather or demand profile is implied.
 
 These are sourced educational contexts, not complete national operational grids. Other regions, rural microgrid profiles and user-defined custom systems remain future work.
+
+## Lesson 4 — Wind speed and reference-turbine output
+
+1. Open **Wind resource and generation experiment** and inspect the NREL source and model boundaries.
+2. Predict where the editable sequence is below the curve, in partial production, at rated output and at cut-out.
+3. Change an interval wind speed, interval duration or reference-turbine count. Compare interval power, energy, mean output and profile capacity factor.
+4. Save inputs and refresh, or export JSON for the complete case and CSV for interval readings.
+
+The curve is the NREL 6 MW research reference turbine from report NREL/TP-6A20-67414. Intermediate values are linearly interpolated. The wind sequence is an analytical teaching exercise, not weather data or a site measurement. Storage, dispatch, losses, wakes and annual yield are not modeled.
