@@ -1,5 +1,84 @@
 import { useT } from "../i18n";
 
+const fieldPhotos = [
+  {
+    stage: "Hydro generation",
+    title: "Bonneville Lock and Dam powerhouse generator",
+    image: "/assets/powergrid/field-photos/hydro-generator.jpg",
+    alt: "Top of a vertical hydroelectric generating unit inside Bonneville Lock and Dam powerhouse.",
+    photographer:
+      "John Leonard · U.S. Army Corps of Engineers, Northwestern Division",
+    source:
+      "https://www.dvidshub.net/image/7443974/generator-bonneville-lock-and-dam",
+  },
+  {
+    stage: "Waterway and dam",
+    title: "Water over the Terminus Dam spillway fuse gates",
+    image: "/assets/powergrid/field-photos/hydro-spillway.jpg",
+    alt: "Water flowing over the fuse gates of the Terminus Dam spillway into the downstream basin.",
+    photographer:
+      "Ryan Watson · U.S. Army Corps of Engineers, Sacramento District",
+    source:
+      "https://www.dvidshub.net/image/7741243/water-flows-over-fuse-gates-spillway-terminus-dam",
+  },
+  {
+    stage: "Generator step-up transformer",
+    title: "Generator step-up transformer delivered to Fort Randall Dam",
+    image: "/assets/powergrid/field-photos/step-up-transformer.jpg",
+    alt: "A large generator step-up transformer secured on a rail car during delivery to Fort Randall Powerhouse.",
+    photographer:
+      "Jason Colbert · U.S. Army Corps of Engineers, Omaha District",
+    source:
+      "https://www.dvidshub.net/image/7397026/new-generator-step-up-transformers",
+  },
+  {
+    stage: "Receiving substation",
+    title: "Al Ameen 400 kV gas-insulated substation",
+    image: "/assets/powergrid/field-photos/substation-switchyard.jpg",
+    alt: "High-voltage gas-insulated substation bays with tall insulated bushings and metal bus connections.",
+    photographer: "U.S. Army courtesy photo · DVIDS",
+    source:
+      "https://www.dvidshub.net/image/6274/al-ameen-substation-400-kilovolt-gas-insulated-system",
+  },
+  {
+    stage: "Transmission structure · failure case",
+    title: "Lattice transmission tower damaged after Hurricane Maria",
+    image: "/assets/powergrid/field-photos/transmission-tower-damage.jpg",
+    alt: "A damaged steel lattice transmission tower lies across trees after a storm; this is a failure example, not a normal operating condition.",
+    photographer: "Eliud Echevarria · Federal Emergency Management Agency",
+    source:
+      "https://www.dvidshub.net/image/3867225/damaged-electrical-transmission-tower",
+  },
+  {
+    stage: "Solar generation",
+    title: "Eglin solar energy array",
+    image: "/assets/powergrid/field-photos/solar-array.jpg",
+    alt: "Rows of photovoltaic panels across the Eglin solar energy field under a cloudy sky.",
+    photographer: "Samuel King Jr. · 96th Test Wing",
+    source: "https://www.dvidshub.net/image/7586867/eglin-solar-energy-array",
+  },
+  {
+    stage: "Wind generation · facility-scale example",
+    title: "Wind turbine above the Stirling solar array at Tooele",
+    image: "/assets/powergrid/field-photos/wind-utility-scale.jpg",
+    alt: "A nearly 300-foot wind turbine stands above a solar thermal array at the Tooele Army Depot site.",
+    photographer:
+      "John Prettyman · U.S. Army Corps of Engineers, Sacramento District",
+    source:
+      "https://www.dvidshub.net/image/3117643/second-wind-turbine-brings-tooele-army-depot-closer-to-net-zero-energy",
+  },
+  {
+    stage: "Secondary distribution",
+    title: "Pole-mounted transformer restored to a residential neighborhood",
+    image: "/assets/powergrid/field-photos/distribution-pole-transformer.jpg",
+    alt: "A pole-mounted distribution transformer and overhead conductors above a residential street in Puerto Rico.",
+    photographer:
+      "Staff Sgt. Eric W. Jones · U.S. Army Corps of Engineers, Los Angeles District",
+    source: "https://www.dvidshub.net/image/4104461/plane-pole-power-72-hours",
+    objectPosition: "center 24%",
+  },
+];
+
 const groups = [
   {
     title: "Generation plant equipment",
@@ -193,6 +272,56 @@ export function PowerGridEquipmentGallery() {
           )}
         </p>
       </header>
+      <section
+        className="pg-field-photo-section"
+        aria-labelledby="pg-field-photo-title"
+      >
+        <div className="pg-field-photo-heading">
+          <div>
+            <span className="eyebrow">{t("DOCUMENTARY FIELD PHOTOS")}</span>
+            <h4 id="pg-field-photo-title">
+              {t("Photographs of real power facilities")}
+            </h4>
+          </div>
+          <p>
+            {t(
+              "These are locally stored photographs of identified sites and equipment. Captions describe only what the source records; they are visual references, not ratings, connection drawings, operating instructions, or proof of the current state of a site.",
+            )}
+          </p>
+        </div>
+        <div className="pg-field-photo-grid">
+          {fieldPhotos.map((photo) => (
+            <article className="pg-field-photo-card" key={photo.image}>
+              <figure>
+                <img
+                  src={photo.image}
+                  alt={t(photo.alt)}
+                  loading="lazy"
+                  decoding="async"
+                  style={
+                    photo.objectPosition
+                      ? { objectPosition: photo.objectPosition }
+                      : undefined
+                  }
+                />
+                <figcaption>{t(photo.stage)}</figcaption>
+              </figure>
+              <div className="pg-field-photo-content">
+                <h5>{t(photo.title)}</h5>
+                <p>{photo.photographer}</p>
+                <a href={photo.source} target="_blank" rel="noreferrer">
+                  {t("Open original photo record")}
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+        <p className="pg-photo-rights-note">
+          {t(
+            "The appearance of U.S. Department of War visual information does not imply or constitute Department of War endorsement.",
+          )}
+        </p>
+      </section>
       <div className="pg-gallery-grid">
         {groups.map((group) => (
           <article className="pg-gallery-card" key={group.title}>
