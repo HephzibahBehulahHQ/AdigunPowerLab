@@ -22,3 +22,5 @@ This release implements a local electrical planning workspace. Use the acceptanc
 ## Verification boundaries
 
 Unit/reference tests, browser workflows, PDF rendering, offline checks, clean-checkout recovery and measured performance are separate evidence categories. The release record identifies actual commands and revisions. No claim is made about every device, every installation, all possible input combinations, peak memory, penetration testing, hardware measurements, licensed standards validation or professional certification.
+
+- POWERGRID LAB has an additional published-data source model: the NREL 6 MW research reference-turbine wind curve with validated interpolation and interval energy accounting. Candidate-specific numerical and browser acceptance is pending; this does not complete Milestone 3 chronological dispatch, storage, critical-load priorities or regional resource profiles.

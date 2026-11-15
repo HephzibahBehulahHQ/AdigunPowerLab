@@ -497,6 +497,9 @@ test("PV source model responds to inputs, saves a reference and exports results"
   await expect(
     page.getByRole("heading", { name: "PV source performance experiment" }),
   ).toBeVisible();
+  const pvSection = page
+    .locator(".pg-pv")
+    .filter({ has: page.locator("#pg-pv-title") });
   await expect(page.getByText("71.232 kW", { exact: true })).toBeVisible();
   await expect(page.getByText("60 kW", { exact: true })).toBeVisible();
   await expect(page.getByText("9.095 kW", { exact: true })).toBeVisible();
@@ -507,7 +510,7 @@ test("PV source model responds to inputs, saves a reference and exports results"
   const irradiance = page.getByLabel("Plane-of-array irradiance (W/m²)");
   await irradiance.fill("500");
   await expect(page.getByText("-16.641 kW", { exact: false })).toBeVisible();
-  await page.getByRole("button", { name: "Save inputs locally" }).click();
+  await pvSection.getByRole("button", { name: "Save inputs locally" }).click();
 
   const jsonPromise = page.waitForEvent("download");
   await page.getByRole("button", { name: "Export PV case JSON" }).click();
@@ -542,4 +545,51 @@ test("PV source model responds to inputs, saves a reference and exports results"
   await expect(
     page.getByText("Plane-of-array irradiance must be from 0 to 1500 W/m²."),
   ).toBeVisible();
+});
+
+test("NREL reference wind curve calculates, saves and exports entered intervals", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const title = page.locator("#pg-wind-title");
+  const section = page.locator(".pg-pv").filter({ has: title });
+  await expect(title).toBeVisible();
+  await expect(section.getByText("15,129 kWh")).toBeVisible();
+  const wind = section.getByRole("textbox", {
+    name: "Wind speed by interval (m/s, comma-separated)",
+  });
+  await wind.fill("4, 5, 12, 26");
+  await expect(section.getByText("6,808 kWh")).toBeVisible();
+  await section.getByRole("button", { name: "Save inputs locally" }).click();
+  await expect(section.locator(".pg-saved")).toHaveText(
+    "Saved in this browser",
+  );
+
+  const jsonPromise = page.waitForEvent("download");
+  await section.getByRole("button", { name: "Export wind case JSON" }).click();
+  const json = await jsonPromise;
+  expect(json.suggestedFilename()).toBe("powergrid-wind-reference-case.json");
+  const jsonPath = await json.path();
+  expect(jsonPath).toBeTruthy();
+  const jsonContent = await readFile(jsonPath!, "utf8");
+  expect(JSON.parse(jsonContent).result.totalEnergyKWh).toBe(6808);
+
+  const csvPromise = page.waitForEvent("download");
+  await section
+    .getByRole("button", { name: "Export wind readings CSV" })
+    .click();
+  const csv = await csvPromise;
+  expect(csv.suggestedFilename()).toBe("powergrid-wind-readings.csv");
+  const csvPath = await csv.path();
+  const csvContent = await readFile(csvPath!, "utf8");
+  expect(csvContent).toContain("12,6000,6000,6000");
+
+  await page.reload();
+  const restoredSection = page
+    .locator(".pg-pv")
+    .filter({ has: page.locator("#pg-wind-title") });
+  const restored = restoredSection.getByRole("textbox", {
+    name: "Wind speed by interval (m/s, comma-separated)",
+  });
+  await expect(restored).toHaveValue("4, 5, 12, 26");
 });

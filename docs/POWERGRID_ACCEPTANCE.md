@@ -71,8 +71,8 @@ The PV worksheet is an instantaneous user-entered model only. The Nigeria-inspir
 
 ## Milestone 4 — additional generation plant studies (partial)
 
-| Requirement                                                                                                   | Evidence target                               | Status                                              |
-| ------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | --------------------------------------------------- |
+| Requirement                                                                                                   | Evidence target                               | Status                                                     |
+| ------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ---------------------------------------------------------- |
 | Select combined-cycle, utility PV and wind scenes with stage-specific equipment images                        | Image-load and plant-selector browser test    | Deployed; candidate and exact-main repository gates passed |
 | Inspect representative equipment purpose and process/electrical interfaces using keyboard-accessible controls | Component detail browser coverage             | Deployed; candidate and exact-main repository gates passed |
 | Source references and distinguishable custom illustration provenance                                          | DOE source links, captions, alt text and Help | Deployed; candidate and exact-main repository gates passed |
@@ -82,3 +82,13 @@ The plant images are custom teaching illustrations, not photos of operating faci
 | Model boundary and topology caveats | Scene labels, Help and manual | Deployed; states illustrative topology and excludes protection/downstream load-flow simulation |
 
 PR #99 merged as `01c6ea20c437ce983fa5a261819f2a014d7998d4`. Candidate run [43667440603](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43667440603), exact-main [43667924456](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43667924456) and Pages [43668393758](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43668393758) passed. Artifact 14143043216 deployed that exact main SHA. Both public routes and the served bundle returned HTTP 200; the bundle contains the scene and four-locale labels.
+
+## Milestone 3 — NREL reference-wind model slice
+
+| Requirement                                                                   | Evidence target                                                                            | Status                                              |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------- |
+| Source-backed wind turbine curve with explicit model identity and boundaries  | Attributed NREL reference curve; independent table-point/interpolation tests               | Implemented in candidate; hosted validation pending |
+| Editable chronological resource input and interval generation/energy readings | Browser input, recalculation, validation, save/reload and content-checked JSON/CSV exports | Implemented in candidate; hosted validation pending |
+| Four-language user workflow and documented limits                             | UI translations, Help coverage, curriculum and user guide                                  | Implemented in candidate; hosted validation pending |
+
+This slice uses user-entered equal-duration wind speeds and an analytical teaching sequence. It is not local weather, a commercial turbine guarantee, annual yield, battery dispatch or a complete regional scenario. The remaining Milestone 3 requirements stay open.

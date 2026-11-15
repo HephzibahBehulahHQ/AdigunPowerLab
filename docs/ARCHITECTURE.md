@@ -6,25 +6,25 @@ AdigunPowerLab is a React/TypeScript application built with Vite. It is browser-
 
 The application owns one active `Project` in `src/App.tsx`. All engineering edits go through the shared change operation, which copies the previous state, applies the mutation, advances the revision and retains undo history. The pure engine derives results from that same project. Tables, diagrams, overview metrics, reports and local assistant context consume those results rather than maintaining independent hardcoded totals.
 
-| Location | Responsibility |
-| --- | --- |
-| `src/domain/types.ts` | Typed project, loads, boards, circuits, tariffs, storage, EV, issues and calculation traces |
-| `src/domain/project.ts` | New entities, deep-copy duplication and full native-project import validation |
-| `src/engine/electrical.ts` | Entry-mode normalization, signed power, phase currents, daily profiles, topology and project totals |
-| `src/engine/simulation.ts` | Calendar-range integration and chronological generation/storage calculations |
-| `src/engine/planning.ts` | Phase-balance proposals, charging allocation and supporting planning calculations |
-| `src/engine/assessments.ts` | Explicit manual-data electrical assessments |
-| `src/tools/` | T01–T51 standalone worksheets, shared input validation, formula/result metadata and independent example inputs |
-| `src/features/` | Load editing, workspace pages, energy planning, toolbox and billing UI |
-| `src/storage/projects.ts` | IndexedDB projects/revisions, recoverable trash and harmless UI preferences |
-| `src/import-export/files.ts` | Native project/load-file import preview and exports |
-| `src/import-export/legacy.ts` | Strict source-calculator V1/V2 adapter, original JSON retention and semantic-change warnings |
-| `src/import-export/measurements.ts` | Timestamped measurement CSV parsing and validation |
-| `src/import-export/reports.ts` | Decimal-safe customer billing, CSV protection and Unicode PDF generation |
-| `src/bot/` | Deterministic local commands, typed proposals and assistant UI |
-| `src/i18n/index.tsx` | Four-language dictionary, common validation templates and locale formatting |
-| `src/workers/simulation.ts` | Background calendar simulation with main-thread cancellation by worker termination |
-| `public/assets/` | Exact approved corporate JPG and licensed Unicode PDF font |
+| Location                            | Responsibility                                                                                                 |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `src/domain/types.ts`               | Typed project, loads, boards, circuits, tariffs, storage, EV, issues and calculation traces                    |
+| `src/domain/project.ts`             | New entities, deep-copy duplication and full native-project import validation                                  |
+| `src/engine/electrical.ts`          | Entry-mode normalization, signed power, phase currents, daily profiles, topology and project totals            |
+| `src/engine/simulation.ts`          | Calendar-range integration and chronological generation/storage calculations                                   |
+| `src/engine/planning.ts`            | Phase-balance proposals, charging allocation and supporting planning calculations                              |
+| `src/engine/assessments.ts`         | Explicit manual-data electrical assessments                                                                    |
+| `src/tools/`                        | T01–T51 standalone worksheets, shared input validation, formula/result metadata and independent example inputs |
+| `src/features/`                     | Load editing, workspace pages, energy planning, toolbox and billing UI                                         |
+| `src/storage/projects.ts`           | IndexedDB projects/revisions, recoverable trash and harmless UI preferences                                    |
+| `src/import-export/files.ts`        | Native project/load-file import preview and exports                                                            |
+| `src/import-export/legacy.ts`       | Strict source-calculator V1/V2 adapter, original JSON retention and semantic-change warnings                   |
+| `src/import-export/measurements.ts` | Timestamped measurement CSV parsing and validation                                                             |
+| `src/import-export/reports.ts`      | Decimal-safe customer billing, CSV protection and Unicode PDF generation                                       |
+| `src/bot/`                          | Deterministic local commands, typed proposals and assistant UI                                                 |
+| `src/i18n/index.tsx`                | Four-language dictionary, common validation templates and locale formatting                                    |
+| `src/workers/simulation.ts`         | Background calendar simulation with main-thread cancellation by worker termination                             |
+| `public/assets/`                    | Exact approved corporate JPG and licensed Unicode PDF font                                                     |
 
 ## Pure numerical boundary
 
@@ -54,9 +54,12 @@ Language, currency and engineering jurisdiction remain independent. Navigation, 
 
 The build uses a project base path suitable for GitHub Pages. Deployment configuration and offline caching are owned by the product repository. Their verified status is recorded in `TEST_EVIDENCE.md`; a checked-in workflow, manifest or successful build alone is not proof of deployment or offline acceptance.
 
-
 ## Shared editing and asynchronous analysis
 
 `src/commands/projectCommands.ts` is the validated mutation boundary for load, circuit, board, topology and tool-application commands. Previews are bound to project identity/revision. A private WeakMap retains a validated candidate and canonical source/command fingerprints; Apply checks both fingerprints and returns a detached copy. Public preview fields, deserialized previews and same-revision mutated sources cannot bypass validation. The root workspace owns Undo/Redo, optimistic persistence and autosave.
 
 Calendar, dispatch and period-comparison workers are cancelled on obsolete project/input revisions or unmount. Result consumers preserve the distinction between representative on-state models, energy-average profiles, explicit starting events and measured data. Dated comparison orchestration uses the existing pure engine functions, with a declared 31-day interactive scope. Perspective rendering is lazy, derives hierarchy/edges from the same graph and does not act as a solver. The report workspace, PDF renderer, BOT and spatial scene are deferred feature chunks.
+
+## POWERGRID generation and regional modelling
+
+Milestone 3 currently includes a steady-state entered-value PV worksheet, a source-backed NREL 6 MW research reference-wind curve with user-entered equal-duration profiles, and two regional educational voltage-context presets. The wind engine is separated in src/engine/windPerformance.ts and reports revision-consistent results directly from its validated inputs. Chronological multi-source dispatch, generation limits, storage coordination, critical-load priority, regional resource/demand profiles and remaining regional presets are not implemented in this slice.

@@ -12,6 +12,7 @@ import type { PowerGridInputs, PowerGridReading } from "../engine/powergrid";
 import { applyRegionalTeachingPreset } from "../engine/powergridRegions";
 import { RadialFeederExperiment } from "./RadialFeederExperiment";
 import { PvPerformanceExperiment } from "./PvPerformanceExperiment";
+import { WindResourceExperiment } from "./WindResourceExperiment";
 import { RegionalGridPreset } from "./RegionalGridPreset";
 import { HydroStationScene } from "./HydroStationScene";
 import { GenerationPlantScene } from "./GenerationPlantScene";
@@ -447,6 +448,7 @@ export function PowerGridLab() {
       </div>
       <RadialFeederExperiment />
       <PvPerformanceExperiment />
+      <WindResourceExperiment />
     </section>
   );
 }

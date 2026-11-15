@@ -438,10 +438,13 @@ Documentation candidate `7e1c701404393020bcefe1cd33d2704fb2bd1210` passed the co
 
 # Generation plant studies are a candidate slice: `tests/browser/powergrid.spec.ts` verifies gas/solar/wind image selection, natural image loading, selected equipment interfaces, keyboard activation and translated labels/captions in English, German, Yoruba and Nigerian Pidgin. Awaiting candidate/exact-main hosted gates and deployment before acceptance.
 
-
 ## PR #101 generation-plant studies — deployed 15 November 2026
 
 - Candidate [run 43671901034](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43671901034) and exact-main [run 43672370263](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43672370263) passed lint, unit tests, build, full browser and production-browser suites, update smoke and both online/base-path offline checks.
 - Pages [run 43672795456](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43672795456) deployed exact main SHA `c563b83aed43d6c314ebcb8c6187cfdd320a590a`; artifact 14145151948. The production `#POWERGRID` page loaded and its generation-study selector and plant cards were present in the browser accessibility tree.
 - Candidate and exact-main browser suites selected gas, solar and wind, asserted image natural width, inspected PV interfaces, keyboard-selected wind rotor equipment and checked translated plant labels/captions across English, German, Yoruba and Nigerian Pidgin.
 - Custom render provenance and DOE process sources are documented in `docs/POWERGRID_DATA_SOURCES.md`. The illustrations are not site photographs; the interfaces are representative and there is no generation output or dynamics model. Milestone 4 remains partial.
+
+## POWERGRID LAB wind reference-curve slice — candidate
+
+The NREL 6 MW (2015) reference-turbine power-curve engine, validated user interval inputs, farm output/energy integration, local save and JSON/CSV export were added on the current main baseline. Source points, assumptions and limits are in docs/POWERGRID_DATA_SOURCES.md and docs/POWERGRID_MODELS.md; UI instructions are in Help and docs/USER_GUIDE.md. Focused unit and browser cases are in tests/windPerformance.test.ts and tests/browser/powergrid.spec.ts. Actual candidate, exact-main and Pages results will be recorded after hosted checks. This is a Milestone 3 slice, not completion of regional profiles, storage dispatch or the complete POWERGRID specification.
