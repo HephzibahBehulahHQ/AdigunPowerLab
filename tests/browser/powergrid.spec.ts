@@ -5,9 +5,7 @@ test("receiving substation scene follows editable voltage inputs and exposes sel
   page,
 }) => {
   await page.goto("/#POWERGRID");
-  const scene = page.getByRole("region", {
-    name: /Receiving substation to consumers/,
-  });
+  const scene = page.locator("section.pg-downstream");
   await expect(scene).toBeVisible();
   await expect(scene.getByText("330 kV → 33 kV → 0.4 kV")).toBeVisible();
   await expect(
@@ -131,13 +129,16 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
       name: "Hydroelectric generating station · teaching cutaway",
     }),
   ).toBeVisible();
-  await expect(page.locator(".pg-station-svg")).toBeVisible();
-  const phaseA = page.locator(".pg-station-svg .pg-wire-a").first();
-  const phaseB = page.locator(".pg-station-svg .pg-wire-b").first();
-  const phaseC = page.locator(".pg-station-svg .pg-wire-c").first();
-  const neutral = page.locator(".pg-station-svg .pg-neutral-wire").first();
-  const earth = page.locator(".pg-station-svg .pg-ground-line").first();
-  const shield = page.locator(".pg-station-svg .pg-shield-wire").first();
+  const hydroSvg = page.locator(
+    ".pg-station:not(.pg-downstream) .pg-station-svg",
+  );
+  await expect(hydroSvg).toBeVisible();
+  const phaseA = hydroSvg.locator(".pg-wire-a").first();
+  const phaseB = hydroSvg.locator(".pg-wire-b").first();
+  const phaseC = hydroSvg.locator(".pg-wire-c").first();
+  const neutral = hydroSvg.locator(".pg-neutral-wire").first();
+  const earth = hydroSvg.locator(".pg-ground-line").first();
+  const shield = hydroSvg.locator(".pg-shield-wire").first();
   for (const conductor of [phaseA, phaseB, phaseC, neutral, earth, shield]) {
     await expect(conductor).toBeAttached();
   }
@@ -152,7 +153,7 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
   ).toBeVisible();
   await expect(page.getByText(/N is not PE/i)).toBeVisible();
 
-  await page.locator(".pg-station-svg text").getByText("A · B · C bus").click();
+  await hydroSvg.locator("text").getByText("A · B · C bus").click();
   await expect(
     page.getByRole("heading", { name: "Three-phase switchyard busbar" }),
   ).toBeVisible();
@@ -175,7 +176,7 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
     }),
   ).toHaveAttribute("href", /energy\.gov/);
   await page
-    .locator(".pg-station-svg text")
+    .locator(".pg-station:not(.pg-downstream) .pg-station-svg text")
     .getByText("PROTECTION / SCADA")
     .click();
   await expect(
@@ -185,7 +186,7 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
     page.getByText(/does not simulate live telemetry/i),
   ).toBeVisible();
   await page
-    .locator(".pg-station-svg text")
+    .locator(".pg-station:not(.pg-downstream) .pg-station-svg text")
     .getByText("Surge arrester")
     .click();
   await expect(
