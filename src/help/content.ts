@@ -579,7 +579,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
     id: "powergrid-lab",
     title: "POWERGRID LAB: compare transmission voltage",
     summary:
-      "Open the isolated PowerGrid lab, inspect selectable generation and distribution equipment, compare transmission losses, solve a radial feeder, calculate PV and NREL reference-wind performance from entered data, save scenarios or export actual results.",
+      "Open the isolated PowerGrid lab, inspect selectable generation and distribution equipment, compare transmission losses, solve a radial feeder, calculate PV and NREL reference-wind performance, dispatch entered PV/wind profiles with storage and critical demand, save scenarios or export actual results.",
     steps: [
       "Select POWERGRID LAB in the top bar or enter #POWERGRID in the address bar. The exact hash opens the lab directly; refresh keeps it open and browser Back/Forward follows route changes.",
       "Scroll to the hydro station cutaway. Select Reservoir, trash rack, intake gate, penstock, draft tube, turbine, generator, transformer, control house/SCADA, breaker, disconnector, CT/VT, surge arrester, busbar, tower, conductors or earth grid. The inspection card names the equipment, explains its job and identifies its shown terminals. Keyboard users can Tab to a device and press Enter or Space.",
@@ -600,6 +600,8 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "In PV source performance, enter DC nameplate, plane-of-array irradiance, module temperature, cell temperature rise, power coefficient and inverter limits. Read the calculated DC/AC output, conversion loss and clipping, save a comparison reference, then export the case or readings.",
       "This is an instantaneous calculation from entered values; it does not retrieve weather or calculate annual energy, shading, module IV curves, mismatch, wiring losses or transient response. Open the assumptions panel for the Sandia and NREL model references.",
       "In Wind resource and generation, enter one wind speed per equal-duration interval. The study interpolates the published NREL 6 MW reference-turbine power curve, multiplies by the entered turbine count, and reports interval power, energy, mean output and profile capacity factor. Entered winds are teaching assumptions, not measured site weather; inspect the source and limits before interpreting results. Save inputs locally or export the case as JSON and interval readings as CSV.",
+      "In Microgrid dispatch laboratory, enter equal-length interval lists for wind speed, PV irradiance, total demand and the critical share of demand. Set PV and wind capacity, interval duration, battery energy/rating/efficiency/reserve, and a generic dispatchable backup ceiling with a ramp-up limit. Review per-interval renewable output, battery charge/discharge and state of charge, backup output, curtailment, served load, critical and non-critical unmet demand, and the AC-bus balance residual.",
+      "This chronological teaching dispatch uses the existing NREL 6 MW wind curve and PV source equations; renewable supply serves demand first, surplus charges storage, deficits use storage then generic backup, and critical demand is served before non-critical demand. Inputs are illustrative, not measured regional profiles. No source-specific backup generator, feeder/transformer losses, export, fuel, cost, emissions or frequency response is modeled. Save the isolated scenario in this browser or export its results as JSON/CSV.",
       "The regional panel offers Nigeria-inspired and Germany-inspired (50Hertz grid-area) teaching scenarios. Nigeria displays sourced 330/132/33/11 kV stages; Germany displays 380/220/110 kV, a clearly illustrative 20 kV within the documented 15–30 kV medium-voltage range, and 0.4 kV consumer service. Each shows its frequency, currency and time-zone context separately. Select a region and Apply its supported voltage fields; unrelated inputs remain unchanged.",
       "The regional scenarios are teaching contexts, not operational replicas. Their source links and dates appear in the panel. No regional generation, weather or demand profile is loaded, and the balanced steady-state worksheets do not simulate frequency response. Germany's transmission example is scoped to the 50Hertz area.",
     ],
@@ -628,6 +630,9 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "PVWatts",
       "inverter clipping",
       "regional scenario",
+      "microgrid dispatch",
+      "battery state of charge",
+      "critical demand",
       "Nigeria",
       "50 Hz",
       "330 kV",
@@ -736,3 +741,4 @@ export function searchHelp(
     .slice(0, count)
     .map((entry) => entry.topic);
 }
+

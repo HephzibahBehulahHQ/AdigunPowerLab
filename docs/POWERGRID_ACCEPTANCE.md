@@ -92,3 +92,17 @@ PR #99 merged as `01c6ea20c437ce983fa5a261819f2a014d7998d4`. Candidate run [4366
 | Four-language user workflow and documented limits                             | UI translations, Help coverage, curriculum and user guide                                  | Implemented in candidate; hosted validation pending |
 
 This slice uses user-entered equal-duration wind speeds and an analytical teaching sequence. It is not local weather, a commercial turbine guarantee, annual yield, battery dispatch or a complete regional scenario. The remaining Milestone 3 requirements stay open.
+
+## Milestone 3 slice — chronological microgrid dispatch (PR #104)
+
+| Requirement                                                                  | Evidence target                                                            | Status                                           |
+| ---------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------ |
+| Combine source-modelled PV/wind with equal-length demand profiles            | Existing PV/NREL wind calculators, validation and interval results         | Implemented locally; PR candidate checks pending |
+| Battery SOC, charge/discharge power, efficiency and reserve limits           | Independent numerical tests for limits, stored energy and SOC              | Implemented locally; tests pass                  |
+| Critical-load priority, curtailment, generic backup ramp-up and unmet demand | Explicit dispatch sequence and per-interval result model                   | Implemented locally; tests pass                  |
+| Interval energy accounting                                                   | Per-row residual and served/unserved identities                            | Implemented locally; targeted checks pass        |
+| Student workflow, isolated local saving and real JSON/CSV exports            | Browser acceptance for editing, validation, save/reload and export content | Implemented locally; browser acceptance pending  |
+| Help/Guide, four supported locales and release records                       | Help strings, workflow coverage, user guide and exact-main/Pages receipts  | In progress                                      |
+
+The backup is only an explicitly generic dispatchable capacity ceiling with a ramp-up constraint; it is not a diesel or other source-specific generator model. The AC-bus schedule excludes feeder/transformer losses, imports/exports, fuel, costs, emissions and frequency response. This slice does not finish Milestone 3.
+
