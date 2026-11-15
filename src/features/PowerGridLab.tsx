@@ -13,6 +13,7 @@ import { applyRegionalTeachingPreset } from "../engine/powergridRegions";
 import { RadialFeederExperiment } from "./RadialFeederExperiment";
 import { PvPerformanceExperiment } from "./PvPerformanceExperiment";
 import { WindResourceExperiment } from "./WindResourceExperiment";
+import { MicrogridDispatchExperiment } from "./MicrogridDispatchExperiment";
 import { RegionalGridPreset } from "./RegionalGridPreset";
 import { HydroStationScene } from "./HydroStationScene";
 import { GenerationPlantScene } from "./GenerationPlantScene";
@@ -449,6 +450,8 @@ export function PowerGridLab() {
       <RadialFeederExperiment />
       <PvPerformanceExperiment />
       <WindResourceExperiment />
+      <MicrogridDispatchExperiment />
     </section>
   );
 }
+
