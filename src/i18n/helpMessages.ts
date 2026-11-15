@@ -1422,4 +1422,3 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "For 100 MW, PF 1, 5 Ω/phase, 132 kV gives about 437.4 A and 2.87 MW line loss. For 330 kV, same simple assumptions gives about 175 A and 0.459 MW loss.",
     ],
 };
-

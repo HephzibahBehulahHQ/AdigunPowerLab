@@ -1330,4 +1330,3 @@ export function HydroStationScene({ locale }: { locale: keyof typeof names }) {
     </section>
   );
 }
-

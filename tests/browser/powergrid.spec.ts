@@ -425,4 +425,3 @@ test("PV source model responds to inputs, saves a reference and exports results"
     page.getByText("Plane-of-array irradiance must be from 0 to 1500 W/m²."),
   ).toBeVisible();
 });
-

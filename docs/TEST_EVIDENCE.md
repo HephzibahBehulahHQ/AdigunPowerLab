@@ -426,4 +426,3 @@ Documentation candidate `7e1c701404393020bcefe1cd33d2704fb2bd1210` passed the co
 ## PR #97 practical PowerGrid gallery — pending
 
 - Candidate commit `741e5fa18544ae658e38293a92aca47262d2b821` checkpoints the overview visual and image-load test; a follow-up candidate adds six stage gallery images, localized equipment checklists, responsive layout, Help and guide updates. Full candidate browser, production-browser, regression and build gates have not yet completed. Exact-main validation and Pages deployment have not run; do not treat the gallery as live until the Pages release receipt and public route are verified.
-
