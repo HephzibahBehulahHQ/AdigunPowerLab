@@ -117,6 +117,12 @@ const copy: Record<string, [string, string, string]> = {
     "Critical energy tí kò dé",
     "Critical energy wey no get supply",
   ],
+  "Unserved non-critical energy": [
+    "Nicht gedeckte unkritische Energie",
+    "Non-critical energy tí kò dé",
+    "Other unmet energy",
+  ],
+  "Backup energy": ["Reserveenergie", "Backup energy", "Backup energy"],
   "Renewable curtailment": [
     "Abregelung erneuerbarer Energie",
     "Renewable tí a gé kúrò",
@@ -131,7 +137,23 @@ const copy: Record<string, [string, string, string]> = {
   "PV kW": ["PV kW", "PV kW", "PV kW"],
   "Wind kW": ["Wind kW", "Wind kW", "Wind kW"],
   "Demand kW": ["Last kW", "Demand kW", "Demand kW"],
-  "Battery kW": ["Batterie kW", "Battery kW", "Battery kW"],
+  "Battery kW (+ discharge)": [
+    "Batterie kW (+ Entladung)",
+    "Battery kW (+ discharge)",
+    "Battery kW (+ discharge)",
+  ],
+  "SOC kWh": ["Ladezustand kWh", "SOC kWh", "Battery level kWh"],
+  "Curtailment kW": ["Abregelung kW", "Curtailment kW", "Power wey cut kW"],
+  "Critical unmet kW": [
+    "Nicht gedeckte kritische Last kW",
+    "Critical demand tí kò dé kW",
+    "Critical load wey no get supply kW",
+  ],
+  "Non-critical unmet kW": [
+    "Nicht gedeckte unkritische Last kW",
+    "Non-critical demand tí kò dé kW",
+    "Other load wey no get supply kW",
+  ],
   "Backup kW": ["Reserve kW", "Backup kW", "Backup kW"],
   "Unserved kW": [
     "Nicht gedeckt kW",
@@ -473,6 +495,12 @@ export function MicrogridDispatchExperiment() {
                 "kWh",
               ],
               [
+                "Unserved non-critical energy",
+                result.nonCriticalUnservedEnergyKWh,
+                "kWh",
+              ],
+              ["Backup energy", result.backupEnergyKWh, "kWh"],
+              [
                 "Renewable curtailment",
                 result.renewableEnergyCurtailedKWh,
                 "kWh",
@@ -496,9 +524,12 @@ export function MicrogridDispatchExperiment() {
                     "PV kW",
                     "Wind kW",
                     "Demand kW",
-                    "Battery kW",
+                    "Battery kW (+ discharge)",
+                    "SOC kWh",
                     "Backup kW",
-                    "Unserved kW",
+                    "Curtailment kW",
+                    "Critical unmet kW",
+                    "Non-critical unmet kW",
                   ].map((s) => (
                     <th key={s}>{label(s)}</th>
                   ))}
@@ -512,10 +543,11 @@ export function MicrogridDispatchExperiment() {
                     <td>{fmt(r.windAvailableKW)}</td>
                     <td>{fmt(r.demandKW)}</td>
                     <td>{fmt(r.batteryDischargeKW - r.batteryChargeKW)}</td>
+                    <td>{fmt(r.batterySocKWh)}</td>
                     <td>{fmt(r.backupGenerationKW)}</td>
-                    <td>
-                      {fmt(r.criticalUnservedKW + r.nonCriticalUnservedKW)}
-                    </td>
+                    <td>{fmt(r.renewableCurtailmentKW)}</td>
+                    <td>{fmt(r.criticalUnservedKW)}</td>
+                    <td>{fmt(r.nonCriticalUnservedKW)}</td>
                   </tr>
                 ))}
               </tbody>
