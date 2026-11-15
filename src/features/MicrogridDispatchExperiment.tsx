@@ -362,10 +362,8 @@ export function MicrogridDispatchExperiment() {
           step="any"
           value={value as number}
           onChange={(e) => {
-            setState((old) => ({
-              ...old,
-              [key]: e.currentTarget.valueAsNumber,
-            }));
+            const nextValue = e.currentTarget.valueAsNumber;
+            setState((old) => ({ ...old, [key]: nextValue }));
             setSaved(false);
           }}
         />
