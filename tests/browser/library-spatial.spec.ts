@@ -50,9 +50,6 @@ async function seed(page: Page) {
   await expect(page.locator(".load-table")).toBeVisible();
 }
 async function exported(page: Page): Promise<Project> {
-  await page
-    .getByRole("button", { name: "Single-line diagram", exact: true })
-    .click();
   const pending = page.waitForEvent("download");
   await page
     .getByRole("button", { name: "Export project", exact: true })
