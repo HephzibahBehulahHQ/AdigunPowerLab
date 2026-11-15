@@ -2,9 +2,9 @@
 
 Date: 15 November 2026. Owner: Hephzibah Behulah.
 
-## POWERGRID real facility photographs — candidate in progress (15 November 2026)
+## POWERGRID real facility photographs — deployed (15 November 2026)
 
-Added a separate documentary photograph gallery ahead of the existing custom training illustrations. It includes eight locally stored, source-linked DVIDS facility images across hydro generation and dam flow, generator step-up transformer delivery, receiving substation, a clearly marked transmission-tower failure case, solar and wind examples, and secondary distribution. Cards provide image alt text, facility context, photographer/source credit, and a DVIDS record link. The photo-use notice and model/safety limits are documented; training illustrations remain labeled separately. Local production build passed and the focused browser assertion loaded all eight images. Hosted candidate CI, merge, and Pages deployment remain pending.
+PR [#106](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/106) merged as `a8065b686b2f4d509fcd9565fea1e217383e0f04`. Candidate [run 43701757144](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43701757144) and exact-main [run 43702250434](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43702250434) passed lint, unit tests, build, full browser and production-browser suites, update smoke, and root/base-path offline checks. Pages [run 43702809027](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43702809027) deployed that exact SHA (artifact 14157337347). Read-only live checks on 15 November returned HTTP 200 for the site root and all eight local photo assets. The documentary images remain distinct from custom training illustrations; the damaged tower is labeled as a failure case, and photo context, credits, use limits, and source links are documented.
 
 ## POWERGRID Milestone 3 — chronological dispatch slice deployed (15 November 2026)
 
