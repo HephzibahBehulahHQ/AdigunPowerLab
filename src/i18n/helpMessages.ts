@@ -1,5 +1,347 @@
 /** English keys with German, Yoruba and Nigerian Pidgin translations. */
 export const helpMessages: Record<string, [string, string, string]> = {
+  "Below the hydro cutaway, select the combined-cycle gas, utility solar PV or wind study. Choose each equipment control to read its purpose and representative process or electrical interface. Terminal markings, ratings, protection and arrangement vary by manufacturer and site; confirm them from approved drawings. The custom plant images are teaching illustrations, not photographs of an identified operating facility.":
+    [
+      "Wählen Sie unterhalb des Wasserkraft-Schnitts das Gas-und-Dampf-Kombikraftwerk, den Solarpark oder die Windanlage. Über die Betriebsmittel-Steuerungen erfahren Sie Zweck und typische Prozess- oder elektrische Schnittstellen. Klemmen, Bemessungswerte, Schutz und Anordnung hängen von Hersteller und Standort ab; maßgeblich sind freigegebene Pläne. Die eigenen Anlagenbilder sind Lehrillustrationen, keine Fotos eines bestimmten Betriebsstandorts.",
+      "Lábẹ́ hydro cutaway, yan combined-cycle gas, solar PV tàbí wind study. Yan control ẹ̀rọ kọ̀ọ̀kan láti kà iṣẹ́ rẹ̀ àti aṣojú process tàbí electrical interface. Terminal marking, rating, protection àti arrangement yàtọ̀ gẹ́gẹ́ bí manufacturer àti site; jẹ́rìí pẹ̀lú drawing tí a fọwọ́ sí. Àwọn plant images àtilẹ̀wá jẹ́ àwòrán ẹ̀kọ́, kì í ṣe fọ́tò site kan pàtó.",
+      "Below di hydro cutaway, choose di combined-cycle gas, utility solar PV or wind study. Select each equipment control to read wetin e do and its representative process or electrical interface. Terminal marks, ratings, protection and arrangement depend on manufacturer and site; confirm with approved drawings. Di custom plant images na training illustrations, no be photos from one known operating facility.",
+    ],
+  "GENERATION STUDIES": [
+    "ERZEUGUNGSANLAGEN",
+    "ÀWỌN IRÚ IṢẸ́ ÌṢẸ̀DÁ",
+    "GENERATION STUDIES",
+  ],
+  "Explore other generation plants": [
+    "Weitere Kraftwerkstypen erkunden",
+    "Ṣàyẹ̀wò àwọn irú ilé-iṣẹ́ ìṣẹ̀dá agbára mìíràn",
+    "Explore other generation plants",
+  ],
+  "The hydro cutaway is above. Choose a plant to follow its equipment and energy-conversion path. Illustrations are original teaching renders, not photographs of an identified operating facility.":
+    [
+      "Der Wasserkraft-Schnitt ist oben. Wählen Sie eine Anlage, um Betriebsmittel und Energieumwandlung zu verfolgen. Die eigens erstellten Lehrdarstellungen sind keine Fotos eines bestimmten Betriebsstandorts.",
+      "Àwòrán hydro cutaway wà lókè. Yan irú plant kan láti tẹ̀lé ẹ̀rọ àti ọ̀nà ìyípadà agbára. Àwọn àwòrán ẹ̀kọ́ àtilẹ̀wá ni, kì í ṣe fọ́tò ibùdó iṣẹ́ kan pàtó.",
+      "Di hydro cutaway dey above. Choose plant make you follow di equipment and energy-conversion path. Na original training renders, no be photos of one known operating station.",
+    ],
+  "Generation plant type": [
+    "Kraftwerkstyp",
+    "Irú ilé-iṣẹ́ ìṣẹ̀dá agbára",
+    "Generation plant type",
+  ],
+  "Combined-cycle gas plant": [
+    "Gas-und-Dampf-Kombikraftwerk",
+    "Combined-cycle gas plant",
+    "Combined-cycle gas plant",
+  ],
+  "Utility-scale solar PV": [
+    "Solarpark mit Photovoltaik",
+    "Solar PV plant ńlá",
+    "Utility solar PV plant",
+  ],
+  "Utility wind plant": ["Windpark", "Wind plant ńlá", "Wind plant"],
+  "Select equipment to inspect": [
+    "Betriebsmittel zur Prüfung auswählen",
+    "Yan ẹ̀rọ láti ṣàyẹ̀wò",
+    "Select equipment to inspect",
+  ],
+  "Gas turbine compressor, combustor and expander": [
+    "Verdichter, Brennkammer und Turbine der Gasturbine",
+    "Compressor, combustor àti turbine gas plant",
+    "Gas turbine compressor, combustor and expander",
+  ],
+  "The compressor raises air pressure; combustion adds heat; expanding gas turns the turbine shaft.":
+    [
+      "Der Verdichter erhöht den Luftdruck; die Verbrennung fügt Wärme hinzu; expandierendes Gas treibt die Turbinenwelle an.",
+      "Compressor ń gbé air pressure sókè; combustion ń fi ooru kún un; gas tó ń fẹ̀ síta ń yí shaft turbine.",
+      "Compressor raise air pressure; combustion add heat; expanding gas turn turbine shaft.",
+    ],
+  "Heat-recovery steam generator": [
+    "Abhitzedampferzeuger",
+    "Heat-recovery steam generator",
+    "Heat-recovery steam generator",
+  ],
+  "The heat-recovery steam generator transfers gas-turbine exhaust heat to a steam-water circuit.":
+    [
+      "Der Abhitzedampferzeuger überträgt die Wärme des Gasturbinenabgases auf einen Wasser-Dampf-Kreislauf.",
+      "Heat-recovery steam generator ń gbé ooru exhaust gas turbine sí water-steam circuit.",
+      "Heat-recovery steam generator transfer gas-turbine exhaust heat to steam-water circuit.",
+    ],
+  "Steam turbine and shaft coupling": [
+    "Dampfturbine und Wellenkupplung",
+    "Steam turbine àti shaft coupling",
+    "Steam turbine and shaft coupling",
+  ],
+  "Steam expansion turns turbine stages and transfers torque through the coupled shaft train.":
+    [
+      "Die Dampfexpansion treibt Turbinenstufen an und überträgt Drehmoment über die gekoppelte Welle.",
+      "Ìfẹ̀ steam ń yí turbine stages, shaft tó so pọ̀ sì ń gbé torque lọ.",
+      "Steam expansion turn turbine stages; coupled shaft carry torque.",
+    ],
+  "Condenser and cooling-water system": [
+    "Kondensator und Kühlwassersystem",
+    "Condenser àti cooling-water system",
+    "Condenser and cooling-water system",
+  ],
+  "The condenser returns exhaust steam to water while the cooling system rejects heat as designed.":
+    [
+      "Der Kondensator verflüssigt Abdampf; das Kühlsystem führt Wärme gemäß der Anlagenplanung ab.",
+      "Condenser ń dá exhaust steam padà sí omi; cooling system ń tú ooru jáde gẹ́gẹ́ bí àpẹẹrẹ plant.",
+      "Condenser turn exhaust steam back to water; cooling system reject heat as designed.",
+    ],
+  "Generator and unit transformer": [
+    "Generator und Maschinentransformator",
+    "Generator àti unit transformer",
+    "Generator and unit transformer",
+  ],
+  "The generator converts shaft power to electrical output; the unit transformer connects the generator circuit to the station bus/grid interface.":
+    [
+      "Der Generator wandelt Wellenleistung in elektrische Leistung um; der Maschinentransformator verbindet den Generatorstromkreis mit Sammelschiene oder Netzanschluss.",
+      "Generator ń yí shaft power sí electrical output; unit transformer so generator circuit mọ́ station bus/grid.",
+      "Generator change shaft power to electrical output; unit transformer connect generator circuit to station bus/grid.",
+    ],
+  "PV modules and string circuits": [
+    "PV-Module und Stringkreise",
+    "PV modules àti string circuits",
+    "PV modules and string circuits",
+  ],
+  "Photovoltaic modules convert incident light to direct current; modules are connected into strings within designed electrical limits.":
+    [
+      "Photovoltaikmodule wandeln einfallendes Licht in Gleichstrom um; Module werden innerhalb der Auslegungsgrenzen zu Strings verbunden.",
+      "PV modules ń yí ìmọ́lẹ̀ sí direct current; a so wọn pọ̀ sí strings láàrín electrical limits tó yẹ.",
+      "PV modules change sunlight to DC; modules join into strings within the system electrical limits.",
+    ],
+  "DC combiner and isolation": [
+    "DC-Generatoranschlusskasten und Trennschalter",
+    "DC combiner àti isolation",
+    "DC combiner and isolation",
+  ],
+  "The combiner gathers designed string circuits; fuses and disconnecting equipment are selected for the actual DC system.":
+    [
+      "Der Generatoranschlusskasten fasst ausgelegte Stringkreise zusammen; Sicherungen und Trenneinrichtungen müssen zum DC-System passen.",
+      "Combiner ń kó string circuits jọ; fuse àti disconnecting equipment gbọ́dọ̀ bá DC system mu.",
+      "Combiner join designed string circuits; choose fuses and isolators for the actual DC system.",
+    ],
+  "Central inverter": [
+    "Zentralwechselrichter",
+    "Central inverter",
+    "Central inverter",
+  ],
+  "Power electronics convert the collected DC into grid-synchronized AC and provide configured grid-support functions.":
+    [
+      "Die Leistungselektronik wandelt gesammelten Gleichstrom in netzsynchronisierten Wechselstrom um und stellt konfigurierte Netzstützungsfunktionen bereit.",
+      "Power electronics ń yí DC tó pé jọ sí AC tó bá grid mu, ó sì pèsè àwọn iṣẹ́ support grid tí a ṣètò.",
+      "Power electronics change collected DC to grid-synchronized AC and provide configured grid-support functions.",
+    ],
+  "AC collection and step-up transformer": [
+    "AC-Sammelsystem und Maschinentransformator",
+    "AC collection àti step-up transformer",
+    "AC collection and step-up transformer",
+  ],
+  "AC collection circuits gather inverter output; the transformer raises voltage for the plant collector or grid connection.":
+    [
+      "AC-Sammelkreise bündeln die Wechselrichterleistung; der Transformator erhöht die Spannung für das Sammelsystem oder den Netzanschluss.",
+      "AC collection circuits ń kó inverter output jọ; transformer ń gbé voltage sókè fún collector tàbí grid connection.",
+      "AC circuits gather inverter output; transformer raise voltage for collector system or grid connection.",
+    ],
+  "Plant switchyard and grid interconnection": [
+    "Schaltanlage und Netzanschluss",
+    "Plant switchyard àti grid interconnection",
+    "Plant switchyard and grid interconnection",
+  ],
+  "Switchgear, measurement and protection equipment connect the generating facility to its approved point of interconnection.":
+    [
+      "Schalt-, Mess- und Schutzeinrichtungen verbinden die Anlage mit ihrem genehmigten Netzanschlusspunkt.",
+      "Switchgear, measurement àti protection equipment ń so plant pọ̀ mọ́ point of interconnection tó fọwọ́ sí.",
+      "Switchgear, meters and protection connect di plant to its approved grid point.",
+    ],
+  "Rotor blades, hub and pitch system": [
+    "Rotorblätter, Nabe und Blattverstellung",
+    "Rotor blades, hub àti pitch system",
+    "Rotor blades, hub and pitch system",
+  ],
+  "Aerodynamic lift turns the rotor; the pitch system changes blade angle to regulate captured energy and rotor operation.":
+    [
+      "Aerodynamischer Auftrieb dreht den Rotor; die Blattverstellung ändert den Winkel, um Energieaufnahme und Betrieb zu regeln.",
+      "Aerodynamic lift ń yí rotor; pitch system ń yí igun blade láti ṣàkóso agbára tó wọlé àti bí rotor ṣe ń ṣiṣẹ́.",
+      "Lift from wind turn rotor; pitch system change blade angle to control captured energy and rotor operation.",
+    ],
+  "Main shaft, bearing and gearbox": [
+    "Hauptwelle, Lager und Getriebe",
+    "Main shaft, bearing àti gearbox",
+    "Main shaft, bearing and gearbox",
+  ],
+  "The drivetrain transmits rotor torque; geared machines increase shaft speed, while direct-drive designs omit the gearbox.":
+    [
+      "Der Antriebsstrang überträgt das Rotordrehmoment; Getriebeanlagen erhöhen die Drehzahl, Direktantriebe haben kein Getriebe.",
+      "Drivetrain ń gbé rotor torque; gearbox ń gbé shaft speed sókè, direct-drive kò ní gearbox.",
+      "Drivetrain carry rotor torque; gearbox raises shaft speed; direct-drive design no use gearbox.",
+    ],
+  "Nacelle generator": [
+    "Generator in der Gondel",
+    "Generator nínú nacelle",
+    "Nacelle generator",
+  ],
+  "The generator converts drivetrain rotation into electrical power inside the nacelle.":
+    [
+      "Der Generator in der Gondel wandelt die Drehung des Antriebsstrangs in elektrische Leistung um.",
+      "Generator inú nacelle ń yí drivetrain rotation sí electrical power.",
+      "Generator inside di nacelle change drivetrain rotation to electrical power.",
+    ],
+  "Power converter and turbine transformer": [
+    "Leistungselektronik und Turbinentransformator",
+    "Power converter àti turbine transformer",
+    "Power converter and turbine transformer",
+  ],
+  "Power conversion conditions turbine output for the collector system; a transformer provides the designed collection voltage.":
+    [
+      "Die Leistungselektronik passt die Turbinenleistung an das Sammelsystem an; ein Transformator stellt die ausgelegte Sammelspannung bereit.",
+      "Power conversion ń ṣètò turbine output fún collector system; transformer pèsè collection voltage tó wà nínú àpẹẹrẹ.",
+      "Power converter condition turbine output for collection; transformer provide its designed voltage.",
+    ],
+  "Collector cables and substation": [
+    "Sammelkabel und Umspannwerk",
+    "Collector cables àti substation",
+    "Collector cables and substation",
+  ],
+  "Underground or overhead collector circuits gather turbine output for transformation, switching and interconnection to the grid.":
+    [
+      "Erd- oder Freileitungen bündeln die Turbinenleistung für Transformation, Schaltung und Netzkopplung.",
+      "Underground tàbí overhead collector circuits ń kó turbine output jọ fún transformer, switching àti grid.",
+      "Underground or overhead collector lines gather turbine output for transformer, switching and grid connection.",
+    ],
+  "Air and fuel enter the combustion train; shaft power drives the generator. Arrangement varies by turbine.":
+    [
+      "Luft und Brennstoff gelangen in den Verbrennungsstrang; die Wellenleistung treibt den Generator. Die Anordnung hängt von der Turbine ab.",
+      "Air àti fuel wọ combustion train; shaft power ń wa generator. Arrangement yàtọ̀ sí turbine kọ̀ọ̀kan.",
+      "Air and fuel enter di combustion train; shaft power drive di generator. Arrangement depend on turbine.",
+    ],
+  "Hot exhaust gas passes across water/steam heat-transfer surfaces; steam outlet connects to the steam turbine.":
+    [
+      "Heißes Abgas strömt über Wärmeübertragerflächen des Wasser-Dampf-Kreislaufs; der Dampfausgang führt zur Dampfturbine.",
+      "Exhaust gas tó gbóná ń kọjá water/steam heat-transfer surfaces; steam outlet so mọ́ steam turbine.",
+      "Hot exhaust gas pass across water/steam heat-transfer surfaces; steam outlet connect to di steam turbine.",
+    ],
+  "Steam inlet and exhaust connect to the cycle; coupled shaft connects turbine stages and generator.":
+    [
+      "Dampfeintritt und Abdampf gehören zum Kreislauf; die gekoppelte Welle verbindet Turbinenstufen und Generator.",
+      "Steam inlet àti exhaust so mọ́ cycle; coupled shaft so turbine stages mọ́ generator.",
+      "Steam inlet and exhaust join di cycle; coupled shaft connect turbine stages and generator.",
+    ],
+  "Steam-side inlet/outlet and cooling-water circuit; exact nozzle arrangement is plant-specific.":
+    [
+      "Dampfseitiger Ein- und Austritt sowie Kühlwasserkreislauf; die genaue Stutzenanordnung ist anlagenspezifisch.",
+      "Steam-side inlet/outlet àti cooling-water circuit; nozzle arrangement jẹ́ ti plant pàtó.",
+      "Steam-side inlet/outlet and cooling-water circuit; exact nozzle arrangement depend on di plant.",
+    ],
+  "Representative three-phase generator circuit; terminal board, neutral grounding and transformer connection depend on the selected unit.":
+    [
+      "Typischer Drehstrom-Generatorstromkreis; Klemmenbrett, Neutralpunkterdung und Transformatoranschluss hängen vom Aggregat ab.",
+      "Representative three-phase generator circuit; terminal board, neutral grounding àti transformer connection yàtọ̀ sí unit kọ̀ọ̀kan.",
+      "Representative three-phase generator circuit; terminal board, neutral grounding and transformer connection depend on di unit.",
+    ],
+  "DC string positive and negative conductors; module and string values depend on the selected equipment.":
+    [
+      "Positive und negative DC-Stringleiter; Modul- und Stringwerte hängen von den gewählten Betriebsmitteln ab.",
+      "Àwọn DC string conductors positive àti negative; module/string values yàtọ̀ gẹ́gẹ́ bí ẹ̀rọ tí a yan.",
+      "DC string positive and negative wires; module and string values depend on di selected equipment.",
+    ],
+  "Multiple DC string inputs and a combined DC output; polarity and maximum ratings are equipment-specific.":
+    [
+      "Mehrere DC-Stringeingänge und ein zusammengeführter DC-Ausgang; Polarität und Grenzwerte sind gerätespezifisch.",
+      "Ọ̀pọ̀ DC string inputs àti DC output kan; polarity àti maximum ratings jẹ́ ti ẹ̀rọ pàtó.",
+      "Multiple DC string inputs and one combined DC output; polarity and limits depend on equipment.",
+    ],
+  "DC input and AC output; voltage, grounding and grid-support behavior are inverter-specific.":
+    [
+      "DC-Eingang und AC-Ausgang; Spannung, Erdung und Netzstützung hängen vom Wechselrichter ab.",
+      "DC input àti AC output; voltage, grounding àti grid-support behavior yàtọ̀ sí inverter kọ̀ọ̀kan.",
+      "DC input and AC output; voltage, grounding and grid-support behavior depend on inverter.",
+    ],
+  "Low-voltage inverter-side and higher-voltage collector-side windings; actual vector group and terminals vary.":
+    [
+      "Niederspannungswicklung am Wechselrichter und höher gespannte Sammelwicklung; Vektorgruppe und Klemmen sind gerätespezifisch.",
+      "Low-voltage winding fún inverter àti higher-voltage collector winding; vector group àti terminals yàtọ̀.",
+      "Low-voltage winding for inverter and higher-voltage collector winding; vector group and terminals depend on equipment.",
+    ],
+  "Three-phase collector circuit, CT/VT measurement and protected grid connection as designed for the site.":
+    [
+      "Drehstrom-Sammelkreis, Messung über Strom- und Spannungswandler sowie standortgerecht geschützter Netzanschluss.",
+      "Three-phase collector circuit, CT/VT measurement àti protected grid connection gẹ́gẹ́ bí site design.",
+      "Three-phase collector circuit, CT/VT measurement and protected grid connection as site design.",
+    ],
+  "Mechanical rotor assembly; no external electrical terminals at the blades or hub.":
+    [
+      "Mechanische Rotoreinheit; an Blättern und Nabe gibt es keine externen elektrischen Klemmen.",
+      "Mechanical rotor assembly; kò sí external electrical terminals lórí blades tàbí hub.",
+      "Mechanical rotor assembly; no external electrical terminals on blades or hub.",
+    ],
+  "Mechanical low-speed rotor shaft and generator-side shaft; the drivetrain depends on turbine design.":
+    [
+      "Mechanische langsame Rotorwelle und Generatorwelle; der Antriebsstrang hängt von der Turbinenausführung ab.",
+      "Mechanical low-speed rotor shaft àti generator-side shaft; drivetrain yàtọ̀ sí turbine design.",
+      "Mechanical low-speed rotor shaft and generator-side shaft; drivetrain depend on turbine design.",
+    ],
+  "Generator leads connect to turbine power-conversion equipment; voltage and lead markings are model-specific.":
+    [
+      "Generatorleitungen führen zur Leistungselektronik; Spannung und Leiterkennzeichnung hängen vom Modell ab.",
+      "Generator leads so mọ́ turbine power-conversion equipment; voltage àti lead markings jẹ́ ti model pàtó.",
+      "Generator leads connect to turbine power-conversion equipment; voltage and lead marks depend on model.",
+    ],
+  "Converter generator-side and grid-side circuits, then transformer windings; topology varies among turbines.":
+    [
+      "Generator- und Netzseite des Umrichters sowie Transformatorwicklungen; die Topologie variiert je Turbine.",
+      "Converter generator-side àti grid-side circuits, lẹ́yìn náà transformer windings; topology yàtọ̀ sí turbine.",
+      "Converter generator-side and grid-side circuits, then transformer windings; topology vary by turbine.",
+    ],
+  "Multiple turbine feeder circuits connect to collector switchgear and the plant grid connection.":
+    [
+      "Mehrere Turbinenabgänge führen zur Sammelschaltanlage und zum Netzanschluss des Windparks.",
+      "Ọ̀pọ̀ turbine feeder circuits so mọ́ collector switchgear àti grid connection plant.",
+      "Multiple turbine feeder circuits connect to collector switchgear and di plant grid connection.",
+    ],
+  "Representative interfaces": [
+    "Typische Schnittstellen",
+    "Àwọn interface aṣojú",
+    "Representative interfaces",
+  ],
+  "Terminal names, ratings, protection and equipment layout are model- and site-specific; confirm them from approved drawings and manufacturer data.":
+    [
+      "Klemmenbezeichnungen, Bemessungswerte, Schutz und Anordnung hängen von Modell und Standort ab; maßgeblich sind freigegebene Pläne und Herstellerdaten.",
+      "Àwọn terminal names, ratings, protection àti equipment layout yàtọ̀ gẹ́gẹ́ bí model àti site; jẹ́rìí pẹ̀lú drawing tí a fọwọ́ sí àti data manufacturer.",
+      "Terminal names, ratings, protection and layout depend on model and site; confirm with approved drawings and manufacturer data.",
+    ],
+  "Custom training illustration · combined-cycle gas plant": [
+    "Eigene Lehrillustration · Gas-und-Dampf-Kombikraftwerk",
+    "Àwòrán ẹ̀kọ́ àtilẹ̀wá · combined-cycle gas plant",
+    "Custom training illustration · combined-cycle gas plant",
+  ],
+  "Custom training illustration · utility-scale solar photovoltaic plant": [
+    "Eigene Lehrillustration · Photovoltaik-Solarpark",
+    "Àwòrán ẹ̀kọ́ àtilẹ̀wá · utility solar PV plant",
+    "Custom training illustration · utility solar PV plant",
+  ],
+  "Custom training illustration · wind turbines and nacelle cutaway": [
+    "Eigene Lehrillustration · Windräder mit Gondelschnitt",
+    "Àwòrán ẹ̀kọ́ àtilẹ̀wá · wind turbines àti nacelle cutaway",
+    "Custom training illustration · wind turbines and nacelle cutaway",
+  ],
+  "Training illustration of a combined-cycle plant with gas turbine, heat-recovery steam generator, steam turbine, condenser and generator train.":
+    [
+      "Lehrillustration eines Kombikraftwerks mit Gasturbine, Abhitzedampferzeuger, Dampfturbine, Kondensator und Generatorstrang.",
+      "Àwòrán ẹ̀kọ́ combined-cycle plant tó ní gas turbine, heat-recovery steam generator, steam turbine, condenser àti generator.",
+      "Training illustration of a combined-cycle plant with gas turbine, heat-recovery steam generator, steam turbine, condenser and generator.",
+    ],
+  "Custom training illustration tracing utility photovoltaic rows through DC collection, central inverter, transformer and switchyard.":
+    [
+      "Eigene Lehrillustration: PV-Reihen über DC-Sammlung, Zentralwechselrichter und Transformator bis zur Schaltanlage.",
+      "Àwòrán ẹ̀kọ́ àtilẹ̀wá tó ń tọ́pa PV rows láti DC collection gba central inverter àti transformer dé switchyard.",
+      "Custom training illustration tracing PV rows through DC collection, central inverter, transformer and switchyard.",
+    ],
+  "Custom training illustration of wind turbines and a cutaway nacelle showing rotor, drivetrain, generator and collector connection.":
+    [
+      "Eigene Lehrillustration mit Windrädern und Gondelschnitt: Rotor, Antriebsstrang, Generator und Sammelanschluss.",
+      "Àwòrán ẹ̀kọ́ àtilẹ̀wá ti wind turbines àti nacelle cutaway tó ń fi rotor, drivetrain, generator àti collector hàn.",
+      "Custom training illustration of wind turbines and a nacelle cutaway with rotor, drivetrain, generator and collector.",
+    ],
   "Steam and gas generation equipment": [
     "Dampf- und Gas-Kraftwerksausrüstung",
     "Ẹ̀rọ steam àti gas generation",

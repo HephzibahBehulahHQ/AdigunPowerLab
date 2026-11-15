@@ -3532,6 +3532,85 @@ details p {
   margin: 2px 0 0;
   font-size: 12px;
 }
+.pg-generation-study {
+  margin-top: 28px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface2);
+}
+.pg-generation-tabs,
+.pg-generation-equipment {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0;
+}
+.pg-generation-tabs button,
+.pg-generation-equipment button {
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 9px 12px;
+  text-align: left;
+  font-size: 12px;
+}
+.pg-generation-tabs button[aria-pressed="true"],
+.pg-generation-equipment button[aria-pressed="true"] {
+  border-color: var(--gold);
+  box-shadow: inset 0 0 0 1px var(--gold);
+  color: var(--gold);
+}
+.pg-generation-image {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #0b1723;
+}
+.pg-generation-image img {
+  display: block;
+  width: 100%;
+  max-height: 620px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.pg-generation-image figcaption {
+  padding: 9px 12px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.pg-generation-detail {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.75fr) minmax(0, 1.25fr);
+  gap: 16px;
+  margin-top: 14px;
+}
+.pg-generation-equipment {
+  display: grid;
+  align-content: start;
+  margin: 0;
+}
+.pg-generation-detail article {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.pg-generation-detail article h4 {
+  margin: 0 0 10px;
+  color: var(--gold);
+}
+.pg-generation-detail article p,
+.pg-generation-detail article small {
+  color: var(--muted);
+  line-height: 1.55;
+}
+.pg-generation-detail article small {
+  display: block;
+  margin-top: 14px;
+}
 .pg-station-scroll {
   max-width: 100%;
   overflow: auto;
@@ -4297,6 +4376,12 @@ details p {
 }
 @media (max-width: 640px) {
   .pg-gallery-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pg-generation-study {
+    padding: 12px;
+  }
+  .pg-generation-detail {
     grid-template-columns: minmax(0, 1fr);
   }
   .pg-region-facts {
