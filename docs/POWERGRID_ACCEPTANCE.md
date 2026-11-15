@@ -87,21 +87,23 @@ PR #99 merged as `01c6ea20c437ce983fa5a261819f2a014d7998d4`. Candidate run [4366
 
 | Requirement                                                                   | Evidence target                                                                            | Status                                              |
 | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------- |
-| Source-backed wind turbine curve with explicit model identity and boundaries  | Attributed NREL reference curve; independent table-point/interpolation tests               | Implemented in candidate; hosted validation pending |
-| Editable chronological resource input and interval generation/energy readings | Browser input, recalculation, validation, save/reload and content-checked JSON/CSV exports | Implemented in candidate; hosted validation pending |
-| Four-language user workflow and documented limits                             | UI translations, Help coverage, curriculum and user guide                                  | Implemented in candidate; hosted validation pending |
+| Source-backed wind turbine curve with explicit model identity and boundaries  | Attributed NREL reference curve; independent table-point/interpolation tests               | Deployed; candidate and exact-main gates passed |
+| Editable chronological resource input and interval generation/energy readings | Browser input, recalculation, validation, save/reload and content-checked JSON/CSV exports | Deployed; browser and production-browser gates passed |
+| Four-language user workflow and documented limits                             | UI translations, Help coverage, curriculum and user guide                                  | Deployed; candidate, main and Pages gates passed |
 
-This slice uses user-entered equal-duration wind speeds and an analytical teaching sequence. It is not local weather, a commercial turbine guarantee, annual yield, battery dispatch or a complete regional scenario. The remaining Milestone 3 requirements stay open.
+PR #103 merged as `5270b8f413eaab814b942aac07bd41253ac08da5`. Candidate [43678810899](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43678810899), exact-main [43679336987](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43679336987) and Pages [43679767633](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43679767633) passed. The wind worksheet uses user-entered equal-duration speeds and an analytical teaching profile; it is not local weather, a commercial turbine guarantee or annual yield. It does not itself calculate dispatch or storage.
 
 ## Milestone 3 slice — chronological microgrid dispatch (PR #104)
 
 | Requirement                                                                  | Evidence target                                                            | Status                                           |
 | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------ |
-| Combine source-modelled PV/wind with equal-length demand profiles            | Existing PV/NREL wind calculators, validation and interval results         | Implemented locally; PR candidate checks pending |
-| Battery SOC, charge/discharge power, efficiency and reserve limits           | Independent numerical tests for limits, stored energy and SOC              | Implemented locally; tests pass                  |
-| Critical-load priority, curtailment, generic backup ramp-up and unmet demand | Explicit dispatch sequence and per-interval result model                   | Implemented locally; tests pass                  |
-| Interval energy accounting                                                   | Per-row residual and served/unserved identities                            | Implemented locally; targeted checks pass        |
-| Student workflow, isolated local saving and real JSON/CSV exports            | Browser acceptance for editing, validation, save/reload and export content | Implemented locally; browser acceptance pending  |
-| Help/Guide, four supported locales and release records                       | Help strings, workflow coverage, user guide and exact-main/Pages receipts  | In progress                                      |
+| Combine source-modelled PV/wind with equal-length demand profiles            | Existing PV/NREL wind calculators, validation and interval results         | Deployed; numerical and browser gates passed |
+| Battery SOC, charge/discharge power, efficiency and reserve limits           | Independent numerical tests for limits, stored energy and SOC              | Deployed; numerical tests passed |
+| Critical-load priority, curtailment, generic backup ramp-up and unmet demand | Explicit dispatch sequence and per-interval result model                   | Deployed; full browser and production-browser gates passed |
+| Interval energy accounting                                                   | Per-row residual and served/unserved identities                            | Deployed; numerical tests passed |
+| Student workflow, isolated local saving and real JSON/CSV exports            | Browser acceptance for editing, validation, save/reload and export content | Deployed; hosted browser gates passed |
+| Help/Guide, four supported locales and release records                       | Help strings, workflow coverage, user guide and release receipts           | Deployed in all four supported locales |
 
-The backup is only an explicitly generic dispatchable capacity ceiling with a ramp-up constraint; it is not a diesel or other source-specific generator model. The AC-bus schedule excludes feeder/transformer losses, imports/exports, fuel, costs, emissions and frequency response. This slice does not finish Milestone 3.
+PR #104 merged as `6ef06254a990309834d64c278ccc9af643c3e779`. Candidate [43688387269](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43688387269), exact-main [43695664239](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43695664239), and Pages [43696180077](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43696180077) passed; Pages artifact 14154640941 contains the deployed exact main SHA. Browser coverage exercises profile edits, input validation, local save/reload, JSON/CSV content and critical-load shortage results.
+
+The backup is only a generic dispatchable capacity ceiling with a ramp-up constraint; it is not a diesel or other source-specific generator model. The AC-bus schedule excludes feeder/transformer losses, imports/exports, fuel, costs, emissions, outages and frequency response. This slice does not finish Milestone 3.
