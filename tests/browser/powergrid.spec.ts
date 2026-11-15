@@ -194,6 +194,17 @@ test("PowerGrid direct hash, history, local save and real JSON/CSV exports", asy
   await expect(
     page.getByRole("heading", { name: "Why step up voltage?" }),
   ).toBeVisible();
+  const stationIllustration = page.getByRole("img", {
+    name: /Custom hydroelectric station illustration/,
+  });
+  await expect(stationIllustration).toBeVisible();
+  await expect
+    .poll(() =>
+      stationIllustration.evaluate(
+        (image) => (image as HTMLImageElement).naturalWidth,
+      ),
+    )
+    .toBeGreaterThan(0);
   await expect(page.getByText("437.4 A")).toBeVisible();
 
   await page.getByLabel("Transmitted real power (MW)").fill("120");
@@ -399,3 +410,4 @@ test("PV source model responds to inputs, saves a reference and exports results"
     page.getByText("Plane-of-array irradiance must be from 0 to 1500 W/m²."),
   ).toBeVisible();
 });
+

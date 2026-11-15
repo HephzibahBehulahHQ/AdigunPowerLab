@@ -583,6 +583,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
     steps: [
       "Select POWERGRID LAB in the top bar or enter #POWERGRID in the address bar. The exact hash opens the lab directly; refresh keeps it open and browser Back/Forward follows route changes.",
       "Scroll to the hydro station cutaway. Select Reservoir, trash rack, intake gate, penstock, draft tube, turbine, generator, transformer, control house/SCADA, breaker, disconnector, CT/VT, surge arrester, busbar, tower, conductors or earth grid. The inspection card names the equipment, explains its job and identifies its shown terminals. Keyboard users can Tab to a device and press Enter or Space.",
+      "The custom hydro overview depicts the dam water path, turbine-generator, transformer, switchyard, transmission and consumer destinations. It is a teaching illustration; use the interactive schematic below it for labeled connections and terminals.",
       "In the upper view, follow water from reservoir and trash rack through the intake gate and penstock to the Francis runner; follow the shaft to the generator. The separate lower one-line shows the electrical path through the generator, step-up transformer, three-pole breaker, CT, busbar and transmission conductors.",
       "Read the phase labels and colors as schematic conductor identifiers. At the source, the example brings out generator star point N and grounds it through an impedance; generator-frame PE is separately bonded to station earth. The overhead shield wire also has its own path to tower footing. The illustrated high-voltage line has three phases and no neutral conductor.",
       "The cutaway shows an illustrative generator wye and delta/grounded-star transformer arrangement, not an as-built station. Real terminal boards, transformer vector groups, neutral grounding, ratings and bay layouts vary; inspect the actual machine and project drawings before applying this example.",
@@ -731,3 +732,4 @@ export function searchHelp(
     .slice(0, count)
     .map((entry) => entry.topic);
 }
+

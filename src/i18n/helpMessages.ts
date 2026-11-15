@@ -880,6 +880,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Lọ sí àwòrán ibùdó hydro. Yan reservoir, trash rack, intake gate, penstock, draft tube, turbine, generator, transformer, control house/SCADA, breaker, disconnector, CT/VT, surge arrester, busbar, tower, conductor tàbí earth grid. Káàdì àlàyé ń sọ orúkọ ẹrọ, iṣẹ́ rẹ̀ àti terminal rẹ̀. Lo Tab láti dé ẹrọ; tẹ Enter tàbí Space.",
       "Go to di hydro station cutaway. Select reservoir, rack, intake gate, penstock, draft tube, turbine, generator, transformer, control house/SCADA, breaker, disconnector, CT/VT, surge arrester, busbar, tower, wires or earth grid. Di info card names each equipment, wetin e do and terminals we show. Use Tab to reach am; press Enter or Space.",
     ],
+  "The custom hydro overview depicts the dam water path, turbine-generator, transformer, switchyard, transmission and consumer destinations. It is a teaching illustration; use the interactive schematic below it for labeled connections and terminals.":
+    [
+      "Die eigens erstellte Wasserkraft-Übersicht zeigt den Wasserweg am Damm, Turbine und Generator, Transformator, Schaltanlage, Übertragung und Verbraucher. Sie dient dem Unterricht; die interaktive Schaltung darunter zeigt beschriftete Verbindungen und Klemmen.",
+      "Àkótán hydro àtilẹ̀wá fi ọ̀nà omi damu, turbine-generator, transformer, switchyard, transmission àti ibi àwọn oníbàárà hàn. Àwòrán ẹ̀kọ́ ni; lo schematic tó lè ṣiṣẹ́ ní ìsàlẹ̀ fún asopọ àti terminal tó ní àmì.",
+      "Di custom hydro overview show dam water path, turbine-generator, transformer, switchyard, transmission and consumer. Na teaching picture; use di interactive schematic under am to see labeled connections and terminals.",
+    ],
   "In the upper view, follow water from reservoir and trash rack through the intake gate and penstock to the Francis runner; follow the shaft to the generator. The separate lower one-line shows the electrical path through the generator, step-up transformer, three-pole breaker, CT, busbar and transmission conductors.":
     [
       "Folgen Sie oben dem Wasser vom Stausee und Rechen durch Einlauftor und Druckleitung zum Francis-Laufrad; dann der Welle zum Generator. Die getrennte Einliniendarstellung darunter zeigt den Stromweg über Generator, Maschinentransformator, dreipoligen Leistungsschalter, Stromwandler, Sammelschiene und Freileitung.",
@@ -971,3 +977,4 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "For 100 MW, PF 1, 5 Ω/phase, 132 kV gives about 437.4 A and 2.87 MW line loss. For 330 kV, same simple assumptions gives about 175 A and 0.459 MW loss.",
     ],
 };
+

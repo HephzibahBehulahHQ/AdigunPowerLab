@@ -3449,6 +3449,26 @@ details p {
   font-weight: 750;
   letter-spacing: 0.06em;
 }
+.pg-station-illustration {
+  margin: 0 0 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #0b1723;
+}
+.pg-station-illustration img {
+  display: block;
+  width: 100%;
+  height: clamp(230px, 38vw, 520px);
+  object-fit: cover;
+  object-position: center 54%;
+}
+.pg-station-illustration figcaption {
+  padding: 10px 14px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
 .pg-station-scroll {
   max-width: 100%;
   overflow: auto;
@@ -4144,3 +4164,4 @@ details p {
     grid-template-columns: 1fr;
   }
 }
+
