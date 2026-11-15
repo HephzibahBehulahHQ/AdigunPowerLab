@@ -363,7 +363,10 @@ export default function SpatialView({
         </button>
       </div>
       <Field label={t("Inspect spatial object")}>
-        <select value={synchronizedSelection} onChange={(e) => select(e.target.value)}>
+        <select
+          value={synchronizedSelection}
+          onChange={(e) => select(e.target.value)}
+        >
           <option value="">{t("Select object")}</option>
           {nodes.map((node) => (
             <option key={node.id} value={node.id}>
