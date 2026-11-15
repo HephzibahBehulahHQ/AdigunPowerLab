@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import type { ReactNode } from "react";
 import { LanguageContext } from "../i18n";
 import type { Locale } from "../i18n";
+import { PowerGridEquipmentGallery } from "./PowerGridEquipmentGallery";
 
 type EquipmentId =
   | "reservoir"
@@ -554,6 +555,10 @@ const equipment: Record<Locale, Record<EquipmentId, Equipment>> = {
 const names = {
   en: {
     title: "Hydroelectric generating station · teaching cutaway",
+    visualAlt:
+      "Custom hydroelectric station illustration: water spills through a dam intake and penstock to turn a turbine coupled to a generator; power continues through a step-up transformer, switchyard, transmission towers, receiving substation and distribution to a home and industry.",
+    visualCaption:
+      "Hydro station overview · custom teaching illustration. Equipment appearance is illustrative; inspect the labeled schematic below for the electrical connection and terminals.",
     physical: "PHYSICAL POWERHOUSE AND SWITCHYARD · illustrative layout",
     circuit: "THREE-PHASE ELECTRICAL PATH · one teaching connection",
     select:
@@ -574,6 +579,10 @@ const names = {
   },
   de: {
     title: "Wasserkraftwerk · Lehrschnitt",
+    visualAlt:
+      "Eigene Illustration eines Wasserkraftwerks: Wasser fließt vom Damm durch Einlauf und Druckrohrleitung zur Turbine mit Generator; danach folgen Maschinentransformator, Schaltanlage, Freileitung, Umspannwerk und Verteilung zu Wohnhaus und Industrie.",
+    visualCaption:
+      "Überblick Wasserkraftwerk · eigene Lehrillustration. Das Aussehen der Betriebsmittel ist beispielhaft; die beschriftete Schaltung unten zeigt Anschlüsse und Klemmen.",
     physical: "KRAFTHAUS UND SCHALTANLAGE · beispielhafte Anordnung",
     circuit: "DREIPHASIGER STROMPFAD · Lehrschaltung",
     select: "Maschine oder Verbindung für Funktion und Klemmen auswählen.",
@@ -593,6 +602,10 @@ const names = {
   },
   yo: {
     title: "Ibùdó hydroelectric · àwòrán gígé ẹ̀kọ́",
+    visualAlt:
+      "Àwòrán ibùdó hydroelectric: omi gba ẹnu-ọ̀nà damu àti penstock wọlé láti yí turbine tí ó so mọ́ generator; agbára kọjá step-up transformer, switchyard, àwọn ile-iṣọ transmission, receiving substation àti distribution sí ilé àti ilé-iṣẹ́.",
+    visualCaption:
+      "Àkótán ibùdó hydro · àwòrán ẹ̀kọ́ àtilẹ̀wá. Irisi ẹrọ jẹ́ àpẹẹrẹ; wo schematic tó ní àmì ní ìsàlẹ̀ fún asopọ itanna àti terminals.",
     physical: "POWERHOUSE ÀTI SWITCHYARD · àpẹẹrẹ ìṣètò",
     circuit: "Ọ̀NÀ INÁ ALÁFÀSẸ́ MẸ́TA · àpẹẹrẹ ẹ̀kọ́",
     select: "Yan ẹrọ tàbí asopọ láti ṣàyẹ̀wò iṣẹ́ àti terminal rẹ̀.",
@@ -612,6 +625,10 @@ const names = {
   },
   pcm: {
     title: "Hydroelectric station · teaching cutaway",
+    visualAlt:
+      "Custom hydro station illustration: water passes through dam intake and penstock, turns a turbine connected to generator, then goes through step-up transformer, switchyard, transmission towers, receiving substation and distribution to house and industry.",
+    visualCaption:
+      "Hydro station overview · custom teaching illustration. Equipment appearance na example; the labeled schematic below shows the real electrical path and terminals.",
     physical: "POWERHOUSE AND SWITCHYARD · illustrative layout",
     circuit: "THREE-PHASE ELECTRIC PATH · sample connection",
     select: "Select machine or wire to check function and terminals.",
@@ -686,6 +703,15 @@ export function HydroStationScene({ locale }: { locale: keyof typeof names }) {
         </div>
         <span className="pg-station-disclaimer">{text.disclaimer}</span>
       </header>
+      <figure className="pg-station-illustration">
+        <img
+          src="/assets/powergrid-hydro-station-illustration.png"
+          alt={text.visualAlt}
+          loading="eager"
+          decoding="async"
+        />
+        <figcaption>{text.visualCaption}</figcaption>
+      </figure>
       <div
         className="pg-station-scroll"
         role="region"
@@ -1300,6 +1326,7 @@ export function HydroStationScene({ locale }: { locale: keyof typeof names }) {
         </p>
       </div>
       <p className="pg-station-screenreader">{text.select}</p>
+      <PowerGridEquipmentGallery />
     </section>
   );
 }

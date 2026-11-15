@@ -1,5 +1,444 @@
 /** English keys with German, Yoruba and Nigerian Pidgin translations. */
 export const helpMessages: Record<string, [string, string, string]> = {
+  "Steam and gas generation equipment": [
+    "Dampf- und Gas-Kraftwerksausrüstung",
+    "Ẹ̀rọ steam àti gas generation",
+    "Steam and gas generation equipment",
+  ],
+  "Thermal plant training view · gas and steam turbine-generator train": [
+    "Lehransicht Wärmekraftwerk · Gas- und Dampfturbinen mit Generator",
+    "Àwòrán thermal plant · gas àti steam turbine-generator train",
+    "Thermal plant training view · gas and steam turbine-generator train",
+  ],
+  "Combined-cycle power hall showing a gas turbine, heat-recovery boiler, steam turbine, condenser pipework and generator.":
+    [
+      "Kraftwerkshalle im Kombikraftwerk mit Gasturbine, Abhitzekessel, Dampfturbine, Kondensatorleitungen und Generator.",
+      "Ilé combined-cycle tó ní gas turbine, heat-recovery boiler, steam turbine, condenser pipes àti generator.",
+      "Combined-cycle plant with gas turbine, heat-recovery boiler, steam turbine, condenser pipes and generator.",
+    ],
+  "Gas turbine compressor, combustor and expander": [
+    "Gasturbinenverdichter, Brennkammer und Turbine",
+    "Compressor, combustor àti expander gas turbine",
+    "Gas turbine compressor, combustor and expander",
+  ],
+  "The compressor raises air pressure, combustion adds heat, and expanding gas turns the turbine shaft.":
+    [
+      "Der Verdichter erhöht den Luftdruck, die Verbrennung fügt Wärme hinzu und expandierendes Gas treibt die Turbinenwelle an.",
+      "Compressor ń gbé air pressure sókè, combustion ń fi ooru kún un, gas tó ń fẹ̀ síta sì ń yí shaft turbine.",
+      "Compressor raise air pressure, combustion add heat, expanding gas turn turbine shaft.",
+    ],
+  "Boiler or heat-recovery steam generator": [
+    "Kessel oder Abhitzedampferzeuger",
+    "Boiler tàbí heat-recovery steam generator",
+    "Boiler or heat-recovery steam generator",
+  ],
+  "A boiler supplies steam from fuel heat; a heat-recovery unit uses turbine exhaust to raise steam in a combined-cycle plant.":
+    [
+      "Ein Kessel erzeugt Dampf aus Brennstoffwärme; ein Abhitzekessel nutzt Turbinenabgas zur Dampferzeugung im Kombikraftwerk.",
+      "Boiler ń lo ooru fuel láti pèsè steam; heat-recovery unit ń lo exhaust turbine láti gbé steam jáde nínú combined-cycle plant.",
+      "Boiler use fuel heat to make steam; heat-recovery unit use turbine exhaust to raise steam in combined-cycle plant.",
+    ],
+  "Steam turbine and shaft coupling": [
+    "Dampfturbine und Wellenkupplung",
+    "Steam turbine àti shaft coupling",
+    "Steam turbine and shaft coupling",
+  ],
+  "Steam expansion turns turbine stages that transmit mechanical torque through a coupled shaft to the generator.":
+    [
+      "Dampfausdehnung treibt Turbinenstufen an, die über die gekoppelte Welle Drehmoment an den Generator übertragen.",
+      "Ìfẹ̀ steam ń yí turbine stages, wọ́n sì ń gbé torque lọ sí generator láti shaft tó so pọ̀.",
+      "Steam expansion turn turbine stages; coupled shaft carry torque to generator.",
+    ],
+  "Condenser and cooling-water system": [
+    "Kondensator und Kühlwassersystem",
+    "Condenser àti cooling-water system",
+    "Condenser and cooling-water system",
+  ],
+  "The condenser returns exhaust steam to water and rejects heat through the plant's designed cooling system.":
+    [
+      "Der Kondensator verflüssigt Abdampf; das Kühlsystem führt Wärme gemäß der Anlagenplanung ab.",
+      "Condenser ń dá exhaust steam padà sí omi, cooling system sì ń tú ooru jáde gẹ́gẹ́ bí àpẹẹrẹ plant.",
+      "Condenser turn exhaust steam back to water; cooling system reject heat as designed.",
+    ],
+  "Governor, generator and excitation": [
+    "Regler, Generator und Erregung",
+    "Governor, generator àti excitation",
+    "Governor, generator and excitation",
+  ],
+  "Controls regulate prime-mover power and generator field; protection trips the unit when configured limits are exceeded.":
+    [
+      "Regler steuern Antriebsleistung und Generatorfeld; der Schutz schaltet das Aggregat bei Überschreitung festgelegter Grenzen ab.",
+      "Controls ń ṣàkóso power prime mover àti generator field; protection ń trip unit tí a bá kọjá limit tó wà.",
+      "Controls regulate prime-mover power and generator field; protection trip the unit past set limits.",
+    ],
+  "FIELD REFERENCE": ["PRAXISREFERENZ", "ÌTỌ́KASÍ IṢẸ́", "FIELD REFERENCE"],
+  "Equipment used from generation to the consumer": [
+    "Betriebsmittel von der Erzeugung bis zum Verbraucher",
+    "Ẹ̀rọ láti ìṣẹ̀dá agbára dé ọ̀dọ̀ oníbàárà",
+    "Equipment from generation reach consumer",
+  ],
+  "Study each station view, then match the equipment checklist to the selectable electrical schematic above. These are custom training illustrations, not photographs of an identified operating site.":
+    [
+      "Sehen Sie sich jede Stationsansicht an und gleichen Sie die Betriebsmittelliste mit dem auswählbaren Stromlaufplan oben ab. Dies sind eigens erstellte Lehrillustrationen, keine Fotos eines bestimmten Betriebsstandorts.",
+      "Ṣàyẹ̀wò àwòrán ibùdó kọ̀ọ̀kan, kí o sì fi àkójọ ẹ̀rọ wé schematic itanna tó wà lókè. Àwọn àwòrán ẹ̀kọ́ àtilẹ̀wá ni, kì í ṣe fọ́tò ibùdó iṣẹ́ kan pàtó.",
+      "Study each station view, then match di equipment checklist to di electrical schematic above. Na custom training illustrations, no be photos of one named operating site.",
+    ],
+  "Generation plant equipment": [
+    "Betriebsmittel des Kraftwerks",
+    "Ẹ̀rọ ilé-iṣẹ́ ìṣẹ̀dá agbára",
+    "Generation plant equipment",
+  ],
+  "Step-up transformer and switchyard": [
+    "Maschinentransformator und Schaltanlage",
+    "Transformer step-up àti switchyard",
+    "Step-up transformer and switchyard",
+  ],
+  "Transmission line and receiving substation": [
+    "Übertragungsleitung und Empfangs-Umspannwerk",
+    "Wáyà gbigbe àti receiving substation",
+    "Transmission line and receiving substation",
+  ],
+  "Distribution and customer equipment": [
+    "Verteilnetz und Kundenanlagen",
+    "Distribution àti ẹ̀rọ oníbàárà",
+    "Distribution and customer equipment",
+  ],
+  "Safety and test instruments": [
+    "Sicherheits- und Prüfgeräte",
+    "Ẹ̀rọ ààbò àti ìdánwò",
+    "Safety and test instruments",
+  ],
+  "Powerhouse training view · hydro turbine-generator set": [
+    "Lehransicht Kraftwerk · Wasserturbine und Generator",
+    "Àwòrán ilé agbára · hydro turbine àti generator",
+    "Powerhouse training view · hydro turbine-generator set",
+  ],
+  "Switchyard training view · transformer and primary equipment": [
+    "Lehransicht Schaltanlage · Transformator und Primärgeräte",
+    "Àwòrán switchyard · transformer àti ẹ̀rọ primary",
+    "Switchyard training view · transformer and primary equipment",
+  ],
+  "Line-side training view · tower, phase conductors and substation gantry": [
+    "Lehransicht Leitung · Mast, Phasenleiter und Umspannwerksportal",
+    "Àwòrán transmission · tower, phase wires àti gantry",
+    "Line-side training view · tower, phase conductors and substation gantry",
+  ],
+  "Distribution training view · pole transformer, service entry and motor load":
+    [
+      "Lehransicht Verteilung · Masttransformator, Hausanschluss und Motorlast",
+      "Àwòrán distribution · pole transformer, service àti motor load",
+      "Distribution training view · pole transformer, service entry and motor load",
+    ],
+  "Safe test-bench training view · instruments and protective equipment": [
+    "Sichere Lehransicht Prüfplatz · Messgeräte und Schutzausrüstung",
+    "Àwòrán ààbò test bench · meters àti ohun èlò ìdáàbòbò",
+    "Safe test-bench training view · meters and protective equipment",
+  ],
+  "Hydroelectric powerhouse with a large synchronous generator, shaft, turbine casing, controls and an engineer for scale.":
+    [
+      "Wasserkraftwerk mit großem Synchrongenerator, Welle, Turbinengehäuse, Steuerung und Person als Größenvergleich.",
+      "Powerhouse hydro pẹ̀lú synchronous generator ńlá, shaft, turbine casing, controls àti engineer fún ìfiwéra ìwọ̀n.",
+      "Hydro powerhouse with big generator, shaft, turbine casing, controls and engineer for scale.",
+    ],
+  "Large power transformer with bushings, radiators, control cabinet and outdoor switchyard equipment.":
+    [
+      "Großer Transformator mit Durchführungen, Kühlern, Schaltschrank und Außenschaltanlage.",
+      "Power transformer ńlá pẹ̀lú bushings, radiators, control cabinet àti switchyard.",
+      "Big transformer with bushings, radiators, control cabinet and switchyard equipment.",
+    ],
+  "Lattice transmission tower connected to a fenced high-voltage substation with insulators and switchgear.":
+    [
+      "Gittermast an einem eingezäunten Hochspannungs-Umspannwerk mit Isolatoren und Schaltgeräten.",
+      "Lattice transmission tower tó so mọ́ substation HV tó ní fence, insulators àti switchgear.",
+      "Lattice tower linked to fenced high-voltage substation with insulators and switchgear.",
+    ],
+  "Distribution pole transformer and overhead feeder serving a house and industrial motor facility.":
+    [
+      "Verteiltransformator am Mast und Freileitung versorgen Wohnhaus und industriellen Motorbetrieb.",
+      "Pole distribution transformer àti overhead feeder ń pèsè ilé àti motor ilé-iṣẹ́.",
+      "Pole transformer and overhead feeder serving a house and industry motor.",
+    ],
+  "Electrical training bench with multimeter, clamp meter, insulation tester, relay test set, PPE and isolated training panel.":
+    [
+      "Elektrotechnischer Prüfplatz mit Multimeter, Stromzange, Isolationstester, Relaisprüfgerät, Schutzkleidung und freigeschaltetem Übungsfeld.",
+      "Electric test bench pẹ̀lú multimeter, clamp meter, insulation tester, relay test set, PPE àti panel ìdánwò tó ya sọ́tọ̀.",
+      "Electrical training bench with meter, clamp meter, insulation and relay testers, PPE and isolated panel.",
+    ],
+  "Dam intake, trash rack and gate": [
+    "Dammeinlauf, Rechen und Schütz",
+    "Ẹnu damu, trash rack àti gate",
+    "Dam intake, trash rack and gate",
+  ],
+  "The intake admits water, the rack screens debris and the gate regulates flow into the waterway.":
+    [
+      "Der Einlauf führt Wasser zu, der Rechen hält Treibgut zurück und das Schütz regelt den Zufluss in den Wasserweg.",
+      "Intake gba omi wọlé, rack dá ohun àjẹkù dúró, gate sì ń ṣàkóso ìṣàn sínú ọ̀nà omi.",
+      "Intake bring water in, rack catch debris, gate control water flow.",
+    ],
+  "Penstock, wicket gates and draft tube": [
+    "Druckrohrleitung, Leitschaufeln und Saugrohr",
+    "Penstock, wicket gates àti draft tube",
+    "Penstock, guide vanes and draft tube",
+  ],
+  "The penstock delivers pressurized water, guide vanes control its entry to the runner, and the draft tube returns discharge to the tailrace.":
+    [
+      "Die Druckrohrleitung führt Wasser unter Druck; Leitschaufeln steuern den Zulauf zum Laufrad und das Saugrohr leitet Wasser in den Unterwasserkanal.",
+      "Penstock gbé omi pẹ̀lú pressure; guide vanes ṣàkóso omi sí runner, draft tube sì dá omi padà sí tailrace.",
+      "Penstock carry pressured water, guide vanes control flow to runner, draft tube return water to tailrace.",
+    ],
+  "Turbine runner, shaft and governor": [
+    "Turbinenlaufrad, Welle und Regler",
+    "Runner turbine, shaft àti governor",
+    "Turbine runner, shaft and governor",
+  ],
+  "The runner converts water energy to shaft torque; the governor adjusts guide-vane position to control speed and output.":
+    [
+      "Das Laufrad wandelt Wasserenergie in Wellendrehmoment um; der Regler stellt Leitschaufeln zur Drehzahl- und Leistungsregelung nach.",
+      "Runner yí agbára omi sí torque shaft; governor ń ṣàtúnṣe guide vanes láti ṣàkóso speed àti output.",
+      "Runner turn water energy to shaft torque; governor adjust guide vanes to control speed and output.",
+    ],
+  "Synchronous generator: stator, rotor and terminals": [
+    "Synchrongenerator: Stator, Rotor und Klemmen",
+    "Synchronous generator: stator, rotor àti terminals",
+    "Synchronous generator: stator, rotor and terminals",
+  ],
+  "The driven rotor field induces three-phase voltage in the stator; terminal boards identify the machine leads and any neutral point.":
+    [
+      "Das erregte Rotorfeld induziert Dreiphasenspannung im Stator; Klemmenbretter kennzeichnen Maschinenanschlüsse und gegebenenfalls den Neutralpunkt.",
+      "Rotor field ń dá voltage phase mẹ́ta sí stator; terminal board ń fi àwọn lead àti neutral hàn.",
+      "Rotor field induce three-phase voltage in stator; terminals identify machine leads and neutral point.",
+    ],
+  "Exciter, AVR, bearings and cooling": [
+    "Erregereinrichtung, AVR, Lager und Kühlung",
+    "Exciter, AVR, bearings àti cooling",
+    "Exciter, AVR, bearings and cooling",
+  ],
+  "The excitation system supplies and regulates rotor field current; bearing lubrication and cooling systems manage mechanical and thermal limits.":
+    [
+      "Die Erregung versorgt und regelt den Rotorfeldstrom; Lagerschmierung und Kühlung halten mechanische und thermische Grenzen ein.",
+      "Excitation system ń pèsè àti ṣàkóso rotor field current; lubrication àti cooling ń ṣàkóso ìwọ̀n ooru àti ìrìn ẹrọ.",
+      "Excitation supply and control rotor field current; lubrication and cooling manage heat and moving parts.",
+    ],
+  "Generator step-up transformer and bushings": [
+    "Generator-Maschinentransformator und Durchführungen",
+    "Transformer step-up àti bushings",
+    "Generator step-up transformer and bushings",
+  ],
+  "The transformer raises generator voltage for transmission; bushings bring insulated winding terminals through the grounded tank.":
+    [
+      "Der Transformator erhöht die Generatorspannung für die Übertragung; Durchführungen führen isolierte Wicklungsanschlüsse durch den geerdeten Kessel.",
+      "Transformer gbé voltage generator sókè fún transmission; bushings mú winding terminals kọjá tank tó ní earth.",
+      "Transformer raise generator voltage for transmission; bushings carry winding connections through grounded tank.",
+    ],
+  "Tap changer, conservator and radiators": [
+    "Stufenschalter, Ausdehnungsgefäß und Kühler",
+    "Tap changer, conservator àti radiators",
+    "Tap changer, conservator and radiators",
+  ],
+  "A tap changer adjusts the turns ratio within its design; the oil system and radiators transfer heat away from the windings.":
+    [
+      "Ein Stufenschalter verändert das Übersetzungsverhältnis innerhalb seiner Auslegung; Ölkreislauf und Kühler führen Wärme aus den Wicklungen ab.",
+      "Tap changer ń ṣàtúnṣe ratio winding gẹ́gẹ́ bí àpẹẹrẹ rẹ̀; oil àti radiator ń gbé ooru kúrò ní winding.",
+      "Tap changer adjust turns ratio within design; oil and radiators move heat from windings.",
+    ],
+  "Buchholz relay and pressure relief": [
+    "Buchholz-Relais und Druckentlastung",
+    "Buchholz relay àti pressure relief",
+    "Buchholz relay and pressure relief",
+  ],
+  "On suitable conservator-type units, the Buchholz relay detects gas or oil movement; pressure devices limit tank overpressure.":
+    [
+      "Bei geeigneten Transformatoren mit Ausdehnungsgefäß erkennt das Buchholz-Relais Gas- oder Ölbewegungen; Druckgeräte begrenzen Überdruck im Kessel.",
+      "Lórí transformer tó ní conservator, Buchholz relay ń rí gas tàbí ìṣàn oil; pressure device ń dín pressure tó pọ̀ jù lọ kù.",
+      "On suitable conservator units, Buchholz relay detect gas or oil movement; pressure devices limit tank pressure.",
+    ],
+  "Surge arresters, CTs and VTs": [
+    "Überspannungsableiter, Strom- und Spannungswandler",
+    "Surge arresters, CT àti VT",
+    "Surge arresters, CTs and VTs",
+  ],
+  "Arresters limit transient overvoltage; current and voltage transformers provide scaled signals for metering and protection.":
+    [
+      "Ableiter begrenzen transiente Überspannungen; Strom- und Spannungswandler liefern angepasste Messsignale für Messung und Schutz.",
+      "Arresters dín transient overvoltage kù; CT àti VT pèsè signal tó yẹ fún meter àti protection.",
+      "Arresters limit voltage surges; CT and VT give scaled signals for meters and protection.",
+    ],
+  "Breakers, disconnectors, earth switches and busbars": [
+    "Leistungsschalter, Trenner, Erdungsschalter und Sammelschienen",
+    "Breakers, disconnectors, earth switches àti busbars",
+    "Breakers, disconnectors, earth switches and busbars",
+  ],
+  "Breakers interrupt load or fault current; disconnectors isolate a visible gap; earth switches bond an isolated section; busbars join bays.":
+    [
+      "Leistungsschalter schalten Last- oder Fehlerstrom; Trenner schaffen die sichtbare Trennstrecke; Erdungsschalter erden freigeschaltete Teile; Sammelschienen verbinden Felder.",
+      "Breaker gé load tàbí fault current; disconnector ya circuit sọ́tọ̀; earth switch so apá tí a ya mọ́ earth; busbar so bays pọ̀.",
+      "Breaker interrupt current; disconnector isolate; earth switch earth an isolated section; busbar join bays.",
+    ],
+  "Phase conductors, clamps and bundle spacers": [
+    "Phasenleiter, Klemmen und Bündelabstandhalter",
+    "Phase wires, clamps àti bundle spacers",
+    "Phase conductors, clamps and bundle spacers",
+  ],
+  "Conductors carry three-phase power; clamps attach them to strings and spacers hold bundled sub-conductors apart.":
+    [
+      "Leiter führen Dreiphasenstrom; Klemmen befestigen sie an Isolatorketten und Abstandhalter trennen Teilseile im Bündel.",
+      "Wires ń gbé agbára phase mẹ́ta; clamps so wọ́n mọ́ insulator, spacers sì yà àwọn wires inú bundle sí ọ̀tọ̀.",
+      "Conductors carry three-phase power; clamps attach them and spacers keep bundled wires apart.",
+    ],
+  "Insulator strings and tower crossarms": [
+    "Isolatorketten und Traversen",
+    "Insulator strings àti tower crossarms",
+    "Insulator strings and tower crossarms",
+  ],
+  "Insulators support energized conductors while separating them electrically from the grounded steel structure.":
+    [
+      "Isolatoren tragen spannungsführende Leiter und trennen sie elektrisch vom geerdeten Stahlmast.",
+      "Insulators gbé wires tó ní voltage sókè, wọ́n sì yà wọ́n kúrò ní steel tower tó ní earth.",
+      "Insulators support live wires and isolate them from grounded steel tower.",
+    ],
+  "Lattice tower, shield wire and OPGW": [
+    "Gittermast, Erdseil und OPGW",
+    "Lattice tower, shield wire àti OPGW",
+    "Lattice tower, shield wire and OPGW",
+  ],
+  "The tower maintains clearances; a shield wire intercepts lightning and an OPGW version can also carry communications fibres.":
+    [
+      "Der Mast hält Abstände ein; ein Erdseil fängt Blitze ab und eine OPGW-Ausführung kann zusätzlich Glasfasern führen.",
+      "Tower ń pa clearance mọ́; shield wire ń gba mànàmáná, OPGW sì lè gbé fiber communication náà.",
+      "Tower keep clearance; shield wire catch lightning and OPGW can carry communication fibre.",
+    ],
+  "Tower footing and station earth grid": [
+    "Mastfundamenterder und Stations-Erdungsnetz",
+    "Tower footing àti station earth grid",
+    "Tower footing and station earth grid",
+  ],
+  "Bonded electrodes provide a path for lightning and fault current; actual touch and step voltages require site-specific study.":
+    [
+      "Verbundene Erder führen Blitz- und Fehlerstrom ab; tatsächliche Berührungs- und Schrittspannungen erfordern eine standortspezifische Studie.",
+      "Earth electrodes so pọ̀ ń fún lightning àti fault current ní ọ̀nà; touch àti step voltage nílò ìwádìí site pàtó.",
+      "Bonded earth rods carry lightning and fault current; touch and step voltage need a site-specific study.",
+    ],
+  "Line protection relays and communications": [
+    "Leitungsschutzrelais und Kommunikation",
+    "Line protection relay àti communication",
+    "Line protection relays and communications",
+  ],
+  "Relays use CT/VT signals to detect abnormal conditions and command breakers; communications support remote protection and control.":
+    [
+      "Relais erkennen über Strom- und Spannungswandlersignale Fehler und steuern Schalter; Kommunikation unterstützt Fernschutz und Fernsteuerung.",
+      "Relay ń lo CT/VT signal láti rí fault, ó sì ń pàṣẹ fún breaker; communication ń ṣètìlẹ́yìn fún remote protection àti control.",
+      "Relays use CT/VT to find faults and trip breakers; communications support remote protection and control.",
+    ],
+  "Receiving transformer and medium-voltage bus": [
+    "Einspeisetransformator und Mittelspannungssammelschiene",
+    "Receiving transformer àti medium-voltage bus",
+    "Receiving transformer and medium-voltage bus",
+  ],
+  "A receiving transformer reduces transmission voltage to a sub-transmission or distribution level feeding outgoing bays.":
+    [
+      "Ein Einspeisetransformator senkt die Übertragungsspannung auf Unterübertragungs- oder Verteilnetzebene für abgehende Felder.",
+      "Receiving transformer ń dín transmission voltage kù sí sub-transmission tàbí distribution fún outgoing bays.",
+      "Receiving transformer reduce transmission voltage for outgoing network feeders.",
+    ],
+  "Feeder breaker, recloser, sectionalizer and fuse": [
+    "Abgangsschalter, Wiedereinschalter, Abschnittsschalter und Sicherung",
+    "Feeder breaker, recloser, sectionalizer àti fuse",
+    "Feeder breaker, recloser, sectionalizer and fuse",
+  ],
+  "These devices clear or isolate faults on coordinated sections; ratings and settings must match the utility study.":
+    [
+      "Diese Geräte schalten Fehler in abgestimmten Netzabschnitten ab oder isolieren sie; Nennwerte und Einstellungen müssen zur Netzstudie passen.",
+      "Àwọn ẹ̀rọ wọ̀nyí ń gé fault tàbí ya apá feeder sọ́tọ̀; ratings àti settings gbọ́dọ̀ bá utility study mu.",
+      "These devices clear or isolate feeder faults; ratings and settings must follow the network study.",
+    ],
+  "Distribution transformer and feeder pillar": [
+    "Verteiltransformator und Kabelverteilerschrank",
+    "Distribution transformer àti feeder pillar",
+    "Distribution transformer and feeder pillar",
+  ],
+  "The transformer supplies local low-voltage service; a feeder pillar divides and protects outgoing low-voltage circuits.":
+    [
+      "Der Transformator versorgt das lokale Niederspannungsnetz; der Kabelverteilerschrank teilt und schützt abgehende Stromkreise.",
+      "Transformer ń pèsè low voltage agbègbè; feeder pillar pín àwọn circuit tó ń jáde, ó sì ń dáàbò bo wọ́n.",
+      "Transformer supply local low voltage; feeder pillar split and protect outgoing circuits.",
+    ],
+  "Voltage regulator, capacitor bank and meter": [
+    "Spannungsregler, Kondensatorbatterie und Zähler",
+    "Voltage regulator, capacitor bank àti meter",
+    "Voltage regulator, capacitor bank and meter",
+  ],
+  "Regulators adjust feeder voltage, capacitors support reactive power locally, and meters record delivered energy and demand.":
+    [
+      "Regler stellen die Abgangsspannung ein, Kondensatoren stützen lokal die Blindleistung und Zähler erfassen Energie und Leistung.",
+      "Regulator ń ṣàtúnṣe voltage feeder, capacitors ń ṣètìlẹ́yìn fún reactive power, meter sì ń kọ energy àti demand sílẹ̀.",
+      "Regulators adjust feeder voltage, capacitors support reactive power and meters record energy and demand.",
+    ],
+  "House service, main board, MCC, motor and VFD": [
+    "Hausanschluss, Hauptverteiler, MCC, Motor und Frequenzumrichter",
+    "House service, main board, MCC, motor àti VFD",
+    "House service, main board, MCC, motor and VFD",
+  ],
+  "Service protection feeds final circuits; an industrial MCC controls motor feeders and a VFD varies motor speed and torque.":
+    [
+      "Der Hausanschlussschutz versorgt Endstromkreise; eine industrielle MCC steuert Motorabgänge und ein Frequenzumrichter regelt Drehzahl und Drehmoment.",
+      "Service protection ń pèsè final circuit; MCC ilé-iṣẹ́ ń ṣàkóso motor feeder, VFD sì ń yí speed àti torque motor padà.",
+      "Service protection feed final circuits; MCC controls motor feeders and VFD changes motor speed and torque.",
+    ],
+  "Digital multimeter and clamp meter": [
+    "Digitalmultimeter und Zangenamperemeter",
+    "Digital multimeter àti clamp meter",
+    "Digital multimeter and clamp meter",
+  ],
+  "A correctly rated meter measures voltage, resistance or continuity; a clamp meter measures current without opening the circuit.":
+    [
+      "Ein passend bemessenes Multimeter misst Spannung, Widerstand oder Durchgang; die Stromzange misst Strom ohne Auftrennen des Stromkreises.",
+      "Meter tó yẹ ń wọn voltage, resistance tàbí continuity; clamp meter ń wọn current láìsí ṣíṣí circuit.",
+      "A correctly rated meter check voltage, resistance or continuity; clamp meter check current without opening circuit.",
+    ],
+  "Insulation-resistance tester": [
+    "Isolationswiderstandsmessgerät",
+    "Insulation-resistance tester",
+    "Insulation-resistance tester",
+  ],
+  "The tester applies a specified test voltage to isolated equipment to assess insulation resistance; disconnect sensitive electronics first.":
+    [
+      "Das Gerät legt an freigeschaltete Anlagen eine definierte Prüfspannung zur Isolationsmessung an; empfindliche Elektronik vorher trennen.",
+      "Tester ń fi test voltage pàtó sí equipment tí a yà sọ́tọ̀ láti wọn insulation; yọ electronics tó rọrùn kúrò kọ́kọ́.",
+      "Tester apply a specified voltage to isolated equipment to check insulation; disconnect sensitive electronics first.",
+    ],
+  "Earth-resistance and phase-sequence testers": [
+    "Erdungswiderstands- und Drehfeldmessgerät",
+    "Earth-resistance àti phase-sequence testers",
+    "Earth-resistance and phase-sequence testers",
+  ],
+  "These check an earthing-electrode system and phase rotation using the instrument method and limits specified for the installation.":
+    [
+      "Sie prüfen Erdungselektroden und Phasenfolge nach dem für die Anlage festgelegten Messverfahren und Grenzwerten.",
+      "Wọ́n ń ṣàyẹ̀wò earth electrode àti phase rotation pẹ̀lú ọ̀nà ìwọ̀n àti limit tó wà fún installation náà.",
+      "They check earth electrodes and phase rotation using the method and limits specified for the installation.",
+    ],
+  "Relay injection set and voltage detector": [
+    "Relaisprüfgerät und Spannungsprüfer",
+    "Relay injection set àti voltage detector",
+    "Relay injection set and voltage detector",
+  ],
+  "A secondary-injection set checks relay response using isolated test signals; prove a voltage detector on a proving unit before and after use.":
+    [
+      "Ein Sekundärprüfgerät prüft Relais mit isolierten Signalen; einen Spannungsprüfer vor und nach dem Einsatz an einer Prüfeinrichtung verifizieren.",
+      "Secondary-injection set ń dán relay wò pẹ̀lú signal tó ya sọ́tọ̀; dán voltage detector lórí proving unit ṣáájú àti lẹ́yìn lílo.",
+      "Secondary injection check relay with isolated signals; prove voltage detector on a proving unit before and after use.",
+    ],
+  "Arc-rated PPE, lockout and portable earths": [
+    "Störlichtbogenschutz, Verriegelung und portable Erdung",
+    "Arc-rated PPE, lockout àti portable earths",
+    "Arc-rated PPE, lockout and portable earths",
+  ],
+  "Use task-rated PPE, isolation/lockout, prove-dead and approved earthing procedures under an authorized site safety plan.":
+    [
+      "Aufgabenbezogene Schutzkleidung, Freischaltung/Verriegelung, Spannungsfreiheitprüfung und zugelassene Erdungsverfahren nach Sicherheitsplan einsetzen.",
+      "Lo PPE tó yẹ, isolation/lockout, prove-dead àti earth procedure tí a fọwọ́ sí lábẹ́ site safety plan.",
+      "Use suitable PPE, isolation/lockout, prove-dead and approved earthing under the site safety plan.",
+    ],
   "Help & Support": [
     "Hilfe & Support",
     "Ìrànlọ́wọ́ àti àtìlẹ́yìn",
@@ -879,6 +1318,18 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Scrollen Sie zum Wasserkraft-Schnitt. Wählen Sie Stausee, Rechen, Einlauftor, Druckleitung, Saugrohr, Turbine, Generator, Transformator, Leitgebäude/SCADA, Leistungsschalter, Trenner, CT/VT, Überspannungsableiter, Sammelschiene, Mast, Leiter oder Erdungsnetz. Die Infokarte nennt das Gerät, seine Aufgabe und die gezeigten Klemmen. Mit Tab Gerät fokussieren und Enter oder Leertaste drücken.",
       "Lọ sí àwòrán ibùdó hydro. Yan reservoir, trash rack, intake gate, penstock, draft tube, turbine, generator, transformer, control house/SCADA, breaker, disconnector, CT/VT, surge arrester, busbar, tower, conductor tàbí earth grid. Káàdì àlàyé ń sọ orúkọ ẹrọ, iṣẹ́ rẹ̀ àti terminal rẹ̀. Lo Tab láti dé ẹrọ; tẹ Enter tàbí Space.",
       "Go to di hydro station cutaway. Select reservoir, rack, intake gate, penstock, draft tube, turbine, generator, transformer, control house/SCADA, breaker, disconnector, CT/VT, surge arrester, busbar, tower, wires or earth grid. Di info card names each equipment, wetin e do and terminals we show. Use Tab to reach am; press Enter or Space.",
+    ],
+  "The custom hydro overview depicts the dam water path, turbine-generator, transformer, switchyard, transmission and consumer destinations. It is a teaching illustration; use the interactive schematic below it for labeled connections and terminals.":
+    [
+      "Die eigens erstellte Wasserkraft-Übersicht zeigt den Wasserweg am Damm, Turbine und Generator, Transformator, Schaltanlage, Übertragung und Verbraucher. Sie dient dem Unterricht; die interaktive Schaltung darunter zeigt beschriftete Verbindungen und Klemmen.",
+      "Àkótán hydro àtilẹ̀wá fi ọ̀nà omi damu, turbine-generator, transformer, switchyard, transmission àti ibi àwọn oníbàárà hàn. Àwòrán ẹ̀kọ́ ni; lo schematic tó lè ṣiṣẹ́ ní ìsàlẹ̀ fún asopọ àti terminal tó ní àmì.",
+      "Di custom hydro overview show dam water path, turbine-generator, transformer, switchyard, transmission and consumer. Na teaching picture; use di interactive schematic under am to see labeled connections and terminals.",
+    ],
+  "Below the interactive station drawing, the image checklist covers the generator and excitation plant, transformer and switchyard, transmission tower and line protection, distribution equipment and customer motors, plus electrical test instruments and safe-isolation equipment. Each picture is paired with a practical purpose. These custom illustrations are not photographs of a named site; never use them as permission to approach or test energized equipment.":
+    [
+      "Unter der interaktiven Stationszeichnung zeigt die Bild-Checkliste Generator und Erregung, Transformator und Schaltanlage, Übertragungsmast und Leitungsschutz, Verteilgeräte und Kundenmotoren sowie Prüfgeräte und sichere Freischaltmittel. Jedes Bild ist mit einem praktischen Zweck verbunden. Dies sind Lehrillustrationen und keine Fotos eines bestimmten Standorts; sie berechtigen niemals dazu, sich spannungsführenden Anlagen zu nähern oder diese zu prüfen.",
+      "Ní ìsàlẹ̀ schematic ibùdó, àkójọ àwòrán náà bo generator àti excitation, transformer àti switchyard, transmission tower àti line protection, distribution equipment àti motor oníbàárà, pẹ̀lú test instrument àti ohun èlò isolation tó léwu kéré. Àwòrán kọ̀ọ̀kan ní iṣẹ́ rẹ̀. Àwọn àwòrán ẹ̀kọ́ ni, kì í ṣe fọ́tò site kan; má ṣe lò wọ́n gẹ́gẹ́ bí àṣẹ láti sún mọ́ tàbí dán equipment tó ní voltage wò.",
+      "Under di interactive station drawing, di picture checklist cover generator and excitation, transformer and switchyard, transmission tower and line protection, distribution equipment and customer motors, plus test meters and safe isolation gear. Each picture get practical use. Na training illustrations, no be photo of named site; dem no give permission to near or test live equipment.",
     ],
   "In the upper view, follow water from reservoir and trash rack through the intake gate and penstock to the Francis runner; follow the shaft to the generator. The separate lower one-line shows the electrical path through the generator, step-up transformer, three-pole breaker, CT, busbar and transmission conductors.":
     [
