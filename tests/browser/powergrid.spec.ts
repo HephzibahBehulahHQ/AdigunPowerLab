@@ -45,7 +45,6 @@ test("POWERGRID field videos are titled, source-linked and accurately scoped", a
   await expect(section).toContainText("not a running generator");
 });
 
-
 test("receiving substation scene follows editable voltage inputs and exposes selectable terminals", async ({
   page,
 }) => {
