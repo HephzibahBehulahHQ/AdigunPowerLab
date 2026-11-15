@@ -259,6 +259,21 @@ test("PowerGrid controls and schematic stay usable on a narrow screen", async ({
     page.getByRole("heading", { name: "Why step up voltage?" }),
   ).toBeVisible();
   await expect(page.getByLabel("Transmitted real power (MW)")).toBeVisible();
+  await expect(
+    page.getByRole("heading", {
+      name: "Equipment used from generation to the consumer",
+    }),
+  ).toBeVisible();
+  const equipmentImages = page.locator(".pg-gallery-card img");
+  await expect(equipmentImages).toHaveCount(6);
+  for (const image of await equipmentImages.all()) {
+    await image.scrollIntoViewIfNeeded();
+    await expect
+      .poll(() =>
+        image.evaluate((element) => (element as HTMLImageElement).naturalWidth),
+      )
+      .toBeGreaterThan(0);
+  }
   const layout = await page.evaluate(() => {
     const panel = document.querySelector<HTMLElement>(".pg-station-scroll");
     return {

@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import type { ReactNode } from "react";
 import { LanguageContext } from "../i18n";
 import type { Locale } from "../i18n";
+import { PowerGridEquipmentGallery } from "./PowerGridEquipmentGallery";
 
 type EquipmentId =
   | "reservoir"
@@ -1325,6 +1326,7 @@ export function HydroStationScene({ locale }: { locale: keyof typeof names }) {
         </p>
       </div>
       <p className="pg-station-screenreader">{text.select}</p>
+      <PowerGridEquipmentGallery />
     </section>
   );
 }

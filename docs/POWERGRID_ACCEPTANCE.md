@@ -4,6 +4,14 @@
 
 Acceptance is limited to the checks reported for the reviewed revision. A passing component test or build does not mark the complete lab or later milestones accepted.
 
+## Practical equipment gallery — PR #97 in progress
+
+| Requirement                                                                                                       | Evidence target                                                      | Status                                        |
+| ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | --------------------------------------------- |
+| Stage-matched views for hydro, steam/gas, transformer/switchyard, transmission, distribution and test equipment   | Browser image-load checks and review of the rendered #POWERGRID page | Pending candidate CI and live deployment      |
+| Checklist names typical equipment and explains its purpose at each stage                                          | Help search/translation tests, user guide review and rendered page   | Pending candidate CI                          |
+| Training renders are distinguished from photographs; operating limits and energized-work cautions remain explicit | Alt/caption review, Help, manual and accessibility checks            | Implemented locally; pending candidate review |
+
 | Requirement                                                          | Evidence target                          | Status                                                                            |
 | -------------------------------------------------------------------- | ---------------------------------------- | --------------------------------------------------------------------------------- |
 | Exact `#POWERGRID`, refresh, Back/Forward                            | Candidate and exact-main browser suites  | Passed                                                                            |
@@ -52,3 +60,4 @@ The UI uses an explicitly balanced, fixed-voltage training source and constant P
 | Renewable resource profile and regional scenarios | Entered-value PV remains site-neutral; Nigeria preset is deployed; the Germany 50Hertz-area scenario has a candidate browser case | Nigeria passed candidate and exact-main acceptance; Germany selector/application/source checks await this candidate's hosted run. No regional profiles or frequency simulation; other regional/custom scenarios remain open |
 
 The PV worksheet is an instantaneous user-entered model only. The Nigeria-inspired scenario has one focused unit test and browser coverage for displayed provenance, field application/preservation and its source link. Its source and simplifications are recorded in [`POWERGRID_DATA_SOURCES.md`](POWERGRID_DATA_SOURCES.md). This does not complete Milestone 3's source catalogue, remaining regional presets, chronological dispatch changes, renewable variability or critical-load requirements.
+

@@ -422,3 +422,8 @@ Documentation candidate `7e1c701404393020bcefe1cd33d2704fb2bd1210` passed the co
 ## POWERGRID LAB Milestone 1 focused acceptance follow-up
 
 - PR #91 merged as `36ac8fb1d98e46311b87a2b85f17d933b5f14a7c`. Candidate [run 43633459567](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43633459567), exact-main [run 43634068700](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43634068700) and Pages [run 43634569359](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43634569359) passed. Hosted Chromium verified the downloaded JSON contents and 390 × 844 mobile layout; Pages artifact 14129153822 deployed that main SHA.
+
+## PR #97 practical PowerGrid gallery — pending
+
+- Candidate commit `741e5fa18544ae658e38293a92aca47262d2b821` checkpoints the overview visual and image-load test; a follow-up candidate adds six stage gallery images, localized equipment checklists, responsive layout, Help and guide updates. Full candidate browser, production-browser, regression and build gates have not yet completed. Exact-main validation and Pages deployment have not run; do not treat the gallery as live until the Pages release receipt and public route are verified.
+

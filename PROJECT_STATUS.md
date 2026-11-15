@@ -1,6 +1,10 @@
 # AdigunPowerLab — current status
 
-Date: 14 November 2026. Owner: Hephzibah Behulah.
+Date: 15 November 2026. Owner: Hephzibah Behulah.
+
+## Current visual follow-up — PR #97 in progress
+
+Owner feedback on 15 November requires practical, stage-by-stage equipment views in the lab, with a purpose checklist matched to each image. PR [#97](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/97) is open from the latest deployed main. It adds a custom hydro overview, then a six-view field gallery for hydro generation, steam/gas generation, transformer/switchyard, transmission/substation, distribution/customers and safe test instruments. Each gallery item names equipment and states its function; the electrical SVG remains selectable for represented connections and terminals. The generated images are explicitly training illustrations, not site photographs. Help, all four UI translations, browser image-load coverage and the user guide are being updated. Candidate CI, exact-main gates and Pages deployment remain pending; no live deployment is claimed for this change yet.
 
 ## POWERGRID LAB Milestone 1 — deployed; focused acceptance passed
 
@@ -18,7 +22,7 @@ PR #93 added the instantaneous, user-input PV performance worksheet and merged a
 
 PR #94's Nigeria-inspired regional context merged as `1d4d5574284ca67ada7c287fefce95f5640e19c2`. Candidate run 43641715412 (artifact 14132353578), exact-main run 43642322293 (artifact 14132742971), and Pages run 43642875461 (artifact 14133250374) passed. Live browser refresh confirmed the regional panel and NERC source link on the deployed `#POWERGRID` route. PR #95's selectable Germany-inspired scenario is scoped to the 50Hertz area and clearly identifies its illustrative 20 kV value. It merged as `396b44d9e518f4e53d43691fed95a63483f7bf77`; candidate run 43644341524 passed, exact-main run 43644856739 passed all gates (artifact 14134415093), and Pages run 43645394698 deployed the exact SHA (artifact 14133544859).
 
-Owner steering on 14 November identified the generic horizontal power-path graphic as inadequate and directed the next work toward recognizable station equipment, explicit terminals and connections, colored phases, neutral/PE separation, and hydro → step-up → switchyard → overhead transmission, followed by receiving station, distribution, house and industry scenes. Issue #86 now records this acceptance scope. A new candidate replaces the generic strip with a custom interactive SVG cutaway plus a distinct electrical one-line: reservoir and hydraulic path, Francis turbine, synchronous generator windings, delta/wye GSU example, breaker/disconnector/earth-switch bay, CT/VT, surge arrester, phase busbars, control house and SCADA/protection panel, lattice tower, three phase conductors, separate shield wire, generator neutral and PE earth grid. Functions and depicted terminals are selectable in all four UI locales; the manual, Help, model and curriculum describe the boundaries. This first station slice remains pending hosted browser and release checks; it does not claim the downstream consumer view or remaining visual milestone complete.
+Owner steering on 14 November identified the generic horizontal power-path graphic as inadequate and directed work toward recognizable station equipment, explicit terminals and connections, colored phases, neutral/PE separation, and hydro → step-up → switchyard → overhead transmission, followed by receiving station, distribution, house and industry scenes. PR #96 merged and deployed the first hydro cutaway on 14 November. It includes a custom interactive SVG cutaway plus a distinct electrical one-line: reservoir and hydraulic path, Francis turbine, synchronous generator windings, delta/wye GSU example, breaker/disconnector/earth-switch bay, CT/VT, surge arrester, phase busbars, control house and SCADA/protection panel, lattice tower, three phase conductors, separate shield wire, generator neutral and PE earth grid. Functions and depicted terminals are selectable in all four UI locales. PR #97 extends this with practical equipment imagery and checklist coverage; its hosted gates and release are pending.
 
 M3 remains in progress. Other national/regional examples, rural microgrid/custom scenarios, complete source catalogue, chronological dispatch and critical-load requirements remain open for separate slices.
 
@@ -223,3 +227,4 @@ These are bounded visual milestones, not full original-spec acceptance. The curr
 ## Next action
 
 The Help and Guide sidebar now contains 21 workflow topics, a Project menu walkthrough, all 51 worksheet guides, the BOT tour and the journey illustration. Tests verify all 18 non-Help sidebar destinations map to a workflow guide. This menu audit found no additional screenshot/video gap. Next, audit the remaining task-specific actions against their actual controls and expand reviewed BOT proposals with explicit confirmation. Independent accessibility, professional language and engineering review, licensed/current datasets, exhaustive storage/update-interruption scenarios and full original-spec acceptance remain open.
+
