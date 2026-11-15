@@ -4471,7 +4471,6 @@ details p {
   }
 }
 
-
 .pg-field-photo-section {
   margin: 22px 0 26px;
   padding: 18px;
@@ -4552,7 +4551,6 @@ details p {
   margin-top: 14px;
   font-size: 10px;
 }
-
 @media (max-width: 900px) {
   .pg-field-photo-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));

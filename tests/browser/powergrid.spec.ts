@@ -21,7 +21,6 @@ test("POWERGRID documentary facility gallery renders every local photo", async (
   }
 });
 
-
 test("receiving substation scene follows editable voltage inputs and exposes selectable terminals", async ({
   page,
 }) => {
