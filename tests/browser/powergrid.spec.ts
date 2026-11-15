@@ -585,11 +585,11 @@ test("NREL reference wind curve calculates, saves and exports entered intervals"
   expect(csvContent).toContain("12,6000,6000,6000");
 
   await page.reload();
-  const restored = page
-    .locator("#pg-wind-title")
-    .locator("..")
-    .getByRole("textbox", {
-      name: "Wind speed by interval (m/s, comma-separated)",
-    });
+  const restoredSection = page
+    .locator(".pg-pv")
+    .filter({ has: page.locator("#pg-wind-title") });
+  const restored = restoredSection.getByRole("textbox", {
+    name: "Wind speed by interval (m/s, comma-separated)",
+  });
   await expect(restored).toHaveValue("4, 5, 12, 26");
 });
