@@ -1754,6 +1754,7 @@ export default function App() {
                             project={project}
                             result={result}
                             onSelect={setSelected}
+                            selectedId={selected}
                             detailMode={detailMode}
                           />
                         </Suspense>

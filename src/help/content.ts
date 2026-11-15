@@ -163,7 +163,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
     steps: [
       "Select an object to inspect it. Use Connect/Disconnect and the topology controls to change supported connections; check issues after every change.",
       "Use zoom, fit, labels, notes, manual positions or auto-layout to make the diagram readable. Export SVG or PDF for a copy of the displayed diagram.",
-      "Open Analytical spatial view for orbit, elevation, zoom, board isolation and the hourly cursor. Pause flow animation when needed. Chart tables provide the underlying values.",
+      "Open Analytical spatial view for orbit, elevation, zoom, board isolation and the hourly cursor. Selecting an object there highlights the same object in the single-line diagram and inspector. Pause flow animation when needed. Chart tables provide the underlying values.",
     ],
     example:
       "Use Fit after adding a board, then export the diagram. Its line lengths and spatial coordinates do not measure installed cable lengths.",
