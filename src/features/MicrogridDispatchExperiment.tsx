@@ -339,6 +339,7 @@ export function MicrogridDispatchExperiment() {
       <span>{label(title)}</span>
       {textarea ? (
         <textarea
+          aria-label={label(title)}
           rows={2}
           value={(value as number[]).join(", ")}
           onChange={(e) => {
@@ -354,6 +355,8 @@ export function MicrogridDispatchExperiment() {
         />
       ) : (
         <input
+          aria-label={label(title)}
+          data-testid={`microgrid-${key}`}
           type="number"
           min="0"
           step="any"

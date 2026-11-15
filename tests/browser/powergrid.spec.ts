@@ -613,11 +613,15 @@ test("microgrid dispatch recalculates, validates, saves and exports interval bal
   await section
     .getByRole("textbox", { name: "Critical demand (kW)" })
     .fill("20, 20, 20, 20, 20, 20");
-  await section.getByLabel("Battery capacity (kWh)").fill("1");
-  await section.getByLabel("Initial battery state of charge (%)").fill("0");
-  await section.getByLabel("Minimum reserve (%)").fill("0");
-  await section.getByLabel("Battery charge/discharge limit (kW)").fill("0");
-  await section.getByLabel("Dispatchable backup limit (kW)").fill("0");
+  await expect(section.getByTestId("microgrid-batteryKWh")).toHaveAttribute(
+    "aria-label",
+    "Battery capacity (kWh)",
+  );
+  await section.getByTestId("microgrid-batteryKWh").fill("1");
+  await section.getByTestId("microgrid-initialSoc").fill("0");
+  await section.getByTestId("microgrid-reserveSoc").fill("0");
+  await section.getByTestId("microgrid-batteryPowerKW").fill("0");
+  await section.getByTestId("microgrid-backupKW").fill("0");
   await expect(section.locator("tbody tr").first()).toContainText("50");
   await section.getByRole("button", { name: "Save scenario locally" }).click();
   await expect(
