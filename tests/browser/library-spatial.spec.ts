@@ -50,6 +50,33 @@ async function seed(page: Page) {
   await expect(page.locator(".load-table")).toBeVisible();
 }
 async function exported(page: Page): Promise<Project> {
+  await page
+    .getByRole("button", { name: "Single-line diagram", exact: true })
+    .click();
+  const diagramHeater = page.locator(
+    '.topology-node[aria-label$="Analytical heater"]',
+  );
+  await expect(diagramHeater).toHaveAttribute("aria-pressed", "true");
+  await page
+    .getByRole("button", { name: "Analytical spatial view", exact: true })
+    .click();
+  await expect(
+    scene.getByRole("button", { name: /Analytical heater$/ }),
+  ).toHaveAttribute("aria-pressed", "true");
+  await page
+    .getByRole("button", { name: "Single-line diagram", exact: true })
+    .click();
+  const diagramCircuit = page.locator(
+    '.topology-node[aria-label$="Validation circuit"]',
+  );
+  await diagramCircuit.click();
+  await expect(diagramCircuit).toHaveAttribute("aria-pressed", "true");
+  await page
+    .getByRole("button", { name: "Analytical spatial view", exact: true })
+    .click();
+  await expect(
+    scene.getByRole("button", { name: /Validation circuit$/ }),
+  ).toHaveAttribute("aria-pressed", "true");
   const pending = page.waitForEvent("download");
   await page
     .getByRole("button", { name: "Export project", exact: true })
@@ -172,18 +199,6 @@ test("spatial graph follows real objects and hourly flow with keyboard orbit and
   });
   await expect(spatialHeater).toHaveAttribute("aria-pressed", "true");
   await expect(page.locator(".inspector")).toContainText("Analytical heater");
-  await page
-    .getByRole("button", { name: "Single-line diagram", exact: true })
-    .click();
-  await expect(
-    page.locator('.topology-node[aria-label$="Analytical heater"]'),
-  ).toHaveAttribute("aria-pressed", "true");
-  await page
-    .getByRole("button", { name: "Analytical spatial view", exact: true })
-    .click();
-  await expect(
-    scene.getByRole("button", { name: /Analytical heater$/ }),
-  ).toHaveAttribute("aria-pressed", "true");
   const mode = page.locator(".page-heading .detail-mode-control select");
   const objectDetail = spatial.locator(".spatial-object-detail");
   await mode.selectOption("simple");
