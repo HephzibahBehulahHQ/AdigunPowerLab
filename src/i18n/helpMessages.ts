@@ -1101,11 +1101,6 @@ export const helpMessages: Record<string, [string, string, string]> = {
     "Ṣí ìwò ààyè ìṣirò fún yíyí ká, gíga, sísún, yíya pánẹ́lì sọ́tọ̀ àti àmì wákàtí. Yíyan ohun kan níbẹ̀ máa ṣàfihàn ohun kan náà nínú àwòrán ìlà-kan àti olùṣàyẹ̀wò. Dá àwòrán ìṣàn dúró bí ó bá yẹ. Tábìlì àwòrán ń fi iye tí a lò hàn.",
     "Open Analytical spatial view for orbit, elevation, zoom, board isolation and the hourly cursor. If you select one object there, e highlight that same object for the single-line diagram and inspector. Pause flow animation when needed. Chart tables show the underlying values.",
   ],
-    [
-      "Öffnen Sie die analytische Raumansicht für Drehung, Höhenwinkel, Zoom, Verteilerisolation und Stundencursor. Pausieren Sie die Flussanimation bei Bedarf. Diagrammtabellen zeigen die zugrunde liegenden Werte.",
-      "Ṣí ìwò ààyè ìṣirò fún yíyí ká, gíga, sísún, yíya pánẹ́lì sọ́tọ̀ àti àmì wákàtí. Dá àwòrán ìṣàn dúró bí ó bá yẹ. Tábìlì àwòrán ń fi iye tí a lò hàn.",
-      "Open Analytical spatial view for orbit, elevation, zoom, board isolation and hourly cursor. Pause flow animation when you need. Chart tables show the values behind the chart.",
-    ],
   "Use Fit after adding a board, then export the diagram. Its line lengths and spatial coordinates do not measure installed cable lengths.":
     [
       "Nutzen Sie nach dem Hinzufügen eines Verteilers Einpassen und exportieren Sie das Diagramm. Linienlängen und räumliche Koordinaten messen keine verlegten Kabellängen.",
