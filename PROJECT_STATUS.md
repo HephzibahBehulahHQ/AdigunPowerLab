@@ -227,3 +227,7 @@ These are bounded visual milestones, not full original-spec acceptance. The curr
 ## Next action
 
 The Help and Guide sidebar now contains 21 workflow topics, a Project menu walkthrough, all 51 worksheet guides, the BOT tour and the journey illustration. Tests verify all 18 non-Help sidebar destinations map to a workflow guide. This menu audit found no additional screenshot/video gap. Next, audit the remaining task-specific actions against their actual controls and expand reviewed BOT proposals with explicit confirmation. Independent accessibility, professional language and engineering review, licensed/current datasets, exhaustive storage/update-interruption scenarios and full original-spec acceptance remain open.
+
+## PowerGrid downstream equipment scene — implementation in progress
+
+Current slice adds an interactive receiving-substation → distribution → residential/industrial customer schematic below the hydro scene. Its receiving, medium-voltage and consumer voltage labels read the experiment's editable inputs; equipment inspection exposes purpose and represented terminals in all four locales. Neutral and PE are drawn separately. This is a teaching topology, not an as-built or protection/load-flow simulation. Candidate browser acceptance and hosted release gates are pending; local dependency installation did not complete in this checkout, so local typecheck/build/browser results are not yet available. The slice is not merged or deployed.

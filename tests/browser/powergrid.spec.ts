@@ -1,6 +1,40 @@
 import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
 
+test("receiving substation scene follows editable voltage inputs and exposes selectable terminals", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const scene = page.getByRole("region", {
+    name: /Receiving substation to consumers/,
+  });
+  await expect(scene).toBeVisible();
+  await expect(scene.getByText("330 kV → 33 kV → 0.4 kV")).toBeVisible();
+  await expect(
+    scene.getByRole("heading", { name: "Receiving step-down transformer" }),
+  ).toBeVisible();
+  await expect(
+    scene.getByText(/HV primary A\/B\/C; MV secondary/),
+  ).toBeVisible();
+  await page.getByLabel("Raised transmission voltage (kV)").fill("275");
+  await expect(scene.getByText("275 kV → 33 kV → 0.4 kV")).toBeVisible();
+  await scene
+    .getByRole("button", { name: /Inspect: Three-phase industrial motor/ })
+    .click();
+  await expect(
+    scene.getByRole("heading", { name: "Three-phase industrial motor" }),
+  ).toBeVisible();
+  await expect(scene.getByText(/U\/V\/W phase terminals/)).toBeVisible();
+  await scene.getByRole("button", { name: /Inspect: N · neutral/ }).focus();
+  await page.keyboard.press("Enter");
+  await expect(
+    scene.getByRole("heading", { name: "Neutral conductor · N" }),
+  ).toBeVisible();
+  await expect(
+    scene.getByText(/not a protective-earth conductor/),
+  ).toBeVisible();
+});
+
 test("regional teaching scenario applies sourced voltage stages only", async ({
   page,
 }) => {
