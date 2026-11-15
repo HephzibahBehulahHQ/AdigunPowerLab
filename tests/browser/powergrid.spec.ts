@@ -96,6 +96,7 @@ test("generation plant studies switch real illustrations and expose equipment in
     "src",
     "/assets/thermal-gas-powerhouse.png",
   );
+  await image.scrollIntoViewIfNeeded();
   await expect
     .poll(() => image.evaluate((img: HTMLImageElement) => img.naturalWidth))
     .toBeGreaterThan(0);
@@ -137,6 +138,7 @@ test("generation plant studies switch real illustrations and expose equipment in
   await expect(
     studies.getByText(/no external electrical terminals/),
   ).toBeVisible();
+  await image.scrollIntoViewIfNeeded();
   await expect
     .poll(() => image.evaluate((img: HTMLImageElement) => img.naturalWidth))
     .toBeGreaterThan(0);
