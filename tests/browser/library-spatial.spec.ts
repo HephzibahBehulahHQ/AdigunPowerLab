@@ -172,13 +172,13 @@ test("spatial graph follows real objects and hourly flow with keyboard orbit and
   });
   await expect(spatialHeater).toHaveAttribute("aria-pressed", "true");
   await expect(page.locator(".inspector")).toContainText("Analytical heater");
-  await spatial
+  await page
     .getByRole("button", { name: "Single-line diagram", exact: true })
     .click();
   await expect(
     page.locator('.topology-node[aria-label$="Analytical heater"]'),
   ).toHaveAttribute("aria-pressed", "true");
-  await spatial
+  await page
     .getByRole("button", { name: "Analytical spatial view", exact: true })
     .click();
   await expect(
