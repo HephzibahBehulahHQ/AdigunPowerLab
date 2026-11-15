@@ -3552,6 +3552,105 @@ details p {
   color: #edf4fc;
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 }
+.pg-downstream-note {
+  margin: 0 0 12px;
+  color: var(--text-secondary);
+}
+.pg-downstream-yard {
+  fill: #111f30;
+  stroke: #52677d;
+  stroke-width: 2;
+}
+.pg-downstream-feeders {
+  fill: #101d2a;
+  stroke: #405a70;
+  stroke-width: 2;
+}
+.pg-device-box {
+  fill: #172a3d;
+  stroke: #8296a9;
+  stroke-width: 2;
+}
+.pg-device-symbol,
+.pg-switch-line {
+  fill: none;
+  stroke: #d4e0ea;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+.pg-device-dot {
+  fill: #e2bd48;
+  stroke: #091321;
+  stroke-width: 1;
+}
+.pg-device-coil {
+  fill: #15273a;
+  stroke: #69d2e5;
+  stroke-width: 2.5;
+}
+.pg-transformer-tank {
+  fill: #253a4c;
+  stroke: #b8c7d2;
+  stroke-width: 2;
+}
+.pg-transformer-fin {
+  stroke: #9aabb9;
+  stroke-width: 2;
+}
+.pg-transformer-bushing {
+  stroke: #d5dfe6;
+  stroke-width: 3;
+}
+.pg-busbar {
+  stroke: #c2a341;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+.pg-pole {
+  fill: none;
+  stroke: #aeb8c1;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+.pg-house {
+  fill: #25394b;
+  stroke: #e4d4a4;
+  stroke-width: 2;
+}
+.pg-house-wall {
+  fill: #17283a;
+  stroke: #9db0bf;
+  stroke-width: 2;
+}
+.pg-house-window {
+  fill: none;
+  stroke: #88d9e8;
+  stroke-width: 2;
+}
+.pg-meter {
+  fill: #d8e2e8;
+  stroke: #27384a;
+  stroke-width: 2;
+}
+.pg-motor-circle {
+  fill: #173149;
+  stroke: #65c8df;
+  stroke-width: 3;
+}
+.pg-ground-symbol {
+  stroke: #b5d54b;
+  stroke-width: 2;
+}
+.pg-equipment-detail {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(240px, 1fr);
+  gap: 18px;
+}
+@media (max-width: 700px) {
+  .pg-equipment-detail {
+    grid-template-columns: 1fr;
+  }
+}
 .pg-station-bg {
   fill: #0c1827;
   stroke: #26394f;
