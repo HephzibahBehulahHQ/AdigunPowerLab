@@ -39,9 +39,11 @@ General network load flow, meshed topology, dynamic simulation, generation/resou
 
 The cutaway and delta/wye grounding topology are illustrative, not as-built station records. They do not add site-specific ratings or fabricated values. The receiving substation, distribution, house and industrial scene is separately deployed in PR #99. PR [#96](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/96) merged as `c19b7c25880109b2a0cf7da7eac44bbe9479edb2`; candidate [run 43656641410](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43656641410), exact-main [run 43657105629](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43657105629), and Pages [run 43657642362](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43657642362) passed; artifact 14138631832.
 
-## Documentary field video studies — candidate
+## Documentary field video studies — deployed
 
-Four official DVIDS video embeds cover hydropower grid support, powerhouse context, a spillway flow test, and turbine-runner rehabilitation. Each card links to its source and states what the footage can and cannot establish. Playback requires internet; the clips do not provide live telemetry, measured generation, terminal evidence, or proof of current site conditions. Hosted candidate validation is pending.
+Four official DVIDS records cover hydropower grid support, powerhouse and river context, a spillway flow test, and turbine-runner rehabilitation. Their cards are click-to-play, link to source records, provide producer credits and four-locale context, and state that playback requires internet. The footage does not provide live telemetry, measured generation, terminal evidence, operating instructions or proof of current conditions. The browser acceptance verifies the four cards, source links and that a player opens on request.
+
+PR [#108](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/108) merged as `423d2f6bc8476c2c0c114d159087bc0cf1360a2a`. Candidate [run 43707815449](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43707815449), exact-main [run 43708386457](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43708386457) and Pages [run 43708866207](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43708866207), artifact 14158854979, passed. The custom host could not be resolved from this session, so a fresh external HTTP check was unavailable.
 
 ## Milestone 2 — radial feeder workflow deployed; scoped acceptance passed
 
