@@ -150,7 +150,10 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
   await expect(
     page.getByText(/does not simulate live telemetry/i),
   ).toBeVisible();
-  await page.locator(".pg-station-svg text").getByText("Surge arrester").click();
+  await page
+    .locator(".pg-station-svg text")
+    .getByText("Surge arrester")
+    .click();
   await expect(
     page.getByRole("heading", { name: "Surge arrester" }),
   ).toBeVisible();
