@@ -557,9 +557,7 @@ test("NREL reference wind curve calculates, saves and exports entered intervals"
   });
   await wind.fill("4, 5, 12, 26");
   await expect(section.getByText("6,808 kWh")).toBeVisible();
-  await section
-    .getByRole("button", { name: "Save inputs for this browser" })
-    .click();
+  await section.getByRole("button", { name: "Save inputs locally" }).click();
   await expect(
     section.getByRole("status", { name: "Saved in this browser" }),
   ).toBeVisible();
