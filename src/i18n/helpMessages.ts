@@ -1,6 +1,3 @@
-Warning: truncated output (original token count: 37865)
-Total output lines: 1430
-
 /** English keys with German, Yoruba and Nigerian Pidgin translations. */
 export const helpMessages: Record<string, [string, string, string]> = {
   "Steam and gas generation equipment": [
@@ -733,7 +730,281 @@ export const helpMessages: Record<string, [string, string, string]> = {
     [
       "Wählen Sie den Zeitraum und prüfen Sie vor dem Start die Projektzeitzone. Abbrechen beendet einen neuen Lauf; ein bereits abgeschlossener Lauf behält seine eigenen Daten. Nutzen Sie Wiedergabe/Pause, Einzelschritt und Geschwindigkeit zur Prüfung.",
       "Yan àkókò ọjọ́ kí o sì ṣàyẹ̀wò agbègbè àkókò iṣẹ́ ṣáájú ìṣirò. Fagilé dá ìṣirò tuntun dúró; ìṣirò tí ó ti parí tẹ́lẹ̀ pa ọjọ́ tirẹ̀ mọ́. Lo Ṣiṣẹ́/Dúró, ìgbésẹ̀ àti ìdarí ìyára láti ṣàyẹ̀wò rẹ̀.",
-      "Choose date range and check project timezone before you run am. Cancel stops new run; completed run keeps its own dates. Use Play/Pause…7865 tokens truncated…olved issues, then export PDF, print, snapshot JSON or report CSV.":
+      "Choose date range and check project timezone before you run am. Cancel stops new run; completed run keeps its own dates. Use Play/Pause, step and speed controls to inspect am.",
+    ],
+  "Advanced planning supports operating windows, weekdays, seasons, holidays, timed cycles and start events. Review a proposed flexible schedule before applying it.":
+    [
+      "Die erweiterte Planung unterstützt Betriebsfenster, Wochentage, Jahreszeiten, Feiertage, zeitgesteuerte Zyklen und Startereignisse. Prüfen Sie einen vorgeschlagenen flexiblen Zeitplan vor dem Anwenden.",
+      "Ìṣètò tó jinlẹ̀ ń gba àkókò iṣẹ́, ọjọ́ ọ̀sẹ̀, àsìkò ọdún, ọjọ́ ìsinmi, ìyíká iṣẹ́ tí a ṣètò àkókò wọn àti ìṣẹ̀lẹ̀ ìbẹ̀rẹ̀. Ṣàyẹ̀wò àbá ètò àkókò tó lè yí padà kí o tó lò ó.",
+      "Advanced planning supports operating windows, weekdays, seasons, holidays, timed cycles and start events. Check proposed flexible schedule before you apply am.",
+    ],
+  "Measured intervals imports CSV: map timestamp and power columns, choose W or kW and enter interval minutes. Timestamps need Z or a UTC offset. Preview, then Save measured data; Reopen saved measurements restores it.":
+    [
+      "Messintervalle importiert CSV: Ordnen Sie Zeitstempel- und Leistungsspalten zu, wählen Sie W oder kW und geben Sie die Intervalldauer in Minuten ein. Zeitstempel benötigen Z oder einen UTC-Versatz. Prüfen Sie die Vorschau und wählen Sie Messdaten speichern; Gespeicherte Messungen erneut öffnen stellt sie wieder her.",
+      "Àárín ìwọ̀n ń gbé CSV wọlé: so ọ̀wọ̀n àmì àkókò àti agbára mọ́ ara wọn, yan W tàbí kW, kí o tẹ ìṣẹ́jú àárín sílẹ̀. Àmì àkókò nílò Z tàbí ìyàtọ̀ UTC. Wo àwòrán ṣáájú, kí o yan Fi dátà ìwọ̀n pamọ́; Tún ìwọ̀n tí a fi pamọ́ ṣí ń mú un padà.",
+      "Measured intervals imports CSV: map timestamp and power columns, choose W or kW and enter interval minutes. Timestamps need Z or UTC offset. Preview, then Save measured data; Reopen saved measurements brings am back.",
+    ],
+  "For readings every 15 minutes, enter 15 as the interval. Missing rows remain gaps; the app does not invent measurements. Export the cleaned CSV or completed simulation series.":
+    [
+      "Geben Sie bei Messungen alle 15 Minuten den Intervallwert 15 ein. Fehlende Zeilen bleiben Lücken; die App erfindet keine Messwerte. Exportieren Sie die bereinigte CSV oder die abgeschlossene Simulationsreihe.",
+      "Fún ìwọ̀n ní gbogbo ìṣẹ́jú 15, tẹ 15 sílẹ̀ fún àárín. Àwọn ìlà tí kò sí dúró gẹ́gẹ́ bí àlàfo; ohun èlò yìí kì í dá ìwọ̀n sílẹ̀. Gbé CSV tí a tún ṣe tàbí àtòjọ àfọwọ́ṣe tí ó parí jáde.",
+      "For readings every 15 minutes, enter 15 as interval. Missing rows remain gaps; app no invent measurements. Export cleaned CSV or completed simulation series.",
+    ],
+  "Assess a feeder or use a cable/protection worksheet with your actual evidence.":
+    [
+      "Bewerten Sie einen Abgang oder nutzen Sie ein Kabel-/Schutzarbeitsblatt mit Ihren tatsächlichen Nachweisen.",
+      "Ṣàyẹ̀wò okùn ìpèsè tàbí lo ìwé ìṣirò okùn/ààbò pẹ̀lú ẹ̀rí rẹ gidi.",
+      "Assess feeder or use cable/protection worksheet with your actual evidence.",
+    ],
+  "Open Feeder assessment and select the actual source-to-load route. Enter conductor impedance, ampacity and the conditions supporting those values.":
+    [
+      "Öffnen Sie Abgangsbewertung und wählen Sie den tatsächlichen Weg von der Quelle zur Last. Geben Sie Leiterimpedanz, Strombelastbarkeit und die Bedingungen für diese Werte ein.",
+      "Ṣí Àyẹ̀wò okùn ìpèsè kí o yan ọ̀nà gidi láti orísun sí ẹrù. Tẹ ìdènà okùn, agbára gbígbé ìṣàn àti àwọn ipò tí ó jẹ́ ẹ̀rí fún iye wọ̀nyẹn sílẹ̀.",
+      "Open Feeder assessment and select actual source-to-load route. Enter conductor impedance, ampacity and conditions wey support those values.",
+    ],
+  "Review voltage drop, losses and capacity separately, including running and starting assumptions. Missing evidence produces an incomplete check.":
+    [
+      "Prüfen Sie Spannungsfall, Verluste und Kapazität getrennt, einschließlich der Betriebs- und Anlaufannahmen. Fehlende Nachweise ergeben eine unvollständige Prüfung.",
+      "Ṣàyẹ̀wò ìṣubú fọ́ltèjì, àdánù àti agbára lọ́tọ̀ọ̀tọ̀, pẹ̀lú àfojúsùn iṣẹ́ àti ìbẹ̀rẹ̀. Àìsí ẹ̀rí ń mú àyẹ̀wò tí kò pé wá.",
+      "Review voltage drop, losses and capacity separately, including running and starting assumptions. Missing evidence means check never complete.",
+    ],
+  "Use the cable and protection worksheets for a specific calculation. Read the method and source conditions; a computed value is not installation certification.":
+    [
+      "Nutzen Sie die Kabel- und Schutzarbeitsblätter für eine konkrete Berechnung. Lesen Sie Methode und Quellenbedingungen; ein berechneter Wert ist keine Anlagenzertifizierung.",
+      "Lo ìwé ìṣirò okùn àti ààbò fún ìṣirò pàtó. Ka ọ̀nà ìṣirò àti ipò orísun; iye tí a ṣírò kì í ṣe ìjẹ́rìí ààbò ètò iná.",
+      "Use cable and protection worksheets for specific calculation. Read method and source conditions; computed value no be installation certification.",
+    ],
+  "If you have no verified ampacity for a cable's installation method, obtain that evidence before accepting a capacity check.":
+    [
+      "Liegt keine bestätigte Strombelastbarkeit für die Verlegeart vor, beschaffen Sie diesen Nachweis, bevor Sie die Kapazitätsprüfung akzeptieren.",
+      "Bí o kò bá ní agbára gbígbé ìṣàn tí a ti fìdí múlẹ̀ fún ọ̀nà fífi okùn sí, gba ẹ̀rí náà kí o tó gba àyẹ̀wò agbára.",
+      "If you no get verified ampacity for cable installation method, get that evidence before you accept capacity check.",
+    ],
+  "Keep motor input, starting demand and supply capability separate.": [
+    "Betrachten Sie Motoraufnahme, Anlaufbedarf und Versorgungsfähigkeit getrennt.",
+    "Ya ìwọlé mọ́tò, ẹrù ìbẹ̀rẹ̀ àti agbára ìpèsè sọ́tọ̀.",
+    "Keep motor input, starting demand and supply capability separate.",
+  ],
+  "Choose the motor, transformer, generator, inverter or UPS worksheet that matches your question. Enter the stated units and the rating basis.":
+    [
+      "Wählen Sie das zu Ihrer Frage passende Arbeitsblatt für Motor, Transformator, Generator, Wechselrichter oder USV. Beachten Sie die angegebenen Einheiten und den Nennwertbezug.",
+      "Yan ìwé ìṣirò mọ́tò, tiransifọ́mà, ẹ̀rọ apilẹ̀ṣẹ̀, inverter tàbí UPS tí ó bá ìbéèrè rẹ mu. Tẹ àwọn ẹyọ ìwọ̀n tí a sọ àti ìpìlẹ̀ ìwọ̀n sílẹ̀.",
+      "Choose motor, transformer, generator, inverter or UPS worksheet wey match your question. Enter the units wey dem state and the rating basis.",
+    ],
+  "Use Source register to record actual source ratings, derating, evidence, served boundary and any verified overload envelope.":
+    [
+      "Erfassen Sie im Quellenregister tatsächliche Quellennennwerte, Leistungsreduzierung, Nachweise, Versorgungsgrenze und ein gegebenenfalls bestätigtes Überlastprofil.",
+      "Lo Àkọsílẹ̀ orísun láti kọ ìwọ̀n orísun gidi, ìdínkù agbára, ẹ̀rí, ààlà ìpèsè àti ààlà ẹrù àṣejù tí a ti fìdí múlẹ̀ sílẹ̀.",
+      "Use Source register to record actual source ratings, derating, evidence, served boundary and any verified overload envelope.",
+    ],
+  "Review continuous kW, kVA, phase current and starting capacity independently. Island, transfer and black-start entries describe evidence; they do not switch equipment.":
+    [
+      "Prüfen Sie Dauerleistung in kW, kVA, Phasenstrom und Anlaufkapazität unabhängig voneinander. Einträge zu Inselbetrieb, Umschaltung und Schwarzstart beschreiben Nachweise; sie schalten keine Geräte.",
+      "Ṣàyẹ̀wò kW iṣẹ́ tí ń bá a lọ, kVA, ìṣàn fásì àti agbára ìbẹ̀rẹ̀ lọ́tọ̀ọ̀tọ̀. Dátà iṣẹ́ erékùṣù iná, ìyípadà ìpèsè àti ìbẹ̀rẹ̀ láìsí iná ń ṣàpèjúwe ẹ̀rí; wọn kì í tan tàbí pa ẹ̀rọ.",
+      "Check continuous kW, kVA, phase current and starting capacity separately. Island, transfer and black-start entries describe evidence; dem no switch equipment.",
+    ],
+  "A generator that meets running kW may still lack starting kVA. Check both with the actual motor and generator data.":
+    [
+      "Ein Generator mit ausreichender Betriebsleistung in kW kann dennoch zu wenig Anlaufleistung in kVA bieten. Prüfen Sie beides anhand der tatsächlichen Motor- und Generatordaten.",
+      "Ẹ̀rọ apilẹ̀ṣẹ̀ tí ó tó fún kW iṣẹ́ lè ṣì má tó fún kVA ìbẹ̀rẹ̀. Ṣàyẹ̀wò méjèèjì pẹ̀lú dátà mọ́tò àti ẹ̀rọ apilẹ̀ṣẹ̀ gidi.",
+      "Generator wey meets running kW fit still lack starting kVA. Check both with actual motor and generator data.",
+    ],
+  "Study power factor, capacitor sizing and supplied harmonic data within each stated model.":
+    [
+      "Untersuchen Sie Leistungsfaktor, Kondensatorauslegung und eingegebene Oberschwingungsdaten innerhalb des jeweils beschriebenen Modells.",
+      "Ṣàyẹ̀wò ìwọ̀n agbára, ìwọ̀n capacitor àti dátà harmonics tí a pèsè nínú ààlà àwòṣe kọ̀ọ̀kan.",
+      "Study power factor, capacitor sizing and harmonic data wey you supply within each model wey dem describe.",
+    ],
+  "Select a worksheet and read its description. Enter the actual P, Q, power-factor or harmonic values it requires, including leading/lagging direction where requested.":
+    [
+      "Wählen Sie ein Arbeitsblatt und lesen Sie die Beschreibung. Geben Sie die erforderlichen tatsächlichen P-, Q-, Leistungsfaktor- oder Oberschwingungswerte ein, gegebenenfalls mit voreilender/nacheilender Richtung.",
+      "Yan ìwé ìṣirò kí o ka àpèjúwe rẹ̀. Tẹ iye P, Q, ìwọ̀n agbára tàbí harmonics gidi tí ó nílò sílẹ̀, pẹ̀lú ìtọ́sọ́nà ṣíwájú/ṣẹ́yìn níbi tí a ti béèrè rẹ̀.",
+      "Select worksheet and read description. Enter actual P, Q, power-factor or harmonic values wey e needs, including leading/lagging direction where dem ask.",
+    ],
+  "Calculate, then review assumptions and warnings. Do not infer a harmonic spectrum from one power-factor value or assume a simple sinusoidal model fits distorted waveforms.":
+    [
+      "Berechnen Sie und prüfen Sie anschließend Annahmen und Warnungen. Leiten Sie aus einem einzelnen Leistungsfaktor kein Oberschwingungsspektrum ab und nehmen Sie bei verzerrten Kurven kein einfaches Sinusmodell an.",
+      "Ṣe ìṣirò, kí o sì ṣàyẹ̀wò àwọn àfojúsùn àti ìkìlọ̀. Má ṣe yọ àtòjọ harmonics láti iye ìwọ̀n agbára kan, tàbí ro pé àwòṣe sinusoidi rọrùn bá ìrísí ìgbì tí ó yí padà mu.",
+      "Calculate, then check assumptions and warnings. No derive harmonic spectrum from one power-factor value or assume simple sinusoidal model fits distorted waveforms.",
+    ],
+  "Use measured harmonic components when assessing harmonics. A capacitor-sizing result alone does not establish suitable switching or resonance protection.":
+    [
+      "Verwenden Sie zur Oberschwingungsbewertung gemessene Komponenten. Eine Kondensatorauslegung allein belegt weder geeignete Schaltung noch Resonanzschutz.",
+      "Lo àwọn èròjà harmonics tí a wọn nígbà àyẹ̀wò harmonics. Èsì ìwọ̀n capacitor nìkan kò fi ìyípadà iná tàbí ààbò resonance tó yẹ múlẹ̀.",
+      "Use measured harmonic components when you assess harmonics. Capacitor-sizing result alone no prove suitable switching or resonance protection.",
+    ],
+  "Find a worksheet by name, category or tool ID. Every tool guide below uses the live catalogue.":
+    [
+      "Finden Sie ein Arbeitsblatt über Name, Kategorie oder Werkzeug-ID. Jede Werkzeuganleitung unten verwendet den aktuellen App-Katalog.",
+      "Wá ìwé ìṣirò nípasẹ̀ orúkọ, ẹ̀ka tàbí ID irinṣẹ́. Ìtọ́sọ́nà irinṣẹ́ kọ̀ọ̀kan ní ìsàlẹ̀ lo àtòjọ ohun èlò lọ́wọ́lọ́wọ́.",
+      "Find worksheet by name, category or tool ID. Every tool guide below uses the current app catalogue.",
+    ],
+  "Open a tool, read its description and enter your values in the displayed units. Load worked example fills labelled training values; it does not describe your installation.":
+    [
+      "Öffnen Sie ein Werkzeug, lesen Sie die Beschreibung und geben Sie Ihre Werte in den angezeigten Einheiten ein. Berechnungsbeispiel laden trägt gekennzeichnete Übungswerte ein; diese beschreiben nicht Ihre Anlage.",
+      "Ṣí irinṣẹ́, ka àpèjúwe rẹ̀ kí o sì tẹ iye rẹ sílẹ̀ ní ẹyọ ìwọ̀n tí a fi hàn. Ṣí àpẹẹrẹ ìṣírò ń kún iye ìkẹ́kọ̀ọ́ tí a sàmì sí; kò ṣàpèjúwe ètò iná rẹ.",
+      "Open tool, read description and enter your values in the units wey show. Load worked example fills labelled training values; e no describe your own installation.",
+    ],
+  "Choose Calculate, then inspect the result, formula, assumptions, sources and warnings. Reset clears that worksheet's inputs and result.":
+    [
+      "Wählen Sie Berechnen und prüfen Sie Ergebnis, Formel, Annahmen, Quellen und Warnungen. Zurücksetzen löscht die Eingaben und das Ergebnis dieses Arbeitsblatts.",
+      "Yan Ṣe ìṣirò, kí o sì ṣàyẹ̀wò èsì, agbekalẹ̀, àfojúsùn, orísun àti ìkìlọ̀. Tún bẹ̀rẹ̀ ń pa dátà ìwọlé àti èsì ìwé ìṣirò náà rẹ́.",
+      "Choose Calculate, then inspect result, formula, assumptions, sources and warnings. Reset clears that worksheet inputs and result.",
+    ],
+  "Copy or export the calculated result when available. A supported Apply action previews project changes for review; a calculation alone does not change your project.":
+    [
+      "Kopieren oder exportieren Sie das berechnete Ergebnis, sofern verfügbar. Eine unterstützte Anwenden-Aktion zeigt Projektänderungen zur Prüfung an; eine Berechnung allein verändert das Projekt nicht.",
+      "Ṣẹ̀dá ẹ̀dà tàbí gbé èsì ìṣirò jáde bí ó bá wà. Ìṣe Lò tí a ṣe àtìlẹ́yìn fún ń fi àtúnṣe iṣẹ́ hàn fún àyẹ̀wò; ìṣirò nìkan kì í yí iṣẹ́ rẹ padà.",
+      "Copy or export calculated result when available. Supported Apply action previews project changes for review; calculation alone no change your project.",
+    ],
+  "Open T01, load its worked example of 230 V and 23 Ω, then Calculate. Replace the example with your actual resistor data before using it for your own study.":
+    [
+      "Öffnen Sie T01, laden Sie das Beispiel mit 230 V und 23 Ω und wählen Sie Berechnen. Ersetzen Sie die Beispielwerte durch Ihre tatsächlichen Widerstandsdaten, bevor Sie damit Ihre eigene Untersuchung durchführen.",
+      "Ṣí T01, gbé àpẹẹrẹ rẹ̀ ti 230 V àti 23 Ω wọlé, kí o sì Ṣe ìṣirò. Rọ́pò àpẹẹrẹ náà pẹ̀lú dátà resistor rẹ gidi kí o tó lò ó fún ìwádìí tirẹ.",
+      "Open T01, load its worked example of 230 V and 23 Ω, then Calculate. Replace example with your actual resistor data before you use am for your own study.",
+    ],
+  "Model generation and battery dispatch using a real chronological profile and explicit limits.":
+    [
+      "Modellieren Sie Erzeugung und Batterieeinsatz mit einem tatsächlichen zeitlichen Profil und ausdrücklich festgelegten Grenzen.",
+      "Ṣe àwòṣe ìpilẹ̀ṣẹ̀ agbára àti ìpín iṣẹ́ bátírì pẹ̀lú àwòrán àkókò gidi àti ààlà tí a sọ kedere.",
+      "Model generation and battery dispatch with real chronological profile and clear limits.",
+    ],
+  "Enter PV or wind generation profiles, grid/inverter limits, battery capacity, reserve and the chosen dispatch strategy.":
+    [
+      "Geben Sie PV- oder Winderzeugungsprofile, Netz-/Wechselrichtergrenzen, Batteriekapazität, Reserve und die gewählte Einsatzstrategie ein.",
+      "Tẹ àwòrán ìpilẹ̀ṣẹ̀ agbára oòrùn tàbí afẹ́fẹ́, ààlà nẹ́tíwọ́ọ̀kì/inverter, agbára bátírì, ìpamọ́ pajawiri àti ọ̀nà ìpín iṣẹ́ tí o yàn sílẹ̀.",
+      "Enter PV or wind generation profiles, grid/inverter limits, battery capacity, reserve and dispatch strategy wey you choose.",
+    ],
+  "Run the study and inspect import, export, curtailment, losses and unmet demand. For an outage, enter its actual time range and check source, transfer and islanding evidence.":
+    [
+      "Starten Sie die Untersuchung und prüfen Sie Bezug, Einspeisung, Abregelung, Verluste und ungedeckten Bedarf. Geben Sie bei einem Ausfall den tatsächlichen Zeitraum an und prüfen Sie Nachweise für Quelle, Umschaltung und Inselbetrieb.",
+      "Ṣe ìwádìí kí o sì ṣàyẹ̀wò agbára wọlé, agbára jáde, ìdínkù ìpilẹ̀ṣẹ̀, àdánù àti ẹrù tí a kò pèsè fún. Fún ìdákẹ́ iná, tẹ àkókò rẹ̀ gidi sílẹ̀ kí o ṣàyẹ̀wò ẹ̀rí orísun, ìyípadà ìpèsè àti iṣẹ́ erékùṣù iná.",
+      "Run study and inspect import, export, curtailment, losses and unmet demand. For outage, enter actual time range and check source, transfer and islanding evidence.",
+    ],
+  "Peak-sun-hours can support a daily estimate but cannot replace an hourly PV profile for battery dispatch. Grid-tied-only PV does not automatically supply an islanded load.":
+    [
+      "Volllast-Sonnenstunden können eine Tagesschätzung stützen, ersetzen aber kein stündliches PV-Profil für den Batterieeinsatz. Ausschließlich netzgekoppelte PV versorgt eine Last im Inselbetrieb nicht automatisch.",
+      "Wákàtí oòrùn tó lágbára lè ṣe àtìlẹ́yìn àfojúsùn ọjọ́, ṣùgbọ́n kò lè rọ́pò àwòrán PV wákàtí fún ìpín iṣẹ́ bátírì. PV tí ó so mọ́ nẹ́tíwọ́ọ̀kì nìkan kì í pèsè fún ẹrù erékùṣù iná fúnra rẹ̀.",
+      "Peak-sun-hours fit support daily estimate but no fit replace hourly PV profile for battery dispatch. Grid-tied-only PV no automatically supply islanded load.",
+    ],
+  "Check whether charging or flexible work can finish within its allowed window.":
+    [
+      "Prüfen Sie, ob Laden oder flexible Arbeit im zulässigen Zeitfenster abgeschlossen werden kann.",
+      "Ṣàyẹ̀wò bóyá gbigba agbára tàbí iṣẹ́ tó lè yí àkókò padà lè parí láàárín àkókò tí a gbà láàyè.",
+      "Check whether charging or flexible work fit finish within the time wey dem allow.",
+    ],
+  "Enter charging arrival and departure, required energy or SOC, charger/vehicle limits and one/three-phase constraints.":
+    [
+      "Geben Sie Ankunft und Abfahrt zum Laden, benötigte Energie oder Ladezustand (SOC), Ladegerät-/Fahrzeuggrenzen und ein-/dreiphasige Einschränkungen ein.",
+      "Tẹ àkókò dídé àti lílọ fún gbigba agbára, agbára tí a nílò tàbí SOC, ààlà ẹ̀rọ gbigba agbára/ọkọ̀ àti ààlà fásì kan/mẹ́ta sílẹ̀.",
+      "Enter charging arrival and departure, required energy or SOC, charger/vehicle limits and one/three-phase constraints.",
+    ],
+  "Run the planner and inspect delivered energy, unmet energy and deadline feasibility. Review any generation-following or price priority, then preview before applying dated load schedules.":
+    [
+      "Starten Sie den Planer und prüfen Sie gelieferte Energie, ungedeckten Energiebedarf und die Einhaltung der Frist. Prüfen Sie Erzeugungs- oder Preisprioritäten und anschließend die Vorschau, bevor Sie datierte Lastpläne anwenden.",
+      "Ṣe ìṣirò ètò kí o sì ṣàyẹ̀wò agbára tí a pèsè, agbára tí kò pé àti bóyá ó lè parí ní àkókò. Ṣàyẹ̀wò ààyò títẹ̀lé ìpilẹ̀ṣẹ̀ tàbí iye owó, kí o wo àwòrán ṣáájú kí o tó lo ètò ẹrù olójú ọjọ́.",
+      "Run planner and inspect delivered energy, unmet energy and whether deadline fit work. Review generation-following or price priority, then preview before you apply dated load schedules.",
+    ],
+  "A short charging window can remain infeasible even when the charger rating is high. Check the vehicle limit and actual energy delivered before changing the plan.":
+    [
+      "Ein kurzes Ladefenster kann trotz hoher Ladeleistung unzureichend bleiben. Prüfen Sie Fahrzeuggrenze und tatsächlich gelieferte Energie, bevor Sie den Plan ändern.",
+      "Àkókò gbigba agbára kúkúrú lè má tó bí agbára ẹ̀rọ gbigba agbára tilẹ̀ ga. Ṣàyẹ̀wò ààlà ọkọ̀ àti agbára tí a pèsè gidi kí o tó yí ètò padà.",
+      "Short charging window fit still no work even if charger rating high. Check vehicle limit and actual energy delivered before you change plan.",
+    ],
+  "Compare changes against a frozen baseline before applying them.": [
+    "Vergleichen Sie Änderungen vor dem Anwenden mit einem festgehaltenen Ausgangszustand.",
+    "Fi àwọn àtúnṣe wéra pẹ̀lú ìpìlẹ̀ tí a pa mọ́ kí o tó lò wọ́n.",
+    "Compare changes with frozen baseline before you apply them.",
+  ],
+  "Create a scenario from the project. Change its inputs, then compare field-level differences and metrics with its saved baseline.":
+    [
+      "Erstellen Sie ein Szenario aus dem Projekt. Ändern Sie dessen Eingaben und vergleichen Sie Feldunterschiede und Kennzahlen mit dem gespeicherten Ausgangszustand.",
+      "Ṣẹ̀dá àṣàyàn kan láti inú iṣẹ́. Yí dátà ìwọlé rẹ̀ padà, kí o sì fi ìyàtọ̀ àyè dátà àti ìwọ̀n rẹ̀ wéra pẹ̀lú ìpìlẹ̀ tí a fi pamọ́.",
+      "Create scenario from project. Change its inputs, then compare field-level differences and metrics with the saved baseline.",
+    ],
+  "For a dated engineering comparison, run both input sets over the same explicit period, up to 31 elapsed days. You can add a common outage and export CSV or JSON.":
+    [
+      "Berechnen Sie für einen technischen Zeitraumvergleich beide Eingabesätze über denselben ausdrücklich festgelegten Zeitraum von höchstens 31 verstrichenen Tagen. Sie können einen gemeinsamen Ausfall hinzufügen und CSV oder JSON exportieren.",
+      "Fún ìfiwéra ìmọ̀ ẹ̀rọ olójú ọjọ́, ṣe ìṣirò dátà méjèèjì fún àkókò kan náà tí a sọ kedere, tó ọjọ́ 31 gidi. O lè fi ìdákẹ́ iná kan náà kún, kí o sì gbé CSV tàbí JSON jáde.",
+      "For dated engineering comparison, run both input sets over same clear period, up to 31 elapsed days. You fit add common outage and export CSV or JSON.",
+    ],
+  "Review selected differences before applying them. Undo restores the prior project. Missing evidence remains unavailable, and different currencies are not subtracted.":
+    [
+      "Prüfen Sie ausgewählte Unterschiede vor dem Anwenden. Rückgängig stellt das vorherige Projekt wieder her. Fehlende Nachweise bleiben nicht verfügbar; unterschiedliche Währungen werden nicht voneinander abgezogen.",
+      "Ṣàyẹ̀wò ìyàtọ̀ tí a yàn kí o tó lò wọ́n. Dápadà ń mú iṣẹ́ tẹ́lẹ̀ padà. Ẹ̀rí tí kò sí ṣì dúró láìsí, a kò sì yọ owó orílẹ̀-èdè ọ̀tọ̀ kúrò nínú ara wọn.",
+      "Review selected differences before applying them. Undo brings back previous project. Missing evidence stays unavailable, and different currencies no get subtracted.",
+    ],
+  "Compare existing lighting with a proposed lower-power design while keeping the operating period the same. Explain any changed hours or tariffs in the assumptions.":
+    [
+      "Vergleichen Sie vorhandene Beleuchtung mit einem Entwurf geringerer Leistung bei gleichem Betriebszeitraum. Erklären Sie geänderte Stunden oder Tarife in den Annahmen.",
+      "Fi fitilà tí ó wà wéra pẹ̀lú àbá tuntun tí agbára rẹ̀ kéré nígbà tí àkókò iṣẹ́ dúró bákan náà. Ṣàlàyé ìyípadà wákàtí tàbí owó iná nínú àfojúsùn.",
+      "Compare existing lighting with proposed lower-power design and keep operating period the same. Explain any hours or tariffs wey change for assumptions.",
+    ],
+  "Estimate energy cost and emissions using the prices and factors you enter.":
+    [
+      "Schätzen Sie Energiekosten und Emissionen anhand Ihrer eingegebenen Preise und Faktoren.",
+      "Ṣírò àfojúsùn owó agbára àti ìtújáde pẹ̀lú iye owó àti ìwọ̀n tí o tẹ̀ sílẹ̀.",
+      "Estimate energy cost and emissions with prices and factors wey you enter.",
+    ],
+  "Enter currency, import/export prices, tariff bands, charges, taxes and emissions factors with their source and conditions.":
+    [
+      "Geben Sie Währung, Bezugs-/Einspeisepreise, Tarifzonen, Gebühren, Steuern und Emissionsfaktoren mit Quelle und Bedingungen ein.",
+      "Tẹ owó, iye agbára wọlé/jáde, ẹgbẹ́ owó iná, owó iṣẹ́, owó orí àti ìwọ̀n ìtújáde pẹ̀lú orísun àti ipò wọn sílẹ̀.",
+      "Enter currency, import/export prices, tariff bands, charges, taxes and emissions factors with source and conditions.",
+    ],
+  "Inspect the cost breakdown and the period being calculated. Daily and 30-day estimates differ from a simulation of actual calendar dates.":
+    [
+      "Prüfen Sie die Kostenaufteilung und den berechneten Zeitraum. Tages- und 30-Tage-Schätzungen unterscheiden sich von einer Simulation tatsächlicher Kalenderdaten.",
+      "Ṣàyẹ̀wò ìpín owó àti àkókò tí a ń ṣírò. Àfojúsùn ọjọ́ kan àti ọjọ́ 30 yàtọ̀ sí àfọwọ́ṣe ọjọ́ kálẹ́ńdà gidi.",
+      "Inspect cost breakdown and period wey dem dey calculate. Daily and 30-day estimates differ from simulation of actual calendar dates.",
+    ],
+  "Use your actual tariff's day and night bands instead of one flat rate when the price changes with time. An estimate is not a supplier invoice.":
+    [
+      "Nutzen Sie bei zeitabhängigen Preisen die tatsächlichen Tag- und Nachttarifzonen statt eines Einheitspreises. Eine Schätzung ist keine Lieferantenrechnung.",
+      "Lo ẹgbẹ́ owó iná ọ̀sán àti òru rẹ gidi dípò iye kan ṣoṣo bí iye owó bá ń yí pẹ̀lú àkókò. Àfojúsùn kì í ṣe ìwé owó olùpèsè.",
+      "Use your actual tariff day and night bands instead of one flat rate when price changes with time. Estimate no be supplier invoice.",
+    ],
+  "Reuse sourced equipment records while keeping project copies independent.": [
+    "Verwenden Sie belegte Gerätedatensätze erneut und halten Sie die Projektkopien unabhängig.",
+    "Tún lo àkọsílẹ̀ ẹ̀rọ tí ó ní orísun nígbà tí ẹ̀dà iṣẹ́ kọ̀ọ̀kan dúró lọ́tọ̀.",
+    "Reuse equipment records wey get sources while project copies stay independent.",
+  ],
+  "Search or filter the library, mark favorites, create a sourced record or save an existing load as a template. Check generic starting assumptions before use.":
+    [
+      "Durchsuchen oder filtern Sie die Bibliothek, markieren Sie Favoriten, erstellen Sie einen belegten Datensatz oder speichern Sie eine bestehende Last als Vorlage. Prüfen Sie allgemeine Ausgangsannahmen vor der Verwendung.",
+      "Wá tàbí ṣàlẹ̀mọ́ àkójọpọ̀, sàmì sí àyànfẹ́, ṣẹ̀dá àkọsílẹ̀ olórísun tàbí fi ẹrù tí ó wà pamọ́ gẹ́gẹ́ bí àpẹrẹ. Ṣàyẹ̀wò àfojúsùn ìbẹ̀rẹ̀ gbogbogbò kí o tó lò ó.",
+      "Search or filter library, mark favorites, create sourced record or save existing load as template. Check generic starting assumptions before use.",
+    ],
+  "Adding a template creates an independent load. When updating a template, review which linked loads receive new nameplate fields and evidence; schedules, names and assignments remain as entered.":
+    [
+      "Eine hinzugefügte Vorlage erzeugt eine unabhängige Last. Prüfen Sie beim Aktualisieren einer Vorlage, welche verknüpften Lasten neue Typenschildfelder und Nachweise erhalten; Zeitpläne, Namen und Zuordnungen bleiben wie eingegeben.",
+      "Fífi àpẹrẹ kún ń ṣẹ̀dá ẹrù olómìnira. Nígbà àtúnṣe àpẹrẹ, ṣàyẹ̀wò ẹrù tí ó so mọ́ ọn tí yóò gba dátà àkọlé ẹ̀rọ àti ẹ̀rí tuntun; ètò àkókò, orúkọ àti ìpín dúró bí a ṣe tẹ̀ wọ́n sílẹ̀.",
+      "Adding template creates independent load. When you update template, review which linked loads receive new nameplate fields and evidence; schedules, names and assignments stay as you enter them.",
+    ],
+  "Worked reference projects are labelled learning examples. Equipment JSON and Workspace backup preserve saved version history.":
+    [
+      "Berechnete Referenzprojekte sind gekennzeichnete Lernbeispiele. Geräte-JSON und Arbeitsbereichssicherung bewahren den gespeicherten Versionsverlauf.",
+      "Àwọn iṣẹ́ ìtọ́kasí tí a ti ṣírò jẹ́ àpẹẹrẹ ìkẹ́kọ̀ọ́ tí a sàmì sí. JSON ẹ̀rọ àti Àfipamọ́ àyè iṣẹ́ ń pa ìtàn ẹ̀dà tí a fi pamọ́ mọ́.",
+      "Worked reference projects na labelled learning examples. Equipment JSON and Workspace backup keep saved version history.",
+    ],
+  "Keep the manufacturer's datasheet reference with a motor template. An attractive library card does not make an assumed rating a verified manufacturer specification.":
+    [
+      "Bewahren Sie den Verweis auf das Herstellerdatenblatt bei der Motorvorlage auf. Eine ansprechende Bibliothekskarte macht einen angenommenen Nennwert nicht zur bestätigten Herstellerangabe.",
+      "Pa ìtọ́kasí ìwé dátà olùṣe mọ́ pẹ̀lú àpẹrẹ mọ́tò. Káàdì àkójọpọ̀ tó lẹ́wà kò sọ ìwọ̀n àfojúsùn di ìwọ̀n olùṣe tí a ti fìdí múlẹ̀.",
+      "Keep manufacturer datasheet reference with motor template. Fine library card no turn assumed rating into verified manufacturer specification.",
+    ],
+  "Review an immutable report preview before sharing engineering results.": [
+    "Prüfen Sie vor der Weitergabe technischer Ergebnisse eine unveränderliche Berichtsvorschau.",
+    "Ṣàyẹ̀wò àwòrán ṣáájú ìròyìn tí kò yí padà kí o tó pín èsì ìmọ̀ ẹ̀rọ.",
+    "Review report preview wey no dey change before you share engineering results.",
+  ],
+  "Enter report metadata, save it and choose the report sections. Complete any calendar, renewable or EV analyses needed for those sections.":
+    [
+      "Geben Sie Berichtsmetadaten ein, speichern Sie diese und wählen Sie die Abschnitte. Schließen Sie benötigte Kalender-, Erneuerbaren- oder EV-Analysen für diese Abschnitte ab.",
+      "Tẹ àlàyé ìròyìn sílẹ̀, fi í pamọ́ kí o sì yan àwọn apá ìròyìn. Parí ìṣirò kálẹ́ńdà, agbára tuntun tàbí EV tí apá wọ̀nyẹn nílò.",
+      "Enter report metadata, save am and choose report sections. Complete any calendar, renewable or EV analyses wey those sections need.",
+    ],
+  "Choose Freeze report preview. Review the project revision, input evidence, assumptions and unresolved issues, then export PDF, print, snapshot JSON or report CSV.":
     [
       "Wählen Sie Berichtsvorschau einfrieren. Prüfen Sie Projektrevision, Eingabenachweise, Annahmen und offene Hinweise. Exportieren Sie anschließend PDF, Druckausgabe, Snapshot-JSON oder Berichts-CSV.",
       "Yan Di àwòrán ṣáájú ìròyìn mú. Ṣàyẹ̀wò àtúnṣe iṣẹ́, ẹ̀rí dátà ìwọlé, àfojúsùn àti ìṣòro tí kò tíì yanjú, kí o sì gbé PDF, ìtẹ̀jáde, JSON àwòrán ìgbà náà tàbí CSV ìròyìn jáde.",
