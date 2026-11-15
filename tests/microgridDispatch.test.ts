@@ -93,4 +93,3 @@ describe("chronological microgrid dispatch", () => {
     );
   });
 });
-

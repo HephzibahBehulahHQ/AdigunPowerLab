@@ -741,4 +741,3 @@ export function searchHelp(
     .slice(0, count)
     .map((entry) => entry.topic);
 }
-

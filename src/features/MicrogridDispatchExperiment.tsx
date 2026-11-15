@@ -574,4 +574,3 @@ export function MicrogridDispatchExperiment() {
     </section>
   );
 }
-

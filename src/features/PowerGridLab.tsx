@@ -454,4 +454,3 @@ export function PowerGridLab() {
     </section>
   );
 }
-

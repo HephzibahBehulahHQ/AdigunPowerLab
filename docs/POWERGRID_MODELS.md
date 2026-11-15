@@ -67,4 +67,3 @@ Dispatch order is explicit: available PV/wind serve demand first; renewable surp
 For each interval, the solver checks `PV + wind + battery discharge + backup − battery charge − curtailment − served demand = 0 kW` (numerical residual); it separately reports `total demand = served + unmet`. Battery stored energy increases by `charge kW × duration × charge efficiency` and decreases by `discharge kW × duration ÷ discharge efficiency`. Aggregate kWh metrics use the entered interval duration. Input defaults are classroom assumptions, not measured load or renewable profiles.
 
 This is not a feeder/network solution. Feeder and transformer losses, imports/exports, source-specific backup fuel/heat-rate/emissions/cost, frequency response, generator outage logic and location-specific renewable/demand data are not modeled. Do not interpret the generic backup ceiling as a diesel/thermal unit performance model or the AC-bus balance as utility operation.
-

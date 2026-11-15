@@ -1785,4 +1785,3 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Dis chronological teaching dispatch use di NREL 6 MW wind curve and PV equations already inside. Renewable supply meet demand first; extra dey charge battery; shortage use battery then generic backup; critical load get supply before other load. Inputs na assumptions, no be measured regional profiles. E no model backup type, feeder/transformer loss, export, fuel, cost, emission or frequency response. Save di separate scenario for dis browser or export JSON/CSV.",
     ],
 };
-

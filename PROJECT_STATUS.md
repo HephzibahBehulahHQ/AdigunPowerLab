@@ -245,4 +245,3 @@ The selector uses the existing combined-cycle render and owner-supplied solar/wi
 ## NREL reference-wind generation worksheet — candidate in progress
 
 Milestone 3 now has a bounded wind-generation slice based on the published NREL 6 MW (2015) reference-turbine curve. The worksheet interpolates the source points against user-entered interval wind speed and reports interval power and energy, profile total, mean output and profile capacity factor. It saves its independent inputs locally and exports source-labelled JSON and actual interval CSV readings. Candidate acceptance is being prepared for numerical source points, interpolation, invalid values, save/reload, export content and four-locale Help coverage. Chronological dispatch, battery integration, critical-load priorities and regional resource profiles remain incomplete.
-

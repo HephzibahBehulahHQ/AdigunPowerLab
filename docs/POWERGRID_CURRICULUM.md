@@ -68,4 +68,3 @@ The curve is the NREL 6 MW research reference turbine from report NREL/TP-6A20-6
 5. Compare per-interval SOC, curtailment, served energy, critical and non-critical unserved demand, and balance residual. Save locally, reload the page, and export the JSON case and CSV interval table.
 
 The source equations are the existing PV worksheet and NREL 6 MW wind curve; no measured weather or demand is bundled. Backup is a generic capacity bound, not a diesel/gas/thermal asset model. This AC-bus lesson excludes feeder and transformer losses, exports, fuel, costs, emissions, outages and frequency response. A zero balance residual confirms arithmetic at the modeled boundary only.
-

@@ -105,4 +105,3 @@ This slice uses user-entered equal-duration wind speeds and an analytical teachi
 | Help/Guide, four supported locales and release records                       | Help strings, workflow coverage, user guide and exact-main/Pages receipts  | In progress                                      |
 
 The backup is only an explicitly generic dispatchable capacity ceiling with a ramp-up constraint; it is not a diesel or other source-specific generator model. The AC-bus schedule excludes feeder/transformer losses, imports/exports, fuel, costs, emissions and frequency response. This slice does not finish Milestone 3.
-

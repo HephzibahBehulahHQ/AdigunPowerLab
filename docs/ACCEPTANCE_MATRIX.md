@@ -260,4 +260,3 @@ Unified backup, radial graph editing, source/library workflows, cumulative feede
 ## POWERGRID LAB implementation state
 
 The NREL research reference-wind curve worksheet is deployed by PR #103; it uses user-entered interval wind speeds and does not fetch site weather or claim commercial turbine performance. PR #104 is an open draft for a separate chronological PV/wind, storage and critical-demand dispatch workflow. It is not merged/deployed yet. Regional profiles, source-specific dispatchable generation, network losses inside chronology and remaining Milestone 3 requirements stay open.
-

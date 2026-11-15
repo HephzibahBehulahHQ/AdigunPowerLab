@@ -658,4 +658,3 @@ test("microgrid dispatch recalculates, validates, saves and exports interval bal
     "same number of intervals",
   );
 });
-
