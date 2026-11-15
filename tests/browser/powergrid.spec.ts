@@ -497,6 +497,9 @@ test("PV source model responds to inputs, saves a reference and exports results"
   await expect(
     page.getByRole("heading", { name: "PV source performance experiment" }),
   ).toBeVisible();
+  const pvSection = page
+    .locator(".pg-pv")
+    .filter({ has: page.locator("#pg-pv-title") });
   await expect(page.getByText("71.232 kW", { exact: true })).toBeVisible();
   await expect(page.getByText("60 kW", { exact: true })).toBeVisible();
   await expect(page.getByText("9.095 kW", { exact: true })).toBeVisible();
@@ -507,7 +510,7 @@ test("PV source model responds to inputs, saves a reference and exports results"
   const irradiance = page.getByLabel("Plane-of-array irradiance (W/m²)");
   await irradiance.fill("500");
   await expect(page.getByText("-16.641 kW", { exact: false })).toBeVisible();
-  await page.getByRole("button", { name: "Save inputs locally" }).click();
+  await pvSection.getByRole("button", { name: "Save inputs locally" }).click();
 
   const jsonPromise = page.waitForEvent("download");
   await page.getByRole("button", { name: "Export PV case JSON" }).click();
@@ -558,9 +561,9 @@ test("NREL reference wind curve calculates, saves and exports entered intervals"
   await wind.fill("4, 5, 12, 26");
   await expect(section.getByText("6,808 kWh")).toBeVisible();
   await section.getByRole("button", { name: "Save inputs locally" }).click();
-  await expect(
-    section.getByRole("status", { name: "Saved in this browser" }),
-  ).toBeVisible();
+  await expect(section.locator(".pg-saved")).toHaveText(
+    "Saved in this browser",
+  );
 
   const jsonPromise = page.waitForEvent("download");
   await section.getByRole("button", { name: "Export wind case JSON" }).click();
