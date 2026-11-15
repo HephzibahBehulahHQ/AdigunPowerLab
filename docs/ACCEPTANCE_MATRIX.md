@@ -259,4 +259,4 @@ Unified backup, radial graph editing, source/library workflows, cumulative feede
 
 ## POWERGRID LAB implementation state
 
-A source-backed NREL research reference-wind curve worksheet is in candidate implementation. It uses user-entered interval wind speeds and does not fetch site weather or claim commercial turbine or dispatch performance. Remaining Milestone 3 generation dispatch, storage and regional profiles are open.
+The NREL research reference-wind curve worksheet is deployed by PR #103; it uses user-entered interval wind speeds and does not fetch site weather or claim commercial turbine performance. PR #104 is an open draft for a separate chronological PV/wind, storage and critical-demand dispatch workflow. It is not merged/deployed yet. Regional profiles, source-specific dispatchable generation, network losses inside chronology and remaining Milestone 3 requirements stay open.

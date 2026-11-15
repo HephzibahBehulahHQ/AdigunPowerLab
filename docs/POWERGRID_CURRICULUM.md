@@ -58,3 +58,13 @@ These are sourced educational contexts, not complete national operational grids.
 4. Save inputs and refresh, or export JSON for the complete case and CSV for interval readings.
 
 The curve is the NREL 6 MW research reference turbine from report NREL/TP-6A20-67414. Intermediate values are linearly interpolated. The wind sequence is an analytical teaching exercise, not weather data or a site measurement. Storage, dispatch, losses, wakes and annual yield are not modeled.
+
+## Lesson 5 — Microgrid chronology, storage and critical demand
+
+1. Open **Microgrid dispatch laboratory**. Keep the equal-duration wind, irradiance, total-demand and critical-demand profiles aligned by interval; edit each list with one number per interval.
+2. Set the PV DC/inverter ratings and wind-turbine count. Review the resulting per-interval source output before interpreting dispatch.
+3. Set battery energy capacity, initial and minimum SOC, charge/discharge power, and charge/discharge efficiency. Predict when renewable surplus can be stored and when the reserve prevents discharge.
+4. Set the generic dispatchable-backup ceiling and its ramp-up increment. Follow the stated order: renewable supply, battery charge/discharge, backup, then critical loads before other demand.
+5. Compare per-interval SOC, curtailment, served energy, critical and non-critical unserved demand, and balance residual. Save locally, reload the page, and export the JSON case and CSV interval table.
+
+The source equations are the existing PV worksheet and NREL 6 MW wind curve; no measured weather or demand is bundled. Backup is a generic capacity bound, not a diesel/gas/thermal asset model. This AC-bus lesson excludes feeder and transformer losses, exports, fuel, costs, emissions, outages and frequency response. A zero balance residual confirms arithmetic at the modeled boundary only.

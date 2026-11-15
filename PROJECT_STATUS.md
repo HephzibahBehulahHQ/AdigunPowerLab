@@ -2,6 +2,10 @@
 
 Date: 15 November 2026. Owner: Hephzibah Behulah.
 
+## POWERGRID Milestone 3 — chronological dispatch slice in progress
+
+PR [#104](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/104) is an open draft. It adds an AC-bus chronological model combining the existing PV and NREL wind source calculations with user-entered demand, battery SOC/power/efficiency/reserve, generic backup-capacity ramp-up, curtailment and critical-load-first service. The isolated `Microgrid dispatch laboratory` UI supports editing, validation, local save/reload and JSON/CSV export. Targeted numerical tests (3) and TypeScript typecheck pass. Help, all four locales, curriculum, model boundaries, browser acceptance and release evidence are being completed. It is not merged or deployed and does not finish M3. Exact network losses, regional profiles, source-specific dispatchable generation, device outages, exports, costs, emissions and full M3 remain open.
+
 ## PowerGrid practical equipment gallery — deployed
 
 PR [#97](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/97) merged as `739e4164ce83387e7aedc9682400c23fff9fbade`. Candidate run [43661330707](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43661330707) and exact-main run [43661833854](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43661833854) passed lint, unit tests, build, full browser and production-browser suites, update smoke and online/base-path offline checks. Pages run [43662397691](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43662397691) deployed that exact SHA (artifact 14141065553). The public `#POWERGRID` route returned HTTP 200, and the overview plus all six stage images returned HTTP 200. The deployed gallery pairs images and component-purpose checklists for hydro, steam/gas, transformer/switchyard, transmission/substation, distribution/customers and safety/test equipment. All are custom training illustrations, not photographs of a named site.

@@ -593,3 +593,72 @@ test("NREL reference wind curve calculates, saves and exports entered intervals"
   });
   await expect(restored).toHaveValue("4, 5, 12, 26");
 });
+
+test("microgrid dispatch recalculates, validates, saves and exports interval balance", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const title = page.locator("#pg-microgrid-title");
+  const section = page.locator(".pg-pv").filter({ has: title });
+  await expect(title).toBeVisible();
+  await section
+    .getByRole("textbox", { name: "Wind speed (m/s)" })
+    .fill("3, 3, 3, 3, 3, 3");
+  await section
+    .getByRole("textbox", { name: "Solar irradiance (W/m²)" })
+    .fill("0, 0, 0, 0, 0, 0");
+  await section
+    .getByRole("textbox", { name: "Total demand (kW)" })
+    .fill("50, 50, 50, 50, 50, 50");
+  await section
+    .getByRole("textbox", { name: "Critical demand (kW)" })
+    .fill("20, 20, 20, 20, 20, 20");
+  await expect(section.getByTestId("microgrid-batteryKWh")).toHaveAttribute(
+    "aria-label",
+    "Battery capacity (kWh)",
+  );
+  await section.getByTestId("microgrid-batteryKWh").fill("1");
+  await section.getByTestId("microgrid-initialSoc").fill("0");
+  await section.getByTestId("microgrid-reserveSoc").fill("0");
+  await section.getByTestId("microgrid-batteryPowerKW").fill("0");
+  await section.getByTestId("microgrid-backupKW").fill("0");
+  await expect(section.locator("tbody tr").first()).toContainText("50");
+  await section.getByRole("button", { name: "Save scenario locally" }).click();
+  await expect(
+    section.getByRole("button", { name: "Saved in this browser" }),
+  ).toBeVisible();
+
+  const jsonPromise = page.waitForEvent("download");
+  await section.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const json = await jsonPromise;
+  expect(json.suggestedFilename()).toBe("powergrid-microgrid-dispatch.json");
+  const jsonPath = await json.path();
+  expect(
+    JSON.parse(await readFile(jsonPath!, "utf8")).result.intervals[0]
+      .criticalUnservedKW,
+  ).toBe(20);
+
+  const csvPromise = page.waitForEvent("download");
+  await section.getByRole("button", { name: "Export intervals CSV" }).click();
+  const csv = await csvPromise;
+  expect(csv.suggestedFilename()).toBe("powergrid-microgrid-intervals.csv");
+  const csvPath = await csv.path();
+  expect(await readFile(csvPath!, "utf8")).toContain("1,0,0,0,50,20");
+
+  await page.reload();
+  const restored = page
+    .locator(".pg-pv")
+    .filter({ has: page.locator("#pg-microgrid-title") });
+  await expect(
+    restored.getByRole("textbox", { name: "Total demand (kW)" }),
+  ).toHaveValue("50, 50, 50, 50, 50, 50");
+  await restored
+    .getByRole("textbox", { name: "Wind speed (m/s)" })
+    .fill("3, 3");
+  await expect(
+    restored.getByRole("button", { name: "Export dispatch JSON" }),
+  ).toBeDisabled();
+  await expect(restored.getByRole("alert")).toContainText(
+    "same number of intervals",
+  );
+});
