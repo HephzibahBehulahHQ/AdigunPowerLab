@@ -1915,4 +1915,5 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Àwòrán náà fi bí wọ́n ṣe ń gbé runner turbine tuntun wọ ilé agbára Fort Randall nígbà àtúnṣe unit. Ó fi ìtọ́jú ẹ̀rọ hàn, kì í ṣe generator tó ń ṣiṣẹ́.",
       "Di footage show dem moving new turbine runner enter Fort Randall powerhouse during repair. E show equipment handling, no be generator wey dey run.",
     ],
+  "Play video": ["Video abspielen", "Fídíò ṣiṣẹ́", "Play video"],
 };

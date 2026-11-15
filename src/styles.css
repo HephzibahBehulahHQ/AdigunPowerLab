@@ -4508,6 +4508,25 @@ details p {
   border: 0;
   background: #0b1723;
 }
+.pg-field-video-play {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  place-content: center;
+  gap: 8px;
+  border: 0;
+  background: #0b1723;
+  color: var(--gold);
+  cursor: pointer;
+  font: inherit;
+}
+.pg-field-video-play span:first-child {
+  font-size: 28px;
+}
+.pg-field-video-play:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -4px;
+}
 .pg-field-video-content {
   display: grid;
   align-content: start;

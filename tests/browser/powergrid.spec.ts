@@ -32,14 +32,20 @@ test("POWERGRID field videos are titled, source-linked and accurately scoped", a
 
   const videoIds = ["993768", "1014627", "1015702", "1026500"];
   for (const [index, card] of (await cards.all()).entries()) {
-    await expect(card.locator("iframe")).toHaveAttribute("title", /.+/);
-    await expect(card.locator("iframe")).toHaveAttribute(
-      "src",
-      `https://www.dvidshub.net/video/embed/${videoIds[index]}`,
-    );
+    await expect(
+      card.getByRole("button", { name: /Play video/ }),
+    ).toBeVisible();
     await expect(
       card.getByRole("link", { name: "Open original video record" }),
     ).toHaveAttribute("href", /^https:\/\/www\.dvidshub\.net\/video\//);
+    if (index === 0) {
+      await card.getByRole("button", { name: /Play video/ }).click();
+      await expect(card.locator("iframe")).toHaveAttribute(
+        "src",
+        `https://www.dvidshub.net/video/embed/${videoIds[index]}`,
+      );
+      await expect(card.locator("iframe")).toHaveAttribute("title", /.+/);
+    }
   }
   await expect(section).toContainText("not dispatch telemetry");
   await expect(section).toContainText("not a running generator");

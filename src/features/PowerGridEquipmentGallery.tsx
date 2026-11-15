@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useT } from "../i18n";
 
 const fieldPhotos = [
@@ -299,6 +300,7 @@ const groups = [
 
 export function PowerGridEquipmentGallery() {
   const t = useT();
+  const [playingVideos, setPlayingVideos] = useState<string[]>([]);
   return (
     <section
       className="pg-equipment-gallery"
@@ -385,15 +387,29 @@ export function PowerGridEquipmentGallery() {
         <div className="pg-field-video-grid">
           {fieldVideos.map((video) => (
             <article className="pg-field-video-card" key={video.embed}>
-              <iframe
-                className="pg-field-video-player"
-                src={video.embed}
-                title={t(video.title)}
-                loading="lazy"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allow="fullscreen; picture-in-picture"
-                allowFullScreen
-              />
+              {playingVideos.includes(video.embed) ? (
+                <iframe
+                  className="pg-field-video-player"
+                  src={video.embed}
+                  title={t(video.title)}
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allow="fullscreen; picture-in-picture"
+                  allowFullScreen
+                />
+              ) : (
+                <button
+                  className="pg-field-video-play"
+                  type="button"
+                  aria-label={`${t("Play video")}: ${t(video.title)}`}
+                  onClick={() =>
+                    setPlayingVideos((current) => [...current, video.embed])
+                  }
+                >
+                  <span aria-hidden="true">▶</span>
+                  <span>{t("Play video")}</span>
+                </button>
+              )}
               <div className="pg-field-video-content">
                 <span className="eyebrow">{t(video.stage)}</span>
                 <h5>{t(video.title)}</h5>
