@@ -1844,4 +1844,76 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Dispatch ìkọ́ni chronological yìí lo NREL 6 MW wind curve àti PV source equation tó wà: renewable ń pèsè demand kọ́kọ́; surplus ń charge storage; deficit ń lo storage lẹ́yìn náà generic backup; critical demand gba ipò ṣáájú non-critical. Input jẹ́ àfojúsùn, kì í ṣe regional profile tí a wọn. A kò model source-specific backup generator, feeder/transformer loss, export, fuel, iye owó, emission tàbí frequency response. Fi scenario tó yà sọ́tọ̀ pamọ́ sí browser yìí tàbí export JSON/CSV.",
       "Dis chronological teaching dispatch use di NREL 6 MW wind curve and PV equations already inside. Renewable supply meet demand first; extra dey charge battery; shortage use battery then generic backup; critical load get supply before other load. Inputs na assumptions, no be measured regional profiles. E no model backup type, feeder/transformer loss, export, fuel, cost, emission or frequency response. Save di separate scenario for dis browser or export JSON/CSV.",
     ],
+  "REAL POWER STATION VIDEO": [
+    "ECHTE KRAFTWERK-VIDEOS",
+    "FÍDÍÓ IBÙDÓ AGBÁRA GIDI",
+    "REAL POWER STATION VIDEO",
+  ],
+  "Watch documentary station footage": [
+    "Dokumentarische Aufnahmen von Kraftwerken ansehen",
+    "Wo àwòrán fídíò ibùdó agbára",
+    "Watch real power station footage",
+  ],
+  "These videos stream from source records and show real facility events. Captions describe the recorded footage; it is not live telemetry, operating measurements, connection evidence, or proof of current site conditions.":
+    [
+      "Diese Videos werden aus Quelldatensätzen gestreamt und zeigen reale Anlagenereignisse. Die Bildtexte beschreiben die Aufnahmen; sie sind weder Live-Telemetrie noch Betriebswerte, Anschlussnachweise oder Beleg für den heutigen Anlagenzustand.",
+      "Fídíò wọ̀nyí ń wá láti orísun wọn, wọ́n sì ń fi iṣẹlẹ̀ gidi hàn ní àwọn ibi iṣẹ́. Àkọlé wọn ṣàlàyé ohun tí a gbà sílẹ̀; kì í ṣe telemetry tààrà, ìwọ̀n iṣẹ́, ẹ̀rí ìsopọ̀, tàbí ẹ̀rí ipò ibi náà lọ́wọ́lọ́wọ́.",
+      "Dis videos stream from di source records and show real events for real sites. Di captions describe wetin dem record; e no be live telemetry, operating measurements, connection evidence or proof of di site's current condition.",
+    ],
+  "Open original video record": [
+    "Original-Videonachweis öffnen",
+    "Ṣí àkọsílẹ̀ fídíò orísun",
+    "Open original video record",
+  ],
+  "Video playback is streamed by DVIDS and requires internet access. The appearance of U.S. Department of War visual information does not imply or constitute Department of War endorsement.":
+    [
+      "Die Wiedergabe wird von DVIDS gestreamt und benötigt Internet. Bildmaterial des US-Verteidigungsministeriums bedeutet keine Befürwortung durch das Ministerium.",
+      "DVIDS ló ń pèsè fídíò lórí ayélujára, ó sì nílò ìsopọ̀ ayelujara. Ìfarahàn àwòrán láti U.S. Department of War kò túmọ̀ sí pé ẹ̀ka náà fọwọ́ sí AdigunPowerLab.",
+      "DVIDS dey stream di video, so internet dey needed. U.S. Department of War imagery no mean say di Department endorse AdigunPowerLab.",
+    ],
+  "Hydropower grid support": [
+    "Wasserkraft im Netzbetrieb",
+    "Ìrànlọ́wọ́ hydro fún akoj ina",
+    "Hydropower grid support",
+  ],
+  "Powerhouse and river context": [
+    "Kraftwerk und Fluss im Überblick",
+    "Àwòrán ilé agbára àti odò",
+    "Powerhouse and river view",
+  ],
+  "Spillway functional flow test": [
+    "Funktionstest des Hochwasserentlastungsbauwerks",
+    "Ìdánwò ìṣàn omi spillway",
+    "Spillway flow test",
+  ],
+  "Turbine runner rehabilitation": [
+    "Sanierung des Turbinenlaufrads",
+    "Àtúnṣe runner turbine",
+    "Turbine runner rehabilitation",
+  ],
+  "The source describes Tulsa District hydropower support during the January 2026 winter storm. This is documentary B-roll, not dispatch telemetry or a measured output trace.":
+    [
+      "Die Quelle beschreibt die Netzhilfe durch Wasserkraftwerke des Tulsa District während des Wintersturms im Januar 2026. Das B-Roll-Material ist weder Dispatch-Telemetrie noch eine gemessene Leistungskurve.",
+      "Orísun sọ bí hydro Tulsa District ṣe ran akoj lọ́wọ́ nígbà ìjì òtútù January 2026. Fídíò yìí kì í ṣe telemetry dispatch tàbí àkọsílẹ̀ agbára tí a wọn.",
+      "Source talk how Tulsa District hydro stations support di grid during January 2026 winter storm. Dis B-roll no be dispatch telemetry or measured power record.",
+    ],
+  "A 21-second early-morning time lapse of the Garrison Dam hydroelectric powerhouse and Missouri River. It shows facility context, not turbine internals or generation measurements.":
+    [
+      "Ein 21-sekündiger Zeitraffer am frühen Morgen zeigt das Wasserkraftwerk am Garrison-Damm und den Missouri River. Er zeigt den Standort, nicht das Turbineninnere oder Erzeugungsmesswerte.",
+      "Fídíò timelapse àárọ̀ ìṣẹ́jú-àáyá 21 yìí fi ilé hydro Garrison Dam àti odò Missouri hàn. Ó fi ojú ibi iṣẹ́ hàn, kì í ṣe inú turbine tàbí ìwọ̀n agbára.",
+      "Dis 21-second early-morning time-lapse show Garrison Dam powerhouse and Missouri River. E show di site, no be turbine inside or measured power.",
+    ],
+  "Footage documents a June 2026 functional flow test for the Garrison Dam Safety Modification Project. It is a structural test event, not a turbine-output demonstration.":
+    [
+      "Die Aufnahmen dokumentieren einen Funktionstest des Garrison-Damm-Sicherheitsprojekts im Juni 2026. Dies ist ein Bauwerkstest, keine Turbinenleistungsdemonstration.",
+      "Àwòrán náà ṣe àkọsílẹ̀ ìdánwò ìṣàn fún iṣẹ́ ààbò Garrison Dam ní June 2026. Ìdánwò ìkọ́lé ni, kì í ṣe ìfihàn agbára turbine.",
+      "Di footage record one June 2026 flow test for Garrison Dam safety work. Na structural test, no be turbine output demonstration.",
+    ],
+  "Footage documents a replacement turbine runner being moved into the Fort Randall powerhouse during unit rehabilitation. It shows equipment handling, not a running generator.":
+    [
+      "Die Aufnahmen zeigen, wie während der Sanierung ein neues Turbinenlaufrad in das Kraftwerk Fort Randall gebracht wird. Sie zeigen den Geräteumschlag, keinen laufenden Generator.",
+      "Àwòrán náà fi bí wọ́n ṣe ń gbé runner turbine tuntun wọ ilé agbára Fort Randall nígbà àtúnṣe unit. Ó fi ìtọ́jú ẹ̀rọ hàn, kì í ṣe generator tó ń ṣiṣẹ́.",
+      "Di footage show dem moving new turbine runner enter Fort Randall powerhouse during repair. E show equipment handling, no be generator wey dey run.",
+    ],
+  "Play video": ["Video abspielen", "Fídíò ṣiṣẹ́", "Play video"],
 };

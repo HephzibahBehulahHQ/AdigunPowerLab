@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useT } from "../i18n";
 
 const fieldPhotos = [
@@ -76,6 +77,49 @@ const fieldPhotos = [
       "Staff Sgt. Eric W. Jones · U.S. Army Corps of Engineers, Los Angeles District",
     source: "https://www.dvidshub.net/image/4104461/plane-pole-power-72-hours",
     objectPosition: "center 24%",
+  },
+];
+
+const fieldVideos = [
+  {
+    stage: "Hydropower grid support",
+    title: "USACE powerhouses support grid demand during a winter storm",
+    embed: "https://www.dvidshub.net/video/embed/993768",
+    source:
+      "https://www.dvidshub.net/video/993768/usace-powerhouses-support-grid-demands-during-2026-winter-storm",
+    producer: "Brannen Parrish · U.S. Army Corps of Engineers, Tulsa District",
+    context:
+      "The source describes Tulsa District hydropower support during the January 2026 winter storm. This is documentary B-roll, not dispatch telemetry or a measured output trace.",
+  },
+  {
+    stage: "Powerhouse and river context",
+    title: "Garrison Dam powerhouse and Missouri River time lapse",
+    embed: "https://www.dvidshub.net/video/embed/1014627",
+    source:
+      "https://www.dvidshub.net/video/1014627/garrison-dam-powerhouse-time-lapse",
+    producer: "Delanie Stafford · U.S. Army Corps of Engineers, Omaha District",
+    context:
+      "A 21-second early-morning time lapse of the Garrison Dam hydroelectric powerhouse and Missouri River. It shows facility context, not turbine internals or generation measurements.",
+  },
+  {
+    stage: "Spillway functional flow test",
+    title: "Garrison Dam spillway safety modification flow test",
+    embed: "https://www.dvidshub.net/video/embed/1015702",
+    source:
+      "https://www.dvidshub.net/video/1015702/spillway-flow-test-conducted-garrison-dam-safety-modification-project",
+    producer: "Delanie Stafford · U.S. Army Corps of Engineers, Omaha District",
+    context:
+      "Footage documents a June 2026 functional flow test for the Garrison Dam Safety Modification Project. It is a structural test event, not a turbine-output demonstration.",
+  },
+  {
+    stage: "Turbine runner rehabilitation",
+    title: "Fort Randall Dam turbine runner placement",
+    embed: "https://www.dvidshub.net/video/embed/1026500",
+    source:
+      "https://www.dvidshub.net/video/1026500/fort-randall-turbine-runner-placement",
+    producer: "Makenzie Leonard · U.S. Army Corps of Engineers, Omaha District",
+    context:
+      "Footage documents a replacement turbine runner being moved into the Fort Randall powerhouse during unit rehabilitation. It shows equipment handling, not a running generator.",
   },
 ];
 
@@ -256,6 +300,7 @@ const groups = [
 
 export function PowerGridEquipmentGallery() {
   const t = useT();
+  const [playingVideos, setPlayingVideos] = useState<string[]>([]);
   return (
     <section
       className="pg-equipment-gallery"
@@ -319,6 +364,67 @@ export function PowerGridEquipmentGallery() {
         <p className="pg-photo-rights-note">
           {t(
             "The appearance of U.S. Department of War visual information does not imply or constitute Department of War endorsement.",
+          )}
+        </p>
+      </section>
+      <section
+        className="pg-field-video-section"
+        aria-labelledby="pg-field-video-title"
+      >
+        <div className="pg-field-photo-heading">
+          <div>
+            <span className="eyebrow">{t("REAL POWER STATION VIDEO")}</span>
+            <h4 id="pg-field-video-title">
+              {t("Watch documentary station footage")}
+            </h4>
+          </div>
+          <p>
+            {t(
+              "These videos stream from source records and show real facility events. Captions describe the recorded footage; it is not live telemetry, operating measurements, connection evidence, or proof of current site conditions.",
+            )}
+          </p>
+        </div>
+        <div className="pg-field-video-grid">
+          {fieldVideos.map((video) => (
+            <article className="pg-field-video-card" key={video.embed}>
+              {playingVideos.includes(video.embed) ? (
+                <iframe
+                  className="pg-field-video-player"
+                  src={video.embed}
+                  title={t(video.title)}
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allow="fullscreen; picture-in-picture"
+                  allowFullScreen
+                />
+              ) : (
+                <button
+                  className="pg-field-video-play"
+                  type="button"
+                  aria-label={`${t("Play video")}: ${t(video.title)}`}
+                  onClick={() =>
+                    setPlayingVideos((current) => [...current, video.embed])
+                  }
+                >
+                  <span aria-hidden="true">▶</span>
+                  <span>{t("Play video")}</span>
+                </button>
+              )}
+              <div className="pg-field-video-content">
+                <span className="eyebrow">{t(video.stage)}</span>
+                <h5>{t(video.title)}</h5>
+                <p className="pg-field-video-credit">{video.producer}</p>
+                <p>{t(video.context)}</p>
+                <a href={video.source} target="_blank" rel="noreferrer">
+                  {t("Open original video record")}
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+        <p className="pg-photo-rights-note">
+          {t(
+            "Video playback is streamed by DVIDS and requires internet access. The appearance of U.S. Department of War visual information does not imply or constitute Department of War endorsement.",
           )}
         </p>
       </section>
