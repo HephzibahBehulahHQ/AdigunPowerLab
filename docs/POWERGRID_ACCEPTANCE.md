@@ -27,17 +27,21 @@ Candidate [run 43628170719](https://github.com/HephzibahBehulahHQ/AdigunPowerLab
 
 General network load flow, meshed topology, dynamic simulation, generation/resource forecasting, regulatory compliance, hardware validation and the remaining owner-prompt milestones are not claimed complete.
 
-## Owner-directed hydro station visual slice — pending hosted validation
+## Owner-directed hydro station visual slice — deployed
 
-| Requirement                                                                                                                              | Evidence target                                                                | Status                                         |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------- |
-| Recognizable hydro process cutaway with waterway, turbine, shaft and generator                                                           | Source-linked custom SVG; manual and curriculum                                | Implemented in candidate; browser gate pending |
-| Explicit 3-phase path, generator/transformer example windings and terminals, switchyard protection devices, bus, tower and overhead line | Equipment selection panel plus distinct one-line                               | Implemented in candidate; browser gate pending |
-| Control house, SCADA/protection panel, breaker, disconnector, earth switch and surge arrester inspection                                 | Selectable equipment drawings, terminal descriptions and no-telemetry boundary | Implemented in candidate; browser gate pending |
-| Separate generator neutral, protective earth and overhead shield wire; phase colors identified as schematic only                         | SVG labels, terminal descriptions and browser interaction assertions           | Implemented in candidate; browser gate pending |
-| Four-locale equipment descriptions, keyboard interaction and narrow-screen local scrolling                                               | Browser tests, Help and user guide                                             | Implemented in candidate; browser gate pending |
+| Requirement | Evidence | Status |
+| --- | --- | --- |
+| Hydro cutaway with waterway, turbine, shaft and generator | Source-linked SVG, manual and curriculum | Deployed; candidate and exact-main gates passed |
+| Three-phase path, example windings, terminals, switchyard protection, bus, tower and overhead line | Equipment panel, one-line, source notes and browser coverage | Deployed; candidate and exact-main gates passed |
+| Control house, SCADA/protection panel, breaker, disconnector, earth switch and arrester inspection | Selectable equipment drawings and terminal descriptions | Deployed; candidate and exact-main gates passed |
+| Generator neutral, protective earth and shield wire remain distinct | SVG labels, terminal descriptions and interaction assertions | Deployed; candidate and exact-main gates passed |
+| Four-locale content, keyboard interaction and narrow-screen scrolling | Help, user guide and browser checks | Deployed; candidate and exact-main gates passed |
 
-The cutaway and delta/wye grounding topology are illustrative, explicitly not an as-built station. They do not add simulated plant ratings or fabricate site-specific values. The receiver substation, distribution, house and industrial machinery scene is still open work.
+The cutaway and delta/wye grounding topology are illustrative, not as-built station records. They do not add site-specific ratings or fabricated values. The receiving substation, distribution, house and industrial scene is separately deployed in PR #99. PR [#96](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/96) merged as `c19b7c25880109b2a0cf7da7eac44bbe9479edb2`; candidate [run 43656641410](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43656641410), exact-main [run 43657105629](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43657105629), and Pages [run 43657642362](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43657642362) passed; artifact 14138631832.
+
+## Documentary field video studies — candidate
+
+Four official DVIDS video embeds cover hydropower grid support, powerhouse context, a spillway flow test, and turbine-runner rehabilitation. Each card links to its source and states what the footage can and cannot establish. Playback requires internet; the clips do not provide live telemetry, measured generation, terminal evidence, or proof of current site conditions. Hosted candidate validation is pending.
 
 ## Milestone 2 — radial feeder workflow deployed; scoped acceptance passed
 

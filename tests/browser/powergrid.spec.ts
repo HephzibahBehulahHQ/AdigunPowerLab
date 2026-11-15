@@ -21,6 +21,31 @@ test("POWERGRID documentary facility gallery renders every local photo", async (
   }
 });
 
+test("POWERGRID field videos are titled, source-linked and accurately scoped", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const section = page.locator(".pg-field-video-section");
+  await expect(section).toBeVisible();
+  const cards = section.locator(".pg-field-video-card");
+  await expect(cards).toHaveCount(4);
+
+  const videoIds = ["993768", "1014627", "1015702", "1026500"];
+  for (const [index, card] of (await cards.all()).entries()) {
+    await expect(card.locator("iframe")).toHaveAttribute("title", /.+/);
+    await expect(card.locator("iframe")).toHaveAttribute(
+      "src",
+      `https://www.dvidshub.net/video/embed/${videoIds[index]}`,
+    );
+    await expect(
+      card.getByRole("link", { name: "Open original video record" }),
+    ).toHaveAttribute("href", /^https:\/\/www\.dvidshub\.net\/video\//);
+  }
+  await expect(section).toContainText("not dispatch telemetry");
+  await expect(section).toContainText("not a running generator");
+});
+
+
 test("receiving substation scene follows editable voltage inputs and exposes selectable terminals", async ({
   page,
 }) => {

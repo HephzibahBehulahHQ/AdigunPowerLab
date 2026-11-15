@@ -4478,6 +4478,78 @@ details p {
   border-radius: 14px;
   background: color-mix(in srgb, var(--surface) 88%, var(--gold) 12%);
 }
+.pg-field-video-section {
+  margin: 22px 0 26px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--surface) 94%, #19334b 6%);
+}
+.pg-field-video-section h4 {
+  margin: 5px 0 0;
+  color: var(--gold);
+}
+.pg-field-video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.pg-field-video-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--surface);
+}
+.pg-field-video-player {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background: #0b1723;
+}
+.pg-field-video-content {
+  display: grid;
+  align-content: start;
+  gap: 7px;
+  padding: 12px;
+}
+.pg-field-video-content h5,
+.pg-field-video-content p {
+  margin: 0;
+}
+.pg-field-video-content h5 {
+  font-size: 13px;
+  line-height: 1.4;
+}
+.pg-field-video-content p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+.pg-field-video-content .pg-field-video-credit {
+  font-size: 10px;
+}
+.pg-field-video-content a {
+  width: fit-content;
+  color: var(--accent, #22d3ee);
+  font-size: 11px;
+  text-underline-offset: 3px;
+}
+@media (max-width: 900px) {
+  .pg-field-video-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .pg-field-video-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pg-field-video-section {
+    padding: 12px;
+  }
+}
+
 .pg-field-photo-heading {
   display: grid;
   grid-template-columns: minmax(220px, 0.8fr) minmax(280px, 1.2fr);
