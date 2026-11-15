@@ -167,7 +167,23 @@ test("spatial graph follows real objects and hourly flow with keyboard orbit and
   await spatial
     .getByLabel("Inspect spatial object", { exact: true })
     .selectOption({ label: "Analytical heater" });
+  const spatialHeater = scene.getByRole("button", {
+    name: /Analytical heater$/,
+  });
+  await expect(spatialHeater).toHaveAttribute("aria-pressed", "true");
   await expect(page.locator(".inspector")).toContainText("Analytical heater");
+  await spatial
+    .getByRole("button", { name: "Single-line diagram", exact: true })
+    .click();
+  await expect(
+    page.locator('.topology-node[aria-label$="Analytical heater"]'),
+  ).toHaveAttribute("aria-pressed", "true");
+  await spatial
+    .getByRole("button", { name: "Analytical spatial view", exact: true })
+    .click();
+  await expect(
+    scene.getByRole("button", { name: /Analytical heater$/ }),
+  ).toHaveAttribute("aria-pressed", "true");
   const mode = page.locator(".page-heading .detail-mode-control select");
   const objectDetail = spatial.locator(".spatial-object-detail");
   await mode.selectOption("simple");

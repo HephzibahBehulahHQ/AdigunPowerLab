@@ -1096,7 +1096,11 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Lo sún mọ́/sún jìnnà, mú bá ojú ìwò mu, àkọlé, àkọsílẹ̀, ipò ọwọ́ tàbí ètò aládàáṣiṣẹ́ láti mú àwòrán rọrùn láti kà. Gbé SVG tàbí PDF jáde fún ẹ̀dà àwòrán tí a fi hàn.",
       "Use zoom, fit, labels, notes, manual positions or auto-layout make diagram easy to read. Export SVG or PDF for copy of the diagram wey dey show.",
     ],
-  "Open Analytical spatial view for orbit, elevation, zoom, board isolation and the hourly cursor. Pause flow animation when needed. Chart tables provide the underlying values.":
+  "Open Analytical spatial view for orbit, elevation, zoom, board isolation and the hourly cursor. Selecting an object there highlights the same object in the single-line diagram and inspector. Pause flow animation when needed. Chart tables provide the underlying values.": [
+    "Öffnen Sie die analytische Raumansicht für Drehung, Höhenwinkel, Zoom, Verteilerisolation und Stundencursor. Die Auswahl hebt dasselbe Objekt im Einliniendiagramm und im Inspektor hervor. Pausieren Sie die Flussanimation bei Bedarf. Diagrammtabellen zeigen die zugrunde liegenden Werte.",
+    "Ṣí ìwò ààyè ìṣirò fún yíyí ká, gíga, sísún, yíya pánẹ́lì sọ́tọ̀ àti àmì wákàtí. Yíyan ohun kan níbẹ̀ máa ṣàfihàn ohun kan náà nínú àwòrán ìlà-kan àti olùṣàyẹ̀wò. Dá àwòrán ìṣàn dúró bí ó bá yẹ. Tábìlì àwòrán ń fi iye tí a lò hàn.",
+    "Open Analytical spatial view for orbit, elevation, zoom, board isolation and the hourly cursor. If you select one object there, e highlight that same object for the single-line diagram and inspector. Pause flow animation when needed. Chart tables show the underlying values.",
+  ],
     [
       "Öffnen Sie die analytische Raumansicht für Drehung, Höhenwinkel, Zoom, Verteilerisolation und Stundencursor. Pausieren Sie die Flussanimation bei Bedarf. Diagrammtabellen zeigen die zugrunde liegenden Werte.",
       "Ṣí ìwò ààyè ìṣirò fún yíyí ká, gíga, sísún, yíya pánẹ́lì sọ́tọ̀ àti àmì wákàtí. Dá àwòrán ìṣàn dúró bí ó bá yẹ. Tábìlì àwòrán ń fi iye tí a lò hàn.",

@@ -12,11 +12,13 @@ export default function SpatialView({
   project,
   result,
   onSelect,
+  selectedId,
   detailMode = "engineering",
 }: {
   project: Project;
   result: CalculationResult;
   onSelect: (id: string) => void;
+  selectedId?: string;
   detailMode?: DetailMode;
 }) {
   const t = useT(),
@@ -112,7 +114,15 @@ export default function SpatialView({
       ];
     }),
   );
-  const selectedNode = snapshot.nodes.find((node) => node.id === selected);
+  const synchronizedSelection =
+    selectedId === undefined
+      ? selected
+      : (snapshot.nodes.find(
+          (node) => node.id === selectedId || node.objectId === selectedId,
+        )?.id ?? "");
+  const selectedNode = snapshot.nodes.find(
+    (node) => node.id === synchronizedSelection,
+  );
   function select(id: string) {
     setSelected(id);
     const node = snapshot.nodes.find((row) => row.id === id);
@@ -268,7 +278,7 @@ export default function SpatialView({
                 transform={`translate(${point.x} ${point.y})`}
                 role="button"
                 aria-label={`${t(node.planning ? "Planning source" : node.kind)}: ${node.name}`}
-                aria-pressed={selected === node.id}
+                aria-pressed={synchronizedSelection === node.id}
                 tabIndex={0}
                 onClick={() => select(node.id)}
                 onKeyDown={(e) => {
@@ -280,7 +290,7 @@ export default function SpatialView({
               >
                 <circle
                   r={Math.max(5, Math.min(16, 11 * point.scale))}
-                  fill={selected === node.id ? "#ffffff" : colour}
+                  fill={synchronizedSelection === node.id ? "#ffffff" : colour}
                   stroke="#0b1626"
                   strokeWidth="2"
                 />
@@ -353,7 +363,7 @@ export default function SpatialView({
         </button>
       </div>
       <Field label={t("Inspect spatial object")}>
-        <select value={selected} onChange={(e) => select(e.target.value)}>
+        <select value={synchronizedSelection} onChange={(e) => select(e.target.value)}>
           <option value="">{t("Select object")}</option>
           {nodes.map((node) => (
             <option key={node.id} value={node.id}>
