@@ -2,6 +2,10 @@
 
 Date: 15 November 2026. Owner: Hephzibah Behulah.
 
+## POWERGRID real facility photographs — candidate in progress (15 November 2026)
+
+Added a separate documentary photograph gallery ahead of the existing custom training illustrations. It includes eight locally stored, source-linked DVIDS facility images across hydro generation and dam flow, generator step-up transformer delivery, receiving substation, a clearly marked transmission-tower failure case, solar and wind examples, and secondary distribution. Cards provide image alt text, facility context, photographer/source credit, and a DVIDS record link. The photo-use notice and model/safety limits are documented; training illustrations remain labeled separately. Local production build passed and the focused browser assertion loaded all eight images. Hosted candidate CI, merge, and Pages deployment remain pending.
+
 ## POWERGRID Milestone 3 — chronological dispatch slice deployed (15 November 2026)
 
 PR [#104](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/104) merged as `6ef06254a990309834d64c278ccc9af643c3e779`. Candidate [run 43688387269](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43688387269) passed all repository gates, including 425 unit tests, full browser and production-browser suites, build, lint, update smoke and online/base-path offline checks. Exact-main [run 43695664239](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43695664239) passed the same gates. Pages [run 43696180077](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43696180077) deployed that exact SHA; artifact 14154640941. The isolated Microgrid dispatch laboratory combines the existing PV/NREL wind models with editable demand, battery limits, critical-load priority, generic backup capacity, local save/reload and JSON/CSV exports. The model boundaries and remaining M3 scope are documented below; regional profiles, source-specific backup generation, network losses, outages, exports, costs, emissions and frequency response remain open.

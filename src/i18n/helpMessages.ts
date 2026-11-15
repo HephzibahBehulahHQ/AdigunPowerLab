@@ -399,6 +399,66 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Controls regulate prime-mover power and generator field; protection trip the unit past set limits.",
     ],
   "FIELD REFERENCE": ["PRAXISREFERENZ", "ÌTỌ́KASÍ IṢẸ́", "FIELD REFERENCE"],
+  "DOCUMENTARY FIELD PHOTOS": [
+    "DOKUMENTARISCHE ANLAGENFOTOS",
+    "FỌ́TÒ ILÉ-IṢẸ́ GIDI",
+    "REAL FIELD PHOTOS",
+  ],
+  "Photographs of real power facilities": [
+    "Fotos realer Energieanlagen",
+    "Àwọn fọ́tò ibi tí wọ́n ti ń pèsè agbára gidi",
+    "Photos of real power facilities",
+  ],
+  "These are locally stored photographs of identified sites and equipment. Captions describe only what the source records; they are visual references, not ratings, connection drawings, operating instructions, or proof of the current state of a site.":
+    [
+      "Dies sind lokal gespeicherte Fotos identifizierter Standorte und Betriebsmittel. Die Bildtexte geben nur die Angaben der Quelle wieder; die Fotos sind Anschauungsmaterial, keine Bemessungsdaten, Anschlusspläne, Betriebsanweisungen oder Bestätigung des heutigen Anlagenzustands.",
+      "Àwọn fọ́tò yìí wà nínú software láti ibi àti ẹ̀rọ tí a dá mọ̀. Àkọlé wọn ń sọ ohun tí orísun kọ nìkan; fọ́tò náà jẹ́ fún wíwo, kì í ṣe rating, wiring drawing, ìtọ́nisọ́nà iṣẹ́, tàbí ẹ̀rí ipò ibi náà lónìí.",
+      "These photos dey stored for di lab and show identified sites and equipment. Captions only report wetin di source say; dem na visual reference, no be ratings, connection drawings, work instructions or proof of di site's current state.",
+    ],
+  "Open original photo record": [
+    "Original-Fotonachweis öffnen",
+    "Ṣí àkọsílẹ̀ fọ́tò orísun",
+    "Open original photo record",
+  ],
+  "The appearance of U.S. Department of War visual information does not imply or constitute Department of War endorsement.":
+    [
+      "Das Erscheinen von Bildmaterial des US-Verteidigungsministeriums bedeutet keine Befürwortung durch das Ministerium.",
+      "Ìfarahàn àwòrán láti U.S. Department of War kò túmọ̀ sí pé Department of War fọwọ́ sí AdigunPowerLab tàbí software yìí.",
+      "If U.S. Department of War imagery show here, e no mean say di Department endorse AdigunPowerLab or dis software.",
+    ],
+  "Hydro generation": ["Wasserkraft", "Ìṣẹ̀dá agbára hydro", "Hydro power"],
+  "Waterway and dam": ["Wasserweg und Damm", "Odo àti dam", "Waterway and dam"],
+  "Generator step-up transformer": [
+    "Maschinentransformator",
+    "Transformer step-up generator",
+    "Generator step-up transformer",
+  ],
+  "Receiving substation": [
+    "Empfangsumspannwerk",
+    "Substation gbigba",
+    "Receiving substation",
+  ],
+  "Transmission structure · failure case": [
+    "Übertragungsmast · Schadensbeispiel",
+    "Tower transmission · àpẹẹrẹ ìbàjẹ́",
+    "Transmission tower · damage example",
+  ],
+  "Solar generation": [
+    "Solarstromerzeugung",
+    "Ìṣẹ̀dá agbára oorun",
+    "Solar power",
+  ],
+  "Wind generation · facility-scale example": [
+    "Windkraft · Beispiel einer Anlage im großen Maßstab",
+    "Ìṣẹ̀dá agbára afẹ́fẹ́ · àpẹẹrẹ facility ńlá",
+    "Wind power · facility-scale example",
+  ],
+  "Secondary distribution": [
+    "Niederspannungsverteilung",
+    "Distribution foliteji-kékeré",
+    "Secondary distribution",
+  ],
+
   "Equipment used from generation to the consumer": [
     "Betriebsmittel von der Erzeugung bis zum Verbraucher",
     "Ẹ̀rọ láti ìṣẹ̀dá agbára dé ọ̀dọ̀ oníbàárà",

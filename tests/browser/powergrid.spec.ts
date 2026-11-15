@@ -1,6 +1,27 @@
 import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
 
+test("POWERGRID documentary facility gallery renders every local photo", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const gallery = page.locator(".pg-field-photo-grid");
+  await expect(gallery).toBeVisible();
+  const photos = gallery.locator("img");
+  await expect(photos).toHaveCount(8);
+
+  for (const photo of await photos.all()) {
+    await photo.scrollIntoViewIfNeeded();
+    await expect(photo).toHaveAttribute("alt", /.+/);
+    await expect
+      .poll(() =>
+        photo.evaluate((image: HTMLImageElement) => image.naturalWidth),
+      )
+      .toBeGreaterThan(0);
+  }
+});
+
+
 test("receiving substation scene follows editable voltage inputs and exposes selectable terminals", async ({
   page,
 }) => {

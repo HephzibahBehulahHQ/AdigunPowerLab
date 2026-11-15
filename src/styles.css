@@ -4470,3 +4470,102 @@ details p {
     grid-template-columns: 1fr;
   }
 }
+
+
+.pg-field-photo-section {
+  margin: 22px 0 26px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--surface) 88%, var(--gold) 12%);
+}
+.pg-field-photo-heading {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(280px, 1.2fr);
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.pg-field-photo-heading h4 {
+  margin: 5px 0 0;
+  color: var(--gold);
+}
+.pg-field-photo-heading p,
+.pg-photo-rights-note,
+.pg-field-photo-content p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+.pg-field-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.pg-field-photo-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--surface);
+}
+.pg-field-photo-card figure {
+  margin: 0;
+  background: #0b1723;
+}
+.pg-field-photo-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+.pg-field-photo-card figcaption {
+  padding: 7px 10px;
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.pg-field-photo-content {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding: 10px 12px 12px;
+}
+.pg-field-photo-content h5 {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.pg-field-photo-content p {
+  font-size: 10px;
+}
+.pg-field-photo-content a {
+  width: fit-content;
+  color: var(--accent, #22d3ee);
+  font-size: 11px;
+  text-underline-offset: 3px;
+}
+.pg-photo-rights-note {
+  margin-top: 14px;
+  font-size: 10px;
+}
+
+@media (max-width: 900px) {
+  .pg-field-photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .pg-field-photo-heading {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .pg-field-photo-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pg-field-photo-section {
+    padding: 12px;
+  }
+}
