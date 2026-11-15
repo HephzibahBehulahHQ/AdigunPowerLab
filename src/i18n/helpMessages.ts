@@ -358,11 +358,6 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Ilé combined-cycle tó ní gas turbine, heat-recovery boiler, steam turbine, condenser pipes àti generator.",
       "Combined-cycle plant with gas turbine, heat-recovery boiler, steam turbine, condenser pipes and generator.",
     ],
-  "Gas turbine compressor, combustor and expander": [
-    "Gasturbinenverdichter, Brennkammer und Turbine",
-    "Compressor, combustor àti expander gas turbine",
-    "Gas turbine compressor, combustor and expander",
-  ],
   "The compressor raises air pressure, combustion adds heat, and expanding gas turns the turbine shaft.":
     [
       "Der Verdichter erhöht den Luftdruck, die Verbrennung fügt Wärme hinzu und expandierendes Gas treibt die Turbinenwelle an.",
@@ -380,22 +375,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Boiler ń lo ooru fuel láti pèsè steam; heat-recovery unit ń lo exhaust turbine láti gbé steam jáde nínú combined-cycle plant.",
       "Boiler use fuel heat to make steam; heat-recovery unit use turbine exhaust to raise steam in combined-cycle plant.",
     ],
-  "Steam turbine and shaft coupling": [
-    "Dampfturbine und Wellenkupplung",
-    "Steam turbine àti shaft coupling",
-    "Steam turbine and shaft coupling",
-  ],
   "Steam expansion turns turbine stages that transmit mechanical torque through a coupled shaft to the generator.":
     [
       "Dampfausdehnung treibt Turbinenstufen an, die über die gekoppelte Welle Drehmoment an den Generator übertragen.",
       "Ìfẹ̀ steam ń yí turbine stages, wọ́n sì ń gbé torque lọ sí generator láti shaft tó so pọ̀.",
       "Steam expansion turn turbine stages; coupled shaft carry torque to generator.",
     ],
-  "Condenser and cooling-water system": [
-    "Kondensator und Kühlwassersystem",
-    "Condenser àti cooling-water system",
-    "Condenser and cooling-water system",
-  ],
   "The condenser returns exhaust steam to water and rejects heat through the plant's designed cooling system.":
     [
       "Der Kondensator verflüssigt Abdampf; das Kühlsystem führt Wärme gemäß der Anlagenplanung ab.",
