@@ -158,8 +158,7 @@ const photos = [
     },
     credit: "U.S. Army Corps of Engineers · DVIDS",
     source: "https://www.dvidshub.net/image/1811/electrical-line",
-  },,
-
+  },
   {
     image: "/assets/powergrid/field-photos/hydro-spillway.jpg",
     title: { en: "Water over the Terminus Dam spillway", de: "Wasser am Überlauf des Terminus Dam", yo: "Omi tó ń ṣàn lórí spillway Terminus Dam", pcm: "Water dey flow over Terminus Dam spillway" },
