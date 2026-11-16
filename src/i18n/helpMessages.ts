@@ -1,6 +1,3 @@
-Warning: truncated output (original token count: 48924)
-Total output lines: 1932
-
 /** English keys with German, Yoruba and Nigerian Pidgin translations. */
 export const helpMessages: Record<string, [string, string, string]> = {
   "Below the hydro cutaway, select the combined-cycle gas, utility solar PV or wind study. Choose each equipment control to read its purpose and representative process or electrical interface. Terminal markings, ratings, protection and arrangement vary by manufacturer and site; confirm them from approved drawings. The custom plant images are teaching illustrations, not photographs of an identified operating facility.":
@@ -1144,7 +1141,146 @@ export const helpMessages: Record<string, [string, string, string]> = {
     [
       "Bewerten Sie einen Abgang oder nutzen Sie ein Kabel-/Schutzarbeitsblatt mit Ihren tatsächlichen Nachweisen.",
       "Ṣàyẹ̀wò okùn ìpèsè tàbí lo ìwé ìṣirò okùn/ààbò pẹ̀lú ẹ̀rí rẹ gidi.",
-      "Assess feeder or use cable/protection worksheet with your actu…3924 tokens truncated…er/vehicle limits and one/three-phase constraints.":
+      "Assess feeder or use cable/protection worksheet with your actual evidence.",
+    ],
+  "Open Feeder assessment and select the actual source-to-load route. Enter conductor impedance, ampacity and the conditions supporting those values.":
+    [
+      "Öffnen Sie Abgangsbewertung und wählen Sie den tatsächlichen Weg von der Quelle zur Last. Geben Sie Leiterimpedanz, Strombelastbarkeit und die Bedingungen für diese Werte ein.",
+      "Ṣí Àyẹ̀wò okùn ìpèsè kí o yan ọ̀nà gidi láti orísun sí ẹrù. Tẹ ìdènà okùn, agbára gbígbé ìṣàn àti àwọn ipò tí ó jẹ́ ẹ̀rí fún iye wọ̀nyẹn sílẹ̀.",
+      "Open Feeder assessment and select actual source-to-load route. Enter conductor impedance, ampacity and conditions wey support those values.",
+    ],
+  "Review voltage drop, losses and capacity separately, including running and starting assumptions. Missing evidence produces an incomplete check.":
+    [
+      "Prüfen Sie Spannungsfall, Verluste und Kapazität getrennt, einschließlich der Betriebs- und Anlaufannahmen. Fehlende Nachweise ergeben eine unvollständige Prüfung.",
+      "Ṣàyẹ̀wò ìṣubú fọ́ltèjì, àdánù àti agbára lọ́tọ̀ọ̀tọ̀, pẹ̀lú àfojúsùn iṣẹ́ àti ìbẹ̀rẹ̀. Àìsí ẹ̀rí ń mú àyẹ̀wò tí kò pé wá.",
+      "Review voltage drop, losses and capacity separately, including running and starting assumptions. Missing evidence means check never complete.",
+    ],
+  "Use the cable and protection worksheets for a specific calculation. Read the method and source conditions; a computed value is not installation certification.":
+    [
+      "Nutzen Sie die Kabel- und Schutzarbeitsblätter für eine konkrete Berechnung. Lesen Sie Methode und Quellenbedingungen; ein berechneter Wert ist keine Anlagenzertifizierung.",
+      "Lo ìwé ìṣirò okùn àti ààbò fún ìṣirò pàtó. Ka ọ̀nà ìṣirò àti ipò orísun; iye tí a ṣírò kì í ṣe ìjẹ́rìí ààbò ètò iná.",
+      "Use cable and protection worksheets for specific calculation. Read method and source conditions; computed value no be installation certification.",
+    ],
+  "If you have no verified ampacity for a cable's installation method, obtain that evidence before accepting a capacity check.":
+    [
+      "Liegt keine bestätigte Strombelastbarkeit für die Verlegeart vor, beschaffen Sie diesen Nachweis, bevor Sie die Kapazitätsprüfung akzeptieren.",
+      "Bí o kò bá ní agbára gbígbé ìṣàn tí a ti fìdí múlẹ̀ fún ọ̀nà fífi okùn sí, gba ẹ̀rí náà kí o tó gba àyẹ̀wò agbára.",
+      "If you no get verified ampacity for cable installation method, get that evidence before you accept capacity check.",
+    ],
+  "Keep motor input, starting demand and supply capability separate.": [
+    "Betrachten Sie Motoraufnahme, Anlaufbedarf und Versorgungsfähigkeit getrennt.",
+    "Ya ìwọlé mọ́tò, ẹrù ìbẹ̀rẹ̀ àti agbára ìpèsè sọ́tọ̀.",
+    "Keep motor input, starting demand and supply capability separate.",
+  ],
+  "Choose the motor, transformer, generator, inverter or UPS worksheet that matches your question. Enter the stated units and the rating basis.":
+    [
+      "Wählen Sie das zu Ihrer Frage passende Arbeitsblatt für Motor, Transformator, Generator, Wechselrichter oder USV. Beachten Sie die angegebenen Einheiten und den Nennwertbezug.",
+      "Yan ìwé ìṣirò mọ́tò, tiransifọ́mà, ẹ̀rọ apilẹ̀ṣẹ̀, inverter tàbí UPS tí ó bá ìbéèrè rẹ mu. Tẹ àwọn ẹyọ ìwọ̀n tí a sọ àti ìpìlẹ̀ ìwọ̀n sílẹ̀.",
+      "Choose motor, transformer, generator, inverter or UPS worksheet wey match your question. Enter the units wey dem state and the rating basis.",
+    ],
+  "Use Source register to record actual source ratings, derating, evidence, served boundary and any verified overload envelope.":
+    [
+      "Erfassen Sie im Quellenregister tatsächliche Quellennennwerte, Leistungsreduzierung, Nachweise, Versorgungsgrenze und ein gegebenenfalls bestätigtes Überlastprofil.",
+      "Lo Àkọsílẹ̀ orísun láti kọ ìwọ̀n orísun gidi, ìdínkù agbára, ẹ̀rí, ààlà ìpèsè àti ààlà ẹrù àṣejù tí a ti fìdí múlẹ̀ sílẹ̀.",
+      "Use Source register to record actual source ratings, derating, evidence, served boundary and any verified overload envelope.",
+    ],
+  "Review continuous kW, kVA, phase current and starting capacity independently. Island, transfer and black-start entries describe evidence; they do not switch equipment.":
+    [
+      "Prüfen Sie Dauerleistung in kW, kVA, Phasenstrom und Anlaufkapazität unabhängig voneinander. Einträge zu Inselbetrieb, Umschaltung und Schwarzstart beschreiben Nachweise; sie schalten keine Geräte.",
+      "Ṣàyẹ̀wò kW iṣẹ́ tí ń bá a lọ, kVA, ìṣàn fásì àti agbára ìbẹ̀rẹ̀ lọ́tọ̀ọ̀tọ̀. Dátà iṣẹ́ erékùṣù iná, ìyípadà ìpèsè àti ìbẹ̀rẹ̀ láìsí iná ń ṣàpèjúwe ẹ̀rí; wọn kì í tan tàbí pa ẹ̀rọ.",
+      "Check continuous kW, kVA, phase current and starting capacity separately. Island, transfer and black-start entries describe evidence; dem no switch equipment.",
+    ],
+  "A generator that meets running kW may still lack starting kVA. Check both with the actual motor and generator data.":
+    [
+      "Ein Generator mit ausreichender Betriebsleistung in kW kann dennoch zu wenig Anlaufleistung in kVA bieten. Prüfen Sie beides anhand der tatsächlichen Motor- und Generatordaten.",
+      "Ẹ̀rọ apilẹ̀ṣẹ̀ tí ó tó fún kW iṣẹ́ lè ṣì má tó fún kVA ìbẹ̀rẹ̀. Ṣàyẹ̀wò méjèèjì pẹ̀lú dátà mọ́tò àti ẹ̀rọ apilẹ̀ṣẹ̀ gidi.",
+      "Generator wey meets running kW fit still lack starting kVA. Check both with actual motor and generator data.",
+    ],
+  "Study power factor, capacitor sizing and supplied harmonic data within each stated model.":
+    [
+      "Untersuchen Sie Leistungsfaktor, Kondensatorauslegung und eingegebene Oberschwingungsdaten innerhalb des jeweils beschriebenen Modells.",
+      "Ṣàyẹ̀wò ìwọ̀n agbára, ìwọ̀n capacitor àti dátà harmonics tí a pèsè nínú ààlà àwòṣe kọ̀ọ̀kan.",
+      "Study power factor, capacitor sizing and harmonic data wey you supply within each model wey dem describe.",
+    ],
+  "Select a worksheet and read its description. Enter the actual P, Q, power-factor or harmonic values it requires, including leading/lagging direction where requested.":
+    [
+      "Wählen Sie ein Arbeitsblatt und lesen Sie die Beschreibung. Geben Sie die erforderlichen tatsächlichen P-, Q-, Leistungsfaktor- oder Oberschwingungswerte ein, gegebenenfalls mit voreilender/nacheilender Richtung.",
+      "Yan ìwé ìṣirò kí o ka àpèjúwe rẹ̀. Tẹ iye P, Q, ìwọ̀n agbára tàbí harmonics gidi tí ó nílò sílẹ̀, pẹ̀lú ìtọ́sọ́nà ṣíwájú/ṣẹ́yìn níbi tí a ti béèrè rẹ̀.",
+      "Select worksheet and read description. Enter actual P, Q, power-factor or harmonic values wey e needs, including leading/lagging direction where dem ask.",
+    ],
+  "Calculate, then review assumptions and warnings. Do not infer a harmonic spectrum from one power-factor value or assume a simple sinusoidal model fits distorted waveforms.":
+    [
+      "Berechnen Sie und prüfen Sie anschließend Annahmen und Warnungen. Leiten Sie aus einem einzelnen Leistungsfaktor kein Oberschwingungsspektrum ab und nehmen Sie bei verzerrten Kurven kein einfaches Sinusmodell an.",
+      "Ṣe ìṣirò, kí o sì ṣàyẹ̀wò àwọn àfojúsùn àti ìkìlọ̀. Má ṣe yọ àtòjọ harmonics láti iye ìwọ̀n agbára kan, tàbí ro pé àwòṣe sinusoidi rọrùn bá ìrísí ìgbì tí ó yí padà mu.",
+      "Calculate, then check assumptions and warnings. No derive harmonic spectrum from one power-factor value or assume simple sinusoidal model fits distorted waveforms.",
+    ],
+  "Use measured harmonic components when assessing harmonics. A capacitor-sizing result alone does not establish suitable switching or resonance protection.":
+    [
+      "Verwenden Sie zur Oberschwingungsbewertung gemessene Komponenten. Eine Kondensatorauslegung allein belegt weder geeignete Schaltung noch Resonanzschutz.",
+      "Lo àwọn èròjà harmonics tí a wọn nígbà àyẹ̀wò harmonics. Èsì ìwọ̀n capacitor nìkan kò fi ìyípadà iná tàbí ààbò resonance tó yẹ múlẹ̀.",
+      "Use measured harmonic components when you assess harmonics. Capacitor-sizing result alone no prove suitable switching or resonance protection.",
+    ],
+  "Find a worksheet by name, category or tool ID. Every tool guide below uses the live catalogue.":
+    [
+      "Finden Sie ein Arbeitsblatt über Name, Kategorie oder Werkzeug-ID. Jede Werkzeuganleitung unten verwendet den aktuellen App-Katalog.",
+      "Wá ìwé ìṣirò nípasẹ̀ orúkọ, ẹ̀ka tàbí ID irinṣẹ́. Ìtọ́sọ́nà irinṣẹ́ kọ̀ọ̀kan ní ìsàlẹ̀ lo àtòjọ ohun èlò lọ́wọ́lọ́wọ́.",
+      "Find worksheet by name, category or tool ID. Every tool guide below uses the current app catalogue.",
+    ],
+  "Open a tool, read its description and enter your values in the displayed units. Load worked example fills labelled training values; it does not describe your installation.":
+    [
+      "Öffnen Sie ein Werkzeug, lesen Sie die Beschreibung und geben Sie Ihre Werte in den angezeigten Einheiten ein. Berechnungsbeispiel laden trägt gekennzeichnete Übungswerte ein; diese beschreiben nicht Ihre Anlage.",
+      "Ṣí irinṣẹ́, ka àpèjúwe rẹ̀ kí o sì tẹ iye rẹ sílẹ̀ ní ẹyọ ìwọ̀n tí a fi hàn. Ṣí àpẹẹrẹ ìṣírò ń kún iye ìkẹ́kọ̀ọ́ tí a sàmì sí; kò ṣàpèjúwe ètò iná rẹ.",
+      "Open tool, read description and enter your values in the units wey show. Load worked example fills labelled training values; e no describe your own installation.",
+    ],
+  "Choose Calculate, then inspect the result, formula, assumptions, sources and warnings. Reset clears that worksheet's inputs and result.":
+    [
+      "Wählen Sie Berechnen und prüfen Sie Ergebnis, Formel, Annahmen, Quellen und Warnungen. Zurücksetzen löscht die Eingaben und das Ergebnis dieses Arbeitsblatts.",
+      "Yan Ṣe ìṣirò, kí o sì ṣàyẹ̀wò èsì, agbekalẹ̀, àfojúsùn, orísun àti ìkìlọ̀. Tún bẹ̀rẹ̀ ń pa dátà ìwọlé àti èsì ìwé ìṣirò náà rẹ́.",
+      "Choose Calculate, then inspect result, formula, assumptions, sources and warnings. Reset clears that worksheet inputs and result.",
+    ],
+  "Copy or export the calculated result when available. A supported Apply action previews project changes for review; a calculation alone does not change your project.":
+    [
+      "Kopieren oder exportieren Sie das berechnete Ergebnis, sofern verfügbar. Eine unterstützte Anwenden-Aktion zeigt Projektänderungen zur Prüfung an; eine Berechnung allein verändert das Projekt nicht.",
+      "Ṣẹ̀dá ẹ̀dà tàbí gbé èsì ìṣirò jáde bí ó bá wà. Ìṣe Lò tí a ṣe àtìlẹ́yìn fún ń fi àtúnṣe iṣẹ́ hàn fún àyẹ̀wò; ìṣirò nìkan kì í yí iṣẹ́ rẹ padà.",
+      "Copy or export calculated result when available. Supported Apply action previews project changes for review; calculation alone no change your project.",
+    ],
+  "Open T01, load its worked example of 230 V and 23 Ω, then Calculate. Replace the example with your actual resistor data before using it for your own study.":
+    [
+      "Öffnen Sie T01, laden Sie das Beispiel mit 230 V und 23 Ω und wählen Sie Berechnen. Ersetzen Sie die Beispielwerte durch Ihre tatsächlichen Widerstandsdaten, bevor Sie damit Ihre eigene Untersuchung durchführen.",
+      "Ṣí T01, gbé àpẹẹrẹ rẹ̀ ti 230 V àti 23 Ω wọlé, kí o sì Ṣe ìṣirò. Rọ́pò àpẹẹrẹ náà pẹ̀lú dátà resistor rẹ gidi kí o tó lò ó fún ìwádìí tirẹ.",
+      "Open T01, load its worked example of 230 V and 23 Ω, then Calculate. Replace example with your actual resistor data before you use am for your own study.",
+    ],
+  "Model generation and battery dispatch using a real chronological profile and explicit limits.":
+    [
+      "Modellieren Sie Erzeugung und Batterieeinsatz mit einem tatsächlichen zeitlichen Profil und ausdrücklich festgelegten Grenzen.",
+      "Ṣe àwòṣe ìpilẹ̀ṣẹ̀ agbára àti ìpín iṣẹ́ bátírì pẹ̀lú àwòrán àkókò gidi àti ààlà tí a sọ kedere.",
+      "Model generation and battery dispatch with real chronological profile and clear limits.",
+    ],
+  "Enter PV or wind generation profiles, grid/inverter limits, battery capacity, reserve and the chosen dispatch strategy.":
+    [
+      "Geben Sie PV- oder Winderzeugungsprofile, Netz-/Wechselrichtergrenzen, Batteriekapazität, Reserve und die gewählte Einsatzstrategie ein.",
+      "Tẹ àwòrán ìpilẹ̀ṣẹ̀ agbára oòrùn tàbí afẹ́fẹ́, ààlà nẹ́tíwọ́ọ̀kì/inverter, agbára bátírì, ìpamọ́ pajawiri àti ọ̀nà ìpín iṣẹ́ tí o yàn sílẹ̀.",
+      "Enter PV or wind generation profiles, grid/inverter limits, battery capacity, reserve and dispatch strategy wey you choose.",
+    ],
+  "Run the study and inspect import, export, curtailment, losses and unmet demand. For an outage, enter its actual time range and check source, transfer and islanding evidence.":
+    [
+      "Starten Sie die Untersuchung und prüfen Sie Bezug, Einspeisung, Abregelung, Verluste und ungedeckten Bedarf. Geben Sie bei einem Ausfall den tatsächlichen Zeitraum an und prüfen Sie Nachweise für Quelle, Umschaltung und Inselbetrieb.",
+      "Ṣe ìwádìí kí o sì ṣàyẹ̀wò agbára wọlé, agbára jáde, ìdínkù ìpilẹ̀ṣẹ̀, àdánù àti ẹrù tí a kò pèsè fún. Fún ìdákẹ́ iná, tẹ àkókò rẹ̀ gidi sílẹ̀ kí o ṣàyẹ̀wò ẹ̀rí orísun, ìyípadà ìpèsè àti iṣẹ́ erékùṣù iná.",
+      "Run study and inspect import, export, curtailment, losses and unmet demand. For outage, enter actual time range and check source, transfer and islanding evidence.",
+    ],
+  "Peak-sun-hours can support a daily estimate but cannot replace an hourly PV profile for battery dispatch. Grid-tied-only PV does not automatically supply an islanded load.":
+    [
+      "Volllast-Sonnenstunden können eine Tagesschätzung stützen, ersetzen aber kein stündliches PV-Profil für den Batterieeinsatz. Ausschließlich netzgekoppelte PV versorgt eine Last im Inselbetrieb nicht automatisch.",
+      "Wákàtí oòrùn tó lágbára lè ṣe àtìlẹ́yìn àfojúsùn ọjọ́, ṣùgbọ́n kò lè rọ́pò àwòrán PV wákàtí fún ìpín iṣẹ́ bátírì. PV tí ó so mọ́ nẹ́tíwọ́ọ̀kì nìkan kì í pèsè fún ẹrù erékùṣù iná fúnra rẹ̀.",
+      "Peak-sun-hours fit support daily estimate but no fit replace hourly PV profile for battery dispatch. Grid-tied-only PV no automatically supply islanded load.",
+    ],
+  "Check whether charging or flexible work can finish within its allowed window.":
+    [
+      "Prüfen Sie, ob Laden oder flexible Arbeit im zulässigen Zeitfenster abgeschlossen werden kann.",
+      "Ṣàyẹ̀wò bóyá gbigba agbára tàbí iṣẹ́ tó lè yí àkókò padà lè parí láàárín àkókò tí a gbà láàyè.",
+      "Check whether charging or flexible work fit finish within the time wey dem allow.",
+    ],
+  "Enter charging arrival and departure, required energy or SOC, charger/vehicle limits and one/three-phase constraints.":
     [
       "Geben Sie Ankunft und Abfahrt zum Laden, benötigte Energie oder Ladezustand (SOC), Ladegerät-/Fahrzeuggrenzen und ein-/dreiphasige Einschränkungen ein.",
       "Tẹ àkókò dídé àti lílọ fún gbigba agbára, agbára tí a nílò tàbí SOC, ààlà ẹ̀rọ gbigba agbára/ọkọ̀ àti ààlà fásì kan/mẹ́ta sílẹ̀.",
