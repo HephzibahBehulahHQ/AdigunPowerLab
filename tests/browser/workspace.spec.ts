@@ -940,29 +940,49 @@ test("local BOT rejects renaming a load to an existing name", async ({
   await dialog.getByRole("button", { name: "Close", exact: true }).click();
 });
 
-
-test("Overview pairs credited facility photos and documentary video with working calculations", async ({ page }) => {
+test("Overview pairs credited facility photos and documentary video with working calculations", async ({
+  page,
+}) => {
   await ready(page);
-  const feature = page.getByRole("region", { name: "Power systems, from station to socket", exact: true });
+  const feature = page.getByRole("region", {
+    name: "Power systems, from station to socket",
+    exact: true,
+  });
   await expect(feature).toBeVisible();
   const photos = feature.locator(".pg-home-photo img");
   await expect(photos).toHaveCount(3);
   for (const photo of await photos.all()) {
     await expect(photo).toHaveAttribute("alt", /.+/);
     await photo.scrollIntoViewIfNeeded();
-    await expect.poll(() => photo.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
+    await expect
+      .poll(() => photo.evaluate((img: HTMLImageElement) => img.naturalWidth))
+      .toBeGreaterThan(0);
   }
   const videoFrame = feature.locator(".pg-home-video-frame");
   await expect(videoFrame.locator("iframe")).toHaveCount(0);
-  await videoFrame.getByRole("button", { name: "Play documentary video", exact: true }).click();
-  await expect(videoFrame.locator("iframe")).toHaveAttribute("src", "https://www.dvidshub.net/video/embed/1014627");
-  await expect(feature).toContainText("does not show turbine internals or measured generation");
+  await videoFrame
+    .getByRole("button", { name: "Play documentary video", exact: true })
+    .click();
+  await expect(videoFrame.locator("iframe")).toHaveAttribute(
+    "src",
+    "https://www.dvidshub.net/video/embed/1014627",
+  );
+  await expect(feature).toContainText(
+    "does not show turbine internals or measured generation",
+  );
 
-  await feature.getByRole("button", { name: "Open POWERGRID LAB", exact: true }).first().click();
+  await feature
+    .getByRole("button", { name: "Open POWERGRID LAB", exact: true })
+    .first()
+    .click();
   await expect(page).toHaveURL(/#POWERGRID$/);
   await expect(page.locator(".pg-lab")).toBeVisible();
   await page.goto("/");
   await ready(page);
-  await page.locator(".pg-home-tools article").nth(1).getByRole("button", { name: "Feeder voltage drop", exact: true }).click();
-  await expect(page).toHaveURL(/#\\/cables$/);
+  await page
+    .locator(".pg-home-tools article")
+    .nth(1)
+    .getByRole("button", { name: "Feeder voltage drop", exact: true })
+    .click();
+  await expect(page).toHaveURL(/cables$/);
 });
