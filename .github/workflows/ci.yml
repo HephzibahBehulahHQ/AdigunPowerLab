@@ -16,10 +16,6 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      - name: Diagnose formatter output (station test)
-        run: |
-          npx prettier tests/browser/powergrid.spec.ts > /tmp/expected-format
-          diff -u tests/browser/powergrid.spec.ts /tmp/expected-format || true
       - run: npm run lint
       - run: npm test
       - run: npm run build
