@@ -284,10 +284,9 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
   await expect(earth).toHaveClass(/pg-ground-line/);
   await expect(shield).toHaveClass(/pg-shield-wire/);
   await expect(
-    page.locator(".pg-station").getByRole("heading", {
-      name: "Synchronous generator",
-      exact: true,
-    }),
+    page
+      .locator(".pg-station .pg-equipment-detail")
+      .getByRole("heading", { name: /^Synchronous generator/ }),
   ).toBeVisible();
   await expect(page.getByText(/N is not PE/i)).toBeVisible();
 
@@ -737,8 +736,8 @@ test("POWERGRID navigable station scene selects named equipment and keeps a keyb
     "insulated phase conductors and a shield wire",
   );
   await expect(scene.getByLabel("3D azimuth")).toBeVisible();
-  await scene.getByLabel("3D azimuth").fill("0.6");
-  await expect(scene.getByLabel("3D azimuth")).toHaveValue("0.6");
+  await scene.getByLabel("3D azimuth").fill("0.61");
+  await expect(scene.getByLabel("3D azimuth")).toHaveValue("0.61");
   await expect
     .poll(
       async () =>
