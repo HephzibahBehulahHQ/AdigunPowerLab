@@ -27,7 +27,8 @@ const copy: Record<Locale, Copy> = {
     labDescription:
       "Compare three-phase current and conductor losses at two entered transmission voltages.",
     transmission: "Open POWERGRID LAB",
-    transmissionDescription: "Open the isolated From Source to Socket laboratory.",
+    transmissionDescription:
+      "Open the isolated From Source to Socket laboratory.",
     feeder: "Feeder voltage drop",
     feederDescription:
       "Inspect branch voltage, loading and losses from the entered radial network.",
@@ -47,7 +48,8 @@ const copy: Record<Locale, Copy> = {
     labDescription:
       "Vergleichen Sie Drehstrom und Leiterverluste bei zwei eingegebenen Übertragungsspannungen.",
     transmission: "POWERGRID LAB öffnen",
-    transmissionDescription: "Öffnet das eigenständige Labor von der Quelle bis zum Verbraucher.",
+    transmissionDescription:
+      "Öffnet das eigenständige Labor von der Quelle bis zum Verbraucher.",
     feeder: "Spannungsfall im Abzweig",
     feederDescription:
       "Prüfen Sie Spannung, Auslastung und Verluste des eingegebenen Strahlennetzes.",
@@ -87,7 +89,8 @@ const copy: Record<Locale, Copy> = {
     labDescription:
       "Compare three-phase current and wire losses at two transmission voltages wey you enter.",
     transmission: "Open POWERGRID LAB",
-    transmissionDescription: "Open the separate From Source to Socket laboratory.",
+    transmissionDescription:
+      "Open the separate From Source to Socket laboratory.",
     feeder: "Feeder voltage drop",
     feederDescription:
       "Check branch voltage, loading and losses from the radial network wey you enter.",
@@ -116,8 +119,10 @@ const photos = [
       yo: "Òkè generator hydroelectric inaro nínú powerhouse Bonneville Lock and Dam.",
       pcm: "Top of one vertical hydroelectric unit inside Bonneville Lock and Dam powerhouse.",
     },
-    credit: "John Leonard · U.S. Army Corps of Engineers, Northwestern Division",
-    source: "https://www.dvidshub.net/image/7443974/generator-bonneville-lock-and-dam",
+    credit:
+      "John Leonard · U.S. Army Corps of Engineers, Northwestern Division",
+    source:
+      "https://www.dvidshub.net/image/7443974/generator-bonneville-lock-and-dam",
   },
   {
     image: "/assets/powergrid/field-photos/substation-switchyard.jpg",
@@ -134,7 +139,8 @@ const photos = [
       pcm: "High-voltage substation bays with insulated bushings and metal bus connections.",
     },
     credit: "U.S. Army courtesy photo · DVIDS",
-    source: "https://www.dvidshub.net/image/6274/al-ameen-substation-400-kilovolt-gas-insulated-system",
+    source:
+      "https://www.dvidshub.net/image/6274/al-ameen-substation-400-kilovolt-gas-insulated-system",
   },
   {
     image: "/assets/powergrid/field-photos/distribution-pole-transformer.jpg",
