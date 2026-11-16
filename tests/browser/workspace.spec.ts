@@ -950,7 +950,21 @@ test("Overview pairs credited facility photos and documentary video with working
   });
   await expect(feature).toBeVisible();
   const photos = feature.locator(".pg-home-photo img");
-  await expect(photos).toHaveCount(3);
+  await expect(photos).toHaveCount(8);
+  const photoLinks = feature.locator(".pg-home-photo > a");
+  await expect(photoLinks).toHaveCount(8);
+  for (const link of await photoLinks.all()) {
+    await expect(link).toHaveAttribute(
+      "href",
+      /^https:\/\/www\.dvidshub\.net\/image\//,
+    );
+  }
+  await expect(feature).toContainText(
+    "Wind turbine at Tooele · facility-scale example",
+  );
+  await expect(feature).toContainText(
+    "Storm-damaged transmission tower · failure case",
+  );
   for (const photo of await photos.all()) {
     await expect(photo).toHaveAttribute("alt", /.+/);
     await photo.scrollIntoViewIfNeeded();

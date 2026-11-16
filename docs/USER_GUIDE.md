@@ -10,7 +10,7 @@ The exercise assumes a balanced three-phase system, constant transmitted real po
 
 ### Overview field references
 
-Open **Overview** and scroll to **PowerGrid learning**. The section pairs credited photographs of a Bonneville hydro generator, the Al Ameen substation and a distribution transformer with links to the transmission-loss and radial-feeder calculations. Select **Play documentary video** to load the source-linked Garrison Dam time lapse; video playback starts only after selection. Captions and credits identify the material. Photos and footage are visual references, not this project's readings, live telemetry, connection evidence or proof of present site conditions.
+Open **Overview** and scroll to **PowerGrid learning**. The section shows eight source-linked field photographs: a Bonneville hydro generator, Terminus Dam spillway, Fort Randall generator step-up transformer delivery, Al Ameen substation, a storm-damaged transmission tower clearly labeled as a failure case, Eglin solar array, a historic Tooele wind example, and a pole-mounted distribution transformer. Links open the transmission-loss and radial-feeder calculations. Select **Play documentary video** to load the source-linked Garrison Dam time lapse; video playback starts only after selection. Captions and credits identify the material. Photos and footage are visual references, not this project's readings, live telemetry, connection evidence or proof of present site conditions.
 
 ### Hydro station inspection
 
