@@ -335,6 +335,7 @@ export function PowerGridLab() {
           setSaved(false);
         }}
       />
+      <PowerGridStation3DScene locale={locale} />
       <HydroStationScene locale={locale} />
       <GenerationPlantScene />
       <DistributionNetworkScene locale={locale} inputs={inputs} />
