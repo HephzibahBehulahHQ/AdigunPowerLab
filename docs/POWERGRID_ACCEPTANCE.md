@@ -113,3 +113,14 @@ PR #103 merged as `5270b8f413eaab814b942aac07bd41253ac08da5`. Candidate [4367881
 PR #104 merged as `6ef06254a990309834d64c278ccc9af643c3e779`. Candidate [43688387269](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43688387269), exact-main [43695664239](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43695664239), and Pages [43696180077](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43696180077) passed; Pages artifact 14154640941 contains the deployed exact main SHA. Browser coverage exercises profile edits, input validation, local save/reload, JSON/CSV content and critical-load shortage results.
 
 The backup is only a generic dispatchable capacity ceiling with a ramp-up constraint; it is not a diesel or other source-specific generator model. The AC-bus schedule excludes feeder/transformer losses, imports/exports, fuel, costs, emissions, outages and frequency response. This slice does not finish Milestone 3.
+
+
+## Milestone 4 — navigable hydro-to-consumer station model (candidate slice)
+
+| Requirement | Evidence target | Status |
+| --- | --- | --- |
+| Navigable 3D teaching scene showing reservoir/dam, turbine, generator, transformer, switchyard, tower, receiving transformer, house and industry | WebGL geometry assembled from named equipment; azimuth/elevation/zoom controls | Candidate implementation; CI pending |
+| Equipment selection with names, function, terminal limits, phase/neutral/PE legend | Keyboard-selectable equipment buttons and localized inspection content in four locales | Candidate implementation; browser acceptance pending |
+| Accessible fallback when WebGL cannot be created | Scene reports unavailable and points to the labeled station schematic | Candidate implementation; browser acceptance pending |
+
+The WebGL model is original schematic teaching geometry, not a photograph, surveyed site, installation drawing or 3D equipment design. The scene does not calculate generation, transformer behavior, protection, line sag, power flow or device ratings. It is an additional perspective view; the hydro SVG remains the detailed wiring/terminal view. Performance measurements and the full prompt's cross-view synchronization remain open, so this slice does not complete Milestone 4.
