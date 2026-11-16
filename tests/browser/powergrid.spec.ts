@@ -754,4 +754,3 @@ test("POWERGRID navigable station scene selects named equipment and keeps a keyb
   await expect(scene).toContainText("L1/L2/L3");
   await expect(scene).toContainText("PE");
 });
-
