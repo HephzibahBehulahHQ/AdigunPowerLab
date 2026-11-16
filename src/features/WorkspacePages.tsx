@@ -49,6 +49,7 @@ import { LocaleNumberInput } from "../i18n/LocaleNumberInput";
 import { Field, Notice, Modal, Empty, LineChart } from "./ui";
 import { LanguageContext, useT, numberFormat, money } from "../i18n";
 import { ProjectCalculationDetails, type DetailMode } from "./DetailViews";
+import { PowerGridHomeFeature } from "./PowerGridHomeFeature";
 type Change = (mutator: (draft: Project) => void) => void;
 export function Overview({
   project,
@@ -159,6 +160,7 @@ export function Overview({
           </button>
         ))}
       </div>
+      <PowerGridHomeFeature locale={locale} onRoute={onRoute} />
       {detailMode === "simple" && (
         <p className="detail-help">
           {t(
