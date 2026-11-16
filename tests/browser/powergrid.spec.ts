@@ -284,7 +284,10 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
   await expect(earth).toHaveClass(/pg-ground-line/);
   await expect(shield).toHaveClass(/pg-shield-wire/);
   await expect(
-    page.getByRole("heading", { name: /synchronous generator/i }),
+    page.locator(".pg-station").getByRole("heading", {
+      name: "Synchronous generator",
+      exact: true,
+    }),
   ).toBeVisible();
   await expect(page.getByText(/N is not PE/i)).toBeVisible();
 
@@ -731,7 +734,7 @@ test("POWERGRID navigable station scene selects named equipment and keeps a keyb
   await page.keyboard.press("Enter");
   await expect(tower).toHaveAttribute("aria-pressed", "true");
   await expect(scene.locator("article")).toContainText(
-    "lattice tower supports",
+    "insulated phase conductors and a shield wire",
   );
   await expect(scene.getByLabel("3D azimuth")).toBeVisible();
   await scene.getByLabel("3D azimuth").fill("0.6");
