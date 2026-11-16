@@ -88,6 +88,65 @@ test("Help and Guide sidebar opens the illustrated workflow and Bot tour", async
   );
 });
 
+test("POWERGRID Help explains the Overview references and station model in four locales", async ({
+  page,
+}) => {
+  await ready(page);
+  for (const [locale, title, searchLabel, guideTitle, viewCopy, photoCopy] of [
+    [
+      "en",
+      "Help & Support",
+      "Search help",
+      "POWERGRID LAB: compare transmission voltage",
+      "Adjust Azimuth, Elevation and Zoom",
+      "Play documentary video",
+    ],
+    [
+      "de",
+      "Hilfe & Support",
+      "Hilfe durchsuchen",
+      "POWERGRID LAB: Übertragungsspannung vergleichen",
+      "Ändern Sie Azimut, Neigung und Zoom",
+      "Dokumentarvideo abspielen",
+    ],
+    [
+      "yo",
+      "Ìrànlọ́wọ́ àti àtìlẹ́yìn",
+      "Wá ìrànlọ́wọ́",
+      "POWERGRID LAB: Fi foliteji gbigbe wé",
+      "Ṣàtúnṣe Azimuth, Elevation àti Zoom",
+      "Play documentary video",
+    ],
+    [
+      "pcm",
+      "Help & Support",
+      "Search help",
+      "POWERGRID LAB: Compare transmission voltage",
+      "Adjust Azimuth, Elevation and Zoom",
+      "Play documentary video",
+    ],
+  ]) {
+    await page.locator(".language-select").selectOption(locale);
+    await page
+      .locator(".page-heading")
+      .getByRole("button", { name: title, exact: true })
+      .click();
+    const help = page.getByRole("dialog", { name: title, exact: true });
+    await help
+      .getByRole("searchbox", { name: searchLabel, exact: true })
+      .fill("POWERGRID");
+    const guide = help.getByRole("article", {
+      name: guideTitle,
+      exact: true,
+    });
+    await expect(guide).toBeVisible();
+    await expect(guide).toContainText(viewCopy);
+    await expect(guide).toContainText(photoCopy);
+    await page.keyboard.press("Escape");
+    await expect(help).toHaveCount(0);
+  }
+});
+
 async function openOhmGuideTool(page: Page) {
   const help = await openHelp(page);
   await help
