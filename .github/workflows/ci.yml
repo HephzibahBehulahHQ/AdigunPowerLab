@@ -16,10 +16,6 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      - name: Diagnose formatter output (overview styles)
-        run: |
-          npx prettier src/styles.css > /tmp/expected-format
-          diff -u src/styles.css /tmp/expected-format || true
       - run: npm run lint
       - run: npm test
       - run: npm run build
