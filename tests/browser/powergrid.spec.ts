@@ -715,21 +715,33 @@ test("microgrid dispatch recalculates, validates, saves and exports interval bal
   );
 });
 
-
-test("POWERGRID navigable station scene selects named equipment and keeps a keyboard fallback", async ({ page }) => {
+test("POWERGRID navigable station scene selects named equipment and keeps a keyboard fallback", async ({
+  page,
+}) => {
   await page.goto("/#POWERGRID");
-  const scene = page.getByRole("region", { name: "Navigable power station and grid model" });
+  const scene = page.getByRole("region", {
+    name: "Navigable power station and grid model",
+  });
   await expect(scene).toBeVisible();
-  const tower = scene.getByRole("button", { name: "Transmission tower & conductors", exact: true });
+  const tower = scene.getByRole("button", {
+    name: "Transmission tower & conductors",
+    exact: true,
+  });
   await tower.focus();
   await page.keyboard.press("Enter");
   await expect(tower).toHaveAttribute("aria-pressed", "true");
-  await expect(scene.locator("article")).toContainText("lattice tower supports");
+  await expect(scene.locator("article")).toContainText(
+    "lattice tower supports",
+  );
   await expect(scene.getByLabel("3D azimuth")).toBeVisible();
   await scene.getByLabel("3D azimuth").fill("0.6");
   await expect(scene.getByLabel("3D azimuth")).toHaveValue("0.6");
   await expect
-    .poll(async () => (await scene.locator("canvas").isVisible()) || (await scene.getByRole("status").isVisible()))
+    .poll(
+      async () =>
+        (await scene.locator("canvas").isVisible()) ||
+        (await scene.getByRole("status").isVisible()),
+    )
     .toBe(true);
   await expect(scene).toContainText("L1/L2/L3");
   await expect(scene).toContainText("PE");
