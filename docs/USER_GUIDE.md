@@ -8,11 +8,17 @@ In **Why step up voltage?**, edit transmitted real power, power factor, per-phas
 
 The exercise assumes a balanced three-phase system, constant transmitted real power and power factor, the same per-phase resistance in both cases, and ideal transformer voltage changes. Generator, distribution and consumer voltages are schematic scenario inputs. It does not calculate transformer efficiency, distribution losses, receiving-end voltage or a network load flow. These are educational component calculations, not a validated grid study.
 
+### Overview field references
+
+Open **Overview** and scroll to **PowerGrid learning**. The section pairs credited photographs of a Bonneville hydro generator, the Al Ameen substation and a distribution transformer with links to the transmission-loss and radial-feeder calculations. Select **Play documentary video** to load the source-linked Garrison Dam time lapse; video playback starts only after selection. Captions and credits identify the material. Photos and footage are visual references, not this project's readings, live telemetry, connection evidence or proof of present site conditions.
+
 ### Hydro station inspection
 
 The station opens with a custom, wide hydro overview showing the dam and flowing water, turbine-generator, transformer, switchyard, transmission, receiving substation and residential and industrial loads. This visual is an illustrative teaching scene; use the labeled interactive schematic below it to inspect the represented electrical connections and terminals.
 
 The hydro station scene separates a physical powerhouse cutaway from the electrical single-line path. Select the reservoir, trash rack, intake gate, penstock, draft tube, Francis turbine, generator, generator step-up transformer, breaker, disconnector, earthing switch, CT/VT, surge arrester, busbar, control house, SCADA panel, overhead conductors, tower or station earth. The information panel explains each selected item and identifies its shown terminals or connections. Keyboard users can focus an item and press Enter or Space. On a narrow screen, scroll the drawing horizontally inside its own frame.
+
+Below the electrical drawings, the **Navigable power station and grid model** provides a separate perspective. Adjust **Azimuth**, **Elevation** and **Zoom**, then choose an equipment name to inspect its function and represented connections. The 3D view is simplified teaching geometry, not a surveyed site, installation design or measurement. If WebGL is unavailable, use the labeled station schematic above.
 
 The gallery below the schematic pairs each station stage with an image and a practical equipment checklist. The generated images are training illustrations, not photographs of an identified plant. Use them to recognize typical equipment; use the interactive electrical schematic for connection details, and never approach or test energized equipment based on an illustration.
 
