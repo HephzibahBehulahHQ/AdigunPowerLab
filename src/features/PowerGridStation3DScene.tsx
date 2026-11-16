@@ -94,7 +94,7 @@ function buildScene(gl: WebGLRenderingContext, selected: AssetId) {
   const colors: number[] = [];
   const shade = (rgb: [number, number, number], amount: number) =>
     rgb.map((value) => Math.min(1, value * amount)) as [number, number, number];
-  const triangle = (a: number[], b: number[], c: number[], color: [number, number, number]) => {
+  const triangle = (a: readonly number[], b: readonly number[], c: readonly number[], color: [number, number, number]) => {
     for (const point of [a, b, c]) {
       vertices.push(point[0], point[1], point[2]);
       colors.push(...color);
