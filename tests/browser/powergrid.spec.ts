@@ -284,7 +284,9 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
   await expect(earth).toHaveClass(/pg-ground-line/);
   await expect(shield).toHaveClass(/pg-shield-wire/);
   await expect(
-    page.getByRole("heading", { name: /synchronous generator/i }),
+    page
+      .locator(".pg-station .pg-equipment-detail")
+      .getByRole("heading", { name: /^Synchronous generator/ }),
   ).toBeVisible();
   await expect(page.getByText(/N is not PE/i)).toBeVisible();
 
@@ -336,7 +338,9 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
     .first()
     .click();
   await expect(
-    page.getByRole("heading", { name: /Synchrongenerator/ }),
+    page
+      .locator(".pg-station .pg-equipment-detail")
+      .getByRole("heading", { name: /Synchrongenerator/ }),
   ).toBeVisible();
   await language.selectOption("yo");
   await page
@@ -344,7 +348,9 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
     .first()
     .click();
   await expect(
-    page.getByRole("heading", { name: /Synchronous generator/ }),
+    page
+      .locator(".pg-station .pg-equipment-detail")
+      .getByRole("heading", { name: /Synchronous generator/ }),
   ).toBeVisible();
   await language.selectOption("pcm");
   await page
@@ -352,7 +358,9 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
     .first()
     .click();
   await expect(
-    page.getByRole("heading", { name: /Synchronous generator/ }),
+    page
+      .locator(".pg-station .pg-equipment-detail")
+      .getByRole("heading", { name: /Synchronous generator/ }),
   ).toBeVisible();
 });
 
@@ -713,4 +721,36 @@ test("microgrid dispatch recalculates, validates, saves and exports interval bal
   await expect(restored.getByRole("alert")).toContainText(
     "same number of intervals",
   );
+});
+
+test("POWERGRID navigable station scene selects named equipment and keeps a keyboard fallback", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const scene = page.getByRole("region", {
+    name: "Navigable power station and grid model",
+  });
+  await expect(scene).toBeVisible();
+  const tower = scene.getByRole("button", {
+    name: "Transmission tower & conductors",
+    exact: true,
+  });
+  await tower.focus();
+  await page.keyboard.press("Enter");
+  await expect(tower).toHaveAttribute("aria-pressed", "true");
+  await expect(scene.locator("article")).toContainText(
+    "insulated phase conductors and a shield wire",
+  );
+  await expect(scene.getByLabel("3D azimuth")).toBeVisible();
+  await scene.getByLabel("3D azimuth").fill("0.61");
+  await expect(scene.getByLabel("3D azimuth")).toHaveValue("0.61");
+  await expect
+    .poll(
+      async () =>
+        (await scene.locator("canvas").isVisible()) ||
+        (await scene.getByRole("status").isVisible()),
+    )
+    .toBe(true);
+  await expect(scene).toContainText("L1/L2/L3");
+  await expect(scene).toContainText("PE");
 });

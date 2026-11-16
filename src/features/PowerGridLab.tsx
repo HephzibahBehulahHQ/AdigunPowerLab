@@ -18,6 +18,7 @@ import { RegionalGridPreset } from "./RegionalGridPreset";
 import { HydroStationScene } from "./HydroStationScene";
 import { GenerationPlantScene } from "./GenerationPlantScene";
 import { DistributionNetworkScene } from "./DistributionNetworkScene";
+import { PowerGridStation3DScene } from "./PowerGridStation3DScene";
 
 const SAVE_KEY = "adigunpowerlab.powergrid.experiment.v1";
 const copy: Record<Locale, Record<string, string>> = {
@@ -334,6 +335,7 @@ export function PowerGridLab() {
           setSaved(false);
         }}
       />
+      <PowerGridStation3DScene locale={locale} />
       <HydroStationScene locale={locale} />
       <GenerationPlantScene />
       <DistributionNetworkScene locale={locale} inputs={inputs} />
