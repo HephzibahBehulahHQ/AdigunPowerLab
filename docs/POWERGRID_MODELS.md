@@ -67,3 +67,8 @@ Dispatch order is explicit: available PV/wind serve demand first; renewable surp
 For each interval, the solver checks `PV + wind + battery discharge + backup − battery charge − curtailment − served demand = 0 kW` (numerical residual); it separately reports `total demand = served + unmet`. Battery stored energy increases by `charge kW × duration × charge efficiency` and decreases by `discharge kW × duration ÷ discharge efficiency`. Aggregate kWh metrics use the entered interval duration. Input defaults are classroom assumptions, not measured load or renewable profiles.
 
 This is not a feeder/network solution. Feeder and transformer losses, imports/exports, source-specific backup fuel/heat-rate/emissions/cost, frequency response, generator outage logic and location-specific renewable/demand data are not modeled. Do not interpret the generic backup ceiling as a diesel/thermal unit performance model or the AC-bus balance as utility operation.
+
+
+## Visual station model boundary
+
+The navigable WebGL station model uses original simplified meshes to teach relative equipment placement from reservoir through a hydro unit, step-up transformer, switchyard, transmission tower, receiving transformer, home and industry. It has no geographic scale, asset survey, equipment nameplate values or solved electrical state. Phase conductor colours are illustrative; transmission neutrals vary by network and are not implied by every line. Use the detailed hydro cutaway for connection and terminal explanations. WebGL availability is feature-detected and the station schematic remains available when it cannot render.
