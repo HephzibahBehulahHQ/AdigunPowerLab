@@ -158,6 +158,42 @@ const photos = [
     },
     credit: "U.S. Army Corps of Engineers · DVIDS",
     source: "https://www.dvidshub.net/image/1811/electrical-line",
+  },,
+
+  {
+    image: "/assets/powergrid/field-photos/hydro-spillway.jpg",
+    title: { en: "Water over the Terminus Dam spillway", de: "Wasser am Überlauf des Terminus Dam", yo: "Omi tó ń ṣàn lórí spillway Terminus Dam", pcm: "Water dey flow over Terminus Dam spillway" },
+    alt: { en: "Water flowing over the fuse gates of the Terminus Dam spillway.", de: "Wasser strömt über die Sicherungstore des Terminus-Damms.", yo: "Omi ń ṣàn lórí àwọn fuse gate spillway Terminus Dam.", pcm: "Water dey flow over the fuse gates of Terminus Dam spillway." },
+    credit: "Ryan Watson · U.S. Army Corps of Engineers, Sacramento District",
+    source: "https://www.dvidshub.net/image/7741243/water-flows-over-fuse-gates-spillway-terminus-dam",
+  },
+  {
+    image: "/assets/powergrid/field-photos/step-up-transformer.jpg",
+    title: { en: "Generator step-up transformer delivery", de: "Anlieferung eines Generator-Aufwärtstransformators", yo: "Gbigbe transformer step-up generator", pcm: "Generator step-up transformer delivery" },
+    alt: { en: "A generator step-up transformer secured on a rail car during delivery to Fort Randall Powerhouse.", de: "Ein Generator-Aufwärtstransformator ist für die Anlieferung zum Kraftwerk Fort Randall auf einem Güterwagen gesichert.", yo: "A so transformer step-up generator mọ́lẹ̀ lórí kẹ̀kẹ́ ojú irin nígbà tí wọ́n ń gbé e lọ sí Fort Randall Powerhouse.", pcm: "A generator step-up transformer dey secure on rail car as dem carry am go Fort Randall Powerhouse." },
+    credit: "Jason Colbert · U.S. Army Corps of Engineers, Omaha District",
+    source: "https://www.dvidshub.net/image/7397026/new-generator-step-up-transformers",
+  },
+  {
+    image: "/assets/powergrid/field-photos/transmission-tower-damage.jpg",
+    title: { en: "Storm-damaged transmission tower · failure case", de: "Sturmgeschädigter Übertragungsmast · Schadensbeispiel", yo: "Tower gbigbe tó bàjẹ́ ní ìjì · àpẹẹrẹ ìkùnà", pcm: "Transmission tower wey storm damage · failure example" },
+    alt: { en: "A damaged steel lattice transmission tower after a storm; shown as a failure case, not a normal operating condition.", de: "Ein beschädigter Stahlgittermast nach einem Sturm; Schadensbeispiel, kein normaler Betriebszustand.", yo: "Tower irin lattice tó bàjẹ́ lẹ́yìn ìjì; àpẹẹrẹ ìkùnà ni, kì í ṣe iṣẹ́ déédéé.", pcm: "Storm-damaged steel lattice transmission tower; failure example, not normal operation." },
+    credit: "Eliud Echevarria · Federal Emergency Management Agency",
+    source: "https://www.dvidshub.net/image/3867225/damaged-electrical-transmission-tower",
+  },
+  {
+    image: "/assets/powergrid/field-photos/solar-array.jpg",
+    title: { en: "Eglin solar energy array", de: "Solarpark auf der Eglin-Anlage", yo: "Solar array agbára Eglin", pcm: "Eglin solar energy array" },
+    alt: { en: "Rows of photovoltaic panels across the Eglin solar energy field.", de: "Reihen von Photovoltaikmodulen auf dem Solarfeld Eglin.", yo: "Àwọn photovoltaic panel ní ìlà káàkiri pápá solar agbára Eglin.", pcm: "Rows of solar PV panels across Eglin solar field." },
+    credit: "Samuel King Jr. · 96th Test Wing",
+    source: "https://www.dvidshub.net/image/7586867/eglin-solar-energy-array",
+  },
+  {
+    image: "/assets/powergrid/field-photos/wind-utility-scale.jpg",
+    title: { en: "Wind turbine at Tooele · facility-scale example", de: "Windkraftanlage in Tooele · Beispiel im Anlagenmaßstab", yo: "Wind turbine ní Tooele · àpẹẹrẹ ìwọ̀n facility", pcm: "Wind turbine for Tooele · facility-scale example" },
+    alt: { en: "A utility-scale wind turbine above the Stirling solar array at Tooele; the historic source does not establish current operating status.", de: "Eine Windkraftanlage über dem Stirling-Solarfeld in Tooele; die historische Quelle bestätigt keinen aktuellen Betriebszustand.", yo: "Wind turbine ńlá lókè Stirling solar array ní Tooele; orísun àtijọ́ yìí kò fi hàn pé ó ṣì ń ṣiṣẹ́ báyìí.", pcm: "A utility-size wind turbine above Stirling solar array for Tooele; the old source no confirm say e dey operate now." },
+    credit: "John Prettyman · U.S. Army Corps of Engineers, Sacramento District",
+    source: "https://www.dvidshub.net/image/3117643/second-wind-turbine-brings-tooele-army-depot-closer-to-net-zero-energy",
   },
 ] as const;
 
