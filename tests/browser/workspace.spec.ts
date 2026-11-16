@@ -954,7 +954,10 @@ test("Overview pairs credited facility photos and documentary video with working
   const photoLinks = feature.locator(".pg-home-photo > a");
   await expect(photoLinks).toHaveCount(8);
   for (const link of await photoLinks.all()) {
-    await expect(link).toHaveAttribute("href", /^https:\/\/www\.dvidshub\.net\/image\//);
+    await expect(link).toHaveAttribute(
+      "href",
+      /^https:\/\/www\.dvidshub\.net\/image\//,
+    );
   }
   await expect(feature).toContainText(
     "Wind turbine at Tooele · facility-scale example",
