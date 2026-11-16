@@ -338,7 +338,9 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
     .first()
     .click();
   await expect(
-    page.getByRole("heading", { name: /Synchrongenerator/ }),
+    page
+      .locator(".pg-station .pg-equipment-detail")
+      .getByRole("heading", { name: /Synchrongenerator/ }),
   ).toBeVisible();
   await language.selectOption("yo");
   await page
@@ -346,7 +348,9 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
     .first()
     .click();
   await expect(
-    page.getByRole("heading", { name: /Synchronous generator/ }),
+    page
+      .locator(".pg-station .pg-equipment-detail")
+      .getByRole("heading", { name: /Synchronous generator/ }),
   ).toBeVisible();
   await language.selectOption("pcm");
   await page
@@ -354,7 +358,9 @@ test("hydro station cutaway traces real equipment, phase conductors and distinct
     .first()
     .click();
   await expect(
-    page.getByRole("heading", { name: /Synchronous generator/ }),
+    page
+      .locator(".pg-station .pg-equipment-detail")
+      .getByRole("heading", { name: /Synchronous generator/ }),
   ).toBeVisible();
 });
 
@@ -748,3 +754,4 @@ test("POWERGRID navigable station scene selects named equipment and keeps a keyb
   await expect(scene).toContainText("L1/L2/L3");
   await expect(scene).toContainText("PE");
 });
+
