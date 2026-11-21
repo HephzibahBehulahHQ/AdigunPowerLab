@@ -1877,16 +1877,20 @@ export default function App() {
                     <>
                       {(route === "cables" ||
                         route === "motors" ||
-                        route === "quality") && (
+                        route === "quality" ||
+                        route === "tools") && (
                         <EngineeringFieldGuide
                           key={route}
                           route={route}
                           locale={locale}
                           onOpenCalculator={() => {
                             setToolId(
-                              { cables: "T16", motors: "T14", quality: "T33" }[
-                                route
-                              ],
+                              {
+                                cables: "T16",
+                                motors: "T14",
+                                quality: "T33",
+                                tools: "T03",
+                              }[route],
                             );
                             setToolRequest((request) => request + 1);
                           }}
@@ -2134,7 +2138,18 @@ export default function App() {
                       )}
                     </>
                   )}
-                  {route === "reference" && referencePage()}
+                  {route === "reference" && (
+                    <>
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
+                      />
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        {referencePage()}
+                      </div>
+                    </>
+                  )}
                   {route === "history" && (
                     <>
                       <WorkspaceRecording locale={locale} recording="history" />

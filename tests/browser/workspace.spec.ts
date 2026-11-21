@@ -959,6 +959,18 @@ test("engineering field guides link footage to the calculator", async ({
 }) => {
   for (const lesson of [
     {
+      route: "tools",
+      title: "Predict a current reading",
+      clip: "ak5tdw3Hz-U",
+      input: "Terminal voltage",
+    },
+    {
+      route: "reference",
+      title: "Use the three-phase power equation",
+      clip: "hxQqrNV8l3c",
+      action: "Go to the equations",
+    },
+    {
       route: "costs",
       title: "Separate demand charges from energy charges",
       clip: "yHlhF0nEJ14",

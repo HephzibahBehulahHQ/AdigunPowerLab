@@ -2,6 +2,70 @@ import { useState } from "react";
 import type { Locale } from "../i18n";
 
 const cases = {
+  tools: {
+    clip: "ak5tdw3Hz-U",
+    slug: "",
+    youtube: true,
+    image: "electrical-test-tools.png",
+    credit: "Fluke Corporation",
+    copy: {
+      en: [
+        "Predict a current reading",
+        "Watch how a clamp meter measures current",
+        "Use Single-phase AC current with 2.3 kW, 230 V and power factor 1. Predict the reading first, then lower power factor to 0.8 and calculate again.",
+      ],
+      de: [
+        "Einen Strommesswert vorhersagen",
+        "Strommessung mit einer Stromzange ansehen",
+        "Berechnen Sie den Einphasenstrom bei 2,3 kW, 230 V und Leistungsfaktor 1. Sagen Sie den Messwert voraus und wiederholen Sie die Rechnung mit 0,8.",
+      ],
+      yo: [
+        "Sọ àsọtẹ́lẹ̀ iye ìṣàn iná",
+        "Wo bí clamp meter ṣe ń wọn ìṣàn iná",
+        "Lo 2.3 kW, 230 V àti power factor 1 fún ìpele kan. Sọ iye náà ṣáájú ìṣírò, kí o tún ṣe pẹ̀lú 0.8.",
+      ],
+      pcm: [
+        "Predict di current reading",
+        "Watch how clamp meter dey measure current",
+        "Use 2.3 kW, 230 V and power factor 1 for single phase. Predict di reading, then change power factor to 0.8 and calculate again.",
+      ],
+    },
+  },
+  reference: {
+    clip: "hxQqrNV8l3c",
+    slug: "",
+    youtube: true,
+    image: "hydro-powerhouse-generator.png",
+    credit: "The Engineering Mindset",
+    copy: {
+      en: [
+        "Use the three-phase power equation",
+        "Watch how three-phase power works",
+        "Use the balanced three-phase equation to predict line current for 12 kW at 400 V line-to-line and power factor 1. Check your result with Three-phase AC current in the toolbox.",
+      ],
+      de: [
+        "Die Drehstromformel anwenden",
+        "Funktionsweise von Drehstrom ansehen",
+        "Berechnen Sie den Leiterstrom für 12 kW bei 400 V Leiterspannung und Leistungsfaktor 1. Prüfen Sie das Ergebnis im Drehstromrechner.",
+      ],
+      yo: [
+        "Lo àgbékalẹ̀ agbára ìpele mẹ́ta",
+        "Wo bí agbára ìpele mẹ́ta ṣe ń ṣiṣẹ́",
+        "Ṣírò ìṣàn iná ìlà fún 12 kW, 400 V láàárín ìpele àti power factor 1. Ṣàyẹ̀wò èsì rẹ nínú ẹ̀rọ ìṣírò.",
+      ],
+      pcm: [
+        "Use di three-phase power equation",
+        "Watch how three-phase power dey work",
+        "Predict line current for 12 kW, 400 V line-to-line and power factor 1. Check your answer with Three-phase AC current for di toolbox.",
+      ],
+    },
+    action: {
+      en: "Go to the equations",
+      de: "Zu den Gleichungen",
+      yo: "Lọ sí àwọn àgbékalẹ̀",
+      pcm: "Open di equations",
+    },
+  },
   costs: {
     clip: "yHlhF0nEJ14",
     slug: "",

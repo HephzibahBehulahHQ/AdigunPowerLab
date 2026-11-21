@@ -335,6 +335,8 @@ In **History & Issues**, watch the revision comparison recording. Choose an earl
 
 In **Help and Guide**, the search recording shows how to find a matching guide and jump to its workspace.
 
+In **Engineering Toolbox**, watch a clamp meter demonstration and compare simulated current at two power factors. In **Engineering Reference**, watch the three-phase explanation and use the balanced power equation to predict line current.
+
 In **Adigun BOT · Transmission worksheet**, preview a 10% increase and inspect the before/after values. Confirm to apply it, or cancel to keep editing. A worksheet edit or undo invalidates the open preview. Use **Undo transmission edit** to revert an applied proposal. **Export current lab report** downloads the current worksheet results.
 
 Select equipment in the station model and open **Explain selected station equipment** in the lab BOT. The explanation follows the station selection and describes the component's role and interfaces.
