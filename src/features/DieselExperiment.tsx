@@ -147,7 +147,20 @@ const copy = {
   }
 >;
 
-export function DieselExperiment({ locale }: { locale: Locale }) {
+const dispatchLabels = {
+  en: "Use diesel curve in dispatch",
+  de: "Dieselkennlinie in der Einsatzplanung verwenden",
+  yo: "Lo ìṣírò diesel nínú dispatch",
+  pcm: "Use diesel curve for dispatch",
+} satisfies Record<Locale, string>;
+
+export function DieselExperiment({
+  locale,
+  onDispatch,
+}: {
+  locale: Locale;
+  onDispatch: (inputs: DieselInputs) => void;
+}) {
   const [draft, setDraft] = useState(defaults);
   const text = copy[locale];
   const inputs = Object.fromEntries(
@@ -194,6 +207,14 @@ export function DieselExperiment({ locale }: { locale: Locale }) {
         <p role="status">{text.invalid}</p>
       )}
       <div className="pg-actions">
+        <button
+          className="button"
+          type="button"
+          disabled={!result}
+          onClick={() => result && onDispatch(inputs)}
+        >
+          {dispatchLabels[locale]}
+        </button>
         <button
           className="button"
           type="button"

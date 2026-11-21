@@ -9,6 +9,15 @@ export const COAL_STEAM_FIELDS = {
 
 export type CoalSteamInputs = Record<keyof typeof COAL_STEAM_FIELDS, number>;
 
+export function getCoalDispatchFuelSettings(inputs: CoalSteamInputs) {
+  return {
+    ratingKW: inputs.capacityMW * 1_000,
+    minimumStableKW: 0,
+    incrementalMJPerKWh: inputs.heatRateMJKWh,
+    runningInterceptMJPerHour: 0,
+    inventoryMJ: inputs.inventoryTonnes * 1_000 * inputs.coalHeatContentMJKg,
+  };
+}
 export function calculateCoalSteam(inputs: CoalSteamInputs) {
   for (const [key, { min, max }] of Object.entries(COAL_STEAM_FIELDS)) {
     const value = inputs[key as keyof CoalSteamInputs];

@@ -57,6 +57,9 @@ import { FuelCellExperiment } from "./FuelCellExperiment";
 import { BiogasExperiment } from "./BiogasExperiment";
 import { SolidBiomassExperiment } from "./SolidBiomassExperiment";
 import { DieselExperiment } from "./DieselExperiment";
+import { getDieselDispatchFuelSettings } from "../engine/dieselGenerator";
+import { getCoalDispatchFuelSettings } from "../engine/coalSteam";
+import type { ThermalDispatchSettings } from "../engine/microgridDispatch";
 import { CoalSteamExperiment } from "./CoalSteamExperiment";
 import { NuclearSteamExperiment } from "./NuclearSteamExperiment";
 import { WindResourceExperiment } from "./WindResourceExperiment";
@@ -640,6 +643,13 @@ export function PowerGridLab({
   ] = recoveryCopy[locale];
   const importSequence = useRef(0);
   const [reportBusy, setReportBusy] = useState(false);
+  const [dispatchFuel, setDispatchFuel] = useState<ThermalDispatchSettings>();
+  const useFuelInDispatch = (settings: ThermalDispatchSettings) => {
+    setDispatchFuel(settings);
+    document
+      .getElementById("pg-microgrid-title")
+      ?.scrollIntoView({ block: "start" });
+  };
   const [reportError, setReportError] = useState(false);
   const [stationAsset, setStationAsset] =
     useState<Station3DAssetId>("generator");
@@ -1422,15 +1432,28 @@ export function PowerGridLab({
       <TidalStreamExperiment locale={locale} />
       <WaveEnergyExperiment locale={locale} />
       <GeothermalExperiment locale={locale} />
-      <CombinedCycleExperiment locale={locale} />
-      <DieselExperiment locale={locale} />
-      <CoalSteamExperiment locale={locale} />
+      <CombinedCycleExperiment locale={locale} onDispatch={useFuelInDispatch} />
+      <DieselExperiment
+        locale={locale}
+        onDispatch={(diesel) =>
+          useFuelInDispatch(getDieselDispatchFuelSettings(diesel))
+        }
+      />
+      <CoalSteamExperiment
+        locale={locale}
+        onDispatch={(coal) =>
+          useFuelInDispatch(getCoalDispatchFuelSettings(coal))
+        }
+      />
       <NuclearSteamExperiment locale={locale} />
       <FuelCellExperiment locale={locale} />
       <BiogasExperiment locale={locale} />
-      <SolidBiomassExperiment locale={locale} />
+      <SolidBiomassExperiment locale={locale} onDispatch={useFuelInDispatch} />
       <WindResourceExperiment />
-      <MicrogridDispatchExperiment activeDemand={activeDemand} />
+      <MicrogridDispatchExperiment
+        activeDemand={activeDemand}
+        fuelSettings={dispatchFuel}
+      />
       <MeshedPowerFlowExperiment locale={locale} />
       <PowerGridFrequencyExperiment locale={locale} />
     </section>

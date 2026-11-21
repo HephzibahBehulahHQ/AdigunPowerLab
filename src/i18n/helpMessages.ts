@@ -1725,6 +1725,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Mú ìṣirò epo backup ṣiṣẹ́, kí o tẹ ooru epo generator fún ìṣẹ̀dá. Tẹ òṣùwọ̀n CO₂ lórí ìpìlẹ̀ iye ooru epo kan náà fún CO₂ ìjóná taara.",
       "Turn on thermal backup fuel use and enter generator net heat rate. Enter direct CO₂ factor on the same fuel heat basis to include direct combustion CO₂.",
     ],
+  "To use a linear fuel curve, enter the fixed running fuel intercept in MJ/h and the incremental rate in MJ/kWh.":
+    [
+      "Für eine lineare Brennstoffkennlinie geben Sie den Grundverbrauch in MJ/h und den Zusatzverbrauch in MJ/kWh ein.",
+      "Fún ìṣírò epo tó tẹ̀lé ìlà, tẹ ìwọ̀n epo ìpìlẹ̀ ní MJ/h àti ìwọ̀n àfikún ní MJ/kWh.",
+      "For linear fuel curve, enter di base running fuel in MJ/h and extra fuel for each kWh in MJ/kWh.",
+    ],
   "Set minimum stable backup output to keep the generator off when remaining demand, ramping or available fuel cannot support that output.":
     [
       "Stellen Sie die minimale stabile Reserveleistung ein. Der Generator bleibt aus, wenn Restbedarf, Leistungsanstieg oder Brennstoff nicht ausreichen.",
@@ -1977,6 +1983,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú agbára ìgbì omi jinlẹ̀, yí gíga ìgbì tàbí àkókò agbára padà. Wé agbára fún mita pẹ̀lú agbára ẹrọ, dán gíga ìdádúró wò, kí o sì gba èsì.",
       "For deep-water wave energy, change wave height or energy period. Compare power for each metre with device output, try di shutdown height, then download di case.",
     ],
+  "Use combined cycle in dispatch to copy the net output limit, minimum load and running fuel requirements into the chronological worksheet.":
+    [
+      "Übernehmen Sie Nettoleistungsgrenze, Mindestlast und Brennstoffbedarf des Kombikraftwerks in das chronologische Arbeitsblatt.",
+      "Gbé ààlà agbára tó kù, ẹrù tó kéré jù àti epo ìṣiṣẹ́ gas àti òru omi lọ sí worksheet àkókò.",
+      "Use combined cycle for dispatch to copy di net power limit, minimum load and running fuel requirements.",
+    ],
   "In the gas and steam combined cycle worksheet, compare gas turbine power with steam generation from recovered heat. Change the requested gross output to explore the minimum stable load.":
     [
       "Vergleichen Sie im Kombikraftwerk die Gasturbinenleistung mit der Dampferzeugung aus Abwärme. Ändern Sie die angeforderte Bruttoleistung, um die stabile Mindestlast zu untersuchen.",
@@ -2007,11 +2019,29 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú worksheet òru omi nuclear, yí ooru tí a fi sí steam cycle padà kí o sì wé agbára àpapọ̀ pẹ̀lú agbára lẹ́yìn lílo ilé-iṣẹ́.",
       "For nuclear steam worksheet, change heat wey reach steam cycle and compare gross power with power wey remain after plant use.",
     ],
+  "Use biomass in dispatch to transfer wet-feed-limited output and the fuel energy in the optional initial wet stock.":
+    [
+      "Übernehmen Sie die durch die feuchte Zufuhr begrenzte Leistung und den Energieinhalt des optionalen Anfangsvorrats in die Einsatzplanung.",
+      "Lo biomass nínú dispatch láti gbé agbára tí biomass olómi fi ààlà sí àti epo inú ìpamọ́ ìbẹ̀rẹ̀ lọ.",
+      "Use biomass for dispatch to copy power wey wet feed limit and di fuel energy for optional wet stock at start.",
+    ],
+  "Use coal inventory in dispatch to carry plant capacity, net heat rate and fuel stock into the chronological worksheet.":
+    [
+      "Übernehmen Sie Anlagenleistung, Netto-Wärmebedarf und Kohlevorrat in das chronologische Arbeitsblatt.",
+      "Gbé agbára ilé-iṣẹ́, ìwọ̀n ooru àti ìpamọ́ èédú lọ sí worksheet àkókò.",
+      "Use coal inventory for dispatch to copy plant capacity, net heat rate and coal wey dey into di chronological worksheet.",
+    ],
   "In the coal steam worksheet, change coal inventory or net heat rate and compare net generation and remaining coal.":
     [
       "Ändern Sie im Kohledampf-Arbeitsblatt den Kohlevorrat oder den Netto-Wärmebedarf und vergleichen Sie Nettoerzeugung und Restvorrat.",
       "Nínú worksheet òru omi láti èédú, yí iye èédú tàbí ìwọ̀n ooru padà, kí o sì wé iná tí a mú jáde àti èédú tó kù.",
       "For coal steam worksheet, change coal wey dey or net heat rate, then compare electricity wey e make and coal wey remain.",
+    ],
+  "Use diesel curve in dispatch transfers the rating, minimum load and fuel curve to the chronological worksheet.":
+    [
+      "Übernehmen Sie Nennleistung, Mindestlast und Dieselkennlinie in das chronologische Arbeitsblatt.",
+      "Gbé agbára orúkọ, ẹrù tó kéré jù àti ìṣírò epo diesel lọ sí worksheet àkókò.",
+      "Use diesel curve for dispatch to copy rating, smallest load and fuel curve into di chronological worksheet.",
     ],
   "In the diesel generator worksheet, change the electrical request or fuel inventory. Compare the fuel curve, available output and remaining diesel.":
     [

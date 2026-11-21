@@ -59,6 +59,28 @@ test("coal steam inventory caps net output and exports the energy balance", asyn
     coalUsedTonnes: 320,
     coalRemainingTonnes: 0,
   });
+  await inventory.fill("0.005");
+  await plant
+    .getByRole("button", { name: "Use coal inventory in dispatch" })
+    .click();
+  const dispatch = page.getByRole("region", {
+    name: "Microgrid dispatch laboratory",
+  });
+  await expect(dispatch.getByTestId("microgrid-backupKW")).toHaveValue(
+    "500000",
+  );
+  await dispatch.getByTestId("microgrid-batteryPowerKW").fill("0");
+  const handoff = page.waitForEvent("download");
+  await dispatch.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const chronological = JSON.parse(
+    await readFile(await (await handoff).path(), "utf8"),
+  );
+  expect(chronological.inputs.backupGenerator.thermal.initialFuelMJ).toBe(125);
+  expect(chronological.result.intervals[0]).toMatchObject({
+    backupGenerationKW: 12.5,
+    backupRemainingFuelMJ: 0,
+  });
+  expect(chronological.result.intervals[1].backupGenerationKW).toBe(0);
   await inventory.fill("");
   await expect(exportButton).toBeDisabled();
   await plant.getByRole("button", { name: "Reset coal inputs" }).click();
@@ -94,6 +116,22 @@ test("diesel fuel curve limits generation and accounts for the no-load intercept
   expect(stopped.remainingL).toBe(12);
   await generator.getByRole("button", { name: "Reset diesel inputs" }).click();
   await expect(inventory).toHaveValue("60");
+  await generator
+    .getByRole("button", { name: "Use diesel curve in dispatch" })
+    .click();
+  const dispatch = page.getByRole("region", {
+    name: "Microgrid dispatch laboratory",
+  });
+  await expect(dispatch.getByTestId("microgrid-backupKW")).toHaveValue("100");
+  const handoff = page.waitForEvent("download");
+  await dispatch.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const settings = JSON.parse(
+    await readFile(await (await handoff).path(), "utf8"),
+  ).inputs.backupGenerator.thermal;
+  expect(settings.minimumStableKW).toBe(30);
+  expect(settings.heatRateMJPerKWh).toBeCloseTo(8.5968);
+  expect(settings.runningInterceptMJPerHour).toBeCloseTo(107.46);
+  expect(settings.initialFuelMJ).toBeCloseTo(2149.2);
 });
 
 test("solid biomass derates wet fuel and recalculates net output", async ({
@@ -117,8 +155,27 @@ test("solid biomass derates wet fuel and recalculates net output", async ({
   expect(result.usedWetFeedKgH).toBe(3600);
   expect(result.steamHeatMW).toBeCloseTo(6.613);
   expect(result.netOutputMW).toBeCloseTo(1.8339);
+  const stock = plant.getByLabel(
+    "Initial wet biomass for dispatch (kg), optional",
+  );
+  await stock.fill("1000");
+  await plant.getByRole("button", { name: "Use biomass in dispatch" }).click();
+  const dispatch = page.getByRole("region", {
+    name: "Microgrid dispatch laboratory",
+  });
+  const handoff = page.waitForEvent("download");
+  await dispatch.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const { backupGenerator } = JSON.parse(
+    await readFile(await (await handoff).path(), "utf8"),
+  ).inputs;
+  expect(backupGenerator.ratedKW).toBeCloseTo(1833.9);
+  expect(backupGenerator.thermal.initialFuelMJ).toBeCloseTo(7780);
+  expect(backupGenerator.thermal.runningInterceptMJPerHour).toBeCloseTo(
+    (150 * 3.6) / 0.255,
+  );
   await plant.getByRole("button", { name: "Reset biomass inputs" }).click();
   await expect(moisture).toHaveValue("30");
+  await expect(stock).toHaveValue("");
 });
 
 test("biogas engine separates useful heat from rating-limited electric output", async ({
@@ -210,6 +267,24 @@ test("combined cycle joins gas and steam output and respects stable minimum load
     .getByRole("button", { name: "Reset combined cycle inputs" })
     .click();
   await expect(request).toHaveValue("150");
+  await plant
+    .getByRole("button", { name: "Use combined cycle in dispatch" })
+    .click();
+  const dispatch = page.getByRole("region", {
+    name: "Microgrid dispatch laboratory",
+  });
+  await expect(dispatch.getByTestId("microgrid-backupKW")).toHaveValue(
+    "157000",
+  );
+  const handoff = page.waitForEvent("download");
+  await dispatch.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const { thermal } = JSON.parse(
+    await readFile(await (await handoff).path(), "utf8"),
+  ).inputs.backupGenerator;
+  expect(thermal.minimumStableKW).toBe(29000);
+  expect(thermal.heatRateMJPerKWh).toBeCloseTo(3.6 / 0.568);
+  expect(thermal.runningInterceptMJPerHour).toBeCloseTo((3000 * 3.6) / 0.568);
+  expect(thermal.initialFuelMJ).toBeUndefined();
 });
 
 test("deep-water wave case caps output and shuts down at the configured height", async ({
@@ -1503,6 +1578,18 @@ test("microgrid dispatch exports thermal backup fuel and direct CO₂", async ({
     backupGenerationKW: 0,
     backupStartupFuelMJ: 0,
     backupRemainingFuelMJ: 150,
+  });
+  await minimum.fill("0");
+  await section.getByTestId("microgrid-backupRunningIntercept").fill("10");
+  const interceptExport = page.waitForEvent("download");
+  await section.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const withIntercept = JSON.parse(
+    await readFile(await (await interceptExport).path(), "utf8"),
+  );
+  expect(withIntercept.result.intervals[0]).toMatchObject({
+    backupGenerationKW: 11,
+    backupFuelEnergyMJ: 150,
+    backupRemainingFuelMJ: 0,
   });
 });
 
