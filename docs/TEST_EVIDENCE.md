@@ -468,3 +468,5 @@ Pumped storage passed TypeScript and 16 focused tests. The numerical fixture tur
 Grid exchange passed TypeScript, 17 focused unit and localization tests, and four Chromium dispatch scenarios. The numerical case verifies capped export, curtailment, loss of imports during islanding, resumed import after reconnection and the power balance. Browser acceptance verifies invalid outage rejection, save/reload and exported islanded state.
 
 Backup outage and restart passed TypeScript, 18 focused dispatch and localization tests, and the Chromium islanding flow. The numerical fixture verifies zero outage output, ramp-limited restart and unused headroom. Chromium verifies rejection of out-of-range outages, save/reload and export.
+
+Thermal backup passed TypeScript, 18 focused dispatch and localization tests, and the Chromium fuel accounting workflow. Chromium verified that 20 kWh of backup output at 10 MJ/kWh and 60 kg CO2/GJ exports 200 MJ and 12 kg direct CO2 after save and reload. Unit coverage verifies no fuel usage during a modeled backup outage.

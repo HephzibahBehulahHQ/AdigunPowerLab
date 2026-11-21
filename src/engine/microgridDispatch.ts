@@ -42,6 +42,7 @@ export interface MicrogridDispatchInputs {
     ratedKW: number;
     rampUpKWPerInterval: number;
     outageIntervals?: number[];
+    thermal?: { heatRateMJPerKWh: number; directCO2KgPerGJ?: number };
   };
   grid?: {
     importLimitKW: number;
@@ -90,6 +91,8 @@ export interface MicrogridDispatchInterval {
   backupGenerationKW: number;
   backupInService: boolean;
   backupHeadroomKW: number;
+  backupFuelEnergyMJ?: number;
+  backupDirectCO2Kg?: number;
   renewableCurtailmentKW: number;
   criticalUnservedKW: number;
   nonCriticalUnservedKW: number;
@@ -107,6 +110,8 @@ export interface MicrogridDispatchResult {
   renewableEnergyAvailableKWh: number;
   renewableEnergyCurtailedKWh: number;
   backupEnergyKWh: number;
+  backupFuelEnergyMJ?: number;
+  backupDirectCO2Kg?: number;
   gridImportEnergyKWh: number;
   gridExportEnergyKWh: number;
   batteryThroughputKWh: number;
@@ -272,6 +277,20 @@ export function validateMicrogridDispatchInputs(
       errors.push(`${label} must be greater than 0 and at most 1.`);
   }
   const g = inputs.backupGenerator;
+  if (
+    g.thermal &&
+    (!Number.isFinite(g.thermal.heatRateMJPerKWh) ||
+      g.thermal.heatRateMJPerKWh < 3.6 ||
+      g.thermal.heatRateMJPerKWh > 1_000 ||
+      (g.thermal.directCO2KgPerGJ !== undefined &&
+        (!Number.isFinite(g.thermal.directCO2KgPerGJ) ||
+          g.thermal.directCO2KgPerGJ < 0 ||
+          g.thermal.directCO2KgPerGJ > 1_000)))
+  ) {
+    errors.push(
+      "Enter a heat rate of 3.6–1,000 MJ/kWh and an optional CO₂ factor of 0–1,000 kg/GJ.",
+    );
+  }
   if (
     g.outageIntervals?.some(
       (interval) =>
@@ -498,6 +517,14 @@ export function calculateMicrogridDispatch(
       generatorLimitKW,
     );
     previousGeneratorKW = backupGenerationKW;
+    const backupFuelEnergyMJ = generator.thermal
+      ? backupGenerationKW * intervalHours * generator.thermal.heatRateMJPerKWh
+      : undefined;
+    const directCO2Factor = generator.thermal?.directCO2KgPerGJ;
+    const backupDirectCO2Kg =
+      backupFuelEnergyMJ !== undefined && directCO2Factor !== undefined
+        ? (backupFuelEnergyMJ / 1_000) * directCO2Factor
+        : undefined;
     const renewableToLoadKW = Math.min(renewableAvailableKW, demandKW);
     const availableToLoadKW =
       renewableToLoadKW +
@@ -544,6 +571,8 @@ export function calculateMicrogridDispatch(
       backupGenerationKW,
       backupInService,
       backupHeadroomKW: generatorLimitKW - backupGenerationKW,
+      backupFuelEnergyMJ,
+      backupDirectCO2Kg,
       renewableCurtailmentKW,
       criticalUnservedKW: criticalDemandKW - criticalServedKW,
       nonCriticalUnservedKW: nonCriticalDemandKW - nonCriticalServedKW,
@@ -563,6 +592,19 @@ export function calculateMicrogridDispatch(
     renewableEnergyAvailableKWh: sum((row) => row.renewableAvailableKW),
     renewableEnergyCurtailedKWh: sum((row) => row.renewableCurtailmentKW),
     backupEnergyKWh: sum((row) => row.backupGenerationKW),
+    backupFuelEnergyMJ: generator.thermal
+      ? intervals.reduce(
+          (total, row) => total + (row.backupFuelEnergyMJ ?? 0),
+          0,
+        )
+      : undefined,
+    backupDirectCO2Kg:
+      generator.thermal?.directCO2KgPerGJ !== undefined
+        ? intervals.reduce(
+            (total, row) => total + (row.backupDirectCO2Kg ?? 0),
+            0,
+          )
+        : undefined,
     gridImportEnergyKWh: sum((row) => row.gridImportKW),
     gridExportEnergyKWh: sum((row) => row.gridExportKW),
     batteryThroughputKWh: sum(

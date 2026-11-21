@@ -274,3 +274,5 @@ The pumped storage slice accounts for electrical pumping consumption, stored hyd
 Chronological grid exchange, islanding and restoration are implemented at the shared AC bus with entered limits. Dynamic synchronization, protection, network losses and spinning reserve remain open.
 
 Generic backup-generator outage and ramp-limited restart are modeled. Reported ramp-limited headroom does not establish spinning reserve or dynamic frequency response.
+
+Constant heat-rate fuel accounting and optional direct CO₂ are available for backup generation. Part-load curves, startup fuel, fuel inventory and complete system emissions remain open.

@@ -1,6 +1,35 @@
 import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
 
+test("microgrid dispatch exports thermal backup fuel and direct CO₂", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const section = page
+    .locator(".pg-pv")
+    .filter({ has: page.locator("#pg-microgrid-title") });
+  await section.getByTestId("microgrid-batteryPowerKW").fill("0");
+  await section
+    .getByRole("checkbox", { name: "Model thermal backup fuel use" })
+    .check();
+  const factor = section.getByRole("spinbutton", {
+    name: "Direct CO₂ factor (kg/GJ), optional",
+  });
+  await factor.fill("60");
+  await section.getByRole("button", { name: "Save scenario locally" }).click();
+  await page.reload();
+  await expect(factor).toHaveValue("60");
+  const exportPromise = page.waitForEvent("download");
+  await section.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const download = await exportPromise;
+  const payload = JSON.parse(await readFile(await download.path(), "utf8"));
+  expect(payload.result.intervals[0]).toMatchObject({
+    backupGenerationKW: 20,
+    backupFuelEnergyMJ: 200,
+    backupDirectCO2Kg: 12,
+  });
+});
+
 test("microgrid dispatch saves grid outages and exports islanding state", async ({
   page,
 }) => {

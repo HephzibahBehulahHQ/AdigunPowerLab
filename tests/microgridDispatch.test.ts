@@ -22,15 +22,20 @@ describe("chronological microgrid dispatch", () => {
         ratedKW: 35,
         rampUpKWPerInterval: 20,
         outageIntervals: [2],
+        thermal: { heatRateMJPerKWh: 10, directCO2KgPerGJ: 60 },
       },
     };
     const { intervals } = calculateMicrogridDispatch(inputs);
     expect(intervals[0]).toMatchObject({
       backupGenerationKW: 10,
+      backupFuelEnergyMJ: 100,
+      backupDirectCO2Kg: 6,
       backupHeadroomKW: 10,
     });
     expect(intervals[1]).toMatchObject({
       backupInService: false,
+      backupFuelEnergyMJ: 0,
+      backupDirectCO2Kg: 0,
       backupGenerationKW: 0,
       backupHeadroomKW: 0,
       criticalUnservedKW: 20,

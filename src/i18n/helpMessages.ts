@@ -1719,6 +1719,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Tẹ àkókò tí generator backup kò sí. Nígbà tó padà, ó bẹ̀rẹ̀ láti òdo. Agbára backup tó kù wà lábẹ́ ààlà ìgbéga àkókò náà.",
       "Enter backup outage intervals to take the generator out of service. When e return, e ramp from zero. Backup headroom na unused power inside the interval ramp limit.",
     ],
+  "Enable thermal backup fuel use and enter the generator’s net heat rate. Enter a direct CO₂ factor on the same fuel heating-value basis to include direct combustion CO₂ in the results.":
+    [
+      "Aktivieren Sie die Berechnung des Brennstoffeinsatzes und geben Sie den Nettowärmeverbrauch des Generators ein. Verwenden Sie für direktes Verbrennungs-CO₂ einen CO₂-Faktor auf derselben Heizwertbasis.",
+      "Mú ìṣirò epo backup ṣiṣẹ́, kí o tẹ ooru epo generator fún ìṣẹ̀dá. Tẹ òṣùwọ̀n CO₂ lórí ìpìlẹ̀ iye ooru epo kan náà fún CO₂ ìjóná taara.",
+      "Turn on thermal backup fuel use and enter generator net heat rate. Enter direct CO₂ factor on the same fuel heat basis to include direct combustion CO₂.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

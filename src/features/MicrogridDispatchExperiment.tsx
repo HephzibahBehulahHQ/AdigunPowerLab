@@ -12,9 +12,56 @@ import type { Locale } from "../i18n";
 
 const INPUT_KEY = "adigunpowerlab.powergrid.microgrid-dispatch.v1";
 const LIMITS =
-  "This is an illustrative AC-bus dispatch, not a site forecast or utility operation model. No feeder/transformer losses, fuel use, costs, emissions, frequency response or unit-specific generator model are included. Entered profiles are assumptions. Generic backup capacity is dispatched after storage and grid imports with the entered ramp-up ceiling; ramp-down is instantaneous.";
+  "This is an illustrative AC-bus dispatch, not a site forecast or utility operation model. No feeder/transformer losses, costs, frequency response or unit-specific transient models are included. Entered profiles are assumptions. Generic backup capacity is dispatched after storage and grid imports with the entered ramp-up ceiling; ramp-down is instantaneous.";
 const pvDefaults = DEFAULT_MICROGRID_DISPATCH_INPUTS.pvByInterval[0];
 const copy: Record<string, [string, string, string]> = {
+  "Model thermal backup fuel use": [
+    "Brennstoffeinsatz des Reserveaggregats modellieren",
+    "Ṣàwòṣe epo tí backup ń lò",
+    "Model fuel wey backup dey use",
+  ],
+  "Net heat rate (MJ/kWh)": [
+    "Nettowärmeverbrauch (MJ/kWh)",
+    "Ooru epo fún ìṣẹ̀dá (MJ/kWh)",
+    "Net heat rate (MJ/kWh)",
+  ],
+  "Direct CO₂ factor (kg/GJ), optional": [
+    "Direkter CO₂-Faktor (kg/GJ), optional",
+    "Òṣùwọ̀n CO₂ taara (kg/GJ), àṣàyàn",
+    "Direct CO₂ factor (kg/GJ), optional",
+  ],
+  "Backup fuel energy": [
+    "Brennstoffenergie der Reserve",
+    "Agbára epo backup",
+    "Backup fuel energy",
+  ],
+  "Backup direct CO₂": [
+    "Direktes CO₂ der Reserve",
+    "CO₂ taara láti backup",
+    "Backup direct CO₂",
+  ],
+  "Backup fuel energy (MJ)": [
+    "Brennstoffenergie der Reserve (MJ)",
+    "Agbára epo backup (MJ)",
+    "Backup fuel energy (MJ)",
+  ],
+  "Backup direct CO₂ (kg)": [
+    "Direktes CO₂ der Reserve (kg)",
+    "CO₂ taara láti backup (kg)",
+    "Backup direct CO₂ (kg)",
+  ],
+  "Enter a heat rate of 3.6–1,000 MJ/kWh and an optional CO₂ factor of 0–1,000 kg/GJ.":
+    [
+      "Geben Sie einen Nettowärmeverbrauch von 3,6–1.000 MJ/kWh und optional einen CO₂-Faktor von 0–1.000 kg/GJ ein.",
+      "Tẹ ooru epo láàárín 3.6–1,000 MJ/kWh àti òṣùwọ̀n CO₂ àṣàyàn láàárín 0–1,000 kg/GJ.",
+      "Enter heat rate from 3.6 to 1,000 MJ/kWh and optional CO₂ factor from 0 to 1,000 kg/GJ.",
+    ],
+  "Fuel energy uses a constant net heat rate. Use the same heating-value basis for the heat rate and CO₂ factor. Startup and part-load fuel are outside this model.":
+    [
+      "Die Brennstoffenergie verwendet einen konstanten Nettowärmeverbrauch. Verwenden Sie für Wärmeverbrauch und CO₂-Faktor dieselbe Heizwertbasis. Anfahr- und Teillastverbrauch sind nicht modelliert.",
+      "A lo ooru epo tó dúró ṣinṣin. Lo ìpìlẹ̀ iye ooru epo kan náà fún ooru àti òṣùwọ̀n CO₂. Àwòṣe kò ka epo ìbẹ̀rẹ̀ tàbí ti ẹrù kékeré.",
+      "Fuel energy use constant net heat rate. Use the same fuel heating-value basis for heat rate and CO₂ factor. Startup and part-load fuel dey outside this model.",
+    ],
   "Backup outage intervals (optional)": [
     "Ausfallintervalle der Reserveerzeugung (optional)",
     "Àkókò tí backup kò sí (àṣàyàn)",
@@ -413,11 +460,11 @@ const copy: Record<string, [string, string, string]> = {
     "Ṣàtúnṣe iye tí kò tọ́ kí o tó fi pamọ́ tàbí export.",
     "Fix invalid values before saving or exporting.",
   ],
-  "This is an illustrative AC-bus dispatch, not a site forecast or utility operation model. No feeder/transformer losses, fuel use, costs, emissions, frequency response or unit-specific generator model are included. Entered profiles are assumptions. Generic backup capacity is dispatched after storage and grid imports with the entered ramp-up ceiling; ramp-down is instantaneous.":
+  "This is an illustrative AC-bus dispatch, not a site forecast or utility operation model. No feeder/transformer losses, costs, frequency response or unit-specific transient models are included. Entered profiles are assumptions. Generic backup capacity is dispatched after storage and grid imports with the entered ramp-up ceiling; ramp-down is instantaneous.":
     [
-      "Dies ist ein illustratives AC-Sammelschienen-Dispatchmodell, keine Standortprognose oder Netzbetriebsrechnung. Leitungs-/Transformatorverluste, Brennstoff, Kosten, Emissionen, Frequenzregelung und ein anlagenspezifisches Generatormodell sind nicht enthalten. Die Profileingaben sind Annahmen. Generische Reserveleistung folgt nach den Speichern und dem Netzbezug mit der eingegebenen Hochfahrgrenze; das Abfahren erfolgt unmittelbar.",
-      "Èyí jẹ́ dispatch AC-bus fún ẹ̀kọ́, kì í ṣe asọtẹ́lẹ̀ ibi kan tàbí model iṣẹ́ utility. A kò fi feeder/transformer loss, fuel, iye owó, emission, frequency response tàbí unit-specific generator model kún un. Profile tí a tẹ̀ jẹ́ àfojúsùn. Backup capacity gbogbogbò ń ṣiṣẹ́ lẹ́yìn storage àti grid import pẹ̀lú ramp-up limit tí a tẹ̀; ramp-down ń ṣẹlẹ̀ lẹ́sẹ̀kẹsẹ̀.",
-      "Na AC-bus dispatch teaching model, no be site forecast or utility operation model. E no include feeder/transformer loss, fuel use, cost, emission, frequency response or source-specific generator model. Profiles wey you enter na assumptions. Generic backup capacity run after storage and grid imports with di ramp-up limit; ramp-down happen at once.",
+      "Dies ist ein illustratives AC-Sammelschienen-Dispatchmodell, keine Standortprognose oder Netzbetriebsrechnung. Leitungs-/Transformatorverluste, Kosten, Frequenzregelung und anlagenspezifische Transientenmodelle sind nicht enthalten. Die Profileingaben sind Annahmen. Generische Reserveleistung folgt nach den Speichern und dem Netzbezug mit der eingegebenen Hochfahrgrenze; das Abfahren erfolgt unmittelbar.",
+      "Èyí jẹ́ dispatch AC-bus fún ẹ̀kọ́, kì í ṣe asọtẹ́lẹ̀ ibi kan tàbí model iṣẹ́ utility. A kò fi feeder/transformer loss, iye owó, frequency response tàbí unit-specific transient model kún un. Profile tí a tẹ̀ jẹ́ àfojúsùn. Backup capacity gbogbogbò ń ṣiṣẹ́ lẹ́yìn storage àti grid import pẹ̀lú ramp-up limit tí a tẹ̀; ramp-down ń ṣẹlẹ̀ lẹ́sẹ̀kẹsẹ̀.",
+      "Na AC-bus dispatch teaching model, no be site forecast or utility operation model. E no include feeder/transformer loss, cost, frequency response or unit-specific transient model. Profiles wey you enter na assumptions. Generic backup capacity run after storage and grid imports with di ramp-up limit; ramp-down happen at once.",
     ],
 };
 
@@ -463,6 +510,9 @@ interface Editable {
   backupKW: number;
   rampKW: number;
   backupOutages: string;
+  thermalBackup: boolean;
+  backupHeatRate: number;
+  backupCO2Factor: string;
 }
 
 function defaults(): Editable {
@@ -492,6 +542,9 @@ function defaults(): Editable {
     gridExportLimit: 0,
     gridOutages: "",
     backupOutages: "",
+    thermalBackup: false,
+    backupHeatRate: 10,
+    backupCO2Factor: "",
     pumpedInitial: 0,
     pumpLimit: 25,
     pumpedGenerationLimit: 25,
@@ -538,6 +591,11 @@ function readSaved(): Editable {
             typeof value.gridOutages === "string" ? value.gridOutages : "",
           backupOutages:
             typeof value.backupOutages === "string" ? value.backupOutages : "",
+          thermalBackup: value.thermalBackup === true,
+          backupCO2Factor:
+            typeof value.backupCO2Factor === "string"
+              ? value.backupCO2Factor
+              : "",
         };
     }
   } catch {
@@ -616,6 +674,15 @@ export function MicrogridDispatchExperiment() {
         rampUpKWPerInterval: state.rampKW,
         outageIntervals: state.backupOutages.trim()
           ? parseNumericProfile(state.backupOutages)
+          : undefined,
+        thermal: state.thermalBackup
+          ? {
+              heatRateMJPerKWh: state.backupHeatRate,
+              directCO2KgPerGJ:
+                state.backupCO2Factor.trim() === ""
+                  ? undefined
+                  : Number(state.backupCO2Factor),
+            }
           : undefined,
       },
       grid:
@@ -718,7 +785,7 @@ export function MicrogridDispatchExperiment() {
       download(
         "powergrid-microgrid-intervals.csv",
         [
-          "interval,pv_available_kW,wind_available_kW,renewable_available_kW,demand_kW,critical_demand_kW,battery_charge_kW,battery_discharge_kW,battery_soc_kWh,backup_generation_kW,curtailment_kW,critical_unserved_kW,noncritical_unserved_kW,served_kW,balance_residual_kW,hydro_available_kW,reservoir_storage_m3,turbine_m3,environmental_bypass_m3,unmet_bypass_m3,spill_m3,reservoir_net_head_m,grid_import_kW,grid_export_kW,grid_connected,backup_in_service,backup_headroom_kW,pump_input_kW,pumped_generation_kW,hydraulic_storage_kWh,pumped_storage_losses_kWh",
+          "interval,pv_available_kW,wind_available_kW,renewable_available_kW,demand_kW,critical_demand_kW,battery_charge_kW,battery_discharge_kW,battery_soc_kWh,backup_generation_kW,curtailment_kW,critical_unserved_kW,noncritical_unserved_kW,served_kW,balance_residual_kW,hydro_available_kW,reservoir_storage_m3,turbine_m3,environmental_bypass_m3,unmet_bypass_m3,spill_m3,reservoir_net_head_m,grid_import_kW,grid_export_kW,grid_connected,backup_in_service,backup_headroom_kW,backup_fuel_energy_MJ,backup_direct_CO2_kg,pump_input_kW,pumped_generation_kW,hydraulic_storage_kWh,pumped_storage_losses_kWh",
           ...result.intervals.map((r) =>
             [
               r.interval,
@@ -748,6 +815,8 @@ export function MicrogridDispatchExperiment() {
               r.gridConnected,
               r.backupInService,
               r.backupHeadroomKW,
+              r.backupFuelEnergyMJ,
+              r.backupDirectCO2Kg,
               r.pumpedStorage?.pumpKW,
               r.pumpedStorage?.generationKW,
               r.pumpedStorage?.storedKWh,
@@ -898,6 +967,41 @@ export function MicrogridDispatchExperiment() {
         {field("backupKW", "Dispatchable backup limit (kW)", state.backupKW)}
         {field("rampKW", "Backup ramp-up per interval (kW)", state.rampKW)}
         <label className="pg-field">
+          <span>{label("Model thermal backup fuel use")}</span>
+          <input
+            type="checkbox"
+            checked={state.thermalBackup}
+            onChange={(event) => {
+              const thermalBackup = event.currentTarget.checked;
+              setState((old) => ({ ...old, thermalBackup }));
+              setSaved(false);
+            }}
+          />
+        </label>
+        {state.thermalBackup && (
+          <>
+            {field(
+              "backupHeatRate",
+              "Net heat rate (MJ/kWh)",
+              state.backupHeatRate,
+            )}
+            <label className="pg-field">
+              <span>{label("Direct CO₂ factor (kg/GJ), optional")}</span>
+              <input
+                type="number"
+                step="any"
+                min="0"
+                value={state.backupCO2Factor}
+                onChange={(event) => {
+                  const backupCO2Factor = event.currentTarget.value;
+                  setState((old) => ({ ...old, backupCO2Factor }));
+                  setSaved(false);
+                }}
+              />
+            </label>
+          </>
+        )}
+        <label className="pg-field">
           <span>{label("Backup outage intervals (optional)")}</span>
           <input
             type="text"
@@ -974,6 +1078,12 @@ export function MicrogridDispatchExperiment() {
                 "kWh",
               ],
               ["Backup energy", result.backupEnergyKWh, "kWh"],
+              ...(result.backupFuelEnergyMJ !== undefined
+                ? [["Backup fuel energy", result.backupFuelEnergyMJ, "MJ"]]
+                : []),
+              ...(result.backupDirectCO2Kg !== undefined
+                ? [["Backup direct CO₂", result.backupDirectCO2Kg, "kg"]]
+                : []),
               ...(inputs.grid
                 ? [
                     ["Grid import", result.gridImportEnergyKWh, "kWh"],
@@ -1010,6 +1120,12 @@ export function MicrogridDispatchExperiment() {
                     "Backup kW",
                     "Backup availability",
                     "Backup headroom (kW)",
+                    ...(result.backupFuelEnergyMJ !== undefined
+                      ? ["Backup fuel energy (MJ)"]
+                      : []),
+                    ...(result.backupDirectCO2Kg !== undefined
+                      ? ["Backup direct CO₂ (kg)"]
+                      : []),
                     "Curtailment kW",
                     "Critical unmet kW",
                     "Non-critical unmet kW",
@@ -1058,6 +1174,12 @@ export function MicrogridDispatchExperiment() {
                       )}
                     </td>
                     <td>{fmt(r.backupHeadroomKW)}</td>
+                    {r.backupFuelEnergyMJ !== undefined && (
+                      <td>{fmt(r.backupFuelEnergyMJ)}</td>
+                    )}
+                    {r.backupDirectCO2Kg !== undefined && (
+                      <td>{fmt(r.backupDirectCO2Kg)}</td>
+                    )}
                     <td>{fmt(r.renewableCurtailmentKW)}</td>
                     <td>{fmt(r.criticalUnservedKW)}</td>
                     <td>{fmt(r.nonCriticalUnservedKW)}</td>
@@ -1094,6 +1216,14 @@ export function MicrogridDispatchExperiment() {
         </>
       )}
       <p className="pg-model-note">{label(LIMITS)}</p>
+      {state.thermalBackup && (
+        <p className="pg-model-note">
+          {label(
+            "Fuel energy uses a constant net heat rate. Use the same heating-value basis for the heat rate and CO₂ factor. Startup and part-load fuel are outside this model.",
+          )}{" "}
+          <a href="https://www.eia.gov/tools/faqs/faq.php?id=107">EIA</a>
+        </p>
+      )}
       <p className="pg-model-note">
         {label(
           "Backup outage intervals use the same numbering as grid outages. Restart ramps from zero. Headroom is unused capacity within the current ramp limit.",
