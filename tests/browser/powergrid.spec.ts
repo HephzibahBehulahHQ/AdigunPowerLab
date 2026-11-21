@@ -2053,7 +2053,14 @@ test("radial feeder solves loads, compares an outage, saves and exports readings
   await expect(lesson.getByText(/0.22 MW total/)).toBeVisible();
   await page.getByRole("button", { name: "Set comparison reference" }).click();
 
-  await page.getByLabel("In service: Main north feeder").uncheck();
+  const map = lesson.getByRole("list", { name: "Feeder switch map" });
+  await map
+    .getByRole("button", { name: "Main north feeder", exact: true })
+    .click();
+  await expect(
+    page.getByLabel("In service: Main north feeder"),
+  ).not.toBeChecked();
+  await expect(map.getByText("Disconnected", { exact: true })).toHaveCount(2);
   await expect(
     page.getByText("Islanded: some consumer groups are unserved"),
   ).toBeVisible();
@@ -2061,6 +2068,7 @@ test("radial feeder solves loads, compares an outage, saves and exports readings
   const lateral = page.getByLabel("In service: North lateral", { exact: true });
   await lateral.uncheck();
   await page.getByLabel("In service: Main north feeder").check();
+  await expect(map.getByText("Disconnected", { exact: true })).toHaveCount(1);
   await expect(page.getByText("0 → 0.08 MW")).toBeVisible();
   const partialDownload = page.waitForEvent("download");
   await page

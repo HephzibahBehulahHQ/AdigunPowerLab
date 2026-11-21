@@ -323,6 +323,8 @@ In **Transformer loading**, use the load presets or slider to compare core and w
 
 In **Solar at midday**, **Evening peak**, and **Generator outage**, select an interval to inspect the worked dispatch. Compare served demand, charging or discharging, generation, curtailment and unmet loads. Load the case into the dispatch worksheet to edit inputs or export the run.
 
+In **Feeder trip**, use the switch map to open and reclose a branch. The solver marks each downstream group as supplied or disconnected. The map and feeder worksheet controls operate the same switches.
+
 On Overview, **Explore the workspace** groups illustrated links by menu section. In **Cables & Protection** and **Motors & Supply**, play the credited field footage and select **Go to the calculator** to try the exercise with editable inputs.
 
 In **Renewables & Storage**, watch the solar and battery microgrid footage, then compare two battery capacities using the same solar and load profiles.
