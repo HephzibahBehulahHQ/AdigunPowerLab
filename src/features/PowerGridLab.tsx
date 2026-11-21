@@ -745,6 +745,21 @@ export function PowerGridLab({
         (preset) => preset.id === regionalPresetId,
       )?.engineeringRegion,
       locale: locale === "pcm" ? "en-NG" : locale,
+      comparison: baseline
+        ? {
+            caption: baselineCaption,
+            name: baseline.scenario.name.trim() || unnamedExperiment,
+            baselineLabel,
+            currentLabel,
+            changeLabel,
+            rows: baselineRows.map(([, label, unit, baseline, current]) => ({
+              label,
+              unit,
+              baseline,
+              current,
+            })),
+          }
+        : undefined,
       labels: {
         ...text,
         reportTitle,

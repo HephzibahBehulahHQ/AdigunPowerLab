@@ -340,3 +340,5 @@ Station-asset BOT explanations follow the live shared station selection and show
 The dispatch BOT adds an interval-specific explanation from the live dispatch result. The readings update after edits and are withheld when the dispatch inputs do not solve.
 
 Meshed N−1 comparison runs in a worker. Changing case inputs clears the old rows immediately, cancels obsolete work, and disables comparison export until current rows arrive.
+
+Transmission report output includes the pinned baseline, when present, as a named before/after comparison with signed changes.

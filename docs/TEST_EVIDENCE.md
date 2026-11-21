@@ -579,3 +579,7 @@ TypeScript and 29 Help and solver tests passed. The focused Chromium case verifi
 ### POWERGRID LAB cancellable contingency comparison
 
 The Windows production build emitted a 5.15 kB contingency worker. Root and repository-base Chromium offline smoke both executed the worker and displayed the outage table, with zero page errors and unexpected network failures. The targeted browser case verified that editing an active branch replaces the comparison and exports the current branch cases. TypeScript and 28 targeted Help, meshed solver and PDF checks passed. The earlier full local run reported 442 passes and one billing PDF timeout; the timed-out test passed on the targeted rerun. The local Chromium runner stalled during teardown.
+
+### POWERGRID LAB PDF baseline and pagination
+
+TypeScript and 20 Help checks passed. The focused Chromium test downloaded a multipage transmission PDF with a pinned baseline and 26 lines of notes. The generated PDF's embedded character map and text streams confirmed the baseline caption, the named Transmission review reference, 100 MW baseline versus 120 MW current with +20 MW change, and the final Yorùbá note.

@@ -354,3 +354,5 @@ The lab BOT now explains the selected station asset using the same localized fun
 The dispatch BOT now explains the selected solved interval. It shows the renewable deficit, the battery power and reserve-adjusted energy limits, actual discharge and remaining unmet critical and noncritical load. The JSON includes the solver's interval battery energy limit.
 
 Meshed AC branch-outage comparisons now run in a dedicated worker. Editing the case, disabling comparison or leaving the lab cancels obsolete work. Results and comparison exports stay tied to the active solved case.
+
+The transmission PDF snapshot now includes the pinned worksheet name, baseline readings, current readings and signed differences. The comparison is frozen before the PDF module loads.

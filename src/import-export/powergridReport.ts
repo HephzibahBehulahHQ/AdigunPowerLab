@@ -9,10 +9,18 @@ export interface PowerGridReportSnapshot {
   preset?: string;
   locale: string;
   labels: Record<string, string>;
+  comparison?: {
+    caption: string;
+    name: string;
+    baselineLabel: string;
+    currentLabel: string;
+    changeLabel: string;
+    rows: { label: string; unit: string; baseline: number; current: number }[];
+  };
 }
 
 export async function createPowerGridReport(source: PowerGridReportSnapshot) {
-  const { inputs, name, notes, preset, locale, labels } =
+  const { inputs, name, notes, preset, locale, labels, comparison } =
     structuredClone(source);
   const result = calculatePowerGrid(inputs);
   const font = await embeddedFont();
@@ -139,6 +147,23 @@ export async function createPowerGridReport(source: PowerGridReportSnapshot) {
     y += 7;
   }
   paragraph(labels.formula);
+
+  if (comparison) {
+    heading(comparison.caption);
+    paragraph(`${comparison.baselineLabel} · ${comparison.name}`);
+    const signed = new Intl.NumberFormat(locale, {
+      maximumFractionDigits: 4,
+      signDisplay: "exceptZero",
+    });
+    for (const row of comparison.rows) {
+      room(14);
+      paragraph(row.label);
+      paragraph(
+        `${comparison.baselineLabel} ${fmt.format(row.baseline)} ${row.unit} · ${comparison.currentLabel} ${fmt.format(row.current)} ${row.unit} · ${comparison.changeLabel} ${signed.format(row.current - row.baseline)} ${row.unit}`,
+        8,
+      );
+    }
+  }
 
   heading(labels.assumptions);
   paragraph(labels.assumptionText);

@@ -1923,6 +1923,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú meshed AC power flow, ìfiwéra ìdádúró tún ṣe ìṣírò lẹ́yìn àtúnṣe. Dúró de èsì tuntun kí o tó gbé ìfiwéra jáde.",
       "For meshed AC power flow, outage comparison calculate again after edits. Wait for di new rows before you download di comparison.",
     ],
+  "Pin a transmission baseline before editing to include the named reference and signed changes in the lab report PDF.":
+    [
+      "Fixieren Sie vor dem Bearbeiten eine Übertragungsreferenz, um ihren Namen und die Änderungen mit Vorzeichen in den Laborbericht aufzunehmen.",
+      "Fi àpẹẹrẹ gbigbe ṣe ìpìlẹ̀ kí o tó ṣàtúnṣe, kí PDF ní orúkọ ìpìlẹ̀ àti ìyípadà pẹ̀lú àmì rere tàbí odi.",
+      "Pin transmission baseline before you edit so di lab report PDF go include di reference name and the plus or minus changes.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

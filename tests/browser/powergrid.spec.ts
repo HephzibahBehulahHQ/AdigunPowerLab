@@ -597,16 +597,20 @@ test("transmission import previews, applies and saves separately", async ({
   await expect(power).toHaveValue("125");
 });
 
-test("transmission lab exports a PDF snapshot with student notes", async ({
+test("transmission lab exports a paginated PDF with a pinned baseline and student notes", async ({
   page,
 }, testInfo) => {
   await page.goto("/#POWERGRID");
   await page
     .getByRole("textbox", { name: "Experiment name" })
     .fill("Transmission review");
+  await page.getByRole("button", { name: "Set comparison baseline" }).click();
+  await page.getByLabel("Transmitted real power (MW)").fill("120");
   await page
     .getByRole("textbox", { name: "Student notes (optional)" })
-    .fill("Yorùbá · Höhere Spannung");
+    .fill(
+      Array.from({ length: 26 }, (_, index) => `${index}: Yorùbá`).join("\n"),
+    );
   const downloadPromise = page.waitForEvent("download");
   await page.getByRole("button", { name: "Export lab report PDF" }).click();
   const download = await downloadPromise;
@@ -615,7 +619,11 @@ test("transmission lab exports a PDF snapshot with student notes", async ({
   );
   const path = testInfo.outputPath("powergrid-transmission-report.pdf");
   await download.saveAs(path);
-  expect((await readFile(path)).subarray(0, 5).toString()).toBe("%PDF-");
+  const bytes = await readFile(path);
+  expect(bytes.subarray(0, 5).toString()).toBe("%PDF-");
+  expect(
+    bytes.toString("latin1").match(/\/Type \/Page\b/g)?.length ?? 0,
+  ).toBeGreaterThan(1);
 });
 
 test("primary frequency response recalculates and exports the dynamic trace", async ({
