@@ -1743,7 +1743,16 @@ export default function App() {
                   )}
                   {route === "diagram" && (
                     <>
-                      <div className="tab-bar">
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
+                      />
+                      <div
+                        className="tab-bar"
+                        id="engineering-calculator"
+                        tabIndex={-1}
+                      >
                         <button
                           className={diagramView === "single" ? "active" : ""}
                           onClick={() => setDiagramView("single")}
@@ -1787,13 +1796,20 @@ export default function App() {
                   )}
                   {route === "simulation" && (
                     <>
-                      <Simulation
-                        project={project}
-                        result={result}
-                        detailMode={detailMode}
-                        onComplete={rememberCalendar}
-                        animationsPaused={motion === "paused"}
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
                       />
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        <Simulation
+                          project={project}
+                          result={result}
+                          detailMode={detailMode}
+                          onComplete={rememberCalendar}
+                          animationsPaused={motion === "paused"}
+                        />
+                      </div>
                       <details
                         className="advanced-section"
                         open={detailMode === "engineering"}

@@ -2,6 +2,74 @@ import { useState } from "react";
 import type { Locale } from "../i18n";
 
 const cases = {
+  diagram: {
+    clip: "902345",
+    slug: "transformer-installation-timelapse-fort-randall-dam",
+    image: "grid-transformer-switchyard.png",
+    credit: "Samuel Weldin · USACE, Omaha District",
+    copy: {
+      en: [
+        "Trace the supply in a single-line diagram",
+        "Watch a step-up transformer installation",
+        "In Single-Line Studio, select a supply node and follow its branches to the connected boards and loads.",
+      ],
+      de: [
+        "Versorgung im Einlinienschema verfolgen",
+        "Einbau eines Hochtransformators ansehen",
+        "Wählen Sie einen Einspeiseknoten und verfolgen Sie seine Abzweige zu Verteilern und Verbrauchern.",
+      ],
+      yo: [
+        "Tẹ̀lé ipèsè nínú àwòrán ìlà kan",
+        "Wo bí wọ́n ṣe fi transformer agbégbè sókè sí",
+        "Yan ibi ìpèsè, kí o sì tẹ̀lé ẹ̀ka rẹ̀ dé pátákó àti àwọn ẹrù.",
+      ],
+      pcm: [
+        "Trace supply for single-line diagram",
+        "Watch how dem install step-up transformer",
+        "Choose one supply node and follow di branches reach di boards and loads.",
+      ],
+    },
+    action: {
+      en: "Go to the diagram",
+      de: "Zum Schaltbild",
+      yo: "Lọ sí àwòrán",
+      pcm: "Open di diagram",
+    },
+  },
+  simulation: {
+    clip: "993768",
+    slug: "usace-powerhouses-support-grid-demands-during-2026-winter-storm",
+    image: "powergrid/field-photos/hydro-generator.jpg",
+    credit: "U.S. Army Corps of Engineers",
+    copy: {
+      en: [
+        "Find the hours with highest demand",
+        "Watch powerhouses respond to winter grid demand",
+        "Run the simulation for a project with scheduled loads. Find the peak on the demand chart and inspect the loads running at that time.",
+      ],
+      de: [
+        "Stunden mit höchster Nachfrage finden",
+        "Kraftwerke bei winterlicher Netzlast ansehen",
+        "Simulieren Sie ein Projekt mit geplanten Lasten. Finden Sie die Lastspitze und prüfen Sie die dann aktiven Verbraucher.",
+      ],
+      yo: [
+        "Wá àkókò tí ìbéèrè agbára ga jù",
+        "Wo bí ilé amúná ṣe dáhùn sí ìbéèrè ní òtútù",
+        "Ṣe ìdánwò pẹ̀lú ẹrù tí a ṣètò. Wá ibi tí ìbéèrè ga jù, kí o sì wo ẹrù tó ń ṣiṣẹ́ ní àkókò yẹn.",
+      ],
+      pcm: [
+        "Find di hours wey demand high pass",
+        "Watch how powerhouses respond to winter grid demand",
+        "Run simulation with scheduled loads. Find di demand peak and check di loads wey dey run dat time.",
+      ],
+    },
+    action: {
+      en: "Go to the simulation",
+      de: "Zur Simulation",
+      yo: "Lọ sí ìdánwò",
+      pcm: "Open di simulation",
+    },
+  },
   quality: {
     clip: "-Cp9guj0B_M",
     slug: "",
@@ -149,6 +217,7 @@ const cases = {
     slug: string;
     image: string;
     credit: string;
+    action?: Record<Locale, string>;
     copy: Record<Locale, [string, string, string]>;
   }
 >;
@@ -164,6 +233,7 @@ export function EngineeringFieldGuide({
 }) {
   const [playing, setPlaying] = useState(false);
   const study = cases[route];
+  const action = "action" in study ? study.action[locale] : undefined;
   const [title, video, exercise] = study.copy[locale];
   const embed =
     route === "quality"
@@ -212,13 +282,14 @@ export function EngineeringFieldGuide({
               calculator?.scrollIntoView({ block: "start" });
             }}
           >
-            {locale === "de"
-              ? "Zum Rechner"
-              : locale === "yo"
-                ? "Lọ sí ìṣírò"
-                : locale === "pcm"
-                  ? "Open di calculator"
-                  : "Go to the calculator"}
+            {action ??
+              (locale === "de"
+                ? "Zum Rechner"
+                : locale === "yo"
+                  ? "Lọ sí ìṣírò"
+                  : locale === "pcm"
+                    ? "Open di calculator"
+                    : "Go to the calculator")}
           </button>
           <p>
             <a href={source} target="_blank" rel="noreferrer">

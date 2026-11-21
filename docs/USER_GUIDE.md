@@ -319,6 +319,8 @@ In **EV & Flexible Loads**, watch a fleet charging demonstration. In the planner
 
 In **Power Quality**, watch the capacitor bank demonstration, open **Power-factor correction**, and compare kvar requirements at displacement power factor targets of 0.95 and 0.98.
 
+In **Single-Line Studio**, watch a transformer installation and trace a supply node through the project diagram. In **Schedules & Simulation**, watch a winter demand response and find the peak on a simulated demand curve.
+
 In **Adigun BOT · Transmission worksheet**, preview a 10% increase and inspect the before/after values. Confirm to apply it, or cancel to keep editing. A worksheet edit or undo invalidates the open preview. Use **Undo transmission edit** to revert an applied proposal. **Export current lab report** downloads the current worksheet results.
 
 Select equipment in the station model and open **Explain selected station equipment** in the lab BOT. The explanation follows the station selection and describes the component's role and interfaces.

@@ -959,6 +959,18 @@ test("engineering field guides link footage to the calculator", async ({
 }) => {
   for (const lesson of [
     {
+      route: "diagram",
+      title: "Trace the supply in a single-line diagram",
+      clip: "902345",
+      action: "Go to the diagram",
+    },
+    {
+      route: "simulation",
+      title: "Find the hours with highest demand",
+      clip: "993768",
+      action: "Go to the simulation",
+    },
+    {
       route: "quality",
       title: "Compare capacitor bank demand",
       clip: "-Cp9guj0B_M",
@@ -994,7 +1006,9 @@ test("engineering field guides link footage to the calculator", async ({
       "src",
       new RegExp(`/embed/${lesson.clip}$`),
     );
-    await guide.getByRole("button", { name: "Go to the calculator" }).click();
+    await guide
+      .getByRole("button", { name: lesson.action ?? "Go to the calculator" })
+      .click();
     await expect(page.locator("#engineering-calculator")).toBeFocused();
     if (lesson.input) {
       await expect(
