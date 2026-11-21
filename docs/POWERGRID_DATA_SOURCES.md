@@ -47,3 +47,5 @@ The deep-water wave worksheet follows equation 19 in the [OSTI-hosted wave energ
 The [DOE gas turbine power plant reference](https://www.energy.gov/hgeo/how-gas-turbine-power-plants-work) describes exhaust heat recovery and the gas/steam conversion chain. The worksheet parameters are illustrative and come from user inputs.
 
 The hydrogen fuel cell worksheet uses the lower heating value of 33.3 kWh/kg from the [DOE Alternative Fuels Data Center fuel properties comparison](https://afdc.energy.gov/fuels/properties). Its operating point and stack and inverter parameters are illustrative.
+
+The [EPA anaerobic digestion performance protocol](https://19january2021snapshot.epa.gov/sites/static/files/2014-12/documents/protocol.pdf) provides the methane lower heating value and standard reference conditions. The worksheet's flows, composition and efficiency are illustrative inputs.

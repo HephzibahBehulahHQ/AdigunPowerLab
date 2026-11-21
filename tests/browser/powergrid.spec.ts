@@ -3,6 +3,34 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("biogas engine separates useful heat from rating-limited electric output", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const lab = page.getByRole("region", {
+    name: "Biogas engine and heat recovery",
+  });
+  const methane = lab.getByLabel("Methane by volume (%)");
+  const exportCase = async () => {
+    const pending = page.waitForEvent("download");
+    await lab.getByRole("button", { name: "Export biogas results" }).click();
+    return JSON.parse(await readFile(await (await pending).path(), "utf8"))
+      .result;
+  };
+  const base = await exportCase();
+  expect(base.grossElectricKW).toBe(200);
+  expect(base.netElectricKW).toBe(190);
+  expect(base.recoverableHeatKW).toBeCloseTo(177.7778, 4);
+  expect(base.usefulHeatKW).toBe(100);
+  expect(base.usedBiogasNm3H).toBeLessThan(100);
+  await methane.fill("0");
+  const standby = await exportCase();
+  expect(standby.netElectricKW).toBe(-10);
+  expect(standby.usefulHeatKW).toBe(0);
+  await lab.getByRole("button", { name: "Reset biogas inputs" }).click();
+  await expect(methane).toHaveValue("60");
+});
+
 test("fuel cell caps AC output and preserves unused hydrogen", async ({
   page,
 }) => {
