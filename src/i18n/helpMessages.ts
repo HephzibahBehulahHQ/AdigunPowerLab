@@ -1713,6 +1713,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Ṣètò ààlà gbígba àti fífi agbára sí grid, kí o sì tẹ nọ́mbà àkókò ìdádúró bí o bá fẹ́. Nígbà ìdádúró, microgrid lo agbára inú rẹ̀. Tábìlì fi ìyapa, ìsopọ̀ padà àti ìpàṣípààrọ̀ grid hàn.",
       "Set grid import and export limits and enter outage interval numbers if you want. During outage di microgrid use local power. Di table show when e disconnect, reconnect and exchange power.",
     ],
+  "Enter backup outage intervals to make the backup generator unavailable. When it returns, it ramps from zero. Backup headroom is unused capacity within the interval ramp limit.":
+    [
+      "Geben Sie Intervalle ein, in denen das Reserveaggregat ausfällt. Beim Wiederanlauf beginnt seine Leistung bei null. Die verbleibende Reserveleistung liegt innerhalb der Hochfahrgrenze des Intervalls.",
+      "Tẹ àkókò tí generator backup kò sí. Nígbà tó padà, ó bẹ̀rẹ̀ láti òdo. Agbára backup tó kù wà lábẹ́ ààlà ìgbéga àkókò náà.",
+      "Enter backup outage intervals to take the generator out of service. When e return, e ramp from zero. Backup headroom na unused power inside the interval ramp limit.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

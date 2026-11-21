@@ -18,9 +18,21 @@ test("microgrid dispatch saves grid outages and exports islanding state", async 
     "outage interval numbers",
   );
   await outages.fill("2");
+  const backupOutages = section.getByRole("textbox", {
+    name: "Backup outage intervals (optional)",
+  });
+  await backupOutages.fill("0");
+  await expect(section.getByRole("alert")).toContainText(
+    "backup outage interval numbers",
+  );
+  await backupOutages.fill("2");
   await section.getByRole("button", { name: "Save scenario locally" }).click();
   await page.reload();
   await expect(outages).toHaveValue("2");
+  await expect(backupOutages).toHaveValue("2");
+  await expect(
+    section.getByRole("cell", { name: "Out of service", exact: true }),
+  ).toHaveCount(1);
   await expect(section.getByRole("cell", { name: "Islanded" })).toHaveCount(1);
   const exportPromise = page.waitForEvent("download");
   await section.getByRole("button", { name: "Export dispatch JSON" }).click();
@@ -34,6 +46,9 @@ test("microgrid dispatch saves grid outages and exports islanding state", async 
     gridConnected: false,
     gridImportKW: 0,
     gridExportKW: 0,
+    backupInService: false,
+    backupGenerationKW: 0,
+    backupHeadroomKW: 0,
   });
 });
 

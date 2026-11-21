@@ -246,3 +246,5 @@ Set a positive pumped storage capacity in Microgrid dispatch. Enter initial hydr
 [U.S. Department of Energy — Pumped storage hydropower](https://www.energy.gov/cmei/water/pumped-storage-hydropower)
 
 Set grid import and export limits and enter optional comma-separated outage intervals starting at 1. During these intervals the shared bus uses local resources and both grid flows are zero. The connection state and grid exchange appear in the interval table and exports; totals report imported and exported energy.
+
+Enter backup outage interval numbers independently of grid outages. The backup unit produces zero during an outage and resumes under the ramp-up limit from zero. Backup headroom is the unused output within the current interval limit, a planning metric that carries no spinning-reserve or response-time claim.

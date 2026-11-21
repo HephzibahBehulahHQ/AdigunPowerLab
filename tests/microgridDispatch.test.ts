@@ -6,6 +6,53 @@ import {
 } from "../src/engine/microgridDispatch";
 
 describe("chronological microgrid dispatch", () => {
+  it("takes backup offline and applies the ramp limit from zero on return", () => {
+    const base = DEFAULT_MICROGRID_DISPATCH_INPUTS;
+    const inputs = {
+      ...base,
+      wind: { ...base.wind, windSpeedsMps: [0, 0, 0, 0, 0, 0] },
+      pvByInterval: base.pvByInterval.map((pv) => ({
+        ...pv,
+        planeOfArrayIrradianceWm2: 0,
+      })),
+      battery: { ...base.battery, maxChargeKW: 0, maxDischargeKW: 0 },
+      demandKW: [10, 50, 50, 15, 15, 15],
+      criticalDemandKW: [8, 20, 20, 8, 8, 8],
+      backupGenerator: {
+        ratedKW: 35,
+        rampUpKWPerInterval: 20,
+        outageIntervals: [2],
+      },
+    };
+    const { intervals } = calculateMicrogridDispatch(inputs);
+    expect(intervals[0]).toMatchObject({
+      backupGenerationKW: 10,
+      backupHeadroomKW: 10,
+    });
+    expect(intervals[1]).toMatchObject({
+      backupInService: false,
+      backupGenerationKW: 0,
+      backupHeadroomKW: 0,
+      criticalUnservedKW: 20,
+    });
+    expect(intervals[2]).toMatchObject({
+      backupInService: true,
+      backupGenerationKW: 20,
+      backupHeadroomKW: 0,
+    });
+    expect(intervals[3]).toMatchObject({
+      backupGenerationKW: 15,
+      backupHeadroomKW: 20,
+    });
+    expect(
+      validateMicrogridDispatchInputs({
+        ...inputs,
+        backupGenerator: { ...inputs.backupGenerator, outageIntervals: [0] },
+      }),
+    ).toContain(
+      "Enter backup outage interval numbers within the demand profile.",
+    );
+  });
   it("limits grid exchange, islands during outages, and resumes imports on restoration", () => {
     const base = DEFAULT_MICROGRID_DISPATCH_INPUTS;
     const inputs = {

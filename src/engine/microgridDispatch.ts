@@ -38,7 +38,11 @@ export interface MicrogridDispatchInputs {
     chargeEfficiency: number;
     dischargeEfficiency: number;
   };
-  backupGenerator: { ratedKW: number; rampUpKWPerInterval: number };
+  backupGenerator: {
+    ratedKW: number;
+    rampUpKWPerInterval: number;
+    outageIntervals?: number[];
+  };
   grid?: {
     importLimitKW: number;
     exportLimitKW: number;
@@ -84,6 +88,8 @@ export interface MicrogridDispatchInterval {
   batterySocKWh: number;
   batterySocPercent: number;
   backupGenerationKW: number;
+  backupInService: boolean;
+  backupHeadroomKW: number;
   renewableCurtailmentKW: number;
   criticalUnservedKW: number;
   nonCriticalUnservedKW: number;
@@ -266,6 +272,16 @@ export function validateMicrogridDispatchInputs(
       errors.push(`${label} must be greater than 0 and at most 1.`);
   }
   const g = inputs.backupGenerator;
+  if (
+    g.outageIntervals?.some(
+      (interval) =>
+        !Number.isInteger(interval) || interval < 1 || interval > count,
+    )
+  ) {
+    errors.push(
+      "Enter backup outage interval numbers within the demand profile.",
+    );
+  }
   const grid = inputs.grid;
   if (
     grid &&
@@ -340,6 +356,7 @@ export function calculateMicrogridDispatch(
   const pumped = inputs.pumpedStorage;
   const grid = inputs.grid;
   const outages = new Set(grid?.outageIntervals);
+  const backupOutages = new Set(generator.outageIntervals);
   let pumpedEnergyKWh = pumped?.initialKWh ?? 0;
   const wind = calculateWindPerformance(inputs.wind);
   const hydro = inputs.hydro;
@@ -468,10 +485,14 @@ export function calculateMicrogridDispatch(
     const gridExportKW = gridConnected
       ? Math.min(grid!.exportLimitKW, residualSurplusKW)
       : 0;
-    const generatorLimitKW = Math.min(
-      generator.ratedKW,
-      previousGeneratorKW + generator.rampUpKWPerInterval,
-    );
+    const backupInService =
+      generator.ratedKW > 0 && !backupOutages.has(index + 1);
+    const generatorLimitKW = backupInService
+      ? Math.min(
+          generator.ratedKW,
+          previousGeneratorKW + generator.rampUpKWPerInterval,
+        )
+      : 0;
     const backupGenerationKW = Math.min(
       residualDeficitKW - gridImportKW,
       generatorLimitKW,
@@ -521,6 +542,8 @@ export function calculateMicrogridDispatch(
       batterySocKWh: socKWh,
       batterySocPercent: (socKWh / capacityKWh) * 100,
       backupGenerationKW,
+      backupInService,
+      backupHeadroomKW: generatorLimitKW - backupGenerationKW,
       renewableCurtailmentKW,
       criticalUnservedKW: criticalDemandKW - criticalServedKW,
       nonCriticalUnservedKW: nonCriticalDemandKW - nonCriticalServedKW,

@@ -15,6 +15,34 @@ const LIMITS =
   "This is an illustrative AC-bus dispatch, not a site forecast or utility operation model. No feeder/transformer losses, fuel use, costs, emissions, frequency response or unit-specific generator model are included. Entered profiles are assumptions. Generic backup capacity is dispatched after storage and grid imports with the entered ramp-up ceiling; ramp-down is instantaneous.";
 const pvDefaults = DEFAULT_MICROGRID_DISPATCH_INPUTS.pvByInterval[0];
 const copy: Record<string, [string, string, string]> = {
+  "Backup outage intervals (optional)": [
+    "Ausfallintervalle der Reserveerzeugung (optional)",
+    "Àkókò tí backup kò sí (àṣàyàn)",
+    "Backup outage intervals (optional)",
+  ],
+  "Enter backup outage interval numbers within the demand profile.": [
+    "Geben Sie Ausfallintervalle der Reserveerzeugung innerhalb des Lastprofils ein.",
+    "Tẹ nọ́mbà àkókò ìdádúró backup tó wà nínú àtòjọ ìbéèrè.",
+    "Enter backup outage interval numbers inside the demand profile.",
+  ],
+  "Backup availability": [
+    "Verfügbarkeit der Reserveerzeugung",
+    "Wíwà backup",
+    "Backup availability",
+  ],
+  "In service": ["In Betrieb", "Ó wà ní iṣẹ́", "In service"],
+  "Out of service": ["Außer Betrieb", "Kò sí ní iṣẹ́", "Out of service"],
+  "Backup headroom (kW)": [
+    "Verbleibende Reserveleistung (kW)",
+    "Agbára backup tó ṣì kù (kW)",
+    "Backup power wey still remain (kW)",
+  ],
+  "Backup outage intervals use the same numbering as grid outages. Restart ramps from zero. Headroom is unused capacity within the current ramp limit.":
+    [
+      "Ausfallintervalle der Reserveerzeugung folgen derselben Nummerierung wie Netzausfälle. Der Wiederanlauf beginnt bei null. Die verbleibende Reserveleistung ist die ungenutzte Leistung innerhalb der aktuellen Hochfahrgrenze.",
+      "Ìdádúró backup lo nọ́mbà kan náà bí ti grid. Ìbẹ̀rẹ̀ padà bẹ̀rẹ̀ láti òdo. Headroom ni agbára tí a kò lò lábẹ́ ààlà ìgbéga lọwọlọwọ.",
+      "Backup outage intervals use same numbering as grid outage. Restart ramp from zero. Headroom na power wey remain inside current ramp limit.",
+    ],
   "Grid import limit (kW)": [
     "Netzbezugsgrenze (kW)",
     "Ààlà gbígba agbára grid (kW)",
@@ -434,6 +462,7 @@ interface Editable {
   batteryDischargeEfficiency: number;
   backupKW: number;
   rampKW: number;
+  backupOutages: string;
 }
 
 function defaults(): Editable {
@@ -462,6 +491,7 @@ function defaults(): Editable {
     gridImportLimit: 0,
     gridExportLimit: 0,
     gridOutages: "",
+    backupOutages: "",
     pumpedInitial: 0,
     pumpLimit: 25,
     pumpedGenerationLimit: 25,
@@ -506,6 +536,8 @@ function readSaved(): Editable {
               : "",
           gridOutages:
             typeof value.gridOutages === "string" ? value.gridOutages : "",
+          backupOutages:
+            typeof value.backupOutages === "string" ? value.backupOutages : "",
         };
     }
   } catch {
@@ -582,6 +614,9 @@ export function MicrogridDispatchExperiment() {
       backupGenerator: {
         ratedKW: state.backupKW,
         rampUpKWPerInterval: state.rampKW,
+        outageIntervals: state.backupOutages.trim()
+          ? parseNumericProfile(state.backupOutages)
+          : undefined,
       },
       grid:
         state.gridImportLimit === 0 &&
@@ -683,7 +718,7 @@ export function MicrogridDispatchExperiment() {
       download(
         "powergrid-microgrid-intervals.csv",
         [
-          "interval,pv_available_kW,wind_available_kW,renewable_available_kW,demand_kW,critical_demand_kW,battery_charge_kW,battery_discharge_kW,battery_soc_kWh,backup_generation_kW,curtailment_kW,critical_unserved_kW,noncritical_unserved_kW,served_kW,balance_residual_kW,hydro_available_kW,reservoir_storage_m3,turbine_m3,environmental_bypass_m3,unmet_bypass_m3,spill_m3,reservoir_net_head_m,grid_import_kW,grid_export_kW,grid_connected,pump_input_kW,pumped_generation_kW,hydraulic_storage_kWh,pumped_storage_losses_kWh",
+          "interval,pv_available_kW,wind_available_kW,renewable_available_kW,demand_kW,critical_demand_kW,battery_charge_kW,battery_discharge_kW,battery_soc_kWh,backup_generation_kW,curtailment_kW,critical_unserved_kW,noncritical_unserved_kW,served_kW,balance_residual_kW,hydro_available_kW,reservoir_storage_m3,turbine_m3,environmental_bypass_m3,unmet_bypass_m3,spill_m3,reservoir_net_head_m,grid_import_kW,grid_export_kW,grid_connected,backup_in_service,backup_headroom_kW,pump_input_kW,pumped_generation_kW,hydraulic_storage_kWh,pumped_storage_losses_kWh",
           ...result.intervals.map((r) =>
             [
               r.interval,
@@ -711,6 +746,8 @@ export function MicrogridDispatchExperiment() {
               r.gridImportKW,
               r.gridExportKW,
               r.gridConnected,
+              r.backupInService,
+              r.backupHeadroomKW,
               r.pumpedStorage?.pumpKW,
               r.pumpedStorage?.generationKW,
               r.pumpedStorage?.storedKWh,
@@ -860,6 +897,18 @@ export function MicrogridDispatchExperiment() {
         )}
         {field("backupKW", "Dispatchable backup limit (kW)", state.backupKW)}
         {field("rampKW", "Backup ramp-up per interval (kW)", state.rampKW)}
+        <label className="pg-field">
+          <span>{label("Backup outage intervals (optional)")}</span>
+          <input
+            type="text"
+            value={state.backupOutages}
+            onChange={(event) => {
+              const backupOutages = event.currentTarget.value;
+              setState((old) => ({ ...old, backupOutages }));
+              setSaved(false);
+            }}
+          />
+        </label>
         {field(
           "gridImportLimit",
           "Grid import limit (kW)",
@@ -959,6 +1008,8 @@ export function MicrogridDispatchExperiment() {
                     "Battery kW (+ discharge)",
                     "SOC kWh",
                     "Backup kW",
+                    "Backup availability",
+                    "Backup headroom (kW)",
                     "Curtailment kW",
                     "Critical unmet kW",
                     "Non-critical unmet kW",
@@ -1001,6 +1052,12 @@ export function MicrogridDispatchExperiment() {
                     <td>{fmt(r.batteryDischargeKW - r.batteryChargeKW)}</td>
                     <td>{fmt(r.batterySocKWh)}</td>
                     <td>{fmt(r.backupGenerationKW)}</td>
+                    <td>
+                      {label(
+                        r.backupInService ? "In service" : "Out of service",
+                      )}
+                    </td>
+                    <td>{fmt(r.backupHeadroomKW)}</td>
                     <td>{fmt(r.renewableCurtailmentKW)}</td>
                     <td>{fmt(r.criticalUnservedKW)}</td>
                     <td>{fmt(r.nonCriticalUnservedKW)}</td>
@@ -1037,6 +1094,11 @@ export function MicrogridDispatchExperiment() {
         </>
       )}
       <p className="pg-model-note">{label(LIMITS)}</p>
+      <p className="pg-model-note">
+        {label(
+          "Backup outage intervals use the same numbering as grid outages. Restart ramps from zero. Headroom is unused capacity within the current ramp limit.",
+        )}
+      </p>
       <p className="pg-model-note">
         {label(
           "Enter comma-separated outage interval numbers starting at 1. Storage acts first, then grid imports precede backup. Remaining surplus can be exported while connected.",

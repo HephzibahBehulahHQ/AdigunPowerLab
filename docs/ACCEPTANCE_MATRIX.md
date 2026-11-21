@@ -272,3 +272,5 @@ Reservoir branch coverage includes conservation of stored water, bypass shortfal
 The pumped storage slice accounts for electrical pumping consumption, stored hydraulic energy, delivered generation and round-trip losses. Coupled reservoir elevation, hydraulic machinery curves and optimized scheduling remain open.
 
 Chronological grid exchange, islanding and restoration are implemented at the shared AC bus with entered limits. Dynamic synchronization, protection, network losses and spinning reserve remain open.
+
+Generic backup-generator outage and ramp-limited restart are modeled. Reported ramp-limited headroom does not establish spinning reserve or dynamic frequency response.

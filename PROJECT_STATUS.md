@@ -280,3 +280,5 @@ Reservoir hydro also supports a linear head rise with interval-start volume. Zer
 The candidate now includes optional pumped storage with separate pump and generation ratings, hydraulic energy capacity, and conversion efficiencies. It pumps from surplus after the battery and supplies residual load before backup.
 
 The candidate now models capped grid import/export and interval-indexed outages. Storage acts first, grid imports precede backup, and grid exchange resumes on the next connected interval.
+
+The candidate also supports backup-generator outage intervals and restart from zero output. Dispatch reports in-service state and unused capacity within the current ramp limit.
