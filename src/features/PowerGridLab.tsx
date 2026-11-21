@@ -16,6 +16,7 @@ import { HydroPerformanceExperiment } from "./HydroPerformanceExperiment";
 import { WindResourceExperiment } from "./WindResourceExperiment";
 import { MicrogridDispatchExperiment } from "./MicrogridDispatchExperiment";
 import { RegionalGridPreset } from "./RegionalGridPreset";
+import { SmardHistoricalDay } from "./SmardHistoricalDay";
 import { HydroStationScene } from "./HydroStationScene";
 import { GenerationPlantScene } from "./GenerationPlantScene";
 import { DistributionNetworkScene } from "./DistributionNetworkScene";
@@ -336,6 +337,7 @@ export function PowerGridLab() {
           setSaved(false);
         }}
       />
+      <SmardHistoricalDay locale={locale} />
       <PowerGridStation3DScene locale={locale} />
       <HydroStationScene locale={locale} />
       <GenerationPlantScene />

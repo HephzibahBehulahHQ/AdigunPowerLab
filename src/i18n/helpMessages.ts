@@ -1737,6 +1737,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Ṣí àpẹẹrẹ microgrid agbègbè ìgbèríko láti rọ́pò ìtẹ̀wọlé pẹ̀lú àpẹẹrẹ ilé ìwòsàn àti àwùjọ fún wákàtí 24 tí o lè ṣàtúnṣe.",
       "Load di rural microgrid teaching scenario to replace current inputs with one editable 24-hour clinic and community example.",
     ],
+  "Open Germany: historical load and generation to compare one day of national grid load, solar and wind from SMARD. Export JSON to retain timestamps, source links and license.":
+    [
+      "Öffnen Sie Deutschland: historische Last und Erzeugung, um einen Tag bundesweiter Netzlast, Photovoltaik und Wind aus SMARD zu vergleichen. Der JSON-Export enthält Zeitstempel, Quellen und Lizenz.",
+      "Ṣí Jámánì: ìbéèrè àti ìṣẹ̀dá iná àtijọ́ láti fi ọjọ́ kan ti ìbéèrè grid, oorun àti afẹ́fẹ́ SMARD wé. Gbé JSON jáde pẹ̀lú àkókò, orísun àti ìwé-àṣẹ.",
+      "Open Germany: past load and generation to compare one day of national grid load, solar and wind from SMARD. Export JSON to keep timestamps, source links and license.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

@@ -474,3 +474,5 @@ Thermal backup passed TypeScript, 18 focused dispatch and localization tests, an
 Startup fuel and finite inventory passed TypeScript, 18 focused tests and Chromium save/reload and JSON export. With 150 MJ available, 30 MJ startup and 10 MJ/kWh, the one-hour interval delivered 12 kWh and exhausted the inventory. The dispatch fixture covers fuel-limited restart after an outage and zero output after depletion.
 
 The rural teaching preset passed TypeScript, nine localization tests and Chromium load-and-export acceptance. The exported dispatch includes six four-hour intervals with 448 kWh of illustrative demand.
+
+SMARD acquisition verified 24 consecutive timestamps with non-null observations for each of four hourly series. TypeScript, nine localization tests and Chromium table/export acceptance passed. The browser test checks all 24 rows, attribution, license, first timestamp, source load and derived residual.

@@ -280,3 +280,5 @@ Constant heat-rate fuel accounting and optional direct CO₂ are available for b
 Startup fuel and a finite consumable fuel budget are implemented. Fuel replenishment, warm/cold start differentiation, minimum up/down times and part-load curves remain open.
 
 An authored rural microgrid preset now exercises chronological dispatch with an entire teaching day. Sourced country-specific generation and demand time series remain open.
+
+The regional lab includes one sourced German historical day for load, PV and wind. A historical dispatch input mode, additional regions and seasonal coverage remain open.

@@ -1,6 +1,31 @@
 import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
 
+test("historical SMARD day shows all hours and exports attributed measurements", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  await page
+    .getByText("Germany: historical load and generation", { exact: true })
+    .click();
+  const table = page.getByRole("table", {
+    name: "Germany: historical load and generation · MWh",
+  });
+  await expect(table.getByRole("row")).toHaveCount(25);
+  const promise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export historical JSON" }).click();
+  const download = await promise;
+  const payload = JSON.parse(await readFile(await download.path(), "utf8"));
+  expect(payload.attribution).toBe("Bundesnetzagentur | SMARD.de");
+  expect(payload.license).toBe("CC BY 4.0");
+  expect(payload.intervals).toHaveLength(24);
+  expect(payload.intervals[0]).toMatchObject({
+    start: "2025-06-18T00:00:00+02:00",
+    gridLoadMWh: 45137.8,
+    residualMWh: 40301.8,
+  });
+});
+
 test("microgrid dispatch loads and exports the rural teaching day", async ({
   page,
 }) => {

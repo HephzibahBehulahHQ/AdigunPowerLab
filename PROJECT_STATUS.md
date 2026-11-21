@@ -288,3 +288,5 @@ Thermal backup can now account for fuel energy at an entered net heat rate and o
 Thermal backup now supports startup fuel and optional finite fuel inventory. Fuel availability caps generation and backup headroom, and the interval exports report startup consumption and remaining fuel.
 
 The candidate now includes an editable rural clinic and community dispatch day. Six four-hour intervals illustrate solar variation, evening demand, storage and critical loads.
+
+Added a historical Germany comparison day with hourly SMARD grid load, solar, onshore and offshore wind, and derived residual load. The reference is available locally and exported with attribution.

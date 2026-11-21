@@ -254,3 +254,5 @@ Enable thermal backup to enter net heat rate in MJ of fuel per kWh of net electr
 Enter startup fuel per start and optionally set initial fuel inventory in MJ. The model counts startup when generation rises from zero, includes it in total fuel and direct CO2, and consumes fuel only when the unit delivers power. An empty inventory field assumes unlimited fuel. A specified zero inventory supplies no power.
 
 In Microgrid dispatch, choose Load rural microgrid teaching scenario to replace the current form with six four-hour intervals for a fictional clinic and rural community. Edit the assumptions before saving or exporting. Loading the scenario leaves the previously saved dispatch inputs available until you save again.
+
+Open Germany: historical load and generation beside the regional presets. Compare one-hour MWh values for 18 June 2025 in CEST. The final column subtracts PV and both wind categories from reported load. Use Export historical JSON to retain the observations, time zone, source URLs and CC BY 4.0 attribution. The comparison uses national data and leaves dispatch inputs unchanged.
