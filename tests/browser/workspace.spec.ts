@@ -940,6 +940,20 @@ test("local BOT rejects renaming a load to an existing name", async ({
   await dialog.getByRole("button", { name: "Close", exact: true }).click();
 });
 
+test("Overview's visual menu opens engineering tools", async ({ page }) => {
+  await ready(page);
+  const menu = page.getByRole("region", { name: "Explore the workspace" });
+  await expect(menu.getByRole("link", { name: "Load Schedule" })).toBeVisible();
+  await menu.getByRole("button", { name: "Engineering", exact: true }).click();
+  await expect(
+    menu.getByRole("link", { name: "POWERGRID LAB", exact: true }),
+  ).toHaveCount(1);
+  const cables = menu.getByRole("link", { name: "Cables & Protection" });
+  await expect(cables.locator("img")).toBeVisible();
+  await cables.click();
+  await expect(page).toHaveURL(/#\/cables$/);
+});
+
 test("Overview pairs credited facility photos and documentary video with working calculations", async ({
   page,
 }) => {

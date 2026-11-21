@@ -123,6 +123,7 @@ import {
   Diagram,
   Simulation,
 } from "./features/WorkspacePages";
+import { WorkspaceLabMenu } from "./features/WorkspaceLabMenu";
 import {
   Renewables,
   EVPlanner,
@@ -1667,14 +1668,21 @@ export default function App() {
               ) : (
                 <>
                   {route === "overview" && (
-                    <Overview
-                      project={project}
-                      result={result}
-                      detailMode={detailMode}
-                      onAdd={() => setEditor({})}
-                      onReference={() => setDialog("references")}
-                      onRoute={go}
-                    />
+                    <>
+                      <WorkspaceLabMenu
+                        entries={routes}
+                        locale={locale}
+                        onRoute={go}
+                      />
+                      <Overview
+                        project={project}
+                        result={result}
+                        detailMode={detailMode}
+                        onAdd={() => setEditor({})}
+                        onReference={() => setDialog("references")}
+                        onRoute={go}
+                      />
+                    </>
                   )}
                   {route === "loads" && (
                     <>
