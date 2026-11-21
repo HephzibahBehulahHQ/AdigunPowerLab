@@ -1953,6 +1953,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú ilé agbára ooru oòrùn, yí ìmọ́lẹ̀ taara padà kí o sì wé ooru tí a gba pẹ̀lú agbára iná. Ní ìsàlẹ̀ ẹrù iṣẹ́ tó kéré jù, agbára tó wà jẹ́ òdo.",
       "For solar thermal tower, change direct sunlight and compare heat wey dem collect with electrical output. Below minimum stable load, available output na zero.",
     ],
+  "In the tidal stream turbine, vary current speed and compare flow power, shaft potential and available electrical power. Use cut-in and cut-out to explore the operating range.":
+    [
+      "Ändern Sie in der Gezeitenströmungsturbine die Strömungsgeschwindigkeit und vergleichen Sie Strömungsleistung, mögliche Wellenleistung und verfügbare elektrische Leistung. Prüfen Sie den Betriebsbereich mit Ein- und Abschaltgeschwindigkeit.",
+      "Nínú turbine ìṣàn omi òkun, yí iyára omi padà, kí o sì wé agbára omi, agbára shaft àti agbára iná tó wà. Lo iyára ìbẹ̀rẹ̀ àti ìdádúró láti ṣàyẹ̀wò ààlà iṣẹ́.",
+      "For tidal stream turbine, change current speed and compare water power, possible shaft power and electrical power wey dey available. Use cut-in and cut-out to check di operating range.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

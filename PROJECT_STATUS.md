@@ -376,3 +376,5 @@ The next catalogue increment adds a sourced solar thermal power tower worksheet 
 PR #116 merged and deployed as 0abafe1. Both public paths served the production entry and the lab launcher. The release and artifact receipts are recorded in docs/DEPLOYMENT.md.
 
 PR #117 merged and deployed as 93fff33. The solar thermal lesson is served by both public Pages paths. The next generation catalogue entries remain open.
+
+The tidal stream increment adds a source-linked turbine worksheet with a swept-area flow calculation, separate shaft and electrical potential, rating, cut-in and cut-out, and a JSON export. Wave generation remains open.

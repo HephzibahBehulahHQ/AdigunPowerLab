@@ -330,3 +330,5 @@ Scroll to the navigable station model to start its 3D renderer. You can use Tab 
 Open **Compare with an ideal transformer** in the transformer loading lesson to compare the same load and rating with zero core and winding losses. Both cases are in the JSON report. At zero load the ideal efficiency is undefined.
 
 In **Solar thermal power tower**, change direct irradiance, aperture or efficiencies and compare incident power, collected heat and available output. Compare the 800 W/m² reference with 100 W/m² to see the minimum stable load cutoff. Use the JSON export for the current inputs and outputs.
+
+In **Tidal stream turbine**, change current speed from 2 m/s to 1 m/s and compare flow power. Try the cut-out speed to see why electrical potential can remain positive while available output falls to zero. Export the current tidal stream results as JSON.

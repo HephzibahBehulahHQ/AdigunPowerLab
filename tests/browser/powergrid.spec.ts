@@ -3,6 +3,37 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("tidal stream turbine scales with speed cubed and stops at cut-out", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const turbine = page.getByRole("region", { name: "Tidal stream turbine" });
+  const speed = turbine.getByLabel("Current speed (m/s)");
+  const flow = turbine
+    .getByText("Flow power through rotor area", { exact: true })
+    .locator("..");
+  await expect(flow).toContainText("410 kW");
+  await speed.fill("1");
+  await expect(flow).toContainText("51.25 kW");
+  await speed.fill("4");
+  const pending = page.waitForEvent("download");
+  await turbine
+    .getByRole("button", { name: "Export tidal stream results" })
+    .click();
+  const data = JSON.parse(await readFile(await (await pending).path(), "utf8"));
+  expect(data.result.electricalPotentialKW).toBeCloseTo(1180.8);
+  expect(data.result.availableKW).toBe(0);
+  expect(data.result.inOperatingRange).toBe(false);
+  await turbine
+    .getByRole("button", { name: "Reset tidal stream inputs" })
+    .click();
+  await expect(
+    turbine
+      .getByText("Available electrical power", { exact: true })
+      .locator(".."),
+  ).toContainText("120 kW");
+});
+
 test("solar thermal tower separates collected heat, potential and available output", async ({
   page,
 }) => {
