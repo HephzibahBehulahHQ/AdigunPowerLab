@@ -940,10 +940,57 @@ test("local BOT rejects renaming a load to an existing name", async ({
   await dialog.getByRole("button", { name: "Close", exact: true }).click();
 });
 
-test("Overview's visual menu opens engineering tools", async ({ page }) => {
+test("Overview's visual menu covers every workspace destination", async ({
+  page,
+}) => {
   await ready(page);
   const menu = page.getByRole("region", { name: "Explore the workspace" });
   await expect(menu.getByRole("link", { name: "Load Schedule" })).toBeVisible();
+  const groups = {
+    Workspace: [
+      "#/overview",
+      "#/loads",
+      "#/boards",
+      "#/diagram",
+      "#/simulation",
+    ],
+    Engineering: ["#POWERGRID", "#/cables", "#/motors", "#/quality", "#/tools"],
+    "Energy & Planning": ["#/renewables", "#/ev", "#/scenarios", "#/costs"],
+    Resources: [
+      "#/library",
+      "#/reports",
+      "#/reference",
+      "#/history",
+      "#/settings",
+    ],
+  };
+  for (const [group, destinations] of Object.entries(groups)) {
+    await menu.getByRole("button", { name: group, exact: true }).click();
+    await expect
+      .poll(() =>
+        menu
+          .getByRole("link")
+          .evaluateAll((links) =>
+            links.map((link) => link.getAttribute("href")),
+          ),
+      )
+      .toEqual(destinations);
+    const images = menu.locator("li img");
+    await expect(images).toHaveCount(
+      destinations.length + (group === "Resources" ? 1 : 0),
+    );
+    for (const image of await images.all()) {
+      await image.scrollIntoViewIfNeeded();
+      await expect
+        .poll(() =>
+          image.evaluate((element: HTMLImageElement) => element.naturalWidth),
+        )
+        .toBeGreaterThan(0);
+    }
+  }
+  await expect(
+    menu.getByRole("button", { name: "Help and Guide", exact: true }),
+  ).toBeVisible();
   await menu.getByRole("button", { name: "Engineering", exact: true }).click();
   await expect(
     menu.getByRole("link", { name: "POWERGRID LAB", exact: true }),

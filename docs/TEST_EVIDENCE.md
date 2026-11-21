@@ -662,3 +662,5 @@ Chromium also verified that the Power Quality guide mounts its manufacturer vide
 The expanded Chromium regression verified player activation and focus for Single-Line Studio, Schedules & Simulation, Load Schedule, Boards & Circuits, Scenarios & Optimization, and Equipment Library. The HTTP media playback itself remains unverified.
 
 Chromium verified the Engineering Toolbox exercise opens Single-phase AC current directly and the Engineering Reference exercise focuses the equations. Bundled report, backup, revision and Help recordings were independently verified by advancing playback time.
+
+The complete Overview navigation regression checked all four menu groups, the 19 real route links, the Help dialog tile, and successful decoding of all 20 tile images. All 20 Help search checks passed.
