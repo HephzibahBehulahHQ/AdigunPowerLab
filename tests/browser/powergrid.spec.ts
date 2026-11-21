@@ -396,12 +396,26 @@ test("community capstone exports the worked supply design and an outage comparis
     name: "Load or reset community case",
   });
   await reset.click();
-  await section.getByTestId("microgrid-backupKW").fill("30");
-  await section.getByTestId("microgrid-rampKW").fill("30");
+  await expect(section.getByTestId("microgrid-backupKW")).toHaveValue("30");
+  await expect(section.getByTestId("microgrid-rampKW")).toHaveValue("30");
   await capstone
     .getByRole("button", { name: "Pin current dispatch as reference" })
     .click();
-  await section.getByLabel("Backup outage intervals (optional)").fill("5");
+  await capstone
+    .getByRole("button", { name: "Test a backup outage in interval 5" })
+    .click();
+  await expect(
+    section.getByLabel("Backup outage intervals (optional)"),
+  ).toHaveValue("5");
+  const peak = capstone.getByRole("table", {
+    name: "Evening peak · interval 5",
+  });
+  await expect(
+    peak
+      .getByRole("row", { name: /Backup generation/ })
+      .getByRole("cell")
+      .last(),
+  ).toHaveText("0 kW");
   await section.getByTestId("microgrid-batteryPowerKW").fill("0");
   const notes = capstone.getByLabel("Design justification");
   await notes.fill(

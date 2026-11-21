@@ -329,6 +329,8 @@ In **Microgrid operation**, select a four-hour interval to see the battery state
 
 In **Regional comparison**, switch the shared phase resistance from 5 Ω to 10 Ω. Compare both raised-stage loss meters and use the table to inspect the underlying current and voltage values.
 
+In **Community supply design**, load the worked 30 kW backup case and pin it. Test a backup outage in interval 5 and compare evening supply and unmet critical demand against the pinned design before exporting your justification.
+
 On Overview, **Explore the workspace** groups illustrated links by menu section. In **Cables & Protection** and **Motors & Supply**, play the credited field footage and select **Go to the calculator** to try the exercise with editable inputs.
 
 In **Renewables & Storage**, watch the solar and battery microgrid footage, then compare two battery capacities using the same solar and load profiles.

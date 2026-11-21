@@ -1183,12 +1183,28 @@ export function MicrogridDispatchExperiment({
         notes={capstoneNotes}
         onNotes={setCapstoneNotes}
         onLoad={() => {
-          loadRuralScenario();
+          setState({ ...ruralTeachingCase(), backupKW: 30, rampKW: 30 });
+          setSaved(false);
           setCapstoneReference(undefined);
           setCapstoneNotes("");
         }}
         onPin={() => {
           if (result) setCapstoneReference({ inputs, result });
+        }}
+        onTestOutage={() => {
+          setState((previous) => ({
+            ...previous,
+            backupOutages: [
+              ...new Set([
+                ...previous.backupOutages
+                  .split(",")
+                  .map((value) => value.trim())
+                  .filter(Boolean),
+                "5",
+              ]),
+            ].join(", "),
+          }));
+          setSaved(false);
         }}
       />
       <div className="pg-actions">
