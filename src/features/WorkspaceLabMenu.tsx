@@ -37,10 +37,12 @@ export function WorkspaceLabMenu({
   entries,
   locale,
   onRoute,
+  onOpenHelp,
 }: {
   entries: readonly MenuEntry[];
   locale: Locale;
   onRoute: (route: string) => void;
+  onOpenHelp: () => void;
 }) {
   const t = useT();
   const groups = [...new Set(entries.map(({ group }) => group))];
@@ -69,23 +71,9 @@ export function WorkspaceLabMenu({
       <ul className="pg-home-photo-grid">
         {entries
           .filter((entry) => entry.group === group)
-          .map(({ id, label }) => (
-            <li className="pg-home-photo" key={id}>
-              <a
-                className="workspace-lab-tile"
-                href={id === "powergrid" ? "#POWERGRID" : `#/${id}`}
-                onClick={(event) => {
-                  if (
-                    event.metaKey ||
-                    event.ctrlKey ||
-                    event.shiftKey ||
-                    event.altKey
-                  )
-                    return;
-                  event.preventDefault();
-                  onRoute(id);
-                }}
-              >
+          .map(({ id, label }) => {
+            const content = (
+              <>
                 <img
                   src={`./assets/${equipmentByRoute[id]}`}
                   alt=""
@@ -93,9 +81,40 @@ export function WorkspaceLabMenu({
                   decoding="async"
                 />
                 <span>{t(label)}</span>
-              </a>
-            </li>
-          ))}
+              </>
+            );
+            return (
+              <li className="pg-home-photo" key={id}>
+                {id === "help" ? (
+                  <button
+                    className="workspace-lab-tile"
+                    type="button"
+                    onClick={onOpenHelp}
+                  >
+                    {content}
+                  </button>
+                ) : (
+                  <a
+                    className="workspace-lab-tile"
+                    href={id === "powergrid" ? "#POWERGRID" : `#/${id}`}
+                    onClick={(event) => {
+                      if (
+                        event.metaKey ||
+                        event.ctrlKey ||
+                        event.shiftKey ||
+                        event.altKey
+                      )
+                        return;
+                      event.preventDefault();
+                      onRoute(id);
+                    }}
+                  >
+                    {content}
+                  </a>
+                )}
+              </li>
+            );
+          })}
       </ul>
     </section>
   );

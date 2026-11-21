@@ -4827,6 +4827,12 @@ details p {
   border-radius: 10px;
   background: #08111e;
 }
+.workspace-demo-video {
+  width: 100%;
+  aspect-ratio: 1200 / 680;
+  border-radius: 10px;
+  background: #08111e;
+}
 .pg-home-video-frame iframe {
   position: absolute;
   inset: 0;

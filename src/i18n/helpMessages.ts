@@ -2000,6 +2000,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú Agbára omi: gíga àti ìṣàn, ṣàtúnṣe gíga omi tó kù, ìṣàn turbine, ìmúṣẹ àpapọ̀ àti agbára orúkọ. Fi agbára omi wé agbára generator tó wà, kí o sì fi pamọ́ tàbí gbé JSON jáde.",
       "For Hydropower head and water flow, change net head, turbine flow, combined efficiency and installed rating. Compare water power with generator power wey dey available, then save for this device or export JSON.",
     ],
+  "On Overview, choose a group in Explore the workspace. Open an illustrated destination to find a field video and exercise, or an application recording for reports, backups, history and Help.":
+    [
+      "Wählen Sie in der Übersicht unter Arbeitsbereich erkunden eine Gruppe. Öffnen Sie einen bebilderten Bereich mit Video und Übung oder eine Bildschirmaufnahme für Berichte, Sicherung, Verlauf und Hilfe.",
+      "Ní Overview, yan ẹgbẹ́ kan nínú Ṣàwárí ibi iṣẹ́. Ṣí ibi tí àwòrán wà fún fídíò àti ìdánwò, tàbí wo àkọsílẹ̀ ojú-ìbojú fún ìròyìn, àfẹ́yinti, ìtàn àti ìrànlọ́wọ́.",
+      "For Overview, choose one group for Explore di workspace. Open di place with picture to see field video and exercise, or watch screen recording for reports, backup, history and Help.",
+    ],
   "On Overview, scroll to PowerGrid learning for credited photos of a generator, substation and distribution transformer. Choose Play documentary video to start the cited facility footage; it is visual context, not live telemetry or a measurement. Use the links there to open the transmission-loss lab or feeder calculation.":
     [
       "Öffnen Sie Übersicht und scrollen Sie zum PowerGrid-Lernbereich. Die belegten Fotos zeigen einen Generator, ein Umspannwerk und einen Verteilungstransformator. Wählen Sie „Dokumentarvideo abspielen“, um das zitierte Anlagenvideo zu starten; es ist Anschauungsmaterial, keine Live-Telemetrie oder Messung. Über die Links öffnen Sie das Übertragungsverlustlabor oder die radiale Feeder-Berechnung.",

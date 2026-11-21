@@ -940,10 +940,57 @@ test("local BOT rejects renaming a load to an existing name", async ({
   await dialog.getByRole("button", { name: "Close", exact: true }).click();
 });
 
-test("Overview's visual menu opens engineering tools", async ({ page }) => {
+test("Overview's visual menu covers every workspace destination", async ({
+  page,
+}) => {
   await ready(page);
   const menu = page.getByRole("region", { name: "Explore the workspace" });
   await expect(menu.getByRole("link", { name: "Load Schedule" })).toBeVisible();
+  const groups = {
+    Workspace: [
+      "#/overview",
+      "#/loads",
+      "#/boards",
+      "#/diagram",
+      "#/simulation",
+    ],
+    Engineering: ["#POWERGRID", "#/cables", "#/motors", "#/quality", "#/tools"],
+    "Energy & Planning": ["#/renewables", "#/ev", "#/scenarios", "#/costs"],
+    Resources: [
+      "#/library",
+      "#/reports",
+      "#/reference",
+      "#/history",
+      "#/settings",
+    ],
+  };
+  for (const [group, destinations] of Object.entries(groups)) {
+    await menu.getByRole("button", { name: group, exact: true }).click();
+    await expect
+      .poll(() =>
+        menu
+          .getByRole("link")
+          .evaluateAll((links) =>
+            links.map((link) => link.getAttribute("href")),
+          ),
+      )
+      .toEqual(destinations);
+    const images = menu.locator("li img");
+    await expect(images).toHaveCount(
+      destinations.length + (group === "Resources" ? 1 : 0),
+    );
+    for (const image of await images.all()) {
+      await image.scrollIntoViewIfNeeded();
+      await expect
+        .poll(() =>
+          image.evaluate((element: HTMLImageElement) => element.naturalWidth),
+        )
+        .toBeGreaterThan(0);
+    }
+  }
+  await expect(
+    menu.getByRole("button", { name: "Help and Guide", exact: true }),
+  ).toBeVisible();
   await menu.getByRole("button", { name: "Engineering", exact: true }).click();
   await expect(
     menu.getByRole("link", { name: "POWERGRID LAB", exact: true }),
@@ -958,6 +1005,18 @@ test("engineering field guides link footage to the calculator", async ({
   page,
 }) => {
   for (const lesson of [
+    {
+      route: "tools",
+      title: "Predict a current reading",
+      clip: "ak5tdw3Hz-U",
+      input: "Terminal voltage",
+    },
+    {
+      route: "reference",
+      title: "Use the three-phase power equation",
+      clip: "hxQqrNV8l3c",
+      action: "Go to the equations",
+    },
     {
       route: "costs",
       title: "Separate demand charges from energy charges",
@@ -1046,6 +1105,41 @@ test("engineering field guides link footage to the calculator", async ({
       ).toBeVisible();
     }
     await expect(page).toHaveURL(new RegExp(`#/${lesson.route}$`));
+  }
+});
+
+test("workspace walkthroughs play their bundled recordings", async ({
+  page,
+}) => {
+  await ready(page);
+  await route(page, "Load Schedule");
+  await addLoad(page, { name: "Demo fan" });
+  await expect(page.locator(".save-badge")).toContainText("Saved locally");
+  await addLoad(page, { name: "Demo pump" });
+  await expect(page.locator(".save-badge")).toContainText("Saved locally");
+  for (const { route, title } of [
+    { route: "reports", title: "Watch the report workflow" },
+    { route: "settings", title: "Watch the workspace backup workflow" },
+    { route: "history", title: "Watch how to compare revisions" },
+  ]) {
+    await page.goto(`/#/${route}`);
+    if (route === "history") {
+      await page.reload();
+      await expect(
+        page.getByLabel("Earlier revision").locator('option:not([value=""])'),
+      ).not.toHaveCount(0);
+    }
+    const video = page.getByRole("region", { name: title }).locator("video");
+    await expect(video).toBeVisible();
+    await video.evaluate((element: HTMLVideoElement) => {
+      element.muted = true;
+      return element.play();
+    });
+    await expect
+      .poll(() =>
+        video.evaluate((element: HTMLVideoElement) => element.currentTime),
+      )
+      .toBeGreaterThan(0);
   }
 });
 

@@ -352,7 +352,7 @@ The microgrid operation lesson now shows a solved rural reference, prompts learn
 
 Source to socket and Why step up voltage now have guided practical lessons with worked references and interpretation prompts tied to the live transmission worksheet and PDF. The full lab still needs release qualification against the owner specification.
 
-The practical redesign adds selectable foundation equipment images, original facility footage, a live voltage comparison, and an illustrated Overview menu covering the existing workspace routes. Dedicated destination walkthroughs remain in progress.
+The practical redesign adds selectable foundation equipment images, original facility footage, a live voltage comparison, and an illustrated Overview menu covering the existing workspace routes. Fourteen destinations have localized field exercises, and Reports, Settings, History and Help have bundled application recordings. The field guide and recording releases still require their respective Pages verification.
 
 The lab now has a deterministic Adigun BOT panel for transmission. It explains line loss, summarizes current readings, offers PDF export and previews a 10% voltage increase until confirmed. The worksheet reducer rejects stale revisions and records confirmed changes in undo history. Broader BOT lesson and asset contexts remain open.
 

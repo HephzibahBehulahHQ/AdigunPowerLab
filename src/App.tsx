@@ -125,6 +125,7 @@ import {
 } from "./features/WorkspacePages";
 import { WorkspaceLabMenu } from "./features/WorkspaceLabMenu";
 import { EngineeringFieldGuide } from "./features/EngineeringFieldGuide";
+import { WorkspaceRecording } from "./features/WorkspaceRecording";
 import {
   Renewables,
   EVPlanner,
@@ -609,6 +610,22 @@ export default function App() {
     setProject(restored);
     setHistoryTick((n) => n + 1);
   }
+  useEffect(() => {
+    if (route !== "history" || !loaded) return;
+    let active = true;
+    setRevisions([]);
+    void projectHistory(project.id)
+      .then((history) => {
+        if (active) setRevisions(history);
+      })
+      .catch((error: Error) => {
+        if (active) setError(error.message);
+      });
+    return () => {
+      active = false;
+    };
+  }, [loaded, project.id, route]);
+
   function go(r: string) {
     setRoute(r);
     const target = r === "powergrid" ? "#POWERGRID" : "#/" + r;
@@ -616,10 +633,6 @@ export default function App() {
     setDialog(null);
     setQuery("");
     if (innerWidth < 900) setSidebar(false);
-    if (r === "history")
-      void projectHistory(project.id)
-        .then(setRevisions)
-        .catch((e) => setError(e.message));
   }
   function openHelp(query = "") {
     helpOpener.current =
@@ -1674,6 +1687,7 @@ export default function App() {
                         entries={routes}
                         locale={locale}
                         onRoute={go}
+                        onOpenHelp={() => openHelp()}
                       />
                       <Overview
                         project={project}
@@ -1863,16 +1877,20 @@ export default function App() {
                     <>
                       {(route === "cables" ||
                         route === "motors" ||
-                        route === "quality") && (
+                        route === "quality" ||
+                        route === "tools") && (
                         <EngineeringFieldGuide
                           key={route}
                           route={route}
                           locale={locale}
                           onOpenCalculator={() => {
                             setToolId(
-                              { cables: "T16", motors: "T14", quality: "T33" }[
-                                route
-                              ],
+                              {
+                                cables: "T16",
+                                motors: "T14",
+                                quality: "T33",
+                                tools: "T03",
+                              }[route],
                             );
                             setToolRequest((request) => request + 1);
                           }}
@@ -2039,6 +2057,12 @@ export default function App() {
                   )}
                   {route === "reports" && (
                     <>
+                      {reportTab === "engineering" && (
+                        <WorkspaceRecording
+                          locale={locale}
+                          recording="report"
+                        />
+                      )}
                       <div className="tab-bar">
                         <button
                           className={
@@ -2114,8 +2138,24 @@ export default function App() {
                       )}
                     </>
                   )}
-                  {route === "reference" && referencePage()}
-                  {route === "history" && historyPage()}
+                  {route === "reference" && (
+                    <>
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
+                      />
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        {referencePage()}
+                      </div>
+                    </>
+                  )}
+                  {route === "history" && (
+                    <>
+                      <WorkspaceRecording locale={locale} recording="history" />
+                      {historyPage()}
+                    </>
+                  )}
                   {route === "settings" && (
                     <>
                       <ProjectSettings
@@ -2248,6 +2288,7 @@ export default function App() {
                           </button>
                         </div>
                       </section>
+                      <WorkspaceRecording locale={locale} recording="backup" />
                       <WorkspaceRecovery
                         activeProject={project}
                         onRestored={async ({ activeIds }) => {
