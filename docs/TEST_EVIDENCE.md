@@ -674,3 +674,9 @@ Chromium verified the Engineering Toolbox exercise opens Single-phase AC current
 The complete Overview navigation regression checked all four menu groups, the 19 real route links, the Help dialog tile, and successful decoding of all 20 tile images. All 20 Help search checks passed.
 
 Production Chromium verified playback of the report, workspace backup, revision comparison, and Help recordings on GitHub Pages after the recordings release. Each media element advanced its playback time and decoded a video frame.
+
+### Visual POWERGRID experiments
+
+Focused Chromium cases checked terminal ratios, voltage and distance controls, the power-factor worksheet handoff, transformer overload, dispatch interval readings, the feeder switch map, rural battery charge, and regional loss comparison. In the community capstone, loading produces the documented 30 kW backup case, pinning captures zero unmet critical energy, and the interval 5 outage control produces zero backup generation in that interval.
+
+The combined curriculum run reported all ten selected Chromium tests passing in one run, covering all twelve practical lessons. The local Playwright runner stalled during teardown after reporting the ten results.

@@ -398,6 +398,7 @@ test("foundations lessons trace edited stages and restore the worked case", asyn
   await expect(source).toContainText("11 kV → 330 kV → 33 kV → 0.4 kV");
   await expect(step).toContainText("0.459 MW");
   await source.getByRole("button", { name: "Step-up transformer" }).click();
+  await expect(source).toContainText("30×");
   await expect(
     source.getByRole("img", { name: "Step-up transformer" }),
   ).toBeVisible();
@@ -406,8 +407,19 @@ test("foundations lessons trace edited stages and restore the worked case", asyn
   const slider = step.getByRole("slider");
   await slider.fill("200");
   await expect(step).toContainText("1.25 MW");
+  const lossMeter = step.getByRole("meter", {
+    name: "Conductor loss · 200 kV",
+  });
+  expect(
+    await lossMeter.evaluate((meter: HTMLMeterElement) => meter.value),
+  ).toBeCloseTo(1.25);
+  await step
+    .getByRole("button", { name: "Watch a step-up transformer installation" })
+    .click();
+  await expect(step.locator("iframe")).toHaveAttribute("src", /902345$/);
   const generator = page.getByLabel("Generator voltage (kV)", { exact: true });
   await generator.fill("13.8");
+  await expect(source).toContainText("23.913043×");
   await expect(source).toContainText("13.8 kV → 330 kV → 33 kV → 0.4 kV");
   await page
     .getByLabel("Student notes (optional)")
@@ -440,12 +452,26 @@ test("community capstone exports the worked supply design and an outage comparis
     name: "Load or reset community case",
   });
   await reset.click();
-  await section.getByTestId("microgrid-backupKW").fill("30");
-  await section.getByTestId("microgrid-rampKW").fill("30");
+  await expect(section.getByTestId("microgrid-backupKW")).toHaveValue("30");
+  await expect(section.getByTestId("microgrid-rampKW")).toHaveValue("30");
   await capstone
     .getByRole("button", { name: "Pin current dispatch as reference" })
     .click();
-  await section.getByLabel("Backup outage intervals (optional)").fill("5");
+  await capstone
+    .getByRole("button", { name: "Test a backup outage in interval 5" })
+    .click();
+  await expect(
+    section.getByLabel("Backup outage intervals (optional)"),
+  ).toHaveValue("5");
+  const peak = capstone.getByRole("table", {
+    name: "Evening peak · interval 5",
+  });
+  await expect(
+    peak
+      .getByRole("row", { name: /Backup generation/ })
+      .getByRole("cell")
+      .last(),
+  ).toHaveText("0 kW");
   await section.getByTestId("microgrid-batteryPowerKW").fill("0");
   const notes = capstone.getByLabel("Design justification");
   await notes.fill(
@@ -482,7 +508,17 @@ test("regional lesson recalculates both sourced cases from the shared worksheet"
   const resistance = page.getByLabel("Line resistance per phase (Ω/phase)", {
     exact: true,
   });
-  await resistance.fill("10");
+  const regionalLoss = lesson.getByRole("meter", {
+    name: /Raised-stage loss · Nigeria-inspired/,
+  });
+  const originalLoss = await regionalLoss.evaluate(
+    (meter: HTMLMeterElement) => meter.value,
+  );
+  await lesson.getByRole("button", { name: "10 Ω", exact: true }).click();
+  await expect(resistance).toHaveValue("10");
+  expect(
+    await regionalLoss.evaluate((meter: HTMLMeterElement) => meter.value),
+  ).toBeCloseTo(2 * originalLoss);
   const pending = page.waitForEvent("download");
   await lesson
     .getByRole("button", { name: "Download regional comparison (JSON)" })
@@ -516,6 +552,15 @@ test("generator outage lesson exports trip, restart and restored critical supply
   const load = section.getByRole("button", {
     name: "Load or reset generator outage",
   });
+  const lesson = section.getByRole("region", {
+    name: "Practical lesson: Generator outage",
+  });
+  const generatorOutput = lesson
+    .getByText("Generator output", { exact: true })
+    .locator("..");
+  await expect(generatorOutput).toContainText("0 kW");
+  await lesson.getByRole("button", { name: "Interval 3", exact: true }).click();
+  await expect(generatorOutput).toContainText("7 kW");
   const outages = section.getByLabel("Backup outage intervals (optional)");
   const exportDispatch = async () => {
     const pending = page.waitForEvent("download");
@@ -598,10 +643,16 @@ test("transformer lesson calculates losses and flags overload in the report", as
   });
   const load = lesson.getByLabel("Apparent load (kVA)");
   await expect(lesson.getByText("4.5 kW").last()).toBeVisible();
-  await load.fill("1000");
+  await lesson.getByRole("button", { name: "1,000 kVA", exact: true }).click();
   await expect(lesson.getByText("12 kW", { exact: true })).toBeVisible();
   await expect(lesson.getByText("Above nameplate rating")).toHaveCount(0);
-  await load.fill("1200");
+  await lesson
+    .getByRole("slider", { name: "Adjust transformer load" })
+    .fill("1200");
+  await expect(load).toHaveValue("1200");
+  await expect(
+    lesson.getByRole("meter", { name: "Rated loading" }),
+  ).toHaveAttribute("value", "1.2");
   await expect(lesson.getByText("Above nameplate rating")).toBeVisible();
   const pending = page.waitForEvent("download");
   await lesson
@@ -631,12 +682,26 @@ test("distance lesson scales impedance and exports the solved voltage comparison
     name: "Practical lesson: Transmission distance",
   });
   const length = lesson.getByLabel("Line length (km)", { exact: true });
+  const substation = lesson.getByRole("img", {
+    name: "Transmission substation",
+  });
+  await substation.locator("..").scrollIntoViewIfNeeded();
+  await expect
+    .poll(() =>
+      substation.evaluate((img: HTMLImageElement) => img.naturalWidth),
+    )
+    .toBeGreaterThan(0);
+  await lesson.getByRole("button", { name: "5 km", exact: true }).click();
+  await expect(length).toHaveValue("5");
+  await lesson.getByRole("slider", { name: "Adjust line length" }).fill("40");
+  await expect(length).toHaveValue("40");
   const report = lesson.getByRole("button", {
     name: "Download distance lesson report (JSON)",
   });
   await length.fill("41");
   await expect(report).toBeDisabled();
-  await length.fill("40");
+  await lesson.getByRole("slider", { name: "Adjust line length" }).fill("39.5");
+  await lesson.getByRole("slider", { name: "Adjust line length" }).fill("40");
   await lesson
     .getByLabel("Student interpretation")
     .fill("Voltage fell below 0.95 pu.");
@@ -678,7 +743,16 @@ test("poor power factor lesson loads a worked case and resets edited inputs", as
   await load.click();
   await expect(factor).toHaveValue("0.8");
   await page.getByRole("button", { name: "Set comparison baseline" }).click();
-  await factor.fill("1");
+  const slider = lesson.getByRole("slider", { name: "Try a power factor" });
+  await slider.fill("0.9");
+  await lesson
+    .getByRole("button", { name: "Use this setting in the worksheet" })
+    .click();
+  await expect(factor).toHaveValue("0.9");
+  await lesson
+    .getByRole("button", { name: "Watch a capacitor bank demonstration" })
+    .click();
+  await expect(lesson.locator("iframe")).toHaveAttribute("src", /-Cp9guj0B_M$/);
   const pending = page.waitForEvent("download");
   await page.getByRole("button", { name: "Export scenario JSON" }).click();
   const data = JSON.parse(await readFile(await (await pending).path(), "utf8"));
@@ -1290,6 +1364,13 @@ test("microgrid dispatch loads and exports the rural teaching day", async ({
   const operating = section.getByRole("region", {
     name: "Practical lesson: Microgrid operation",
   });
+  await operating.getByRole("button", { name: "16–20 h", exact: true }).click();
+  const batteryMeter = operating.getByRole("meter", {
+    name: "Battery state of charge",
+  });
+  expect(
+    await batteryMeter.evaluate((meter: HTMLMeterElement) => meter.value),
+  ).toBeCloseTo(payload.result.intervals[4].batterySocPercent);
   await operating.getByText("Worked result", { exact: true }).click();
   await expect(
     operating.getByText("Battery throughput (kWh)", { exact: true }),
@@ -2059,7 +2140,14 @@ test("radial feeder solves loads, compares an outage, saves and exports readings
   await expect(lesson.getByText(/0.22 MW total/)).toBeVisible();
   await page.getByRole("button", { name: "Set comparison reference" }).click();
 
-  await page.getByLabel("In service: Main north feeder").uncheck();
+  const map = lesson.getByRole("list", { name: "Feeder switch map" });
+  await map
+    .getByRole("button", { name: "Main north feeder", exact: true })
+    .click();
+  await expect(
+    page.getByLabel("In service: Main north feeder"),
+  ).not.toBeChecked();
+  await expect(map.getByText("Disconnected", { exact: true })).toHaveCount(2);
   await expect(
     page.getByText("Islanded: some consumer groups are unserved"),
   ).toBeVisible();
@@ -2067,6 +2155,7 @@ test("radial feeder solves loads, compares an outage, saves and exports readings
   const lateral = page.getByLabel("In service: North lateral", { exact: true });
   await lateral.uncheck();
   await page.getByLabel("In service: Main north feeder").check();
+  await expect(map.getByText("Disconnected", { exact: true })).toHaveCount(1);
   await expect(page.getByText("0 → 0.08 MW")).toBeVisible();
   const partialDownload = page.waitForEvent("download");
   await page
@@ -2249,7 +2338,9 @@ test("microgrid dispatch recalculates, validates, saves and exports interval bal
   await section.getByTestId("microgrid-reserveSoc").fill("0");
   await section.getByTestId("microgrid-batteryPowerKW").fill("0");
   await section.getByTestId("microgrid-backupKW").fill("0");
-  await expect(section.locator("tbody tr").first()).toContainText("50");
+  await expect(
+    section.locator(".pg-wind-table tbody tr").first(),
+  ).toContainText("50");
   await section.getByRole("button", { name: "Save scenario locally" }).click();
   await expect(
     section.getByRole("button", { name: "Saved in this browser" }),
