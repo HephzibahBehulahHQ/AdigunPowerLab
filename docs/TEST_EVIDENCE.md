@@ -539,3 +539,7 @@ TypeScript and 26 Help and radial solver tests passed. The focused Chromium case
 ### POWERGRID LAB transformer-loading lesson
 
 Local TypeScript and 20 Help checks passed. Focused Chromium assertions verified 4.5 kW of loss at 500 kVA, 12 kW at the 1,000 kVA rating, a warning and 16.4 kW loss above rating at 1,200 kVA, exported efficiency, and reset.
+
+### POWERGRID LAB midday solar and evening peak lessons
+
+TypeScript and 29 Help and microgrid solver tests passed. Focused Chromium assertions verified 20 kW midday charging and 10 kW curtailment, zero curtailment with 10 kW export, restoration of zero export when switching lessons, and the worked evening discharge and unmet-load values in the JSON download.

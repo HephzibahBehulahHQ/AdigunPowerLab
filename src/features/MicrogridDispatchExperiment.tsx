@@ -13,6 +13,7 @@ import {
   type RecurringProjectDemand,
 } from "../engine/powergridProjectDemand";
 import type { ActiveProjectDemand } from "./RadialFeederExperiment";
+import { PowerGridDispatchLessons } from "./PowerGridDispatchLessons";
 import { RURAL_MICROGRID_TEACHING_PROFILE } from "../engine/powergridRegions";
 import {
   SMARD_GERMANY_DAY,
@@ -819,6 +820,27 @@ export function MicrogridDispatchExperiment({
     });
     setSaved(false);
   };
+  const loadPracticalLesson = (lesson: "solar" | "evening") => {
+    setState({
+      ...defaults(),
+      intervalHours: 1,
+      windSpeeds: [0, 0],
+      irradiance: [1000, 0],
+      demand: [10, lesson === "evening" ? 45 : 10],
+      critical: [0, 10],
+      pvDcKW: 60,
+      pvAcKW: 40,
+      batteryKWh: 40,
+      initialSoc: 0,
+      reserveSoc: 0,
+      batteryPowerKW: 20,
+      batteryChargeEfficiency: 100,
+      batteryDischargeEfficiency: 100,
+      backupKW: 0,
+      rampKW: 0,
+    });
+    setSaved(false);
+  };
   const inputs: MicrogridDispatchInputs = useMemo(() => {
     const pvByInterval: PvPerformanceInputs[] = state.irradiance.map(
       (planeOfArrayIrradianceWm2) => ({
@@ -1065,6 +1087,7 @@ export function MicrogridDispatchExperiment({
           </p>
         </div>
       </div>
+      <PowerGridDispatchLessons locale={locale} onLoad={loadPracticalLesson} />
       <div className="pg-actions">
         <button
           type="button"

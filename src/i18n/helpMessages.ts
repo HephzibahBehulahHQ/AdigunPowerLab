@@ -1863,6 +1863,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú ìdánwò transformer, yí apparent load àti power factor padà, wé àdánù àti ìmúṣẹ pẹ̀lú àpẹẹrẹ ìṣírò, kí o sì gba ìròyìn.",
       "For transformer loading lesson, change apparent load and power factor, compare loss and efficiency with di worked example, then download di calculation report.",
     ],
+  "Load the midday solar or evening peak lesson in microgrid dispatch. Change the export limit or battery settings, then compare the interval readings and export the results.":
+    [
+      "Laden Sie in der Mikronetzsimulation den Mittags- oder Abendversuch. Ändern Sie die Einspeisegrenze oder die Speichereinstellungen, vergleichen Sie die Intervallwerte und exportieren Sie die Ergebnisse.",
+      "Gbé àpẹẹrẹ oòrùn ọ̀sán tàbí ẹrù ìrọ̀lẹ́ wọlé nínú microgrid dispatch. Yí ààlà fífi agbára ránṣẹ́ tàbí ètò batiri padà, wé èsì wákàtí kọ̀ọ̀kan, kí o sì gbé èsì jáde.",
+      "Load midday solar or evening peak lesson for microgrid dispatch. Change export limit or battery settings, compare interval readings and download di results.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

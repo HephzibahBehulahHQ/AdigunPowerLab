@@ -334,3 +334,5 @@ The transmission-distance lesson now uses the balanced radial AC solver with an 
 The feeder-trip lesson now walks learners through a full north feeder outage and staged restoration in the existing radial worksheet. Solved JSON includes the pinned pre-trip reference when one is available.
 
 The transformer-loading lesson compares apparent loading, loss and efficiency against a worked half-load case. Students can vary apparent load and power factor, observe the nameplate warning and export the reference plus current calculation.
+
+The midday solar and evening peak lessons now load separate two-hour teaching cases into microgrid dispatch. They cover charging, curtailment, grid export, critical-load priority and battery support during the evening deficit.

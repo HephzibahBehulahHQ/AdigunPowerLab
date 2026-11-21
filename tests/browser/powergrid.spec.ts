@@ -3,6 +3,42 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("midday solar and evening peak lessons export their worked dispatch", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const section = page.getByRole("region", {
+    name: "Microgrid dispatch laboratory",
+  });
+  const exportDispatch = async () => {
+    const pending = page.waitForEvent("download");
+    await section.getByRole("button", { name: "Export dispatch JSON" }).click();
+    return JSON.parse(await readFile(await (await pending).path(), "utf8"))
+      .result.intervals;
+  };
+  await section
+    .getByRole("button", { name: "Load or reset midday solar" })
+    .click();
+  let [midday] = await exportDispatch();
+  expect(midday.batteryChargeKW).toBe(20);
+  expect(midday.renewableCurtailmentKW).toBe(10);
+  await section
+    .getByLabel("Grid export limit (kW)", { exact: true })
+    .fill("10");
+  [midday] = await exportDispatch();
+  expect(midday.gridExportKW).toBe(10);
+  expect(midday.renewableCurtailmentKW).toBe(0);
+  await section
+    .getByRole("button", { name: "Load or reset evening peak" })
+    .click();
+  const [charged, evening] = await exportDispatch();
+  expect(charged.gridExportKW).toBe(0);
+  expect(charged.batterySocKWh).toBe(20);
+  expect(evening.batteryDischargeKW).toBe(20);
+  expect(evening.criticalUnservedKW).toBe(0);
+  expect(evening.nonCriticalUnservedKW).toBe(25);
+});
+
 test("transformer lesson calculates losses and flags overload in the report", async ({
   page,
 }) => {

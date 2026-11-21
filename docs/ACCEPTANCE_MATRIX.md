@@ -320,3 +320,5 @@ The transmission-distance curriculum item has a prediction, explicit constant-P/
 The feeder-trip curriculum item adds a prediction, steady-state assumptions, a worked load-restoration sequence, interpretation questions, and instructions for using the editable switches and training reset. The solved scenario JSON can capture the outage or partial restoration alongside the pinned reference.
 
 The transformer-loading curriculum item includes a prediction, stated model assumptions, a worked half-load reference, editable load and power factor, rating warning, interpretation questions, reset, and a JSON report. The calculation uses constant core loss and square-law winding loss at fixed voltage.
+
+The midday solar and evening peak curriculum items include predictions, worked dispatch cases, editable grid and storage limits, interpretation questions, per-lesson reset and existing JSON/CSV result export.
