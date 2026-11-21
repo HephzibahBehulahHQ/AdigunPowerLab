@@ -317,6 +317,8 @@ Watch the step-up transformer installation in **Why step up voltage?**. Move the
 
 In **Transmission distance**, load the 5 km or 25 km case, then sweep the length slider while comparing sending and receiving voltage. Use the numeric field for a precise distance and export the solved case with your notes.
 
+In **Poor power factor**, try a value between 0.80 and 1.00 and observe the current and loss readouts. To report the comparison, first load and pin the worked baseline, then apply the trial setting to the worksheet and export.
+
 On Overview, **Explore the workspace** groups illustrated links by menu section. In **Cables & Protection** and **Motors & Supply**, play the credited field footage and select **Go to the calculator** to try the exercise with editable inputs.
 
 In **Renewables & Storage**, watch the solar and battery microgrid footage, then compare two battery capacities using the same solar and load profiles.

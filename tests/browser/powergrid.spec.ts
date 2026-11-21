@@ -648,7 +648,16 @@ test("poor power factor lesson loads a worked case and resets edited inputs", as
   await load.click();
   await expect(factor).toHaveValue("0.8");
   await page.getByRole("button", { name: "Set comparison baseline" }).click();
-  await factor.fill("1");
+  const slider = lesson.getByRole("slider", { name: "Try a power factor" });
+  await slider.fill("0.9");
+  await lesson
+    .getByRole("button", { name: "Use this setting in the worksheet" })
+    .click();
+  await expect(factor).toHaveValue("0.9");
+  await lesson
+    .getByRole("button", { name: "Watch a capacitor bank demonstration" })
+    .click();
+  await expect(lesson.locator("iframe")).toHaveAttribute("src", /-Cp9guj0B_M$/);
   const pending = page.waitForEvent("download");
   await page.getByRole("button", { name: "Export scenario JSON" }).click();
   const data = JSON.parse(await readFile(await (await pending).path(), "utf8"));
