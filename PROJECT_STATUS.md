@@ -298,3 +298,5 @@ The German historical comparison now includes 22 January 2025 as a winter exampl
 Milestone 4 now shares selection between the 3D scene, hydro cutaway, hydro single-line and downstream diagram for equipment represented in both views. Equipment with no shared representation keeps its own inspector.
 
 Milestone 4 camera changes now reuse WebGL shaders and geometry. The model handles context loss and restoration, and equipment inspection remains accessible if rendering is unavailable.
+
+On phone-width screens the 3D camera and equipment inspector now stack vertically. Camera sliders have localized accessible names.

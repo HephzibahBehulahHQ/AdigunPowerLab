@@ -1761,6 +1761,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Àwòṣe 3D pín yíyan àdágún, turbine, generator, transformer tó ń gbé foliteji sókè àti tower pẹ̀lú àwòrán hydro àti single-line. Receiving transformer tún pín yíyan pẹ̀lú àwòrán distribution.",
       "Di 3D model share selection with hydro cutaway and single-line for reservoir, turbine, generator, step-up transformer and tower. Di receiving transformer share selection with distribution diagram too.",
     ],
+  "On narrow screens, camera controls and the equipment inspector are stacked so both can be used without horizontal scrolling.":
+    [
+      "Auf schmalen Bildschirmen stehen Kamerasteuerung und Betriebsmittel-Inspektor untereinander und sind ohne horizontales Scrollen nutzbar.",
+      "Lórí ojú-ìbojú kékeré, ìṣàkóso camera àti àyẹ̀wò ẹ̀rọ wà lókè ara wọn kí o lè lò wọ́n láìyí sí ẹ̀gbẹ́.",
+      "For narrow screen, camera controls and equipment inspector dey one under the other so you fit use both without scrolling sideways.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

@@ -659,14 +659,7 @@ export function PowerGridStation3DScene({
                 : "Selectable 3D teaching model. It is not a surveyed site or installation design."}
         </p>
       </header>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "minmax(0,2fr) minmax(15rem,1fr)",
-          gap: "1rem",
-          alignItems: "start",
-        }}
-      >
+      <div className="pg-station-3d-layout">
         <div>
           {unavailable && (
             <div role="status" className="notice">
@@ -695,14 +688,7 @@ export function PowerGridStation3DScene({
               background: "#0e1522",
             }}
           />
-          <fieldset
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit,minmax(12rem,1fr))",
-              gap: "0.6rem",
-              marginTop: "0.75rem",
-            }}
-          >
+          <fieldset className="pg-station-camera">
             <legend>
               {lang === "de"
                 ? "Kamerasteuerung"
@@ -715,7 +701,14 @@ export function PowerGridStation3DScene({
             <label>
               {lang === "de" ? "Azimut" : "Azimuth"}{" "}
               <input
-                aria-label="3D azimuth"
+                aria-label={
+                  {
+                    en: "3D azimuth",
+                    de: "3D-Azimut",
+                    yo: "Azimuth 3D",
+                    pcm: "3D azimuth",
+                  }[lang]
+                }
                 type="range"
                 min="-3.14"
                 max="3.14"
@@ -727,7 +720,14 @@ export function PowerGridStation3DScene({
             <label>
               {lang === "de" ? "Neigung" : "Elevation"}{" "}
               <input
-                aria-label="3D elevation"
+                aria-label={
+                  {
+                    en: "3D elevation",
+                    de: "3D-Neigung",
+                    yo: "Ìtẹ̀sí 3D",
+                    pcm: "3D elevation",
+                  }[lang]
+                }
                 type="range"
                 min="-0.55"
                 max="0.75"
@@ -739,7 +739,14 @@ export function PowerGridStation3DScene({
             <label>
               {lang === "de" ? "Zoom" : "Zoom"}{" "}
               <input
-                aria-label="3D zoom"
+                aria-label={
+                  {
+                    en: "3D zoom",
+                    de: "3D-Zoom",
+                    yo: "Ìsúnmọ́ 3D",
+                    pcm: "3D zoom",
+                  }[lang]
+                }
                 type="range"
                 min="0.7"
                 max="1.45"

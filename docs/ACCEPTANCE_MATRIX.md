@@ -290,3 +290,5 @@ The German comparison and scaled dispatch now include one January day and one Ju
 Six shared visual assets synchronize selection between the station model and their applicable hydro or distribution drawings. Full topology, simulation time and result-revision synchronization across all views remain open.
 
 Camera controls update WebGL uniforms without allocating scene buffers. A forced missing-WebGL browser case exercises keyboard equipment selection in the linked schematic. Device performance budgets and wider assistive-technology review remain open.
+
+The station controls and inspector fit within the tested 390 px viewport, including forced WebGL fallback. The browser extension exercises context loss and restoration where supported.

@@ -262,3 +262,5 @@ Choose Load scaled German historical day inside Microgrid dispatch. The preset u
 Select 22 January 2025 (CET) or 18 June 2025 (CEST) in the historical table. In dispatch, choose Load scaled German winter day for January or Load scaled German historical day for June. The two daily examples share the same scale and one-hour intervals.
 
 Select the reservoir, turbine, generator, step-up transformer or tower in the 3D scene to highlight shared equipment in the hydro drawings. Selecting it in a hydro drawing also updates the 3D inspector. The receiving transformer links the 3D and downstream views.
+
+On narrow screens, scroll down from the camera controls to the equipment buttons and inspector. Both remain available through the keyboard, including when the schematic substitutes for the WebGL view.

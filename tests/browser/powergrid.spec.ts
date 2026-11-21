@@ -47,11 +47,38 @@ test("POWERGRID camera redraws without allocating scene buffers", async ({
     .poll(async () => Number(await canvas.getAttribute("data-draws")))
     .toBeGreaterThan(draws);
   await expect(canvas).toHaveAttribute("data-buffers", buffers!);
+  const contextCanBeLost = await canvas.evaluate(
+    (element: HTMLCanvasElement) => {
+      const loseContext = element
+        .getContext("webgl")
+        ?.getExtension("WEBGL_lose_context");
+      if (!loseContext) return false;
+      element.addEventListener(
+        "restore-test-context",
+        () => loseContext.restoreContext(),
+        { once: true },
+      );
+      loseContext.loseContext();
+      return true;
+    },
+  );
+  if (contextCanBeLost) {
+    await expect(scene.getByRole("status")).toContainText(
+      "3D view unavailable",
+    );
+    await canvas.dispatchEvent("restore-test-context");
+    await expect(canvas).toBeVisible();
+    await expect(scene.getByLabel("3D azimuth")).toHaveValue("0.61");
+    await expect
+      .poll(async () => Number(await canvas.getAttribute("data-buffers")))
+      .toBeGreaterThan(Number(buffers));
+  }
 });
 
 test("POWERGRID retains equipment inspection when WebGL is unavailable", async ({
   page,
 }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
   await page.addInitScript(() => {
     HTMLCanvasElement.prototype.getContext = new Proxy(
       HTMLCanvasElement.prototype.getContext,
@@ -70,6 +97,12 @@ test("POWERGRID retains equipment inspection when WebGL is unavailable", async (
   });
   await expect(scene.getByRole("status")).toContainText("3D view unavailable");
   await expect(scene.locator("canvas")).toBeHidden();
+  const sceneFits = await scene.evaluate(
+    (section) =>
+      section.scrollWidth <= section.clientWidth &&
+      section.getBoundingClientRect().right <= window.innerWidth,
+  );
+  expect(sceneFits).toBe(true);
   await scene
     .getByRole("button", { name: "Transmission tower & conductors" })
     .focus();

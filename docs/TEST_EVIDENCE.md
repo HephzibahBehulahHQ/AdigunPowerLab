@@ -484,3 +484,5 @@ Winter SMARD acquisition verified 24 consecutive non-null values in each source 
 Shared visual equipment selection passed TypeScript, nine localization tests and the Chromium keyboard station flow. Selecting the 3D tower highlights the hydro cutaway and single-line tower; choosing the step-up transformer or downstream receiving transformer updates the 3D inspector.
 
 Camera rendering passed TypeScript, nine localization tests and three Chromium station checks. Actual WebGL instrumentation observed a redraw on azimuth change with no additional buffer allocations. The forced missing-WebGL case verified the fallback and keyboard selection. Automatic restoration after an actual GPU reset was not exercised.
+
+The 390 × 844 Chromium fallback case confirmed the 3D station panel fits horizontally and keyboard selection reaches the schematic. The WebGL extension test restored the context, rebuilt buffers and retained the azimuth control value. TypeScript and nine localization tests passed.
