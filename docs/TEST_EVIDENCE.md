@@ -659,6 +659,10 @@ TypeScript and 20 Help checks passed. Chromium verified 2.85 MW net at the refer
 
 TypeScript and 20 Help checks passed. Chromium verified 17.4 L/h and 25.2 L remaining in the reference, a 50 kW cap with 30 L available, and shutdown with 12 L below the modelled minimum load. JSON export and reset passed. The local runner stalled during teardown.
 
+### POWERGRID LAB coal steam generation
+
+TypeScript and 20 Help checks passed. The focused Chromium test verified the 640 t reference fuel use, the 200 MW and 800 MWh export with 320 t available, rejection of blank inventory, and reset. The local runner reported the test passed and stalled during teardown.
+
 ### Illustrated workspace and field guides
 
 Chromium verified the Overview menu opens to Workspace, shows one POWERGRID LAB tile under Engineering, and opens Cables & Protection. The cable and motor guides mounted their credited video players on request and focused the calculator without leaving the route. Local Chromium reported those tests passed before the runner stalled during teardown.

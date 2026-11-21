@@ -394,3 +394,5 @@ In **Biogas engine and heat recovery**, vary methane fraction, available dry bio
 In **Solid biomass steam generation**, hold wet feed and dry fuel heating value constant, then increase wet-basis moisture. Compare used fuel, steam heat and net electricity. Reset or download the JSON report.
 
 In **Diesel generator fuel curve**, adjust the requested power or initial inventory. Compare available power with actual output, running fuel rate and remaining diesel. A fuel-limited case below minimum stable load shuts down for the modelled interval.
+
+In **Coal steam generation**, adjust coal inventory, plant capacity, or net heat rate. Use the same heating-value basis for net heat rate and coal heat content. Compare net generation and coal remaining, then export the inputs and results as JSON.

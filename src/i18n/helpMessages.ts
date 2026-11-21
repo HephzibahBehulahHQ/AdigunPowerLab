@@ -1995,6 +1995,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú solid biomass steam, yí ìpín omi nínú gbogbo mass padà. Wé iye ooru idana olómi, ooru sí steam cycle àti agbára iná net.",
       "For solid biomass steam generation, change moisture for total wet mass. Compare wet fuel heating value, heat wey reach steam cycle and net electric power.",
     ],
+  "In the coal steam worksheet, change coal inventory or net heat rate and compare net generation and remaining coal.":
+    [
+      "Ändern Sie im Kohledampf-Arbeitsblatt den Kohlevorrat oder den Netto-Wärmebedarf und vergleichen Sie Nettoerzeugung und Restvorrat.",
+      "Nínú worksheet òru omi láti èédú, yí iye èédú tàbí ìwọ̀n ooru padà, kí o sì wé iná tí a mú jáde àti èédú tó kù.",
+      "For coal steam worksheet, change coal wey dey or net heat rate, then compare electricity wey e make and coal wey remain.",
+    ],
   "In the diesel generator worksheet, change the electrical request or fuel inventory. Compare the fuel curve, available output and remaining diesel.":
     [
       "Ändern Sie beim Dieselgenerator Leistungsanforderung oder Kraftstoffvorrat. Vergleichen Sie Kraftstoffkennlinie, verfügbare Leistung und verbleibenden Diesel.",
