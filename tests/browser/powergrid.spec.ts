@@ -1779,6 +1779,38 @@ test("Pacific Northwest preset keeps split-phase service separate from the balan
   await expect(consumer).toHaveValue("0.43");
 });
 
+test("custom grid context saves and exports without changing electrical inputs", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  await page.getByText("Custom system", { exact: true }).click();
+  const frequency = page.getByLabel("Frequency (Hz)", { exact: true });
+  const zone = page.getByLabel("IANA time zone", { exact: true });
+  const apply = page.getByRole("button", { name: "Apply custom context" });
+  await frequency.fill("55");
+  await page.getByLabel("Currency code", { exact: true }).fill("CAD");
+  await zone.fill("Wrong/Zone");
+  await expect(apply).toBeDisabled();
+  await zone.fill("America/Toronto");
+  await apply.click();
+  await page.getByRole("button", { name: "Save experiment locally" }).click();
+  await page.reload();
+  await expect(frequency).toHaveValue("55");
+  await expect(zone).toHaveValue("America/Toronto");
+  await expect(page.getByLabel("Raised transmission voltage (kV)")).toHaveValue(
+    "330",
+  );
+  const pending = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export scenario JSON" }).click();
+  const data = JSON.parse(await readFile(await (await pending).path(), "utf8"));
+  expect(data.customContext).toEqual({
+    frequencyHz: 55,
+    currencyCode: "CAD",
+    timeZone: "America/Toronto",
+  });
+  expect(data.regionalPresetId).toBeUndefined();
+});
+
 test("South African teaching preset applies sourced grid stages and shows dated energy", async ({
   page,
 }) => {
