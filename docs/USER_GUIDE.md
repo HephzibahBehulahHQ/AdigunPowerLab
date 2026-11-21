@@ -311,6 +311,8 @@ At the top of POWERGRID LAB, use **Source to socket** to predict where voltage c
 
 Select a piece of equipment to inspect its field photo or play the powerhouse footage. The **Test voltage** slider compares current and conductor loss against the 132 kV reference without editing the saved worksheet.
 
+With a transformer selected, edit a worksheet voltage to see the selected equipment’s terminal voltages and output-to-input ratio update beside its photo.
+
 On Overview, **Explore the workspace** groups illustrated links by menu section. In **Cables & Protection** and **Motors & Supply**, play the credited field footage and select **Go to the calculator** to try the exercise with editable inputs.
 
 In **Renewables & Storage**, watch the solar and battery microgrid footage, then compare two battery capacities using the same solar and load profiles.

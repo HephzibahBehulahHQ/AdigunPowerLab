@@ -14,6 +14,33 @@ const equipment = [
   "distribution-pole-transformer",
 ];
 
+const terminalLabels = {
+  en: [
+    "Input voltage",
+    "Output voltage",
+    "Output ÷ input",
+    "Storm damage example",
+  ],
+  de: [
+    "Eingangsspannung",
+    "Ausgangsspannung",
+    "Ausgang ÷ Eingang",
+    "Beispiel für Sturmschäden",
+  ],
+  yo: [
+    "Fólítéèjì tó wọlé",
+    "Fólítéèjì tó jáde",
+    "Ìjáde ÷ ìwọlé",
+    "Àpẹẹrẹ ìpalára ìjì",
+  ],
+  pcm: [
+    "Input voltage",
+    "Output voltage",
+    "Output ÷ input",
+    "Example of storm damage",
+  ],
+} satisfies Record<Locale, readonly string[]>;
+
 const benchCopy = {
   en: [
     "Generator",
@@ -142,6 +169,26 @@ export function PowerGridFoundations({
     raisedVoltageKV: voltage,
   });
   const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 6 });
+  const {
+    generationVoltageKV,
+    raisedVoltageKV,
+    distributionVoltageKV,
+    consumerVoltageKV,
+  } = inputs;
+  const terminals = [
+    [undefined, generationVoltageKV],
+    [generationVoltageKV, raisedVoltageKV],
+    [raisedVoltageKV, raisedVoltageKV],
+    [raisedVoltageKV, distributionVoltageKV],
+    [distributionVoltageKV, consumerVoltageKV],
+  ];
+  const [incoming, outgoing] = terminals[stage];
+  const validVoltage = (value: number | undefined): value is number =>
+    value !== undefined && Number.isFinite(value) && value > 0;
+  const reading = (value: number | undefined) =>
+    validVoltage(value) ? `${format.format(value)} kV` : "—";
+  const [inputLabel, outputLabel, ratioLabel, damageLabel] =
+    terminalLabels[locale];
   return (
     <>
       <section
@@ -169,8 +216,30 @@ export function PowerGridFoundations({
             alt={labels[stage]}
             loading="lazy"
           />
-          <figcaption>{labels[stage]}</figcaption>
+          <figcaption>{stage === 2 ? damageLabel : labels[stage]}</figcaption>
         </figure>
+        <dl className="pg-foundation-readings" aria-live="polite">
+          {incoming !== undefined && (
+            <div>
+              <dt>{inputLabel}</dt>
+              <dd>{reading(incoming)}</dd>
+            </div>
+          )}
+          <div>
+            <dt>{outputLabel}</dt>
+            <dd>{reading(outgoing)}</dd>
+          </div>
+          {[1, 3, 4].includes(stage) && (
+            <div>
+              <dt>{ratioLabel}</dt>
+              <dd>
+                {validVoltage(incoming) && validVoltage(outgoing)
+                  ? `${format.format(outgoing / incoming)}×`
+                  : "—"}
+              </dd>
+            </div>
+          )}
+        </dl>
         <p>
           {route}{" "}
           <b>
@@ -180,11 +249,7 @@ export function PowerGridFoundations({
               inputs.distributionVoltageKV,
               inputs.consumerVoltageKV,
             ]
-              .map((voltage) =>
-                Number.isFinite(voltage) && voltage > 0
-                  ? `${format.format(voltage)} kV`
-                  : "—",
-              )
+              .map(reading)
               .join(" → ")}
           </b>
         </p>

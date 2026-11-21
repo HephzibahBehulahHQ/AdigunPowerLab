@@ -342,6 +342,7 @@ test("foundations lessons trace edited stages and restore the worked case", asyn
   await expect(source).toContainText("11 kV → 330 kV → 33 kV → 0.4 kV");
   await expect(step).toContainText("0.459 MW");
   await source.getByRole("button", { name: "Step-up transformer" }).click();
+  await expect(source).toContainText("30×");
   await expect(
     source.getByRole("img", { name: "Step-up transformer" }),
   ).toBeVisible();
@@ -352,6 +353,7 @@ test("foundations lessons trace edited stages and restore the worked case", asyn
   await expect(step).toContainText("1.25 MW");
   const generator = page.getByLabel("Generator voltage (kV)", { exact: true });
   await generator.fill("13.8");
+  await expect(source).toContainText("23.913043×");
   await expect(source).toContainText("13.8 kV → 330 kV → 33 kV → 0.4 kV");
   await page
     .getByLabel("Student notes (optional)")
