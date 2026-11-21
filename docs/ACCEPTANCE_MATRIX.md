@@ -328,3 +328,5 @@ The generator-outage curriculum item includes an editable trip interval and gene
 The regional comparison curriculum item compares Nigeria-inspired and 50Hertz-area voltage stages at the same power, power factor and phase resistance. It provides a prediction, worked reference, live comparison, interpretation questions, input reset and JSON report with sources.
 
 The community capstone includes an islanded-supply design objective, an illustrative 448 kWh worked day, editable generation and storage, an outage intervention, baseline unserved-energy comparison, interpretation, reset and JSON output.
+
+The microgrid operation curriculum item has a prediction, fixed reference assumptions, solver-generated worked results, editable storage and backup limits, interpretation questions, reset and an export that includes both solved runs.

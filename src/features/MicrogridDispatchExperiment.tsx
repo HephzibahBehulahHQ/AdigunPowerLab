@@ -17,6 +17,7 @@ import type { ActiveProjectDemand } from "./RadialFeederExperiment";
 import { PowerGridCommunityCapstone } from "./PowerGridCommunityCapstone";
 import {
   PowerGridDispatchLessons,
+  PowerGridOperatingLesson,
   type DispatchLesson,
 } from "./PowerGridDispatchLessons";
 import { RURAL_MICROGRID_TEACHING_PROFILE } from "../engine/powergridRegions";
@@ -776,6 +777,135 @@ function parseNumericProfile(profile: string) {
   return profile.split(",").map((flow) => (flow.trim() ? Number(flow) : NaN));
 }
 
+function ruralTeachingCase(): Editable {
+  const profile = RURAL_MICROGRID_TEACHING_PROFILE;
+  return {
+    ...defaults(),
+    intervalHours: profile.intervalHours,
+    windSpeeds: [...profile.windSpeeds],
+    irradiance: [...profile.irradiance],
+    demand: [...profile.demand],
+    critical: [...profile.critical],
+    pvDcKW: 48,
+    pvAcKW: 40,
+    batteryKWh: 80,
+    initialSoc: 50,
+    backupKW: 15,
+    rampKW: 15,
+  };
+}
+
+function buildDispatchInputs(
+  state: Editable,
+  historicalDay: typeof SMARD_GERMANY_DAY,
+): MicrogridDispatchInputs {
+  const pvByInterval: PvPerformanceInputs[] = state.irradiance.map(
+    (planeOfArrayIrradianceWm2) => ({
+      ...pvDefaults,
+      dcNameplateKW: state.pvDcKW,
+      inverterAcRatingKW: state.pvAcKW,
+      planeOfArrayIrradianceWm2,
+    }),
+  );
+  return {
+    intervalHours: state.historicalGermany ? 1 : state.intervalHours,
+    wind: {
+      windSpeedsMps: state.windSpeeds,
+      intervalHours: state.intervalHours,
+      turbineCount: state.turbines,
+    },
+    pvByInterval,
+    reportedRenewables: state.historicalGermany
+      ? historicalDay.intervals.map((row) => ({
+          solarKW: row.solarMWh / 1_000,
+          windKW: (row.onshoreMWh + row.offshoreMWh) / 1_000,
+        }))
+      : undefined,
+    hydro:
+      state.hydroFlows.trim() || state.reservoirInflows.trim()
+        ? {
+            netHeadM: state.hydroHead,
+            efficiencyPercent: state.hydroEfficiency,
+            ratedKW: state.hydroRating,
+            flowsM3s: parseNumericProfile(state.hydroFlows),
+            reservoir: state.reservoirInflows.trim()
+              ? {
+                  inflowsM3s: parseNumericProfile(state.reservoirInflows),
+                  capacityM3: state.reservoirCapacity,
+                  initialM3: state.reservoirInitial,
+                  environmentalReleaseM3s: state.reservoirBypass,
+                  fullStorageHeadRiseM: state.reservoirHeadRise,
+                }
+              : undefined,
+          }
+        : undefined,
+    demandKW: state.demand,
+    criticalDemandKW: state.critical,
+    battery: {
+      ...DEFAULT_MICROGRID_DISPATCH_INPUTS.battery,
+      capacityKWh: state.batteryKWh,
+      initialSocPercent: state.initialSoc,
+      minimumSocPercent: state.reserveSoc,
+      maxChargeKW: state.batteryPowerKW,
+      maxDischargeKW: state.batteryPowerKW,
+      chargeEfficiency: state.batteryChargeEfficiency / 100,
+      dischargeEfficiency: state.batteryDischargeEfficiency / 100,
+    },
+    backupGenerator: {
+      ratedKW: state.backupKW,
+      rampUpKWPerInterval: state.rampKW,
+      outageIntervals: state.backupOutages.trim()
+        ? parseNumericProfile(state.backupOutages)
+        : undefined,
+      thermal: state.thermalBackup
+        ? {
+            heatRateMJPerKWh: state.backupHeatRate,
+            startupFuelMJ: state.backupStartupFuel,
+            initialFuelMJ: state.backupInitialFuel.trim()
+              ? Number(state.backupInitialFuel)
+              : undefined,
+            directCO2KgPerGJ:
+              state.backupCO2Factor.trim() === ""
+                ? undefined
+                : Number(state.backupCO2Factor),
+          }
+        : undefined,
+    },
+    grid:
+      state.gridImportLimit === 0 &&
+      state.gridExportLimit === 0 &&
+      !state.gridOutages.trim()
+        ? undefined
+        : {
+            importLimitKW: state.gridImportLimit,
+            exportLimitKW: state.gridExportLimit,
+            outageIntervals: state.gridOutages.trim()
+              ? parseNumericProfile(state.gridOutages)
+              : [],
+          },
+    pumpedStorage:
+      state.pumpedCapacity === 0
+        ? undefined
+        : {
+            capacityKWh: state.pumpedCapacity,
+            initialKWh: state.pumpedInitial,
+            maxPumpKW: state.pumpLimit,
+            maxGenerationKW: state.pumpedGenerationLimit,
+            pumpEfficiency: state.pumpEfficiency / 100,
+            generationEfficiency: state.pumpedGenerationEfficiency / 100,
+          },
+  };
+}
+
+const ruralReferenceInputs = buildDispatchInputs(
+  ruralTeachingCase(),
+  SMARD_GERMANY_DAY,
+);
+const ruralReference = {
+  inputs: ruralReferenceInputs,
+  result: calculateMicrogridDispatch(ruralReferenceInputs),
+};
+
 export function MicrogridDispatchExperiment({
   activeDemand,
 }: {
@@ -813,21 +943,7 @@ export function MicrogridDispatchExperiment({
     setSaved(false);
   };
   const loadRuralScenario = () => {
-    const profile = RURAL_MICROGRID_TEACHING_PROFILE;
-    setState({
-      ...defaults(),
-      intervalHours: profile.intervalHours,
-      windSpeeds: [...profile.windSpeeds],
-      irradiance: [...profile.irradiance],
-      demand: [...profile.demand],
-      critical: [...profile.critical],
-      pvDcKW: 48,
-      pvAcKW: 40,
-      batteryKWh: 80,
-      initialSoc: 50,
-      backupKW: 15,
-      rampKW: 15,
-    });
+    setState(ruralTeachingCase());
     setSaved(false);
   };
   const loadPracticalLesson = (lesson: DispatchLesson) => {
@@ -868,104 +984,10 @@ export function MicrogridDispatchExperiment({
     );
     setSaved(false);
   };
-  const inputs: MicrogridDispatchInputs = useMemo(() => {
-    const pvByInterval: PvPerformanceInputs[] = state.irradiance.map(
-      (planeOfArrayIrradianceWm2) => ({
-        ...pvDefaults,
-        dcNameplateKW: state.pvDcKW,
-        inverterAcRatingKW: state.pvAcKW,
-        planeOfArrayIrradianceWm2,
-      }),
-    );
-    return {
-      intervalHours: state.historicalGermany ? 1 : state.intervalHours,
-      wind: {
-        windSpeedsMps: state.windSpeeds,
-        intervalHours: state.intervalHours,
-        turbineCount: state.turbines,
-      },
-      pvByInterval,
-      reportedRenewables: state.historicalGermany
-        ? historicalDay.intervals.map((row) => ({
-            solarKW: row.solarMWh / 1_000,
-            windKW: (row.onshoreMWh + row.offshoreMWh) / 1_000,
-          }))
-        : undefined,
-      hydro:
-        state.hydroFlows.trim() || state.reservoirInflows.trim()
-          ? {
-              netHeadM: state.hydroHead,
-              efficiencyPercent: state.hydroEfficiency,
-              ratedKW: state.hydroRating,
-              flowsM3s: parseNumericProfile(state.hydroFlows),
-              reservoir: state.reservoirInflows.trim()
-                ? {
-                    inflowsM3s: parseNumericProfile(state.reservoirInflows),
-                    capacityM3: state.reservoirCapacity,
-                    initialM3: state.reservoirInitial,
-                    environmentalReleaseM3s: state.reservoirBypass,
-                    fullStorageHeadRiseM: state.reservoirHeadRise,
-                  }
-                : undefined,
-            }
-          : undefined,
-      demandKW: state.demand,
-      criticalDemandKW: state.critical,
-      battery: {
-        ...DEFAULT_MICROGRID_DISPATCH_INPUTS.battery,
-        capacityKWh: state.batteryKWh,
-        initialSocPercent: state.initialSoc,
-        minimumSocPercent: state.reserveSoc,
-        maxChargeKW: state.batteryPowerKW,
-        maxDischargeKW: state.batteryPowerKW,
-        chargeEfficiency: state.batteryChargeEfficiency / 100,
-        dischargeEfficiency: state.batteryDischargeEfficiency / 100,
-      },
-      backupGenerator: {
-        ratedKW: state.backupKW,
-        rampUpKWPerInterval: state.rampKW,
-        outageIntervals: state.backupOutages.trim()
-          ? parseNumericProfile(state.backupOutages)
-          : undefined,
-        thermal: state.thermalBackup
-          ? {
-              heatRateMJPerKWh: state.backupHeatRate,
-              startupFuelMJ: state.backupStartupFuel,
-              initialFuelMJ: state.backupInitialFuel.trim()
-                ? Number(state.backupInitialFuel)
-                : undefined,
-              directCO2KgPerGJ:
-                state.backupCO2Factor.trim() === ""
-                  ? undefined
-                  : Number(state.backupCO2Factor),
-            }
-          : undefined,
-      },
-      grid:
-        state.gridImportLimit === 0 &&
-        state.gridExportLimit === 0 &&
-        !state.gridOutages.trim()
-          ? undefined
-          : {
-              importLimitKW: state.gridImportLimit,
-              exportLimitKW: state.gridExportLimit,
-              outageIntervals: state.gridOutages.trim()
-                ? parseNumericProfile(state.gridOutages)
-                : [],
-            },
-      pumpedStorage:
-        state.pumpedCapacity === 0
-          ? undefined
-          : {
-              capacityKWh: state.pumpedCapacity,
-              initialKWh: state.pumpedInitial,
-              maxPumpKW: state.pumpLimit,
-              maxGenerationKW: state.pumpedGenerationLimit,
-              pumpEfficiency: state.pumpEfficiency / 100,
-              generationEfficiency: state.pumpedGenerationEfficiency / 100,
-            },
-    };
-  }, [state, historicalDay]);
+  const inputs = useMemo(
+    () => buildDispatchInputs(state, historicalDay),
+    [state, historicalDay],
+  );
   const errors = useMemo(
     () => validateMicrogridDispatchInputs(inputs),
     [inputs],
@@ -1019,11 +1041,13 @@ export function MicrogridDispatchExperiment({
       )}
     </label>
   );
-  const exportResult = (kind: "json" | "csv") => {
+  const exportResult = (kind: "json" | "csv" | "operation") => {
     if (!result) return;
-    if (kind === "json")
+    if (kind !== "csv")
       download(
-        "powergrid-microgrid-dispatch.json",
+        kind === "operation"
+          ? "powergrid-microgrid-operation.json"
+          : "powergrid-microgrid-dispatch.json",
         JSON.stringify(
           {
             model:
@@ -1037,6 +1061,8 @@ export function MicrogridDispatchExperiment({
                 }
               : undefined,
             projectDemandSource: state.projectDemand,
+            operatingReference:
+              kind === "operation" ? ruralReference : undefined,
             capstone:
               capstoneReference || capstoneNotes
                 ? { reference: capstoneReference, justification: capstoneNotes }
@@ -1119,6 +1145,13 @@ export function MicrogridDispatchExperiment({
         </div>
       </div>
       <PowerGridDispatchLessons locale={locale} onLoad={loadPracticalLesson} />
+      <PowerGridOperatingLesson
+        locale={locale}
+        reference={ruralReference.result}
+        canExport={!!result}
+        onReset={loadRuralScenario}
+        onExport={() => exportResult("operation")}
+      />
       <PowerGridCommunityCapstone
         locale={locale}
         reference={capstoneReference?.result}

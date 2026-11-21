@@ -825,6 +825,29 @@ test("microgrid dispatch loads and exports the rural teaching day", async ({
   const payload = JSON.parse(await readFile(await download.path(), "utf8"));
   expect(payload.result.intervals).toHaveLength(6);
   expect(payload.result.totalDemandKWh).toBe(448);
+  const operating = section.getByRole("region", {
+    name: "Practical lesson: Microgrid operation",
+  });
+  await operating.getByText("Worked result", { exact: true }).click();
+  await expect(
+    operating.getByText("Battery throughput (kWh)", { exact: true }),
+  ).toBeVisible();
+  await section.getByTestId("microgrid-batteryPowerKW").fill("0");
+  const lessonReport = page.waitForEvent("download");
+  await operating
+    .getByRole("button", { name: "Download microgrid operation report (JSON)" })
+    .click();
+  const lesson = JSON.parse(
+    await readFile(await (await lessonReport).path(), "utf8"),
+  );
+  expect(lesson.operatingReference.result).toEqual(payload.result);
+  expect(lesson.result.batteryThroughputKWh).toBe(0);
+  await operating
+    .getByRole("button", { name: "Load or reset operating case" })
+    .click();
+  await expect(section.getByTestId("microgrid-batteryPowerKW")).toHaveValue(
+    String(payload.inputs.battery.maxDischargeKW),
+  );
 });
 
 test("microgrid dispatch exports thermal backup fuel and direct CO₂", async ({

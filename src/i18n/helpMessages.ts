@@ -1887,6 +1887,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fún ìdánwò ìparí àwùjọ, gbé àpẹẹrẹ abúlé wọlé kí o sì fi ṣe ìpìlẹ̀. Dán àpẹrẹ rẹ wò nígbà ìdádúró generator, kí o sì gba JSON pẹ̀lú ìdí rẹ.",
       "For community capstone, load and pin di rural case, test your design when backup no dey, then download dispatch JSON with your reason.",
     ],
+  "In the microgrid operation lesson, load the rural reference and change the battery power limit. Export the edited run and the worked reference together.":
+    [
+      "Laden Sie im Mikronetzversuch die ländliche Referenz und ändern Sie die Speicherleistungsgrenze. Exportieren Sie den bearbeiteten Lauf und die berechnete Referenz gemeinsam.",
+      "Nínú ìdánwò iṣẹ́ microgrid, gbé àpẹẹrẹ abúlé wọlé kí o sì yí ààlà agbára batiri padà. Gba èsì tí o ṣàtúnṣe pẹ̀lú àpẹẹrẹ ìṣírò.",
+      "For microgrid operation lesson, load di rural reference and change battery power limit. Download di edited run and worked reference together.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

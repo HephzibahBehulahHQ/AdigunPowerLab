@@ -342,3 +342,5 @@ The generator-outage lesson now provides a three-interval dispatch case with bat
 The regional comparison lesson solves both sourced voltage presets against the same editable transmission inputs. It displays both cases side by side and exports the worked reference and current results with preset provenance.
 
 The community capstone now lets students load the rural teaching day, pin a dispatch reference, stress-test an editable supply design, and export the current run, pinned inputs and results, and design justification together.
+
+The microgrid operation lesson now shows a solved rural reference, prompts learners to change the battery power limit and interpret backup and unserved demand, and downloads the edited run alongside the reference.

@@ -555,3 +555,7 @@ TypeScript and 20 Help checks passed. Two focused Chromium cases verified that t
 ### POWERGRID LAB community capstone
 
 TypeScript and 20 Help checks passed. The focused Chromium case verified the worked design serves all 448 kWh, pinned inputs/results survive in the JSON alongside the outage case and student justification, and reset clears notes and reference.
+
+### POWERGRID LAB microgrid operation lesson
+
+TypeScript and 29 Help and dispatch solver tests passed. Focused Chromium assertions confirmed the worked operating reference matches the existing rural export, a zero battery power limit eliminates battery throughput in the modified run, reset restores the reference power limit, and the capstone comparison still exports.

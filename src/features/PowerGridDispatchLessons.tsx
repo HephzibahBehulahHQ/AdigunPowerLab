@@ -1,6 +1,128 @@
 import type { Locale } from "../i18n";
+import type { MicrogridDispatchResult } from "../engine/microgridDispatch";
 
 export type DispatchLesson = "solar" | "evening" | "outage";
+
+const ruralCopy = {
+  en: [
+    "Practical lesson: Microgrid operation",
+    "Predict which resource will serve the rural microgrid after sunset and which load will go unserved first.",
+    "The worked case represents six four-hour intervals of an illustrative day. The islanded system uses 48 kW DC of PV, an 80 kWh battery starting half full, and 15 kW of generic backup. Demand and critical demand are separate inputs.",
+    "Worked result",
+    "Backup energy (kWh)",
+    "Battery throughput (kWh)",
+    "Critical energy unserved (kWh)",
+    "Noncritical energy unserved (kWh)",
+    "Load the reference and reduce the battery power limit. Which intervals use more backup? Can you reduce noncritical shortfalls without increasing unmet critical demand? Export your run alongside the reference.",
+    "Load or reset operating case",
+    "Download microgrid operation report (JSON)",
+  ],
+  de: [
+    "Praxisversuch: Mikronetzbetrieb",
+    "Welche Ressource versorgt das ländliche Mikronetz nach Sonnenuntergang und welche Last bleibt zuerst ungedeckt?",
+    "Das Beispiel umfasst sechs vierstündige Intervalle. Das Inselnetz nutzt 48 kW DC PV, einen anfangs halb geladenen 80-kWh-Speicher und 15 kW Reserveleistung. Gesamtlast und kritische Last sind getrennte Eingaben.",
+    "Berechnetes Beispiel",
+    "Reserveenergie (kWh)",
+    "Speicherdurchsatz (kWh)",
+    "Ungedeckte kritische Energie (kWh)",
+    "Ungedeckte unkritische Energie (kWh)",
+    "Laden Sie die Referenz und senken Sie die Speicherleistungsgrenze. In welchen Intervallen steigt die Reserveerzeugung? Können Sie unkritische Ausfälle reduzieren, ohne kritische Ausfälle zu erhöhen? Exportieren Sie Ihren Lauf mit der Referenz.",
+    "Betriebsfall laden oder zurücksetzen",
+    "Mikronetzbericht herunterladen (JSON)",
+  ],
+  yo: [
+    "Ìdánwò: Ṣíṣiṣẹ́ microgrid",
+    "Sọ àsọtẹ́lẹ̀ orísun tí yóò pèsè fún microgrid abúlé lẹ́yìn tí oòrùn bá wọ̀ àti ẹrù tí kò ní kọ́kọ́ rí agbára.",
+    "Àpẹẹrẹ ní àkókò mẹ́fà tí ọ̀kọ̀ọ̀kan jẹ́ wákàtí mẹ́rin. Microgrid aládàáṣiṣẹ́ ní PV 48 kW DC, batiri 80 kWh tó bẹ̀rẹ̀ ní ìdajì, àti afẹ́yinti 15 kW. Ẹrù lápapọ̀ àti ẹrù pàtàkì jẹ́ iye ọ̀tọ̀.",
+    "Èsì àpẹẹrẹ",
+    "Agbára afẹ́yinti (kWh)",
+    "Agbára tó gba inú batiri kọjá (kWh)",
+    "Agbára pàtàkì tí kò rí ìpèsè (kWh)",
+    "Agbára mìíràn tí kò rí ìpèsè (kWh)",
+    "Gbé àpẹẹrẹ wọlé kí o sì dín ààlà agbára batiri kù. Àkókò wo ló nílò afẹ́yinti púpọ̀ sí i? Ṣé o lè dín àìní ẹrù mìíràn kù láìfi kún àìní ẹrù pàtàkì? Gba èsì rẹ pẹ̀lú àpẹẹrẹ.",
+    "Gbé àpẹẹrẹ iṣẹ́ wọlé tàbí dá a padà",
+    "Gba ìròyìn iṣẹ́ microgrid (JSON)",
+  ],
+  pcm: [
+    "Practical lesson: Microgrid operation",
+    "Predict which resource go supply di rural microgrid after sunset and which load no go get supply first.",
+    "Di example day get six four-hour intervals. Di island grid get 48 kW DC of PV, 80 kWh battery wey start half full and 15 kW backup. Total load and critical load get separate inputs.",
+    "Worked result",
+    "Backup energy (kWh)",
+    "Energy wey pass through battery (kWh)",
+    "Critical energy wey no get supply (kWh)",
+    "Other energy wey no get supply (kWh)",
+    "Load di reference and reduce di battery power limit. Which intervals use more backup? You fit reduce shortage for other load without leaving more critical load unserved? Download your run with di reference.",
+    "Load or reset operating case",
+    "Download microgrid operation report (JSON)",
+  ],
+} satisfies Record<Locale, readonly string[]>;
+
+export function PowerGridOperatingLesson({
+  locale,
+  reference,
+  canExport,
+  onReset,
+  onExport,
+}: {
+  locale: Locale;
+  reference: MicrogridDispatchResult;
+  canExport: boolean;
+  onReset: () => void;
+  onExport: () => void;
+}) {
+  const [
+    title,
+    prediction,
+    assumptions,
+    worked,
+    backup,
+    battery,
+    critical,
+    other,
+    question,
+    reset,
+    report,
+  ] = ruralCopy[locale];
+  const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 2 });
+  return (
+    <section
+      className="panel panel-pad pg-panel"
+      aria-labelledby="pg-operating-lesson"
+    >
+      <h4 id="pg-operating-lesson">{title}</h4>
+      <p>{prediction}</p>
+      <p>{assumptions}</p>
+      <details>
+        <summary>{worked}</summary>
+        <dl>
+          <dt>{backup}</dt>
+          <dd>{format.format(reference.backupEnergyKWh)}</dd>
+          <dt>{battery}</dt>
+          <dd>{format.format(reference.batteryThroughputKWh)}</dd>
+          <dt>{critical}</dt>
+          <dd>{format.format(reference.criticalUnservedEnergyKWh)}</dd>
+          <dt>{other}</dt>
+          <dd>{format.format(reference.nonCriticalUnservedEnergyKWh)}</dd>
+        </dl>
+      </details>
+      <p>{question}</p>
+      <div className="pg-actions">
+        <button className="button" type="button" onClick={onReset}>
+          {reset}
+        </button>
+        <button
+          className="button"
+          type="button"
+          disabled={!canExport}
+          onClick={onExport}
+        >
+          {report}
+        </button>
+      </div>
+    </section>
+  );
+}
 
 const lessons = {
   en: {
