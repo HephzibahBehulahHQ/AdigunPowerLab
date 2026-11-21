@@ -1857,6 +1857,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú ìdánwò ẹ̀ka pinpin, dá àpẹẹrẹ radial padà, ṣètò ìfiwéra ìbẹ̀rẹ̀, kí o sì dá ẹrù àríwá padà ní ìpele. Gba JSON ìṣírò pẹ̀lú àpẹẹrẹ lọwọlọwọ àti ìfiwéra.",
       "For feeder trip lesson, reset di radial training case, set comparison reference and restore di north loads step by step. Download solved JSON to keep di current case and reference.",
     ],
+  "In the transformer loading lesson, change apparent load and power factor, compare losses and efficiency with the worked reference, and download the calculation report.":
+    [
+      "Ändern Sie im Transformatorversuch die Scheinlast und den Leistungsfaktor, vergleichen Sie Verluste und Wirkungsgrad mit dem Referenzbeispiel und laden Sie den Berechnungsbericht herunter.",
+      "Nínú ìdánwò transformer, yí apparent load àti power factor padà, wé àdánù àti ìmúṣẹ pẹ̀lú àpẹẹrẹ ìṣírò, kí o sì gba ìròyìn.",
+      "For transformer loading lesson, change apparent load and power factor, compare loss and efficiency with di worked example, then download di calculation report.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

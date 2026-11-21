@@ -50,6 +50,7 @@ import { HydroStationScene, type HydroEquipmentId } from "./HydroStationScene";
 import { GenerationPlantScene } from "./GenerationPlantScene";
 import { PowerGridTransmissionLesson } from "./PowerGridTransmissionLesson";
 import { PowerGridDistanceLesson } from "./PowerGridDistanceLesson";
+import { PowerGridTransformerLesson } from "./PowerGridTransformerLesson";
 import {
   DistributionNetworkScene,
   type DistributionEquipmentId,
@@ -899,6 +900,7 @@ export function PowerGridLab({
           setSaved(false);
         }}
       />
+      <PowerGridTransformerLesson locale={locale} />
       <details className="panel panel-pad pg-limit">
         <summary>{text.assumptions}</summary>
         <p>{text.assumptionText}</p>

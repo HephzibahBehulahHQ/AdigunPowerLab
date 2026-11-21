@@ -535,3 +535,7 @@ Local TypeScript and 26 Help and radial solver tests passed. The focused Chromiu
 ### POWERGRID LAB feeder-trip lesson
 
 TypeScript and 26 Help and radial solver tests passed. The focused Chromium case verified a 0.22 MW outage, staged restoration with 0.08 MW still disconnected, JSON export of the partial case and pinned pre-trip reference, and full reconnection. The local browser runner stalled during teardown.
+
+### POWERGRID LAB transformer-loading lesson
+
+Local TypeScript and 20 Help checks passed. Focused Chromium assertions verified 4.5 kW of loss at 500 kVA, 12 kW at the 1,000 kVA rating, a warning and 16.4 kW loss above rating at 1,200 kVA, exported efficiency, and reset.

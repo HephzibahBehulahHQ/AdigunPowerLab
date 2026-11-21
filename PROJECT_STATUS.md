@@ -332,3 +332,5 @@ The first structured practical lesson covers poor power factor. It adds a predic
 The transmission-distance lesson now uses the balanced radial AC solver with an adjustable 1–40 km two-bus line. It compares the receiving voltage and real loss with a 5 km reference, and exports both solved cases and the student's interpretation.
 
 The feeder-trip lesson now walks learners through a full north feeder outage and staged restoration in the existing radial worksheet. Solved JSON includes the pinned pre-trip reference when one is available.
+
+The transformer-loading lesson compares apparent loading, loss and efficiency against a worked half-load case. Students can vary apparent load and power factor, observe the nameplate warning and export the reference plus current calculation.

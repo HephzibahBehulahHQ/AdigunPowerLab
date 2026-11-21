@@ -3,6 +3,34 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("transformer lesson calculates losses and flags overload in the report", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const lesson = page.getByRole("region", {
+    name: "Practical lesson: Transformer loading",
+  });
+  const load = lesson.getByLabel("Apparent load (kVA)");
+  await expect(lesson.getByText("4.5 kW").last()).toBeVisible();
+  await load.fill("1000");
+  await expect(lesson.getByText("12 kW", { exact: true })).toBeVisible();
+  await expect(lesson.getByText("Above nameplate rating")).toHaveCount(0);
+  await load.fill("1200");
+  await expect(lesson.getByText("Above nameplate rating")).toBeVisible();
+  const pending = page.waitForEvent("download");
+  await lesson
+    .getByRole("button", { name: "Download transformer report (JSON)" })
+    .click();
+  const data = JSON.parse(await readFile(await (await pending).path(), "utf8"));
+  expect(data.result.lossKw).toBeCloseTo(16.4);
+  expect(data.result.efficiency).toBeCloseTo(960 / 976.4);
+  expect(data.result.overloaded).toBe(true);
+  await lesson
+    .getByRole("button", { name: "Reset transformer lesson" })
+    .click();
+  await expect(load).toHaveValue("500");
+});
+
 test("distance lesson scales impedance and exports the solved voltage comparison", async ({
   page,
 }) => {
