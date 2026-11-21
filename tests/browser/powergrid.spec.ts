@@ -3,6 +3,43 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("community capstone exports the worked supply design and an outage comparison", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const section = page.getByRole("region", {
+    name: "Microgrid dispatch laboratory",
+  });
+  const capstone = section.getByRole("region", {
+    name: "Capstone: Community supply design",
+  });
+  const reset = capstone.getByRole("button", {
+    name: "Load or reset community case",
+  });
+  await reset.click();
+  await section.getByTestId("microgrid-backupKW").fill("30");
+  await section.getByTestId("microgrid-rampKW").fill("30");
+  await capstone
+    .getByRole("button", { name: "Pin current dispatch as reference" })
+    .click();
+  await section.getByLabel("Backup outage intervals (optional)").fill("5");
+  await section.getByTestId("microgrid-batteryPowerKW").fill("0");
+  const notes = capstone.getByLabel("Design justification");
+  await notes.fill(
+    "Critical load needs storage support during the evening outage.",
+  );
+  const pending = page.waitForEvent("download");
+  await section.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const data = JSON.parse(await readFile(await (await pending).path(), "utf8"));
+  expect(data.capstone.reference.result.servedEnergyKWh).toBeCloseTo(448);
+  expect(data.capstone.reference.result.criticalUnservedEnergyKWh).toBe(0);
+  expect(data.result.criticalUnservedEnergyKWh).toBeGreaterThan(0);
+  expect(data.capstone.justification).toContain("storage support");
+  await reset.click();
+  await expect(notes).toHaveValue("");
+  await expect(capstone.getByRole("status")).toHaveCount(0);
+});
+
 test("regional lesson recalculates both sourced cases from the shared worksheet", async ({
   page,
 }) => {

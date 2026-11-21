@@ -1881,6 +1881,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú àfiwé agbègbè, yí agbára gbigbe, power factor tàbí ìdènà tí wọ́n jọ ń lò padà. Wé àpẹẹrẹ fólítéèjì méjèèjì, kí o sì gba ìròyìn ìṣírò.",
       "For regional comparison, change di power, power factor or resistance wey both cases share. Compare di two sourced voltage cases and download di report.",
     ],
+  "For the community capstone, load and pin the rural case, test your design during a backup outage, and export dispatch JSON with your justification.":
+    [
+      "Laden und fixieren Sie für die Gemeindeaufgabe den ländlichen Übungsfall, testen Sie Ihren Entwurf bei einem Generatorausfall und exportieren Sie das Dispatch-JSON mit Ihrer Begründung.",
+      "Fún ìdánwò ìparí àwùjọ, gbé àpẹẹrẹ abúlé wọlé kí o sì fi ṣe ìpìlẹ̀. Dán àpẹrẹ rẹ wò nígbà ìdádúró generator, kí o sì gba JSON pẹ̀lú ìdí rẹ.",
+      "For community capstone, load and pin di rural case, test your design when backup no dey, then download dispatch JSON with your reason.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

@@ -340,3 +340,5 @@ The midday solar and evening peak lessons now load separate two-hour teaching ca
 The generator-outage lesson now provides a three-interval dispatch case with battery support, a backup trip, and a ramp-limited restart. Students can compare the outage with uninterrupted operation and export either run.
 
 The regional comparison lesson solves both sourced voltage presets against the same editable transmission inputs. It displays both cases side by side and exports the worked reference and current results with preset provenance.
+
+The community capstone now lets students load the rural teaching day, pin a dispatch reference, stress-test an editable supply design, and export the current run, pinned inputs and results, and design justification together.

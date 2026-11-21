@@ -551,3 +551,7 @@ TypeScript, 20 Help checks and both focused dispatch browser cases passed their 
 ### POWERGRID LAB regional comparison lesson
 
 TypeScript and 20 Help checks passed. Two focused Chromium cases verified that the existing regional selector still applies its sourced voltage fields and that doubling shared resistance doubles calculated loss in both comparison cases. The calculation report retains source references, and reset restores the default resistance.
+
+### POWERGRID LAB community capstone
+
+TypeScript and 20 Help checks passed. The focused Chromium case verified the worked design serves all 448 kWh, pinned inputs/results survive in the JSON alongside the outage case and student justification, and reset clears notes and reference.

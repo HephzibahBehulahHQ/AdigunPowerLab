@@ -5,6 +5,7 @@ import {
   DEFAULT_MICROGRID_DISPATCH_INPUTS,
   validateMicrogridDispatchInputs,
   type MicrogridDispatchInputs,
+  type MicrogridDispatchResult,
 } from "../engine/microgridDispatch";
 import type { PvPerformanceInputs } from "../engine/pvPerformance";
 import {
@@ -13,6 +14,7 @@ import {
   type RecurringProjectDemand,
 } from "../engine/powergridProjectDemand";
 import type { ActiveProjectDemand } from "./RadialFeederExperiment";
+import { PowerGridCommunityCapstone } from "./PowerGridCommunityCapstone";
 import {
   PowerGridDispatchLessons,
   type DispatchLesson,
@@ -783,6 +785,11 @@ export function MicrogridDispatchExperiment({
   const label = (s: string) => tr(s, locale);
   const [state, setState] = useState<Editable>(readSaved);
   const [saved, setSaved] = useState(false);
+  const [capstoneNotes, setCapstoneNotes] = useState("");
+  const [capstoneReference, setCapstoneReference] = useState<{
+    inputs: MicrogridDispatchInputs;
+    result: MicrogridDispatchResult;
+  }>();
   const [projectPreview, setProjectPreview] = useState<{
     name: string;
     snapshot: RecurringProjectDemand;
@@ -1030,6 +1037,10 @@ export function MicrogridDispatchExperiment({
                 }
               : undefined,
             projectDemandSource: state.projectDemand,
+            capstone:
+              capstoneReference || capstoneNotes
+                ? { reference: capstoneReference, justification: capstoneNotes }
+                : undefined,
             result,
             limitations: label(LIMITS),
           },
@@ -1108,6 +1119,21 @@ export function MicrogridDispatchExperiment({
         </div>
       </div>
       <PowerGridDispatchLessons locale={locale} onLoad={loadPracticalLesson} />
+      <PowerGridCommunityCapstone
+        locale={locale}
+        reference={capstoneReference?.result}
+        result={result}
+        notes={capstoneNotes}
+        onNotes={setCapstoneNotes}
+        onLoad={() => {
+          loadRuralScenario();
+          setCapstoneReference(undefined);
+          setCapstoneNotes("");
+        }}
+        onPin={() => {
+          if (result) setCapstoneReference({ inputs, result });
+        }}
+      />
       <div className="pg-actions">
         <button
           type="button"

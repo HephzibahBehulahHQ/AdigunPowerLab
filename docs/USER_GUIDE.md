@@ -302,3 +302,5 @@ In **Microgrid dispatch laboratory**, load the midday solar lesson and raise the
 In **Microgrid dispatch laboratory**, load **Generator outage**. Compare headroom before the trip, unmet demand in interval 2, and generator output on restart in interval 3. Export the run, clear **Backup outage intervals**, and export the uninterrupted case for comparison. Use the lesson load button again to restore the worked inputs.
 
 In **Practical lesson: Regional comparison**, reveal the reference and then double **Line resistance per phase** in the transmission worksheet. Compare each region's base and raised-voltage readings. Download the JSON to keep both cases and their source references. The lesson reset restores shared power, power factor and resistance.
+
+In **Capstone: Community supply design**, load the rural case and pin the reference. Try the 30 kW backup design, then simulate losing backup in interval 5. Compare critical energy unserved, explain which resource covers demand and which risk remains, and export **Dispatch JSON**. Export before leaving the worksheet to keep your justification and pinned reference with the solved data.
