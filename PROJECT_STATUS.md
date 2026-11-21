@@ -397,3 +397,5 @@ The biogas increment adds a methane-fraction and flow-based engine CHP worksheet
 The solid biomass increment adds a wet-basis moisture and steam generation worksheet with gross and net output, used fuel and JSON export. It complements the separate biogas engine model.
 
 The diesel increment adds a steady-interval worksheet using entered no-load and rated fuel rates, minimum load, fuel inventory and output limits. The existing chronological thermal backup remains separate.
+
+The coal steam increment adds a one-interval worksheet for net heat rate, net generation, coal consumption and remaining inventory.
