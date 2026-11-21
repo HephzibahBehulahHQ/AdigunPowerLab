@@ -260,3 +260,99 @@ Unified backup, radial graph editing, source/library workflows, cumulative feede
 ## POWERGRID LAB implementation state
 
 The NREL reference-wind worksheet is deployed by PR #103. PR #104 merged as `6ef06254a990309834d64c278ccc9af643c3e779` and its chronological PV/wind, battery, backup-capacity and critical-demand workflow is deployed through Pages [run 43696180077](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43696180077), artifact 14154640941. Candidate [43688387269](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43688387269) and exact-main [43695664239](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43695664239) passed. This is an AC-bus teaching dispatch using entered profiles, not a regional forecast or utility operating model. Regional resource/demand profiles, source-specific backup models, network losses within dispatch and remaining M3 requirements stay open.
+
+### POWERGRID M3 — hydropower component model
+
+The steady-state worksheet models hydraulic-to-electrical conversion with a generator nameplate limit. Reservoir scheduling, dispatch integration and regional time series remain open.
+
+The chronological microgrid now includes optional interval hydro flow at fixed net head. Environmental flow scheduling remains open.
+
+Reservoir branch coverage includes conservation of stored water, bypass shortfall, spill and limited generation. Reservoir head can vary linearly with starting storage. Site-specific elevation curves and optimized reservoir scheduling remain open.
+
+The pumped storage slice accounts for electrical pumping consumption, stored hydraulic energy, delivered generation and round-trip losses. Coupled reservoir elevation, hydraulic machinery curves and optimized scheduling remain open.
+
+Chronological grid exchange, islanding and restoration are implemented at the shared AC bus with entered limits. Dynamic synchronization, protection, network losses and spinning reserve remain open.
+
+Generic backup-generator outage and ramp-limited restart are modeled. Reported ramp-limited headroom does not establish spinning reserve or dynamic frequency response.
+
+Constant heat-rate fuel accounting and optional direct CO₂ are available for backup generation. Part-load curves and complete system emissions remain open.
+
+Startup fuel and a finite consumable fuel budget are implemented. Fuel replenishment, warm/cold start differentiation, minimum up/down times and part-load curves remain open.
+
+An authored rural microgrid preset now exercises chronological dispatch with an entire teaching day. Sourced country-specific generation and demand time series remain open.
+
+The regional lab includes one sourced German historical day for load, PV and wind. Additional regions and seasonal coverage remain open.
+
+The dispatch laboratory can now use scaled historical German load, solar and wind with an editable equipment scenario. Additional national profiles and seasonal comparisons remain open.
+
+The German comparison and scaled dispatch now include one January day and one June day. These examples compare two observed days. Additional regions and representative seasonal samples remain open.
+
+Six shared visual assets synchronize selection between the station model and their applicable hydro or distribution drawings. Full topology, simulation time and result-revision synchronization across all views remain open.
+
+Camera controls update WebGL uniforms without allocating scene buffers. A forced missing-WebGL browser case exercises keyboard equipment selection in the linked schematic. Device performance budgets and wider assistive-technology review remain open.
+
+The station controls and inspector fit within the tested 390 px viewport, including forced WebGL fallback. The browser extension exercises context loss and restoration where supported.
+
+A 100 MVA three-bus AC teaching case now exercises a Newton power-mismatch solver with numerical Jacobian. The reference bus supplies residual active and reactive power. The initial independent phasor fixture and focused contingency evidence cover this implementation slice. Larger benchmark cases and dynamic lessons remain open. [MATPOWER AC formulation reference](https://matpower.org/docs/MATPOWER-manual-8.0.pdf)
+
+The three-bus teaching case supports automated single-branch outage batches with voltage and loading checks, with separate island outcomes. The steady-state solver also reproduces all bus voltages and both-end branch flows for the published MATPOWER 8.1 nine-bus solved case. Additional benchmark networks, other contingency types and dynamic response remain open.
+
+The primary-frequency experiment covers a single aggregate area and a permanent generation loss. It uses normalized deviation `x = (f − f₀)/f₀` and governor increment `p` on the same system power base. The equations are `2H dx/dt = p − loss − D x` and `T dp/dt = clamp(−x/R, 0, reserve) − p`. The fourth-order Runge–Kutta integration uses steps no longer than 0.01 s and stops at 5% deviation. This scope excludes secondary control, inter-area dynamics and protection. [NREL model reference](https://docs.nrel.gov/docs/fy24osti/88101.pdf)
+
+The step-up transmission worksheet exports a snapshot PDF with objective, schematic, assumptions, inputs, comparison readings, loss bars and optional notes. Combined lab reports, report workflows for other experiments and workspace recovery integration remain open.
+
+The transmission worksheet has named and versioned local saves, JSON export and validated import with preview and explicit apply. All-project workspace backups retain saved transmission experiments and recovered copies. The workspace transaction creates separate recovery records for explicit review in the lab. Recovery for other experiment types and experiment history remain open.
+
+Transmission supports bounded in-session undo and redo, including imported and recovered scenarios, and up to 20 earlier explicit save states. Workspace backups retain distinct revision contents as recoverable copies. Revision tracking and undo for other experiments remain open.
+
+Transmission supports a named working duplicate and an in-session baseline. The screen and JSON show signed input and result changes. Persistent baselines and comparison reports for additional experiments remain open.
+
+Reviewed active-project demand transfer covers balanced design P and Q for a selected radial group and recurring hourly active demand for microgrid dispatch. Both retain provenance and preserve the source workspace. Phase-specific, dated calendar and DC converter-aware transfers remain open.
+
+### POWERGRID LAB production loading and offline entry
+
+Local Chromium verified that Overview has no PowerGrid Lab script entry in its page resource timing. After the service worker precached the application, the first entry to #POWERGRID worked offline at both the root and repository base path. The transmission PDF and hydro image worked offline at both paths. Hosted verification remains open.
+
+The poor-power-factor curriculum item now has a prediction, assumptions, worked values at 0.80 and 1.00, editable worksheet inputs, interpretation prompts and a case reset. It uses the transmission report and scenario comparison. Other curriculum items still need their full teaching workflow verified.
+
+The transmission-distance curriculum item has a prediction, explicit constant-P/Q and per-km impedance assumptions, a worked 5 km versus 25 km comparison, editable length, an interpretation question, a case reset, and a JSON calculation report.
+
+The feeder-trip curriculum item adds a prediction, steady-state assumptions, a worked load-restoration sequence, interpretation questions, and instructions for using the editable switches and training reset. The solved scenario JSON can capture the outage or partial restoration alongside the pinned reference.
+
+The transformer-loading curriculum item includes a prediction, stated model assumptions, a worked half-load reference, editable load and power factor, rating warning, interpretation questions, reset, and a JSON report. The calculation uses constant core loss and square-law winding loss at fixed voltage.
+
+The midday solar and evening peak curriculum items include predictions, worked dispatch cases, editable grid and storage limits, interpretation questions, per-lesson reset and existing JSON/CSV result export.
+
+The generator-outage curriculum item includes an editable trip interval and generator/storage limits, a worked headroom and priority-load comparison, an interpretation question, reset, and interval exports.
+
+The regional comparison curriculum item compares Nigeria-inspired and 50Hertz-area voltage stages at the same power, power factor and phase resistance. It provides a prediction, worked reference, live comparison, interpretation questions, input reset and JSON report with sources.
+
+The community capstone includes an islanded-supply design objective, an illustrative 448 kWh worked day, editable generation and storage, an outage intervention, baseline unserved-energy comparison, interpretation, reset and JSON output.
+
+The microgrid operation curriculum item has a prediction, fixed reference assumptions, solver-generated worked results, editable storage and backup limits, interpretation questions, reset and an export that includes both solved runs.
+
+The two foundations lessons use the live generator, transmission, distribution and service voltages, plus the existing transmission meters and report. They add prediction prompts, worked values, explanation questions and a shared reset that keeps student notes.
+
+The lab BOT can explain fixed-power line losses, summarize raised-voltage readings, suggest the distance lesson, export the current PDF and preview one typed voltage proposal. Applying requires the same worksheet revision and adds an undo step. Selected-asset and dispatch-specific BOT explanations remain open.
+
+Station-asset BOT explanations follow the live shared station selection and show the documented function and interfaces in each locale. Dispatch-specific BOT explanations remain open.
+
+The dispatch BOT adds an interval-specific explanation from the live dispatch result. The readings update after edits and are withheld when the dispatch inputs do not solve.
+
+Meshed N−1 comparison runs in a worker. Changing case inputs clears the old rows immediately, cancels obsolete work, and disables comparison export until current rows arrive.
+
+Transmission report output includes the pinned baseline, when present, as a named before/after comparison with signed changes.
+
+The header acceptance case checks the visible POWERGRID LAB launcher is to the right of the language control, fits the viewport at 1,440, 768 and 390 px, and opens the exact route by keyboard. At desktop width, opening Search leaves the launcher bounds unchanged.
+
+The PowerGrid route isolation check forces a project write failure, opens and edits the lab, returns to Loads with Back, and confirms the unsaved customer load is present both in the table and the project recovery export.
+
+Transmission now keeps a validated autosaved working draft separate from the named local save and its revisions. Reopening offers restore or discard and preserves the last valid draft across invalid edits.
+
+The 3D acceptance check verifies no initial offscreen draw, on-demand rendering, buffer reuse and idle redraw behavior with reduced motion requested. A separate phone case forces WebGL to be unavailable and verifies keyboard inspection.
+
+The two-bus fixture checks receiving voltage, current and sending P/Q against a closed-form reference. The dynamic fixture checks nadir magnitude, nadir time and final frequency under step halving.
+
+The transformer lesson exposes a lossless comparison using the same rating and load. Unit checks cover ideal and lossy real-power balance, winding losses, no-load behavior and invalid inputs.
+
+The Windows production candidate passed interrupted-update recovery, old-tab module retention, unsaved billing protection, and cold PowerGrid entry and worker execution offline at both deployment paths. Hosted receipts are revision-specific.

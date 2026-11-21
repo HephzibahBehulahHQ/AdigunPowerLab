@@ -5,7 +5,7 @@ const fieldPhotos = [
   {
     stage: "Hydro generation",
     title: "Bonneville Lock and Dam powerhouse generator",
-    image: "/assets/powergrid/field-photos/hydro-generator.jpg",
+    image: "./assets/powergrid/field-photos/hydro-generator.jpg",
     alt: "Top of a vertical hydroelectric generating unit inside Bonneville Lock and Dam powerhouse.",
     photographer:
       "John Leonard · U.S. Army Corps of Engineers, Northwestern Division",
@@ -15,7 +15,7 @@ const fieldPhotos = [
   {
     stage: "Waterway and dam",
     title: "Water over the Terminus Dam spillway fuse gates",
-    image: "/assets/powergrid/field-photos/hydro-spillway.jpg",
+    image: "./assets/powergrid/field-photos/hydro-spillway.jpg",
     alt: "Water flowing over the fuse gates of the Terminus Dam spillway into the downstream basin.",
     photographer:
       "Ryan Watson · U.S. Army Corps of Engineers, Sacramento District",
@@ -25,7 +25,7 @@ const fieldPhotos = [
   {
     stage: "Generator step-up transformer",
     title: "Generator step-up transformer delivered to Fort Randall Dam",
-    image: "/assets/powergrid/field-photos/step-up-transformer.jpg",
+    image: "./assets/powergrid/field-photos/step-up-transformer.jpg",
     alt: "A large generator step-up transformer secured on a rail car during delivery to Fort Randall Powerhouse.",
     photographer:
       "Jason Colbert · U.S. Army Corps of Engineers, Omaha District",
@@ -35,7 +35,7 @@ const fieldPhotos = [
   {
     stage: "Receiving substation",
     title: "Al Ameen 400 kV gas-insulated substation",
-    image: "/assets/powergrid/field-photos/substation-switchyard.jpg",
+    image: "./assets/powergrid/field-photos/substation-switchyard.jpg",
     alt: "High-voltage gas-insulated substation bays with tall insulated bushings and metal bus connections.",
     photographer: "U.S. Army courtesy photo · DVIDS",
     source:
@@ -44,7 +44,7 @@ const fieldPhotos = [
   {
     stage: "Transmission structure · failure case",
     title: "Lattice transmission tower damaged after Hurricane Maria",
-    image: "/assets/powergrid/field-photos/transmission-tower-damage.jpg",
+    image: "./assets/powergrid/field-photos/transmission-tower-damage.jpg",
     alt: "A damaged steel lattice transmission tower lies across trees after a storm; this is a failure example, not a normal operating condition.",
     photographer: "Eliud Echevarria · Federal Emergency Management Agency",
     source:
@@ -53,7 +53,7 @@ const fieldPhotos = [
   {
     stage: "Solar generation",
     title: "Eglin solar energy array",
-    image: "/assets/powergrid/field-photos/solar-array.jpg",
+    image: "./assets/powergrid/field-photos/solar-array.jpg",
     alt: "Rows of photovoltaic panels across the Eglin solar energy field under a cloudy sky.",
     photographer: "Samuel King Jr. · 96th Test Wing",
     source: "https://www.dvidshub.net/image/7586867/eglin-solar-energy-array",
@@ -61,7 +61,7 @@ const fieldPhotos = [
   {
     stage: "Wind generation · facility-scale example",
     title: "Wind turbine above the Stirling solar array at Tooele",
-    image: "/assets/powergrid/field-photos/wind-utility-scale.jpg",
+    image: "./assets/powergrid/field-photos/wind-utility-scale.jpg",
     alt: "A nearly 300-foot wind turbine stands above a solar thermal array at the Tooele Army Depot site.",
     photographer:
       "John Prettyman · U.S. Army Corps of Engineers, Sacramento District",
@@ -71,7 +71,7 @@ const fieldPhotos = [
   {
     stage: "Secondary distribution",
     title: "Pole-mounted transformer restored to a residential neighborhood",
-    image: "/assets/powergrid/field-photos/distribution-pole-transformer.jpg",
+    image: "./assets/powergrid/field-photos/distribution-pole-transformer.jpg",
     alt: "A pole-mounted distribution transformer and overhead conductors above a residential street in Puerto Rico.",
     photographer:
       "Staff Sgt. Eric W. Jones · U.S. Army Corps of Engineers, Los Angeles District",
@@ -126,7 +126,7 @@ const fieldVideos = [
 const groups = [
   {
     title: "Generation plant equipment",
-    image: "/assets/hydro-powerhouse-generator.png",
+    image: "./assets/hydro-powerhouse-generator.png",
     alt: "Hydroelectric powerhouse with a large synchronous generator, shaft, turbine casing, controls and an engineer for scale.",
     caption: "Powerhouse training view · hydro turbine-generator set",
     items: [
@@ -154,7 +154,7 @@ const groups = [
   },
   {
     title: "Steam and gas generation equipment",
-    image: "/assets/thermal-gas-powerhouse.png",
+    image: "./assets/thermal-gas-powerhouse.png",
     alt: "Combined-cycle power hall showing a gas turbine, heat-recovery boiler, steam turbine, condenser pipework and generator.",
     caption:
       "Thermal plant training view · gas and steam turbine-generator train",
@@ -183,7 +183,7 @@ const groups = [
   },
   {
     title: "Step-up transformer and switchyard",
-    image: "/assets/grid-transformer-switchyard.png",
+    image: "./assets/grid-transformer-switchyard.png",
     alt: "Large power transformer with bushings, radiators, control cabinet and outdoor switchyard equipment.",
     caption: "Switchyard training view · transformer and primary equipment",
     items: [
@@ -211,7 +211,7 @@ const groups = [
   },
   {
     title: "Transmission line and receiving substation",
-    image: "/assets/transmission-substation.png",
+    image: "./assets/transmission-substation.png",
     alt: "Lattice transmission tower connected to a fenced high-voltage substation with insulators and switchgear.",
     caption:
       "Line-side training view · tower, phase conductors and substation gantry",
@@ -240,7 +240,7 @@ const groups = [
   },
   {
     title: "Distribution and customer equipment",
-    image: "/assets/distribution-consumers.png",
+    image: "./assets/distribution-consumers.png",
     alt: "Distribution pole transformer and overhead feeder serving a house and industrial motor facility.",
     caption:
       "Distribution training view · pole transformer, service entry and motor load",
@@ -269,7 +269,7 @@ const groups = [
   },
   {
     title: "Safety and test instruments",
-    image: "/assets/electrical-test-tools.png",
+    image: "./assets/electrical-test-tools.png",
     alt: "Electrical training bench with multimeter, clamp meter, insulation tester, relay test set, PPE and isolated training panel.",
     caption:
       "Safe test-bench training view · instruments and protective equipment",

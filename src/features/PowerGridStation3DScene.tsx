@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Locale } from "../i18n";
 
-type AssetId =
+export type Station3DAssetId =
   | "reservoir"
   | "turbine"
   | "generator"
@@ -11,6 +11,8 @@ type AssetId =
   | "receiving-transformer"
   | "house"
   | "industry";
+
+type AssetId = Station3DAssetId;
 
 type Asset = {
   id: AssetId;
@@ -210,6 +212,15 @@ const assets: Asset[] = [
     },
   },
 ];
+
+export function describeStationAsset(id: Station3DAssetId, locale: Locale) {
+  const asset = assets.find((candidate) => candidate.id === id)!;
+  return {
+    name: asset.label[locale],
+    role: asset.role[locale],
+    terminals: asset.terminals[locale],
+  };
+}
 
 function compile(gl: WebGLRenderingContext, type: number, source: string) {
   const shader = gl.createShader(type);
@@ -476,8 +487,11 @@ function buildScene(gl: WebGLRenderingContext, selected: AssetId) {
 
   const positionBuffer = gl.createBuffer(),
     colorBuffer = gl.createBuffer();
-  if (!positionBuffer || !colorBuffer)
+  if (!positionBuffer || !colorBuffer) {
+    if (positionBuffer) gl.deleteBuffer(positionBuffer);
+    if (colorBuffer) gl.deleteBuffer(colorBuffer);
     throw new Error("WebGL buffer allocation failed");
+  }
   gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
   gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
@@ -485,33 +499,94 @@ function buildScene(gl: WebGLRenderingContext, selected: AssetId) {
   return { positionBuffer, colorBuffer, count: vertices.length / 3 };
 }
 
-export function PowerGridStation3DScene({ locale }: { locale: Locale }) {
+export function PowerGridStation3DScene({
+  locale,
+  selected,
+  onSelect,
+}: {
+  locale: Locale;
+  selected: AssetId;
+  onSelect: (asset: AssetId) => void;
+}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [selected, setSelected] = useState<AssetId>("generator");
+  const drawRef = useRef<
+    ((yaw: number, pitch: number, zoom: number) => void) | null
+  >(null);
   const [yaw, setYaw] = useState(-0.32);
   const [pitch, setPitch] = useState(0.12);
   const [zoom, setZoom] = useState(1);
   const [unavailable, setUnavailable] = useState(false);
   const [renderError, setRenderError] = useState("");
+  const [contextRevision, setContextRevision] = useState(0);
+  const [renderRequested, setRenderRequested] = useState(false);
   const lang = locale in assets[0].label ? locale : "en";
-  const selectedAsset = assets.find((asset) => asset.id === selected)!;
+  const selectedAsset = describeStationAsset(selected, lang);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setRenderRequested(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setRenderRequested(true);
+        observer.disconnect();
+      },
+      { rootMargin: "160px 0px" },
+    );
+    observer.observe(canvas);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const onContextLost = (event: Event) => {
+      event.preventDefault();
+      drawRef.current = null;
+      setUnavailable(true);
+    };
+    const onContextRestored = () =>
+      setContextRevision((revision) => revision + 1);
+    canvas.addEventListener("webglcontextlost", onContextLost);
+    canvas.addEventListener("webglcontextrestored", onContextRestored);
+    return () => {
+      canvas.removeEventListener("webglcontextlost", onContextLost);
+      canvas.removeEventListener("webglcontextrestored", onContextRestored);
+    };
+  }, []);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || !renderRequested) return;
     let program: WebGLProgram | undefined,
-      scene: ReturnType<typeof buildScene> | undefined;
+      scene: ReturnType<typeof buildScene> | undefined,
+      vertex: WebGLShader | undefined,
+      fragment: WebGLShader | undefined;
+    let gl: WebGLRenderingContext | null = null;
+    const release = () => {
+      drawRef.current = null;
+      if (scene) {
+        gl?.deleteBuffer(scene.positionBuffer);
+        gl?.deleteBuffer(scene.colorBuffer);
+      }
+      if (program) gl?.deleteProgram(program);
+    };
     try {
-      const gl = canvas.getContext("webgl", {
+      const context = canvas.getContext("webgl", {
         antialias: true,
         alpha: false,
         preserveDrawingBuffer: false,
       });
-      if (!gl) {
+      if (!context || context.isContextLost()) {
         setUnavailable(true);
         return;
       }
-      const vertex = compile(
+      gl = context;
+      vertex = compile(
         gl,
         gl.VERTEX_SHADER,
         `
@@ -530,7 +605,7 @@ export function PowerGridStation3DScene({ locale }: { locale: Locale }) {
           vColor=aColor;
         }`,
       );
-      const fragment = compile(
+      fragment = compile(
         gl,
         gl.FRAGMENT_SHADER,
         `
@@ -550,7 +625,6 @@ export function PowerGridStation3DScene({ locale }: { locale: Locale }) {
       gl.viewport(0, 0, canvas.width, canvas.height);
       gl.clearColor(0.055, 0.08, 0.13, 1);
       gl.enable(gl.DEPTH_TEST);
-      gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
       gl.useProgram(program);
       const position = gl.getAttribLocation(program, "aPosition");
       gl.bindBuffer(gl.ARRAY_BUFFER, scene.positionBuffer);
@@ -560,28 +634,36 @@ export function PowerGridStation3DScene({ locale }: { locale: Locale }) {
       gl.bindBuffer(gl.ARRAY_BUFFER, scene.colorBuffer);
       gl.enableVertexAttribArray(color);
       gl.vertexAttribPointer(color, 3, gl.FLOAT, false, 0, 0);
-      gl.uniform1f(gl.getUniformLocation(program, "uYaw"), yaw);
-      gl.uniform1f(gl.getUniformLocation(program, "uPitch"), pitch);
-      gl.uniform1f(gl.getUniformLocation(program, "uZoom"), zoom);
-      gl.drawArrays(gl.TRIANGLES, 0, scene.count);
+      const yawLocation = gl.getUniformLocation(program, "uYaw");
+      const pitchLocation = gl.getUniformLocation(program, "uPitch");
+      const zoomLocation = gl.getUniformLocation(program, "uZoom");
+      const count = scene.count;
+      drawRef.current = (nextYaw, nextPitch, nextZoom) => {
+        if (context.isContextLost()) return;
+        context.clear(context.COLOR_BUFFER_BIT | context.DEPTH_BUFFER_BIT);
+        context.uniform1f(yawLocation, nextYaw);
+        context.uniform1f(pitchLocation, nextPitch);
+        context.uniform1f(zoomLocation, nextZoom);
+        context.drawArrays(context.TRIANGLES, 0, count);
+      };
       setUnavailable(false);
       setRenderError("");
-      gl.deleteShader(vertex);
-      gl.deleteShader(fragment);
-      return () => {
-        if (scene) {
-          gl.deleteBuffer(scene.positionBuffer);
-          gl.deleteBuffer(scene.colorBuffer);
-        }
-        if (program) gl.deleteProgram(program);
-      };
+      return release;
     } catch (error) {
+      release();
       setUnavailable(true);
       setRenderError(
         error instanceof Error ? error.message : "WebGL scene unavailable",
       );
+    } finally {
+      if (vertex) gl?.deleteShader(vertex);
+      if (fragment) gl?.deleteShader(fragment);
     }
-  }, [selected, yaw, pitch, zoom]);
+  }, [selected, contextRevision, renderRequested]);
+
+  useEffect(() => {
+    drawRef.current?.(yaw, pitch, zoom);
+  }, [selected, contextRevision, renderRequested, yaw, pitch, zoom]);
 
   return (
     <section className="panel panel-pad" aria-labelledby="pg-station-3d-title">
@@ -606,51 +688,36 @@ export function PowerGridStation3DScene({ locale }: { locale: Locale }) {
                 : "Selectable 3D teaching model. It is not a surveyed site or installation design."}
         </p>
       </header>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "minmax(0,2fr) minmax(15rem,1fr)",
-          gap: "1rem",
-          alignItems: "start",
-        }}
-      >
+      <div className="pg-station-3d-layout">
         <div>
-          {unavailable ? (
+          {unavailable && (
             <div role="status" className="notice">
               <p>
                 {lang === "de"
-                  ? "3D-Ansicht nicht verfügbar. Die zugängliche Stationsschaltung oben bleibt verfügbar."
+                  ? "3D-Ansicht nicht verfügbar. Das zugängliche Stationsschema bleibt verfügbar."
                   : lang === "yo"
-                    ? "3D view kò sí. Schematic station tó ṣeé lò wà lókè."
+                    ? "3D view kò sí. Schematic station tó ṣeé lò ṣì wà."
                     : lang === "pcm"
-                      ? "3D view no dey available. Use the labelled station schematic above."
-                      : "3D view unavailable. Use the labelled station schematic above."}
+                      ? "3D view no dey available. Use the labelled station schematic."
+                      : "3D view unavailable. Use the labelled station schematic."}
               </p>
               {renderError && <small>{renderError}</small>}
             </div>
-          ) : (
-            <canvas
-              ref={canvasRef}
-              width={1000}
-              height={460}
-              aria-hidden="true"
-              style={{
-                display: "block",
-                width: "100%",
-                height: "auto",
-                borderRadius: "0.75rem",
-                background: "#0e1522",
-              }}
-            />
           )}
-          <fieldset
+          <canvas
+            ref={canvasRef}
+            width={1000}
+            height={460}
+            aria-hidden="true"
             style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit,minmax(12rem,1fr))",
-              gap: "0.6rem",
-              marginTop: "0.75rem",
+              display: unavailable ? "none" : "block",
+              width: "100%",
+              height: "auto",
+              borderRadius: "0.75rem",
+              background: "#0e1522",
             }}
-          >
+          />
+          <fieldset className="pg-station-camera">
             <legend>
               {lang === "de"
                 ? "Kamerasteuerung"
@@ -663,7 +730,14 @@ export function PowerGridStation3DScene({ locale }: { locale: Locale }) {
             <label>
               {lang === "de" ? "Azimut" : "Azimuth"}{" "}
               <input
-                aria-label="3D azimuth"
+                aria-label={
+                  {
+                    en: "3D azimuth",
+                    de: "3D-Azimut",
+                    yo: "Azimuth 3D",
+                    pcm: "3D azimuth",
+                  }[lang]
+                }
                 type="range"
                 min="-3.14"
                 max="3.14"
@@ -675,7 +749,14 @@ export function PowerGridStation3DScene({ locale }: { locale: Locale }) {
             <label>
               {lang === "de" ? "Neigung" : "Elevation"}{" "}
               <input
-                aria-label="3D elevation"
+                aria-label={
+                  {
+                    en: "3D elevation",
+                    de: "3D-Neigung",
+                    yo: "Ìtẹ̀sí 3D",
+                    pcm: "3D elevation",
+                  }[lang]
+                }
                 type="range"
                 min="-0.55"
                 max="0.75"
@@ -687,7 +768,14 @@ export function PowerGridStation3DScene({ locale }: { locale: Locale }) {
             <label>
               {lang === "de" ? "Zoom" : "Zoom"}{" "}
               <input
-                aria-label="3D zoom"
+                aria-label={
+                  {
+                    en: "3D zoom",
+                    de: "3D-Zoom",
+                    yo: "Ìsúnmọ́ 3D",
+                    pcm: "3D zoom",
+                  }[lang]
+                }
                 type="range"
                 min="0.7"
                 max="1.45"
@@ -717,15 +805,15 @@ export function PowerGridStation3DScene({ locale }: { locale: Locale }) {
                 key={asset.id}
                 type="button"
                 aria-pressed={selected === asset.id}
-                onClick={() => setSelected(asset.id)}
+                onClick={() => onSelect(asset.id)}
               >
                 {asset.label[lang]}
               </button>
             ))}
           </div>
           <article aria-live="polite" style={{ marginTop: "0.75rem" }}>
-            <h4>{selectedAsset.label[lang]}</h4>
-            <p>{selectedAsset.role[lang]}</p>
+            <h4>{selectedAsset.name}</h4>
+            <p>{selectedAsset.role}</p>
             <strong>
               {lang === "de"
                 ? "Anschlüsse und Grenzen"
@@ -735,7 +823,7 @@ export function PowerGridStation3DScene({ locale }: { locale: Locale }) {
                     ? "Terminals and limits"
                     : "Terminals and limits"}
             </strong>
-            <p>{selectedAsset.terminals[lang]}</p>
+            <p>{selectedAsset.terminals}</p>
           </article>
         </div>
       </div>

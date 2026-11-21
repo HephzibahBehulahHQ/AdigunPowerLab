@@ -47,6 +47,54 @@ const feeder: RadialNetworkInput = {
 };
 
 describe("POWERGRID balanced radial AC feeder", () => {
+  it("matches a closed-form two-bus AC solution with a constant P/Q load", () => {
+    const sourceKV = 11;
+    const resistance = 3;
+    const reactance = 4;
+    const loadMW = 2;
+    const loadMvar = 1;
+    // |Vs|² = |Vr|² + 2(RP + XQ) + |Z|²|S|² / |Vr|².
+    // Choose the high-voltage root of the quadratic in |Vr|².
+    const b = sourceKV ** 2 - 2 * (resistance * loadMW + reactance * loadMvar);
+    const sSquared = loadMW ** 2 + loadMvar ** 2;
+    const c = (resistance ** 2 + reactance ** 2) * sSquared;
+    const receivingKV = Math.sqrt((b + Math.sqrt(b ** 2 - 4 * c)) / 2);
+    const currentA =
+      (1000 * Math.sqrt(sSquared)) / (Math.sqrt(3) * receivingKV);
+    const result = solveRadialNetwork({
+      sourceBusId: "source",
+      sourceVoltageKV: sourceKV,
+      buses: [
+        { id: "source", loadMW: 0, loadMvar: 0 },
+        { id: "load", loadMW, loadMvar },
+      ],
+      branches: [
+        {
+          id: "line",
+          fromBusId: "source",
+          toBusId: "load",
+          resistanceOhm: resistance,
+          reactanceOhm: reactance,
+          inService: true,
+        },
+      ],
+      tolerancePU: 1e-10,
+    });
+    expect(result.status).toBe("converged");
+    expect(
+      result.buses.find((bus) => bus.busId === "load")?.voltageLLKV,
+    ).toBeCloseTo(receivingKV, 8);
+    expect(result.branches[0].currentA).toBeCloseTo(currentA, 7);
+    expect(result.sourceMW).toBeCloseTo(
+      loadMW + (3 * currentA ** 2 * resistance) / 1e6,
+      8,
+    );
+    expect(result.sourceMvar).toBeCloseTo(
+      loadMvar + (3 * currentA ** 2 * reactance) / 1e6,
+      8,
+    );
+  });
+
   it("safely recognizes persisted input shapes before validation", () => {
     expect(isRadialNetworkInput(feeder)).toBe(true);
     expect(isRadialNetworkInput({ ...feeder, buses: [null] })).toBe(false);

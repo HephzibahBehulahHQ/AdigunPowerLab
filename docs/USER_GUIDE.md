@@ -18,7 +18,7 @@ The station opens with a custom, wide hydro overview showing the dam and flowing
 
 The hydro station scene separates a physical powerhouse cutaway from the electrical single-line path. Select the reservoir, trash rack, intake gate, penstock, draft tube, Francis turbine, generator, generator step-up transformer, breaker, disconnector, earthing switch, CT/VT, surge arrester, busbar, control house, SCADA panel, overhead conductors, tower or station earth. The information panel explains each selected item and identifies its shown terminals or connections. Keyboard users can focus an item and press Enter or Space. On a narrow screen, scroll the drawing horizontally inside its own frame.
 
-Below the electrical drawings, the **Navigable power station and grid model** provides a separate perspective. Adjust **Azimuth**, **Elevation** and **Zoom**, then choose an equipment name to inspect its function and represented connections. The 3D view is simplified teaching geometry, not a surveyed site, installation design or measurement. If WebGL is unavailable, use the labeled station schematic above.
+Below the electrical drawings, the **Navigable power station and grid model** provides a separate perspective. Adjust **Azimuth**, **Elevation** and **Zoom**, then choose an equipment name to inspect its function and represented connections. The 3D view is simplified teaching geometry, not a surveyed site, installation design or measurement. If WebGL is unavailable, use the labeled station schematic.
 
 The gallery below the schematic pairs each station stage with an image and a practical equipment checklist. The generated images are training illustrations, not photographs of an identified plant. Use them to recognize typical equipment; use the interactive electrical schematic for connection details, and never approach or test energized equipment based on an illustration.
 
@@ -232,3 +232,99 @@ The curve is from Appendix D of [NREL/TP-6A20-67414](https://www.nrel.gov/docs/f
 Open the isolated lab from **POWERGRID LAB** in the top bar or by entering `#POWERGRID`. The **Microgrid dispatch laboratory** accepts aligned comma-separated wind-speed, solar-irradiance, total-demand and critical-demand values for equal-duration intervals. Enter PV array/inverter ratings, wind turbine count, duration, battery capacity, starting/reserve SOC, charge/discharge power and efficiencies, plus generic dispatchable backup capacity and its per-interval ramp-up ceiling. The table reports modelled PV/wind supply, battery action and SOC, backup, curtailment, served load and unmet critical/non-critical demand.
 
 Use **Save scenario locally** to keep this independent lab case in the current browser, **Export dispatch JSON** for inputs and full results, or **Export intervals CSV** for the actual row values. **Reset inputs** restores the classroom example. The lists must have matching lengths; fix all validation messages before saving/exporting. The example is illustrative, not measured site data. Backup is not a source-specific generator model. The calculation is an AC-bus balance; it does not solve network losses, export, fuel, cost, emissions or frequency response. See `POWERGRID_MODELS.md` for the exact equations and limitations.
+
+### Hydropower head and flow
+
+In POWERGRID LAB, enter net head after waterway losses, turbine flow, combined turbine-generator efficiency and installed electrical rating. Read the hydraulic power, conversion output and available generator power after the rating limit. Save the inputs in this browser or export the inputs and results as JSON.
+
+To include hydro in Microgrid dispatch, type one comma-separated turbine-flow value per demand interval, then enter net head, efficiency and rating. The interval table and both exports include available hydro power. Clear the flow profile to omit hydro.
+
+For reservoir hydro, also enter one inflow value per interval and set reservoir capacity, initial volume and environmental bypass. The model uses the entered turbine schedule. In reservoir mode, Hydro net head is the head at empty storage. Enter the extra head at full storage to interpolate linearly from the starting volume of each interval, or keep the rise at zero for fixed head. Inspect reservoir storage, spill and bypass shortage in the interval table. Exports also include actual turbine and bypass volumes.
+
+Set a positive pumped storage capacity in Microgrid dispatch. Enter initial hydraulic energy, pump and generator limits, and their efficiencies. The interval table and exports report pump input, recovered power, stored energy, and losses. This energy-equivalent model is separate from the natural-inflow reservoir water balance.
+
+[U.S. Department of Energy — Pumped storage hydropower](https://www.energy.gov/cmei/water/pumped-storage-hydropower)
+
+Set grid import and export limits and enter optional comma-separated outage intervals starting at 1. During these intervals the shared bus uses local resources and both grid flows are zero. The connection state and grid exchange appear in the interval table and exports; totals report imported and exported energy.
+
+Enter backup outage interval numbers independently of grid outages. The backup unit produces zero during an outage and resumes under the ramp-up limit from zero. Backup headroom is the unused output within the current interval limit, a planning metric that carries no spinning-reserve or response-time claim.
+
+Enable thermal backup to enter net heat rate in MJ of fuel per kWh of net electricity. Optionally enter a direct CO₂ factor in kg/GJ on the same heating-value basis. Fuel equals generated electrical energy times heat rate. Direct CO₂ equals fuel energy in GJ times the factor. See [EIA on heat rate](https://www.eia.gov/tools/faqs/faq.php?id=107).
+
+Enter startup fuel per start and optionally set initial fuel inventory in MJ. The model counts startup when generation rises from zero, includes it in total fuel and direct CO2, and consumes fuel only when the unit delivers power. An empty inventory field assumes unlimited fuel. A specified zero inventory supplies no power.
+
+In Microgrid dispatch, choose Load rural microgrid teaching scenario to replace the current form with six four-hour intervals for a fictional clinic and rural community. Edit the assumptions before saving or exporting. Loading the scenario leaves the previously saved dispatch inputs available until you save again.
+
+Open Germany: historical load and generation beside the regional presets. Compare one-hour MWh values for 18 June 2025 in CEST. The final column subtracts PV and both wind categories from reported load. Use Export historical JSON to retain the observations, time zone, source URLs and CC BY 4.0 attribution. The comparison uses national data and leaves dispatch inputs unchanged.
+
+Choose Load scaled German historical day inside Microgrid dispatch. The preset uses 24 one-hour intervals. Each 1,000 MWh reported during an hour becomes 1 kW of teaching power, and wind combines the two reported categories. Critical demand starts at 20% of scaled load as an editable assumption. Compare storage and backup behavior or export JSON with provenance.
+
+Select 22 January 2025 (CET) or 18 June 2025 (CEST) in the historical table. In dispatch, choose Load scaled German winter day for January or Load scaled German historical day for June. The two daily examples share the same scale and one-hour intervals.
+
+Select the reservoir, turbine, generator, step-up transformer or tower in the 3D scene to highlight shared equipment in the hydro drawings. Selecting it in a hydro drawing also updates the 3D inspector. The receiving transformer links the 3D and downstream views.
+
+On narrow screens, scroll down from the camera controls to the equipment buttons and inspector. Both remain available through the keyboard, including when the schematic substitutes for the WebGL view.
+
+In Meshed AC power flow, edit the load, generator or A–B transformer tap and phase shift. Open one branch to see a connected contingency. Isolating a bus stops the solve and disables export. The tables show voltages, net bus injections, and power entering each line end. The solver converts a PV bus to PQ at the first violated reactive limit and holds it there for the remainder of that solve.
+
+Choose Compare single branch outages in the meshed AC experiment. The comparison opens one currently active branch per case, using 0.95–1.05 pu for voltage screening and the greater line-end MVA against your entered rating. Export AC results includes the comparison while it is displayed.
+
+In Primary frequency response, start with the 50 Hz example and change aggregate inertia, generation loss, droop or reserve. Read the initial rate of change, the lowest modeled frequency and the final plotted sample. Export frequency trace includes the input assumptions and numeric samples. The chart ends early if the deviation crosses the 5% teaching model boundary.
+
+For the step-up transmission worksheet, add an optional experiment name and student notes before saving. Export lab report PDF captures the current worksheet, including the selected regional preset if available. The report contains the objective, voltage stages, entered power and resistance, calculated readings, loss comparison, equation, assumptions and notes.
+
+Use Import scenario JSON to preview an earlier transmission worksheet. Apply imported scenario replaces the editable inputs. Save experiment locally updates the saved browser copy. Version-1 exports restore electrical inputs, and version-2 exports also carry the name, notes and preset. Readings are recalculated from the validated inputs.
+
+For workspace recovery, save the transmission experiment and choose All local projects in Settings → Workspace backup & restore. The backup preview lists included transmission experiments. After restoring, open PowerGrid Lab and choose Show recovered experiments. Select a copy, review its inputs, and apply it when ready. Save experiment locally to make it the saved worksheet.
+
+Use Undo transmission edit and Redo transmission edit while the worksheet is open. The history includes ordinary inputs, notes, presets, applied imports and reset. It keeps up to 40 edits per open session. Editing after an undo clears the redo path. Closing the worksheet clears its edit history, and saving is a separate action.
+
+Open Saved transmission revisions to preview one of the last 20 saved versions. Apply a revision to the worksheet, then save it explicitly if you want it to become the new saved version. Saving unchanged inputs and metadata adds no revision. All-project backups include earlier revision contents as recoverable experiment copies.
+
+Choose Set comparison baseline before changing the transmission scenario. Duplicate transmission experiment appends a copy label to the working name and retains the inputs and notes. The comparison shows current minus baseline for power, both voltages, both currents, and both line losses. Export scenario JSON includes the baseline and differences while pinned. The open comparison lasts for the session. Save explicitly to retain the named variation as the current saved worksheet.
+
+In Radial feeder, choose Review active project demand. Inspect the project name, revision and the calculated active and reactive design power, then select the downstream group to replace. This uses a balanced constant-PQ equivalent of the project’s design load. Positive demand, valid AC loads and known reactive power are required. Save the lab if you want to keep the transfer. Solved scenario JSON retains the project ID, revision, engine version and capture time. Manually editing the group's active or reactive power clears its source attribution.
+
+In Microgrid dispatch, choose Review active project demand day and inspect the recurring hourly active demand. Apply recurring demand loads a 24-hour scenario with zero wind, solar irradiance and critical demand to start. Edit the remaining assumptions as needed. JSON includes the original hourly values and source project ID, revision, engine version and capture time. The profile represents a recurring day and excludes calendar exceptions and start events.
+
+In the installed production app, let the offline cache finish preparing while connected. You can then open **POWERGRID LAB** for the first time while offline and download the transmission comparison PDF.
+
+In **Practical lesson: Poor power factor**, predict how correcting power factor will affect line current and conductor loss. Reveal the worked reference, choose **Load or reset lesson inputs**, and pin the resulting case as the baseline. Set **Power factor** to 1, compare the readings, enter your interpretation in the transmission notes, and export the PDF. Loading or resetting the lesson updates the open transmission worksheet. Use Undo to recover your previous inputs.
+
+Open **Practical lesson: Transmission distance** beneath the radial feeder. Make a prediction and reveal the 5 km and 25 km reference results. Change the line length between 1 and 40 km to find where the receiving voltage falls below 10.45 kV. Add your interpretation and download the JSON report. The report includes both solved cases. Reset clears the interpretation and returns the length to 25 km.
+
+Under **Practical lesson: Feeder trip**, reset the radial training case and set a comparison reference. Open the main north feeder, then open the north lateral and reclose the main feeder. Compare the disconnected groups and unserved load after each switch change. Export the solved JSON to capture partial restoration and its reference, then reclose the lateral.
+
+In **Practical lesson: Transformer loading**, predict what happens to loss and efficiency when you double the apparent load. Reveal the 500 kVA reference and try 1,000 kVA, then a value above the nameplate rating. Compare two power factors at the same kVA. Download the JSON report to keep the current readings and the reference, or reset to 500 kVA at power factor 0.8.
+
+In **Microgrid dispatch laboratory**, load the midday solar lesson and raise the grid export limit from 0 to 10 kW. Compare grid export and curtailment in the first interval. Then load the evening peak lesson and vary the starting battery charge and power limit. Check battery discharge and unmet critical and noncritical load in the second interval. Use the lesson load button again to reset its inputs, or export the interval CSV or dispatch JSON to compare runs.
+
+In **Microgrid dispatch laboratory**, load **Generator outage**. Compare headroom before the trip, unmet demand in interval 2, and generator output on restart in interval 3. Export the run, clear **Backup outage intervals**, and export the uninterrupted case for comparison. Use the lesson load button again to restore the worked inputs.
+
+In **Practical lesson: Regional comparison**, reveal the reference and then double **Line resistance per phase** in the transmission worksheet. Compare each region's base and raised-voltage readings. Download the JSON to keep both cases and their source references. The lesson reset restores shared power, power factor and resistance.
+
+In **Capstone: Community supply design**, load the rural case and pin the reference. Try the 30 kW backup design, then simulate losing backup in interval 5. Compare critical energy unserved, explain which resource covers demand and which risk remains, and export **Dispatch JSON**. Export before leaving the worksheet to keep your justification and pinned reference with the solved data.
+
+In **Practical lesson: Microgrid operation**, load the rural operating case and reveal the worked result. Reduce the battery power limit and look for intervals with more backup generation or unmet demand. Download the microgrid operation report to compare the edited and reference runs. The lesson load button restores the reference inputs.
+
+At the top of POWERGRID LAB, use **Source to socket** to predict where voltage changes. Edit a worksheet voltage and trace it through the route and equipment diagrams. In **Why step up voltage?**, change the higher transmission voltage and compare current and loss. Enter your explanation in **Student notes** before exporting the lab report PDF. **Restore worked transmission inputs** resets the worksheet values while keeping your notes.
+
+In **Adigun BOT · Transmission worksheet**, preview a 10% increase and inspect the before/after values. Confirm to apply it, or cancel to keep editing. A worksheet edit or undo invalidates the open preview. Use **Undo transmission edit** to revert an applied proposal. **Export current lab report** downloads the current worksheet results.
+
+Select equipment in the station model and open **Explain selected station equipment** in the lab BOT. The explanation follows the station selection and describes the component's role and interfaces.
+
+In **Adigun BOT · Dispatch explanation**, select an interval and compare the deficit after renewables with the battery power limit and energy available above reserve. Check the supplied battery power and both unmet load readings. Edit the worksheet to see the explanation update for the selected interval.
+
+With **Compare single branch outages** enabled, changing the meshed case recomputes the comparison. Wait for the updated table before exporting. Turn comparison off to cancel it and export the base case alone.
+
+To include baseline readings and signed differences in the transmission PDF, pin the original worksheet before editing and then export the report. The PDF captures the comparison as it stood when you clicked Export.
+
+Open **POWERGRID LAB** at the far right of the top bar. With the launcher focused, press Enter to open the lab.
+
+If PowerLab shows **Save failed**, opening POWERGRID LAB and returning with browser Back keeps the customer draft available in the same tab. Use **Export project** in the save-failure alert to keep a recovery copy.
+
+Valid transmission edits are autosaved as a browser draft. When reopening the lab, choose **Restore transmission draft** or **Discard transmission draft** to resume autosave. Restore applies the draft to the worksheet and can be undone. Use **Save experiment locally** to update the named saved copy before creating a workspace backup.
+
+Scroll to the navigable station model to start its 3D renderer. You can use Tab and the arrow keys to move the camera controls. If WebGL is unavailable, use the equipment list and station schematic.
+
+Open **Compare with an ideal transformer** in the transformer loading lesson to compare the same load and rating with zero core and winding losses. Both cases are in the JSON report. At zero load the ideal efficiency is undefined.

@@ -1683,22 +1683,292 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Ó ń ṣí GitHub ní ojú ìwé tuntun. Ṣàyẹ̀wò ohun tí o pín; a kì í fi dátà iṣẹ́ tàbí oníbàárà ránṣẹ́ fúnra rẹ̀.",
       "Opens GitHub for new tab. Check wetin you share; project or customer data no dey send automatically.",
     ],
+  "In Microgrid dispatch, enter one optional hydro flow per demand interval, plus fixed net head, efficiency and rating. The available hydro output contributes to the shared power balance.":
+    [
+      "Geben Sie im Mikronetz je Lastintervall optional einen Wasserdurchfluss sowie konstante Nettofallhöhe, Wirkungsgrad und Nennleistung ein. Die verfügbare Wasserkraft fließt in die gemeinsame Leistungsbilanz ein.",
+      "Nínú Microgrid dispatch, tẹ ìṣàn omi kan fún àkókò ìbéèrè kọ̀ọ̀kan bí o bá fẹ́, pẹ̀lú gíga omi, ìmúṣẹ àti agbára orúkọ tí kò yí. Agbára omi tó wà wọ inú ìwọ̀ntúnwọ̀nsì agbára.",
+      "For Microgrid dispatch, enter one optional hydro flow for each demand interval, plus fixed net head, efficiency and rating. Di hydro power wey dey available join di common power balance.",
+    ],
+  "To model reservoir hydro, enter an inflow and requested turbine flow for each interval. Set storage capacity, starting volume and bypass flow, then inspect storage, spill and bypass shortfall.":
+    [
+      "Geben Sie für jedes Intervall Zufluss und gewünschten Turbinendurchfluss ein. Stellen Sie Kapazität, Anfangsvolumen und Bypassabfluss ein und prüfen Sie Speicherinhalt, Überlauf und Bypassdefizit.",
+      "Láti ṣàwòṣe agbára àdágún, tẹ omi tó wọlé àti ìṣàn turbine tí o fẹ́ fún àkókò kọ̀ọ̀kan. Ṣètò ìwọ̀n àdágún, omi ìbẹ̀rẹ̀ àti ìṣàn àyíká, kí o sì ṣàyẹ̀wò omi tó kù, omi tó ṣàn kọjá àti àìtó.",
+      "To model reservoir hydro, enter inflow and requested turbine flow for each interval. Set capacity, starting water and bypass flow, then check water wey remain, spill and bypass shortfall.",
+    ],
+  "Enter a head rise at full reservoir to model changing head. Each interval uses its starting fill fraction. Enter zero for fixed head.":
+    [
+      "Geben Sie die zusätzliche Fallhöhe bei vollem Speicher ein. Jedes Intervall nutzt den Füllstand zu seinem Beginn. Null ergibt eine konstante Fallhöhe.",
+      "Tẹ àfikún gíga omi nígbà tí àdágún kún. Àkókò kọ̀ọ̀kan lo ìkún omi ní ìbẹ̀rẹ̀ rẹ̀. Tẹ òdo kí gíga omi dúró ṣinṣin.",
+      "Enter extra head when reservoir full to model changing head. Each interval use how full am be when e start. Enter zero for fixed head.",
+    ],
+  "In Microgrid dispatch, enter a positive pumped storage capacity to use remaining renewable surplus for pumping and recover power before backup. Inspect pump input, generated power, stored hydraulic energy and losses.":
+    [
+      "Geben Sie im Mikronetz eine positive Pumpspeicherkapazität ein. Verbleibende erneuerbare Überschüsse treiben die Pumpe an. Der Speicher liefert Energie vor der Reserveerzeugung. Prüfen Sie Pumpenaufnahme, Erzeugung, hydraulischen Speicherinhalt und Verluste.",
+      "Nínú Microgrid dispatch, tẹ ìwọ̀n ìpamọ́ omi tó ju òdo lọ. Agbára tó ṣẹ́ kù ń ṣiṣẹ́ pump, omi ìpamọ́ sì ń ṣe iná ṣáájú backup. Ṣàyẹ̀wò agbára pump, ìṣẹ̀dá iná, agbára omi tí a pa mọ́ àti àdánù.",
+      "For Microgrid dispatch, enter pumped storage capacity wey pass zero. Renewable power wey remain run the pump, and storage supply power before backup. Check pump input, generated power, stored water energy and loss.",
+    ],
+  "Set grid import and export limits and optionally enter outage interval numbers. During an outage the microgrid relies on local resources. The interval table shows islanding, reconnection and grid exchange.":
+    [
+      "Stellen Sie Netzbezugs- und Einspeisegrenzen ein und geben Sie optional Ausfallintervalle an. Bei Netzausfall nutzt das Mikronetz lokale Ressourcen. Die Intervalltabelle zeigt Inselbetrieb, Wiederverbindung und Netzaustausch.",
+      "Ṣètò ààlà gbígba àti fífi agbára sí grid, kí o sì tẹ nọ́mbà àkókò ìdádúró bí o bá fẹ́. Nígbà ìdádúró, microgrid lo agbára inú rẹ̀. Tábìlì fi ìyapa, ìsopọ̀ padà àti ìpàṣípààrọ̀ grid hàn.",
+      "Set grid import and export limits and enter outage interval numbers if you want. During outage di microgrid use local power. Di table show when e disconnect, reconnect and exchange power.",
+    ],
+  "Enter backup outage intervals to make the backup generator unavailable. When it returns, it ramps from zero. Backup headroom is unused capacity within the interval ramp limit.":
+    [
+      "Geben Sie Intervalle ein, in denen das Reserveaggregat ausfällt. Beim Wiederanlauf beginnt seine Leistung bei null. Die verbleibende Reserveleistung liegt innerhalb der Hochfahrgrenze des Intervalls.",
+      "Tẹ àkókò tí generator backup kò sí. Nígbà tó padà, ó bẹ̀rẹ̀ láti òdo. Agbára backup tó kù wà lábẹ́ ààlà ìgbéga àkókò náà.",
+      "Enter backup outage intervals to take the generator out of service. When e return, e ramp from zero. Backup headroom na unused power inside the interval ramp limit.",
+    ],
+  "Enable thermal backup fuel use and enter the generator’s net heat rate. Enter a direct CO₂ factor on the same fuel heating-value basis to include direct combustion CO₂ in the results.":
+    [
+      "Aktivieren Sie die Berechnung des Brennstoffeinsatzes und geben Sie den Nettowärmeverbrauch des Generators ein. Verwenden Sie für direktes Verbrennungs-CO₂ einen CO₂-Faktor auf derselben Heizwertbasis.",
+      "Mú ìṣirò epo backup ṣiṣẹ́, kí o tẹ ooru epo generator fún ìṣẹ̀dá. Tẹ òṣùwọ̀n CO₂ lórí ìpìlẹ̀ iye ooru epo kan náà fún CO₂ ìjóná taara.",
+      "Turn on thermal backup fuel use and enter generator net heat rate. Enter direct CO₂ factor on the same fuel heat basis to include direct combustion CO₂.",
+    ],
+  "Enter startup fuel per start and an optional initial fuel inventory. With a finite inventory, the generator needs enough fuel to start and can only deliver as much power as the remaining fuel allows.":
+    [
+      "Geben Sie den Anfahrbrennstoff je Start und optional einen Anfangsvorrat ein. Bei begrenztem Vorrat braucht das Aggregat genügend Brennstoff zum Starten. Der Restvorrat begrenzt die Leistung.",
+      "Tẹ epo fún ìbẹ̀rẹ̀ kọ̀ọ̀kan àti ìpamọ́ epo ìbẹ̀rẹ̀ bí o bá fẹ́. Tí ìpamọ́ bá ní ààlà, generator nílò epo tó fún ìbẹ̀rẹ̀, epo tó kù sì fi ààlà sí agbára.",
+      "Enter startup fuel for each start and starting fuel inventory if you want. When fuel get limit, generator need enough to start and fuel wey remain limit the power.",
+    ],
+  "Load the rural microgrid teaching scenario to replace the current dispatch inputs with an editable 24-hour clinic and community example.":
+    [
+      "Laden Sie das ländliche Mikronetz-Lehrbeispiel, um die aktuellen Eingaben durch ein bearbeitbares 24-Stunden-Beispiel für Klinik und Gemeinde zu ersetzen.",
+      "Ṣí àpẹẹrẹ microgrid agbègbè ìgbèríko láti rọ́pò ìtẹ̀wọlé pẹ̀lú àpẹẹrẹ ilé ìwòsàn àti àwùjọ fún wákàtí 24 tí o lè ṣàtúnṣe.",
+      "Load di rural microgrid teaching scenario to replace current inputs with one editable 24-hour clinic and community example.",
+    ],
+  "Open Germany: historical load and generation to compare one day of national grid load, solar and wind from SMARD. Export JSON to retain timestamps, source links and license.":
+    [
+      "Öffnen Sie Deutschland: historische Last und Erzeugung, um einen Tag bundesweiter Netzlast, Photovoltaik und Wind aus SMARD zu vergleichen. Der JSON-Export enthält Zeitstempel, Quellen und Lizenz.",
+      "Ṣí Jámánì: ìbéèrè àti ìṣẹ̀dá iná àtijọ́ láti fi ọjọ́ kan ti ìbéèrè grid, oorun àti afẹ́fẹ́ SMARD wé. Gbé JSON jáde pẹ̀lú àkókò, orísun àti ìwé-àṣẹ.",
+      "Open Germany: past load and generation to compare one day of national grid load, solar and wind from SMARD. Export JSON to keep timestamps, source links and license.",
+    ],
+  "Load the scaled German historical day in Microgrid dispatch to use SMARD solar and wind observations as fixed hourly output. Demand and critical load remain editable, and JSON retains the original observations and scaling.":
+    [
+      "Laden Sie im Mikronetz den skalierten historischen Tag für Deutschland. Die SMARD-Solar- und Windwerte dienen als feste Stundenerzeugung. Last und kritische Last bleiben bearbeitbar. JSON enthält Originaldaten und Skalierung.",
+      "Ṣí ọjọ́ àtijọ́ Jámánì tí a dín ní ìwọ̀n nínú Microgrid dispatch. Àwọn iye oorun àti afẹ́fẹ́ SMARD dúró fún wákàtí kọ̀ọ̀kan. O lè ṣàtúnṣe ìbéèrè àti ìbéèrè pàtàkì. JSON pa iye àkọ́kọ́ àti ìwọ̀n mọ́.",
+      "Load scaled German historical day for Microgrid dispatch to use SMARD solar and wind as fixed hourly output. You fit edit demand and critical load, and JSON keep original values and scale.",
+    ],
+  "Switch between the January and June SMARD days to compare seasonal examples. Both dispatch presets use the same scale and one-hour intervals.":
+    [
+      "Wechseln Sie zwischen den SMARD-Tagen im Januar und Juni, um saisonale Beispiele zu vergleichen. Beide Dispatch-Vorgaben nutzen dieselbe Skalierung und Stundenintervalle.",
+      "Yí padà láàárín ọjọ́ SMARD Oṣù Kínní àti Oṣù Kẹfà láti fi àpẹẹrẹ àsìkò wé. Àpẹẹrẹ méjèèjì ní ìwọ̀n kan náà àti àárín wákàtí kan.",
+      "Switch between January and June SMARD days to compare seasonal examples. Both dispatch presets use the same scale and one-hour intervals.",
+    ],
+  "The 3D model shares selection with the hydro cutaway and single-line for the reservoir, turbine, generator, step-up transformer and tower. The receiving transformer also shares selection with the distribution diagram.":
+    [
+      "Das 3D-Modell teilt die Auswahl für Speicher, Turbine, Generator, Maschinentransformator und Freileitungsmast mit Wasserkraft-Schnitt und Einlinienschema. Der Empfangstransformator teilt seine Auswahl mit dem Verteilnetzschema.",
+      "Àwòṣe 3D pín yíyan àdágún, turbine, generator, transformer tó ń gbé foliteji sókè àti tower pẹ̀lú àwòrán hydro àti single-line. Receiving transformer tún pín yíyan pẹ̀lú àwòrán distribution.",
+      "Di 3D model share selection with hydro cutaway and single-line for reservoir, turbine, generator, step-up transformer and tower. Di receiving transformer share selection with distribution diagram too.",
+    ],
+  "On narrow screens, camera controls and the equipment inspector are stacked so both can be used without horizontal scrolling.":
+    [
+      "Auf schmalen Bildschirmen stehen Kamerasteuerung und Betriebsmittel-Inspektor untereinander und sind ohne horizontales Scrollen nutzbar.",
+      "Lórí ojú-ìbojú kékeré, ìṣàkóso camera àti àyẹ̀wò ẹ̀rọ wà lókè ara wọn kí o lè lò wọ́n láìyí sí ẹ̀gbẹ́.",
+      "For narrow screen, camera controls and equipment inspector dey one under the other so you fit use both without scrolling sideways.",
+    ],
+  "In Meshed AC power flow, edit the generator, load or A–B tap and open a branch to compare solved bus voltages and flows. The solver reports islands without a slack bus and shows when the generator reaches a reactive limit.":
+    [
+      "Ändern Sie im vermaschten AC-Lastfluss Generator, Last oder A–B-Stufe. Öffnen Sie einen Zweig, um Knotenspannungen und Flüsse zu vergleichen. Der Solver meldet Inseln ohne Referenzknoten und erreichte Blindleistungsgrenzen.",
+      "Nínú ìṣàn agbára AC onílupu, ṣàtúnṣe generator, ẹrù tàbí tap A–B, kí o sì ṣí ẹ̀ka kan láti fi foliteji àti ìṣàn wé. Ìṣirò fi erékùṣù tí kò ní slack bus àti ààlà reactive hàn.",
+      "For meshed AC power flow edit generator, load or A–B tap, then open branch to compare bus voltage and flow. Solver report island wey no get slack bus and show when generator reach reactive limit.",
+    ],
+  "Choose Compare single branch outages to open each active branch in turn. Compare the voltage band and apparent-power ratings, and inspect any islanded cases separately.":
+    [
+      "Wählen Sie Einzelne Zweigausfälle vergleichen, um jeden aktiven Zweig einzeln zu öffnen. Vergleichen Sie Spannungsband und Scheinleistungsgrenzen und prüfen Sie Inseln separat.",
+      "Yan Fi ìdádúró ẹ̀ka kọ̀ọ̀kan wé láti ṣí ẹ̀ka tó ń ṣiṣẹ́ lẹ́ẹ̀kan. Fi ààlà foliteji àti agbára S wé, kí o sì ṣàyẹ̀wò erékùṣù lọ́tọ̀.",
+      "Choose Compare single branch outages to open each active branch one by one. Compare voltage band and apparent power rating and inspect island cases separately.",
+    ],
+  "In Primary frequency response, vary inertia, droop, reserve and the size of a sudden generation loss. Compare the initial rate of change and lowest modeled frequency, or export the modeled trace.":
+    [
+      "Variieren Sie in der primären Frequenzregelung Trägheit, Statik, Reserve und Größe eines plötzlichen Erzeugungsausfalls. Vergleichen Sie anfänglichen Frequenzgradienten und Frequenzminimum oder exportieren Sie die Modellkurve.",
+      "Nínú ìdáhùn igbohunsafẹfẹ àkọ́kọ́, ṣàtúnṣe inertia, droop, ìpamọ́ àti bí ìpàdánù agbára lójijì ṣe tóbi. Fi ìyípadà ìbẹ̀rẹ̀ àti igbohunsafẹfẹ tó kéré jù wé tàbí gbé àwòrán jáde.",
+      "For primary frequency response, change inertia, droop, reserve and size of sudden generation loss. Compare starting rate and lowest modeled frequency or export the trace.",
+    ],
+  "Add optional student notes and export the transmission comparison as a lab report PDF. The report freezes the active inputs, calculated readings, formula and model assumptions.":
+    [
+      "Fügen Sie optional Notizen hinzu und exportieren Sie den Übertragungsvergleich als Laborbericht. Der PDF-Bericht hält Eingaben, berechnete Messwerte, Formel und Modellannahmen fest.",
+      "Fi àkọsílẹ̀ akẹ́kọ̀ọ́ kún un bí o bá fẹ́, kí o sì gbé àfiwé gbigbe jáde bí ìròyìn PDF. Ìròyìn pa ìtẹ̀wọlé, àbájáde, ìlànà ìṣirò àti àfojúsùn mọ́.",
+      "Add student notes if you want and export the transmission comparison as lab report PDF. The report keep current inputs, readings, formula and model assumptions together.",
+    ],
+  "Choose Import scenario JSON to preview a transmission experiment. Apply imports the name, notes and inputs into the worksheet. Save separately to replace the stored browser copy.":
+    [
+      "Wählen Sie Szenario-JSON importieren, um einen Übertragungsversuch vorab zu prüfen. Anwenden übernimmt Name, Notizen und Eingaben ins Arbeitsblatt. Speichern ersetzt separat die Browserkopie.",
+      "Yan Gbé JSON àpẹẹrẹ wọlé láti ṣàyẹ̀wò ìdánwò gbigbe. Lílò mú orúkọ, àkọsílẹ̀ àti ìtẹ̀wọlé sínú worksheet. Fi pamọ́ lọ́tọ̀ láti rọ́pò ẹ̀dà browser.",
+      "Choose Import scenario JSON to preview transmission experiment. Apply put name, notes and inputs for worksheet. Save separately to replace browser copy.",
+    ],
+  "An all-project workspace backup includes saved transmission experiments. After restoring a backup, choose Show recovered experiments in PowerGrid Lab to preview and apply a recovered copy.":
+    [
+      "Sicherungen aller Projekte enthalten gespeicherte Übertragungsversuche. Nach der Wiederherstellung können Sie in PowerGrid Lab wiederhergestellte Versuche anzeigen, prüfen und anwenden.",
+      "Ẹ̀dà ààbò gbogbo iṣẹ́ ní ìdánwò gbigbe tí a fi pamọ́. Lẹ́yìn ìdápadà, yan Fi ìdánwò tí a gba padà hàn nínú PowerGrid Lab láti ṣàyẹ̀wò àti lò ẹ̀dà.",
+      "All-project workspace backup include saved transmission experiments. After restore, choose Show recovered experiments for PowerGrid Lab to check and apply a copy.",
+    ],
+  "Use Undo transmission edit and Redo transmission edit to step through changes in the open worksheet, including imports and presets. Save separately to update the stored browser copy.":
+    [
+      "Verwenden Sie Rückgängig und Wiederholen für Änderungen am geöffneten Übertragungsversuch, einschließlich Importen und Vorgaben. Speichern Sie separat, um die Browserkopie zu aktualisieren.",
+      "Lo Dá àtúnṣe gbigbe padà àti Tún àtúnṣe gbigbe ṣe fún ìyípadà nínú worksheet tó ṣí, pẹ̀lú ìgbéwọlé àti preset. Fi pamọ́ lọ́tọ̀ láti tún ẹ̀dà browser ṣe.",
+      "Use Undo transmission edit and Redo transmission edit for changes in the open worksheet, including imports and presets. Save separately to update the browser copy.",
+    ],
+  "Open Saved transmission revisions to preview earlier explicit saves. Applying a revision updates the open worksheet. Save again to make that version the current browser copy.":
+    [
+      "Öffnen Sie Gespeicherte Übertragungsrevisionen, um frühere Sicherungen zu prüfen. Anwenden aktualisiert das geöffnete Arbeitsblatt. Speichern Sie erneut, um diese Version zur aktuellen Browserkopie zu machen.",
+      "Ṣí Àwọn àtúnṣe gbigbe tí a fi pamọ́ láti wo àwọn ẹ̀dà tó ti wà. Lílo ẹ̀dà yí worksheet tó ṣí padà. Fi pamọ́ lẹ́ẹ̀kan sí i kí ó di ẹ̀dà browser lọ́wọ́lọ́wọ́.",
+      "Open Saved transmission revisions to check earlier saves. Apply change the open worksheet. Save again to make that version the current browser copy.",
+    ],
+  "Set a comparison baseline before editing, or duplicate the transmission experiment to explore a named variation. The live comparison shows changes from the pinned baseline and is included in JSON export.":
+    [
+      "Setzen Sie vor dem Ändern eine Vergleichsbasis oder duplizieren Sie den Übertragungsversuch als benannte Variante. Der laufende Vergleich zeigt Abweichungen von der fixierten Basis und ist im JSON-Export enthalten.",
+      "Ṣètò ìpìlẹ̀ àfiwé ṣáájú àtúnṣe, tàbí ṣe ẹ̀dà ìdánwò gbigbe láti dán àyípadà onírúkọ wò. Àfiwé fi ìyípadà sí ìpìlẹ̀ hàn, ó sì wà nínú JSON.",
+      "Set comparison baseline before you edit, or duplicate transmission experiment to try one named version. Live comparison show changes from baseline and dey inside JSON export.",
+    ],
+  "In Radial feeder, review the active project’s calculated design demand and choose a downstream group. Applying the snapshot replaces only that group’s balanced load and includes the source project revision in the solved scenario JSON.":
+    [
+      "Prüfen Sie im radialen Abzweig die berechnete Auslegungslast des aktiven Projekts und wählen Sie eine nachgelagerte Gruppe. Anwenden ersetzt nur ihre symmetrische Last. Die Quellprojektrevision ist im JSON enthalten.",
+      "Nínú Radial feeder, ṣàyẹ̀wò ìbéèrè iṣẹ́ lọwọlọwọ kí o yan ẹgbẹ́ ní ìsàlẹ̀. Lílo rẹ̀ rọ́pò ẹrù ẹgbẹ́ yẹn nìkan, ó sì fi àtúnṣe iṣẹ́ orísun sínú JSON.",
+      "For Radial feeder review active project design demand and choose downstream group. Apply replace only that group balanced load and keep source project revision inside solved JSON.",
+    ],
+  "In Microgrid dispatch, review the active project’s recurring demand day before applying its 24 hourly loads. The dispatch JSON carries the original hourly profile and source revision.":
+    [
+      "Prüfen Sie im Mikronetz den wiederkehrenden Lasttag des aktiven Projekts, bevor Sie die 24 Stundenwerte anwenden. Das Dispatch-JSON enthält das ursprüngliche Stundenprofil und die Quellrevision.",
+      "Nínú Microgrid dispatch, ṣàyẹ̀wò ọjọ́ ìbéèrè iṣẹ́ lọwọlọwọ kí o tó lo iye wákàtí 24. JSON pa ìbéèrè wákàtí àkọ́kọ́ àti àtúnṣe orísun mọ́.",
+      "For Microgrid dispatch review active project recurring demand day before you apply the 24 hourly loads. The JSON keep original hourly profile and source revision.",
+    ],
+  "After the workspace finishes caching its files, you can open PowerGrid Lab and export a transmission report offline, even if the lab was never opened online.":
+    [
+      "Sobald der Arbeitsbereich seine Dateien zwischengespeichert hat, können Sie PowerGrid Lab offline öffnen und einen Übertragungsbericht exportieren, auch wenn das Labor zuvor nie online geöffnet wurde.",
+      "Lẹ́yìn tí workspace bá ti pa fáìlì rẹ̀ mọ́, o lè ṣí PowerGrid Lab àti gbé ìròyìn gbigbe jáde láìsí ìkànnì, bí o kò tilẹ̀ tíì ṣí i nígbà tí ìkànnì wà.",
+      "After workspace finish cache the files, you fit open PowerGrid Lab and export transmission report offline, even if you never open the lab online.",
+    ],
+  "In the poor power factor lesson, make a prediction, reveal the worked reference, and load the lesson inputs. Compare your readings after editing power factor, then record your interpretation in the transmission PDF.":
+    [
+      "Sagen Sie im Versuch zum niedrigen Leistungsfaktor das Ergebnis voraus, öffnen Sie das Referenzbeispiel und laden Sie die Versuchswerte. Vergleichen Sie die Werte nach Änderung des Leistungsfaktors und halten Sie Ihre Erklärung im Übertragungs-PDF fest.",
+      "Nínú ìdánwò ìpín agbára kékeré, sọ àsọtẹ́lẹ̀, ṣí àpẹẹrẹ ìṣírò, kí o sì gbé iye ìdánwò wọlé. Wé àwọn èsì lẹ́yìn yíyí ìpín agbára padà, kí o sì kọ ìtumọ̀ rẹ sínú PDF gbigbe.",
+      "For the low power factor lesson, predict wetin go happen, open the reference calculation and load the lesson values. Compare the readings after you change power factor, then write your explanation for the transmission PDF.",
+    ],
+  "In the transmission distance lesson, compare 5 km and 25 km, vary the length to find the receiving-voltage threshold, and download the calculation report.":
+    [
+      "Vergleichen Sie im Entfernungsversuch 5 km und 25 km, ändern Sie die Länge bis zur Spannungsgrenze am Empfangsende und laden Sie den Berechnungsbericht herunter.",
+      "Nínú ìdánwò ìjìnnà gbigbe iná, wé 5 km àti 25 km, yí gígùn padà láti rí ààlà fólítéèjì ìgbàwọlé, kí o sì gba ìròyìn ìṣírò.",
+      "For transmission distance lesson, compare 5 km and 25 km, change length to find where receiving voltage cross the limit, then download the calculation report.",
+    ],
+  "In the feeder trip lesson, reset the radial training case, set a comparison reference, and restore the north loads in stages. Export the solved JSON to record the current case and reference.":
+    [
+      "Setzen Sie im Abzweigversuch den radialen Übungsfall zurück, setzen Sie eine Vergleichsreferenz und versorgen Sie die Nordlasten schrittweise wieder. Exportieren Sie das JSON mit dem aktuellen Fall und der Referenz.",
+      "Nínú ìdánwò ẹ̀ka pinpin, dá àpẹẹrẹ radial padà, ṣètò ìfiwéra ìbẹ̀rẹ̀, kí o sì dá ẹrù àríwá padà ní ìpele. Gba JSON ìṣírò pẹ̀lú àpẹẹrẹ lọwọlọwọ àti ìfiwéra.",
+      "For feeder trip lesson, reset di radial training case, set comparison reference and restore di north loads step by step. Download solved JSON to keep di current case and reference.",
+    ],
+  "In the transformer loading lesson, change apparent load and power factor, compare losses and efficiency with the worked reference, and download the calculation report.":
+    [
+      "Ändern Sie im Transformatorversuch die Scheinlast und den Leistungsfaktor, vergleichen Sie Verluste und Wirkungsgrad mit dem Referenzbeispiel und laden Sie den Berechnungsbericht herunter.",
+      "Nínú ìdánwò transformer, yí apparent load àti power factor padà, wé àdánù àti ìmúṣẹ pẹ̀lú àpẹẹrẹ ìṣírò, kí o sì gba ìròyìn.",
+      "For transformer loading lesson, change apparent load and power factor, compare loss and efficiency with di worked example, then download di calculation report.",
+    ],
+  "Load the midday solar or evening peak lesson in microgrid dispatch. Change the export limit or battery settings, then compare the interval readings and export the results.":
+    [
+      "Laden Sie in der Mikronetzsimulation den Mittags- oder Abendversuch. Ändern Sie die Einspeisegrenze oder die Speichereinstellungen, vergleichen Sie die Intervallwerte und exportieren Sie die Ergebnisse.",
+      "Gbé àpẹẹrẹ oòrùn ọ̀sán tàbí ẹrù ìrọ̀lẹ́ wọlé nínú microgrid dispatch. Yí ààlà fífi agbára ránṣẹ́ tàbí ètò batiri padà, wé èsì wákàtí kọ̀ọ̀kan, kí o sì gbé èsì jáde.",
+      "Load midday solar or evening peak lesson for microgrid dispatch. Change export limit or battery settings, compare interval readings and download di results.",
+    ],
+  "Load the generator outage lesson in microgrid dispatch. Compare available backup and unmet loads during the trip, then clear the outage and export the comparison runs.":
+    [
+      "Laden Sie den Generatorausfallversuch in der Mikronetzsimulation. Vergleichen Sie verfügbare Reserve und ungedeckte Lasten während des Ausfalls, löschen Sie dann den Ausfall und exportieren Sie beide Vergleichsläufe.",
+      "Gbé àpẹẹrẹ ìdádúró generator wọlé nínú microgrid dispatch. Wé agbára afẹ́yinti àti ẹrù tí kò rí agbára nígbà ìdádúró, pa iye ìdádúró rẹ́, kí o sì gba èsì méjèèjì.",
+      "Load generator outage lesson for microgrid dispatch. Compare backup wey dey available and loads wey no get supply during trip, then clear di outage and download both runs.",
+    ],
+  "In the regional comparison lesson, change the shared transmission power, power factor or resistance. Compare both sourced voltage cases and download the calculation report.":
+    [
+      "Ändern Sie im Regionalvergleich die gemeinsame Wirkleistung, den Leistungsfaktor oder den Leitungswiderstand. Vergleichen Sie beide belegten Spannungsfälle und laden Sie den Berechnungsbericht herunter.",
+      "Nínú àfiwé agbègbè, yí agbára gbigbe, power factor tàbí ìdènà tí wọ́n jọ ń lò padà. Wé àpẹẹrẹ fólítéèjì méjèèjì, kí o sì gba ìròyìn ìṣírò.",
+      "For regional comparison, change di power, power factor or resistance wey both cases share. Compare di two sourced voltage cases and download di report.",
+    ],
+  "For the community capstone, load and pin the rural case, test your design during a backup outage, and export dispatch JSON with your justification.":
+    [
+      "Laden und fixieren Sie für die Gemeindeaufgabe den ländlichen Übungsfall, testen Sie Ihren Entwurf bei einem Generatorausfall und exportieren Sie das Dispatch-JSON mit Ihrer Begründung.",
+      "Fún ìdánwò ìparí àwùjọ, gbé àpẹẹrẹ abúlé wọlé kí o sì fi ṣe ìpìlẹ̀. Dán àpẹrẹ rẹ wò nígbà ìdádúró generator, kí o sì gba JSON pẹ̀lú ìdí rẹ.",
+      "For community capstone, load and pin di rural case, test your design when backup no dey, then download dispatch JSON with your reason.",
+    ],
+  "In the microgrid operation lesson, load the rural reference and change the battery power limit. Export the edited run and the worked reference together.":
+    [
+      "Laden Sie im Mikronetzversuch die ländliche Referenz und ändern Sie die Speicherleistungsgrenze. Exportieren Sie den bearbeiteten Lauf und die berechnete Referenz gemeinsam.",
+      "Nínú ìdánwò iṣẹ́ microgrid, gbé àpẹẹrẹ abúlé wọlé kí o sì yí ààlà agbára batiri padà. Gba èsì tí o ṣàtúnṣe pẹ̀lú àpẹẹrẹ ìṣírò.",
+      "For microgrid operation lesson, load di rural reference and change battery power limit. Download di edited run and worked reference together.",
+    ],
+  "For Source to socket and Why step up voltage, compare the worked cases, edit the transmission worksheet, and record your explanation in the lab report PDF.":
+    [
+      "Vergleichen Sie in den Versuchen zur Versorgungskette und Spannungserhöhung die berechneten Fälle, ändern Sie das Übertragungsblatt und halten Sie Ihre Erklärung im Labor-PDF fest.",
+      "Fún ìdánwò láti orísun dé ibi lílo àti ìdí gbígbé fólítéèjì sókè, wé àwọn àpẹẹrẹ ìṣírò, ṣàtúnṣe worksheet gbigbe, kí o sì kọ ìtumọ̀ rẹ sínú PDF.",
+      "For Source to socket and Why step up voltage, compare di worked cases, edit di transmission worksheet and write wetin you find for di lab report PDF.",
+    ],
+  "In the lab Adigun BOT panel, preview a higher transmission voltage before confirming it. Any intervening worksheet edit invalidates the preview. Undo restores the preceding worksheet state.":
+    [
+      "Prüfen Sie im Adigun-BOT-Bereich eine höhere Übertragungsspannung vor der Bestätigung. Jede zwischenzeitliche Änderung macht die Vorschau ungültig. Rückgängig stellt den vorherigen Zustand wieder her.",
+      "Nínú Adigun BOT, ṣàyẹ̀wò fólítéèjì gbigbe tó ga sí i kí o tó jẹ́rìí rẹ̀. Ìyípadà worksheet sọ àwòyẹ̀wò di asán. Undo dá worksheet padà sí ipò ṣáájú.",
+      "For lab Adigun BOT, preview higher transmission voltage before you confirm. Any worksheet change cancel di preview. Undo bring back di previous worksheet state.",
+    ],
+  "Use Explain selected station equipment in the lab BOT to read the function and interfaces of the active station component.":
+    [
+      "Öffnen Sie im Labor-BOT die Erklärung zum ausgewählten Betriebsmittel, um seine Funktion und Schnittstellen zu lesen.",
+      "Lo àlàyé ohun èlò tí a yàn nínú BOT ìdánwò láti ka iṣẹ́ àti àwọn ìsopọ̀ ohun èlò ibùdó.",
+      "Use Explain selected station equipment for lab BOT to read wetin di selected equipment do and where e connect.",
+    ],
+  "In the dispatch BOT, choose an interval to compare battery discharge limits with the power supplied and the unmet critical and noncritical demand.":
+    [
+      "Wählen Sie im Dispatch-BOT ein Intervall, um die Entladegrenzen mit der gelieferten Leistung und den ungedeckten kritischen und unkritischen Lasten zu vergleichen.",
+      "Nínú dispatch BOT, yan àkókò kan láti wé ààlà fífi agbára batiri jáde pẹ̀lú agbára tí a pèsè àti ẹrù pàtàkì àti mìíràn tí kò rí agbára.",
+      "For dispatch BOT, choose interval to compare battery discharge limits with power wey e supply and critical and other loads wey no get supply.",
+    ],
+  "In meshed AC power flow, outage comparison recalculates after an edit. Wait for the updated rows before exporting a comparison.":
+    [
+      "Der Ausfallvergleich im vermaschten AC-Lastfluss wird nach Änderungen neu berechnet. Warten Sie vor dem Export auf die aktualisierten Zeilen.",
+      "Nínú meshed AC power flow, ìfiwéra ìdádúró tún ṣe ìṣírò lẹ́yìn àtúnṣe. Dúró de èsì tuntun kí o tó gbé ìfiwéra jáde.",
+      "For meshed AC power flow, outage comparison calculate again after edits. Wait for di new rows before you download di comparison.",
+    ],
+  "Pin a transmission baseline before editing to include the named reference and signed changes in the lab report PDF.":
+    [
+      "Fixieren Sie vor dem Bearbeiten eine Übertragungsreferenz, um ihren Namen und die Änderungen mit Vorzeichen in den Laborbericht aufzunehmen.",
+      "Fi àpẹẹrẹ gbigbe ṣe ìpìlẹ̀ kí o tó ṣàtúnṣe, kí PDF ní orúkọ ìpìlẹ̀ àti ìyípadà pẹ̀lú àmì rere tàbí odi.",
+      "Pin transmission baseline before you edit so di lab report PDF go include di reference name and the plus or minus changes.",
+    ],
+  "Valid transmission edits autosave as a separate draft. After reopening the lab, restore or discard that draft before autosave resumes. Use Save experiment locally to update the named saved experiment.":
+    [
+      "Gültige Änderungen werden automatisch als separater Übertragungsentwurf gespeichert. Stellen Sie ihn nach dem Öffnen wieder her oder verwerfen Sie ihn, damit die automatische Speicherung fortgesetzt wird. Speichern Sie den Versuch ausdrücklich, um den benannten Stand zu aktualisieren.",
+      "A fi àtúnṣe gbigbe tó péye pamọ́ lọ́tọ̀ gẹ́gẹ́ bí àkọ́kọ́. Nígbà tí o bá tún ṣí yàrá náà, dá àkọ́kọ́ padà tàbí sọ ọ́ nù kí ìfipamọ́ lè tẹ̀síwájú. Fi ìdánwò pamọ́ fúnra rẹ láti mú ẹ̀dà orúkọ dọ́gba.",
+      "Valid transmission edits save by demself as separate draft. When you open lab again, restore or discard di draft before autosave continue. Use Save experiment locally to update di saved experiment name and values.",
+    ],
+  "Scroll to the 3D station model to start its renderer. Use the keyboard to adjust the camera or inspect equipment.":
+    [
+      "Scrollen Sie zum 3D-Stationsmodell, um die Darstellung zu starten. Kamera und Betriebsmittelauswahl lassen sich per Tastatur bedienen.",
+      "Yí ojú ìwé dé àwòrán ibùdó 3D láti bẹ̀rẹ̀ ìfihàn. Lo keyboard láti ṣàtúnṣe camera tàbí ṣàyẹ̀wò ohun èlò.",
+      "Scroll reach di 3D station model to start di view. Use keyboard to adjust camera or inspect equipment.",
+    ],
+  "Open the ideal transformer comparison to see how zero core and winding losses change efficiency at the same load. Both cases are included in the JSON report.":
+    [
+      "Öffnen Sie den Vergleich mit dem idealen Transformator, um den Wirkungsgrad ohne Eisen- und Wicklungsverluste bei gleicher Last zu sehen. Das JSON enthält beide Fälle.",
+      "Ṣí àfiwé transformer ideal láti rí bí àìsí àdánù core àti winding ṣe yí ìmúṣẹ padà ní ẹrù kan náà. JSON ní àpẹẹrẹ méjèèjì.",
+      "Open ideal transformer comparison to see efficiency if core and winding get zero loss for di same load. Both cases dey inside di JSON report.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",
     "POWERGRID LAB: Compare transmission voltage",
   ],
+  "In Hydropower head and flow, edit net head, turbine flow, combined efficiency and installed rating. Compare hydraulic power with available generator power, then save locally or export JSON.":
+    [
+      "Ändern Sie unter Wasserkraft: Fallhöhe und Durchfluss die Nettofallhöhe, den Turbinendurchfluss, den Gesamtwirkungsgrad und die Nennleistung. Vergleichen Sie die hydraulische mit der verfügbaren Generatorleistung. Speichern Sie lokal oder exportieren Sie JSON.",
+      "Nínú Agbára omi: gíga àti ìṣàn, ṣàtúnṣe gíga omi tó kù, ìṣàn turbine, ìmúṣẹ àpapọ̀ àti agbára orúkọ. Fi agbára omi wé agbára generator tó wà, kí o sì fi pamọ́ tàbí gbé JSON jáde.",
+      "For Hydropower head and water flow, change net head, turbine flow, combined efficiency and installed rating. Compare water power with generator power wey dey available, then save for this device or export JSON.",
+    ],
   "On Overview, scroll to PowerGrid learning for credited photos of a generator, substation and distribution transformer. Choose Play documentary video to start the cited facility footage; it is visual context, not live telemetry or a measurement. Use the links there to open the transmission-loss lab or feeder calculation.":
     [
       "Öffnen Sie Übersicht und scrollen Sie zum PowerGrid-Lernbereich. Die belegten Fotos zeigen einen Generator, ein Umspannwerk und einen Verteilungstransformator. Wählen Sie „Dokumentarvideo abspielen“, um das zitierte Anlagenvideo zu starten; es ist Anschauungsmaterial, keine Live-Telemetrie oder Messung. Über die Links öffnen Sie das Übertragungsverlustlabor oder die radiale Feeder-Berechnung.",
       "Lọ sí Overview kí o sì lọ sí PowerGrid learning section. Àwọn fọ́tò tó ní source record fi generator, substation àti distribution transformer hàn; tẹ Play documentary video láti bẹ̀rẹ̀ fídíò tó ní orísun. Fọ́tò àti fídíò jẹ́ visual reference, kì í ṣe ìwọ̀n tàbí telemetry lọ́wọ́lọ́wọ́. Lo àwọn link láti ṣí transmission-loss lab tàbí feeder calculation.",
       "Go Overview and scroll reach PowerGrid learning. Di credited photos show generator, substation and distribution transformer. Press Play documentary video to start the source-linked facility footage; na visual reference, no be live telemetry or measurement. Use the links to open transmission-loss lab or feeder calculation.",
     ],
-  "Below the electrical drawings, use the navigable power station and grid model. Adjust Azimuth, Elevation and Zoom, then choose an equipment name to inspect its function and represented connections. The 3D view is simplified teaching geometry, not a surveyed site or installation design. If WebGL is unavailable, the labeled station schematic above remains available.":
+  "Below the electrical drawings, use the navigable power station and grid model. Adjust Azimuth, Elevation and Zoom, then choose an equipment name to inspect its function and represented connections. The 3D view is simplified teaching geometry, not a surveyed site or installation design. If WebGL is unavailable, the labeled station schematic remains available.":
     [
-      "Unter den elektrischen Zeichnungen finden Sie das navigierbare Kraftwerks- und Netzmodell. Ändern Sie Azimut, Neigung und Zoom und wählen Sie dann ein Betriebsmittel aus, um Funktion und dargestellte Anschlüsse zu prüfen. Die 3D-Ansicht ist vereinfachte Lehrgeometrie, kein vermessener Standort oder Installationsentwurf. Falls WebGL nicht verfügbar ist, bleibt das beschriftete Stationsschema oben nutzbar.",
-      "Lábẹ́ àwọn àwòrán iná, lo 3D power station àti grid model tó ṣeé yí. Ṣàtúnṣe Azimuth, Elevation àti Zoom, lẹ́yìn náà yan orúkọ ẹ̀rọ láti mọ iṣẹ́ rẹ̀ àti asopọ̀ tí àwòṣe náà fi hàn. 3D náà jẹ́ àwòrán ẹ̀kọ́ tó rọrùn, kì í ṣe site survey tàbí installation design. Bí WebGL kò bá ṣiṣẹ́, schematic station tó ní àkọlé wà lókè.",
-      "Under di electrical drawings, use di navigable power station and grid model. Adjust Azimuth, Elevation and Zoom, then choose equipment name to inspect the work and connections wey the model show. Di 3D view na simplified teaching geometry, no be surveyed site or installation design. If WebGL no work, use di labelled station schematic above.",
+      "Unter den elektrischen Zeichnungen finden Sie das navigierbare Kraftwerks- und Netzmodell. Ändern Sie Azimut, Neigung und Zoom und wählen Sie dann ein Betriebsmittel aus, um Funktion und dargestellte Anschlüsse zu prüfen. Die 3D-Ansicht ist vereinfachte Lehrgeometrie, kein vermessener Standort oder Installationsentwurf. Falls WebGL nicht verfügbar ist, bleibt das beschriftete Stationsschema nutzbar.",
+      "Lábẹ́ àwọn àwòrán iná, lo 3D power station àti grid model tó ṣeé yí. Ṣàtúnṣe Azimuth, Elevation àti Zoom, lẹ́yìn náà yan orúkọ ẹ̀rọ láti mọ iṣẹ́ rẹ̀ àti asopọ̀ tí àwòṣe náà fi hàn. 3D náà jẹ́ àwòrán ẹ̀kọ́ tó rọrùn, kì í ṣe site survey tàbí installation design. Bí WebGL kò bá ṣiṣẹ́, schematic station tó ní àkọlé ṣì wà.",
+      "Under di electrical drawings, use di navigable power station and grid model. Adjust Azimuth, Elevation and Zoom, then choose equipment name to inspect the work and connections wey the model show. Di 3D view na simplified teaching geometry, no be surveyed site or installation design. If WebGL no work, use di labelled station schematic.",
     ],
   "Open the isolated PowerGrid lab, inspect a selectable hydro station cutaway and its terminals, trace separated three-phase, neutral and earth connections, compare transmission losses, solve a radial feeder, inspect outages, calculate instantaneous PV performance, save scenarios or export actual results.":
     [
@@ -1712,11 +1982,11 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Ṣí yàrá PowerGrid tó yà sọ́tọ̀, ṣàyẹ̀wò àwọn ẹ̀rọ ìṣẹ̀dá àti pípín tí a lè yan, fi ipadánù gbigbe wé, yanju radial feeder, ṣírò PV àti NREL reference-wind láti data tí a tẹ̀ wọlé, fi scenario pamọ́ tàbí export àbájáde.",
       "Open di separate PowerGrid lab, inspect generation and distribution equipment wey you fit select, compare transmission loss, solve radial feeder, calculate PV and NREL reference-wind performance from entered data, save scenarios or export real results.",
     ],
-  "Select POWERGRID LAB in the top bar or enter #POWERGRID in the address bar. The exact hash opens the lab directly; refresh keeps it open and browser Back/Forward follows route changes.":
+  "Select POWERGRID LAB at the right edge of the top bar or enter #POWERGRID in the address bar. The exact hash opens the lab directly; refresh keeps it open and browser Back/Forward follows route changes.":
     [
-      "Wählen Sie POWERGRID LAB in der oberen Leiste oder geben Sie #POWERGRID in die Adresszeile ein. Der genaue Hash öffnet das Labor direkt; Aktualisieren lässt es geöffnet, Zurück und Vorwärts folgen den Routenwechseln.",
-      "Yan POWERGRID LAB lókè tàbí tẹ #POWERGRID sínú àdírẹ́sì. Hash náà ṣí yàrá náà tààrà; refresh kò pa á, Back àti Forward sì ń tẹ̀lé ìyípadà ojú-ọ̀nà.",
-      "Select POWERGRID LAB for top bar or enter #POWERGRID for address bar. Exact hash opens di lab direct; refresh keeps am open, Back/Forward follows route changes.",
+      "Wählen Sie POWERGRID LAB ganz rechts in der oberen Leiste oder geben Sie #POWERGRID in die Adresszeile ein. Der genaue Hash öffnet das Labor direkt; Aktualisieren lässt es geöffnet, Zurück und Vorwärts folgen den Routenwechseln.",
+      "Yan POWERGRID LAB ní etí ọ̀tún ọ̀pá òkè tàbí tẹ #POWERGRID sínú àdírẹ́sì. Hash náà ṣí yàrá náà tààrà; refresh kò pa á, Back àti Forward sì ń tẹ̀lé ìyípadà ojú-ọ̀nà.",
+      "Select POWERGRID LAB for right edge of di top bar or enter #POWERGRID for address bar. Exact hash opens di lab direct; refresh keeps am open, Back/Forward follows route changes.",
     ],
   "Scroll to the hydro station cutaway. Select Reservoir, trash rack, intake gate, penstock, draft tube, turbine, generator, transformer, control house/SCADA, breaker, disconnector, CT/VT, surge arrester, busbar, tower, conductors or earth grid. The inspection card names the equipment, explains its job and identifies its shown terminals. Keyboard users can Tab to a device and press Enter or Space.":
     [

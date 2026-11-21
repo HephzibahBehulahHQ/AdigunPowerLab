@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { createLoad, createProject } from "../src/domain/project";
+import { DEFAULT_POWERGRID_INPUTS } from "../src/engine/powergrid";
+import { packPowerGridScenario } from "../src/import-export/powergridScenario";
 import {
   canonicalArchiveJson,
   sealWorkspaceArchive,
@@ -16,6 +18,25 @@ const entry = (): ArchivedProject => ({
 });
 
 describe("portable workspace backup validation", () => {
+  it("authenticates and validates transmission scenarios independently of projects", async () => {
+    const scenario = packPowerGridScenario({
+      inputs: DEFAULT_POWERGRID_INPUTS,
+      name: "Saved transmission",
+      notes: "Original",
+    });
+    const archive = await sealWorkspaceArchive([], [], undefined, [scenario]);
+    expect(
+      (await validateWorkspaceArchive(archive)).counts.powergridTransmission,
+    ).toBe(1);
+    archive.powergridTransmission![0].notes = "Tampered";
+    expect((await validateWorkspaceArchive(archive)).errors.join(" ")).toMatch(
+      /integrity/,
+    );
+    const invalid = await sealWorkspaceArchive([], [], undefined, [
+      { ...scenario, inputs: { ...scenario.inputs, powerFactor: 3 } },
+    ]);
+    expect((await validateWorkspaceArchive(invalid)).valid).toBe(false);
+  });
   it("round-trips current records, trash, history, working drafts, equipment templates and observed CSV", async () => {
     const first = entry();
     first.project.equipmentLibrary = [

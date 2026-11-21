@@ -72,3 +72,34 @@ This is not a feeder/network solution. Feeder and transformer losses, imports/ex
 ## Visual station model boundary
 
 The navigable WebGL station model uses original simplified meshes to teach relative equipment placement from reservoir through a hydro unit, step-up transformer, switchyard, transmission tower, receiving transformer, home and industry. It has no geographic scale, asset survey, equipment nameplate values or solved electrical state. Phase conductor colours are illustrative; transmission neutrals vary by network and are not implied by every line. Use the detailed hydro cutaway for connection and terminal explanations. WebGL availability is feature-detected and the station schematic remains available when it cannot render.
+
+## Independent two-bus check and frequency step refinement
+
+For a balanced two-bus line with fixed receiving load P + jQ, the sending and receiving magnitudes satisfy |Vs|² = |Vr|² + 2(RP + XQ) + (R² + X²)(P² + Q²)/|Vr|². With line-to-line kV, total three-phase MW/Mvar and per-phase ohms, the higher-voltage root gives the reference receiving voltage. The fixture also checks line current and sending-end P/Q against conductor losses.
+
+The aggregate frequency lesson uses fourth-order Runge–Kutta with a default maximum step of 0.01 s. The numerical verification compares the same four-second disturbance at 0.01 and 0.005 s, including nadir magnitude, time and ending frequency. The refinement setting is an engine verification input; the classroom control defaults are unchanged.
+
+## Transformer loading comparison
+
+The fixed-voltage lesson compares a lossless transformer with a 1,000 kVA teaching unit at the same output load and power factor. The lossy case adds 2 kW of core loss and 10 kW times the square of the loading ratio. Input real power equals output plus losses. Ideal no-load efficiency is undefined because both powers are zero. The nameplate check uses the apparent load and remains independent of efficiency.
+
+## Generation catalogue implementation matrix
+
+| Owner specification entry | Current PowerGrid candidate |
+| --- | --- |
+| Reservoir hydro and run-of-river hydro | Head/flow/rating calculation, optional reservoir water balance and chronological dispatch. |
+| Pumped storage | Chronological pumping and generation with capacity, power limits and directional efficiencies. |
+| Solar PV | Irradiance, cell temperature, DC/AC conversion and clipping. |
+| Concentrated solar thermal | Source-specific solver remains open. |
+| Onshore and offshore wind | One attributed NREL offshore reference turbine curve. Separate onshore and offshore resource or turbine selection remains open. |
+| Coal steam | Source catalogue entry remains open. |
+| Gas turbines and combined cycle | Combined-cycle equipment study. Gas-specific performance and dispatch remain open. |
+| Nuclear steam | Source catalogue entry remains open. |
+| Diesel and other liquid fuel | Generic thermal backup supports entered heat rate, startup fuel and fuel inventory. A liquid-fuel asset-specific curve remains open. |
+| Biomass and biogas | Source catalogue entry remains open. |
+| Geothermal | Source catalogue entry remains open. |
+| Tidal and wave | Source catalogue entry remains open. |
+| Battery storage | Chronological SOC, reserve, charge/discharge limits and directional efficiencies. |
+| Hydrogen and fuel cell | Source catalogue entry remains open. |
+
+The thermal backup model exposes user-entered heat rate and optional direct emissions. Fuel costs and source-specific minimum stable generation are outside the current calculation.

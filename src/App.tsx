@@ -107,7 +107,6 @@ import type {
 import { Modal, Field, Notice, ResizeHandle } from "./features/ui";
 import { LoadEditor } from "./features/LoadEditor";
 import { HelpSupport } from "./features/HelpSupport";
-import { PowerGridLab } from "./features/PowerGridLab";
 import { searchHelp } from "./help/content";
 import {
   DetailModeControl,
@@ -158,6 +157,11 @@ import { resetBotWindowState } from "./bot/windowState";
 const ReportWorkspace = lazy(() =>
   import("./features/ReportWorkspace").then((module) => ({
     default: module.ReportWorkspace,
+  })),
+);
+const PowerGridLab = lazy(() =>
+  import("./features/PowerGridLab").then((module) => ({
+    default: module.PowerGridLab,
   })),
 );
 const Billing = lazy(() =>
@@ -1277,15 +1281,6 @@ export default function App() {
             <span>{t("Search")}</span>
             <kbd>⌘ K</kbd>
           </button>
-          <button
-            className="powergrid-entry"
-            onClick={() => go("powergrid")}
-            aria-current={route === "powergrid" ? "page" : undefined}
-          >
-            <Zap size={15} aria-hidden="true" />
-            <span>POWERGRID LAB</span>
-            <span aria-hidden="true">→</span>
-          </button>
           <select
             className="language-select"
             aria-label={t("Language")}
@@ -1304,6 +1299,15 @@ export default function App() {
             onClick={() => go("settings")}
           >
             <Settings2 size={18} />
+          </button>
+          <button
+            className="powergrid-entry"
+            onClick={() => go("powergrid")}
+            aria-current={route === "powergrid" ? "page" : undefined}
+          >
+            <Zap size={15} aria-hidden="true" />
+            <span>POWERGRID LAB</span>
+            <span aria-hidden="true">→</span>
           </button>
         </header>
         <aside className="sidebar">
@@ -1643,7 +1647,18 @@ export default function App() {
                 </p>
               )}
               {route === "powergrid" ? (
-                <PowerGridLab />
+                <Suspense
+                  fallback={
+                    <div className="loading" role="status">
+                      <LoaderCircle className="spin" aria-hidden="true" />
+                      {t("Loading PowerGrid Lab…")}
+                    </div>
+                  }
+                >
+                  <PowerGridLab
+                    activeDemand={loaded ? { project, result } : undefined}
+                  />
+                </Suspense>
               ) : !loaded ? (
                 <div className="loading">
                   <LoaderCircle className="spin" />

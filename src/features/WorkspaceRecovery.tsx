@@ -169,6 +169,13 @@ export function WorkspaceRecovery({
           "Includes the current engineering draft and open billing drafts. Preview and save measured-data drafts before making the backup.",
         )}
       </p>
+      {scope === "all" && (
+        <p className="small muted">
+          {t(
+            "All-project backups include saved PowerGrid transmission experiments.",
+          )}
+        </p>
+      )}
       <div className="button-row">
         <button
           className="button primary"
@@ -257,6 +264,26 @@ export function WorkspaceRecovery({
                   </tbody>
                 </table>
               </div>
+              {preview.counts.powergridTransmission > 0 && (
+                <>
+                  <h4>{t("PowerGrid transmission experiments")}</h4>
+                  <p>
+                    {t(
+                      "Restore adds separate experiment copies. Open PowerGrid Lab to preview and apply a copy.",
+                    )}
+                  </p>
+                  <ul>
+                    {preview.archive!.powergridTransmission?.map(
+                      (scenario, index) => (
+                        <li key={index}>
+                          {scenario.name ||
+                            t("Unnamed transmission experiment")}
+                        </li>
+                      ),
+                    )}
+                  </ul>
+                </>
+              )}
               {preview.warnings.length > 0 && (
                 <ul>
                   {preview.warnings.map((item, index) => (
@@ -305,7 +332,8 @@ export function WorkspaceRecovery({
                   disabled={
                     busy ||
                     (!preview.counts.projects &&
-                      !preview.counts.recoveryRecords)
+                      !preview.counts.recoveryRecords &&
+                      !preview.counts.powergridTransmission)
                   }
                   onClick={() => void restore()}
                 >

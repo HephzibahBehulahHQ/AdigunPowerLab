@@ -266,3 +266,107 @@ PR [#110](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/110) merged 
 ## Navigable PowerGrid station model — candidate (16 November 2026)
 
 A separate WebGL view now assembles original three-dimensional educational geometry for the dam/reservoir, penstock, turbine, synchronous generator, step-up transformer, switchyard, lattice tower, receiving transformer, house and industry. Learners can change camera azimuth/elevation/zoom and select localized equipment descriptions with terminal and phase-boundary notes. A schematic fallback remains available when WebGL cannot initialize. This is not site-survey geometry or electrical simulation. The existing hydro SVG remains the detailed terminal/wiring view; cross-view selection and performance measurements still need work. Candidate verification is pending.
+
+## POWERGRID Milestone 3 — head-and-flow worksheet candidate (21 November 2026)
+
+The spatial selection work shipped in PR #110 and the navigable teaching station scene followed in PR #112. Added a steady-state hydropower worksheet with four-locale guidance, local save and source-labelled JSON export. Reservoir scheduling and further source-specific dispatch models remain open.
+
+The candidate also integrates optional entered hydro flow into chronological microgrid dispatch. It calculates hydro availability at fixed net head, applies the installed rating limit and includes the result in the shared energy balance and interval exports.
+
+Reservoir hydro now adds a bounded water balance to this candidate. Bypass is allocated first, then requested turbine flow is limited by water and rated output. The model reports spill, remaining water and unmet bypass.
+
+Reservoir hydro also supports a linear head rise with interval-start volume. Zero rise preserves fixed head. JSON and CSV retain the net head used for each reservoir interval.
+
+The candidate now includes optional pumped storage with separate pump and generation ratings, hydraulic energy capacity, and conversion efficiencies. It pumps from surplus after the battery and supplies residual load before backup.
+
+The candidate now models capped grid import/export and interval-indexed outages. Storage acts first, grid imports precede backup, and grid exchange resumes on the next connected interval.
+
+The candidate also supports backup-generator outage intervals and restart from zero output. Dispatch reports in-service state and unused capacity within the current ramp limit.
+
+Thermal backup can now account for fuel energy at an entered net heat rate and optional direct combustion CO₂. The model uses actual interval generation and does not change the dispatch priority.
+
+Thermal backup now supports startup fuel and optional finite fuel inventory. Fuel availability caps generation and backup headroom, and the interval exports report startup consumption and remaining fuel.
+
+The candidate now includes an editable rural clinic and community dispatch day. Six four-hour intervals illustrate solar variation, evening demand, storage and critical loads.
+
+Added a historical Germany comparison day with hourly SMARD grid load, solar, onshore and offshore wind, and derived residual load. The reference is available locally and exported with attribution.
+
+SMARD observations now drive a scaled dispatch scenario with fixed hourly solar and wind and editable demand and equipment. JSON preserves the source day, attribution, license, scaling and illustrative critical-demand assumption.
+
+The German historical comparison now includes 22 January 2025 as a winter example alongside the June day. Both can drive dispatch at the same scale, with original local offsets and provenance retained.
+
+Milestone 4 now shares selection between the 3D scene, hydro cutaway, hydro single-line and downstream diagram for equipment represented in both views. Equipment with no shared representation keeps its own inspector.
+
+Milestone 4 camera changes now reuse WebGL shaders and geometry. The model handles context loss and restoration, and equipment inspection remains accessible if rendering is unavailable.
+
+On phone-width screens the 3D camera and equipment inspector now stack vertically. Camera sliders have localized accessible names.
+
+Milestone 5 has a separate balanced meshed AC solver and editable three-bus experiment. It supports slack/PV/PQ buses, series impedance, charging, transformer ratios and phase shifts, and bounded convergence with island checks.
+
+Milestone 5 now runs one outage per in-service branch and compares each result with the AC base case. The comparison reports voltage and apparent-power limit violations separately from islanding and solver failures.
+
+The meshed solver reproduced MATPOWER 8.1’s independently published nine-bus AC solution. All bus voltages and angles and both-end branch P/Q flows were checked. Inputs, solution hashes and maximum deviations are recorded in the test evidence.
+
+Milestone 5 now also includes an aggregate primary-frequency lesson for a generation-loss step. Learners can edit inertia, damping, reserve, and droop response and export the integrated trace.
+
+Milestone 6 now includes a downloadable PDF for the transmission-voltage comparison. It snapshots current inputs and observations at export time, renders the schematic and loss comparison, and includes optional student notes.
+
+The transmission experiment now saves its name, notes and selected preset. Versioned JSON import validates and previews inputs, then applies only after confirmation. Older version-1 JSON and existing browser saves remain readable.
+
+All-project workspace backups now include saved transmission experiments and recovered copies. Restoring stores the experiments separately in the workspace transaction. PowerGrid Lab can preview and apply a recovered copy without automatically replacing the saved worksheet.
+
+The transmission worksheet now supports undo and redo for up to 40 edit states while open, including whole-scenario imports and resets. The explicit saved snapshot remains separate.
+
+Explicit transmission saves now retain up to 20 earlier distinct save states. Users can preview these revisions after reload, and an all-project workspace backup includes their scenario contents for recovery as separate lab copies.
+
+Transmission now supports duplicating the open experiment as a named working copy and pinning a baseline before editing. The comparison updates with valid inputs and includes signed changes in scenario JSON.
+
+The radial feeder can now consume a reviewed snapshot of the active project's balanced design P and Q. The selected lab group records the source project ID, revision, calculation engine, and capture time. The source project stays unchanged.
+
+Microgrid dispatch also accepts a reviewed 24-hour recurring-day active demand snapshot. The JSON retains the original hourly demand and provenance alongside the editable dispatch inputs.
+
+PowerGrid Lab now loads on entry to #POWERGRID. Local production checks at the root and repository base path confirmed the first lab visit after going offline, a valid transmission PDF download, and a decoded hydro image. The service worker now emits portable precache paths. The production bootstrap is 814 kB (246 kB gzip), with a separate 318 kB lab module (93 kB gzip). Hosted validation and the structured practical curriculum remain open.
+
+The first structured practical lesson covers poor power factor. It adds a prediction, balanced-model assumptions, a worked comparison, and a resettable case in the existing transmission worksheet. The workbook supports baseline comparison, student notes and report export. The rest of the structured curriculum remains open.
+
+The transmission-distance lesson now uses the balanced radial AC solver with an adjustable 1–40 km two-bus line. It compares the receiving voltage and real loss with a 5 km reference, and exports both solved cases and the student's interpretation.
+
+The feeder-trip lesson now walks learners through a full north feeder outage and staged restoration in the existing radial worksheet. Solved JSON includes the pinned pre-trip reference when one is available.
+
+The transformer-loading lesson compares apparent loading, loss and efficiency against a worked half-load case. Students can vary apparent load and power factor, observe the nameplate warning and export the reference plus current calculation.
+
+The midday solar and evening peak lessons now load separate two-hour teaching cases into microgrid dispatch. They cover charging, curtailment, grid export, critical-load priority and battery support during the evening deficit.
+
+The generator-outage lesson now provides a three-interval dispatch case with battery support, a backup trip, and a ramp-limited restart. Students can compare the outage with uninterrupted operation and export either run.
+
+The regional comparison lesson solves both sourced voltage presets against the same editable transmission inputs. It displays both cases side by side and exports the worked reference and current results with preset provenance.
+
+The community capstone now lets students load the rural teaching day, pin a dispatch reference, stress-test an editable supply design, and export the current run, pinned inputs and results, and design justification together.
+
+The microgrid operation lesson now shows a solved rural reference, prompts learners to change the battery power limit and interpret backup and unserved demand, and downloads the edited run alongside the reference.
+
+Source to socket and Why step up voltage now have guided practical lessons with worked references and interpretation prompts tied to the live transmission worksheet and PDF. The full lab still needs release qualification against the owner specification.
+
+The lab now has a deterministic Adigun BOT panel for transmission. It explains line loss, summarizes current readings, offers PDF export and previews a 10% voltage increase until confirmed. The worksheet reducer rejects stale revisions and records confirmed changes in undo history. Broader BOT lesson and asset contexts remain open.
+
+The lab BOT now explains the selected station asset using the same localized function and interface descriptions as the station inspector. Synchronized selection changes from the cutaway or distribution view also update this explanation.
+
+The dispatch BOT now explains the selected solved interval. It shows the renewable deficit, the battery power and reserve-adjusted energy limits, actual discharge and remaining unmet critical and noncritical load. The JSON includes the solver's interval battery energy limit.
+
+Meshed AC branch-outage comparisons now run in a dedicated worker. Editing the case, disabling comparison or leaving the lab cancels obsolete work. Results and comparison exports stay tied to the active solved case.
+
+The transmission PDF snapshot now includes the pinned worksheet name, baseline readings, current readings and signed differences. The comparison is frozen before the PDF module loads.
+
+The POWERGRID LAB launcher is the final top-bar control. The qualification checks now cover right-edge placement and keyboard entry at desktop, tablet and phone widths, plus header geometry while Search is open.
+
+The draft now has direct browser coverage for entering and leaving POWERGRID LAB after an engineering-project save failure. The curriculum guide indexes all 12 requested lesson workflows and their reports.
+
+Valid transmission edits now autosave to a separate browser draft. On reopening, students can restore or discard it. Invalid input keeps the last valid draft, and restoration uses the existing worksheet undo history.
+
+The station WebGL renderer now starts near the viewport. The lab can present earlier lesson content without allocating station buffers. Once initialized, camera updates reuse those buffers, and the equipment inspector remains available on fallback.
+
+Independent numerical verification now includes a closed-form two-bus AC case and a time-step refinement check for the frequency lesson.
+
+The transformer lesson now compares the ideal and lossy cases at the same apparent load, with both results in the JSON export. An independent fixture covers real-power balance, no-load core loss and the nameplate threshold.
+
+The production update smoke fixture now checks file containment using native path semantics. Windows root and repository-base update and offline checks passed against the transformer-comparison build. The source catalogue implementation matrix records supported models and remaining entries.

@@ -19,7 +19,7 @@ The diagram uses a sourced, representative hydro process sequence and an explici
 4. Change PF or conductor resistance and observe the revised comparison.
 5. Save the experiment locally or export the displayed inputs and calculated values as JSON or CSV.
 
-Discuss the assumptions before interpreting the comparison: balanced three-phase, fixed transmitted active power/PF and equal per-phase resistance, ideal transformers, no downstream losses or network load-flow solution. Later lessons listed in `POWER GRID PROMPT.md` are not represented as available features until delivered.
+Discuss the assumptions before interpreting the comparison: balanced three-phase, fixed transmitted active power/PF and equal per-phase resistance, ideal transformers, no downstream losses or network load-flow solution. See the practical curriculum table below for the additional lessons.
 
 ## Lesson 2 — Radial feeder voltage and outages
 
@@ -48,7 +48,7 @@ The cell-temperature and DC equations reference Sandia PVPMC and the NREL PVWatt
 3. Select the Germany-inspired 50Hertz-area example and review its 380/220/110 kV levels, cited 0.4 kV consumer service, and illustrative 20 kV within the 15–30 kV range. Apply it and observe the supported fields update while preserving generator voltage.
 4. Explain why frequency is shown as context only and why no country-specific resource, weather or demand profile is implied.
 
-These are sourced educational contexts, not complete national operational grids. Other regions, rural microgrid profiles and user-defined custom systems remain future work.
+These are sourced educational contexts, not complete national operational grids. The rural microgrid case uses its own illustrative profile.
 
 ## Lesson 4 — Wind speed and reference-turbine output
 
@@ -68,3 +68,22 @@ The curve is the NREL 6 MW research reference turbine from report NREL/TP-6A20-6
 5. Compare per-interval SOC, curtailment, served energy, critical and non-critical unserved demand, and balance residual. Save locally, reload the page, and export the JSON case and CSV interval table.
 
 The source equations are the existing PV worksheet and NREL 6 MW wind curve; no measured weather or demand is bundled. Backup is a generic capacity bound, not a diesel/gas/thermal asset model. This AC-bus lesson excludes feeder and transformer losses, exports, fuel, costs, emissions, outages and frequency response. A zero balance residual confirms arithmetic at the modeled boundary only.
+
+## Initial practical curriculum in #POWERGRID
+
+| Experiment | Worked case and student action | Report |
+| --- | --- | --- |
+| Source to socket | Trace 11 / 330 / 33 / 0.4 kV, edit a stage and explain the affected transformer. | Transmission PDF with schematic and notes |
+| Why step up voltage? | Predict the result at 132 versus 330 kV, then vary the raised voltage at fixed real power. | Transmission PDF |
+| Transmission distance | Compare 5 and 25 km at fixed load, then find where receiving voltage first falls below the limit. | Distance JSON with both AC solutions and interpretation |
+| Poor power factor | Compare power factors 0.8 and 1, pin a baseline and explain changes in current and loss. | Transmission PDF or scenario JSON |
+| Transformer loading | Compare half load and rated load, then exceed the nameplate and vary power factor. | Transformer JSON |
+| Solar at midday | Follow PV power into load and charging, then replace curtailment with export. | Dispatch JSON or interval CSV |
+| Evening peak | Evaluate battery support for critical demand and vary both starting charge and power. | Dispatch JSON or interval CSV |
+| Generator outage | Compare a trip and ramp-limited restart with uninterrupted operation. | Dispatch JSON or interval CSV for each case |
+| Feeder trip | Isolate the main north feeder and restore the two groups in stages. | Radial JSON with pinned pre-trip reference |
+| Microgrid operation | Compare the rural day against a change to battery power and identify backup or unmet demand. | Operating lesson JSON with both solved cases |
+| Regional comparison | Compare the Nigeria-inspired and 50Hertz-area voltage stages while varying shared worksheet inputs. | Regional JSON with both cases and sources |
+| Community capstone | Pin the rural design, test backup loss at the evening peak and justify the design. | Dispatch JSON with pinned results and justification |
+
+Use each lesson's reset or load control to return to its worked inputs. The transmission foundations share **Restore worked transmission inputs**. The feeder trip uses **Reset training case**.

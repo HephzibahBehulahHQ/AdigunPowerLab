@@ -1,7 +1,9 @@
 import { preview } from "vite";
 import { chromium } from "@playwright/test";
 import { writeFile, mkdir, readFile } from "node:fs/promises";
+import { join } from "node:path";
 const basePath = process.env.POWERLAB_BASE_PATH || "/";
+const evidenceDir = process.env.POWERLAB_OFFLINE_EVIDENCE_DIR || "docs";
 const appURL = "http://127.0.0.1:4178" + basePath;
 const server = await preview({
   base: basePath,
@@ -35,6 +37,14 @@ try {
   await page.locator(".overview-banner").waitFor();
   await page.evaluate(() => navigator.serviceWorker.ready);
   await page.waitForFunction(() => !!navigator.serviceWorker.controller);
+  const powergridLoadedOnOverview = await page.evaluate(() =>
+    performance
+      .getEntriesByType("resource")
+      .some(({ name }) => /\/PowerGridLab-[^/]+\.js(?:\?|$)/.test(name)),
+  );
+  if (powergridLoadedOnOverview)
+    throw new Error("The PowerGrid module loaded on Overview.");
+  await mkdir(join(evidenceDir, "screenshots"), { recursive: true });
   await page
     .getByRole("button", { name: "Add load", exact: true })
     .first()
@@ -59,12 +69,12 @@ try {
     })),
   );
   await context.setOffline(true);
-  await page.reload();
   try {
+    await page.reload();
     await page.locator(".load-table").waitFor({ timeout: 12000 });
   } catch (error) {
     await page.screenshot({
-      path: "docs/screenshots/offline-failure.png",
+      path: join(evidenceDir, "screenshots", "offline-failure.png"),
       fullPage: true,
     });
     console.log(
@@ -105,9 +115,44 @@ try {
     .click();
   await page.locator(".tool-result").waitFor();
   await page.screenshot({
-    path: "docs/screenshots/offline-tool.png",
+    path: join(evidenceDir, "screenshots", "offline-tool.png"),
     fullPage: true,
   });
+  await page.goto(appURL + "#POWERGRID");
+  await page
+    .getByRole("heading", { name: "Why step up voltage?", exact: true })
+    .waitFor();
+  await page
+    .getByRole("heading", { name: "Meshed AC power flow", exact: true })
+    .waitFor();
+  await page
+    .getByRole("button", { name: "Compare single branch outages", exact: true })
+    .click();
+  await page
+    .getByRole("table", {
+      name: "Single branch outage comparison",
+      exact: true,
+    })
+    .waitFor();
+  await page
+    .locator('img[src$="powergrid-hydro-station-illustration.png"]')
+    .first()
+    .scrollIntoViewIfNeeded();
+  await page.waitForFunction(() =>
+    [...document.images].some(
+      (image) =>
+        image.src.endsWith("powergrid-hydro-station-illustration.png") &&
+        image.naturalWidth > 0,
+    ),
+  );
+  const powergridPdf = page.waitForEvent("download");
+  await page
+    .getByRole("button", { name: "Export lab report PDF", exact: true })
+    .click();
+  const report = await readFile(await (await powergridPdf).path());
+  if (report.subarray(0, 5).toString("ascii") !== "%PDF-")
+    throw new Error("Offline PowerGrid report is invalid");
+  await page.goto(appURL + "#/overview");
   await page
     .locator(".sidebar")
     .getByRole("button", { name: "Reports & Estimates", exact: true })
@@ -142,6 +187,11 @@ try {
     toolCalculationOffline: true,
     lazyBillingOffline: true,
     pdfExportOffline: true,
+    powergridRouteDeferred: !powergridLoadedOnOverview,
+    powergridOfflineColdEntry: true,
+    powergridContingencyOffline: true,
+    powergridPdfOffline: true,
+    powergridImageOffline: true,
     serviceWorkerControlled: await page.evaluate(
       () => !!navigator.serviceWorker.controller,
     ),
@@ -152,9 +202,8 @@ try {
     errors,
     networkFailures,
   };
-  await mkdir("docs/screenshots", { recursive: true });
   await writeFile(
-    "docs/offline-verification.json",
+    join(evidenceDir, "offline-verification.json"),
     JSON.stringify(evidence, null, 2),
   );
   console.log(JSON.stringify(evidence));

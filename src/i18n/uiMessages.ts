@@ -260,10 +260,41 @@ export const uiMessages: Record<string, [string, string, string]> = {
     "Ń ṣiṣẹ́ lórí ẹ̀dà ààbò…",
     "E dey process workspace backup…",
   ],
+  "Loading PowerGrid Lab…": [
+    "PowerGrid Lab wird geladen…",
+    "Ń ṣí PowerGrid Lab…",
+    "PowerGrid Lab dey load…",
+  ],
   "Backup restore preview": [
     "Wiederherstellungsvorschau",
     "Àwòrán ìdápadà ẹ̀dà ààbò ṣáájú",
     "Backup restore preview",
+  ],
+  "All-project backups include saved PowerGrid transmission experiments.": [
+    "Sicherungen aller Projekte enthalten gespeicherte PowerGrid-Übertragungsversuche.",
+    "Ẹ̀dà ààbò gbogbo iṣẹ́ ní ìdánwò gbigbe PowerGrid tí a fi pamọ́.",
+    "All-project backups include saved PowerGrid transmission experiments.",
+  ],
+  "PowerGrid transmission experiments": [
+    "PowerGrid-Übertragungsversuche",
+    "Ìdánwò gbigbe PowerGrid",
+    "PowerGrid transmission experiments",
+  ],
+  "Restore adds separate experiment copies. Open PowerGrid Lab to preview and apply a copy.":
+    [
+      "Die Wiederherstellung fügt getrennte Versuchskopien hinzu. Öffnen Sie PowerGrid Lab, um eine Kopie zu prüfen und anzuwenden.",
+      "Ìdápadà fi ẹ̀dà ìdánwò lọ́tọ̀ kún un. Ṣí PowerGrid Lab láti wo ẹ̀dà kí o sì lò ó.",
+      "Restore add separate experiment copies. Open PowerGrid Lab to check and apply a copy.",
+    ],
+  "Unnamed transmission experiment": [
+    "Unbenannter Übertragungsversuch",
+    "Ìdánwò gbigbe aláìlórúkọ",
+    "Unnamed transmission experiment",
+  ],
+  "Invalid PowerGrid transmission experiments in workspace backup.": [
+    "Ungültige PowerGrid-Übertragungsversuche in der Arbeitsbereichssicherung.",
+    "Ìdánwò gbigbe PowerGrid tí kò péye wà nínú ẹ̀dà ààbò.",
+    "PowerGrid transmission experiments for this workspace backup no valid.",
   ],
   "Not included": ["Nicht enthalten", "Kò sí nínú rẹ̀", "No dey included"],
   Included: ["Enthalten", "Ó wà nínú rẹ̀", "Included"],

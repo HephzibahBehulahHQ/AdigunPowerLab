@@ -452,3 +452,162 @@ PR #103 merged as `5270b8f413eaab814b942aac07bd41253ac08da5`. Candidate [run 436
 ## PR #104 — chronological PV/wind, storage and critical-load dispatch — deployed
 
 PR #104 merged as `6ef06254a990309834d64c278ccc9af643c3e779`. Candidate [run 43688387269](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43688387269) passed lint, 425 unit tests, build, full browser and production-browser suites, update smoke and online/base-path offline checks. Exact-main [run 43695664239](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43695664239) passed all the same gates. Pages [run 43696180077](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43696180077) deployed that exact SHA; artifact 14154640941. Numerical coverage checks battery reserve and energy, renewable curtailment, dispatch priority and interval balance. Browser coverage edits equal-length PV/wind/demand profiles, rejects mismatched profiles, saves/reloads independently and checks actual JSON/CSV export contents. A Playwright-discovered numeric input update failure was corrected before the passing candidate. The model is an AC-bus teaching dispatch with entered profiles and a generic backup capacity ceiling; it is not a utility/network model or a source-specific generator model. Remaining M3 requirements are open.
+
+### Hydropower head and flow — 21 November 2026
+
+Local Chromium acceptance passed for editing the rating, saving across reload, exporting actual JSON, and blocking save/export with invalid input. Numerical tests cover unit conversion, rating clipping, zero flow, and invalid or overflowing input.
+
+Local Chromium also passed both microgrid dispatch scenarios, including hydro profile length validation, save and reload, and exported per-interval available power. Focused unit tests verified output clipping and interval power balance. TypeScript and focused localization checks passed.
+
+Reservoir dispatch passed TypeScript, 14 focused dispatch and localization tests, and both Chromium dispatch tests. Cases included reservoir depletion, environmental bypass priority and shortfall, spill, and exported zero output from an empty reservoir.
+
+Variable reservoir head passed TypeScript, 15 focused unit and localization tests, and the Chromium hydro dispatch scenario. The numerical fixture verifies 20 m at full storage, 15 m at half storage, and proportional power at equal turbine flow.
+
+Pumped storage passed TypeScript and 16 focused tests. The numerical fixture turns 18 kWh of pump input into 11.52 kWh delivered at 80% efficiency in each direction. All three focused Chromium dispatch scenarios passed, with the pumped storage CSV assertion rerun after correcting its handling of Windows line endings.
+
+Grid exchange passed TypeScript, 17 focused unit and localization tests, and four Chromium dispatch scenarios. The numerical case verifies capped export, curtailment, loss of imports during islanding, resumed import after reconnection and the power balance. Browser acceptance verifies invalid outage rejection, save/reload and exported islanded state.
+
+Backup outage and restart passed TypeScript, 18 focused dispatch and localization tests, and the Chromium islanding flow. The numerical fixture verifies zero outage output, ramp-limited restart and unused headroom. Chromium verifies rejection of out-of-range outages, save/reload and export.
+
+Thermal backup passed TypeScript, 18 focused dispatch and localization tests, and the Chromium fuel accounting workflow. Chromium verified that 20 kWh of backup output at 10 MJ/kWh and 60 kg CO2/GJ exports 200 MJ and 12 kg direct CO2 after save and reload. Unit coverage verifies no fuel usage during a modeled backup outage.
+
+Startup fuel and finite inventory passed TypeScript, 18 focused tests and Chromium save/reload and JSON export. With 150 MJ available, 30 MJ startup and 10 MJ/kWh, the one-hour interval delivered 12 kWh and exhausted the inventory. The dispatch fixture covers fuel-limited restart after an outage and zero output after depletion.
+
+The rural teaching preset passed TypeScript, nine localization tests and Chromium load-and-export acceptance. The exported dispatch includes six four-hour intervals with 448 kWh of illustrative demand.
+
+SMARD acquisition verified 24 consecutive timestamps with non-null observations for each of four hourly series. TypeScript, nine localization tests and Chromium table/export acceptance passed. The browser test checks all 24 rows, attribution, license, first timestamp, source load and derived residual.
+
+Scaled SMARD dispatch passed TypeScript, 18 focused tests and both historical and rural scenario Chromium checks. The saved historical preset exported 24 one-hour dispatch results with verified first-hour demand, solar, wind, power balance, and original source attribution.
+
+Winter SMARD acquisition verified 24 consecutive non-null values in each source series. TypeScript, nine localization tests and both historical Chromium tests passed, covering date selection, winter scenario save and reload, first-hour reported generation, and winter timestamp offset in dispatch JSON.
+
+Shared visual equipment selection passed TypeScript, nine localization tests and the Chromium keyboard station flow. Selecting the 3D tower highlights the hydro cutaway and single-line tower; choosing the step-up transformer or downstream receiving transformer updates the 3D inspector.
+
+Camera rendering passed TypeScript, nine localization tests and three Chromium station checks. Actual WebGL instrumentation observed a redraw on azimuth change with no additional buffer allocations. The forced missing-WebGL case verified the fallback and keyboard selection. Automatic restoration after an actual GPU reset was not exercised.
+
+The 390 × 844 Chromium fallback case confirmed the 3D station panel fits horizontally and keyboard selection reaches the schematic. The WebGL extension test restored the context, rebuilt buffers and retained the azimuth control value. TypeScript and nine localization tests passed.
+
+Meshed AC verification passed TypeScript, nine localization tests, four numerical tests and Chromium acceptance. The independent rectangular-phasor fixture checks voltage, angle, slack injections and branch-loss balance. Other fixtures cover PV limit conversion, transformer ratio and phase offset, island detection and iteration exhaustion. Chromium verifies three closed branches, a connected outage, JSON results and island export gating.
+
+N−1 comparison passed TypeScript, 14 focused numerical and localization tests, and Chromium. Coverage verifies complete enumeration of in-service branches, MVA overload screening, islanded outage outcomes, live comparison after opening a base-case branch, and exported contingency statuses.
+
+### Independent MATPOWER 8.1 nine-bus solution
+
+Run `node scripts/verify-matpower-case9.mjs <input-file> <solution-file>` using the upstream [t_case9_pf.m](https://raw.githubusercontent.com/MATPOWER/matpower/8.1/lib/t/t_case9_pf.m) and [soln9_pf.mat](https://raw.githubusercontent.com/MATPOWER/matpower/8.1/lib/t/soln9_pf.mat). The script imports the project solver and reads the published MATLAB v5 solution matrices without requiring MATLAB, Octave, or packages.
+
+| Upstream fixture | SHA-256 |
+| --- | --- |
+| `t_case9_pf.m` | `5ac7438cfc9ef249e85639efbd824121210aab7956730e2b37b7a37b416f7d94` |
+| `soln9_pf.mat` | `ffa8e28cb1fc0e2b60ea52f21de40c8b15353ff37b7aaa97f93501ca514d126d` |
+
+On 21 November 2026 the case converged in four iterations with a maximum mismatch of 1.59 × 10⁻¹² pu. Across all nine buses and both ends of all nine branches, maximum absolute errors were 2.65 × 10⁻¹³ pu, 5.91 × 10⁻¹² degrees, 8.33 × 10⁻¹¹ MW and 3.08 × 10⁻¹⁰ Mvar. This reference exercises line charging and multiple PV buses under base-case conditions. Separate analytical tests exercise transformer phase shift and binding reactive limits.
+
+Primary frequency response passed TypeScript, nine localization tests, three analytical-model tests, and Chromium. The numerical fixtures cover inertial ramp slope, droop/damping equilibrium, reserve saturation, and the 5% boundary. Chromium verified an inertia edit, chart visibility, exported samples and invalid-input export gating.
+
+Transmission report PDF passed TypeScript, nine localization tests, four transmission-model tests and Chromium download acceptance. Poppler confirmed a one-page A4 export. Visual review checked the diagram, reading columns, loss bars, model text, page numbering and embedded-font rendering of Yorùbá and German notes.
+
+Transmission scenario restore passed TypeScript, 13 focused tests and Chromium. The browser checks version-1 preview and apply without overwriting the browser copy, version-2 named save/reload and re-export, and rejection of an unsupported schema without changing inputs. The named PDF was downloaded and visually reviewed after Poppler rendering.
+
+Transmission workspace recovery passed TypeScript, 15 archive and localization tests, and Chromium backup/restore and direct import workflows. Coverage confirms integrity validation, rejection of invalid experiment inputs, archive preview, transactional recovery, and preservation of the existing browser worksheet after applying an unsaved recovered copy.
+
+Transmission edit history passed TypeScript, 13 focused tests and the Chromium import workflow. The browser verifies undo/redo of an entire imported scenario, redo invalidation after a fresh edit, and a fresh history after reloading the separately saved worksheet.
+
+Saved transmission revisions passed TypeScript, 15 focused archive and localization tests, and two Chromium workflows. Browser coverage verifies a prior saved revision in a new page session, a non-destructive revision preview, prior and current snapshots in the workspace JSON, and recovery as independent copies.
+
+Transmission baseline comparison passed TypeScript, 13 focused tests, and Chromium. The browser pins a 100 MW baseline, duplicates the scenario, changes the working copy to 120 MW, verifies the live and exported +20 MW difference, clears the baseline, and reloads the original saved experiment.
+
+Reviewed project-demand transfer passed TypeScript, 15 focused radial and localization tests, and Chromium. Browser coverage checks the preview leaves the feeder unchanged, applies the exact aggregate design load, exports the active project ID and revision, and confirms the workspace project ID, revision and loads are unchanged.
+
+Recurring project demand transfer passed TypeScript, 18 focused tests and Chromium. The browser reviewed a 48 kWh day from a 2 kW fixture, applied 24 hourly loads, verified the original profile and source revision in dispatch JSON, and confirmed the source workspace was unchanged.
+
+### POWERGRID LAB deferred route and cold offline entry
+
+The Windows production build emitted a separate PowerGrid Lab chunk. The production offline smoke passed in Chromium at / and /AdigunPowerLab/, including offline reload, prior project recovery, initial PowerGrid entry offline, the PDF signature, and hydro image decoding. Both runs recorded zero page errors and zero unexpected network failures. The smoke checks page resource timing for deferred lab entry. Service-worker precaching can still download the lab chunk during cache installation.
+
+### POWERGRID LAB practical lesson on power factor
+
+TypeScript and all 20 Help catalogue checks passed locally. The targeted Chromium case passed the worked-loss checks (4.484 MW at 0.80 and 2.870 MW at 1.00), applied the lesson inputs, exported a signed loss reduction against the pinned baseline, and reset the edited power factor. Hosted validation remains pending.
+
+### POWERGRID LAB transmission-distance lesson
+
+Local TypeScript and 26 Help and radial solver tests passed. The focused Chromium case verified export is disabled out of range, a 40 km line yields 8 Ω resistance and 16 Ω reactance per phase, the reference meets the receiving-voltage floor while the 40 km case falls below it, real losses increase, interpretation survives in the report, and reset restores 25 km. The local runner stalled during teardown.
+
+### POWERGRID LAB feeder-trip lesson
+
+TypeScript and 26 Help and radial solver tests passed. The focused Chromium case verified a 0.22 MW outage, staged restoration with 0.08 MW still disconnected, JSON export of the partial case and pinned pre-trip reference, and full reconnection. The local browser runner stalled during teardown.
+
+### POWERGRID LAB transformer-loading lesson
+
+Local TypeScript and 20 Help checks passed. Focused Chromium assertions verified 4.5 kW of loss at 500 kVA, 12 kW at the 1,000 kVA rating, a warning and 16.4 kW loss above rating at 1,200 kVA, exported efficiency, and reset.
+
+### POWERGRID LAB midday solar and evening peak lessons
+
+TypeScript and 29 Help and microgrid solver tests passed. Focused Chromium assertions verified 20 kW midday charging and 10 kW curtailment, zero curtailment with 10 kW export, restoration of zero export when switching lessons, and the worked evening discharge and unmet-load values in the JSON download.
+
+### POWERGRID LAB generator-outage lesson
+
+TypeScript, 20 Help checks and both focused dispatch browser cases passed their assertions. The generated report showed 5 kW pre-trip headroom, 5 kW critical and 20 kW other unmet load during the trip, and 7 kW of restart output. Clearing the outage restored all critical supply. Reset restored the trip input.
+
+### POWERGRID LAB regional comparison lesson
+
+TypeScript and 20 Help checks passed. Two focused Chromium cases verified that the existing regional selector still applies its sourced voltage fields and that doubling shared resistance doubles calculated loss in both comparison cases. The calculation report retains source references, and reset restores the default resistance.
+
+### POWERGRID LAB community capstone
+
+TypeScript and 20 Help checks passed. The focused Chromium case verified the worked design serves all 448 kWh, pinned inputs/results survive in the JSON alongside the outage case and student justification, and reset clears notes and reference.
+
+### POWERGRID LAB microgrid operation lesson
+
+TypeScript and 29 Help and dispatch solver tests passed. Focused Chromium assertions confirmed the worked operating reference matches the existing rural export, a zero battery power limit eliminates battery throughput in the modified run, reset restores the reference power limit, and the capstone comparison still exports.
+
+### POWERGRID LAB foundations lessons
+
+TypeScript and 24 Help and transmission solver tests passed. The Chromium foundations case verified that an edited generator voltage changes the live route, PDF export produces a valid file signature, and restoring the worked inputs preserves student notes.
+
+### POWERGRID LAB deterministic transmission BOT
+
+TypeScript and 20 Help catalogue checks passed. Focused Chromium assertions verified a 330-to-363 kV preview without mutation, stale preview rejection after edit and undo, explicit confirmation of a fresh preview and undo of the resulting edit.
+
+### POWERGRID LAB BOT station context
+
+TypeScript and 20 Help checks passed. Focused Chromium assertions verified the BOT explanation follows keyboard selection of the 3D tower and the receiving transformer selected through the downstream diagram. The voltage proposal check passed after scoping its selector to the named preview group.
+
+### POWERGRID LAB BOT dispatch context
+
+TypeScript and 29 Help and solver tests passed. The focused Chromium case verified the solver-derived 20 kW battery energy limit in the JSON and the selected evening interval's explanation. Cutting the battery power limit to 10 kW updated the displayed discharge and increased unmet noncritical demand from 25 kW to 35 kW.
+
+### POWERGRID LAB cancellable contingency comparison
+
+The Windows production build emitted a 5.15 kB contingency worker. Root and repository-base Chromium offline smoke both executed the worker and displayed the outage table, with zero page errors and unexpected network failures. The targeted browser case verified that editing an active branch replaces the comparison and exports the current branch cases. TypeScript and 28 targeted Help, meshed solver and PDF checks passed. The earlier full local run reported 442 passes and one billing PDF timeout; the timed-out test passed on the targeted rerun. The local Chromium runner stalled during teardown.
+
+### POWERGRID LAB PDF baseline and pagination
+
+TypeScript and 20 Help checks passed. The focused Chromium test downloaded a multipage transmission PDF with a pinned baseline and 26 lines of notes. The generated PDF's embedded character map and text streams confirmed the baseline caption, the named Transmission review reference, 100 MW baseline versus 120 MW current with +20 MW change, and the final Yorùbá note.
+
+### POWERGRID LAB header placement and navigation
+
+TypeScript, formatting and 20 Help checks passed. Focused Chromium verified rightmost placement, full visibility and keyboard entry at 1,440, 768 and 390 px, unchanged desktop launcher geometry while Search is open, exact hash, refresh and history, and narrow-screen controls. The phone test exposed header clipping on Overview; removing the phone project control's inherited minimum width corrected it. The local runner stalled during teardown.
+
+### POWERGRID LAB unsaved customer-work isolation
+
+TypeScript and the focused Chromium assertions passed. The test rejected IndexedDB writes to the projects store, confirmed the save failure, entered #POWERGRID and edited transmitted power, then returned to Loads and downloaded the original in-memory customer draft with its unsaved 2.3 kW entry. The local runner stalled during teardown.
+
+### POWERGRID LAB transmission draft autosave
+
+TypeScript and 26 Help and archive checks passed. Chromium verified that a valid 120 MW working draft survives a subsequent invalid edit and reload, the named 100 MW save opens independently, and discard removes the draft. Baseline comparison passed. Workspace backup recovery timed out in the grouped run and passed when rerun alone.
+
+### POWERGRID LAB deferred station rendering
+
+TypeScript and 20 Help checks passed. Three Chromium cases verified no draw before the station canvas approached the viewport, reuse of scene buffers after camera input, no idle redraw across frames with reduced motion requested, and keyboard inspection with WebGL disabled. The synchronized station/BOT group selection passed.
+
+### POWERGRID LAB analytical AC and time-step sensitivity
+
+TypeScript and the full Windows unit suite passed: 445 tests in 34 files, using Vitest with four workers. The two-bus case verified receiving voltage, line current and sending P/Q with a closed-form high-voltage root. The frequency case verified that halving the step from 0.01 to 0.005 s changes the nadir by less than 0.00001 Hz, with nadir time within 0.01 s and ending frequency agreeing to seven decimal places.
+
+### POWERGRID LAB ideal and lossy transformer comparison
+
+TypeScript and 22 transformer and Help checks passed. The analytical fixture verified conservation at 500 kVA with power factor 0.8, including 400 kW ideal input and 404.5 kW lossy input. It also verified no-load behavior, the overload threshold and invalid input rejection. Chromium verified ideal and lossy report content and the rating warning.
+
+### POWERGRID LAB Windows qualification at 6fe55e44ecfc384bf88dbacd99d812a7e445c821
+
+TypeScript and the Windows production build passed. The full PowerGrid Chromium file reported all 44 cases passing; the local runner stalled during teardown. An earlier attempt to split the dev server and browser across tool invocations could not reach the server and was stopped. The build emitted a 378.74 kB lab module (111.47 kB gzip) and an 817.71 kB bootstrap (247.35 kB gzip). The Windows update fixture initially returned HTTP 403 for paths in dist. With the native-path containment correction, update and offline smoke both passed at / and /AdigunPowerLab/, including offline worker execution and PDF export. The earlier 63c464e hosted gate is recorded in POWERGRID_ACCEPTANCE.md.

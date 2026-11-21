@@ -17,15 +17,27 @@ import {
   type WorkspaceArchive,
 } from "../import-export/archive";
 import type { ProjectRecord } from "./projects";
+import {
+  packPowerGridScenario,
+  readStoredPowerGridDocument,
+} from "../import-export/powergridScenario";
+import {
+  POWERGRID_RECOVERY_PREFIX,
+  powerGridRecoveryRange,
+  readRecoveredPowerGridRow,
+} from "./powergridRecovery";
 
-type RawWorkspace = Record<(typeof ARCHIVE_STORES)[number], unknown[]>;
+const readStores = [...ARCHIVE_STORES, "metadata"] as const;
+type RawWorkspace = Record<(typeof readStores)[number], unknown[]>;
 async function readWorkspace(): Promise<RawWorkspace> {
   const db = await openPowerLabDatabase();
   return new Promise((resolve, reject) => {
-    const tx = db.transaction([...ARCHIVE_STORES]),
+    const tx = db.transaction([...readStores]),
       result = {} as RawWorkspace;
-    for (const name of ARCHIVE_STORES) {
-      const request = tx.objectStore(name).getAll();
+    for (const name of readStores) {
+      const request = tx
+        .objectStore(name)
+        .getAll(name === "metadata" ? powerGridRecoveryRange() : undefined);
       request.onsuccess = () => {
         result[name] = request.result;
       };
@@ -187,7 +199,37 @@ export async function collectWorkspaceBackup(
           "Dataset owner is unavailable; retained without inventing a project.",
         );
   }
-  const archive = await sealWorkspaceArchive(projects, recovery, capturedAt);
+  const transmission = [];
+  if (!options.projectIds) {
+    const saved = readStoredPowerGridDocument();
+    if (saved.current) transmission.push(packPowerGridScenario(saved.current));
+    transmission.push(
+      ...saved.revisions.map((revision) =>
+        packPowerGridScenario(revision.scenario),
+      ),
+    );
+    for (const value of raw.metadata) {
+      const row = readRecoveredPowerGridRow(value);
+      if (row) transmission.push(packPowerGridScenario(row.scenario));
+      else
+        quarantine(
+          "powergrid-transmission",
+          value,
+          "Invalid saved PowerGrid experiment retained as inert recovery data.",
+        );
+    }
+  }
+  const uniqueTransmission = [
+    ...new Map(
+      transmission.map((scenario) => [JSON.stringify(scenario), scenario]),
+    ).values(),
+  ];
+  const archive = await sealWorkspaceArchive(
+    projects,
+    recovery,
+    capturedAt,
+    uniqueTransmission,
+  );
   const validation = await validateWorkspaceArchive(archive);
   if (!validation.valid) throw new Error(validation.errors.join(" "));
   return archive;
@@ -358,6 +400,13 @@ export async function restoreWorkspaceBackup(
           ...row,
           key: newId("recovery"),
         });
+      for (const scenario of archive.powergridTransmission ?? []) {
+        tx.objectStore("metadata").add({
+          key: POWERGRID_RECOVERY_PREFIX + newId("scenario"),
+          restoredAt: timestamp,
+          scenario,
+        });
+      }
       tx.objectStore("metadata").put({
         key: newId("restore"),
         sourceDigest: archive.integrity.digest,

@@ -2825,6 +2825,7 @@ details p {
     width: 30px;
   }
   .project-switch {
+    min-width: 0;
     max-width: 85px;
     font-size: 9px;
     gap: 5px;
@@ -2840,6 +2841,9 @@ details p {
   .topbar {
     gap: 7px;
     padding: 0 11px;
+  }
+  .topbar .brand-divider {
+    display: none;
   }
   .workspace-toolbar .breadcrumb {
     display: none;
@@ -4334,6 +4338,37 @@ details p {
   border-top: 2px solid var(--gold);
   padding-top: 16px;
 }
+.pg-station-3d-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(15rem, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.pg-station-camera {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: 0.6rem;
+  min-inline-size: 0;
+  margin-top: 0.75rem;
+}
+
+.pg-station-camera input[type="range"] {
+  display: block;
+  width: 100%;
+  margin-inline: 0;
+}
+
+.pg-station-3d-layout button {
+  white-space: normal;
+}
+
+@media (max-width: 720px) {
+  .pg-station-3d-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .pg-pv-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

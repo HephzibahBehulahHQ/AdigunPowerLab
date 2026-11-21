@@ -124,3 +124,9 @@ The backup is only a generic dispatchable capacity ceiling with a ramp-up constr
 | Accessible fallback when WebGL cannot be created | Scene reports unavailable and points to the labeled station schematic | Candidate implementation; browser acceptance pending |
 
 The WebGL model is original schematic teaching geometry, not a photograph, surveyed site, installation drawing or 3D equipment design. The scene does not calculate generation, transformer behavior, protection, line sag, power flow or device ratings. It is an additional perspective view; the hydro SVG remains the detailed wiring/terminal view. Performance measurements and the full prompt's cross-view synchronization remain open, so this slice does not complete Milestone 4.
+
+## Draft PR #116 qualification evidence
+
+The 12 initial lesson workflows are indexed in [POWERGRID_CURRICULUM.md](POWERGRID_CURRICULUM.md). This candidate also adds worker-backed contingency comparisons, dispatch BOT explanations, and transmission PDF baseline comparisons. Exact local and hosted verification belongs in [TEST_EVIDENCE.md](TEST_EVIDENCE.md). The curriculum index documents current workflows. Exact-candidate release gates and publication verification remain separate.
+
+The earlier header checkpoint `63c464e34aabb4c44220bb615461718d0c92f1ad` passed [hosted run 44933422356](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44933422356), including lint, unit, build, both browser suites and root/base-path update and offline smoke. This receipt applies to that revision. Later catalogue and release boundaries are recorded in [POWERGRID_MODELS.md](POWERGRID_MODELS.md) and [TEST_EVIDENCE.md](TEST_EVIDENCE.md).

@@ -1,26 +1,353 @@
-import { useContext, useMemo, useState } from "react";
+import {
+  useContext,
+  useEffect,
+  useMemo,
+  useReducer,
+  useRef,
+  useState,
+} from "react";
+import type { SetStateAction } from "react";
 import { Download, Save, RotateCcw, Zap } from "lucide-react";
 import { LanguageContext } from "../i18n";
 import type { Locale } from "../i18n";
+import { downloadFile } from "../import-export/files";
 import {
   calculatePowerGrid,
   DEFAULT_POWERGRID_INPUTS,
-  isPowerGridInputs,
   validatePowerGridInputs,
 } from "../engine/powergrid";
-import type { PowerGridInputs, PowerGridReading } from "../engine/powergrid";
-import { applyRegionalTeachingPreset } from "../engine/powergridRegions";
-import { RadialFeederExperiment } from "./RadialFeederExperiment";
+import type {
+  PowerGridComparison,
+  PowerGridInputs,
+  PowerGridReading,
+} from "../engine/powergrid";
+import {
+  applyRegionalTeachingPreset,
+  REGIONAL_TEACHING_PRESETS,
+} from "../engine/powergridRegions";
+import {
+  packPowerGridScenario,
+  readSavedPowerGridScenario,
+  readPowerGridDraft,
+  storePowerGridDraft,
+  clearPowerGridDraft,
+  unpackPowerGridScenario,
+  readStoredPowerGridDocument,
+  savePowerGridRevision,
+  type PowerGridRevision,
+  POWERGRID_SCENARIO_MAX_BYTES,
+  POWERGRID_SCENARIO_NAME_LIMIT,
+  POWERGRID_SCENARIO_NOTES_LIMIT,
+  type PowerGridScenario,
+} from "../import-export/powergridScenario";
+import {
+  RadialFeederExperiment,
+  type ActiveProjectDemand,
+} from "./RadialFeederExperiment";
+import { MeshedPowerFlowExperiment } from "./MeshedPowerFlowExperiment";
+import { PowerGridFrequencyExperiment } from "./PowerGridFrequencyExperiment";
 import { PvPerformanceExperiment } from "./PvPerformanceExperiment";
+import { HydroPerformanceExperiment } from "./HydroPerformanceExperiment";
 import { WindResourceExperiment } from "./WindResourceExperiment";
 import { MicrogridDispatchExperiment } from "./MicrogridDispatchExperiment";
 import { RegionalGridPreset } from "./RegionalGridPreset";
-import { HydroStationScene } from "./HydroStationScene";
+import {
+  listRecoveredPowerGridScenarios,
+  type RecoveredPowerGridScenario,
+} from "../storage/powergridRecovery";
+import { SmardHistoricalDay } from "./SmardHistoricalDay";
+import { HydroStationScene, type HydroEquipmentId } from "./HydroStationScene";
 import { GenerationPlantScene } from "./GenerationPlantScene";
-import { DistributionNetworkScene } from "./DistributionNetworkScene";
-import { PowerGridStation3DScene } from "./PowerGridStation3DScene";
+import { PowerGridTransmissionLesson } from "./PowerGridTransmissionLesson";
+import { PowerGridDistanceLesson } from "./PowerGridDistanceLesson";
+import { PowerGridTransformerLesson } from "./PowerGridTransformerLesson";
+import { PowerGridRegionalLesson } from "./PowerGridRegionalLesson";
+import { PowerGridFoundations } from "./PowerGridFoundations";
+import { PowerGridBot, type TransmissionVoltageProposal } from "./PowerGridBot";
+import {
+  DistributionNetworkScene,
+  type DistributionEquipmentId,
+} from "./DistributionNetworkScene";
+import {
+  PowerGridStation3DScene,
+  type Station3DAssetId,
+} from "./PowerGridStation3DScene";
 
-const SAVE_KEY = "adigunpowerlab.powergrid.experiment.v1";
+const sharedHydroAssets = [
+  ["reservoir", "reservoir"],
+  ["turbine", "turbine"],
+  ["generator", "generator"],
+  ["gsu", "unit-transformer"],
+  ["tower", "tower"],
+] as const satisfies readonly (readonly [HydroEquipmentId, Station3DAssetId])[];
+
+const scenarioCopy = {
+  en: [
+    "Experiment name",
+    "Import scenario JSON",
+    "Import preview",
+    "Apply imported scenario",
+    "Cancel import",
+    "Invalid transmission scenario file.",
+    "Applying changes the worksheet. Save separately to update the browser copy.",
+    "Browser save failed.",
+  ],
+  de: [
+    "Versuchsname",
+    "Szenario-JSON importieren",
+    "Importvorschau",
+    "Importiertes Szenario anwenden",
+    "Import abbrechen",
+    "Ungültige Datei für das Übertragungsszenario.",
+    "Anwenden ändert das Arbeitsblatt. Speichern Sie separat, um die Browserkopie zu aktualisieren.",
+    "Speichern im Browser fehlgeschlagen.",
+  ],
+  yo: [
+    "Orúkọ ìdánwò",
+    "Gbé JSON àpẹẹrẹ wọlé",
+    "Àwòyẹ̀wò ìgbéwọlé",
+    "Lo àpẹẹrẹ tí a gbé wọlé",
+    "Fagilé ìgbéwọlé",
+    "Fáìlì àpẹẹrẹ gbigbe kò péye.",
+    "Lílo rẹ̀ yí worksheet padà. Fi pamọ́ lọ́tọ̀ láti mú ẹ̀dà browser dọ́gba.",
+    "Ìfipamọ́ browser kùnà.",
+  ],
+  pcm: [
+    "Experiment name",
+    "Import scenario JSON",
+    "Import preview",
+    "Apply imported scenario",
+    "Cancel import",
+    "This transmission scenario file no valid.",
+    "Apply go change worksheet. Save separately to update browser copy.",
+    "Browser save fail.",
+  ],
+} satisfies Record<Locale, string[]>;
+const recoveryCopy = {
+  en: [
+    "Show recovered experiments",
+    "Recovered transmission experiments",
+    "No recovered transmission experiments.",
+    "Could not read recovered experiments.",
+    "Unnamed transmission experiment",
+  ],
+  de: [
+    "Wiederhergestellte Versuche anzeigen",
+    "Wiederhergestellte Übertragungsversuche",
+    "Keine wiederhergestellten Übertragungsversuche.",
+    "Wiederhergestellte Versuche konnten nicht gelesen werden.",
+    "Unbenannter Übertragungsversuch",
+  ],
+  yo: [
+    "Fi ìdánwò tí a gba padà hàn",
+    "Ìdánwò gbigbe tí a gba padà",
+    "Kò sí ìdánwò gbigbe tí a gba padà.",
+    "A kò lè ka ìdánwò tí a gba padà.",
+    "Ìdánwò gbigbe aláìlórúkọ",
+  ],
+  pcm: [
+    "Show recovered experiments",
+    "Recovered transmission experiments",
+    "No recovered transmission experiments.",
+    "We no fit read recovered experiments.",
+    "Unnamed transmission experiment",
+  ],
+} satisfies Record<Locale, string[]>;
+const historyCopy = {
+  en: ["Undo transmission edit", "Redo transmission edit"],
+  de: [
+    "Übertragungsänderung rückgängig machen",
+    "Übertragungsänderung wiederholen",
+  ],
+  yo: ["Dá àtúnṣe gbigbe padà", "Tún àtúnṣe gbigbe ṣe"],
+  pcm: ["Undo transmission edit", "Redo transmission edit"],
+} satisfies Record<Locale, string[]>;
+const revisionCopy = {
+  en: ["Saved transmission revisions", "No earlier transmission revisions."],
+  de: [
+    "Gespeicherte Übertragungsrevisionen",
+    "Keine früheren Übertragungsrevisionen.",
+  ],
+  yo: ["Àwọn àtúnṣe gbigbe tí a fi pamọ́", "Kò sí àtúnṣe gbigbe tẹ́lẹ̀."],
+  pcm: ["Saved transmission revisions", "No earlier transmission revisions."],
+} satisfies Record<Locale, string[]>;
+const baselineCopy = {
+  en: [
+    "Set comparison baseline",
+    "Clear comparison baseline",
+    "Baseline versus current worksheet",
+    "Metric",
+    "Baseline",
+    "Current",
+    "Change",
+    "Duplicate transmission experiment",
+    "Copy",
+    "Unnamed experiment",
+  ],
+  de: [
+    "Vergleichsbasis setzen",
+    "Vergleichsbasis löschen",
+    "Vergleichsbasis und aktueller Versuch",
+    "Messgröße",
+    "Basis",
+    "Aktuell",
+    "Änderung",
+    "Übertragungsversuch duplizieren",
+    "Kopie",
+    "Unbenannter Versuch",
+  ],
+  yo: [
+    "Ṣètò ìpìlẹ̀ àfiwé",
+    "Pa ìpìlẹ̀ àfiwé rẹ́",
+    "Àfiwé ìpìlẹ̀ àti worksheet lọwọlọwọ",
+    "Ìwọ̀n",
+    "Ìpìlẹ̀",
+    "Lọwọlọwọ",
+    "Ìyípadà",
+    "Ṣe ẹ̀dà ìdánwò gbigbe",
+    "Ẹ̀dà",
+    "Ìdánwò aláìlórúkọ",
+  ],
+  pcm: [
+    "Set comparison baseline",
+    "Clear comparison baseline",
+    "Baseline and current worksheet",
+    "Metric",
+    "Baseline",
+    "Current",
+    "Change",
+    "Duplicate transmission experiment",
+    "Copy",
+    "Unnamed experiment",
+  ],
+} satisfies Record<Locale, string[]>;
+
+interface ScenarioHistory {
+  current: PowerGridScenario;
+  past: PowerGridScenario[];
+  future: PowerGridScenario[];
+}
+type ScenarioEdit =
+  | { type: "edit"; change: SetStateAction<PowerGridScenario> }
+  | {
+      type: "apply-bot-proposal";
+      proposal: TransmissionVoltageProposal<ScenarioHistory>;
+    }
+  | { type: "undo" }
+  | { type: "redo" };
+const historyLimit = 40;
+
+const draftCopy = {
+  en: [
+    "An autosaved transmission draft is available. Restore it or discard it to resume autosave.",
+    "Restore transmission draft",
+    "Discard transmission draft",
+    "Transmission draft autosave failed.",
+  ],
+  de: [
+    "Ein automatisch gespeicherter Übertragungsentwurf ist verfügbar. Stellen Sie ihn wieder her oder verwerfen Sie ihn, um wieder automatisch zu speichern.",
+    "Übertragungsentwurf wiederherstellen",
+    "Übertragungsentwurf verwerfen",
+    "Der Übertragungsentwurf konnte nicht automatisch gespeichert werden.",
+  ],
+  yo: [
+    "A ti fi àkọ́kọ́ gbigbe pamọ́ fúnra rẹ̀. Dá a padà tàbí sọ ọ́ nù kí ìfipamọ́ lè tẹ̀síwájú.",
+    "Dá àkọ́kọ́ gbigbe padà",
+    "Sọ àkọ́kọ́ gbigbe nù",
+    "Ìfipamọ́ àkọ́kọ́ gbigbe kùnà.",
+  ],
+  pcm: [
+    "Transmission draft wey save by itself dey available. Restore am or discard am so autosave fit continue.",
+    "Restore transmission draft",
+    "Discard transmission draft",
+    "Transmission draft autosave fail.",
+  ],
+} satisfies Record<Locale, readonly string[]>;
+
+function editTransmissionHistory(
+  state: ScenarioHistory,
+  action: ScenarioEdit,
+): ScenarioHistory {
+  if (action.type === "apply-bot-proposal") {
+    if (action.proposal.revision !== state) return state;
+    const inputs = {
+      ...state.current.inputs,
+      raisedVoltageKV: action.proposal.raisedVoltageKV,
+    };
+    if (validatePowerGridInputs(inputs).length) return state;
+    return editTransmissionHistory(state, {
+      type: "edit",
+      change: { ...state.current, inputs, regionalPresetId: undefined },
+    });
+  }
+  if (action.type === "undo") {
+    const previous = state.past.at(-1);
+    return previous
+      ? {
+          current: previous,
+          past: state.past.slice(0, -1),
+          future: [state.current, ...state.future],
+        }
+      : state;
+  }
+  if (action.type === "redo") {
+    const next = state.future[0];
+    return next
+      ? {
+          current: next,
+          past: [...state.past, state.current],
+          future: state.future.slice(1),
+        }
+      : state;
+  }
+  const current =
+    typeof action.change === "function"
+      ? action.change(state.current)
+      : action.change;
+  return {
+    current,
+    past: [...state.past.slice(1 - historyLimit), state.current],
+    future: [],
+  };
+}
+const reportCopy = {
+  en: [
+    "Transmission voltage lab report",
+    "Objective",
+    "Compare line current and resistive loss at two transmission voltages for the same transmitted power.",
+    "Source-to-consumer schematic",
+    "Student notes (optional)",
+    "Export lab report PDF",
+    "PDF export failed.",
+  ],
+  de: [
+    "Laborbericht Übertragungsspannung",
+    "Lernziel",
+    "Vergleichen Sie Strom und ohmsche Verluste bei zwei Übertragungsspannungen für dieselbe übertragene Leistung.",
+    "Schema von der Quelle zum Verbraucher",
+    "Notizen (optional)",
+    "Laborbericht als PDF exportieren",
+    "PDF-Export fehlgeschlagen.",
+  ],
+  yo: [
+    "Ìròyìn ìdánwò foliteji gbigbe",
+    "Ète",
+    "Fi ìṣàn iná àti àdánù resistance wé fún foliteji gbigbe méjì ní agbára kan náà.",
+    "Àwòrán láti orísun dé oníbàárà",
+    "Àkọsílẹ̀ akẹ́kọ̀ọ́ (àṣàyàn)",
+    "Gbé ìròyìn PDF jáde",
+    "Ìgbéjáde PDF kùnà.",
+  ],
+  pcm: [
+    "Transmission voltage lab report",
+    "Objective",
+    "Compare line current and resistance loss for two transmission voltages with the same transmitted power.",
+    "Source to consumer diagram",
+    "Student notes (optional)",
+    "Export lab report PDF",
+    "PDF export fail.",
+  ],
+} satisfies Record<Locale, string[]>;
 const copy: Record<Locale, Record<string, string>> = {
   en: {
     title: "Why step up voltage?",
@@ -226,33 +553,195 @@ function Meter({
   );
 }
 
-export function PowerGridLab() {
+export function PowerGridLab({
+  activeDemand,
+}: {
+  activeDemand?: ActiveProjectDemand;
+}) {
   const locale = useContext(LanguageContext);
   const text = copy[locale];
-  const [inputs, setInputs] = useState<PowerGridInputs>(() => {
-    try {
-      const saved: unknown = JSON.parse(
-        localStorage.getItem(SAVE_KEY) ?? "null",
-      );
-      return isPowerGridInputs(saved) ? saved : DEFAULT_POWERGRID_INPUTS;
-    } catch {
-      return DEFAULT_POWERGRID_INPUTS;
-    }
-  });
+  const [
+    reportTitle,
+    reportObjective,
+    reportObjectiveText,
+    reportNetwork,
+    reportNotes,
+    reportExport,
+    reportFailure,
+  ] = reportCopy[locale];
+  const [
+    experimentNameLabel,
+    importLabel,
+    previewLabel,
+    applyLabel,
+    cancelLabel,
+    invalidImportLabel,
+    previewExplanation,
+    saveFailure,
+  ] = scenarioCopy[locale];
+  const [history, editHistory] = useReducer(
+    editTransmissionHistory,
+    null,
+    () => ({
+      current: readSavedPowerGridScenario(),
+      past: [],
+      future: [],
+    }),
+  );
+  const [undoLabel, redoLabel] = historyCopy[locale];
+  const [
+    setBaselineLabel,
+    clearBaselineLabel,
+    baselineCaption,
+    metricLabel,
+    baselineLabel,
+    currentLabel,
+    changeLabel,
+    duplicateLabel,
+    copySuffix,
+    unnamedExperiment,
+  ] = baselineCopy[locale];
+  const [baseline, setBaseline] = useState<{
+    scenario: PowerGridScenario;
+    result: PowerGridComparison;
+  } | null>(null);
+  const scenario = history.current;
+  const setScenario = (change: SetStateAction<PowerGridScenario>) =>
+    editHistory({ type: "edit", change });
+  const { inputs, name, notes, regionalPresetId } = scenario;
+  const [importPreview, setImportPreview] = useState<PowerGridScenario | null>(
+    null,
+  );
+  const [importError, setImportError] = useState(false);
+  const [revisions, setRevisions] = useState<PowerGridRevision[] | null>(null);
+  const [revisionHeading, noRevisions] = revisionCopy[locale];
+  const [recovered, setRecovered] = useState<
+    RecoveredPowerGridScenario[] | null
+  >(null);
+  const [recoveryError, setRecoveryError] = useState(false);
+  const [recoveryBusy, setRecoveryBusy] = useState(false);
+  const [
+    showRecovered,
+    recoveredHeading,
+    noRecovered,
+    recoveryFailure,
+    unnamedRecovered,
+  ] = recoveryCopy[locale];
+  const importSequence = useRef(0);
+  const [reportBusy, setReportBusy] = useState(false);
+  const [reportError, setReportError] = useState(false);
+  const [stationAsset, setStationAsset] =
+    useState<Station3DAssetId>("generator");
+  const [hydroAsset, setHydroAsset] = useState<HydroEquipmentId>("generator");
+  const [distributionAsset, setDistributionAsset] =
+    useState<DistributionEquipmentId>("receivingTransformer");
   const [saved, setSaved] = useState(false);
+  const [saveError, setSaveError] = useState(false);
+  const [pendingDraft, setPendingDraft] = useState(readPowerGridDraft);
+  const [draftError, setDraftError] = useState(false);
+  const [draftNotice, restoreDraftLabel, discardDraftLabel, draftFailure] =
+    draftCopy[locale];
+  const edited = history.past.length > 0 || history.future.length > 0;
+  useEffect(() => {
+    if (!edited || pendingDraft) return;
+    try {
+      storePowerGridDraft(scenario);
+      setDraftError(false);
+    } catch {
+      setDraftError(true);
+    }
+  }, [edited, pendingDraft, scenario]);
   const errors = useMemo(() => validatePowerGridInputs(inputs), [inputs]);
   const result = useMemo(
     () => (errors.length ? undefined : calculatePowerGrid(inputs)),
     [inputs, errors.length],
   );
+  const baselineRows =
+    baseline && result
+      ? ([
+          [
+            "powerMW",
+            text.power,
+            "MW",
+            baseline.scenario.inputs.powerMW,
+            inputs.powerMW,
+          ],
+          [
+            "baseVoltageKV",
+            text.base,
+            "kV",
+            baseline.result.base.voltageKV,
+            result.base.voltageKV,
+          ],
+          [
+            "raisedVoltageKV",
+            text.raised,
+            "kV",
+            baseline.result.raised.voltageKV,
+            result.raised.voltageKV,
+          ],
+          [
+            "baseCurrentA",
+            `${text.base} · ${text.current}`,
+            "A",
+            baseline.result.base.currentA,
+            result.base.currentA,
+          ],
+          [
+            "raisedCurrentA",
+            `${text.raised} · ${text.current}`,
+            "A",
+            baseline.result.raised.currentA,
+            result.raised.currentA,
+          ],
+          [
+            "baseLossMW",
+            `${text.base} · ${text.losses}`,
+            "MW",
+            baseline.result.base.lineLossMW,
+            result.base.lineLossMW,
+          ],
+          [
+            "raisedLossMW",
+            `${text.raised} · ${text.losses}`,
+            "MW",
+            baseline.result.raised.lineLossMW,
+            result.raised.lineLossMW,
+          ],
+        ] as const)
+      : [];
   const update = (key: keyof PowerGridInputs, value: number) => {
-    setInputs((previous) => ({ ...previous, [key]: value }));
+    setScenario((previous) => ({
+      ...previous,
+      inputs: { ...previous.inputs, [key]: value },
+    }));
     setSaved(false);
   };
   const persist = () => {
     if (errors.length) return;
-    localStorage.setItem(SAVE_KEY, JSON.stringify(inputs));
-    setSaved(true);
+    try {
+      const updated = savePowerGridRevision(scenario);
+      if (revisions !== null) setRevisions(updated);
+      setSaved(true);
+      setSaveError(false);
+    } catch {
+      setSaved(false);
+      setSaveError(true);
+    }
+  };
+  const importScenario = async (file: File) => {
+    const sequence = ++importSequence.current;
+    setImportPreview(null);
+    setImportError(false);
+    try {
+      if (file.size > POWERGRID_SCENARIO_MAX_BYTES)
+        throw new Error("Scenario file too large");
+      const restored = unpackPowerGridScenario(JSON.parse(await file.text()));
+      if (!restored) throw new Error("Invalid scenario");
+      if (sequence === importSequence.current) setImportPreview(restored);
+    } catch {
+      if (sequence === importSequence.current) setImportError(true);
+    }
   };
   const exportFile = (kind: "json" | "csv") => {
     if (!result) return;
@@ -260,10 +749,20 @@ export function PowerGridLab() {
       kind === "json"
         ? JSON.stringify(
             {
-              schemaVersion: 1,
-              model: "balanced-three-phase-constant-power-line-loss",
-              inputs,
+              ...packPowerGridScenario(scenario),
               comparison: result,
+              baselineComparison: baseline
+                ? {
+                    scenario: packPowerGridScenario(baseline.scenario),
+                    result: baseline.result,
+                    changes: Object.fromEntries(
+                      baselineRows.map(([key, , , previous, current]) => [
+                        key,
+                        current - previous,
+                      ]),
+                    ),
+                  }
+                : undefined,
               assumptions: text.assumptionText,
             },
             null,
@@ -286,6 +785,53 @@ export function PowerGridLab() {
       kind === "json" ? "powergrid-experiment.json" : "powergrid-readings.csv";
     link.click();
     window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
+  const exportPdf = async () => {
+    if (!result || reportBusy) return;
+    const snapshot = {
+      inputs: { ...inputs },
+      name,
+      notes,
+      preset: REGIONAL_TEACHING_PRESETS.find(
+        (preset) => preset.id === regionalPresetId,
+      )?.engineeringRegion,
+      locale: locale === "pcm" ? "en-NG" : locale,
+      comparison: baseline
+        ? {
+            caption: baselineCaption,
+            name: baseline.scenario.name.trim() || unnamedExperiment,
+            baselineLabel,
+            currentLabel,
+            changeLabel,
+            rows: baselineRows.map(([, label, unit, baseline, current]) => ({
+              label,
+              unit,
+              baseline,
+              current,
+            })),
+          }
+        : undefined,
+      labels: {
+        ...text,
+        reportTitle,
+        reportObjective,
+        reportObjectiveText,
+        reportNetwork,
+        reportNotes,
+      },
+    };
+    setReportBusy(true);
+    setReportError(false);
+    try {
+      const { createPowerGridReport } =
+        await import("../import-export/powergridReport");
+      const pdf = await createPowerGridReport(snapshot);
+      downloadFile("powergrid-transmission-report.pdf", pdf);
+    } catch {
+      setReportError(true);
+    } finally {
+      setReportBusy(false);
+    }
   };
 
   const field = (
@@ -327,18 +873,99 @@ export function PowerGridLab() {
         </div>
       </header>
       <p className="pg-isolation">{text.independent}</p>
-      <RegionalGridPreset
-        onApply={(preset) => {
-          setInputs((previous) =>
-            applyRegionalTeachingPreset(previous, preset),
-          );
+      {pendingDraft && (
+        <section
+          className="panel panel-pad pg-panel"
+          aria-label={restoreDraftLabel}
+        >
+          <p>{draftNotice}</p>
+          <div className="pg-actions">
+            <button
+              className="button"
+              type="button"
+              onClick={() => {
+                setScenario(pendingDraft);
+                setSaved(false);
+                setPendingDraft(null);
+              }}
+            >
+              {restoreDraftLabel}
+            </button>
+            <button
+              className="button"
+              type="button"
+              onClick={() => {
+                try {
+                  clearPowerGridDraft();
+                  setPendingDraft(null);
+                  setDraftError(false);
+                } catch {
+                  setDraftError(true);
+                }
+              }}
+            >
+              {discardDraftLabel}
+            </button>
+          </div>
+        </section>
+      )}
+      {draftError && <p role="status">{draftFailure}</p>}
+      <PowerGridFoundations
+        locale={locale}
+        inputs={inputs}
+        onReset={() => {
+          setScenario({
+            ...scenario,
+            inputs: DEFAULT_POWERGRID_INPUTS,
+            regionalPresetId: undefined,
+          });
           setSaved(false);
         }}
       />
-      <PowerGridStation3DScene locale={locale} />
-      <HydroStationScene locale={locale} />
+      <RegionalGridPreset
+        onApply={(preset) => {
+          setScenario((previous) => ({
+            ...previous,
+            inputs: applyRegionalTeachingPreset(previous.inputs, preset),
+            regionalPresetId: preset.id,
+          }));
+          setSaved(false);
+        }}
+      />
+      <SmardHistoricalDay locale={locale} />
+      <PowerGridStation3DScene
+        locale={locale}
+        selected={stationAsset}
+        onSelect={(asset) => {
+          setStationAsset(asset);
+          const shared = sharedHydroAssets.find(
+            ([, station]) => station === asset,
+          );
+          if (shared) setHydroAsset(shared[0]);
+          if (asset === "receiving-transformer")
+            setDistributionAsset("receivingTransformer");
+        }}
+      />
+      <HydroStationScene
+        locale={locale}
+        selected={hydroAsset}
+        onSelect={(asset) => {
+          setHydroAsset(asset);
+          const shared = sharedHydroAssets.find(([hydro]) => hydro === asset);
+          if (shared) setStationAsset(shared[1]);
+        }}
+      />
       <GenerationPlantScene />
-      <DistributionNetworkScene locale={locale} inputs={inputs} />
+      <DistributionNetworkScene
+        locale={locale}
+        inputs={inputs}
+        selected={distributionAsset}
+        onSelect={(asset) => {
+          setDistributionAsset(asset);
+          if (asset === "receivingTransformer")
+            setStationAsset("receiving-transformer");
+        }}
+      />
       <p className="pg-equation">{text.formula}</p>
       <div className="pg-columns">
         <section
@@ -400,6 +1027,40 @@ export function PowerGridLab() {
           )}
         </section>
       </div>
+      <PowerGridTransmissionLesson
+        locale={locale}
+        onLoad={(inputs) => {
+          setScenario({ ...scenario, inputs, regionalPresetId: undefined });
+          setSaved(false);
+        }}
+      />
+      <PowerGridTransformerLesson locale={locale} />
+      <PowerGridBot
+        locale={locale}
+        inputs={inputs}
+        result={result}
+        revision={history}
+        stationAsset={stationAsset}
+        reportBusy={reportBusy}
+        onApply={(proposal) => {
+          editHistory({ type: "apply-bot-proposal", proposal });
+          setSaved(false);
+        }}
+        onReport={() => void exportPdf()}
+      />
+      <PowerGridRegionalLesson
+        locale={locale}
+        inputs={inputs}
+        onReset={() => {
+          const { powerMW, powerFactor, lineResistanceOhm } =
+            DEFAULT_POWERGRID_INPUTS;
+          setScenario({
+            ...scenario,
+            inputs: { ...inputs, powerMW, powerFactor, lineResistanceOhm },
+          });
+          setSaved(false);
+        }}
+      />
       <details className="panel panel-pad pg-limit">
         <summary>{text.assumptions}</summary>
         <p>{text.assumptionText}</p>
@@ -412,11 +1073,92 @@ export function PowerGridLab() {
           {text.invalidSave}
         </p>
       )}
+      <label className="pg-field">
+        <span>{experimentNameLabel}</span>
+        <input
+          maxLength={POWERGRID_SCENARIO_NAME_LIMIT}
+          value={name}
+          onChange={(event) => {
+            setScenario({ ...scenario, name: event.currentTarget.value });
+            setSaved(false);
+          }}
+        />
+      </label>
+      <label className="pg-field">
+        <span>{reportNotes}</span>
+        <textarea
+          rows={2}
+          maxLength={POWERGRID_SCENARIO_NOTES_LIMIT}
+          value={notes}
+          onChange={(event) => {
+            setScenario({ ...scenario, notes: event.currentTarget.value });
+            setSaved(false);
+          }}
+        />
+      </label>
+      {reportError && <p role="status">{reportFailure}</p>}
+      {saveError && <p role="status">{saveFailure}</p>}
       <div className="pg-actions">
+        <button
+          className="button"
+          type="button"
+          disabled={!history.past.length}
+          onClick={() => {
+            editHistory({ type: "undo" });
+            setSaved(false);
+          }}
+        >
+          {undoLabel}
+        </button>
+        <button
+          className="button"
+          type="button"
+          disabled={!history.future.length}
+          onClick={() => {
+            editHistory({ type: "redo" });
+            setSaved(false);
+          }}
+        >
+          {redoLabel}
+        </button>
         <button className="button" onClick={persist} disabled={!!errors.length}>
           <Save size={16} />
           {text.save}
         </button>
+        <button
+          className="button"
+          type="button"
+          disabled={!result}
+          onClick={() => {
+            const suffix = ` (${copySuffix})`;
+            setScenario({
+              ...scenario,
+              name: `${(name.trim() || unnamedExperiment).slice(0, POWERGRID_SCENARIO_NAME_LIMIT - suffix.length)}${suffix}`,
+            });
+            setSaved(false);
+          }}
+        >
+          {duplicateLabel}
+        </button>
+        <button
+          className="button"
+          type="button"
+          disabled={!result}
+          onClick={() => {
+            if (result) setBaseline(structuredClone({ scenario, result }));
+          }}
+        >
+          {setBaselineLabel}
+        </button>
+        {baseline && (
+          <button
+            className="button"
+            type="button"
+            onClick={() => setBaseline(null)}
+          >
+            {clearBaselineLabel}
+          </button>
+        )}
         {saved && (
           <span role="status" className="pg-saved">
             {text.saved}
@@ -440,8 +1182,21 @@ export function PowerGridLab() {
         </button>
         <button
           className="button"
+          type="button"
+          onClick={() => void exportPdf()}
+          disabled={!result || reportBusy}
+        >
+          <Download size={16} />
+          {reportExport}
+        </button>
+        <button
+          className="button"
           onClick={() => {
-            setInputs(DEFAULT_POWERGRID_INPUTS);
+            setScenario({
+              inputs: DEFAULT_POWERGRID_INPUTS,
+              name: "",
+              notes: "",
+            });
             setSaved(false);
           }}
         >
@@ -449,10 +1204,212 @@ export function PowerGridLab() {
           {text.reset}
         </button>
       </div>
-      <RadialFeederExperiment />
+      {baseline && result && (
+        <div className="pg-table-wrap">
+          <table className="pg-wind-table">
+            <caption>{baselineCaption}</caption>
+            <thead>
+              <tr>
+                <th scope="col">{metricLabel}</th>
+                <th scope="col">
+                  {baselineLabel}
+                  {baseline.scenario.name ? ` · ${baseline.scenario.name}` : ""}
+                </th>
+                <th scope="col">
+                  {currentLabel}
+                  {name ? ` · ${name}` : ""}
+                </th>
+                <th scope="col">{changeLabel}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {baselineRows.map(([key, label, unit, previous, current]) => (
+                <tr key={key}>
+                  <th scope="row">{label}</th>
+                  <td>
+                    {fmt(previous, 4)} {unit}
+                  </td>
+                  <td>
+                    {fmt(current, 4)} {unit}
+                  </td>
+                  <td>
+                    {fmt(current - previous, 4)} {unit}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+      <label className="pg-field">
+        <span>{importLabel}</span>
+        <input
+          type="file"
+          accept=".json,application/json"
+          onChange={(event) => {
+            const file = event.currentTarget.files?.[0];
+            event.currentTarget.value = "";
+            if (file) void importScenario(file);
+          }}
+        />
+      </label>
+      {importError && <p role="alert">{invalidImportLabel}</p>}
+      <button
+        className="button"
+        type="button"
+        disabled={recoveryBusy}
+        onClick={async () => {
+          setRecoveryBusy(true);
+          setRecoveryError(false);
+          try {
+            setRecovered(await listRecoveredPowerGridScenarios());
+          } catch {
+            setRecoveryError(true);
+          } finally {
+            setRecoveryBusy(false);
+          }
+        }}
+      >
+        {showRecovered}
+      </button>
+      {recoveryError && <p role="alert">{recoveryFailure}</p>}
+      <details
+        className="panel panel-pad"
+        onToggle={(event) => {
+          if (event.currentTarget.open)
+            setRevisions(readStoredPowerGridDocument().revisions);
+        }}
+      >
+        <summary>{revisionHeading}</summary>
+        {revisions &&
+          (revisions.length === 0 ? (
+            <p>{noRevisions}</p>
+          ) : (
+            <ul>
+              {revisions.map(({ scenario: revision, savedAt }, index) => (
+                <li key={index}>
+                  <button
+                    className="button"
+                    type="button"
+                    onClick={() => {
+                      importSequence.current++;
+                      setImportError(false);
+                      setImportPreview(revision);
+                    }}
+                  >
+                    {revision.name || unnamedRecovered} ·{" "}
+                    {fmt(revision.inputs.powerMW)} MW
+                  </button>
+                  {savedAt && (
+                    <>
+                      {" "}
+                      <time dateTime={savedAt}>
+                        {new Date(savedAt).toLocaleString(
+                          locale === "pcm" ? "en-NG" : locale,
+                        )}
+                      </time>
+                    </>
+                  )}
+                </li>
+              ))}
+            </ul>
+          ))}
+      </details>
+      {recovered && (
+        <section aria-labelledby="pg-recovered-title">
+          <h3 id="pg-recovered-title">{recoveredHeading}</h3>
+          {recovered.length === 0 ? (
+            <p>{noRecovered}</p>
+          ) : (
+            <ul>
+              {recovered.map((row) => (
+                <li key={row.key}>
+                  <button
+                    className="button"
+                    type="button"
+                    onClick={() => {
+                      importSequence.current++;
+                      setImportError(false);
+                      setImportPreview(row.scenario);
+                    }}
+                  >
+                    {row.scenario.name || unnamedRecovered}
+                  </button>{" "}
+                  <time dateTime={row.restoredAt}>
+                    {new Date(row.restoredAt).toLocaleString(
+                      locale === "pcm" ? "en-NG" : locale,
+                    )}
+                  </time>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      )}
+      {importPreview && (
+        <section aria-labelledby="pg-scenario-preview-title">
+          <h3 id="pg-scenario-preview-title">{previewLabel}</h3>
+          {importPreview.name && <p>{importPreview.name}</p>}
+          <p>
+            {fmt(importPreview.inputs.powerMW)} MW ·{" "}
+            {fmt(importPreview.inputs.baseVoltageKV)} /{" "}
+            {fmt(importPreview.inputs.raisedVoltageKV)} kV
+          </p>
+          <dl className="pg-metrics">
+            <div>
+              <dt>{text.pf}</dt>
+              <dd>{fmt(importPreview.inputs.powerFactor)}</dd>
+            </div>
+            <div>
+              <dt>{text.resistance}</dt>
+              <dd>{fmt(importPreview.inputs.lineResistanceOhm)} Ω</dd>
+            </div>
+            <div>
+              <dt>{text.generation}</dt>
+              <dd>{fmt(importPreview.inputs.generationVoltageKV)} kV</dd>
+            </div>
+            <div>
+              <dt>{text.distribution}</dt>
+              <dd>{fmt(importPreview.inputs.distributionVoltageKV)} kV</dd>
+            </div>
+            <div>
+              <dt>{text.consumer}</dt>
+              <dd>{fmt(importPreview.inputs.consumerVoltageKV)} kV</dd>
+            </div>
+          </dl>
+          {importPreview.notes && <p>{importPreview.notes}</p>}
+          <p>{previewExplanation}</p>
+          <div className="pg-actions">
+            <button
+              className="button"
+              type="button"
+              onClick={() => {
+                setScenario(importPreview);
+                setImportPreview(null);
+                setSaved(false);
+                setSaveError(false);
+              }}
+            >
+              {applyLabel}
+            </button>
+            <button
+              className="button"
+              type="button"
+              onClick={() => setImportPreview(null)}
+            >
+              {cancelLabel}
+            </button>
+          </div>
+        </section>
+      )}
+      <RadialFeederExperiment activeDemand={activeDemand} />
+      <PowerGridDistanceLesson locale={locale} />
       <PvPerformanceExperiment />
+      <HydroPerformanceExperiment locale={locale} />
       <WindResourceExperiment />
-      <MicrogridDispatchExperiment />
+      <MicrogridDispatchExperiment activeDemand={activeDemand} />
+      <MeshedPowerFlowExperiment locale={locale} />
+      <PowerGridFrequencyExperiment locale={locale} />
     </section>
   );
 }

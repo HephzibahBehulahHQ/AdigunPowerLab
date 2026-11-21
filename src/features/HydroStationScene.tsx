@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import type { ReactNode } from "react";
 import { LanguageContext } from "../i18n";
 import type { Locale } from "../i18n";
 import { PowerGridEquipmentGallery } from "./PowerGridEquipmentGallery";
 
-type EquipmentId =
+export type HydroEquipmentId =
   | "reservoir"
   | "trashrack"
   | "intake"
@@ -24,6 +24,8 @@ type EquipmentId =
   | "arrester"
   | "disconnector"
   | "earthswitch";
+
+type EquipmentId = HydroEquipmentId;
 
 type Equipment = { name: string; function: string; terminals: string };
 
@@ -687,9 +689,16 @@ function Pick({
   );
 }
 
-export function HydroStationScene({ locale }: { locale: keyof typeof names }) {
+export function HydroStationScene({
+  locale,
+  selected,
+  onSelect: setSelected,
+}: {
+  locale: keyof typeof names;
+  selected: EquipmentId;
+  onSelect: (asset: EquipmentId) => void;
+}) {
   const text = names[locale] ?? names.en;
-  const [selected, setSelected] = useState<EquipmentId>("generator");
   const info = equipment[locale]?.[selected] ?? equipment.en[selected];
   return (
     <section
@@ -705,7 +714,7 @@ export function HydroStationScene({ locale }: { locale: keyof typeof names }) {
       </header>
       <figure className="pg-station-illustration">
         <img
-          src="/assets/powergrid-hydro-station-illustration.png"
+          src="./assets/powergrid-hydro-station-illustration.png"
           alt={text.visualAlt}
           loading="eager"
           decoding="async"

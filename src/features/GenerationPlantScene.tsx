@@ -15,7 +15,7 @@ const plants: Record<
 > = {
   "combined-cycle": {
     name: "Combined-cycle gas plant",
-    image: "/assets/thermal-gas-powerhouse.png",
+    image: "./assets/thermal-gas-powerhouse.png",
     alt: "Training illustration of a combined-cycle plant with gas turbine, heat-recovery steam generator, steam turbine, condenser and generator train.",
     caption: "Custom training illustration · combined-cycle gas plant",
     equipment: [
@@ -58,7 +58,7 @@ const plants: Record<
   },
   "utility-pv": {
     name: "Utility-scale solar PV",
-    image: "/assets/solar-plant-illustration.jpg",
+    image: "./assets/solar-plant-illustration.jpg",
     alt: "Custom training illustration tracing utility photovoltaic rows through DC collection, central inverter, transformer and switchyard.",
     caption:
       "Custom training illustration · utility-scale solar photovoltaic plant",
@@ -102,7 +102,7 @@ const plants: Record<
   },
   wind: {
     name: "Utility wind plant",
-    image: "/assets/wind-plant-illustration.jpg",
+    image: "./assets/wind-plant-illustration.jpg",
     alt: "Custom training illustration of wind turbines and a cutaway nacelle showing rotor, drivetrain, generator and collector connection.",
     caption: "Custom training illustration · wind turbines and nacelle cutaway",
     equipment: [
