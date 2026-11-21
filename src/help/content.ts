@@ -618,6 +618,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "In the transmission distance lesson, compare 5 km and 25 km, vary the length to find the receiving-voltage threshold, and download the calculation report.",
       "In the feeder trip lesson, reset the radial training case, set a comparison reference, and restore the north loads in stages. Export the solved JSON to record the current case and reference.",
       "In the transformer loading lesson, change apparent load and power factor, compare losses and efficiency with the worked reference, and download the calculation report.",
+      "Open the ideal transformer comparison to see how zero core and winding losses change efficiency at the same load. Both cases are included in the JSON report.",
       "Load the midday solar or evening peak lesson in microgrid dispatch. Change the export limit or battery settings, then compare the interval readings and export the results.",
       "Load the generator outage lesson in microgrid dispatch. Compare available backup and unmet loads during the trip, then clear the outage and export the comparison runs.",
       "In the regional comparison lesson, change the shared transmission power, power factor or resistance. Compare both sourced voltage cases and download the calculation report.",

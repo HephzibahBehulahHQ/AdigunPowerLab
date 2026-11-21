@@ -1,32 +1,28 @@
 import { useState } from "react";
 import type { Locale } from "../i18n";
 import { downloadFile } from "../import-export/files";
+import { calculateTransformerLoading } from "../engine/powergridTransformer";
 
-const ratingKva = 1000;
-const coreLossKw = 2;
-const ratedWindingLossKw = 10;
+const lossyModel = { ratingKva: 1000, coreLossKw: 2, ratedWindingLossKw: 10 };
+const idealModel = {
+  ratingKva: lossyModel.ratingKva,
+  coreLossKw: 0,
+  ratedWindingLossKw: 0,
+};
 const referenceLoad = 500;
 const referenceFactor = 0.8;
 
-function calculate(loadKva: number, powerFactor: number) {
-  const loading = loadKva / ratingKva;
-  const windingLossKw = ratedWindingLossKw * loading ** 2;
-  const outputKw = loadKva * powerFactor;
-  const lossKw = coreLossKw + windingLossKw;
-  return {
-    loadKva,
-    powerFactor,
-    loading,
-    windingLossKw,
-    outputKw,
-    lossKw,
-    inputKw: outputKw + lossKw,
-    efficiency: outputKw / (outputKw + lossKw),
-    overloaded: loading > 1,
-  };
-}
-
-const reference = calculate(referenceLoad, referenceFactor);
+const reference = calculateTransformerLoading(
+  referenceLoad,
+  referenceFactor,
+  lossyModel,
+);
+const idealLabel = {
+  en: "Compare with an ideal transformer",
+  de: "Mit einem idealen Transformator vergleichen",
+  yo: "Fi wé transformer ideal",
+  pcm: "Compare with ideal transformer",
+} satisfies Record<Locale, string>;
 const copy = {
   en: [
     "Practical lesson: Transformer loading",
@@ -121,8 +117,11 @@ export function PowerGridTransformerLesson({ locale }: { locale: Locale }) {
     loadKva <= 1500 &&
     powerFactor > 0 &&
     powerFactor <= 1
-      ? calculate(loadKva, powerFactor)
+      ? calculateTransformerLoading(loadKva, powerFactor, lossyModel)
       : undefined;
+  const ideal = result
+    ? calculateTransformerLoading(loadKva, powerFactor, idealModel)
+    : undefined;
   const percent = new Intl.NumberFormat(locale, {
     style: "percent",
     maximumFractionDigits: 2,
@@ -135,7 +134,9 @@ export function PowerGridTransformerLesson({ locale }: { locale: Locale }) {
       <dt>{loss}</dt>
       <dd>{decimal.format(value.lossKw)} kW</dd>
       <dt>{efficiency}</dt>
-      <dd>{percent.format(value.efficiency)}</dd>
+      <dd>
+        {value.efficiency === null ? "—" : percent.format(value.efficiency)}
+      </dd>
     </dl>
   );
 
@@ -175,6 +176,12 @@ export function PowerGridTransformerLesson({ locale }: { locale: Locale }) {
         </label>
       </div>
       {result ? readings(result) : <p role="status">{invalid}</p>}
+      {ideal && (
+        <details>
+          <summary>{idealLabel[locale]}</summary>
+          {readings(ideal)}
+        </details>
+      )}
       {result?.overloaded && <p role="status">{overload}</p>}
       <p>{question}</p>
       <div className="pg-actions">
@@ -199,12 +206,11 @@ export function PowerGridTransformerLesson({ locale }: { locale: Locale }) {
                 {
                   schemaVersion: 1,
                   model: "constant-core-square-law-winding-loss",
-                  ratingKva,
-                  coreLossKw,
-                  ratedWindingLossKw,
+                  ...lossyModel,
                   assumptions,
                   reference,
                   result,
+                  ideal,
                 },
                 null,
                 2,

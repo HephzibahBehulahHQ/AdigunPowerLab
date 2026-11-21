@@ -366,3 +366,5 @@ Valid transmission edits now autosave to a separate browser draft. On reopening,
 The station WebGL renderer now starts near the viewport. The lab can present earlier lesson content without allocating station buffers. Once initialized, camera updates reuse those buffers, and the equipment inspector remains available on fallback.
 
 Independent numerical verification now includes a closed-form two-bus AC case and a time-step refinement check for the frequency lesson.
+
+The transformer lesson now compares the ideal and lossy cases at the same apparent load, with both results in the JSON export. An independent fixture covers real-power balance, no-load core loss and the nameplate threshold.

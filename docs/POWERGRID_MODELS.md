@@ -78,3 +78,7 @@ The navigable WebGL station model uses original simplified meshes to teach relat
 For a balanced two-bus line with fixed receiving load P + jQ, the sending and receiving magnitudes satisfy |Vs|² = |Vr|² + 2(RP + XQ) + (R² + X²)(P² + Q²)/|Vr|². With line-to-line kV, total three-phase MW/Mvar and per-phase ohms, the higher-voltage root gives the reference receiving voltage. The fixture also checks line current and sending-end P/Q against conductor losses.
 
 The aggregate frequency lesson uses fourth-order Runge–Kutta with a default maximum step of 0.01 s. The numerical verification compares the same four-second disturbance at 0.01 and 0.005 s, including nadir magnitude, time and ending frequency. The refinement setting is an engine verification input; the classroom control defaults are unchanged.
+
+## Transformer loading comparison
+
+The fixed-voltage lesson compares a lossless transformer with a 1,000 kVA teaching unit at the same output load and power factor. The lossy case adds 2 kW of core loss and 10 kW times the square of the loading ratio. Input real power equals output plus losses. Ideal no-load efficiency is undefined because both powers are zero. The nameplate check uses the apparent load and remains independent of efficiency.

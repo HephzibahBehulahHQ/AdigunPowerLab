@@ -352,3 +352,5 @@ Transmission now keeps a validated autosaved working draft separate from the nam
 The 3D acceptance check verifies no initial offscreen draw, on-demand rendering, buffer reuse and idle redraw behavior with reduced motion requested. A separate phone case forces WebGL to be unavailable and verifies keyboard inspection.
 
 The two-bus fixture checks receiving voltage, current and sending P/Q against a closed-form reference. The dynamic fixture checks nadir magnitude, nadir time and final frequency under step halving.
+
+The transformer lesson exposes a lossless comparison using the same rating and load. Unit checks cover ideal and lossy real-power balance, winding losses, no-load behavior and invalid inputs.

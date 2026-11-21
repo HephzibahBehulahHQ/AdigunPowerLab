@@ -326,3 +326,5 @@ If PowerLab shows **Save failed**, opening POWERGRID LAB and returning with brow
 Valid transmission edits are autosaved as a browser draft. When reopening the lab, choose **Restore transmission draft** or **Discard transmission draft** to resume autosave. Restore applies the draft to the worksheet and can be undone. Use **Save experiment locally** to update the named saved copy before creating a workspace backup.
 
 Scroll to the navigable station model to start its 3D renderer. You can use Tab and the arrow keys to move the camera controls. If WebGL is unavailable, use the equipment list and station schematic.
+
+Open **Compare with an ideal transformer** in the transformer loading lesson to compare the same load and rating with zero core and winding losses. Both cases are in the JSON report. At zero load the ideal efficiency is undefined.

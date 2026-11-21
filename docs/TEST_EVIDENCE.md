@@ -603,3 +603,7 @@ TypeScript and 20 Help checks passed. Three Chromium cases verified no draw befo
 ### POWERGRID LAB analytical AC and time-step sensitivity
 
 TypeScript and the full Windows unit suite passed: 445 tests in 34 files, using Vitest with four workers. The two-bus case verified receiving voltage, line current and sending P/Q with a closed-form high-voltage root. The frequency case verified that halving the step from 0.01 to 0.005 s changes the nadir by less than 0.00001 Hz, with nadir time within 0.01 s and ending frequency agreeing to seven decimal places.
+
+### POWERGRID LAB ideal and lossy transformer comparison
+
+TypeScript and 22 transformer and Help checks passed. The analytical fixture verified conservation at 500 kVA with power factor 0.8, including 400 kW ideal input and 404.5 kW lossy input. It also verified no-load behavior, the overload threshold and invalid input rejection. Chromium verified ideal and lossy report content and the rating warning.

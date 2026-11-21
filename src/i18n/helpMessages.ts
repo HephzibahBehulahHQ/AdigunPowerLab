@@ -1941,6 +1941,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Yí ojú ìwé dé àwòrán ibùdó 3D láti bẹ̀rẹ̀ ìfihàn. Lo keyboard láti ṣàtúnṣe camera tàbí ṣàyẹ̀wò ohun èlò.",
       "Scroll reach di 3D station model to start di view. Use keyboard to adjust camera or inspect equipment.",
     ],
+  "Open the ideal transformer comparison to see how zero core and winding losses change efficiency at the same load. Both cases are included in the JSON report.":
+    [
+      "Öffnen Sie den Vergleich mit dem idealen Transformator, um den Wirkungsgrad ohne Eisen- und Wicklungsverluste bei gleicher Last zu sehen. Das JSON enthält beide Fälle.",
+      "Ṣí àfiwé transformer ideal láti rí bí àìsí àdánù core àti winding ṣe yí ìmúṣẹ padà ní ẹrù kan náà. JSON ní àpẹẹrẹ méjèèjì.",
+      "Open ideal transformer comparison to see efficiency if core and winding get zero loss for di same load. Both cases dey inside di JSON report.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

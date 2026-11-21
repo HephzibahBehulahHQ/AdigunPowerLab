@@ -336,6 +336,12 @@ test("transformer lesson calculates losses and flags overload in the report", as
   expect(data.result.efficiency).toBeCloseTo(960 / 976.4);
   expect(data.result.overloaded).toBe(true);
   await lesson
+    .getByText("Compare with an ideal transformer", { exact: true })
+    .click();
+  await expect(lesson.getByText("100%", { exact: true })).toBeVisible();
+  expect(data.ideal.inputKw).toBeCloseTo(960);
+  expect(data.ideal.lossKw).toBe(0);
+  await lesson
     .getByRole("button", { name: "Reset transformer lesson" })
     .click();
   await expect(load).toHaveValue("500");
