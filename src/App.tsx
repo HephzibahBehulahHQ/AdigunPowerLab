@@ -1869,26 +1869,35 @@ export default function App() {
                     />
                   )}
                   {route === "renewables" && (
-                    <Renewables
-                      key={project.id}
-                      project={project}
-                      detailMode={detailMode}
-                      change={change}
-                      onComplete={(calculated, inputs) =>
-                        setReportContext((context) => ({
-                          ...context,
-                          energy: {
-                            projectId: latest.current.id,
-                            revision: calculated.revision,
-                            calculatedAt: new Date().toISOString(),
-                            result: calculated,
-                            inputs: inputs as EnergyOptions,
-                            source:
-                              "Completed renewable/storage dispatch with entered profiles",
-                          },
-                        }))
-                      }
-                    />
+                    <>
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
+                      />
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        <Renewables
+                          key={project.id}
+                          project={project}
+                          detailMode={detailMode}
+                          change={change}
+                          onComplete={(calculated, inputs) =>
+                            setReportContext((context) => ({
+                              ...context,
+                              energy: {
+                                projectId: latest.current.id,
+                                revision: calculated.revision,
+                                calculatedAt: new Date().toISOString(),
+                                result: calculated,
+                                inputs: inputs as EnergyOptions,
+                                source:
+                                  "Completed renewable/storage dispatch with entered profiles",
+                              },
+                            }))
+                          }
+                        />
+                      </div>
+                    </>
                   )}
                   {route === "ev" && (
                     <EVPlanner

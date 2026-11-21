@@ -2,6 +2,34 @@ import { useState } from "react";
 import type { Locale } from "../i18n";
 
 const cases = {
+  renewables: {
+    clip: "937640",
+    slug: "b-roll-ribbon-cutting-ceremony-renewable-energy-microgrid-fort-hunter-liggett",
+    image: "powergrid/field-photos/solar-array.jpg",
+    credit: "Christopher Oposnow · U.S. Army Reserve",
+    copy: {
+      en: [
+        "Store solar energy for later",
+        "Watch the Fort Hunter Liggett microgrid footage",
+        "Run the same solar and load profiles with two battery capacities. Compare critical unserved energy.",
+      ],
+      de: [
+        "Solarenergie für später speichern",
+        "Video zum Mikronetz in Fort Hunter Liggett ansehen",
+        "Berechnen Sie dieselben Solar- und Lastprofile mit zwei Batteriekapazitäten. Vergleichen Sie die unversorgte kritische Energie.",
+      ],
+      yo: [
+        "Fi agbára oòrùn pamọ́ fún ìgbà míì",
+        "Wo fídíò microgrid Fort Hunter Liggett",
+        "Lo profaili oòrùn àti ẹrù kan náà pẹ̀lú agbára batiri méjì. Wé agbára tí ẹrù pàtàkì kò rí gbà.",
+      ],
+      pcm: [
+        "Store sunlight power for later",
+        "Watch di Fort Hunter Liggett microgrid video",
+        "Run di same solar and load profiles with two battery sizes. Compare energy wey critical loads no get.",
+      ],
+    },
+  },
   cables: {
     clip: "902345",
     slug: "transformer-installation-timelapse-fort-randall-dam",

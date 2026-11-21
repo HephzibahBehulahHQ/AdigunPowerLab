@@ -959,6 +959,11 @@ test("engineering field guides link footage to the calculator", async ({
 }) => {
   for (const lesson of [
     {
+      route: "renewables",
+      title: "Store solar energy for later",
+      clip: "937640",
+    },
+    {
       route: "cables",
       title: "Follow the cable from the transformer",
       clip: "902345",
