@@ -959,6 +959,12 @@ test("engineering field guides link footage to the calculator", async ({
 }) => {
   for (const lesson of [
     {
+      route: "costs",
+      title: "Separate demand charges from energy charges",
+      clip: "yHlhF0nEJ14",
+      action: "Go to tariff settings",
+    },
+    {
       route: "scenarios",
       title: "Compare a design change with its baseline",
       clip: "995797",

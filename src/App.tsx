@@ -1983,13 +1983,22 @@ export default function App() {
                     </>
                   )}
                   {route === "costs" && (
-                    <Costs
-                      key={project.id}
-                      project={project}
-                      result={result}
-                      detailMode={detailMode}
-                      change={change}
-                    />
+                    <>
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
+                      />
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        <Costs
+                          key={project.id}
+                          project={project}
+                          result={result}
+                          detailMode={detailMode}
+                          change={change}
+                        />
+                      </div>
+                    </>
                   )}
                   {route === "scenarios" && (
                     <>

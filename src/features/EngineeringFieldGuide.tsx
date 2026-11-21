@@ -2,6 +2,41 @@ import { useState } from "react";
 import type { Locale } from "../i18n";
 
 const cases = {
+  costs: {
+    clip: "yHlhF0nEJ14",
+    slug: "",
+    youtube: true,
+    image: "thermal-gas-powerhouse.png",
+    credit: "Oncor",
+    copy: {
+      en: [
+        "Separate demand charges from energy charges",
+        "Watch a utility explain demand charges",
+        "In a reference project, compare the estimate before and after changing the demand charge. Keep the energy price and load schedule fixed.",
+      ],
+      de: [
+        "Leistungspreis und Arbeitspreis getrennt vergleichen",
+        "Erklärung eines Netzbetreibers zum Leistungspreis ansehen",
+        "Ändern Sie im Referenzprojekt den Leistungspreis und vergleichen Sie die Schätzung. Arbeitspreis und Lastplan bleiben gleich.",
+      ],
+      yo: [
+        "Fi owó ìbéèrè agbára wé owó lílo iná",
+        "Wo àlàyé ilé-iṣẹ́ iná nípa owó ìbéèrè",
+        "Nínú iṣẹ́ àpẹẹrẹ, yí owó ìbéèrè padà kí o sì wé ìṣírò. Jẹ́ kí iye owó iná àti ètò ẹrù dúró.",
+      ],
+      pcm: [
+        "Separate demand charge from energy charge",
+        "Watch utility explain demand charge",
+        "For reference project, compare di estimate before and after you change demand charge. Keep energy price and load schedule di same.",
+      ],
+    },
+    action: {
+      en: "Go to tariff settings",
+      de: "Zu den Tarifeinstellungen",
+      yo: "Lọ sí ètò owó iná",
+      pcm: "Open tariff settings",
+    },
+  },
   scenarios: {
     clip: "995797",
     slug: "powering-mission-erdc-hydrogen-nanogrid-fort-bliss",
@@ -209,6 +244,7 @@ const cases = {
   quality: {
     clip: "-Cp9guj0B_M",
     slug: "",
+    youtube: true,
     image: "electrical-test-tools.png",
     credit: "Schneider Electric",
     copy: {
@@ -353,6 +389,7 @@ const cases = {
     slug: string;
     image: string;
     credit: string;
+    youtube?: true;
     action?: Record<Locale, string>;
     copy: Record<Locale, [string, string, string]>;
   }
@@ -372,11 +409,11 @@ export function EngineeringFieldGuide({
   const action = "action" in study ? study.action[locale] : undefined;
   const [title, video, exercise] = study.copy[locale];
   const embed =
-    route === "quality"
+    "youtube" in study
       ? `https://www.youtube-nocookie.com/embed/${study.clip}`
       : `https://www.dvidshub.net/video/embed/${study.clip}`;
   const source =
-    route === "quality"
+    "youtube" in study
       ? `https://www.youtube.com/watch?v=${study.clip}`
       : `https://www.dvidshub.net/video/${study.clip}/${study.slug}`;
   return (
