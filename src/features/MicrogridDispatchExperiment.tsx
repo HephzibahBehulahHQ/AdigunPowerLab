@@ -15,6 +15,43 @@ const LIMITS =
   "This is an illustrative AC-bus dispatch, not a site forecast or utility operation model. No feeder/transformer losses, exports, fuel use, costs, emissions, frequency response or unit-specific generator model are included. Entered profiles are assumptions. Generic backup capacity is dispatched after storage with the entered ramp-up ceiling; ramp-down is instantaneous.";
 const pvDefaults = DEFAULT_MICROGRID_DISPATCH_INPUTS.pvByInterval[0];
 const copy: Record<string, [string, string, string]> = {
+  "Hydro flow by interval (m³/s), optional": [
+    "Turbinendurchfluss je Intervall (m³/s), optional",
+    "Ìṣàn omi turbine fún àkókò kọ̀ọ̀kan (m³/s), àṣàyàn",
+    "Hydro water flow for each interval (m³/s), optional",
+  ],
+  "Hydro net head (m)": [
+    "Nettofallhöhe (m)",
+    "Gíga omi tó kù (m)",
+    "Hydro net head (m)",
+  ],
+  "Hydro combined efficiency (%)": [
+    "Gesamtwirkungsgrad Wasserkraft (%)",
+    "Ìmúṣẹ àpapọ̀ agbára omi (%)",
+    "Hydro combined efficiency (%)",
+  ],
+  "Hydro installed rating (kW)": [
+    "Elektrische Nennleistung Wasserkraft (kW)",
+    "Agbára orúkọ hydro (kW)",
+    "Hydro installed rating (kW)",
+  ],
+  "Hydro kW": ["Wasserkraft kW", "Agbára omi kW", "Hydro kW"],
+  "Hydro flow must have one value per demand interval.": [
+    "Geben Sie für jedes Lastintervall einen Durchflusswert ein.",
+    "Tẹ iye ìṣàn kan fún àkókò ìbéèrè kọ̀ọ̀kan.",
+    "Enter one flow value for each demand interval.",
+  ],
+  "Enter valid hydro inputs with a rating up to 1,000,000 kW.": [
+    "Geben Sie gültige Wasserkraftwerte mit einer Nennleistung bis 1.000.000 kW ein.",
+    "Tẹ iye agbára omi tó péye, pẹ̀lú agbára orúkọ tó tó 1,000,000 kW.",
+    "Enter correct hydro values with rating up to 1,000,000 kW.",
+  ],
+  "Hydro uses entered flow at fixed net head. Leave the flow profile empty to omit hydro.":
+    [
+      "Wasserkraft verwendet den eingegebenen Durchfluss bei fester Nettofallhöhe. Lassen Sie das Durchflussprofil leer, um Wasserkraft wegzulassen.",
+      "Agbára omi ń lo ìṣàn tí o tẹ̀ pẹ̀lú gíga omi kan. Fi àtòjọ ìṣàn sílẹ̀ láìkọ ohunkóhun láti yọ agbára omi kúrò.",
+      "Hydro use the flow wey you enter with fixed net head. Leave the flow profile empty to leave hydro out.",
+    ],
   "Microgrid dispatch laboratory": [
     "Mikronetz-Dispatch-Labor",
     "Yàrá dispatch microgrid",
@@ -204,6 +241,10 @@ interface Editable {
   intervalHours: number;
   windSpeeds: number[];
   irradiance: number[];
+  hydroFlows: string;
+  hydroHead: number;
+  hydroEfficiency: number;
+  hydroRating: number;
   demand: number[];
   critical: number[];
   pvDcKW: number;
@@ -222,6 +263,10 @@ interface Editable {
 function defaults(): Editable {
   return {
     intervalHours: DEFAULT_MICROGRID_DISPATCH_INPUTS.intervalHours,
+    hydroFlows: "",
+    hydroHead: 30,
+    hydroEfficiency: 85,
+    hydroRating: 50,
     windSpeeds: DEFAULT_MICROGRID_DISPATCH_INPUTS.wind.windSpeedsMps,
     irradiance: DEFAULT_MICROGRID_DISPATCH_INPUTS.pvByInterval.map(
       (x) => x.planeOfArrayIrradianceWm2,
@@ -260,7 +305,12 @@ function readSaved(): Editable {
           value.critical,
         ].every(Array.isArray)
       )
-        return value as Editable;
+        return {
+          ...defaults(),
+          ...value,
+          hydroFlows:
+            typeof value.hydroFlows === "string" ? value.hydroFlows : "",
+        };
     }
   } catch {
     /* use the published illustrative lesson defaults */
@@ -299,6 +349,16 @@ export function MicrogridDispatchExperiment() {
         turbineCount: state.turbines,
       },
       pvByInterval,
+      hydro: state.hydroFlows.trim()
+        ? {
+            netHeadM: state.hydroHead,
+            efficiencyPercent: state.hydroEfficiency,
+            ratedKW: state.hydroRating,
+            flowsM3s: state.hydroFlows
+              .split(",")
+              .map((flow) => (flow.trim() ? Number(flow) : NaN)),
+          }
+        : undefined,
       demandKW: state.demand,
       criticalDemandKW: state.critical,
       battery: {
@@ -378,7 +438,7 @@ export function MicrogridDispatchExperiment() {
         JSON.stringify(
           {
             model:
-              "chronological-ac-bus-dispatch-pv-wind-battery-critical-load",
+              "chronological-ac-bus-dispatch-pv-wind-hydro-battery-critical-load",
             inputs,
             result,
             limitations: label(LIMITS),
@@ -392,7 +452,7 @@ export function MicrogridDispatchExperiment() {
       download(
         "powergrid-microgrid-intervals.csv",
         [
-          "interval,pv_available_kW,wind_available_kW,renewable_available_kW,demand_kW,critical_demand_kW,battery_charge_kW,battery_discharge_kW,battery_soc_kWh,backup_generation_kW,curtailment_kW,critical_unserved_kW,noncritical_unserved_kW,served_kW,balance_residual_kW",
+          "interval,pv_available_kW,wind_available_kW,renewable_available_kW,demand_kW,critical_demand_kW,battery_charge_kW,battery_discharge_kW,battery_soc_kWh,backup_generation_kW,curtailment_kW,critical_unserved_kW,noncritical_unserved_kW,served_kW,balance_residual_kW,hydro_available_kW",
           ...result.intervals.map((r) =>
             [
               r.interval,
@@ -410,6 +470,7 @@ export function MicrogridDispatchExperiment() {
               r.nonCriticalUnservedKW,
               r.servedDemandKW,
               r.balanceResidualKW,
+              r.hydroAvailableKW,
             ].join(","),
           ),
         ].join("\r\n"),
@@ -440,6 +501,25 @@ export function MicrogridDispatchExperiment() {
       <div className="pg-wind-controls">
         {field("windSpeeds", "Wind speed (m/s)", state.windSpeeds, true)}
         {field("irradiance", "Solar irradiance (W/m²)", state.irradiance, true)}
+        <label className="pg-field">
+          <span>{label("Hydro flow by interval (m³/s), optional")}</span>
+          <textarea
+            rows={2}
+            value={state.hydroFlows}
+            onChange={(event) => {
+              const hydroFlows = event.currentTarget.value;
+              setState((old) => ({ ...old, hydroFlows }));
+              setSaved(false);
+            }}
+          />
+        </label>
+        {field("hydroHead", "Hydro net head (m)", state.hydroHead)}
+        {field(
+          "hydroEfficiency",
+          "Hydro combined efficiency (%)",
+          state.hydroEfficiency,
+        )}
+        {field("hydroRating", "Hydro installed rating (kW)", state.hydroRating)}
         {field("demand", "Total demand (kW)", state.demand, true)}
         {field("critical", "Critical demand (kW)", state.critical, true)}
         {field("pvDcKW", "PV array DC rating (kW)", state.pvDcKW)}
@@ -471,11 +551,16 @@ export function MicrogridDispatchExperiment() {
         {field("backupKW", "Dispatchable backup limit (kW)", state.backupKW)}
         {field("rampKW", "Backup ramp-up per interval (kW)", state.rampKW)}
       </div>
+      <p>
+        {label(
+          "Hydro uses entered flow at fixed net head. Leave the flow profile empty to omit hydro.",
+        )}
+      </p>
       {errors.length > 0 && (
         <div className="pg-errors" role="alert">
           <ul>
             {errors.map((e, i) => (
-              <li key={`${e}-${i}`}>{e}</li>
+              <li key={`${e}-${i}`}>{label(e)}</li>
             ))}
           </ul>
         </div>
@@ -524,6 +609,7 @@ export function MicrogridDispatchExperiment() {
                     "Interval",
                     "PV kW",
                     "Wind kW",
+                    "Hydro kW",
                     "Demand kW",
                     "Battery kW (+ discharge)",
                     "SOC kWh",
@@ -542,6 +628,7 @@ export function MicrogridDispatchExperiment() {
                     <th scope="row">{r.interval}</th>
                     <td>{fmt(r.pvAvailableKW)}</td>
                     <td>{fmt(r.windAvailableKW)}</td>
+                    <td>{fmt(r.hydroAvailableKW)}</td>
                     <td>{fmt(r.demandKW)}</td>
                     <td>{fmt(r.batteryDischargeKW - r.batteryChargeKW)}</td>
                     <td>{fmt(r.batterySocKWh)}</td>

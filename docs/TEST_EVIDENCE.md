@@ -456,3 +456,5 @@ PR #104 merged as `6ef06254a990309834d64c278ccc9af643c3e779`. Candidate [run 436
 ### Hydropower head and flow — 21 November 2026
 
 Local Chromium acceptance passed for editing the rating, saving across reload, exporting actual JSON, and blocking save/export with invalid input. Numerical tests cover unit conversion, rating clipping, zero flow, and invalid or overflowing input.
+
+Local Chromium also passed both microgrid dispatch scenarios, including hydro profile length validation, save and reload, and exported per-interval available power. Focused unit tests verified output clipping and interval power balance. TypeScript and focused localization checks passed.

@@ -264,3 +264,5 @@ The NREL reference-wind worksheet is deployed by PR #103. PR #104 merged as `6ef
 ### POWERGRID M3 — hydropower component model
 
 The steady-state worksheet models hydraulic-to-electrical conversion with a generator nameplate limit. Reservoir scheduling, dispatch integration and regional time series remain open.
+
+The chronological microgrid now includes optional interval hydro flow at fixed net head. Reservoir water balance, environmental flow scheduling and pumped storage remain open.

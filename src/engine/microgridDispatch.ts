@@ -8,11 +8,16 @@ import {
   validateWindPerformanceInputs as validateWind,
   type WindPerformanceInputs,
 } from "./windPerformance";
+import {
+  calculateHydroPerformance,
+  type DEFAULT_HYDRO_INPUTS,
+} from "./hydroPerformance";
 
 export interface MicrogridDispatchInputs {
   intervalHours: number;
   wind: WindPerformanceInputs;
   pvByInterval: PvPerformanceInputs[];
+  hydro?: Omit<typeof DEFAULT_HYDRO_INPUTS, "flowM3s"> & { flowsM3s: number[] };
   demandKW: number[];
   criticalDemandKW: number[];
   battery: {
@@ -31,6 +36,7 @@ export interface MicrogridDispatchInterval {
   interval: number;
   pvAvailableKW: number;
   windAvailableKW: number;
+  hydroAvailableKW: number;
   renewableAvailableKW: number;
   demandKW: number;
   criticalDemandKW: number;
@@ -135,6 +141,21 @@ export function validateMicrogridDispatchInputs(
       );
   });
   for (const error of validateWind(inputs.wind)) errors.push(error);
+  const hydro = inputs.hydro;
+  if (hydro) {
+    if (hydro.flowsM3s.length !== count) {
+      errors.push("Hydro flow must have one value per demand interval.");
+    }
+    if (
+      hydro.ratedKW > 1_000_000 ||
+      !calculateHydroPerformance({ ...hydro, flowM3s: 0 }) ||
+      hydro.flowsM3s.some(
+        (flowM3s) => !calculateHydroPerformance({ ...hydro, flowM3s }),
+      )
+    ) {
+      errors.push("Enter valid hydro inputs with a rating up to 1,000,000 kW.");
+    }
+  }
   const b = inputs.battery;
   if (!Number.isFinite(b.capacityKWh) || b.capacityKWh <= 0)
     errors.push("Battery capacity must be positive.");
@@ -180,7 +201,7 @@ export function validateMicrogridDispatchInputs(
 }
 
 /**
- * Chronological teaching dispatch: available PV/wind serve load first, then
+ * Chronological teaching dispatch: available PV, wind and hydro serve load first, then
  * surplus charges the battery; deficits use battery discharge then a bounded
  * backup unit. Remaining supply serves critical demand before non-critical
  * demand. This is an AC-bus energy balance without feeder losses or exports.
@@ -201,7 +222,14 @@ export function calculateMicrogridDispatch(
       inputs.pvByInterval[index],
     ).acPowerKW;
     const windAvailableKW = wind.intervals[index].farmPowerKW;
-    const renewableAvailableKW = pvAvailableKW + windAvailableKW;
+    const hydroAvailableKW = inputs.hydro
+      ? calculateHydroPerformance({
+          ...inputs.hydro,
+          flowM3s: inputs.hydro.flowsM3s[index],
+        })!.availableKW
+      : 0;
+    const renewableAvailableKW =
+      pvAvailableKW + windAvailableKW + hydroAvailableKW;
     const criticalDemandKW = inputs.criticalDemandKW[index];
     const surplusKW = Math.max(0, renewableAvailableKW - demandKW);
     const batteryHeadroomKW = Math.max(
@@ -266,6 +294,7 @@ export function calculateMicrogridDispatch(
       interval: index + 1,
       pvAvailableKW,
       windAvailableKW,
+      hydroAvailableKW,
       renewableAvailableKW,
       demandKW,
       criticalDemandKW,

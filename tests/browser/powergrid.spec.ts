@@ -1,6 +1,32 @@
 import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
 
+test("microgrid dispatch saves and exports optional hydro generation", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const section = page
+    .locator(".pg-pv")
+    .filter({ has: page.locator("#pg-microgrid-title") });
+  const flow = section.getByRole("textbox", {
+    name: "Hydro flow by interval (m³/s), optional",
+  });
+  await flow.fill("1");
+  await expect(section.getByRole("alert")).toContainText(
+    "Hydro flow must have one value per demand interval.",
+  );
+  await flow.fill("1, 0, 0, 0, 0, 0");
+  await section.getByRole("button", { name: "Save scenario locally" }).click();
+  await page.reload();
+  await expect(flow).toHaveValue("1, 0, 0, 0, 0, 0");
+  const exportPromise = page.waitForEvent("download");
+  await section.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const download = await exportPromise;
+  const payload = JSON.parse(await readFile(await download.path(), "utf8"));
+  expect(payload.result.intervals[0].hydroAvailableKW).toBe(50);
+  expect(payload.result.intervals[1].hydroAvailableKW).toBe(0);
+});
+
 test("hydropower recalculates, saves inputs and exports the rating-limited output", async ({
   page,
 }) => {

@@ -1683,6 +1683,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Ó ń ṣí GitHub ní ojú ìwé tuntun. Ṣàyẹ̀wò ohun tí o pín; a kì í fi dátà iṣẹ́ tàbí oníbàárà ránṣẹ́ fúnra rẹ̀.",
       "Opens GitHub for new tab. Check wetin you share; project or customer data no dey send automatically.",
     ],
+  "In Microgrid dispatch, enter one optional hydro flow per demand interval, plus fixed net head, efficiency and rating. The available hydro output contributes to the shared power balance.":
+    [
+      "Geben Sie im Mikronetz je Lastintervall optional einen Wasserdurchfluss sowie konstante Nettofallhöhe, Wirkungsgrad und Nennleistung ein. Die verfügbare Wasserkraft fließt in die gemeinsame Leistungsbilanz ein.",
+      "Nínú Microgrid dispatch, tẹ ìṣàn omi kan fún àkókò ìbéèrè kọ̀ọ̀kan bí o bá fẹ́, pẹ̀lú gíga omi, ìmúṣẹ àti agbára orúkọ tí kò yí. Agbára omi tó wà wọ inú ìwọ̀ntúnwọ̀nsì agbára.",
+      "For Microgrid dispatch, enter one optional hydro flow for each demand interval, plus fixed net head, efficiency and rating. Di hydro power wey dey available join di common power balance.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

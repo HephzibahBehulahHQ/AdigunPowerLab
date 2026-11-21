@@ -6,6 +6,28 @@ import {
 } from "../src/engine/microgridDispatch";
 
 describe("chronological microgrid dispatch", () => {
+  it("uses rated hydro output in the interval balance and validates its profile", () => {
+    const base = DEFAULT_MICROGRID_DISPATCH_INPUTS;
+    const hydro = {
+      netHeadM: 30,
+      efficiencyPercent: 85,
+      ratedKW: 50,
+      flowsM3s: [1, 0, 0, 0, 0, 0],
+    };
+    const result = calculateMicrogridDispatch({ ...base, hydro });
+    expect(result.intervals.map((row) => row.hydroAvailableKW)).toEqual([
+      50, 0, 0, 0, 0, 0,
+    ]);
+    expect(result.intervals[0].batteryChargeKW).toBe(18);
+    for (const row of result.intervals)
+      expect(row.balanceResidualKW).toBeCloseTo(0, 8);
+    expect(
+      validateMicrogridDispatchInputs({
+        ...base,
+        hydro: { ...hydro, flowsM3s: [1] },
+      }),
+    ).toContain("Hydro flow must have one value per demand interval.");
+  });
   it("balances each interval, stores renewable surplus, and serves critical load first", () => {
     const inputs = {
       ...DEFAULT_MICROGRID_DISPATCH_INPUTS,
