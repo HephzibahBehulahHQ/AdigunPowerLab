@@ -9,7 +9,11 @@ import {
   DEFAULT_POWERGRID_INPUTS,
   validatePowerGridInputs,
 } from "../engine/powergrid";
-import type { PowerGridInputs, PowerGridReading } from "../engine/powergrid";
+import type {
+  PowerGridComparison,
+  PowerGridInputs,
+  PowerGridReading,
+} from "../engine/powergrid";
 import {
   applyRegionalTeachingPreset,
   REGIONAL_TEACHING_PRESETS,
@@ -147,6 +151,56 @@ const revisionCopy = {
   ],
   yo: ["Àwọn àtúnṣe gbigbe tí a fi pamọ́", "Kò sí àtúnṣe gbigbe tẹ́lẹ̀."],
   pcm: ["Saved transmission revisions", "No earlier transmission revisions."],
+} satisfies Record<Locale, string[]>;
+const baselineCopy = {
+  en: [
+    "Set comparison baseline",
+    "Clear comparison baseline",
+    "Baseline versus current worksheet",
+    "Metric",
+    "Baseline",
+    "Current",
+    "Change",
+    "Duplicate transmission experiment",
+    "Copy",
+    "Unnamed experiment",
+  ],
+  de: [
+    "Vergleichsbasis setzen",
+    "Vergleichsbasis löschen",
+    "Vergleichsbasis und aktueller Versuch",
+    "Messgröße",
+    "Basis",
+    "Aktuell",
+    "Änderung",
+    "Übertragungsversuch duplizieren",
+    "Kopie",
+    "Unbenannter Versuch",
+  ],
+  yo: [
+    "Ṣètò ìpìlẹ̀ àfiwé",
+    "Pa ìpìlẹ̀ àfiwé rẹ́",
+    "Àfiwé ìpìlẹ̀ àti worksheet lọwọlọwọ",
+    "Ìwọ̀n",
+    "Ìpìlẹ̀",
+    "Lọwọlọwọ",
+    "Ìyípadà",
+    "Ṣe ẹ̀dà ìdánwò gbigbe",
+    "Ẹ̀dà",
+    "Ìdánwò aláìlórúkọ",
+  ],
+  pcm: [
+    "Set comparison baseline",
+    "Clear comparison baseline",
+    "Baseline and current worksheet",
+    "Metric",
+    "Baseline",
+    "Current",
+    "Change",
+    "Duplicate transmission experiment",
+    "Copy",
+    "Unnamed experiment",
+  ],
 } satisfies Record<Locale, string[]>;
 
 interface ScenarioHistory {
@@ -469,6 +523,22 @@ export function PowerGridLab() {
     }),
   );
   const [undoLabel, redoLabel] = historyCopy[locale];
+  const [
+    setBaselineLabel,
+    clearBaselineLabel,
+    baselineCaption,
+    metricLabel,
+    baselineLabel,
+    currentLabel,
+    changeLabel,
+    duplicateLabel,
+    copySuffix,
+    unnamedExperiment,
+  ] = baselineCopy[locale];
+  const [baseline, setBaseline] = useState<{
+    scenario: PowerGridScenario;
+    result: PowerGridComparison;
+  } | null>(null);
   const scenario = history.current;
   const setScenario = (change: SetStateAction<PowerGridScenario>) =>
     editHistory({ type: "edit", change });
@@ -506,6 +576,60 @@ export function PowerGridLab() {
     () => (errors.length ? undefined : calculatePowerGrid(inputs)),
     [inputs, errors.length],
   );
+  const baselineRows =
+    baseline && result
+      ? ([
+          [
+            "powerMW",
+            text.power,
+            "MW",
+            baseline.scenario.inputs.powerMW,
+            inputs.powerMW,
+          ],
+          [
+            "baseVoltageKV",
+            text.base,
+            "kV",
+            baseline.result.base.voltageKV,
+            result.base.voltageKV,
+          ],
+          [
+            "raisedVoltageKV",
+            text.raised,
+            "kV",
+            baseline.result.raised.voltageKV,
+            result.raised.voltageKV,
+          ],
+          [
+            "baseCurrentA",
+            `${text.base} · ${text.current}`,
+            "A",
+            baseline.result.base.currentA,
+            result.base.currentA,
+          ],
+          [
+            "raisedCurrentA",
+            `${text.raised} · ${text.current}`,
+            "A",
+            baseline.result.raised.currentA,
+            result.raised.currentA,
+          ],
+          [
+            "baseLossMW",
+            `${text.base} · ${text.losses}`,
+            "MW",
+            baseline.result.base.lineLossMW,
+            result.base.lineLossMW,
+          ],
+          [
+            "raisedLossMW",
+            `${text.raised} · ${text.losses}`,
+            "MW",
+            baseline.result.raised.lineLossMW,
+            result.raised.lineLossMW,
+          ],
+        ] as const)
+      : [];
   const update = (key: keyof PowerGridInputs, value: number) => {
     setScenario((previous) => ({
       ...previous,
@@ -547,6 +671,18 @@ export function PowerGridLab() {
             {
               ...packPowerGridScenario(scenario),
               comparison: result,
+              baselineComparison: baseline
+                ? {
+                    scenario: packPowerGridScenario(baseline.scenario),
+                    result: baseline.result,
+                    changes: Object.fromEntries(
+                      baselineRows.map(([key, , , previous, current]) => [
+                        key,
+                        current - previous,
+                      ]),
+                    ),
+                  }
+                : undefined,
               assumptions: text.assumptionText,
             },
             null,
@@ -811,6 +947,40 @@ export function PowerGridLab() {
           <Save size={16} />
           {text.save}
         </button>
+        <button
+          className="button"
+          type="button"
+          disabled={!result}
+          onClick={() => {
+            const suffix = ` (${copySuffix})`;
+            setScenario({
+              ...scenario,
+              name: `${(name.trim() || unnamedExperiment).slice(0, POWERGRID_SCENARIO_NAME_LIMIT - suffix.length)}${suffix}`,
+            });
+            setSaved(false);
+          }}
+        >
+          {duplicateLabel}
+        </button>
+        <button
+          className="button"
+          type="button"
+          disabled={!result}
+          onClick={() => {
+            if (result) setBaseline(structuredClone({ scenario, result }));
+          }}
+        >
+          {setBaselineLabel}
+        </button>
+        {baseline && (
+          <button
+            className="button"
+            type="button"
+            onClick={() => setBaseline(null)}
+          >
+            {clearBaselineLabel}
+          </button>
+        )}
         {saved && (
           <span role="status" className="pg-saved">
             {text.saved}
@@ -856,6 +1026,43 @@ export function PowerGridLab() {
           {text.reset}
         </button>
       </div>
+      {baseline && result && (
+        <div className="pg-table-wrap">
+          <table className="pg-wind-table">
+            <caption>{baselineCaption}</caption>
+            <thead>
+              <tr>
+                <th scope="col">{metricLabel}</th>
+                <th scope="col">
+                  {baselineLabel}
+                  {baseline.scenario.name ? ` · ${baseline.scenario.name}` : ""}
+                </th>
+                <th scope="col">
+                  {currentLabel}
+                  {name ? ` · ${name}` : ""}
+                </th>
+                <th scope="col">{changeLabel}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {baselineRows.map(([key, label, unit, previous, current]) => (
+                <tr key={key}>
+                  <th scope="row">{label}</th>
+                  <td>
+                    {fmt(previous, 4)} {unit}
+                  </td>
+                  <td>
+                    {fmt(current, 4)} {unit}
+                  </td>
+                  <td>
+                    {fmt(current - previous, 4)} {unit}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
       <label className="pg-field">
         <span>{importLabel}</span>
         <input

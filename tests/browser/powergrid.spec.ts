@@ -2,6 +2,38 @@ import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 
+test("transmission comparison keeps a pinned baseline while editing a working copy", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const name = page.getByRole("textbox", { name: "Experiment name" });
+  await name.fill("Original experiment");
+  await page.getByRole("button", { name: "Save experiment locally" }).click();
+  await page.getByRole("button", { name: "Set comparison baseline" }).click();
+  await page
+    .getByRole("button", { name: "Duplicate transmission experiment" })
+    .click();
+  await expect(name).toHaveValue("Original experiment (Copy)");
+  await page.getByLabel("Transmitted real power (MW)").fill("120");
+  const comparison = page.getByRole("table", {
+    name: "Baseline versus current worksheet",
+  });
+  await expect(
+    comparison.getByRole("cell", { name: "20 MW", exact: true }),
+  ).toBeVisible();
+  const promise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export scenario JSON" }).click();
+  const download = await promise;
+  const payload = JSON.parse(await readFile(await download.path(), "utf8"));
+  expect(payload.baselineComparison.scenario.name).toBe("Original experiment");
+  expect(payload.baselineComparison.changes.powerMW).toBe(20);
+  expect(payload.baselineComparison.changes.raisedLossMW).toBeGreaterThan(0);
+  await page.getByRole("button", { name: "Clear comparison baseline" }).click();
+  await expect(comparison).toHaveCount(0);
+  await page.reload();
+  await expect(name).toHaveValue("Original experiment");
+});
+
 test("workspace backup restores a separate transmission experiment copy", async ({
   page,
 }) => {

@@ -513,3 +513,5 @@ Transmission workspace recovery passed TypeScript, 15 archive and localization t
 Transmission edit history passed TypeScript, 13 focused tests and the Chromium import workflow. The browser verifies undo/redo of an entire imported scenario, redo invalidation after a fresh edit, and a fresh history after reloading the separately saved worksheet.
 
 Saved transmission revisions passed TypeScript, 15 focused archive and localization tests, and two Chromium workflows. Browser coverage verifies a prior saved revision in a new page session, a non-destructive revision preview, prior and current snapshots in the workspace JSON, and recovery as independent copies.
+
+Transmission baseline comparison passed TypeScript, 13 focused tests, and Chromium. The browser pins a 100 MW baseline, duplicates the scenario, changes the working copy to 120 MW, verifies the live and exported +20 MW difference, clears the baseline, and reloads the original saved experiment.

@@ -318,3 +318,5 @@ All-project workspace backups now include saved transmission experiments and rec
 The transmission worksheet now supports undo and redo for up to 40 edit states while open, including whole-scenario imports and resets. The explicit saved snapshot remains separate.
 
 Explicit transmission saves now retain up to 20 earlier distinct save states. Users can preview these revisions after reload, and an all-project workspace backup includes their scenario contents for recovery as separate lab copies.
+
+Transmission now supports duplicating the open experiment as a named working copy and pinning a baseline before editing. The comparison updates with valid inputs and includes signed changes in scenario JSON.

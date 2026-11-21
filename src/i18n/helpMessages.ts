@@ -1815,6 +1815,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Ṣí Àwọn àtúnṣe gbigbe tí a fi pamọ́ láti wo àwọn ẹ̀dà tó ti wà. Lílo ẹ̀dà yí worksheet tó ṣí padà. Fi pamọ́ lẹ́ẹ̀kan sí i kí ó di ẹ̀dà browser lọ́wọ́lọ́wọ́.",
       "Open Saved transmission revisions to check earlier saves. Apply change the open worksheet. Save again to make that version the current browser copy.",
     ],
+  "Set a comparison baseline before editing, or duplicate the transmission experiment to explore a named variation. The live comparison shows changes from the pinned baseline and is included in JSON export.":
+    [
+      "Setzen Sie vor dem Ändern eine Vergleichsbasis oder duplizieren Sie den Übertragungsversuch als benannte Variante. Der laufende Vergleich zeigt Abweichungen von der fixierten Basis und ist im JSON-Export enthalten.",
+      "Ṣètò ìpìlẹ̀ àfiwé ṣáájú àtúnṣe, tàbí ṣe ẹ̀dà ìdánwò gbigbe láti dán àyípadà onírúkọ wò. Àfiwé fi ìyípadà sí ìpìlẹ̀ hàn, ó sì wà nínú JSON.",
+      "Set comparison baseline before you edit, or duplicate transmission experiment to try one named version. Live comparison show changes from baseline and dey inside JSON export.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",
