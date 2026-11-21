@@ -356,3 +356,5 @@ The dispatch BOT now explains the selected solved interval. It shows the renewab
 Meshed AC branch-outage comparisons now run in a dedicated worker. Editing the case, disabling comparison or leaving the lab cancels obsolete work. Results and comparison exports stay tied to the active solved case.
 
 The transmission PDF snapshot now includes the pinned worksheet name, baseline readings, current readings and signed differences. The comparison is frozen before the PDF module loads.
+
+The POWERGRID LAB launcher is the final top-bar control. The qualification checks now cover right-edge placement and keyboard entry at desktop, tablet and phone widths, plus header geometry while Search is open.

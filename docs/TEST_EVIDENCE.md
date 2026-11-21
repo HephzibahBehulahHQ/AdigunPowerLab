@@ -583,3 +583,7 @@ The Windows production build emitted a 5.15 kB contingency worker. Root and repo
 ### POWERGRID LAB PDF baseline and pagination
 
 TypeScript and 20 Help checks passed. The focused Chromium test downloaded a multipage transmission PDF with a pinned baseline and 26 lines of notes. The generated PDF's embedded character map and text streams confirmed the baseline caption, the named Transmission review reference, 100 MW baseline versus 120 MW current with +20 MW change, and the final Yorùbá note.
+
+### POWERGRID LAB header placement and navigation
+
+TypeScript, formatting and 20 Help checks passed. Focused Chromium verified rightmost placement, full visibility and keyboard entry at 1,440, 768 and 390 px, unchanged desktop launcher geometry while Search is open, exact hash, refresh and history, and narrow-screen controls. The phone test exposed header clipping on Overview; removing the phone project control's inherited minimum width corrected it. The local runner stalled during teardown.

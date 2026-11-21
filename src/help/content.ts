@@ -581,7 +581,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
     summary:
       "Open the isolated PowerGrid lab, inspect selectable generation and distribution equipment, compare transmission losses, solve a radial feeder, calculate PV and NREL reference-wind performance, dispatch entered PV/wind profiles with storage and critical demand, save scenarios or export actual results.",
     steps: [
-      "Select POWERGRID LAB in the top bar or enter #POWERGRID in the address bar. The exact hash opens the lab directly; refresh keeps it open and browser Back/Forward follows route changes.",
+      "Select POWERGRID LAB at the right edge of the top bar or enter #POWERGRID in the address bar. The exact hash opens the lab directly; refresh keeps it open and browser Back/Forward follows route changes.",
       "On Overview, scroll to PowerGrid learning for credited photos of a generator, substation and distribution transformer. Choose Play documentary video to start the cited facility footage; it is visual context, not live telemetry or a measurement. Use the links there to open the transmission-loss lab or feeder calculation.",
       "In Hydropower head and flow, edit net head, turbine flow, combined efficiency and installed rating. Compare hydraulic power with available generator power, then save locally or export JSON.",
       "In Microgrid dispatch, enter one optional hydro flow per demand interval, plus fixed net head, efficiency and rating. The available hydro output contributes to the shared power balance.",

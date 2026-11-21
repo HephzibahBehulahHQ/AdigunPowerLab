@@ -1964,11 +1964,11 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Ṣí yàrá PowerGrid tó yà sọ́tọ̀, ṣàyẹ̀wò àwọn ẹ̀rọ ìṣẹ̀dá àti pípín tí a lè yan, fi ipadánù gbigbe wé, yanju radial feeder, ṣírò PV àti NREL reference-wind láti data tí a tẹ̀ wọlé, fi scenario pamọ́ tàbí export àbájáde.",
       "Open di separate PowerGrid lab, inspect generation and distribution equipment wey you fit select, compare transmission loss, solve radial feeder, calculate PV and NREL reference-wind performance from entered data, save scenarios or export real results.",
     ],
-  "Select POWERGRID LAB in the top bar or enter #POWERGRID in the address bar. The exact hash opens the lab directly; refresh keeps it open and browser Back/Forward follows route changes.":
+  "Select POWERGRID LAB at the right edge of the top bar or enter #POWERGRID in the address bar. The exact hash opens the lab directly; refresh keeps it open and browser Back/Forward follows route changes.":
     [
-      "Wählen Sie POWERGRID LAB in der oberen Leiste oder geben Sie #POWERGRID in die Adresszeile ein. Der genaue Hash öffnet das Labor direkt; Aktualisieren lässt es geöffnet, Zurück und Vorwärts folgen den Routenwechseln.",
-      "Yan POWERGRID LAB lókè tàbí tẹ #POWERGRID sínú àdírẹ́sì. Hash náà ṣí yàrá náà tààrà; refresh kò pa á, Back àti Forward sì ń tẹ̀lé ìyípadà ojú-ọ̀nà.",
-      "Select POWERGRID LAB for top bar or enter #POWERGRID for address bar. Exact hash opens di lab direct; refresh keeps am open, Back/Forward follows route changes.",
+      "Wählen Sie POWERGRID LAB ganz rechts in der oberen Leiste oder geben Sie #POWERGRID in die Adresszeile ein. Der genaue Hash öffnet das Labor direkt; Aktualisieren lässt es geöffnet, Zurück und Vorwärts folgen den Routenwechseln.",
+      "Yan POWERGRID LAB ní etí ọ̀tún ọ̀pá òkè tàbí tẹ #POWERGRID sínú àdírẹ́sì. Hash náà ṣí yàrá náà tààrà; refresh kò pa á, Back àti Forward sì ń tẹ̀lé ìyípadà ojú-ọ̀nà.",
+      "Select POWERGRID LAB for right edge of di top bar or enter #POWERGRID for address bar. Exact hash opens di lab direct; refresh keeps am open, Back/Forward follows route changes.",
     ],
   "Scroll to the hydro station cutaway. Select Reservoir, trash rack, intake gate, penstock, draft tube, turbine, generator, transformer, control house/SCADA, breaker, disconnector, CT/VT, surge arrester, busbar, tower, conductors or earth grid. The inspection card names the equipment, explains its job and identifies its shown terminals. Keyboard users can Tab to a device and press Enter or Space.":
     [

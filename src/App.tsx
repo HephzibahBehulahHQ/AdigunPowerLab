@@ -1281,15 +1281,6 @@ export default function App() {
             <span>{t("Search")}</span>
             <kbd>⌘ K</kbd>
           </button>
-          <button
-            className="powergrid-entry"
-            onClick={() => go("powergrid")}
-            aria-current={route === "powergrid" ? "page" : undefined}
-          >
-            <Zap size={15} aria-hidden="true" />
-            <span>POWERGRID LAB</span>
-            <span aria-hidden="true">→</span>
-          </button>
           <select
             className="language-select"
             aria-label={t("Language")}
@@ -1308,6 +1299,15 @@ export default function App() {
             onClick={() => go("settings")}
           >
             <Settings2 size={18} />
+          </button>
+          <button
+            className="powergrid-entry"
+            onClick={() => go("powergrid")}
+            aria-current={route === "powergrid" ? "page" : undefined}
+          >
+            <Zap size={15} aria-hidden="true" />
+            <span>POWERGRID LAB</span>
+            <span aria-hidden="true">→</span>
           </button>
         </header>
         <aside className="sidebar">

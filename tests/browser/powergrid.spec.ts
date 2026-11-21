@@ -1501,7 +1501,7 @@ test("PowerGrid direct hash, history, local save and real JSON/CSV exports", asy
   await page.goto("/#POWERGRID");
   await expect(page).toHaveURL(/#POWERGRID$/);
   await expect(
-    page.getByRole("heading", { name: "Why step up voltage?" }),
+    page.getByRole("heading", { name: "Why step up voltage?", exact: true }),
   ).toBeVisible();
   const stationIllustration = page.getByRole("img", {
     name: /Custom hydroelectric station illustration/,
@@ -1514,7 +1514,7 @@ test("PowerGrid direct hash, history, local save and real JSON/CSV exports", asy
       ),
     )
     .toBeGreaterThan(0);
-  await expect(page.getByText("437.4 A")).toBeVisible();
+  await expect(page.getByText("437.4 A", { exact: true })).toBeVisible();
 
   await page.getByLabel("Transmitted real power (MW)").fill("120");
   await expect(page.getByText("524.9 A")).toBeVisible();
@@ -1553,10 +1553,49 @@ test("PowerGrid direct hash, history, local save and real JSON/CSV exports", asy
   await page.goBack();
   await expect(page).toHaveURL(/#POWERGRID$/);
   await expect(
-    page.getByRole("heading", { name: "Why step up voltage?" }),
+    page.getByRole("heading", { name: "Why step up voltage?", exact: true }),
   ).toBeVisible();
   await page.goForward();
   await expect(page).toHaveURL(/#\/overview$/);
+});
+
+test("PowerGrid entry is reachable at the right edge on desktop, tablet and phone", async ({
+  page,
+}) => {
+  const header = page.getByRole("banner");
+  const entry = header.getByRole("button", {
+    name: "POWERGRID LAB",
+    exact: true,
+  });
+  const language = header.getByLabel("Language");
+  for (const width of [1440, 768, 390]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/#/overview");
+    await expect(entry).toBeInViewport({ ratio: 1 });
+    const entryBox = (await entry.boundingBox())!;
+    const languageBox = (await language.boundingBox())!;
+    expect(entryBox.x).toBeGreaterThanOrEqual(
+      languageBox.x + languageBox.width,
+    );
+    expect(entryBox.x + entryBox.width).toBeLessThanOrEqual(width);
+    if (width === 1440) {
+      await expect(
+        header.getByRole("button", { name: "Settings", exact: true }),
+      ).toBeVisible();
+      await header.locator(".command-button").click();
+      await expect(
+        page.getByRole("dialog", { name: "Search", exact: true }),
+      ).toBeVisible();
+      expect(
+        await page.locator(".topbar .powergrid-entry").boundingBox(),
+      ).toEqual(entryBox);
+      await page.keyboard.press("Escape");
+    }
+    await entry.focus();
+    await page.keyboard.press("Enter");
+    await expect(page).toHaveURL(/#POWERGRID$/);
+    await expect(entry).toHaveAttribute("aria-current", "page");
+  }
 });
 
 test("PowerGrid controls and schematic stay usable on a narrow screen", async ({
@@ -1565,7 +1604,7 @@ test("PowerGrid controls and schematic stay usable on a narrow screen", async ({
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/#POWERGRID");
   await expect(
-    page.getByRole("heading", { name: "Why step up voltage?" }),
+    page.getByRole("heading", { name: "Why step up voltage?", exact: true }),
   ).toBeVisible();
   await expect(page.getByLabel("Transmitted real power (MW)")).toBeVisible();
   await expect(

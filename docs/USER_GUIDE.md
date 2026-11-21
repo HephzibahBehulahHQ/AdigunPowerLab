@@ -318,3 +318,5 @@ In **Adigun BOT · Dispatch explanation**, select an interval and compare the de
 With **Compare single branch outages** enabled, changing the meshed case recomputes the comparison. Wait for the updated table before exporting. Turn comparison off to cancel it and export the base case alone.
 
 To include baseline readings and signed differences in the transmission PDF, pin the original worksheet before editing and then export the report. The PDF captures the comparison as it stood when you clicked Export.
+
+Open **POWERGRID LAB** at the far right of the top bar. With the launcher focused, press Enter to open the lab.
