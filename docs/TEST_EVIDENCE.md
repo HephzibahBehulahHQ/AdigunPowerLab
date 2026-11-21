@@ -658,3 +658,7 @@ TypeScript and 20 Help checks passed. Chromium verified 2.85 MW net at the refer
 ### POWERGRID LAB diesel generator fuel curve
 
 TypeScript and 20 Help checks passed. Chromium verified 17.4 L/h and 25.2 L remaining in the reference, a 50 kW cap with 30 L available, and shutdown with 12 L below the modelled minimum load. JSON export and reset passed. The local runner stalled during teardown.
+
+### POWERGRID LAB coal steam generation
+
+TypeScript and 20 Help checks passed. The focused Chromium test verified the 640 t reference fuel use, the 200 MW and 800 MWh export with 320 t available, rejection of blank inventory, and reset. The local runner reported the test passed and stalled during teardown.

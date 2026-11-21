@@ -3,6 +3,34 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("coal steam inventory caps net output and exports the energy balance", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const plant = page.getByRole("region", { name: "Coal steam generation" });
+  const inventory = plant.getByLabel("Coal inventory (t)");
+  await expect(plant.getByText("640 t", { exact: true })).toBeVisible();
+  await inventory.fill("320");
+  const download = page.waitForEvent("download");
+  const exportButton = plant.getByRole("button", {
+    name: "Export coal results",
+  });
+  await exportButton.click();
+  const { result } = JSON.parse(
+    await readFile(await (await download).path(), "utf8"),
+  );
+  expect(result).toMatchObject({
+    outputMW: 200,
+    electricityMWh: 800,
+    coalUsedTonnes: 320,
+    coalRemainingTonnes: 0,
+  });
+  await inventory.fill("");
+  await expect(exportButton).toBeDisabled();
+  await plant.getByRole("button", { name: "Reset coal inputs" }).click();
+  await expect(inventory).toHaveValue("1000");
+});
+
 test("diesel fuel curve limits generation and accounts for the no-load intercept", async ({
   page,
 }) => {
