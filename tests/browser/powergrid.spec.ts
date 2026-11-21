@@ -554,10 +554,16 @@ test("transformer lesson calculates losses and flags overload in the report", as
   });
   const load = lesson.getByLabel("Apparent load (kVA)");
   await expect(lesson.getByText("4.5 kW").last()).toBeVisible();
-  await load.fill("1000");
+  await lesson.getByRole("button", { name: "1,000 kVA", exact: true }).click();
   await expect(lesson.getByText("12 kW", { exact: true })).toBeVisible();
   await expect(lesson.getByText("Above nameplate rating")).toHaveCount(0);
-  await load.fill("1200");
+  await lesson
+    .getByRole("slider", { name: "Adjust transformer load" })
+    .fill("1200");
+  await expect(load).toHaveValue("1200");
+  await expect(
+    lesson.getByRole("meter", { name: "Rated loading" }),
+  ).toHaveAttribute("value", "1.2");
   await expect(lesson.getByText("Above nameplate rating")).toBeVisible();
   const pending = page.waitForEvent("download");
   await lesson
