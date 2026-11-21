@@ -610,6 +610,22 @@ export default function App() {
     setProject(restored);
     setHistoryTick((n) => n + 1);
   }
+  useEffect(() => {
+    if (route !== "history" || !loaded) return;
+    let active = true;
+    setRevisions([]);
+    void projectHistory(project.id)
+      .then((history) => {
+        if (active) setRevisions(history);
+      })
+      .catch((error: Error) => {
+        if (active) setError(error.message);
+      });
+    return () => {
+      active = false;
+    };
+  }, [loaded, project.id, route]);
+
   function go(r: string) {
     setRoute(r);
     const target = r === "powergrid" ? "#POWERGRID" : "#/" + r;
@@ -617,10 +633,6 @@ export default function App() {
     setDialog(null);
     setQuery("");
     if (innerWidth < 900) setSidebar(false);
-    if (r === "history")
-      void projectHistory(project.id)
-        .then(setRevisions)
-        .catch((e) => setError(e.message));
   }
   function openHelp(query = "") {
     helpOpener.current =
@@ -2122,7 +2134,12 @@ export default function App() {
                     </>
                   )}
                   {route === "reference" && referencePage()}
-                  {route === "history" && historyPage()}
+                  {route === "history" && (
+                    <>
+                      <WorkspaceRecording locale={locale} recording="history" />
+                      {historyPage()}
+                    </>
+                  )}
                   {route === "settings" && (
                     <>
                       <ProjectSettings

@@ -1049,14 +1049,27 @@ test("engineering field guides link footage to the calculator", async ({
   }
 });
 
-test("report and backup walkthroughs play their bundled recordings", async ({
+test("workspace walkthroughs play their bundled recordings", async ({
   page,
 }) => {
+  await ready(page);
+  await route(page, "Load Schedule");
+  await addLoad(page, { name: "Demo fan" });
+  await expect(page.locator(".save-badge")).toContainText("Saved locally");
+  await addLoad(page, { name: "Demo pump" });
+  await expect(page.locator(".save-badge")).toContainText("Saved locally");
   for (const { route, title } of [
     { route: "reports", title: "Watch the report workflow" },
     { route: "settings", title: "Watch the workspace backup workflow" },
+    { route: "history", title: "Watch how to compare revisions" },
   ]) {
     await page.goto(`/#/${route}`);
+    if (route === "history") {
+      await page.reload();
+      await expect(
+        page.getByLabel("Earlier revision").locator('option:not([value=""])'),
+      ).not.toHaveCount(0);
+    }
     const video = page.getByRole("region", { name: title }).locator("video");
     await expect(video).toBeVisible();
     await video.evaluate((element: HTMLVideoElement) => {

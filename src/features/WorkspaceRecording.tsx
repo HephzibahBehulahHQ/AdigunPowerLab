@@ -54,9 +54,37 @@ const backup = {
   ],
 } satisfies Record<Locale, readonly string[]>;
 
+const history = {
+  en: [
+    "Watch how to compare revisions",
+    "Choose an earlier saved revision",
+    "Review the changed inputs",
+    "Select only the fields you want to restore",
+  ],
+  de: [
+    "Vergleich gespeicherter Revisionen ansehen",
+    "Frühere gespeicherte Revision auswählen",
+    "Geänderte Eingaben prüfen",
+    "Nur die gewünschten Felder zur Wiederherstellung auswählen",
+  ],
+  yo: [
+    "Wo bí a ṣe ń fi àwọn ẹ̀dà wé ara wọn",
+    "Yan ẹ̀dà àtijọ́ tí a fipamọ́",
+    "Ṣàyẹ̀wò àwọn iye tó yí padà",
+    "Yan àwọn iye tí o fẹ́ dá padà",
+  ],
+  pcm: [
+    "Watch how to compare revisions",
+    "Choose earlier saved revision",
+    "Check di inputs wey change",
+    "Choose only di fields wey you want restore",
+  ],
+} satisfies Record<Locale, readonly string[]>;
+
 const recordings = {
   report: { asset: "engineering-report", steps: report },
   backup: { asset: "workspace-backup", steps: backup },
+  history: { asset: "revision-comparison", steps: history },
 };
 
 export function WorkspaceRecording({
