@@ -563,3 +563,7 @@ TypeScript and 29 Help and dispatch solver tests passed. Focused Chromium assert
 ### POWERGRID LAB foundations lessons
 
 TypeScript and 24 Help and transmission solver tests passed. The Chromium foundations case verified that an edited generator voltage changes the live route, PDF export produces a valid file signature, and restoring the worked inputs preserves student notes.
+
+### POWERGRID LAB deterministic transmission BOT
+
+TypeScript and 20 Help catalogue checks passed. Focused Chromium assertions verified a 330-to-363 kV preview without mutation, stale preview rejection after edit and undo, explicit confirmation of a fresh preview and undo of the resulting edit.

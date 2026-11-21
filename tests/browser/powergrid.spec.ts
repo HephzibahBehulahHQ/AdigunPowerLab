@@ -3,6 +3,35 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("transmission BOT rejects a stale proposal and supports confirmation and undo", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const bot = page.getByRole("region", {
+    name: "Adigun BOT · Transmission worksheet",
+  });
+  const preview = bot.getByRole("button", {
+    name: "Preview 10% higher transmission voltage",
+  });
+  const confirm = bot.getByRole("button", { name: "Confirm voltage change" });
+  const voltage = page.getByLabel("Raised transmission voltage (kV)", {
+    exact: true,
+  });
+  const undo = page.getByRole("button", { name: "Undo transmission edit" });
+  await preview.click();
+  await expect(voltage).toHaveValue("330");
+  await expect(bot.getByRole("group")).toContainText("363 kV");
+  await voltage.fill("400");
+  await undo.click();
+  await expect(confirm).toHaveCount(0);
+  await expect(bot.getByRole("status")).toContainText("Prepare a new preview");
+  await preview.click();
+  await confirm.click();
+  await expect(voltage).toHaveValue("363");
+  await undo.click();
+  await expect(voltage).toHaveValue("330");
+});
+
 test("foundations lessons trace edited stages and restore the worked case", async ({
   page,
 }) => {

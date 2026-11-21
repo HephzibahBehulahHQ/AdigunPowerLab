@@ -332,3 +332,5 @@ The community capstone includes an islanded-supply design objective, an illustra
 The microgrid operation curriculum item has a prediction, fixed reference assumptions, solver-generated worked results, editable storage and backup limits, interpretation questions, reset and an export that includes both solved runs.
 
 The two foundations lessons use the live generator, transmission, distribution and service voltages, plus the existing transmission meters and report. They add prediction prompts, worked values, explanation questions and a shared reset that keeps student notes.
+
+The lab BOT can explain fixed-power line losses, summarize raised-voltage readings, suggest the distance lesson, export the current PDF and preview one typed voltage proposal. Applying requires the same worksheet revision and adds an undo step. Selected-asset and dispatch-specific BOT explanations remain open.

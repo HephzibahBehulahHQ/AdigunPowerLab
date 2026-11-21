@@ -53,6 +53,7 @@ import { PowerGridDistanceLesson } from "./PowerGridDistanceLesson";
 import { PowerGridTransformerLesson } from "./PowerGridTransformerLesson";
 import { PowerGridRegionalLesson } from "./PowerGridRegionalLesson";
 import { PowerGridFoundations } from "./PowerGridFoundations";
+import { PowerGridBot, type TransmissionVoltageProposal } from "./PowerGridBot";
 import {
   DistributionNetworkScene,
   type DistributionEquipmentId,
@@ -218,6 +219,10 @@ interface ScenarioHistory {
 }
 type ScenarioEdit =
   | { type: "edit"; change: SetStateAction<PowerGridScenario> }
+  | {
+      type: "apply-bot-proposal";
+      proposal: TransmissionVoltageProposal<ScenarioHistory>;
+    }
   | { type: "undo" }
   | { type: "redo" };
 const historyLimit = 40;
@@ -226,6 +231,18 @@ function editTransmissionHistory(
   state: ScenarioHistory,
   action: ScenarioEdit,
 ): ScenarioHistory {
+  if (action.type === "apply-bot-proposal") {
+    if (action.proposal.revision !== state) return state;
+    const inputs = {
+      ...state.current.inputs,
+      raisedVoltageKV: action.proposal.raisedVoltageKV,
+    };
+    if (validatePowerGridInputs(inputs).length) return state;
+    return editTransmissionHistory(state, {
+      type: "edit",
+      change: { ...state.current, inputs, regionalPresetId: undefined },
+    });
+  }
   if (action.type === "undo") {
     const previous = state.past.at(-1);
     return previous
@@ -915,6 +932,18 @@ export function PowerGridLab({
         }}
       />
       <PowerGridTransformerLesson locale={locale} />
+      <PowerGridBot
+        locale={locale}
+        inputs={inputs}
+        result={result}
+        revision={history}
+        reportBusy={reportBusy}
+        onApply={(proposal) => {
+          editHistory({ type: "apply-bot-proposal", proposal });
+          setSaved(false);
+        }}
+        onReport={() => void exportPdf()}
+      />
       <PowerGridRegionalLesson
         locale={locale}
         inputs={inputs}

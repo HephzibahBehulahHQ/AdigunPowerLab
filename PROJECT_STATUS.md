@@ -346,3 +346,5 @@ The community capstone now lets students load the rural teaching day, pin a disp
 The microgrid operation lesson now shows a solved rural reference, prompts learners to change the battery power limit and interpret backup and unserved demand, and downloads the edited run alongside the reference.
 
 Source to socket and Why step up voltage now have guided practical lessons with worked references and interpretation prompts tied to the live transmission worksheet and PDF. The full lab still needs release qualification against the owner specification.
+
+The lab now has a deterministic Adigun BOT panel for transmission. It explains line loss, summarizes current readings, offers PDF export and previews a 10% voltage increase until confirmed. The worksheet reducer rejects stale revisions and records confirmed changes in undo history. Broader BOT lesson and asset contexts remain open.

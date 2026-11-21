@@ -1899,6 +1899,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fún ìdánwò láti orísun dé ibi lílo àti ìdí gbígbé fólítéèjì sókè, wé àwọn àpẹẹrẹ ìṣírò, ṣàtúnṣe worksheet gbigbe, kí o sì kọ ìtumọ̀ rẹ sínú PDF.",
       "For Source to socket and Why step up voltage, compare di worked cases, edit di transmission worksheet and write wetin you find for di lab report PDF.",
     ],
+  "In the lab Adigun BOT panel, preview a higher transmission voltage before confirming it. Any intervening worksheet edit invalidates the preview. Undo restores the preceding worksheet state.":
+    [
+      "Prüfen Sie im Adigun-BOT-Bereich eine höhere Übertragungsspannung vor der Bestätigung. Jede zwischenzeitliche Änderung macht die Vorschau ungültig. Rückgängig stellt den vorherigen Zustand wieder her.",
+      "Nínú Adigun BOT, ṣàyẹ̀wò fólítéèjì gbigbe tó ga sí i kí o tó jẹ́rìí rẹ̀. Ìyípadà worksheet sọ àwòyẹ̀wò di asán. Undo dá worksheet padà sí ipò ṣáájú.",
+      "For lab Adigun BOT, preview higher transmission voltage before you confirm. Any worksheet change cancel di preview. Undo bring back di previous worksheet state.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",
