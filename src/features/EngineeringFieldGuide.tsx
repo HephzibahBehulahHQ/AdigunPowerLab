@@ -2,6 +2,74 @@ import { useState } from "react";
 import type { Locale } from "../i18n";
 
 const cases = {
+  loads: {
+    clip: "939154",
+    slug: "usace-completes-installation-two-emergency-generators-hendersonville-nc",
+    image: "distribution-consumers.png",
+    credit: "Charles Delano · USACE, Wilmington District",
+    copy: {
+      en: [
+        "Build a load list for backup power",
+        "Watch backup generators arrive at a treatment plant",
+        "In a reference project, double the quantity of one load. Compare installed power and daily energy before and after.",
+      ],
+      de: [
+        "Lastliste für die Ersatzstromversorgung erstellen",
+        "Ersatzgeneratoren an einer Kläranlage ansehen",
+        "Verdoppeln Sie in einem Referenzprojekt die Stückzahl eines Verbrauchers. Vergleichen Sie installierte Leistung und Tagesenergie.",
+      ],
+      yo: [
+        "Ṣe àkójọ ẹrù fún agbára àfẹ́yinti",
+        "Wo bí wọ́n ṣe mú generator dé ilé ìtọ́jú omi",
+        "Nínú iṣẹ́ àpẹẹrẹ, ṣe iye ẹrù kan lẹ́ẹ̀mejì. Wé agbára tí a fi sílẹ̀ àti agbára ojoojúmọ́.",
+      ],
+      pcm: [
+        "Build load list for backup power",
+        "Watch backup generators reach treatment plant",
+        "For reference project, double quantity of one load. Compare installed power and daily energy before and after.",
+      ],
+    },
+    action: {
+      en: "Go to the load list",
+      de: "Zur Lastliste",
+      yo: "Lọ sí àkójọ ẹrù",
+      pcm: "Open di load list",
+    },
+  },
+  boards: {
+    clip: "1007562",
+    slug: "powering-ohio-river-black-lions-mission",
+    image: "electrical-test-tools.png",
+    credit: "Charles Delano · USACE, Louisville District",
+    copy: {
+      en: [
+        "Compare circuit demand and protection",
+        "Watch circuit breaker inspection at Cannelton Locks and Dam",
+        "Open a circuit in a reference project and identify its assigned loads. Compare design current with the entered breaker rating.",
+      ],
+      de: [
+        "Stromkreislast und Schutz vergleichen",
+        "Leistungsschalterprüfung in Cannelton ansehen",
+        "Öffnen Sie einen Stromkreis im Referenzprojekt, prüfen Sie die zugeordneten Verbraucher und vergleichen Sie Bemessungsstrom und Schutzschalterwert.",
+      ],
+      yo: [
+        "Wé ìbéèrè iyíká àti ààbò rẹ̀",
+        "Wo àyẹ̀wò breaker ní Cannelton",
+        "Ṣí iyíká kan nínú iṣẹ́ àpẹẹrẹ, kí o rí àwọn ẹrù rẹ̀. Wé ìṣàn iná àpẹrẹ pẹ̀lú iye breaker.",
+      ],
+      pcm: [
+        "Compare circuit demand and protection",
+        "Watch breaker inspection for Cannelton",
+        "Open one circuit for reference project and check di loads wey dey on am. Compare design current and breaker rating.",
+      ],
+    },
+    action: {
+      en: "Go to the circuit list",
+      de: "Zur Stromkreisliste",
+      yo: "Lọ sí àkójọ iyíká",
+      pcm: "Open di circuit list",
+    },
+  },
   diagram: {
     clip: "902345",
     slug: "transformer-installation-timelapse-fort-randall-dam",

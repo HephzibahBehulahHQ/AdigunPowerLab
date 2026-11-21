@@ -959,6 +959,18 @@ test("engineering field guides link footage to the calculator", async ({
 }) => {
   for (const lesson of [
     {
+      route: "loads",
+      title: "Build a load list for backup power",
+      clip: "939154",
+      action: "Go to the load list",
+    },
+    {
+      route: "boards",
+      title: "Compare circuit demand and protection",
+      clip: "1007562",
+      action: "Go to the circuit list",
+    },
+    {
       route: "diagram",
       title: "Trace the supply in a single-line diagram",
       clip: "902345",

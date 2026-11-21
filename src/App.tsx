@@ -1687,6 +1687,11 @@ export default function App() {
                   )}
                   {route === "loads" && (
                     <>
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
+                      />
                       <LoadOperations
                         project={project}
                         change={change}
@@ -1695,50 +1700,59 @@ export default function App() {
                       <button className="button" onClick={() => go("library")}>
                         {t("Add from library")}
                       </button>
-                      <Loads
-                        project={project}
-                        result={result}
-                        detailMode={detailMode}
-                        selected={selected}
-                        onAdd={() => setEditor({})}
-                        onEdit={(load) => setEditor({ load })}
-                        onSelect={(id) => {
-                          setSelected(id);
-                          setShowTrace(false);
-                        }}
-                        onDuplicate={(load) =>
-                          change((p) =>
-                            p.loads.push({
-                              ...structuredClone(load),
-                              id: crypto.randomUUID(),
-                              name: load.name + " · copy",
-                            }),
-                          )
-                        }
-                        onDelete={(id) =>
-                          setCommandReview({
-                            preview: previewProjectCommand(project, {
-                              kind: "loads.delete",
-                              ids: [id],
-                            }),
-                          })
-                        }
-                        onImport={() => fileInput.current?.click()}
-                        onExport={() => exportLoads(project)}
-                        onLibrary={() => go("library")}
-                      />
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        <Loads
+                          project={project}
+                          result={result}
+                          detailMode={detailMode}
+                          selected={selected}
+                          onAdd={() => setEditor({})}
+                          onEdit={(load) => setEditor({ load })}
+                          onSelect={(id) => {
+                            setSelected(id);
+                            setShowTrace(false);
+                          }}
+                          onDuplicate={(load) =>
+                            change((p) =>
+                              p.loads.push({
+                                ...structuredClone(load),
+                                id: crypto.randomUUID(),
+                                name: load.name + " · copy",
+                              }),
+                            )
+                          }
+                          onDelete={(id) =>
+                            setCommandReview({
+                              preview: previewProjectCommand(project, {
+                                kind: "loads.delete",
+                                ids: [id],
+                              }),
+                            })
+                          }
+                          onImport={() => fileInput.current?.click()}
+                          onExport={() => exportLoads(project)}
+                          onLibrary={() => go("library")}
+                        />
+                      </div>
                     </>
                   )}
                   {route === "boards" && (
                     <>
-                      <ProjectOrganization project={project} change={change} />
-                      <Boards
-                        project={project}
-                        result={result}
-                        detailMode={detailMode}
-                        change={change}
-                        onSelect={setSelected}
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
                       />
+                      <ProjectOrganization project={project} change={change} />
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        <Boards
+                          project={project}
+                          result={result}
+                          detailMode={detailMode}
+                          change={change}
+                          onSelect={setSelected}
+                        />
+                      </div>
                     </>
                   )}
                   {route === "diagram" && (
