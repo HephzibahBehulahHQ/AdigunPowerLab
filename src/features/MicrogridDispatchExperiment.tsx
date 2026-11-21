@@ -15,6 +15,68 @@ const LIMITS =
   "This is an illustrative AC-bus dispatch, not a site forecast or utility operation model. No feeder/transformer losses, exports, fuel use, costs, emissions, frequency response or unit-specific generator model are included. Entered profiles are assumptions. Generic backup capacity is dispatched after storage with the entered ramp-up ceiling; ramp-down is instantaneous.";
 const pvDefaults = DEFAULT_MICROGRID_DISPATCH_INPUTS.pvByInterval[0];
 const copy: Record<string, [string, string, string]> = {
+  "Pumped storage capacity (kWh), zero to disable": [
+    "Pumpspeicherkapazität (kWh), null zum Abschalten",
+    "Ìwọ̀n ìpamọ́ agbára omi (kWh), òdo láti pa á",
+    "Pumped storage capacity (kWh), zero to turn am off",
+  ],
+  "Initial stored hydraulic energy (kWh)": [
+    "Hydraulische Anfangsenergie (kWh)",
+    "Agbára omi ìbẹ̀rẹ̀ (kWh)",
+    "Starting stored water energy (kWh)",
+  ],
+  "Pump input limit (kW)": [
+    "Leistungsgrenze der Pumpe (kW)",
+    "Ààlà agbára pump (kW)",
+    "Pump input limit (kW)",
+  ],
+  "Pumped generation limit (kW)": [
+    "Erzeugungsgrenze des Pumpspeichers (kW)",
+    "Ààlà agbára tí omi ìpamọ́ ń ṣe (kW)",
+    "Pumped generation limit (kW)",
+  ],
+  "Pump efficiency (%)": [
+    "Pumpenwirkungsgrad (%)",
+    "Ìmúṣẹ pump (%)",
+    "Pump efficiency (%)",
+  ],
+  "Pumped generation efficiency (%)": [
+    "Erzeugungswirkungsgrad (%)",
+    "Ìmúṣẹ ìṣẹ̀dá agbára omi (%)",
+    "Pumped generation efficiency (%)",
+  ],
+  "Pump input (kW)": [
+    "Pumpenaufnahme (kW)",
+    "Agbára tí pump ń lò (kW)",
+    "Pump input (kW)",
+  ],
+  "Pumped generation (kW)": [
+    "Pumpspeichererzeugung (kW)",
+    "Agbára láti omi ìpamọ́ (kW)",
+    "Pumped generation (kW)",
+  ],
+  "Hydraulic storage (kWh)": [
+    "Hydraulischer Speicherinhalt (kWh)",
+    "Agbára omi tí a pa mọ́ (kWh)",
+    "Stored water energy (kWh)",
+  ],
+  "Pumped storage losses (kWh)": [
+    "Pumpspeicherverluste (kWh)",
+    "Àdánù agbára omi ìpamọ́ (kWh)",
+    "Pumped storage losses (kWh)",
+  ],
+  "Enter valid pumped storage capacity, energy, ratings and efficiencies (1–100%).":
+    [
+      "Geben Sie gültige Kapazität, Energie, Leistungen und Wirkungsgrade (1–100 %) ein.",
+      "Tẹ ìwọ̀n ìpamọ́, agbára, ààlà àti ìmúṣẹ (1–100%) tó péye.",
+      "Enter correct capacity, energy, power limits and efficiencies (1–100%).",
+    ],
+  "Pumped storage uses surplus after the battery and supplies remaining demand before backup. The model tracks hydraulic energy separately from the hydro reservoir.":
+    [
+      "Der Pumpspeicher nutzt Überschüsse nach der Batterie und deckt Restlast vor der Reserveerzeugung. Seine hydraulische Energie wird getrennt vom Wasserkraftspeicher bilanziert.",
+      "Ìpamọ́ omi lo agbára tó ṣẹ́ kù lẹ́yìn batiri, ó sì pèsè fún ìbéèrè tó kù ṣáájú backup. A ka agbára omi rẹ̀ lọ́tọ̀ sí àdágún hydro.",
+      "Pumped storage use surplus after battery and supply remaining demand before backup. E track stored water energy separate from hydro reservoir.",
+    ],
   "Hydro flow by interval (m³/s), optional": [
     "Turbinendurchfluss je Intervall (m³/s), optional",
     "Ìṣàn omi turbine fún àkókò kọ̀ọ̀kan (m³/s), àṣàyàn",
@@ -314,6 +376,12 @@ interface Editable {
   pvAcKW: number;
   turbines: number;
   batteryKWh: number;
+  pumpedCapacity: number;
+  pumpedInitial: number;
+  pumpLimit: number;
+  pumpedGenerationLimit: number;
+  pumpEfficiency: number;
+  pumpedGenerationEfficiency: number;
   initialSoc: number;
   reserveSoc: number;
   batteryPowerKW: number;
@@ -345,6 +413,12 @@ function defaults(): Editable {
     pvAcKW: pvDefaults.inverterAcRatingKW,
     turbines: DEFAULT_MICROGRID_DISPATCH_INPUTS.wind.turbineCount,
     batteryKWh: DEFAULT_MICROGRID_DISPATCH_INPUTS.battery.capacityKWh,
+    pumpedCapacity: 0,
+    pumpedInitial: 0,
+    pumpLimit: 25,
+    pumpedGenerationLimit: 25,
+    pumpEfficiency: 85,
+    pumpedGenerationEfficiency: 85,
     initialSoc: DEFAULT_MICROGRID_DISPATCH_INPUTS.battery.initialSocPercent,
     reserveSoc: DEFAULT_MICROGRID_DISPATCH_INPUTS.battery.minimumSocPercent,
     batteryPowerKW: DEFAULT_MICROGRID_DISPATCH_INPUTS.battery.maxDischargeKW,
@@ -459,6 +533,17 @@ export function MicrogridDispatchExperiment() {
         ratedKW: state.backupKW,
         rampUpKWPerInterval: state.rampKW,
       },
+      pumpedStorage:
+        state.pumpedCapacity === 0
+          ? undefined
+          : {
+              capacityKWh: state.pumpedCapacity,
+              initialKWh: state.pumpedInitial,
+              maxPumpKW: state.pumpLimit,
+              maxGenerationKW: state.pumpedGenerationLimit,
+              pumpEfficiency: state.pumpEfficiency / 100,
+              generationEfficiency: state.pumpedGenerationEfficiency / 100,
+            },
     };
   }, [state]);
   const errors = useMemo(
@@ -536,7 +621,7 @@ export function MicrogridDispatchExperiment() {
       download(
         "powergrid-microgrid-intervals.csv",
         [
-          "interval,pv_available_kW,wind_available_kW,renewable_available_kW,demand_kW,critical_demand_kW,battery_charge_kW,battery_discharge_kW,battery_soc_kWh,backup_generation_kW,curtailment_kW,critical_unserved_kW,noncritical_unserved_kW,served_kW,balance_residual_kW,hydro_available_kW,reservoir_storage_m3,turbine_m3,environmental_bypass_m3,unmet_bypass_m3,spill_m3,reservoir_net_head_m",
+          "interval,pv_available_kW,wind_available_kW,renewable_available_kW,demand_kW,critical_demand_kW,battery_charge_kW,battery_discharge_kW,battery_soc_kWh,backup_generation_kW,curtailment_kW,critical_unserved_kW,noncritical_unserved_kW,served_kW,balance_residual_kW,hydro_available_kW,reservoir_storage_m3,turbine_m3,environmental_bypass_m3,unmet_bypass_m3,spill_m3,reservoir_net_head_m,pump_input_kW,pumped_generation_kW,hydraulic_storage_kWh,pumped_storage_losses_kWh",
           ...result.intervals.map((r) =>
             [
               r.interval,
@@ -561,6 +646,10 @@ export function MicrogridDispatchExperiment() {
               r.hydroWater?.unmetEnvironmentalReleaseM3,
               r.hydroWater?.spillM3,
               r.hydroWater?.netHeadM,
+              r.pumpedStorage?.pumpKW,
+              r.pumpedStorage?.generationKW,
+              r.pumpedStorage?.storedKWh,
+              r.pumpedStorage?.conversionLossKWh,
             ].join(","),
           ),
         ].join("\r\n"),
@@ -653,6 +742,36 @@ export function MicrogridDispatchExperiment() {
         {field("turbines", "Wind turbines", state.turbines)}
         {field("intervalHours", "Interval duration (h)", state.intervalHours)}
         {field("batteryKWh", "Battery capacity (kWh)", state.batteryKWh)}
+        {field(
+          "pumpedCapacity",
+          "Pumped storage capacity (kWh), zero to disable",
+          state.pumpedCapacity,
+        )}
+        {inputs.pumpedStorage && (
+          <>
+            {field(
+              "pumpedInitial",
+              "Initial stored hydraulic energy (kWh)",
+              state.pumpedInitial,
+            )}
+            {field("pumpLimit", "Pump input limit (kW)", state.pumpLimit)}
+            {field(
+              "pumpedGenerationLimit",
+              "Pumped generation limit (kW)",
+              state.pumpedGenerationLimit,
+            )}
+            {field(
+              "pumpEfficiency",
+              "Pump efficiency (%)",
+              state.pumpEfficiency,
+            )}
+            {field(
+              "pumpedGenerationEfficiency",
+              "Pumped generation efficiency (%)",
+              state.pumpedGenerationEfficiency,
+            )}
+          </>
+        )}
         {field(
           "initialSoc",
           "Initial battery state of charge (%)",
@@ -758,6 +877,14 @@ export function MicrogridDispatchExperiment() {
                           "Unmet bypass (m³)",
                         ]
                       : []),
+                    ...(inputs.pumpedStorage
+                      ? [
+                          "Pump input (kW)",
+                          "Pumped generation (kW)",
+                          "Hydraulic storage (kWh)",
+                          "Pumped storage losses (kWh)",
+                        ]
+                      : []),
                   ].map((s) => (
                     <th key={s}>{label(s)}</th>
                   ))}
@@ -785,6 +912,14 @@ export function MicrogridDispatchExperiment() {
                         <td>{fmt(r.hydroWater.unmetEnvironmentalReleaseM3)}</td>
                       </>
                     )}
+                    {r.pumpedStorage && (
+                      <>
+                        <td>{fmt(r.pumpedStorage.pumpKW)}</td>
+                        <td>{fmt(r.pumpedStorage.generationKW)}</td>
+                        <td>{fmt(r.pumpedStorage.storedKWh)}</td>
+                        <td>{fmt(r.pumpedStorage.conversionLossKWh)}</td>
+                      </>
+                    )}
                   </tr>
                 ))}
               </tbody>
@@ -793,6 +928,13 @@ export function MicrogridDispatchExperiment() {
         </>
       )}
       <p className="pg-model-note">{label(LIMITS)}</p>
+      {inputs.pumpedStorage && (
+        <p className="pg-model-note">
+          {label(
+            "Pumped storage uses surplus after the battery and supplies remaining demand before backup. The model tracks hydraulic energy separately from the hydro reservoir.",
+          )}
+        </p>
+      )}
       <div className="pg-actions">
         <button
           className="button"

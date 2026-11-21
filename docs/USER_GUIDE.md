@@ -240,3 +240,7 @@ In POWERGRID LAB, enter net head after waterway losses, turbine flow, combined t
 To include hydro in Microgrid dispatch, type one comma-separated turbine-flow value per demand interval, then enter net head, efficiency and rating. The interval table and both exports include available hydro power. Clear the flow profile to omit hydro.
 
 For reservoir hydro, also enter one inflow value per interval and set reservoir capacity, initial volume and environmental bypass. The model uses the entered turbine schedule. In reservoir mode, Hydro net head is the head at empty storage. Enter the extra head at full storage to interpolate linearly from the starting volume of each interval, or keep the rise at zero for fixed head. Inspect reservoir storage, spill and bypass shortage in the interval table. Exports also include actual turbine and bypass volumes.
+
+Set a positive pumped storage capacity in Microgrid dispatch. Enter initial hydraulic energy, pump and generator limits, and their efficiencies. The interval table and exports report pump input, recovered power, stored energy, and losses. This energy-equivalent model is separate from the natural-inflow reservoir water balance.
+
+[U.S. Department of Energy — Pumped storage hydropower](https://www.energy.gov/cmei/water/pumped-storage-hydropower)

@@ -6,6 +6,53 @@ import {
 } from "../src/engine/microgridDispatch";
 
 describe("chronological microgrid dispatch", () => {
+  it("charges pumped storage from surplus and recovers only the round-trip yield", () => {
+    const base = DEFAULT_MICROGRID_DISPATCH_INPUTS;
+    const pumpedStorage = {
+      capacityKWh: 25,
+      initialKWh: 0,
+      maxPumpKW: 20,
+      maxGenerationKW: 20,
+      pumpEfficiency: 0.8,
+      generationEfficiency: 0.8,
+    };
+    const inputs = {
+      ...base,
+      wind: { ...base.wind, windSpeedsMps: [0, 0, 0, 0, 0, 0] },
+      pvByInterval: base.pvByInterval.map((pv) => ({
+        ...pv,
+        planeOfArrayIrradianceWm2: 0,
+      })),
+      battery: { ...base.battery, maxChargeKW: 0, maxDischargeKW: 0 },
+      hydro: {
+        netHeadM: 30,
+        ratedKW: 50,
+        efficiencyPercent: 85,
+        flowsM3s: [1, 0, 0, 0, 0, 0],
+      },
+      pumpedStorage,
+    };
+    const { intervals } = calculateMicrogridDispatch(inputs);
+    expect(intervals[0].pumpedStorage?.pumpKW).toBe(18);
+    expect(intervals[0].pumpedStorage?.storedKWh).toBeCloseTo(14.4);
+    expect(intervals[1].pumpedStorage?.generationKW).toBeCloseTo(11.52);
+    expect(intervals[1].pumpedStorage?.storedKWh).toBe(0);
+    expect(intervals[1].backupGenerationKW).toBeCloseTo(16.48);
+    expect(
+      (intervals[0].pumpedStorage?.conversionLossKWh ?? 0) +
+        (intervals[1].pumpedStorage?.conversionLossKWh ?? 0),
+    ).toBeCloseTo(6.48);
+    for (const row of intervals)
+      expect(row.balanceResidualKW).toBeCloseTo(0, 8);
+    expect(
+      validateMicrogridDispatchInputs({
+        ...inputs,
+        pumpedStorage: { ...pumpedStorage, initialKWh: 26 },
+      }),
+    ).toContain(
+      "Enter valid pumped storage capacity, energy, ratings and efficiencies (1–100%).",
+    );
+  });
   it("conserves reservoir water across depletion, bypass shortage and spill", () => {
     const base = DEFAULT_MICROGRID_DISPATCH_INPUTS;
     const result = calculateMicrogridDispatch({

@@ -1,6 +1,35 @@
 import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
 
+test("microgrid dispatch exports pumped storage delivery and losses", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const section = page
+    .locator(".pg-pv")
+    .filter({ has: page.locator("#pg-microgrid-title") });
+  await section.getByTestId("microgrid-batteryPowerKW").fill("0");
+  await section.getByTestId("microgrid-pumpedCapacity").fill("20");
+  await section.getByTestId("microgrid-pumpedInitial").fill("10");
+  await section.getByTestId("microgrid-pumpedGenerationEfficiency").fill("80");
+  await expect(
+    section.getByRole("columnheader", { name: "Pumped storage losses (kWh)" }),
+  ).toBeVisible();
+  const csvPromise = page.waitForEvent("download");
+  await section.getByRole("button", { name: "Export intervals CSV" }).click();
+  const download = await csvPromise;
+  const [header, first] = (await readFile(await download.path(), "utf8")).split(
+    /\r?\n/,
+  );
+  expect(header.split(",").slice(-4)).toEqual([
+    "pump_input_kW",
+    "pumped_generation_kW",
+    "hydraulic_storage_kWh",
+    "pumped_storage_losses_kWh",
+  ]);
+  expect(first.split(",").slice(-4).map(Number)).toEqual([0, 8, 0, 2]);
+});
+
 test("microgrid dispatch saves and exports optional hydro generation", async ({
   page,
 }) => {

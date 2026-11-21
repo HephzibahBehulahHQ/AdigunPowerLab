@@ -462,3 +462,5 @@ Local Chromium also passed both microgrid dispatch scenarios, including hydro pr
 Reservoir dispatch passed TypeScript, 14 focused dispatch and localization tests, and both Chromium dispatch tests. Cases included reservoir depletion, environmental bypass priority and shortfall, spill, and exported zero output from an empty reservoir.
 
 Variable reservoir head passed TypeScript, 15 focused unit and localization tests, and the Chromium hydro dispatch scenario. The numerical fixture verifies 20 m at full storage, 15 m at half storage, and proportional power at equal turbine flow.
+
+Pumped storage passed TypeScript and 16 focused tests. The numerical fixture turns 18 kWh of pump input into 11.52 kWh delivered at 80% efficiency in each direction. All three focused Chromium dispatch scenarios passed, with the pumped storage CSV assertion rerun after correcting its handling of Windows line endings.

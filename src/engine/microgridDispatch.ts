@@ -39,6 +39,14 @@ export interface MicrogridDispatchInputs {
     dischargeEfficiency: number;
   };
   backupGenerator: { ratedKW: number; rampUpKWPerInterval: number };
+  pumpedStorage?: {
+    capacityKWh: number;
+    initialKWh: number;
+    maxPumpKW: number;
+    maxGenerationKW: number;
+    pumpEfficiency: number;
+    generationEfficiency: number;
+  };
 }
 
 export interface MicrogridDispatchInterval {
@@ -46,6 +54,12 @@ export interface MicrogridDispatchInterval {
   pvAvailableKW: number;
   windAvailableKW: number;
   hydroAvailableKW: number;
+  pumpedStorage?: {
+    pumpKW: number;
+    generationKW: number;
+    storedKWh: number;
+    conversionLossKWh: number;
+  };
   hydroWater?: {
     netHeadM: number;
     turbineM3: number;
@@ -242,6 +256,34 @@ export function validateMicrogridDispatchInputs(
       errors.push(`${label} must be greater than 0 and at most 1.`);
   }
   const g = inputs.backupGenerator;
+  const pumped = inputs.pumpedStorage;
+  if (
+    pumped &&
+    (![
+      pumped.capacityKWh,
+      pumped.initialKWh,
+      pumped.maxPumpKW,
+      pumped.maxGenerationKW,
+      pumped.pumpEfficiency,
+      pumped.generationEfficiency,
+    ].every(Number.isFinite) ||
+      pumped.capacityKWh <= 0 ||
+      pumped.capacityKWh > 1e9 ||
+      pumped.initialKWh < 0 ||
+      pumped.initialKWh > pumped.capacityKWh ||
+      pumped.maxPumpKW < 0 ||
+      pumped.maxPumpKW > 1e6 ||
+      pumped.maxGenerationKW < 0 ||
+      pumped.maxGenerationKW > 1e6 ||
+      pumped.pumpEfficiency < 0.01 ||
+      pumped.pumpEfficiency > 1 ||
+      pumped.generationEfficiency < 0.01 ||
+      pumped.generationEfficiency > 1)
+  ) {
+    errors.push(
+      "Enter valid pumped storage capacity, energy, ratings and efficiencies (1–100%).",
+    );
+  }
   if (
     !Number.isFinite(g.ratedKW) ||
     g.ratedKW < 0 ||
@@ -270,6 +312,8 @@ export function calculateMicrogridDispatch(
   const minimumKWh = (capacityKWh * battery.minimumSocPercent) / 100;
   let socKWh = (capacityKWh * battery.initialSocPercent) / 100;
   let previousGeneratorKW = 0;
+  const pumped = inputs.pumpedStorage;
+  let pumpedEnergyKWh = pumped?.initialKWh ?? 0;
   const wind = calculateWindPerformance(inputs.wind);
   const hydro = inputs.hydro;
   const reservoir = hydro?.reservoir;
@@ -354,18 +398,52 @@ export function calculateMicrogridDispatch(
       socKWh -
         (batteryDischargeKW * intervalHours) / battery.dischargeEfficiency,
     );
+    let pumpKW = 0;
+    let pumpedGenerationKW = 0;
+    let pumpedStorage: MicrogridDispatchInterval["pumpedStorage"];
+    if (pumped) {
+      pumpKW = Math.min(
+        surplusKW - batteryChargeKW,
+        pumped.maxPumpKW,
+        (pumped.capacityKWh - pumpedEnergyKWh) /
+          pumped.pumpEfficiency /
+          intervalHours,
+      );
+      pumpedGenerationKW = Math.min(
+        deficitKW - batteryDischargeKW,
+        pumped.maxGenerationKW,
+        (pumpedEnergyKWh * pumped.generationEfficiency) / intervalHours,
+      );
+      const chargingKWh = pumpKW * intervalHours;
+      const deliveredKWh = pumpedGenerationKW * intervalHours;
+      const addedKWh = chargingKWh * pumped.pumpEfficiency;
+      const withdrawnKWh = deliveredKWh / pumped.generationEfficiency;
+      pumpedEnergyKWh = Math.max(
+        0,
+        Math.min(pumped.capacityKWh, pumpedEnergyKWh + addedKWh - withdrawnKWh),
+      );
+      pumpedStorage = {
+        pumpKW,
+        generationKW: pumpedGenerationKW,
+        storedKWh: pumpedEnergyKWh,
+        conversionLossKWh: chargingKWh - addedKWh + withdrawnKWh - deliveredKWh,
+      };
+    }
     const generatorLimitKW = Math.min(
       generator.ratedKW,
       previousGeneratorKW + generator.rampUpKWPerInterval,
     );
     const backupGenerationKW = Math.min(
-      Math.max(0, deficitKW - batteryDischargeKW),
+      Math.max(0, deficitKW - batteryDischargeKW - pumpedGenerationKW),
       generatorLimitKW,
     );
     previousGeneratorKW = backupGenerationKW;
     const renewableToLoadKW = Math.min(renewableAvailableKW, demandKW);
     const availableToLoadKW =
-      renewableToLoadKW + batteryDischargeKW + backupGenerationKW;
+      renewableToLoadKW +
+      batteryDischargeKW +
+      pumpedGenerationKW +
+      backupGenerationKW;
     const servedDemandKW = Math.min(demandKW, availableToLoadKW);
     const criticalServedKW = Math.min(criticalDemandKW, servedDemandKW);
     const nonCriticalDemandKW = demandKW - criticalDemandKW;
@@ -375,13 +453,15 @@ export function calculateMicrogridDispatch(
     );
     const renewableCurtailmentKW = Math.max(
       0,
-      renewableAvailableKW - demandKW - batteryChargeKW,
+      surplusKW - batteryChargeKW - pumpKW,
     );
     const balanceResidualKW =
       renewableAvailableKW +
       batteryDischargeKW +
+      pumpedGenerationKW +
       backupGenerationKW -
       batteryChargeKW -
+      pumpKW -
       renewableCurtailmentKW -
       servedDemandKW;
     return {
@@ -389,6 +469,7 @@ export function calculateMicrogridDispatch(
       pvAvailableKW,
       windAvailableKW,
       hydroAvailableKW,
+      pumpedStorage,
       hydroWater,
       renewableAvailableKW,
       demandKW,

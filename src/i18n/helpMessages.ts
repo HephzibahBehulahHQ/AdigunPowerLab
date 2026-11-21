@@ -1701,6 +1701,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Tẹ àfikún gíga omi nígbà tí àdágún kún. Àkókò kọ̀ọ̀kan lo ìkún omi ní ìbẹ̀rẹ̀ rẹ̀. Tẹ òdo kí gíga omi dúró ṣinṣin.",
       "Enter extra head when reservoir full to model changing head. Each interval use how full am be when e start. Enter zero for fixed head.",
     ],
+  "In Microgrid dispatch, enter a positive pumped storage capacity to use remaining renewable surplus for pumping and recover power before backup. Inspect pump input, generated power, stored hydraulic energy and losses.":
+    [
+      "Geben Sie im Mikronetz eine positive Pumpspeicherkapazität ein. Verbleibende erneuerbare Überschüsse treiben die Pumpe an. Der Speicher liefert Energie vor der Reserveerzeugung. Prüfen Sie Pumpenaufnahme, Erzeugung, hydraulischen Speicherinhalt und Verluste.",
+      "Nínú Microgrid dispatch, tẹ ìwọ̀n ìpamọ́ omi tó ju òdo lọ. Agbára tó ṣẹ́ kù ń ṣiṣẹ́ pump, omi ìpamọ́ sì ń ṣe iná ṣáájú backup. Ṣàyẹ̀wò agbára pump, ìṣẹ̀dá iná, agbára omi tí a pa mọ́ àti àdánù.",
+      "For Microgrid dispatch, enter pumped storage capacity wey pass zero. Renewable power wey remain run the pump, and storage supply power before backup. Check pump input, generated power, stored water energy and loss.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",
