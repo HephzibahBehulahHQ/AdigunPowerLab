@@ -250,3 +250,5 @@ Set grid import and export limits and enter optional comma-separated outage inte
 Enter backup outage interval numbers independently of grid outages. The backup unit produces zero during an outage and resumes under the ramp-up limit from zero. Backup headroom is the unused output within the current interval limit, a planning metric that carries no spinning-reserve or response-time claim.
 
 Enable thermal backup to enter net heat rate in MJ of fuel per kWh of net electricity. Optionally enter a direct CO₂ factor in kg/GJ on the same heating-value basis. Fuel equals generated electrical energy times heat rate. Direct CO₂ equals fuel energy in GJ times the factor. See [EIA on heat rate](https://www.eia.gov/tools/faqs/faq.php?id=107).
+
+Enter startup fuel per start and optionally set initial fuel inventory in MJ. The model counts startup when generation rises from zero, includes it in total fuel and direct CO2, and consumes fuel only when the unit delivers power. An empty inventory field assumes unlimited fuel. A specified zero inventory supplies no power.

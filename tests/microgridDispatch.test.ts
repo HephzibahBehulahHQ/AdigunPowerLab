@@ -49,6 +49,38 @@ describe("chronological microgrid dispatch", () => {
       backupGenerationKW: 15,
       backupHeadroomKW: 20,
     });
+    const limited = calculateMicrogridDispatch({
+      ...inputs,
+      backupGenerator: {
+        ...inputs.backupGenerator,
+        thermal: {
+          ...inputs.backupGenerator.thermal,
+          startupFuelMJ: 30,
+          initialFuelMJ: 250,
+        },
+      },
+    });
+    expect(limited.intervals[0]).toMatchObject({
+      backupStartupFuelMJ: 30,
+      backupFuelEnergyMJ: 130,
+      backupRemainingFuelMJ: 120,
+    });
+    expect(limited.intervals[1]).toMatchObject({
+      backupStartupFuelMJ: 0,
+      backupRemainingFuelMJ: 120,
+    });
+    expect(limited.intervals[2]).toMatchObject({
+      backupGenerationKW: 9,
+      backupStartupFuelMJ: 30,
+      backupRemainingFuelMJ: 0,
+    });
+    expect(limited.intervals[3]).toMatchObject({
+      backupGenerationKW: 0,
+      backupStartupFuelMJ: 0,
+      backupHeadroomKW: 0,
+    });
+    expect(limited.backupFuelEnergyMJ).toBe(250);
+    expect(limited.backupDirectCO2Kg).toBeCloseTo(15);
     expect(
       validateMicrogridDispatchInputs({
         ...inputs,

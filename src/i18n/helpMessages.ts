@@ -1725,6 +1725,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Mú ìṣirò epo backup ṣiṣẹ́, kí o tẹ ooru epo generator fún ìṣẹ̀dá. Tẹ òṣùwọ̀n CO₂ lórí ìpìlẹ̀ iye ooru epo kan náà fún CO₂ ìjóná taara.",
       "Turn on thermal backup fuel use and enter generator net heat rate. Enter direct CO₂ factor on the same fuel heat basis to include direct combustion CO₂.",
     ],
+  "Enter startup fuel per start and an optional initial fuel inventory. With a finite inventory, the generator needs enough fuel to start and can only deliver as much power as the remaining fuel allows.":
+    [
+      "Geben Sie den Anfahrbrennstoff je Start und optional einen Anfangsvorrat ein. Bei begrenztem Vorrat braucht das Aggregat genügend Brennstoff zum Starten. Der Restvorrat begrenzt die Leistung.",
+      "Tẹ epo fún ìbẹ̀rẹ̀ kọ̀ọ̀kan àti ìpamọ́ epo ìbẹ̀rẹ̀ bí o bá fẹ́. Tí ìpamọ́ bá ní ààlà, generator nílò epo tó fún ìbẹ̀rẹ̀, epo tó kù sì fi ààlà sí agbára.",
+      "Enter startup fuel for each start and starting fuel inventory if you want. When fuel get limit, generator need enough to start and fuel wey remain limit the power.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

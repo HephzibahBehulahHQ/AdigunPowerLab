@@ -275,4 +275,6 @@ Chronological grid exchange, islanding and restoration are implemented at the sh
 
 Generic backup-generator outage and ramp-limited restart are modeled. Reported ramp-limited headroom does not establish spinning reserve or dynamic frequency response.
 
-Constant heat-rate fuel accounting and optional direct CO₂ are available for backup generation. Part-load curves, startup fuel, fuel inventory and complete system emissions remain open.
+Constant heat-rate fuel accounting and optional direct CO₂ are available for backup generation. Part-load curves and complete system emissions remain open.
+
+Startup fuel and a finite consumable fuel budget are implemented. Fuel replenishment, warm/cold start differentiation, minimum up/down times and part-load curves remain open.

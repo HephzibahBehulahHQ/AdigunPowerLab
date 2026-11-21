@@ -16,17 +16,25 @@ test("microgrid dispatch exports thermal backup fuel and direct CO₂", async ({
     name: "Direct CO₂ factor (kg/GJ), optional",
   });
   await factor.fill("60");
+  await section.getByTestId("microgrid-backupStartupFuel").fill("30");
+  const inventory = section.getByRole("spinbutton", {
+    name: "Initial fuel inventory (MJ), optional",
+  });
+  await inventory.fill("150");
   await section.getByRole("button", { name: "Save scenario locally" }).click();
   await page.reload();
   await expect(factor).toHaveValue("60");
+  await expect(inventory).toHaveValue("150");
   const exportPromise = page.waitForEvent("download");
   await section.getByRole("button", { name: "Export dispatch JSON" }).click();
   const download = await exportPromise;
   const payload = JSON.parse(await readFile(await download.path(), "utf8"));
   expect(payload.result.intervals[0]).toMatchObject({
-    backupGenerationKW: 20,
-    backupFuelEnergyMJ: 200,
-    backupDirectCO2Kg: 12,
+    backupGenerationKW: 12,
+    backupFuelEnergyMJ: 150,
+    backupStartupFuelMJ: 30,
+    backupRemainingFuelMJ: 0,
+    backupDirectCO2Kg: 9,
   });
 });
 

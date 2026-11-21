@@ -15,6 +15,38 @@ const LIMITS =
   "This is an illustrative AC-bus dispatch, not a site forecast or utility operation model. No feeder/transformer losses, costs, frequency response or unit-specific transient models are included. Entered profiles are assumptions. Generic backup capacity is dispatched after storage and grid imports with the entered ramp-up ceiling; ramp-down is instantaneous.";
 const pvDefaults = DEFAULT_MICROGRID_DISPATCH_INPUTS.pvByInterval[0];
 const copy: Record<string, [string, string, string]> = {
+  "Startup fuel per start (MJ)": [
+    "Brennstoffenergie je Start (MJ)",
+    "Agbára epo fún ìbẹ̀rẹ̀ kọ̀ọ̀kan (MJ)",
+    "Startup fuel for each start (MJ)",
+  ],
+  "Initial fuel inventory (MJ), optional": [
+    "Anfangsbrennstoffvorrat (MJ), optional",
+    "Ìpamọ́ epo ìbẹ̀rẹ̀ (MJ), àṣàyàn",
+    "Starting fuel inventory (MJ), optional",
+  ],
+  "Startup fuel (MJ)": [
+    "Anfahrbrennstoff (MJ)",
+    "Agbára epo ìbẹ̀rẹ̀ (MJ)",
+    "Startup fuel (MJ)",
+  ],
+  "Remaining fuel (MJ)": [
+    "Verbleibender Brennstoff (MJ)",
+    "Agbára epo tó kù (MJ)",
+    "Fuel wey remain (MJ)",
+  ],
+  "Enter nonnegative startup fuel and inventory values up to 1,000,000,000,000 MJ.":
+    [
+      "Geben Sie für Anfahrbrennstoff und Vorrat Werte zwischen null und 1.000.000.000.000 MJ ein.",
+      "Tẹ iye epo ìbẹ̀rẹ̀ àti ìpamọ́ láàárín òdo àti 1,000,000,000,000 MJ.",
+      "Enter startup fuel and inventory from zero to 1,000,000,000,000 MJ.",
+    ],
+  "Startup fuel is counted when output rises from zero. Leave the inventory blank for unlimited fuel. A finite inventory limits backup output and headroom.":
+    [
+      "Anfahrbrennstoff wird beim Anstieg der Leistung von null berücksichtigt. Ein leeres Vorratsfeld bedeutet unbegrenzten Brennstoff. Ein endlicher Vorrat begrenzt Leistung und Leistungsreserve.",
+      "A ka epo ìbẹ̀rẹ̀ nígbà tí agbára bá gòkè láti òdo. Fi ààyè ìpamọ́ sílẹ̀ láìkọ ohunkóhun fún epo àìlópin. Ìpamọ́ tó ní ààlà dín agbára àti headroom kù.",
+      "Startup fuel count when output rise from zero. Leave inventory empty for unlimited fuel. If inventory get limit, e limit backup output and headroom.",
+    ],
   "Model thermal backup fuel use": [
     "Brennstoffeinsatz des Reserveaggregats modellieren",
     "Ṣàwòṣe epo tí backup ń lò",
@@ -56,11 +88,11 @@ const copy: Record<string, [string, string, string]> = {
       "Tẹ ooru epo láàárín 3.6–1,000 MJ/kWh àti òṣùwọ̀n CO₂ àṣàyàn láàárín 0–1,000 kg/GJ.",
       "Enter heat rate from 3.6 to 1,000 MJ/kWh and optional CO₂ factor from 0 to 1,000 kg/GJ.",
     ],
-  "Fuel energy uses a constant net heat rate. Use the same heating-value basis for the heat rate and CO₂ factor. Startup and part-load fuel are outside this model.":
+  "Fuel energy uses a constant net heat rate. Use the same heating-value basis for the heat rate and CO₂ factor. Part-load heat-rate changes are outside this model.":
     [
-      "Die Brennstoffenergie verwendet einen konstanten Nettowärmeverbrauch. Verwenden Sie für Wärmeverbrauch und CO₂-Faktor dieselbe Heizwertbasis. Anfahr- und Teillastverbrauch sind nicht modelliert.",
-      "A lo ooru epo tó dúró ṣinṣin. Lo ìpìlẹ̀ iye ooru epo kan náà fún ooru àti òṣùwọ̀n CO₂. Àwòṣe kò ka epo ìbẹ̀rẹ̀ tàbí ti ẹrù kékeré.",
-      "Fuel energy use constant net heat rate. Use the same fuel heating-value basis for heat rate and CO₂ factor. Startup and part-load fuel dey outside this model.",
+      "Die Brennstoffenergie verwendet einen konstanten Nettowärmeverbrauch. Verwenden Sie für Wärmeverbrauch und CO₂-Faktor dieselbe Heizwertbasis. Änderungen des Wärmeverbrauchs bei Teillast werden nicht modelliert.",
+      "A lo ooru epo tó dúró ṣinṣin. Lo ìpìlẹ̀ iye ooru epo kan náà fún ooru àti òṣùwọ̀n CO₂. Àwòṣe kò ka ìyípadà ooru epo ní ẹrù kékeré.",
+      "Fuel energy use constant net heat rate. Use the same fuel heating-value basis for heat rate and CO₂ factor. Heat rate changes for part-load dey outside this model.",
     ],
   "Backup outage intervals (optional)": [
     "Ausfallintervalle der Reserveerzeugung (optional)",
@@ -513,6 +545,8 @@ interface Editable {
   thermalBackup: boolean;
   backupHeatRate: number;
   backupCO2Factor: string;
+  backupStartupFuel: number;
+  backupInitialFuel: string;
 }
 
 function defaults(): Editable {
@@ -545,6 +579,8 @@ function defaults(): Editable {
     thermalBackup: false,
     backupHeatRate: 10,
     backupCO2Factor: "",
+    backupStartupFuel: 0,
+    backupInitialFuel: "",
     pumpedInitial: 0,
     pumpLimit: 25,
     pumpedGenerationLimit: 25,
@@ -595,6 +631,10 @@ function readSaved(): Editable {
           backupCO2Factor:
             typeof value.backupCO2Factor === "string"
               ? value.backupCO2Factor
+              : "",
+          backupInitialFuel:
+            typeof value.backupInitialFuel === "string"
+              ? value.backupInitialFuel
               : "",
         };
     }
@@ -678,6 +718,10 @@ export function MicrogridDispatchExperiment() {
         thermal: state.thermalBackup
           ? {
               heatRateMJPerKWh: state.backupHeatRate,
+              startupFuelMJ: state.backupStartupFuel,
+              initialFuelMJ: state.backupInitialFuel.trim()
+                ? Number(state.backupInitialFuel)
+                : undefined,
               directCO2KgPerGJ:
                 state.backupCO2Factor.trim() === ""
                   ? undefined
@@ -785,7 +829,7 @@ export function MicrogridDispatchExperiment() {
       download(
         "powergrid-microgrid-intervals.csv",
         [
-          "interval,pv_available_kW,wind_available_kW,renewable_available_kW,demand_kW,critical_demand_kW,battery_charge_kW,battery_discharge_kW,battery_soc_kWh,backup_generation_kW,curtailment_kW,critical_unserved_kW,noncritical_unserved_kW,served_kW,balance_residual_kW,hydro_available_kW,reservoir_storage_m3,turbine_m3,environmental_bypass_m3,unmet_bypass_m3,spill_m3,reservoir_net_head_m,grid_import_kW,grid_export_kW,grid_connected,backup_in_service,backup_headroom_kW,backup_fuel_energy_MJ,backup_direct_CO2_kg,pump_input_kW,pumped_generation_kW,hydraulic_storage_kWh,pumped_storage_losses_kWh",
+          "interval,pv_available_kW,wind_available_kW,renewable_available_kW,demand_kW,critical_demand_kW,battery_charge_kW,battery_discharge_kW,battery_soc_kWh,backup_generation_kW,curtailment_kW,critical_unserved_kW,noncritical_unserved_kW,served_kW,balance_residual_kW,hydro_available_kW,reservoir_storage_m3,turbine_m3,environmental_bypass_m3,unmet_bypass_m3,spill_m3,reservoir_net_head_m,grid_import_kW,grid_export_kW,grid_connected,backup_in_service,backup_headroom_kW,backup_fuel_energy_MJ,backup_startup_fuel_MJ,backup_remaining_fuel_MJ,backup_direct_CO2_kg,pump_input_kW,pumped_generation_kW,hydraulic_storage_kWh,pumped_storage_losses_kWh",
           ...result.intervals.map((r) =>
             [
               r.interval,
@@ -816,6 +860,8 @@ export function MicrogridDispatchExperiment() {
               r.backupInService,
               r.backupHeadroomKW,
               r.backupFuelEnergyMJ,
+              r.backupStartupFuelMJ,
+              r.backupRemainingFuelMJ,
               r.backupDirectCO2Kg,
               r.pumpedStorage?.pumpKW,
               r.pumpedStorage?.generationKW,
@@ -985,6 +1031,25 @@ export function MicrogridDispatchExperiment() {
               "Net heat rate (MJ/kWh)",
               state.backupHeatRate,
             )}
+            {field(
+              "backupStartupFuel",
+              "Startup fuel per start (MJ)",
+              state.backupStartupFuel,
+            )}
+            <label className="pg-field">
+              <span>{label("Initial fuel inventory (MJ), optional")}</span>
+              <input
+                type="number"
+                step="any"
+                min="0"
+                value={state.backupInitialFuel}
+                onChange={(event) => {
+                  const backupInitialFuel = event.currentTarget.value;
+                  setState((old) => ({ ...old, backupInitialFuel }));
+                  setSaved(false);
+                }}
+              />
+            </label>
             <label className="pg-field">
               <span>{label("Direct CO₂ factor (kg/GJ), optional")}</span>
               <input
@@ -1123,6 +1188,13 @@ export function MicrogridDispatchExperiment() {
                     ...(result.backupFuelEnergyMJ !== undefined
                       ? ["Backup fuel energy (MJ)"]
                       : []),
+                    ...(inputs.backupGenerator.thermal?.startupFuelMJ
+                      ? ["Startup fuel (MJ)"]
+                      : []),
+                    ...(inputs.backupGenerator.thermal?.initialFuelMJ !==
+                    undefined
+                      ? ["Remaining fuel (MJ)"]
+                      : []),
                     ...(result.backupDirectCO2Kg !== undefined
                       ? ["Backup direct CO₂ (kg)"]
                       : []),
@@ -1177,6 +1249,12 @@ export function MicrogridDispatchExperiment() {
                     {r.backupFuelEnergyMJ !== undefined && (
                       <td>{fmt(r.backupFuelEnergyMJ)}</td>
                     )}
+                    {Boolean(inputs.backupGenerator.thermal?.startupFuelMJ) && (
+                      <td>{fmt(r.backupStartupFuelMJ ?? 0)}</td>
+                    )}
+                    {r.backupRemainingFuelMJ !== undefined && (
+                      <td>{fmt(r.backupRemainingFuelMJ)}</td>
+                    )}
                     {r.backupDirectCO2Kg !== undefined && (
                       <td>{fmt(r.backupDirectCO2Kg)}</td>
                     )}
@@ -1219,9 +1297,16 @@ export function MicrogridDispatchExperiment() {
       {state.thermalBackup && (
         <p className="pg-model-note">
           {label(
-            "Fuel energy uses a constant net heat rate. Use the same heating-value basis for the heat rate and CO₂ factor. Startup and part-load fuel are outside this model.",
+            "Fuel energy uses a constant net heat rate. Use the same heating-value basis for the heat rate and CO₂ factor. Part-load heat-rate changes are outside this model.",
           )}{" "}
           <a href="https://www.eia.gov/tools/faqs/faq.php?id=107">EIA</a>
+        </p>
+      )}
+      {state.thermalBackup && (
+        <p className="pg-model-note">
+          {label(
+            "Startup fuel is counted when output rises from zero. Leave the inventory blank for unlimited fuel. A finite inventory limits backup output and headroom.",
+          )}
         </p>
       )}
       <p className="pg-model-note">

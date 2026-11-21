@@ -284,3 +284,5 @@ The candidate now models capped grid import/export and interval-indexed outages.
 The candidate also supports backup-generator outage intervals and restart from zero output. Dispatch reports in-service state and unused capacity within the current ramp limit.
 
 Thermal backup can now account for fuel energy at an entered net heat rate and optional direct combustion CO₂. The model uses actual interval generation and does not change the dispatch priority.
+
+Thermal backup now supports startup fuel and optional finite fuel inventory. Fuel availability caps generation and backup headroom, and the interval exports report startup consumption and remaining fuel.

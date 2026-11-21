@@ -42,7 +42,12 @@ export interface MicrogridDispatchInputs {
     ratedKW: number;
     rampUpKWPerInterval: number;
     outageIntervals?: number[];
-    thermal?: { heatRateMJPerKWh: number; directCO2KgPerGJ?: number };
+    thermal?: {
+      heatRateMJPerKWh: number;
+      directCO2KgPerGJ?: number;
+      startupFuelMJ?: number;
+      initialFuelMJ?: number;
+    };
   };
   grid?: {
     importLimitKW: number;
@@ -92,6 +97,8 @@ export interface MicrogridDispatchInterval {
   backupInService: boolean;
   backupHeadroomKW: number;
   backupFuelEnergyMJ?: number;
+  backupStartupFuelMJ?: number;
+  backupRemainingFuelMJ?: number;
   backupDirectCO2Kg?: number;
   renewableCurtailmentKW: number;
   criticalUnservedKW: number;
@@ -291,6 +298,17 @@ export function validateMicrogridDispatchInputs(
       "Enter a heat rate of 3.6–1,000 MJ/kWh and an optional CO₂ factor of 0–1,000 kg/GJ.",
     );
   }
+  for (const amount of [g.thermal?.startupFuelMJ, g.thermal?.initialFuelMJ]) {
+    if (
+      amount !== undefined &&
+      (!Number.isFinite(amount) || amount < 0 || amount > 1e12)
+    ) {
+      errors.push(
+        "Enter nonnegative startup fuel and inventory values up to 1,000,000,000,000 MJ.",
+      );
+      break;
+    }
+  }
   if (
     g.outageIntervals?.some(
       (interval) =>
@@ -372,6 +390,8 @@ export function calculateMicrogridDispatch(
   const minimumKWh = (capacityKWh * battery.minimumSocPercent) / 100;
   let socKWh = (capacityKWh * battery.initialSocPercent) / 100;
   let previousGeneratorKW = 0;
+  const thermal = generator.thermal;
+  let remainingFuelMJ = thermal?.initialFuelMJ;
   const pumped = inputs.pumpedStorage;
   const grid = inputs.grid;
   const outages = new Set(grid?.outageIntervals);
@@ -512,14 +532,33 @@ export function calculateMicrogridDispatch(
           previousGeneratorKW + generator.rampUpKWPerInterval,
         )
       : 0;
+    const potentialStartupFuelMJ =
+      previousGeneratorKW === 0 ? (thermal?.startupFuelMJ ?? 0) : 0;
+    const runningFuelMJPerKW = intervalHours * (thermal?.heatRateMJPerKWh ?? 0);
+    const fueledGeneratorLimitKW =
+      remainingFuelMJ === undefined
+        ? generatorLimitKW
+        : Math.min(
+            generatorLimitKW,
+            Math.max(0, remainingFuelMJ - potentialStartupFuelMJ) /
+              runningFuelMJPerKW,
+          );
     const backupGenerationKW = Math.min(
       residualDeficitKW - gridImportKW,
-      generatorLimitKW,
+      fueledGeneratorLimitKW,
     );
-    previousGeneratorKW = backupGenerationKW;
-    const backupFuelEnergyMJ = generator.thermal
-      ? backupGenerationKW * intervalHours * generator.thermal.heatRateMJPerKWh
+    const backupStartupFuelMJ = thermal
+      ? backupGenerationKW > 0
+        ? potentialStartupFuelMJ
+        : 0
       : undefined;
+    previousGeneratorKW = backupGenerationKW;
+    const backupFuelEnergyMJ = thermal
+      ? backupGenerationKW * runningFuelMJPerKW + (backupStartupFuelMJ ?? 0)
+      : undefined;
+    if (remainingFuelMJ !== undefined && backupFuelEnergyMJ !== undefined) {
+      remainingFuelMJ = Math.max(0, remainingFuelMJ - backupFuelEnergyMJ);
+    }
     const directCO2Factor = generator.thermal?.directCO2KgPerGJ;
     const backupDirectCO2Kg =
       backupFuelEnergyMJ !== undefined && directCO2Factor !== undefined
@@ -570,8 +609,10 @@ export function calculateMicrogridDispatch(
       batterySocPercent: (socKWh / capacityKWh) * 100,
       backupGenerationKW,
       backupInService,
-      backupHeadroomKW: generatorLimitKW - backupGenerationKW,
+      backupHeadroomKW: fueledGeneratorLimitKW - backupGenerationKW,
       backupFuelEnergyMJ,
+      backupStartupFuelMJ,
+      backupRemainingFuelMJ: remainingFuelMJ,
       backupDirectCO2Kg,
       renewableCurtailmentKW,
       criticalUnservedKW: criticalDemandKW - criticalServedKW,
