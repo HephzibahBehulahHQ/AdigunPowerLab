@@ -2292,9 +2292,9 @@ test("PV source model responds to inputs, saves a reference and exports results"
   const pvSection = page
     .locator(".pg-pv")
     .filter({ has: page.locator("#pg-pv-title") });
-  await expect(page.getByText("71.232 kW", { exact: true })).toBeVisible();
-  await expect(page.getByText("60 kW", { exact: true })).toBeVisible();
-  await expect(page.getByText("9.095 kW", { exact: true })).toBeVisible();
+  await expect(pvSection.getByText("71.232 kW", { exact: true })).toBeVisible();
+  await expect(pvSection.getByText("60 kW", { exact: true })).toBeVisible();
+  await expect(pvSection.getByText("9.095 kW", { exact: true })).toBeVisible();
 
   await page
     .getByRole("button", { name: "Save current case as reference" })
