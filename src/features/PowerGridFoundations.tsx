@@ -52,6 +52,7 @@ const benchCopy = {
     "Line current",
     "Conductor loss",
     "Test voltage",
+    "Watch a step-up transformer installation",
   ],
   de: [
     "Generator",
@@ -63,6 +64,7 @@ const benchCopy = {
     "Leiterstrom",
     "Leiterverlust",
     "Prüfspannung",
+    "Einbau eines Hochtransformators ansehen",
   ],
   yo: [
     "Ẹ̀rọ amúná",
@@ -74,6 +76,7 @@ const benchCopy = {
     "Ìṣàn iná ìlà",
     "Àdánù okùn",
     "Fólítéèjì ìdánwò",
+    "Wo bí wọ́n ṣe fi transformer agbégbè sókè sí",
   ],
   pcm: [
     "Generator",
@@ -85,6 +88,7 @@ const benchCopy = {
     "Line current",
     "Wire loss",
     "Test voltage",
+    "Watch how dem install step-up transformer",
   ],
 } satisfies Record<Locale, readonly string[]>;
 
@@ -162,6 +166,7 @@ export function PowerGridFoundations({
   ] = copy[locale];
   const [stage, setStage] = useState(0);
   const [video, setVideo] = useState(false);
+  const [transformerVideo, setTransformerVideo] = useState(false);
   const [voltage, setVoltage] = useState(330);
   const labels = benchCopy[locale];
   const comparison = calculatePowerGrid({
@@ -281,6 +286,28 @@ export function PowerGridFoundations({
       >
         <h3 id="pg-step-lesson">{stepUp}</h3>
         <p>{stepPrediction}</p>
+        <div className="pg-home-video-frame pg-transformer-video">
+          {transformerVideo ? (
+            <iframe
+              src="https://www.dvidshub.net/video/embed/902345"
+              title={labels[9]}
+              allowFullScreen
+            />
+          ) : (
+            <button
+              className="pg-field-video-play"
+              type="button"
+              onClick={() => setTransformerVideo(true)}
+            >
+              <img
+                src="./assets/powergrid/field-photos/step-up-transformer.jpg"
+                alt=""
+                loading="lazy"
+              />
+              <span>{labels[9]}</span>
+            </button>
+          )}
+        </div>
         <label className="pg-field">
           <span>
             {labels[8]} ({voltage} kV)
@@ -302,23 +329,38 @@ export function PowerGridFoundations({
             </tr>
           </thead>
           <tbody>
-            {[comparison.base, comparison.raised].map((reading, index) => (
-              <tr key={index}>
-                <th scope="row">{index === 0 ? 132 : voltage}</th>
-                <td>
-                  {reading.currentA.toLocaleString(locale, {
-                    maximumFractionDigits: 1,
-                  })}{" "}
-                  A
-                </td>
-                <td>
-                  {reading.lineLossMW.toLocaleString(locale, {
-                    maximumFractionDigits: 3,
-                  })}{" "}
-                  MW
-                </td>
-              </tr>
-            ))}
+            {[comparison.base, comparison.raised].map((reading, index) => {
+              const caseVoltage = index === 0 ? 132 : voltage;
+              return (
+                <tr key={caseVoltage}>
+                  <th scope="row">{caseVoltage}</th>
+                  <td>
+                    <meter
+                      className="pg-voltage-meter"
+                      aria-label={`${labels[6]} · ${caseVoltage} kV`}
+                      value={reading.currentA}
+                      max={comparison.base.currentA}
+                    />
+                    {reading.currentA.toLocaleString(locale, {
+                      maximumFractionDigits: 1,
+                    })}{" "}
+                    A
+                  </td>
+                  <td>
+                    <meter
+                      className="pg-voltage-meter"
+                      aria-label={`${labels[7]} · ${caseVoltage} kV`}
+                      value={reading.lineLossMW}
+                      max={comparison.base.lineLossMW}
+                    />
+                    {reading.lineLossMW.toLocaleString(locale, {
+                      maximumFractionDigits: 3,
+                    })}{" "}
+                    MW
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
         <details>

@@ -4552,6 +4552,30 @@ details p {
   font-weight: 600;
 }
 
+.pg-transformer-video {
+  max-width: 32rem;
+  margin-bottom: 1rem;
+}
+
+.pg-transformer-video img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+}
+
+.pg-transformer-video button span {
+  z-index: 1;
+}
+
+.pg-voltage-meter {
+  display: block;
+  width: 100%;
+  min-width: 4rem;
+}
+
 .pg-field-video-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

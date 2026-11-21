@@ -351,6 +351,16 @@ test("foundations lessons trace edited stages and restore the worked case", asyn
   const slider = step.getByRole("slider");
   await slider.fill("200");
   await expect(step).toContainText("1.25 MW");
+  const lossMeter = step.getByRole("meter", {
+    name: "Conductor loss · 200 kV",
+  });
+  expect(
+    await lossMeter.evaluate((meter: HTMLMeterElement) => meter.value),
+  ).toBeCloseTo(1.25);
+  await step
+    .getByRole("button", { name: "Watch a step-up transformer installation" })
+    .click();
+  await expect(step.locator("iframe")).toHaveAttribute("src", /902345$/);
   const generator = page.getByLabel("Generator voltage (kV)", { exact: true });
   await generator.fill("13.8");
   await expect(source).toContainText("23.913043×");

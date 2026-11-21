@@ -313,6 +313,8 @@ Select a piece of equipment to inspect its field photo or play the powerhouse fo
 
 With a transformer selected, edit a worksheet voltage to see the selected equipment’s terminal voltages and output-to-input ratio update beside its photo.
 
+Watch the step-up transformer installation in **Why step up voltage?**. Move the test slider and compare the current and loss bars against the 132 kV reference.
+
 On Overview, **Explore the workspace** groups illustrated links by menu section. In **Cables & Protection** and **Motors & Supply**, play the credited field footage and select **Go to the calculator** to try the exercise with editable inputs.
 
 In **Renewables & Storage**, watch the solar and battery microgrid footage, then compare two battery capacities using the same solar and load profiles.
