@@ -315,6 +315,8 @@ With a transformer selected, edit a worksheet voltage to see the selected equipm
 
 Watch the step-up transformer installation in **Why step up voltage?**. Move the test slider and compare the current and loss bars against the 132 kV reference.
 
+In **Transmission distance**, load the 5 km or 25 km case, then sweep the length slider while comparing sending and receiving voltage. Use the numeric field for a precise distance and export the solved case with your notes.
+
 On Overview, **Explore the workspace** groups illustrated links by menu section. In **Cables & Protection** and **Motors & Supply**, play the credited field footage and select **Go to the calculator** to try the exercise with editable inputs.
 
 In **Renewables & Storage**, watch the solar and battery microgrid footage, then compare two battery capacities using the same solar and load profiles.

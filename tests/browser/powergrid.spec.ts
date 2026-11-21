@@ -587,12 +587,26 @@ test("distance lesson scales impedance and exports the solved voltage comparison
     name: "Practical lesson: Transmission distance",
   });
   const length = lesson.getByLabel("Line length (km)", { exact: true });
+  const substation = lesson.getByRole("img", {
+    name: "Transmission substation",
+  });
+  await substation.locator("..").scrollIntoViewIfNeeded();
+  await expect
+    .poll(() =>
+      substation.evaluate((img: HTMLImageElement) => img.naturalWidth),
+    )
+    .toBeGreaterThan(0);
+  await lesson.getByRole("button", { name: "5 km", exact: true }).click();
+  await expect(length).toHaveValue("5");
+  await lesson.getByRole("slider", { name: "Adjust line length" }).fill("40");
+  await expect(length).toHaveValue("40");
   const report = lesson.getByRole("button", {
     name: "Download distance lesson report (JSON)",
   });
   await length.fill("41");
   await expect(report).toBeDisabled();
-  await length.fill("40");
+  await lesson.getByRole("slider", { name: "Adjust line length" }).fill("39.5");
+  await lesson.getByRole("slider", { name: "Adjust line length" }).fill("40");
   await lesson
     .getByLabel("Student interpretation")
     .fill("Voltage fell below 0.95 pu.");
