@@ -907,6 +907,54 @@ const ruralReference = {
   result: calculateMicrogridDispatch(ruralReferenceInputs),
 };
 
+function practicalTeachingCase(lesson: DispatchLesson): Editable {
+  const base: Editable = {
+    ...defaults(),
+    intervalHours: 1,
+    windSpeeds: [0, 0],
+    irradiance: [1000, 0],
+    demand: [10, lesson === "evening" ? 45 : 10],
+    critical: [0, 10],
+    pvDcKW: 60,
+    pvAcKW: 40,
+    batteryKWh: 40,
+    initialSoc: 0,
+    reserveSoc: 0,
+    batteryPowerKW: 20,
+    batteryChargeEfficiency: 100,
+    batteryDischargeEfficiency: 100,
+    backupKW: 0,
+    rampKW: 0,
+  };
+  return lesson === "outage"
+    ? {
+        ...base,
+        windSpeeds: [0, 0, 0],
+        irradiance: [0, 0, 0],
+        demand: [10, 30, 12],
+        critical: [5, 10, 8],
+        batteryKWh: 15,
+        initialSoc: 100,
+        batteryPowerKW: 5,
+        backupKW: 20,
+        rampKW: 10,
+        backupOutages: "2",
+      }
+    : base;
+}
+
+const dispatchLessonReferences = {
+  solar: calculateMicrogridDispatch(
+    buildDispatchInputs(practicalTeachingCase("solar"), SMARD_GERMANY_DAY),
+  ),
+  evening: calculateMicrogridDispatch(
+    buildDispatchInputs(practicalTeachingCase("evening"), SMARD_GERMANY_DAY),
+  ),
+  outage: calculateMicrogridDispatch(
+    buildDispatchInputs(practicalTeachingCase("outage"), SMARD_GERMANY_DAY),
+  ),
+};
+
 export function MicrogridDispatchExperiment({
   activeDemand,
 }: {
@@ -948,41 +996,7 @@ export function MicrogridDispatchExperiment({
     setSaved(false);
   };
   const loadPracticalLesson = (lesson: DispatchLesson) => {
-    const base: Editable = {
-      ...defaults(),
-      intervalHours: 1,
-      windSpeeds: [0, 0],
-      irradiance: [1000, 0],
-      demand: [10, lesson === "evening" ? 45 : 10],
-      critical: [0, 10],
-      pvDcKW: 60,
-      pvAcKW: 40,
-      batteryKWh: 40,
-      initialSoc: 0,
-      reserveSoc: 0,
-      batteryPowerKW: 20,
-      batteryChargeEfficiency: 100,
-      batteryDischargeEfficiency: 100,
-      backupKW: 0,
-      rampKW: 0,
-    };
-    setState(
-      lesson === "outage"
-        ? {
-            ...base,
-            windSpeeds: [0, 0, 0],
-            irradiance: [0, 0, 0],
-            demand: [10, 30, 12],
-            critical: [5, 10, 8],
-            batteryKWh: 15,
-            initialSoc: 100,
-            batteryPowerKW: 5,
-            backupKW: 20,
-            rampKW: 10,
-            backupOutages: "2",
-          }
-        : base,
-    );
+    setState(practicalTeachingCase(lesson));
     setSaved(false);
   };
   const inputs = useMemo(
@@ -1145,7 +1159,11 @@ export function MicrogridDispatchExperiment({
           </p>
         </div>
       </div>
-      <PowerGridDispatchLessons locale={locale} onLoad={loadPracticalLesson} />
+      <PowerGridDispatchLessons
+        locale={locale}
+        references={dispatchLessonReferences}
+        onLoad={loadPracticalLesson}
+      />
       <PowerGridDispatchBot
         locale={locale}
         result={result}

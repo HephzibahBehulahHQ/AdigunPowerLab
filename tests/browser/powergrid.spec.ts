@@ -472,6 +472,15 @@ test("generator outage lesson exports trip, restart and restored critical supply
   const load = section.getByRole("button", {
     name: "Load or reset generator outage",
   });
+  const lesson = section.getByRole("region", {
+    name: "Practical lesson: Generator outage",
+  });
+  const generatorOutput = lesson
+    .getByText("Generator output", { exact: true })
+    .locator("..");
+  await expect(generatorOutput).toContainText("0 kW");
+  await lesson.getByRole("button", { name: "Interval 3", exact: true }).click();
+  await expect(generatorOutput).toContainText("7 kW");
   const outages = section.getByLabel("Backup outage intervals (optional)");
   const exportDispatch = async () => {
     const pending = page.waitForEvent("download");

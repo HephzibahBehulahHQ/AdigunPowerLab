@@ -321,6 +321,8 @@ In **Poor power factor**, try a value between 0.80 and 1.00 and observe the curr
 
 In **Transformer loading**, use the load presets or slider to compare core and winding losses. Watch the rating meter and compare the calculated overload case with the ideal transformer.
 
+In **Solar at midday**, **Evening peak**, and **Generator outage**, select an interval to inspect the worked dispatch. Compare served demand, charging or discharging, generation, curtailment and unmet loads. Load the case into the dispatch worksheet to edit inputs or export the run.
+
 On Overview, **Explore the workspace** groups illustrated links by menu section. In **Cables & Protection** and **Motors & Supply**, play the credited field footage and select **Go to the calculator** to try the exercise with editable inputs.
 
 In **Renewables & Storage**, watch the solar and battery microgrid footage, then compare two battery capacities using the same solar and load profiles.
