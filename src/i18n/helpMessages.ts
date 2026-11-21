@@ -1827,6 +1827,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú Radial feeder, ṣàyẹ̀wò ìbéèrè iṣẹ́ lọwọlọwọ kí o yan ẹgbẹ́ ní ìsàlẹ̀. Lílo rẹ̀ rọ́pò ẹrù ẹgbẹ́ yẹn nìkan, ó sì fi àtúnṣe iṣẹ́ orísun sínú JSON.",
       "For Radial feeder review active project design demand and choose downstream group. Apply replace only that group balanced load and keep source project revision inside solved JSON.",
     ],
+  "In Microgrid dispatch, review the active project’s recurring demand day before applying its 24 hourly loads. The dispatch JSON carries the original hourly profile and source revision.":
+    [
+      "Prüfen Sie im Mikronetz den wiederkehrenden Lasttag des aktiven Projekts, bevor Sie die 24 Stundenwerte anwenden. Das Dispatch-JSON enthält das ursprüngliche Stundenprofil und die Quellrevision.",
+      "Nínú Microgrid dispatch, ṣàyẹ̀wò ọjọ́ ìbéèrè iṣẹ́ lọwọlọwọ kí o tó lo iye wákàtí 24. JSON pa ìbéèrè wákàtí àkọ́kọ́ àti àtúnṣe orísun mọ́.",
+      "For Microgrid dispatch review active project recurring demand day before you apply the 24 hourly loads. The JSON keep original hourly profile and source revision.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

@@ -1235,7 +1235,7 @@ export function PowerGridLab({
       <PvPerformanceExperiment />
       <HydroPerformanceExperiment locale={locale} />
       <WindResourceExperiment />
-      <MicrogridDispatchExperiment />
+      <MicrogridDispatchExperiment activeDemand={activeDemand} />
       <MeshedPowerFlowExperiment locale={locale} />
       <PowerGridFrequencyExperiment locale={locale} />
     </section>

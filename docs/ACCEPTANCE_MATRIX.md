@@ -307,4 +307,4 @@ Transmission supports bounded in-session undo and redo, including imported and r
 
 Transmission supports a named working duplicate and an in-session baseline. The screen and JSON show signed input and result changes. Persistent baselines and comparison reports for additional experiments remain open.
 
-Reviewed active-project demand transfer is implemented for a selected radial group using balanced design P and Q. It preserves lab provenance and the source workspace. Phase-specific, scheduled and DC converter-aware transfer remain open.
+Reviewed active-project demand transfer covers balanced design P and Q for a selected radial group and recurring hourly active demand for microgrid dispatch. Both retain provenance and preserve the source workspace. Phase-specific, dated calendar and DC converter-aware transfers remain open.

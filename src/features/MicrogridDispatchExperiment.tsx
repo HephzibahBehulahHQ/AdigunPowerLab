@@ -7,6 +7,12 @@ import {
   type MicrogridDispatchInputs,
 } from "../engine/microgridDispatch";
 import type { PvPerformanceInputs } from "../engine/pvPerformance";
+import {
+  isRecurringProjectDemand,
+  snapshotRecurringProjectDemand,
+  type RecurringProjectDemand,
+} from "../engine/powergridProjectDemand";
+import type { ActiveProjectDemand } from "./RadialFeederExperiment";
 import { RURAL_MICROGRID_TEACHING_PROFILE } from "../engine/powergridRegions";
 import {
   SMARD_GERMANY_DAY,
@@ -20,6 +26,54 @@ const LIMITS =
   "This is an illustrative AC-bus dispatch, not a site forecast or utility operation model. No feeder/transformer losses, costs, frequency response or unit-specific transient models are included. Entered profiles are assumptions. Generic backup capacity is dispatched after storage and grid imports with the entered ramp-up ceiling; ramp-down is instantaneous.";
 const pvDefaults = DEFAULT_MICROGRID_DISPATCH_INPUTS.pvByInterval[0];
 const copy: Record<string, [string, string, string]> = {
+  "Review active project demand day": [
+    "Lasttag des aktiven Projekts prüfen",
+    "Ṣàyẹ̀wò ọjọ́ ìbéèrè iṣẹ́ lọwọlọwọ",
+    "Review active project demand day",
+  ],
+  "Recurring project demand preview": [
+    "Vorschau des wiederkehrenden Lasttags",
+    "Àwòyẹ̀wò ìbéèrè iṣẹ́ ojoojúmọ́",
+    "Recurring project demand preview",
+  ],
+  "Project demand day unavailable. Enter valid AC loads with a nonzero recurring operating schedule.":
+    [
+      "Kein Lasttag verfügbar. Geben Sie gültige AC-Verbraucher mit einem wiederkehrenden Betriebsprofil ein.",
+      "Ọjọ́ ìbéèrè kò sí. Tẹ ẹrù AC tó péye pẹ̀lú ètò iṣẹ́ ojoojúmọ́ tí kò jẹ́ òdo.",
+      "Project demand day no dey available. Enter valid AC loads with recurring operating schedule wey no be zero.",
+    ],
+  "Applying replaces dispatch inputs. The example starts with zero wind, solar irradiance and critical demand. Edit those inputs to represent your scenario.":
+    [
+      "Anwenden ersetzt die Dispatch-Eingaben. Wind, Einstrahlung und kritische Last beginnen bei null. Ändern Sie diese Werte für Ihr Szenario.",
+      "Lílo yóò rọ́pò ìtẹ̀wọlé dispatch. Afẹ́fẹ́, ìmọ́lẹ̀ oorun àti ìbéèrè pàtàkì bẹ̀rẹ̀ ní òdo. Ṣàtúnṣe wọn fún àpẹẹrẹ rẹ.",
+      "Apply go replace dispatch inputs. Wind, solar irradiance and critical demand start at zero. Edit them to represent your scenario.",
+    ],
+  "Apply recurring demand": [
+    "Wiederkehrende Last anwenden",
+    "Lo ìbéèrè ojoojúmọ́",
+    "Apply recurring demand",
+  ],
+  "Cancel project demand preview": [
+    "Lastvorschau abbrechen",
+    "Fagilé àwòyẹ̀wò ìbéèrè",
+    "Cancel project demand preview",
+  ],
+  "Source project revision": [
+    "Revision des Quellprojekts",
+    "Àtúnṣe iṣẹ́ orísun",
+    "Source project revision",
+  ],
+  "Hourly active demand (kW)": [
+    "Stündliche Wirklast (kW)",
+    "Ìbéèrè agbára fún wákàtí kọ̀ọ̀kan (kW)",
+    "Hourly active demand (kW)",
+  ],
+  "Recurring-day estimate. Dated exceptions and start events are outside this profile. The original hourly values are retained in JSON even after demand edits.":
+    [
+      "Schätzung für einen wiederkehrenden Tag. Datumsbezogene Ausnahmen und Anlaufereignisse fehlen. JSON bewahrt die ursprünglichen Stundenwerte auch nach Laständerungen.",
+      "Àfojúsùn ọjọ́ tó ń tún wá. Àyọkà ọjọ́ pàtó àti ìṣẹ̀lẹ̀ ìbẹ̀rẹ̀ kò sí nínú rẹ̀. JSON pa iye wákàtí àkọ́kọ́ mọ́ lẹ́yìn àtúnṣe.",
+      "Recurring-day estimate. Date exceptions and start events dey outside this profile. JSON keep original hourly values even after you edit demand.",
+    ],
   "Load scaled German winter day": [
     "Skalierten deutschen Wintertag laden",
     "Ṣí ọjọ́ òtútù Jámánì tí a dín ní ìwọ̀n",
@@ -556,6 +610,7 @@ function tr(message: string, locale: Locale) {
 }
 
 interface Editable {
+  projectDemand?: RecurringProjectDemand;
   historicalGermany: boolean;
   historicalWinter: boolean;
   intervalHours: number;
@@ -670,6 +725,9 @@ function readSaved(): Editable {
         return {
           ...defaults(),
           ...value,
+          projectDemand: isRecurringProjectDemand(value.projectDemand)
+            ? value.projectDemand
+            : undefined,
           historicalGermany: value.historicalGermany === true,
           historicalWinter: value.historicalWinter === true,
           hydroFlows:
@@ -712,11 +770,20 @@ function parseNumericProfile(profile: string) {
   return profile.split(",").map((flow) => (flow.trim() ? Number(flow) : NaN));
 }
 
-export function MicrogridDispatchExperiment() {
+export function MicrogridDispatchExperiment({
+  activeDemand,
+}: {
+  activeDemand?: ActiveProjectDemand;
+}) {
   const locale = useContext(LanguageContext);
   const label = (s: string) => tr(s, locale);
   const [state, setState] = useState<Editable>(readSaved);
   const [saved, setSaved] = useState(false);
+  const [projectPreview, setProjectPreview] = useState<{
+    name: string;
+    snapshot: RecurringProjectDemand;
+  } | null>(null);
+  const [projectPreviewError, setProjectPreviewError] = useState(false);
   const historicalDay = state.historicalWinter
     ? SMARD_GERMANY_WINTER_DAY
     : SMARD_GERMANY_DAY;
@@ -920,6 +987,7 @@ export function MicrogridDispatchExperiment() {
                   initialCriticalDemandFraction: 0.2,
                 }
               : undefined,
+            projectDemandSource: state.projectDemand,
             result,
             limitations: label(LIMITS),
           },
@@ -1022,7 +1090,101 @@ export function MicrogridDispatchExperiment() {
         >
           {label("Load scaled German winter day")}
         </button>
+        {activeDemand && (
+          <button
+            className="button"
+            type="button"
+            onClick={() => {
+              const snapshot = snapshotRecurringProjectDemand(
+                activeDemand.project,
+                activeDemand.result,
+              );
+              setProjectPreview(
+                snapshot ? { name: activeDemand.project.name, snapshot } : null,
+              );
+              setProjectPreviewError(!snapshot);
+            }}
+          >
+            {label("Review active project demand day")}
+          </button>
+        )}
       </div>
+      {projectPreviewError && (
+        <p role="status">
+          {label(
+            "Project demand day unavailable. Enter valid AC loads with a nonzero recurring operating schedule.",
+          )}
+        </p>
+      )}
+      {projectPreview && (
+        <section aria-labelledby="pg-recurring-project-preview">
+          <h4 id="pg-recurring-project-preview">
+            {label("Recurring project demand preview")}
+          </h4>
+          <p>
+            {projectPreview.name} · {label("Source project revision")}{" "}
+            {projectPreview.snapshot.source.revision}
+          </p>
+          <p>
+            {fmt(
+              projectPreview.snapshot.hourlyKW.reduce((sum, kw) => sum + kw, 0),
+            )}{" "}
+            kWh / 24 h
+          </p>
+          <details>
+            <summary>{label("Hourly active demand (kW)")}</summary>
+            <ol start={0}>
+              {projectPreview.snapshot.hourlyKW.map((kw, hour) => (
+                <li key={hour}>{fmt(kw)} kW</li>
+              ))}
+            </ol>
+          </details>
+          <p>
+            {label(
+              "Applying replaces dispatch inputs. The example starts with zero wind, solar irradiance and critical demand. Edit those inputs to represent your scenario.",
+            )}
+          </p>
+          <div className="pg-actions">
+            <button
+              className="button"
+              type="button"
+              onClick={() => {
+                const { snapshot } = projectPreview;
+                const zeros = () => snapshot.hourlyKW.map(() => 0);
+                setState({
+                  ...defaults(),
+                  intervalHours: 1,
+                  projectDemand: snapshot,
+                  windSpeeds: zeros(),
+                  irradiance: zeros(),
+                  critical: zeros(),
+                  demand: [...snapshot.hourlyKW],
+                });
+                setSaved(false);
+                setProjectPreview(null);
+              }}
+            >
+              {label("Apply recurring demand")}
+            </button>
+            <button
+              className="button"
+              type="button"
+              onClick={() => setProjectPreview(null)}
+            >
+              {label("Cancel project demand preview")}
+            </button>
+          </div>
+        </section>
+      )}
+      {state.projectDemand && (
+        <p className="pg-model-note">
+          {label("Source project revision")}{" "}
+          {state.projectDemand.source.revision}.{" "}
+          {label(
+            "Recurring-day estimate. Dated exceptions and start events are outside this profile. The original hourly values are retained in JSON even after demand edits.",
+          )}
+        </p>
+      )}
       <p id="pg-rural-profile-note" className="pg-model-note">
         {label(
           "Replaces the dispatch inputs with an illustrative 24-hour rural clinic and community scenario. Values are authored teaching assumptions.",

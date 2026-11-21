@@ -517,3 +517,5 @@ Saved transmission revisions passed TypeScript, 15 focused archive and localizat
 Transmission baseline comparison passed TypeScript, 13 focused tests, and Chromium. The browser pins a 100 MW baseline, duplicates the scenario, changes the working copy to 120 MW, verifies the live and exported +20 MW difference, clears the baseline, and reloads the original saved experiment.
 
 Reviewed project-demand transfer passed TypeScript, 15 focused radial and localization tests, and Chromium. Browser coverage checks the preview leaves the feeder unchanged, applies the exact aggregate design load, exports the active project ID and revision, and confirms the workspace project ID, revision and loads are unchanged.
+
+Recurring project demand transfer passed TypeScript, 18 focused tests and Chromium. The browser reviewed a 48 kWh day from a 2 kW fixture, applied 24 hourly loads, verified the original profile and source revision in dispatch JSON, and confirmed the source workspace was unchanged.

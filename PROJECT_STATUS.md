@@ -322,3 +322,5 @@ Explicit transmission saves now retain up to 20 earlier distinct save states. Us
 Transmission now supports duplicating the open experiment as a named working copy and pinning a baseline before editing. The comparison updates with valid inputs and includes signed changes in scenario JSON.
 
 The radial feeder can now consume a reviewed snapshot of the active project's balanced design P and Q. The selected lab group records the source project ID, revision, calculation engine, and capture time. The source project stays unchanged.
+
+Microgrid dispatch also accepts a reviewed 24-hour recurring-day active demand snapshot. The JSON retains the original hourly demand and provenance alongside the editable dispatch inputs.

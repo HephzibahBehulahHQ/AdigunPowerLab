@@ -10,7 +10,9 @@ test("radial feeder imports only reviewed project demand and records provenance"
   const project = createProject("Downstream design fixture");
   project.coincidence = 1;
   project.growthPercent = 0;
-  project.loads = [createLoad({ name: "Design heater", rating: 2, pf: 1 })];
+  project.loads = [
+    createLoad({ name: "Design heater", rating: 2, pf: 1, hoursPerDay: 24 }),
+  ];
   await page.locator('input[type=file][accept=".json,.csv"]').setInputFiles({
     name: "downstream.json",
     mimeType: "application/json",
@@ -62,6 +64,32 @@ test("radial feeder imports only reviewed project demand and records provenance"
     basis: "balanced-project-design-pq",
   });
   expect(downstream.demandSource.revision).toEqual(expect.any(Number));
+  const microgrid = page
+    .locator(".pg-pv")
+    .filter({ has: page.locator("#pg-microgrid-title") });
+  await microgrid
+    .getByRole("button", { name: "Review active project demand day" })
+    .click();
+  const recurring = microgrid.getByRole("region", {
+    name: "Recurring project demand preview",
+  });
+  await expect(recurring).toContainText("48 kWh / 24 h");
+  await recurring
+    .getByRole("button", { name: "Apply recurring demand" })
+    .click();
+  const dispatchDownload = page.waitForEvent("download");
+  await microgrid.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const dispatch = JSON.parse(
+    await readFile(await (await dispatchDownload).path(), "utf8"),
+  );
+  expect(dispatch.result.intervals).toHaveLength(24);
+  expect(dispatch.result.totalDemandKWh).toBeCloseTo(48);
+  expect(dispatch.projectDemandSource.source).toMatchObject({
+    projectId: original.id,
+    revision: original.revision,
+    basis: "project-recurring-hourly-active-demand",
+  });
+  expect(dispatch.projectDemandSource.hourlyKW).toEqual(Array(24).fill(2));
   await page.goto("/#/overview");
   const after = await exportProject();
   expect(after).toMatchObject({
