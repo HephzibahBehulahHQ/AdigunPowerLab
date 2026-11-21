@@ -51,3 +51,5 @@ The hydrogen fuel cell worksheet uses the lower heating value of 33.3 kWh/kg fro
 The [EPA anaerobic digestion performance protocol](https://19january2021snapshot.epa.gov/sites/static/files/2014-12/documents/protocol.pdf) provides the methane lower heating value and standard reference conditions. The worksheet's flows, composition and efficiency are illustrative inputs.
 
 The [USDA Forest Products Laboratory fuel value guide](https://www.fpl.fs.usda.gov/documnts/techline/fuel-value-calculator.pdf) explains the effect of moisture and water vaporization on usable wood fuel energy. The worksheet illustrates this with a constant evaporation allowance and user-entered dry fuel LHV.
+
+The [HOMER fuel curve reference](https://homerenergy.com/products/pro/docs/latest/fuel_curve.html) provides the straight-line curve structure. The [DOE fuel properties table](https://afdc.energy.gov/fuels/properties) provides the approximate volumetric diesel LHV for rated-point validation. The worksheet's rates and limits are illustrative.

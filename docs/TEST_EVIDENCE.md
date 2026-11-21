@@ -654,3 +654,7 @@ TypeScript and 20 Help checks passed. Chromium verified the 200 kW nameplate cap
 ### POWERGRID LAB solid biomass steam generation
 
 TypeScript and 20 Help checks passed. Chromium verified 2.85 MW net at the reference rating limit and, at 50% wet-basis moisture, 7.78 MJ/kg as-fired LHV, 6.613 MW heat to steam and 1.8339 MW net. JSON export and reset passed. The local runner stalled during teardown.
+
+### POWERGRID LAB diesel generator fuel curve
+
+TypeScript and 20 Help checks passed. Chromium verified 17.4 L/h and 25.2 L remaining in the reference, a 50 kW cap with 30 L available, and shutdown with 12 L below the modelled minimum load. JSON export and reset passed. The local runner stalled during teardown.

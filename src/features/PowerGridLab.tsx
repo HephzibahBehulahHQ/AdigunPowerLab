@@ -56,6 +56,7 @@ import { CombinedCycleExperiment } from "./CombinedCycleExperiment";
 import { FuelCellExperiment } from "./FuelCellExperiment";
 import { BiogasExperiment } from "./BiogasExperiment";
 import { SolidBiomassExperiment } from "./SolidBiomassExperiment";
+import { DieselExperiment } from "./DieselExperiment";
 import { WindResourceExperiment } from "./WindResourceExperiment";
 import { MicrogridDispatchExperiment } from "./MicrogridDispatchExperiment";
 import { RegionalGridPreset } from "./RegionalGridPreset";
@@ -1419,6 +1420,7 @@ export function PowerGridLab({
       <WaveEnergyExperiment locale={locale} />
       <GeothermalExperiment locale={locale} />
       <CombinedCycleExperiment locale={locale} />
+      <DieselExperiment locale={locale} />
       <FuelCellExperiment locale={locale} />
       <BiogasExperiment locale={locale} />
       <SolidBiomassExperiment locale={locale} />

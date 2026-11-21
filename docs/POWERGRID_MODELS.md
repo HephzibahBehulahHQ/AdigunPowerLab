@@ -95,7 +95,7 @@ The fixed-voltage lesson compares a lossless transformer with a 1,000 kVA teachi
 | Coal steam | Source catalogue entry remains open. |
 | Gas turbines and combined cycle | Equipment study and steady-state gas/steam worksheet with fuel, nameplate and minimum load. Chronological dispatch and plant-specific curves remain open. |
 | Nuclear steam | Source catalogue entry remains open. |
-| Diesel and other liquid fuel | Generic thermal backup supports entered heat rate, startup fuel and fuel inventory. A liquid-fuel asset-specific curve remains open. |
+| Diesel and other liquid fuel | Diesel generator worksheet with a linear fuel curve and finite inventory. Generic thermal backup retains chronological heat rate, startup fuel and inventory. Other liquid-fuel curves remain open. |
 | Biomass and biogas | Solid biomass steam and gaseous biogas CHP worksheets. Chronological dispatch integration remains open. |
 | Geothermal | Binary-cycle brine heat, gross rating and auxiliary load worksheet. Reservoir and dispatch models remain open. |
 | Tidal and wave | Separate tidal stream turbine and deep-water wave conversion point calculations. Device performance matrices and chronological dispatch remain open. |
@@ -135,3 +135,7 @@ The biogas worksheet uses dry gas flow at 0 °C and one atmosphere. Methane lowe
 ## Solid biomass steam generation
 
 The as-fired lower heating value is the dry lower heating value times the dry mass fraction, less an illustrative 2.44 MJ per kg of feed moisture evaporated, with a zero floor. The worksheet applies entered boiler and steam cycle efficiencies, caps gross output by nameplate, and reports the corresponding used wet feed and steam heat. Net output subtracts entered auxiliaries. This is an illustrative steady-state balance without combustion, ash, emissions or feed handling calculations.
+
+## Diesel generator fuel curve
+
+The steady-interval model uses a linear fuel rate between the no-load and rated points, consistent with HOMER's curve form for fixed-speed generators. Maximum power is bounded by nameplate and by available fuel after accounting for the running intercept. The model turns the unit off when the feasible request is below minimum stable load. It validates the rated point against an approximate 9.95 kWh/L diesel lower heating value. Real curves, startup, idle scheduling and ramp limits are outside this worksheet.

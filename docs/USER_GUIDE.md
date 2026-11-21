@@ -344,3 +344,5 @@ In **Hydrogen fuel cell generation**, change starting inventory or interval dura
 In **Biogas engine and heat recovery**, vary methane fraction, available dry biogas flow and useful heat demand. Compare recoverable heat with heat supplied to demand, and gross electricity with net output after plant load. Export the case as JSON.
 
 In **Solid biomass steam generation**, hold wet feed and dry fuel heating value constant, then increase wet-basis moisture. Compare used fuel, steam heat and net electricity. Reset or download the JSON report.
+
+In **Diesel generator fuel curve**, adjust the requested power or initial inventory. Compare available power with actual output, running fuel rate and remaining diesel. A fuel-limited case below minimum stable load shuts down for the modelled interval.

@@ -3,6 +3,37 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("diesel fuel curve limits generation and accounts for the no-load intercept", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const generator = page.getByRole("region", {
+    name: "Diesel generator fuel curve",
+  });
+  const inventory = generator.getByLabel("Initial diesel inventory (L)");
+  const exportCase = async () => {
+    const pending = page.waitForEvent("download");
+    await generator
+      .getByRole("button", { name: "Export diesel results" })
+      .click();
+    return JSON.parse(await readFile(await (await pending).path(), "utf8"))
+      .result;
+  };
+  const base = await exportCase();
+  expect(base.fuelRateLH).toBeCloseTo(17.4);
+  expect(base.remainingL).toBeCloseTo(25.2);
+  await inventory.fill("30");
+  const limited = await exportCase();
+  expect(limited.outputKW).toBeCloseTo(50);
+  expect(limited.remainingL).toBeCloseTo(0);
+  await inventory.fill("12");
+  const stopped = await exportCase();
+  expect(stopped.outputKW).toBe(0);
+  expect(stopped.remainingL).toBe(12);
+  await generator.getByRole("button", { name: "Reset diesel inputs" }).click();
+  await expect(inventory).toHaveValue("60");
+});
+
 test("solid biomass derates wet fuel and recalculates net output", async ({
   page,
 }) => {

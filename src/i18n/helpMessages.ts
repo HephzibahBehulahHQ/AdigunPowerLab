@@ -1995,6 +1995,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú solid biomass steam, yí ìpín omi nínú gbogbo mass padà. Wé iye ooru idana olómi, ooru sí steam cycle àti agbára iná net.",
       "For solid biomass steam generation, change moisture for total wet mass. Compare wet fuel heating value, heat wey reach steam cycle and net electric power.",
     ],
+  "In the diesel generator worksheet, change the electrical request or fuel inventory. Compare the fuel curve, available output and remaining diesel.":
+    [
+      "Ändern Sie beim Dieselgenerator Leistungsanforderung oder Kraftstoffvorrat. Vergleichen Sie Kraftstoffkennlinie, verfügbare Leistung und verbleibenden Diesel.",
+      "Nínú worksheet generator diesel, yí ìbéèrè agbára tàbí ìpamọ́ idana padà. Wé ìṣírò idana, agbára tó wà àti diesel tó kù.",
+      "For diesel generator worksheet, change power request or fuel wey dey. Compare fuel curve, power wey dey available and diesel wey remain.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",
