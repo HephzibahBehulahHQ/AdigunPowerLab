@@ -327,6 +327,8 @@ In **Feeder trip**, use the switch map to open and reclose a branch. The solver 
 
 In **Microgrid operation**, select a four-hour interval to see the battery state of charge, charge and discharge power, generator output and unmet critical demand. Load the worked day to try a different battery power limit.
 
+In **Regional comparison**, switch the shared phase resistance from 5 Ω to 10 Ω. Compare both raised-stage loss meters and use the table to inspect the underlying current and voltage values.
+
 On Overview, **Explore the workspace** groups illustrated links by menu section. In **Cables & Protection** and **Motors & Supply**, play the credited field footage and select **Go to the calculator** to try the exercise with editable inputs.
 
 In **Renewables & Storage**, watch the solar and battery microgrid footage, then compare two battery capacities using the same solar and load profiles.

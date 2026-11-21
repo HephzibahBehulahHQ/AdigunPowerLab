@@ -438,7 +438,17 @@ test("regional lesson recalculates both sourced cases from the shared worksheet"
   const resistance = page.getByLabel("Line resistance per phase (Ω/phase)", {
     exact: true,
   });
-  await resistance.fill("10");
+  const regionalLoss = lesson.getByRole("meter", {
+    name: /Raised-stage loss · Nigeria-inspired/,
+  });
+  const originalLoss = await regionalLoss.evaluate(
+    (meter: HTMLMeterElement) => meter.value,
+  );
+  await lesson.getByRole("button", { name: "10 Ω", exact: true }).click();
+  await expect(resistance).toHaveValue("10");
+  expect(
+    await regionalLoss.evaluate((meter: HTMLMeterElement) => meter.value),
+  ).toBeCloseTo(2 * originalLoss);
   const pending = page.waitForEvent("download");
   await lesson
     .getByRole("button", { name: "Download regional comparison (JSON)" })
