@@ -3,6 +3,49 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("regional lesson recalculates both sourced cases from the shared worksheet", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const lesson = page.getByRole("region", {
+    name: "Practical lesson: Regional comparison",
+  });
+  const comparison = lesson.getByRole("table", {
+    name: "Live regional comparison",
+  });
+  await expect(
+    comparison.getByRole("row", { name: /Nigeria-inspired/ }),
+  ).toContainText("330 kV");
+  await expect(
+    comparison.getByRole("row", { name: /Germany-inspired/ }),
+  ).toContainText("380 kV");
+  const resistance = page.getByLabel("Line resistance per phase (Ω/phase)", {
+    exact: true,
+  });
+  await resistance.fill("10");
+  const pending = page.waitForEvent("download");
+  await lesson
+    .getByRole("button", { name: "Download regional comparison (JSON)" })
+    .click();
+  const data = JSON.parse(await readFile(await (await pending).path(), "utf8"));
+  expect(
+    data.cases.map(
+      (entry: { inputs: { raisedVoltageKV: number } }) =>
+        entry.inputs.raisedVoltageKV,
+    ),
+  ).toEqual([330, 380]);
+  for (const [index, entry] of data.cases.entries()) {
+    expect(entry.result.raised.lineLossMW).toBeCloseTo(
+      2 * data.reference[index].result.raised.lineLossMW,
+    );
+    expect(entry.preset.sourceReferences.length).toBeGreaterThan(0);
+  }
+  await lesson
+    .getByRole("button", { name: "Reset shared regional lesson inputs" })
+    .click();
+  await expect(resistance).toHaveValue("5");
+});
+
 test("generator outage lesson exports trip, restart and restored critical supply", async ({
   page,
 }) => {

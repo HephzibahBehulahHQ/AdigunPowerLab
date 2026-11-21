@@ -338,3 +338,5 @@ The transformer-loading lesson compares apparent loading, loss and efficiency ag
 The midday solar and evening peak lessons now load separate two-hour teaching cases into microgrid dispatch. They cover charging, curtailment, grid export, critical-load priority and battery support during the evening deficit.
 
 The generator-outage lesson now provides a three-interval dispatch case with battery support, a backup trip, and a ramp-limited restart. Students can compare the outage with uninterrupted operation and export either run.
+
+The regional comparison lesson solves both sourced voltage presets against the same editable transmission inputs. It displays both cases side by side and exports the worked reference and current results with preset provenance.

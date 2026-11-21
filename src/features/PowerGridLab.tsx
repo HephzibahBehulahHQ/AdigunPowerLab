@@ -51,6 +51,7 @@ import { GenerationPlantScene } from "./GenerationPlantScene";
 import { PowerGridTransmissionLesson } from "./PowerGridTransmissionLesson";
 import { PowerGridDistanceLesson } from "./PowerGridDistanceLesson";
 import { PowerGridTransformerLesson } from "./PowerGridTransformerLesson";
+import { PowerGridRegionalLesson } from "./PowerGridRegionalLesson";
 import {
   DistributionNetworkScene,
   type DistributionEquipmentId,
@@ -901,6 +902,19 @@ export function PowerGridLab({
         }}
       />
       <PowerGridTransformerLesson locale={locale} />
+      <PowerGridRegionalLesson
+        locale={locale}
+        inputs={inputs}
+        onReset={() => {
+          const { powerMW, powerFactor, lineResistanceOhm } =
+            DEFAULT_POWERGRID_INPUTS;
+          setScenario({
+            ...scenario,
+            inputs: { ...inputs, powerMW, powerFactor, lineResistanceOhm },
+          });
+          setSaved(false);
+        }}
+      />
       <details className="panel panel-pad pg-limit">
         <summary>{text.assumptions}</summary>
         <p>{text.assumptionText}</p>

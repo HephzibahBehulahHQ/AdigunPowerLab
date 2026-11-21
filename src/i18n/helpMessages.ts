@@ -1875,6 +1875,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Gbé àpẹẹrẹ ìdádúró generator wọlé nínú microgrid dispatch. Wé agbára afẹ́yinti àti ẹrù tí kò rí agbára nígbà ìdádúró, pa iye ìdádúró rẹ́, kí o sì gba èsì méjèèjì.",
       "Load generator outage lesson for microgrid dispatch. Compare backup wey dey available and loads wey no get supply during trip, then clear di outage and download both runs.",
     ],
+  "In the regional comparison lesson, change the shared transmission power, power factor or resistance. Compare both sourced voltage cases and download the calculation report.":
+    [
+      "Ändern Sie im Regionalvergleich die gemeinsame Wirkleistung, den Leistungsfaktor oder den Leitungswiderstand. Vergleichen Sie beide belegten Spannungsfälle und laden Sie den Berechnungsbericht herunter.",
+      "Nínú àfiwé agbègbè, yí agbára gbigbe, power factor tàbí ìdènà tí wọ́n jọ ń lò padà. Wé àpẹẹrẹ fólítéèjì méjèèjì, kí o sì gba ìròyìn ìṣírò.",
+      "For regional comparison, change di power, power factor or resistance wey both cases share. Compare di two sourced voltage cases and download di report.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

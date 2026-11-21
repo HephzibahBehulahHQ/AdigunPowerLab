@@ -547,3 +547,7 @@ TypeScript and 29 Help and microgrid solver tests passed. Focused Chromium asser
 ### POWERGRID LAB generator-outage lesson
 
 TypeScript, 20 Help checks and both focused dispatch browser cases passed their assertions. The generated report showed 5 kW pre-trip headroom, 5 kW critical and 20 kW other unmet load during the trip, and 7 kW of restart output. Clearing the outage restored all critical supply. Reset restored the trip input.
+
+### POWERGRID LAB regional comparison lesson
+
+TypeScript and 20 Help checks passed. Two focused Chromium cases verified that the existing regional selector still applies its sourced voltage fields and that doubling shared resistance doubles calculated loss in both comparison cases. The calculation report retains source references, and reset restores the default resistance.

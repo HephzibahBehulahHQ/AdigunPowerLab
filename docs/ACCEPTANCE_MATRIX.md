@@ -324,3 +324,5 @@ The transformer-loading curriculum item includes a prediction, stated model assu
 The midday solar and evening peak curriculum items include predictions, worked dispatch cases, editable grid and storage limits, interpretation questions, per-lesson reset and existing JSON/CSV result export.
 
 The generator-outage curriculum item includes an editable trip interval and generator/storage limits, a worked headroom and priority-load comparison, an interpretation question, reset, and interval exports.
+
+The regional comparison curriculum item compares Nigeria-inspired and 50Hertz-area voltage stages at the same power, power factor and phase resistance. It provides a prediction, worked reference, live comparison, interpretation questions, input reset and JSON report with sources.
