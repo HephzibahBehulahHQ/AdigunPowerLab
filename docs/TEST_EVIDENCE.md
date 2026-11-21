@@ -609,6 +609,8 @@ Public Pages Chromium sampling after the diesel deployment used reduced motion a
 
 At 390 × 844 with reduced motion, live Chromium selected the step-up transformer with Enter and adjusted the voltage slider from 330 kV to 329 kV with Arrow Left. The conductor-loss meter updated to 0.461932 MW. The existing foundations browser case now exercises those keyboard actions.
 
+The focused Chromium header test passed at 1440, 768 and 390 px. The POWERGRID launcher stayed at the same coordinates when command search opened and closed, and Enter navigated to the exact #POWERGRID route at every width.
+
 ### POWERGRID LAB analytical AC and time-step sensitivity
 
 TypeScript and the full Windows unit suite passed: 445 tests in 34 files, using Vitest with four workers. The two-bus case verified receiving voltage, line current and sending P/Q with a closed-form high-voltage root. The frequency case verified that halving the step from 0.01 to 0.005 s changes the nadir by less than 0.00001 Hz, with nadir time within 0.01 s and ending frequency agreeing to seven decimal places.

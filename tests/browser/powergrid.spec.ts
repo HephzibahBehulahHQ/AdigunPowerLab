@@ -2243,14 +2243,17 @@ test("PowerGrid entry is reachable at the right edge on desktop, tablet and phon
         header.getByRole("button", { name: "Settings", exact: true }),
       ).toBeVisible();
       await header.locator(".command-button").click();
-      await expect(
-        page.getByRole("dialog", { name: "Search", exact: true }),
-      ).toBeVisible();
-      expect(
-        await page.locator(".topbar .powergrid-entry").boundingBox(),
-      ).toEqual(entryBox);
-      await page.keyboard.press("Escape");
+    } else {
+      await page.keyboard.press("Control+k");
     }
+    const search = page.getByRole("dialog", { name: "Search", exact: true });
+    await expect(search).toBeVisible();
+    expect(
+      await page.locator(".topbar .powergrid-entry").boundingBox(),
+    ).toEqual(entryBox);
+    await page.keyboard.press("Escape");
+    await expect(search).toBeHidden();
+    expect(await entry.boundingBox()).toEqual(entryBox);
     await entry.focus();
     await page.keyboard.press("Enter");
     await expect(page).toHaveURL(/#POWERGRID$/);
