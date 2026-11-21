@@ -3,6 +3,38 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("foundations lessons trace edited stages and restore the worked case", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const source = page.getByRole("region", {
+    name: "Practical lesson: Source to socket",
+  });
+  const step = page.getByRole("region", {
+    name: "Practical lesson: Why step up voltage?",
+  });
+  await expect(source).toContainText("11 kV → 330 kV → 33 kV → 0.4 kV");
+  await expect(step).toContainText("0.459 MW");
+  const generator = page.getByLabel("Generator voltage (kV)", { exact: true });
+  await generator.fill("13.8");
+  await expect(source).toContainText("13.8 kV → 330 kV → 33 kV → 0.4 kV");
+  await page
+    .getByLabel("Student notes (optional)")
+    .fill("Receiving transformers reduce voltage.");
+  const pending = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export lab report PDF" }).click();
+  expect(
+    (await readFile(await (await pending).path())).subarray(0, 5).toString(),
+  ).toBe("%PDF-");
+  await step
+    .getByRole("button", { name: "Restore worked transmission inputs" })
+    .click();
+  await expect(generator).toHaveValue("11");
+  await expect(page.getByLabel("Student notes (optional)")).toHaveValue(
+    "Receiving transformers reduce voltage.",
+  );
+});
+
 test("community capstone exports the worked supply design and an outage comparison", async ({
   page,
 }) => {

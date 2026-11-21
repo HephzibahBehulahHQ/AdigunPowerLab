@@ -1893,6 +1893,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú ìdánwò iṣẹ́ microgrid, gbé àpẹẹrẹ abúlé wọlé kí o sì yí ààlà agbára batiri padà. Gba èsì tí o ṣàtúnṣe pẹ̀lú àpẹẹrẹ ìṣírò.",
       "For microgrid operation lesson, load di rural reference and change battery power limit. Download di edited run and worked reference together.",
     ],
+  "For Source to socket and Why step up voltage, compare the worked cases, edit the transmission worksheet, and record your explanation in the lab report PDF.":
+    [
+      "Vergleichen Sie in den Versuchen zur Versorgungskette und Spannungserhöhung die berechneten Fälle, ändern Sie das Übertragungsblatt und halten Sie Ihre Erklärung im Labor-PDF fest.",
+      "Fún ìdánwò láti orísun dé ibi lílo àti ìdí gbígbé fólítéèjì sókè, wé àwọn àpẹẹrẹ ìṣírò, ṣàtúnṣe worksheet gbigbe, kí o sì kọ ìtumọ̀ rẹ sínú PDF.",
+      "For Source to socket and Why step up voltage, compare di worked cases, edit di transmission worksheet and write wetin you find for di lab report PDF.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

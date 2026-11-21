@@ -559,3 +559,7 @@ TypeScript and 20 Help checks passed. The focused Chromium case verified the wor
 ### POWERGRID LAB microgrid operation lesson
 
 TypeScript and 29 Help and dispatch solver tests passed. Focused Chromium assertions confirmed the worked operating reference matches the existing rural export, a zero battery power limit eliminates battery throughput in the modified run, reset restores the reference power limit, and the capstone comparison still exports.
+
+### POWERGRID LAB foundations lessons
+
+TypeScript and 24 Help and transmission solver tests passed. The Chromium foundations case verified that an edited generator voltage changes the live route, PDF export produces a valid file signature, and restoring the worked inputs preserves student notes.

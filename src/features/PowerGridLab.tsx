@@ -52,6 +52,7 @@ import { PowerGridTransmissionLesson } from "./PowerGridTransmissionLesson";
 import { PowerGridDistanceLesson } from "./PowerGridDistanceLesson";
 import { PowerGridTransformerLesson } from "./PowerGridTransformerLesson";
 import { PowerGridRegionalLesson } from "./PowerGridRegionalLesson";
+import { PowerGridFoundations } from "./PowerGridFoundations";
 import {
   DistributionNetworkScene,
   type DistributionEquipmentId,
@@ -789,6 +790,18 @@ export function PowerGridLab({
         </div>
       </header>
       <p className="pg-isolation">{text.independent}</p>
+      <PowerGridFoundations
+        locale={locale}
+        inputs={inputs}
+        onReset={() => {
+          setScenario({
+            ...scenario,
+            inputs: DEFAULT_POWERGRID_INPUTS,
+            regionalPresetId: undefined,
+          });
+          setSaved(false);
+        }}
+      />
       <RegionalGridPreset
         onApply={(preset) => {
           setScenario((previous) => ({

@@ -330,3 +330,5 @@ The regional comparison curriculum item compares Nigeria-inspired and 50Hertz-ar
 The community capstone includes an islanded-supply design objective, an illustrative 448 kWh worked day, editable generation and storage, an outage intervention, baseline unserved-energy comparison, interpretation, reset and JSON output.
 
 The microgrid operation curriculum item has a prediction, fixed reference assumptions, solver-generated worked results, editable storage and backup limits, interpretation questions, reset and an export that includes both solved runs.
+
+The two foundations lessons use the live generator, transmission, distribution and service voltages, plus the existing transmission meters and report. They add prediction prompts, worked values, explanation questions and a shared reset that keeps student notes.
