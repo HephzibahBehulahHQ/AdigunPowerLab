@@ -1,5 +1,13 @@
 # POWERGRID LAB learning path
 
+## Practical checkpoints
+
+1. In **Source to socket**, select the step-up transformer and change generator voltage. Explain the change in the displayed output-to-input ratio. In **Why step up voltage?**, move the slider and compare current and loss with the 132 kV reference.
+2. In **Transmission distance**, compare 5 km with 25 km, then use the slider to find the first low-voltage case. In **Poor power factor**, pin the 0.80 worksheet, apply a trial value, and export the comparison.
+3. In **Transformer loading**, compare core and winding losses at 500, 1,000 and 1,200 kVA. In **Feeder trip**, open the north feeder, isolate the lateral, and reclose the main feeder. Record which group remains disconnected.
+4. In **Solar at midday**, **Evening peak**, and **Generator outage**, select the reference intervals before loading the case. Use **Microgrid operation** to trace battery state of charge through the six intervals, then export a revised dispatch.
+5. In **Regional comparison**, use the shared 5 Ω and 10 Ω presets and compare the two raised-stage losses. In **Community supply design**, pin the worked case, test the interval 5 outage, and export your proposed design with its justification.
+
 ## Station visit — hydro source to transmission line
 
 1. Trace the separate water path: reservoir and trash rack → intake gate → penstock → Francis runner → draft tube and tailrace.
