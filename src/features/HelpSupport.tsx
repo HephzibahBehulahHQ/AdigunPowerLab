@@ -5,6 +5,7 @@ import { formatEditableNumber } from "../i18n/numbers";
 import { helpTopics, searchHelp } from "../help/content";
 import { tools } from "../tools";
 import type { EngineeringTool, ToolInput } from "../tools";
+import { WorkspaceRecording } from "./WorkspaceRecording";
 import "./help-support.css";
 
 type GuideFilter = "all" | "workflow" | "tool";
@@ -332,6 +333,7 @@ export function HelpSupport({
           </button>
         </section>
       )}
+      <WorkspaceRecording locale={locale} recording="help" />
       <footer className="help-support-footer">
         <div>
           <h4>

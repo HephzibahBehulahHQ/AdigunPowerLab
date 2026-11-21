@@ -662,3 +662,19 @@ TypeScript and 20 Help checks passed. Chromium verified 17.4 L/h and 25.2 L rema
 ### POWERGRID LAB coal steam generation
 
 TypeScript and 20 Help checks passed. The focused Chromium test verified the 640 t reference fuel use, the 200 MW and 800 MWh export with 320 t available, rejection of blank inventory, and reset. The local runner reported the test passed and stalled during teardown.
+
+### Illustrated workspace and field guides
+
+Chromium verified the Overview menu opens to Workspace, shows one POWERGRID LAB tile under Engineering, and opens Cables & Protection. The cable and motor guides mounted their credited video players on request and focused the calculator without leaving the route. Local Chromium reported those tests passed before the runner stalled during teardown.
+
+The expanded browser check verified the solar and battery guide and the EV charging guide mount the intended players and focus each planner while preserving the route.
+
+Chromium also verified that the Power Quality guide mounts its manufacturer video player and opens the Power-factor correction tool. The motor guide opens Motor start sequence directly.
+
+The expanded Chromium regression verified player activation and focus for Single-Line Studio, Schedules & Simulation, Load Schedule, Boards & Circuits, Scenarios & Optimization, and Equipment Library. The HTTP media playback itself remains unverified.
+
+Chromium verified the Engineering Toolbox exercise opens Single-phase AC current directly and the Engineering Reference exercise focuses the equations. Bundled report, backup, revision and Help recordings were independently verified by advancing playback time.
+
+The complete Overview navigation regression checked all four menu groups, the 19 real route links, the Help dialog tile, and successful decoding of all 20 tile images. All 20 Help search checks passed.
+
+Production Chromium verified playback of the report, workspace backup, revision comparison, and Help recordings on GitHub Pages after the recordings release. Each media element advanced its playback time and decoded a video frame.
