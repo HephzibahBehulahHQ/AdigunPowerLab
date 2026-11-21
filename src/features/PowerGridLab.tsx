@@ -52,6 +52,7 @@ import { SolarThermalExperiment } from "./SolarThermalExperiment";
 import { TidalStreamExperiment } from "./TidalStreamExperiment";
 import { GeothermalExperiment } from "./GeothermalExperiment";
 import { WaveEnergyExperiment } from "./WaveEnergyExperiment";
+import { CombinedCycleExperiment } from "./CombinedCycleExperiment";
 import { WindResourceExperiment } from "./WindResourceExperiment";
 import { MicrogridDispatchExperiment } from "./MicrogridDispatchExperiment";
 import { RegionalGridPreset } from "./RegionalGridPreset";
@@ -1414,6 +1415,7 @@ export function PowerGridLab({
       <TidalStreamExperiment locale={locale} />
       <WaveEnergyExperiment locale={locale} />
       <GeothermalExperiment locale={locale} />
+      <CombinedCycleExperiment locale={locale} />
       <WindResourceExperiment />
       <MicrogridDispatchExperiment activeDemand={activeDemand} />
       <MeshedPowerFlowExperiment locale={locale} />

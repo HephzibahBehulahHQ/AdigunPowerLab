@@ -364,3 +364,5 @@ The tidal stream worksheet exposes flow power, shaft and electrical potentials, 
 The binary geothermal worksheet reports recovered heat, unconstrained gross potential, nameplate-limited gross output and net power after auxiliaries. Temperature ordering and the Carnot ceiling are validated before export.
 
 The wave-energy worksheet checks field limits, distinguishes crest flux from converter power, applies the electrical rating and enforces inclusive shutdown height.
+
+The gas/steam worksheet applies fuel, rating and minimum stable load, and exports the dispatched gas and steam contributions and signed net output.

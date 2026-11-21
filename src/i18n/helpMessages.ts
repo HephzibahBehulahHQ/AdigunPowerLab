@@ -1971,6 +1971,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú agbára ìgbì omi jinlẹ̀, yí gíga ìgbì tàbí àkókò agbára padà. Wé agbára fún mita pẹ̀lú agbára ẹrọ, dán gíga ìdádúró wò, kí o sì gba èsì.",
       "For deep-water wave energy, change wave height or energy period. Compare power for each metre with device output, try di shutdown height, then download di case.",
     ],
+  "In the gas and steam combined cycle worksheet, compare gas turbine power with steam generation from recovered heat. Change the requested gross output to explore the minimum stable load.":
+    [
+      "Vergleichen Sie im Kombikraftwerk die Gasturbinenleistung mit der Dampferzeugung aus Abwärme. Ändern Sie die angeforderte Bruttoleistung, um die stabile Mindestlast zu untersuchen.",
+      "Nínú combined cycle, wé agbára turbine gáàsì pẹ̀lú agbára steam láti inú ooru tí a gba. Yí agbára gross tí a béèrè padà láti ṣàyẹ̀wò ẹrù iṣẹ́ tó kéré jù.",
+      "For combined cycle worksheet, compare gas turbine power with steam generation from recovered heat. Change di requested gross power to check di minimum stable load.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",
