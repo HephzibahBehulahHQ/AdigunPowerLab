@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   calculatePowerGrid,
   DEFAULT_POWERGRID_INPUTS,
@@ -11,6 +12,29 @@ const readings = [reference, compensated].map((inputs) => ({
   powerFactor: inputs.powerFactor,
   ...calculatePowerGrid(inputs).base,
 }));
+
+const controls = {
+  en: [
+    "Try a power factor",
+    "Use this setting in the worksheet",
+    "Watch a capacitor bank demonstration",
+  ],
+  de: [
+    "Leistungsfaktor ausprobieren",
+    "Wert ins Arbeitsblatt übernehmen",
+    "Vorführung einer Kondensatoranlage ansehen",
+  ],
+  yo: [
+    "Dán ìpín agbára wò",
+    "Lo iye yìí nínú worksheet",
+    "Wo àfihàn àkójọpọ̀ capacitor",
+  ],
+  pcm: [
+    "Try one power factor",
+    "Use dis setting for worksheet",
+    "Watch di capacitor bank demo",
+  ],
+} satisfies Record<Locale, readonly string[]>;
 
 const copy = {
   en: [
@@ -66,6 +90,12 @@ export function PowerGridTransmissionLesson({
   locale: Locale;
   onLoad: (inputs: PowerGridInputs) => void;
 }) {
+  const [trialFactor, setTrialFactor] = useState(1);
+  const [video, setVideo] = useState(false);
+  const trialInputs = { ...reference, powerFactor: trialFactor };
+  const trial = calculatePowerGrid(trialInputs).base;
+  const [trialLabel, applyLabel, videoLabel] = controls[locale];
+  const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 3 });
   const [
     title,
     prediction,
@@ -85,9 +115,69 @@ export function PowerGridTransmissionLesson({
     >
       <h3 id="pg-lesson-pf">{title}</h3>
       <p>{prediction}</p>
-      <p>{assumptions}</p>
+      <div className="pg-home-video">
+        <div className="pg-home-video-frame pg-transformer-video">
+          {video ? (
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/-Cp9guj0B_M"
+              title={videoLabel}
+              allowFullScreen
+            />
+          ) : (
+            <button
+              className="pg-field-video-play"
+              type="button"
+              onClick={() => setVideo(true)}
+            >
+              <img
+                src="./assets/electrical-test-tools.png"
+                alt=""
+                loading="lazy"
+              />
+              <span>{videoLabel}</span>
+            </button>
+          )}
+        </div>
+        <div>
+          <label className="pg-field">
+            <span>{trialLabel}</span>
+            <input
+              type="range"
+              min={0.8}
+              max={1}
+              step={0.01}
+              value={trialFactor}
+              onChange={(event) =>
+                setTrialFactor(event.currentTarget.valueAsNumber)
+              }
+            />
+          </label>
+          <dl className="pg-foundation-readings" aria-live="polite">
+            <div>
+              <dt>{factor}</dt>
+              <dd>{format.format(trialFactor)}</dd>
+            </div>
+            <div>
+              <dt>{current}</dt>
+              <dd>{format.format(trial.currentA)}</dd>
+            </div>
+            <div>
+              <dt>{loss}</dt>
+              <dd>{format.format(trial.lineLossMW)}</dd>
+            </div>
+          </dl>
+          <button
+            className="button"
+            type="button"
+            onClick={() => onLoad(trialInputs)}
+          >
+            {applyLabel}
+          </button>
+        </div>
+      </div>
       <details>
         <summary>{worked}</summary>
+        <p>{assumptions}</p>
         <table aria-label={worked}>
           <thead>
             <tr>
@@ -111,7 +201,10 @@ export function PowerGridTransmissionLesson({
       <button
         className="button"
         type="button"
-        onClick={() => onLoad(reference)}
+        onClick={() => {
+          setTrialFactor(1);
+          onLoad(reference);
+        }}
       >
         {load}
       </button>

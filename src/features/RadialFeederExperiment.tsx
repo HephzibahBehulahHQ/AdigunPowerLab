@@ -106,6 +106,41 @@ const INITIAL: RadialNetworkInput = {
   ],
 };
 
+const feederMapCopy = {
+  en: [
+    "Feeder switch map",
+    "Switch open",
+    "Switch closed",
+    "Supplied",
+    "Disconnected",
+    "No solved reading",
+  ],
+  de: [
+    "Schaltbild der Abzweige",
+    "Schalter offen",
+    "Schalter geschlossen",
+    "Versorgt",
+    "Getrennt",
+    "Kein Berechnungsergebnis",
+  ],
+  yo: [
+    "Àwòrán switch ẹ̀ka",
+    "Switch ṣí",
+    "Switch pa",
+    "Ó ní agbára",
+    "Ó ti já",
+    "Kò sí èsì ìṣírò",
+  ],
+  pcm: [
+    "Feeder switch map",
+    "Switch open",
+    "Switch closed",
+    "Supply dey",
+    "Supply no dey",
+    "No solved reading",
+  ],
+} satisfies Record<Locale, readonly string[]>;
+
 const feederTripCopy = {
   en: {
     title: "Practical lesson: Feeder trip",
@@ -495,6 +530,18 @@ export function RadialFeederExperiment({
     simulation?.status === "not-converged" ? undefined : simulation;
   const busName = (id: string) => text[busLabel[id] ?? "group"];
   const branchName = (id: string) => text[branchLabel[id] ?? "branch"];
+  const [mapTitle, open, closed, supplied, disconnected, noReading] =
+    feederMapCopy[locale];
+
+  const setBranchInService = (id: string, inService: boolean) => {
+    setInput((previous) => ({
+      ...previous,
+      branches: previous.branches.map((branch) =>
+        branch.id === id ? { ...branch, inService } : branch,
+      ),
+    }));
+    setSaved(false);
+  };
 
   const updateBus = (
     id: string,
@@ -611,9 +658,45 @@ export function RadialFeederExperiment({
       >
         <h3 id="pg-feeder-trip">{trip.title}</h3>
         <p>{trip.prediction}</p>
-        <p>{trip.assumptions}</p>
+        <ul className="pg-feeder-map" aria-label={mapTitle}>
+          {input.branches.map((branch) => {
+            const isDisconnected = result?.unservedBusIds.includes(
+              branch.toBusId,
+            );
+            return (
+              <li key={branch.id}>
+                <span>{busName(branch.fromBusId)}</span>
+                <button
+                  className="button"
+                  type="button"
+                  aria-pressed={branch.inService}
+                  aria-label={branchName(branch.id)}
+                  onClick={() =>
+                    setBranchInService(branch.id, !branch.inService)
+                  }
+                >
+                  {branchName(branch.id)} · {branch.inService ? closed : open}
+                </button>
+                <span>
+                  <span aria-hidden="true">→ </span>
+                  {busName(branch.toBusId)}
+                </span>
+                <span
+                  className={`tag ${isDisconnected ? "amber" : result ? "cyan" : ""}`}
+                >
+                  {result
+                    ? isDisconnected
+                      ? disconnected
+                      : supplied
+                    : noReading}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
         <details>
           <summary>{trip.worked}</summary>
+          <p>{trip.assumptions}</p>
           <p>{trip.result}</p>
         </details>
         <p>{trip.instructions}</p>
@@ -873,18 +956,12 @@ export function RadialFeederExperiment({
                         type="checkbox"
                         checked={branch.inService}
                         aria-label={`${text.inService}: ${branchName(branch.id)}`}
-                        onChange={(event) => {
-                          const inService = event.currentTarget.checked;
-                          setInput((previous) => ({
-                            ...previous,
-                            branches: previous.branches.map((item) =>
-                              item.id === branch.id
-                                ? { ...item, inService }
-                                : item,
-                            ),
-                          }));
-                          setSaved(false);
-                        }}
+                        onChange={(event) =>
+                          setBranchInService(
+                            branch.id,
+                            event.currentTarget.checked,
+                          )
+                        }
                       />
                     </label>
                   </td>

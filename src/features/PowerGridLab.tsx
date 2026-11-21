@@ -1059,6 +1059,7 @@ export function PowerGridLab({
       <PowerGridRegionalLesson
         locale={locale}
         inputs={inputs}
+        onResistance={(ohms) => update("lineResistanceOhm", ohms)}
         onReset={() => {
           const { powerMW, powerFactor, lineResistanceOhm } =
             DEFAULT_POWERGRID_INPUTS;
