@@ -102,7 +102,7 @@ The fixed-voltage lesson compares a lossless transformer with a 1,000 kVA teachi
 | Battery storage | Chronological SOC, reserve, charge/discharge limits and directional efficiencies. |
 | Hydrogen and fuel cell | Finite-inventory hydrogen fuel cell conversion worksheet. Hydrogen production, storage design and dispatch integration remain open. |
 
-The thermal backup model exposes user-entered heat rate and optional direct emissions. Fuel costs and source-specific minimum stable generation are outside the current calculation.
+The thermal backup model exposes user-entered heat rate, optional direct emissions and minimum stable output. Backup stays off if residual demand, the ramp ceiling or fuel availability cannot support the minimum. The model does not overgenerate to reach the minimum and charges startup fuel only when generation begins. Fuel costs remain outside the calculation.
 
 ## Concentrating solar thermal power tower
 

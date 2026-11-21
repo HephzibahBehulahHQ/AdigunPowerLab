@@ -1725,6 +1725,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Mú ìṣirò epo backup ṣiṣẹ́, kí o tẹ ooru epo generator fún ìṣẹ̀dá. Tẹ òṣùwọ̀n CO₂ lórí ìpìlẹ̀ iye ooru epo kan náà fún CO₂ ìjóná taara.",
       "Turn on thermal backup fuel use and enter generator net heat rate. Enter direct CO₂ factor on the same fuel heat basis to include direct combustion CO₂.",
     ],
+  "Set minimum stable backup output to keep the generator off when remaining demand, ramping or available fuel cannot support that output.":
+    [
+      "Stellen Sie die minimale stabile Reserveleistung ein. Der Generator bleibt aus, wenn Restbedarf, Leistungsanstieg oder Brennstoff nicht ausreichen.",
+      "Ṣètò agbára afẹ́yinti tó kéré jù. Generator kò ṣiṣẹ́ bí ìbéèrè tó kù, ìgòkè agbára tàbí epo kò bá tó.",
+      "Set di smallest steady backup output. Generator stay off if demand wey remain, ramp or fuel no fit support am.",
+    ],
   "Enter startup fuel per start and an optional initial fuel inventory. With a finite inventory, the generator needs enough fuel to start and can only deliver as much power as the remaining fuel allows.":
     [
       "Geben Sie den Anfahrbrennstoff je Start und optional einen Anfangsvorrat ein. Bei begrenztem Vorrat braucht das Aggregat genügend Brennstoff zum Starten. Der Restvorrat begrenzt die Leistung.",
