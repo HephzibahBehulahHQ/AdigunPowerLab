@@ -1,5 +1,65 @@
+import { useState } from "react";
 import type { Locale } from "../i18n";
-import type { PowerGridInputs } from "../engine/powergrid";
+import {
+  calculatePowerGrid,
+  DEFAULT_POWERGRID_INPUTS,
+  type PowerGridInputs,
+} from "../engine/powergrid";
+
+const equipment = [
+  "hydro-generator",
+  "step-up-transformer",
+  "transmission-tower-damage",
+  "substation-switchyard",
+  "distribution-pole-transformer",
+];
+
+const benchCopy = {
+  en: [
+    "Generator",
+    "Step-up transformer",
+    "Transmission tower",
+    "Receiving substation",
+    "Local transformer",
+    "Play powerhouse footage",
+    "Line current",
+    "Conductor loss",
+    "Test voltage",
+  ],
+  de: [
+    "Generator",
+    "Hochtransformator",
+    "Freileitungsmast",
+    "Umspannwerk",
+    "Ortsnetztransformator",
+    "Video aus dem Krafthaus abspielen",
+    "Leiterstrom",
+    "Leiterverlust",
+    "Prüfspannung",
+  ],
+  yo: [
+    "Ẹ̀rọ amúná",
+    "Transformer agbégbè sókè",
+    "Ilé gogoro ìlà",
+    "Ibùdó ìgbàwọlé",
+    "Transformer agbègbè",
+    "Wo fídíò ilé amúná",
+    "Ìṣàn iná ìlà",
+    "Àdánù okùn",
+    "Fólítéèjì ìdánwò",
+  ],
+  pcm: [
+    "Generator",
+    "Step-up transformer",
+    "Transmission tower",
+    "Receiving substation",
+    "Local transformer",
+    "Play powerhouse video",
+    "Line current",
+    "Wire loss",
+    "Test voltage",
+  ],
+} satisfies Record<Locale, readonly string[]>;
 
 const copy = {
   en: [
@@ -73,6 +133,14 @@ export function PowerGridFoundations({
     stepQuestion,
     reset,
   ] = copy[locale];
+  const [stage, setStage] = useState(0);
+  const [video, setVideo] = useState(false);
+  const [voltage, setVoltage] = useState(330);
+  const labels = benchCopy[locale];
+  const comparison = calculatePowerGrid({
+    ...DEFAULT_POWERGRID_INPUTS,
+    raisedVoltageKV: voltage,
+  });
   const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 6 });
   return (
     <>
@@ -82,7 +150,27 @@ export function PowerGridFoundations({
       >
         <h3 id="pg-source-lesson">{source}</h3>
         <p>{sourcePrediction}</p>
-        <p>{sourceReference}</p>
+        <div className="pg-actions">
+          {equipment.map((photo, index) => (
+            <button
+              className="button"
+              type="button"
+              key={photo}
+              aria-pressed={stage === index}
+              onClick={() => setStage(index)}
+            >
+              {labels[index]}
+            </button>
+          ))}
+        </div>
+        <figure className="pg-foundation-media">
+          <img
+            src={`./assets/powergrid/field-photos/${equipment[stage]}.jpg`}
+            alt={labels[stage]}
+            loading="lazy"
+          />
+          <figcaption>{labels[stage]}</figcaption>
+        </figure>
         <p>
           {route}{" "}
           <b>
@@ -101,6 +189,26 @@ export function PowerGridFoundations({
           </b>
         </p>
         <p>{sourceQuestion}</p>
+        {video ? (
+          <iframe
+            className="pg-field-video-player"
+            src="https://www.dvidshub.net/video/embed/993768"
+            title={labels[5]}
+            allowFullScreen
+          />
+        ) : (
+          <button
+            className="button"
+            type="button"
+            onClick={() => setVideo(true)}
+          >
+            {labels[5]}
+          </button>
+        )}
+        <details>
+          <summary>{route}</summary>
+          <p>{sourceReference}</p>
+        </details>
       </section>
       <section
         className="panel panel-pad pg-panel"
@@ -108,9 +216,59 @@ export function PowerGridFoundations({
       >
         <h3 id="pg-step-lesson">{stepUp}</h3>
         <p>{stepPrediction}</p>
-        <p>{stepReference}</p>
+        <label className="pg-field">
+          <span>
+            {labels[8]} ({voltage} kV)
+          </span>
+          <input
+            type="range"
+            min={133}
+            max={400}
+            value={voltage}
+            onChange={(event) => setVoltage(event.currentTarget.valueAsNumber)}
+          />
+        </label>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">kV</th>
+              <th scope="col">{labels[6]} (A)</th>
+              <th scope="col">{labels[7]} (MW)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[comparison.base, comparison.raised].map((reading, index) => (
+              <tr key={index}>
+                <th scope="row">{index === 0 ? 132 : voltage}</th>
+                <td>
+                  {reading.currentA.toLocaleString(locale, {
+                    maximumFractionDigits: 1,
+                  })}{" "}
+                  A
+                </td>
+                <td>
+                  {reading.lineLossMW.toLocaleString(locale, {
+                    maximumFractionDigits: 3,
+                  })}{" "}
+                  MW
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <details>
+          <summary>{stepPrediction}</summary>
+          <p>{stepReference}</p>
+        </details>
         <p>{stepQuestion}</p>
-        <button className="button" type="button" onClick={onReset}>
+        <button
+          className="button"
+          type="button"
+          onClick={() => {
+            setVoltage(330);
+            onReset();
+          }}
+        >
           {reset}
         </button>
       </section>
