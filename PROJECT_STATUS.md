@@ -266,3 +266,7 @@ PR [#110](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/110) merged 
 ## Navigable PowerGrid station model — candidate (16 November 2026)
 
 A separate WebGL view now assembles original three-dimensional educational geometry for the dam/reservoir, penstock, turbine, synchronous generator, step-up transformer, switchyard, lattice tower, receiving transformer, house and industry. Learners can change camera azimuth/elevation/zoom and select localized equipment descriptions with terminal and phase-boundary notes. A schematic fallback remains available when WebGL cannot initialize. This is not site-survey geometry or electrical simulation. The existing hydro SVG remains the detailed terminal/wiring view; cross-view selection and performance measurements still need work. Candidate verification is pending.
+
+## POWERGRID Milestone 3 — head-and-flow worksheet candidate (21 November 2026)
+
+The spatial selection work shipped in PR #110 and the navigable teaching station scene followed in PR #112. Added a steady-state hydropower worksheet with four-locale guidance, local save and source-labelled JSON export. Reservoir scheduling and source-specific chronological dispatch remain open.

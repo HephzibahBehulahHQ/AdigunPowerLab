@@ -260,3 +260,7 @@ Unified backup, radial graph editing, source/library workflows, cumulative feede
 ## POWERGRID LAB implementation state
 
 The NREL reference-wind worksheet is deployed by PR #103. PR #104 merged as `6ef06254a990309834d64c278ccc9af643c3e779` and its chronological PV/wind, battery, backup-capacity and critical-demand workflow is deployed through Pages [run 43696180077](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43696180077), artifact 14154640941. Candidate [43688387269](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43688387269) and exact-main [43695664239](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43695664239) passed. This is an AC-bus teaching dispatch using entered profiles, not a regional forecast or utility operating model. Regional resource/demand profiles, source-specific backup models, network losses within dispatch and remaining M3 requirements stay open.
+
+### POWERGRID M3 — hydropower component model
+
+The steady-state worksheet models hydraulic-to-electrical conversion with a generator nameplate limit. Reservoir scheduling, dispatch integration and regional time series remain open.

@@ -1688,6 +1688,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
     "POWERGRID LAB: Fi foliteji gbigbe wé",
     "POWERGRID LAB: Compare transmission voltage",
   ],
+  "In Hydropower head and flow, edit net head, turbine flow, combined efficiency and installed rating. Compare hydraulic power with available generator power, then save locally or export JSON.":
+    [
+      "Ändern Sie unter Wasserkraft: Fallhöhe und Durchfluss die Nettofallhöhe, den Turbinendurchfluss, den Gesamtwirkungsgrad und die Nennleistung. Vergleichen Sie die hydraulische mit der verfügbaren Generatorleistung. Speichern Sie lokal oder exportieren Sie JSON.",
+      "Nínú Agbára omi: gíga àti ìṣàn, ṣàtúnṣe gíga omi tó kù, ìṣàn turbine, ìmúṣẹ àpapọ̀ àti agbára orúkọ. Fi agbára omi wé agbára generator tó wà, kí o sì fi pamọ́ tàbí gbé JSON jáde.",
+      "For Hydropower head and water flow, change net head, turbine flow, combined efficiency and installed rating. Compare water power with generator power wey dey available, then save for this device or export JSON.",
+    ],
   "On Overview, scroll to PowerGrid learning for credited photos of a generator, substation and distribution transformer. Choose Play documentary video to start the cited facility footage; it is visual context, not live telemetry or a measurement. Use the links there to open the transmission-loss lab or feeder calculation.":
     [
       "Öffnen Sie Übersicht und scrollen Sie zum PowerGrid-Lernbereich. Die belegten Fotos zeigen einen Generator, ein Umspannwerk und einen Verteilungstransformator. Wählen Sie „Dokumentarvideo abspielen“, um das zitierte Anlagenvideo zu starten; es ist Anschauungsmaterial, keine Live-Telemetrie oder Messung. Über die Links öffnen Sie das Übertragungsverlustlabor oder die radiale Feeder-Berechnung.",
