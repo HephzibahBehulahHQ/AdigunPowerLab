@@ -22,6 +22,12 @@ function solveCases(shared: PowerGridInputs) {
 }
 
 const reference = solveCases(DEFAULT_POWERGRID_INPUTS);
+const phaseLabels = {
+  en: ["Phase resistance", "Raised-stage loss"],
+  de: ["Phasenwiderstand", "Verlust bei höherer Spannung"],
+  yo: ["Ìdènà ìpele", "Àdánù ní fólítéèjì gíga"],
+  pcm: ["Wire resistance each phase", "Loss for higher voltage"],
+} satisfies Record<Locale, readonly string[]>;
 const copy = {
   en: [
     "Practical lesson: Regional comparison",
@@ -84,10 +90,12 @@ const copy = {
 export function PowerGridRegionalLesson({
   locale,
   inputs,
+  onResistance,
   onReset,
 }: {
   locale: Locale;
   inputs: PowerGridInputs;
+  onResistance: (ohms: number) => void;
   onReset: () => void;
 }) {
   const [
@@ -107,6 +115,11 @@ export function PowerGridRegionalLesson({
   const cases = solveCases(inputs);
   const valid = cases.every(({ result }) => result);
   const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 3 });
+  const [phaseLabel, lossLabel] = phaseLabels[locale];
+  const maxLoss = Math.max(
+    0,
+    ...cases.map(({ result }) => result?.raised.lineLossMW ?? 0),
+  );
   const table = (label: string, rows: typeof cases) => (
     <table aria-label={label}>
       <thead>
@@ -146,9 +159,43 @@ export function PowerGridRegionalLesson({
     >
       <h3 id="pg-regional-lesson">{title}</h3>
       <p>{prediction}</p>
-      <p>{assumptions}</p>
+      <div className="pg-actions" role="group" aria-label={phaseLabel}>
+        {[5, 10].map((ohms) => (
+          <button
+            className="button"
+            type="button"
+            key={ohms}
+            aria-pressed={inputs.lineResistanceOhm === ohms}
+            onClick={() => onResistance(ohms)}
+          >
+            {ohms} Ω
+          </button>
+        ))}
+      </div>
+      {valid && (
+        <dl className="pg-foundation-readings" aria-live="polite">
+          {cases.map(
+            ({ preset, result }) =>
+              result && (
+                <div key={preset.id}>
+                  <dt>{preset.engineeringRegion}</dt>
+                  <dd>{format.format(result.raised.lineLossMW)} MW</dd>
+                  <dd>
+                    <meter
+                      className="pg-voltage-meter"
+                      aria-label={`${lossLabel} · ${preset.engineeringRegion}`}
+                      value={result.raised.lineLossMW}
+                      max={maxLoss || 1}
+                    />
+                  </dd>
+                </div>
+              ),
+          )}
+        </dl>
+      )}
       <details>
         <summary>{worked}</summary>
+        <p>{assumptions}</p>
         <div className="pg-table-wrap">{table(worked, reference)}</div>
       </details>
       <div className="pg-table-wrap">{table(live, cases)}</div>

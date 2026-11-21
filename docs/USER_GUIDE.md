@@ -313,6 +313,26 @@ At the top of POWERGRID LAB, use **Source to socket** to predict where voltage c
 
 Select a piece of equipment to inspect its field photo or play the powerhouse footage. The **Test voltage** slider compares current and conductor loss against the 132 kV reference without editing the saved worksheet.
 
+With a transformer selected, edit a worksheet voltage to see the selected equipment’s terminal voltages and output-to-input ratio update beside its photo.
+
+Watch the step-up transformer installation in **Why step up voltage?**. Move the test slider and compare the current and loss bars against the 132 kV reference.
+
+In **Transmission distance**, load the 5 km or 25 km case, then sweep the length slider while comparing sending and receiving voltage. Use the numeric field for a precise distance and export the solved case with your notes.
+
+In **Poor power factor**, try a value between 0.80 and 1.00 and observe the current and loss readouts. To report the comparison, first load and pin the worked baseline, then apply the trial setting to the worksheet and export.
+
+In **Transformer loading**, use the load presets or slider to compare core and winding losses. Watch the rating meter and compare the calculated overload case with the ideal transformer.
+
+In **Solar at midday**, **Evening peak**, and **Generator outage**, select an interval to inspect the worked dispatch. Compare served demand, charging or discharging, generation, curtailment and unmet loads. Load the case into the dispatch worksheet to edit inputs or export the run.
+
+In **Feeder trip**, use the switch map to open and reclose a branch. The solver marks each downstream group as supplied or disconnected. The map and feeder worksheet controls operate the same switches.
+
+In **Microgrid operation**, select a four-hour interval to see the battery state of charge, charge and discharge power, generator output and unmet critical demand. Load the worked day to try a different battery power limit.
+
+In **Regional comparison**, switch the shared phase resistance from 5 Ω to 10 Ω. Compare both raised-stage loss meters and use the table to inspect the underlying current and voltage values.
+
+In **Community supply design**, load the worked 30 kW backup case and pin it. Test a backup outage in interval 5 and compare evening supply and unmet critical demand against the pinned design before exporting your justification.
+
 On Overview, **Explore the workspace** groups illustrated links by menu section. In **Cables & Protection** and **Motors & Supply**, play the credited field footage and select **Go to the calculator** to try the exercise with editable inputs.
 
 In **Renewables & Storage**, watch the solar and battery microgrid footage, then compare two battery capacities using the same solar and load profiles.

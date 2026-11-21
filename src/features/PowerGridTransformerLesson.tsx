@@ -23,6 +23,32 @@ const idealLabel = {
   yo: "Fi wé transformer ideal",
   pcm: "Compare with ideal transformer",
 } satisfies Record<Locale, string>;
+const instrumentCopy = {
+  en: [
+    "Transformer in a switchyard",
+    "Adjust transformer load",
+    "Core loss",
+    "Winding loss",
+  ],
+  de: [
+    "Transformator im Schaltfeld",
+    "Transformatorlast ändern",
+    "Eisenverluste",
+    "Wicklungsverluste",
+  ],
+  yo: [
+    "Transformer ní ibùdó iná",
+    "Ṣàtúnṣe ẹrù transformer",
+    "Àdánù core",
+    "Àdánù winding",
+  ],
+  pcm: [
+    "Transformer for switchyard",
+    "Change transformer load",
+    "Core loss",
+    "Winding loss",
+  ],
+} satisfies Record<Locale, readonly string[]>;
 const copy = {
   en: [
     "Practical lesson: Transformer loading",
@@ -110,6 +136,7 @@ export function PowerGridTransformerLesson({ locale }: { locale: Locale }) {
     report,
   ] = copy[locale];
   const loadKva = Number(load);
+  const [photo, slider, core, winding] = instrumentCopy[locale];
   const powerFactor = Number(factor);
   const result =
     load.trim() &&
@@ -147,9 +174,70 @@ export function PowerGridTransformerLesson({ locale }: { locale: Locale }) {
     >
       <h3 id="pg-transformer-lesson">{title}</h3>
       <p>{prediction}</p>
-      <p>{assumptions}</p>
+      <div className="pg-home-video">
+        <figure className="pg-foundation-media">
+          <img
+            src="./assets/grid-transformer-switchyard.png"
+            alt={photo}
+            loading="lazy"
+          />
+          <figcaption>{photo}</figcaption>
+        </figure>
+        <div>
+          <label className="pg-field">
+            <span>{slider}</span>
+            <input
+              type="range"
+              min={0}
+              max={1500}
+              step={10}
+              value={
+                load.trim() && loadKva >= 0 && loadKva <= 1500
+                  ? loadKva
+                  : referenceLoad
+              }
+              onChange={(event) => setLoad(event.currentTarget.value)}
+            />
+          </label>
+          <div className="pg-actions">
+            {[referenceLoad, lossyModel.ratingKva, 1200].map((value) => (
+              <button
+                className="button"
+                type="button"
+                key={value}
+                onClick={() => setLoad(String(value))}
+              >
+                {decimal.format(value)} kVA
+              </button>
+            ))}
+          </div>
+          {result && (
+            <>
+              <meter
+                className="pg-voltage-meter"
+                aria-label={loading}
+                value={result.loading}
+                high={1}
+                max={1.5}
+                optimum={0}
+              />
+              <dl className="pg-foundation-readings">
+                <div>
+                  <dt>{core}</dt>
+                  <dd>{decimal.format(lossyModel.coreLossKw)} kW</dd>
+                </div>
+                <div>
+                  <dt>{winding}</dt>
+                  <dd>{decimal.format(result.windingLossKw)} kW</dd>
+                </div>
+              </dl>
+            </>
+          )}
+        </div>
+      </div>
       <details>
         <summary>{worked}</summary>
+        <p>{assumptions}</p>
         {readings(reference)}
       </details>
       <div className="pg-fields">
