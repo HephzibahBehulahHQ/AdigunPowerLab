@@ -615,3 +615,7 @@ TypeScript and the Windows production build passed. The full PowerGrid Chromium 
 ### POWERGRID LAB solar thermal tower
 
 TypeScript and 20 Help checks passed. Chromium verified 48 MW of collected heat and 15 MW of rating-limited electrical output for the worked example. The exported low-irradiance case reported 2.1 MW electrical potential and zero available output below minimum stable load. Invalid inputs disabled export and reset restored the reference. The local runner stalled during teardown.
+
+PR #116 exact candidate ca491a7 passed hosted run [44935000849](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44935000849). Exact main 0abafe1 passed [44935645968](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44935645968), including both browser suites and root/base-path update and offline checks. The immutable artifact publication and public HTTP checks are recorded in [DEPLOYMENT.md](DEPLOYMENT.md).
+
+PR #117 passed [candidate 44935354512](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44935354512) and [exact-main run 44936559720](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44936559720). [Pages run 44937358513](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44937358513) published exact main 93fff33. Public module checks confirmed the new solar thermal lesson at both URLs.

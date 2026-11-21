@@ -372,3 +372,7 @@ The transformer lesson now compares the ideal and lossy cases at the same appare
 The production update smoke fixture now checks file containment using native path semantics. Windows root and repository-base update and offline checks passed against the transformer-comparison build. The source catalogue implementation matrix records supported models and remaining entries.
 
 The next catalogue increment adds a sourced solar thermal power tower worksheet with editable irradiance, aperture, efficiencies and operating limits. It has independent reset and JSON export.
+
+PR #116 merged and deployed as 0abafe1. Both public paths served the production entry and the lab launcher. The release and artifact receipts are recorded in docs/DEPLOYMENT.md.
+
+PR #117 merged and deployed as 93fff33. The solar thermal lesson is served by both public Pages paths. The next generation catalogue entries remain open.
