@@ -31,6 +31,8 @@ AdigunPowerLab explicitly adopts **HB-AI-ENGINEERING-001 · v2.0**, pinned to [h
 
 The active user task authorizes repository implementation, routine scoped commits, checkpoints and pull-request preparation. Apply any broader explicit session authorization within its stated scope. Deployment requires the user's applicable deployment authorization and a verified successful repository workflow. Do not infer authority for new spending, new recipients, account creation, physical equipment control or disclosure of project/customer data. Respect runtime approvals, branch protections and stale-head checks.
 
+Ship verified increments in small pull requests. When merge and deployment are authorized, merge the exact validated head, verify publication of the resulting main revision, and then ship the next increment. Keep subsequent work out of the release candidate while its gates run.
+
 Never claim certification, regulatory approval, manufacturer coordination or hardware validation from arithmetic or browser tests. Keep input evidence, supported model and incomplete checks visible. No dummy customers, fabricated telemetry, imitation connected AI, pretend exports or dead controls.
 
 ## Working commands and release gates

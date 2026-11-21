@@ -110,3 +110,13 @@ These checks ran through the supported cloud browser. A terminal-browser attempt
 ## POWERGRID LAB Milestone 2 radial workflow release — 14 November 2026
 
 PR #92 merged main `4e7d96e5e9186f5bf983fae288eec017a2a64dcc` after candidate run 43635520709 and exact-main run 43636068361 passed. Pages [run 43636663764](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/43636663764) deployed that SHA with artifact 14130169246. Browser verification on the public `#POWERGRID` route confirmed the radial feeder controls, solved status and branch instrument table.
+## PowerGrid Lab incremental releases, 21 November 2026
+
+| PR | Exact main revision | Candidate | Main validation | Pages |
+| --- | --- | --- | --- | --- |
+| [#116](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/116) | 0abafe1fbcec862cbe66c576c0fbabde3c0bf705 | [44935000849](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44935000849) | [44935645968](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44935645968) | [44936435517](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44936435517) |
+| [#117](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/117) | 93fff3394b1ba9bc070945ccc367151b367db595 | [44935354512](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44935354512) | [44936559720](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44936559720) | [44937358513](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44937358513) |
+
+PR #116 passed all repository gates. Pages published main validation artifact 14719582388 as Pages artifact 14719347994. The custom domain and repository Pages URL returned HTTP 200 for the HTML and production entry module, which contained the PowerGrid launcher.
+
+PR #117 passed all repository gates. Pages published main validation artifact 14719359146 as Pages artifact 14720455616. Both public routes returned HTTP 200 for the HTML and the PowerGrid module containing the solar thermal lesson.
