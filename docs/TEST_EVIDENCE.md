@@ -607,6 +607,8 @@ TypeScript and 20 Help checks passed. Three Chromium cases verified no draw befo
 
 Public Pages Chromium sampling after the diesel deployment used reduced motion and headless software WebGL. At 1440 × 900, 768 × 1024 and 390 × 844, the scene canvas rendered and both the document and scene had matching client and scroll widths. Across 20 azimuth input events per viewport, the 95th-percentile elapsed time through two animation frames was 83, 183 and 83 ms respectively. The sample measures this browser and rendering configuration. It does not measure physical mobile-device latency or isolate the GPU draw time.
 
+At 390 × 844 with reduced motion, live Chromium selected the step-up transformer with Enter and adjusted the voltage slider from 330 kV to 329 kV with Arrow Left. The conductor-loss meter updated to 0.461932 MW. The existing foundations browser case now exercises those keyboard actions.
+
 ### POWERGRID LAB analytical AC and time-step sensitivity
 
 TypeScript and the full Windows unit suite passed: 445 tests in 34 files, using Vitest with four workers. The two-bus case verified receiving voltage, line current and sending P/Q with a closed-form high-voltage root. The frequency case verified that halving the step from 0.01 to 0.005 s changes the nadir by less than 0.00001 Hz, with nadir time within 0.01 s and ending frequency agreeing to seven decimal places.
