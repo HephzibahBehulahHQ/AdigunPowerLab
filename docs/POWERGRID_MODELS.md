@@ -112,6 +112,8 @@ The coal worksheet transfers its net rating, net heat rate and initial inventory
 
 The combined-cycle worksheet transfers net rating after the entered fuel-flow cap and auxiliaries, a net minimum derived from the gross operating minimum, and the fuel slope at the entered combined efficiency. Running auxiliary use becomes a fixed running fuel equivalent. The available fuel flow is not an inventory. Standby electric use remains part of the separate steam-and-gas worksheet; enter it as dispatch demand to include it during offline intervals.
 
+The solid biomass worksheet transfers its wet-feed-limited net capacity and fuel slope. Optional starting wet stock in kg is converted to fuel energy using the calculated as-fired heating value. Running auxiliaries are converted to fixed fuel use; the transfer does not include offline plant electricity use.
+
 ## Concentrating solar thermal power tower
 
 The teaching model converts direct normal irradiance times mirror aperture to incident MW, multiplies by combined field and receiver efficiency to estimate collected heat, then applies the entered net heat-to-power efficiency. The available output is capped at the electrical nameplate and drops to zero below the entered minimum load. All presets are illustrative and storage, startup, ramps and dispatch are outside the model.

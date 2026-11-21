@@ -11,6 +11,31 @@ export const BIOMASS_FIELDS = {
 export type BiomassInputs = Record<keyof typeof BIOMASS_FIELDS, number>;
 export const MOISTURE_EVAPORATION_MJ_KG = 2.44;
 
+export function getBiomassDispatchFuelSettings(
+  inputs: BiomassInputs,
+  inventoryKg?: number,
+) {
+  const result = calculateSolidBiomass(inputs);
+  if (!result || result.netOutputMW <= 0) return null;
+  const grossEfficiency = (inputs.boilerPercent * inputs.steamPercent) / 10_000;
+  const incrementalMJPerKWh = 3.6 / grossEfficiency;
+  const inventoryMJ =
+    inventoryKg === undefined ? undefined : inventoryKg * result.wetLhvMJKg;
+  if (
+    incrementalMJPerKWh > 1e7 ||
+    (inventoryMJ !== undefined &&
+      (!Number.isFinite(inventoryMJ) || inventoryMJ < 0 || inventoryMJ > 1e12))
+  )
+    return null;
+  return {
+    ratingKW: result.netOutputMW * 1_000,
+    minimumStableKW: 0,
+    incrementalMJPerKWh,
+    runningInterceptMJPerHour:
+      inputs.auxiliariesMW * 1_000 * incrementalMJPerKWh,
+    inventoryMJ,
+  };
+}
 export function calculateSolidBiomass(inputs: BiomassInputs) {
   if (
     Object.entries(BIOMASS_FIELDS).some(([key, { min, max }]) => {

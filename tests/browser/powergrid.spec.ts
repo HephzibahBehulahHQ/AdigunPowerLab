@@ -155,8 +155,27 @@ test("solid biomass derates wet fuel and recalculates net output", async ({
   expect(result.usedWetFeedKgH).toBe(3600);
   expect(result.steamHeatMW).toBeCloseTo(6.613);
   expect(result.netOutputMW).toBeCloseTo(1.8339);
+  const stock = plant.getByLabel(
+    "Initial wet biomass for dispatch (kg), optional",
+  );
+  await stock.fill("1000");
+  await plant.getByRole("button", { name: "Use biomass in dispatch" }).click();
+  const dispatch = page.getByRole("region", {
+    name: "Microgrid dispatch laboratory",
+  });
+  const handoff = page.waitForEvent("download");
+  await dispatch.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const { backupGenerator } = JSON.parse(
+    await readFile(await (await handoff).path(), "utf8"),
+  ).inputs;
+  expect(backupGenerator.ratedKW).toBeCloseTo(1833.9);
+  expect(backupGenerator.thermal.initialFuelMJ).toBeCloseTo(7780);
+  expect(backupGenerator.thermal.runningInterceptMJPerHour).toBeCloseTo(
+    (150 * 3.6) / 0.255,
+  );
   await plant.getByRole("button", { name: "Reset biomass inputs" }).click();
   await expect(moisture).toHaveValue("30");
+  await expect(stock).toHaveValue("");
 });
 
 test("biogas engine separates useful heat from rating-limited electric output", async ({

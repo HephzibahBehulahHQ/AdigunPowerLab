@@ -2019,6 +2019,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú worksheet òru omi nuclear, yí ooru tí a fi sí steam cycle padà kí o sì wé agbára àpapọ̀ pẹ̀lú agbára lẹ́yìn lílo ilé-iṣẹ́.",
       "For nuclear steam worksheet, change heat wey reach steam cycle and compare gross power with power wey remain after plant use.",
     ],
+  "Use biomass in dispatch to transfer wet-feed-limited output and the fuel energy in the optional initial wet stock.":
+    [
+      "Übernehmen Sie die durch die feuchte Zufuhr begrenzte Leistung und den Energieinhalt des optionalen Anfangsvorrats in die Einsatzplanung.",
+      "Lo biomass nínú dispatch láti gbé agbára tí biomass olómi fi ààlà sí àti epo inú ìpamọ́ ìbẹ̀rẹ̀ lọ.",
+      "Use biomass for dispatch to copy power wey wet feed limit and di fuel energy for optional wet stock at start.",
+    ],
   "Use coal inventory in dispatch to carry plant capacity, net heat rate and fuel stock into the chronological worksheet.":
     [
       "Übernehmen Sie Anlagenleistung, Netto-Wärmebedarf und Kohlevorrat in das chronologische Arbeitsblatt.",

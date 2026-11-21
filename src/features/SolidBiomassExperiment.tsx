@@ -1,9 +1,11 @@
 import { useState } from "react";
 import type { Locale } from "../i18n";
+import type { ThermalDispatchSettings } from "../engine/microgridDispatch";
 import { downloadFile } from "../import-export/files";
 import {
   BIOMASS_FIELDS,
   calculateSolidBiomass,
+  getBiomassDispatchFuelSettings,
   MOISTURE_EVAPORATION_MJ_KG,
   type BiomassInputs,
 } from "../engine/solidBiomass";
@@ -151,13 +153,41 @@ const copy = {
   }
 >;
 
-export function SolidBiomassExperiment({ locale }: { locale: Locale }) {
+const dispatchCopy = {
+  en: [
+    "Initial wet biomass for dispatch (kg), optional",
+    "Use biomass in dispatch",
+  ],
+  de: [
+    "Anfangsvorrat feuchter Biomasse (kg), optional",
+    "Biomasse in der Einsatzplanung verwenden",
+  ],
+  yo: ["Ìpamọ́ biomass olómi ìbẹ̀rẹ̀ (kg), àṣàyàn", "Lo biomass nínú dispatch"],
+  pcm: [
+    "Wet biomass wey dey at start (kg), optional",
+    "Use biomass for dispatch",
+  ],
+} satisfies Record<Locale, readonly string[]>;
+
+export function SolidBiomassExperiment({
+  locale,
+  onDispatch,
+}: {
+  locale: Locale;
+  onDispatch: (settings: ThermalDispatchSettings) => void;
+}) {
   const [draft, setDraft] = useState(defaults);
   const text = copy[locale];
   const inputs = Object.fromEntries(
     fields.map(([key]) => [key, draft[key] === "" ? NaN : Number(draft[key])]),
   ) as BiomassInputs;
   const result = calculateSolidBiomass(inputs);
+  const [inventory, setInventory] = useState("");
+  const [inventoryLabel, transferLabel] = dispatchCopy[locale];
+  const dispatch = getBiomassDispatchFuelSettings(
+    inputs,
+    inventory.trim() ? Number(inventory) : undefined,
+  );
   const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 4 });
   return (
     <section className="panel panel-pad pg-panel" aria-labelledby="pg-biomass">
@@ -198,10 +228,31 @@ export function SolidBiomassExperiment({ locale }: { locale: Locale }) {
         <p role="status">{text.invalid}</p>
       )}
       <div className="pg-actions">
+        <label className="pg-field">
+          <span>{inventoryLabel}</span>
+          <input
+            type="number"
+            min={0}
+            step="any"
+            value={inventory}
+            onChange={(event) => setInventory(event.currentTarget.value)}
+          />
+        </label>
         <button
           className="button"
           type="button"
-          onClick={() => setDraft(defaults)}
+          disabled={!dispatch}
+          onClick={() => dispatch && onDispatch(dispatch)}
+        >
+          {transferLabel}
+        </button>
+        <button
+          className="button"
+          type="button"
+          onClick={() => {
+            setDraft(defaults);
+            setInventory("");
+          }}
         >
           {text.reset}
         </button>
