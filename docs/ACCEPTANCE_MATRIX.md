@@ -322,3 +322,5 @@ The feeder-trip curriculum item adds a prediction, steady-state assumptions, a w
 The transformer-loading curriculum item includes a prediction, stated model assumptions, a worked half-load reference, editable load and power factor, rating warning, interpretation questions, reset, and a JSON report. The calculation uses constant core loss and square-law winding loss at fixed voltage.
 
 The midday solar and evening peak curriculum items include predictions, worked dispatch cases, editable grid and storage limits, interpretation questions, per-lesson reset and existing JSON/CSV result export.
+
+The generator-outage curriculum item includes an editable trip interval and generator/storage limits, a worked headroom and priority-load comparison, an interpretation question, reset, and interval exports.

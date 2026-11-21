@@ -1,5 +1,7 @@
 import type { Locale } from "../i18n";
 
+export type DispatchLesson = "solar" | "evening" | "outage";
+
 const lessons = {
   en: {
     solar: [
@@ -15,6 +17,13 @@ const lessons = {
       "The two one-hour intervals have no wind or backup, and ideal storage efficiency. After charging to 20 kWh, the battery serves 20 kW of the evening peak. All 10 kW of critical demand is served, and 25 kW of noncritical demand goes unserved.",
       "Increase starting charge, then vary battery power. Which limit controls evening discharge? Export the interval CSV to compare your cases.",
       "Load or reset evening peak",
+    ],
+    outage: [
+      "Practical lesson: Generator outage",
+      "Predict which loads lose supply when the generator trips in interval 2. The scene has no renewables or grid connection. A full 15 kWh battery supplies up to 5 kW and the 20 kW generator can ramp up by 10 kW per hour.",
+      "Before the trip the generator supplies 5 kW with 5 kW of headroom. During the trip the battery alone supplies 5 kW, leaving 5 kW of critical and 20 kW of other load unserved. At restart the generator supplies 7 kW from zero.",
+      "Clear the outage field and compare interval 2. Why is generator output limited even without a trip? Export the interval readings from both runs.",
+      "Load or reset generator outage",
     ],
   },
   de: {
@@ -32,6 +41,13 @@ const lessons = {
       "Erhöhen Sie die Anfangsladung und ändern Sie dann die Speicherleistung. Welche Grenze bestimmt die Entladung? Exportieren Sie die Intervall-CSV zum Vergleich.",
       "Abendversuch laden oder zurücksetzen",
     ],
+    outage: [
+      "Praxisversuch: Generatorausfall",
+      "Welche Lasten fallen beim Generatorausfall im zweiten Intervall aus? Ohne Netz und erneuerbare Erzeugung liefert der volle 15-kWh-Speicher bis zu 5 kW. Der 20-kW-Generator erhöht seine Leistung um höchstens 10 kW pro Stunde.",
+      "Vor dem Ausfall liefert der Generator 5 kW mit 5 kW Reserve. Beim Ausfall liefert nur der Speicher 5 kW. Damit bleiben 5 kW kritische Last und 20 kW sonstige Last ungedeckt. Beim Wiederanlauf liefert der Generator 7 kW ausgehend von null.",
+      "Leeren Sie das Ausfallfeld und vergleichen Sie das zweite Intervall. Warum ist die Generatorleistung auch ohne Ausfall begrenzt? Exportieren Sie beide Intervallergebnisse.",
+      "Generatorausfall laden oder zurücksetzen",
+    ],
   },
   yo: {
     solar: [
@@ -47,6 +63,13 @@ const lessons = {
       "Afẹ́fẹ́ àti generator afẹ́yinti kò sí ní wákàtí méjèèjì. Batiri àpẹẹrẹ kò ní àdánù. Lẹ́yìn tó gba 20 kWh, ó pèsè 20 kW ní ìrọ̀lẹ́. Gbogbo ẹrù pàtàkì 10 kW rí agbára, 25 kW ẹrù mìíràn kò rí agbára.",
       "Fi kún iye ìbẹ̀rẹ̀ batiri, lẹ́yìn náà yí agbára batiri padà. Ààlà wo ló ń darí fífi agbára jáde? Gba CSV láti fi àwọn àpẹẹrẹ wé ara wọn.",
       "Gbé àpẹẹrẹ ìrọ̀lẹ́ wọlé tàbí dá a padà",
+    ],
+    outage: [
+      "Ìdánwò: Ìdádúró generator",
+      "Ẹrù wo ni kò ní rí agbára bí generator bá dá dúró ní àkókò kejì? Grid àti agbára àtúnlò kò sí. Batiri 15 kWh tí ó kún lè fúnni ní 5 kW. Generator 20 kW lè fi 10 kW kún iṣẹ́ rẹ̀ ní wákàtí kan.",
+      "Ṣáájú ìdádúró, generator ń fúnni ní 5 kW, 5 kW sì kù. Nígbà ìdádúró, batiri nìkan ń fúnni ní 5 kW. Ẹrù pàtàkì 5 kW àti ẹrù mìíràn 20 kW kò rí agbára. Ní ìbẹ̀rẹ̀ padà, generator ń fúnni ní 7 kW láti òdo.",
+      "Pa iye ìdádúró rẹ́ kí o sì wé àkókò kejì. Kí ló dé tí agbára generator ní ààlà bí kò bá dá dúró? Gba èsì méjèèjì.",
+      "Gbé àpẹẹrẹ ìdádúró wọlé tàbí dá a padà",
     ],
   },
   pcm: {
@@ -64,6 +87,13 @@ const lessons = {
       "Increase starting charge, then change battery power. Which limit control evening discharge? Download interval CSV to compare your cases.",
       "Load or reset evening peak",
     ],
+    outage: [
+      "Practical lesson: Generator outage",
+      "Which loads no go get supply if generator trip for interval 2? No renewables or grid dey. Full 15 kWh battery fit give 5 kW. Di 20 kW generator fit add up to 10 kW each hour.",
+      "Before di trip, generator supply 5 kW and 5 kW still dey available. During trip na only battery supply 5 kW. Critical load of 5 kW and other load of 20 kW no get supply. Generator restart from zero and supply 7 kW.",
+      "Clear di outage field and compare interval 2. Why generator output get limit even without trip? Download interval readings for both runs.",
+      "Load or reset generator outage",
+    ],
   },
 } as const;
 
@@ -72,9 +102,9 @@ export function PowerGridDispatchLessons({
   onLoad,
 }: {
   locale: Locale;
-  onLoad: (lesson: "solar" | "evening") => void;
+  onLoad: (lesson: DispatchLesson) => void;
 }) {
-  return (["solar", "evening"] as const).map((lesson) => {
+  return (["solar", "evening", "outage"] as const).map((lesson) => {
     const [title, prediction, reference, question, load] =
       lessons[locale][lesson];
     const id = `pg-dispatch-lesson-${lesson}`;

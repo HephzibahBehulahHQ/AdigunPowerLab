@@ -336,3 +336,5 @@ The feeder-trip lesson now walks learners through a full north feeder outage and
 The transformer-loading lesson compares apparent loading, loss and efficiency against a worked half-load case. Students can vary apparent load and power factor, observe the nameplate warning and export the reference plus current calculation.
 
 The midday solar and evening peak lessons now load separate two-hour teaching cases into microgrid dispatch. They cover charging, curtailment, grid export, critical-load priority and battery support during the evening deficit.
+
+The generator-outage lesson now provides a three-interval dispatch case with battery support, a backup trip, and a ramp-limited restart. Students can compare the outage with uninterrupted operation and export either run.

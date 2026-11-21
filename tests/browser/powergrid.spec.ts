@@ -3,6 +3,38 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("generator outage lesson exports trip, restart and restored critical supply", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const section = page.getByRole("region", {
+    name: "Microgrid dispatch laboratory",
+  });
+  const load = section.getByRole("button", {
+    name: "Load or reset generator outage",
+  });
+  const outages = section.getByLabel("Backup outage intervals (optional)");
+  const exportDispatch = async () => {
+    const pending = page.waitForEvent("download");
+    await section.getByRole("button", { name: "Export dispatch JSON" }).click();
+    return JSON.parse(await readFile(await (await pending).path(), "utf8"))
+      .result.intervals;
+  };
+  await load.click();
+  const [before, trip, restart] = await exportDispatch();
+  expect(before.backupHeadroomKW).toBeCloseTo(5);
+  expect(trip.backupGenerationKW).toBe(0);
+  expect(trip.criticalUnservedKW).toBeCloseTo(5);
+  expect(trip.nonCriticalUnservedKW).toBeCloseTo(20);
+  expect(restart.backupGenerationKW).toBeCloseTo(7);
+  await outages.fill("");
+  const [, uninterrupted] = await exportDispatch();
+  expect(uninterrupted.backupGenerationKW).toBeCloseTo(15);
+  expect(uninterrupted.criticalUnservedKW).toBe(0);
+  await load.click();
+  await expect(outages).toHaveValue("2");
+});
+
 test("midday solar and evening peak lessons export their worked dispatch", async ({
   page,
 }) => {

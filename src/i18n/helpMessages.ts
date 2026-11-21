@@ -1869,6 +1869,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Gbé àpẹẹrẹ oòrùn ọ̀sán tàbí ẹrù ìrọ̀lẹ́ wọlé nínú microgrid dispatch. Yí ààlà fífi agbára ránṣẹ́ tàbí ètò batiri padà, wé èsì wákàtí kọ̀ọ̀kan, kí o sì gbé èsì jáde.",
       "Load midday solar or evening peak lesson for microgrid dispatch. Change export limit or battery settings, compare interval readings and download di results.",
     ],
+  "Load the generator outage lesson in microgrid dispatch. Compare available backup and unmet loads during the trip, then clear the outage and export the comparison runs.":
+    [
+      "Laden Sie den Generatorausfallversuch in der Mikronetzsimulation. Vergleichen Sie verfügbare Reserve und ungedeckte Lasten während des Ausfalls, löschen Sie dann den Ausfall und exportieren Sie beide Vergleichsläufe.",
+      "Gbé àpẹẹrẹ ìdádúró generator wọlé nínú microgrid dispatch. Wé agbára afẹ́yinti àti ẹrù tí kò rí agbára nígbà ìdádúró, pa iye ìdádúró rẹ́, kí o sì gba èsì méjèèjì.",
+      "Load generator outage lesson for microgrid dispatch. Compare backup wey dey available and loads wey no get supply during trip, then clear di outage and download both runs.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

@@ -543,3 +543,7 @@ Local TypeScript and 20 Help checks passed. Focused Chromium assertions verified
 ### POWERGRID LAB midday solar and evening peak lessons
 
 TypeScript and 29 Help and microgrid solver tests passed. Focused Chromium assertions verified 20 kW midday charging and 10 kW curtailment, zero curtailment with 10 kW export, restoration of zero export when switching lessons, and the worked evening discharge and unmet-load values in the JSON download.
+
+### POWERGRID LAB generator-outage lesson
+
+TypeScript, 20 Help checks and both focused dispatch browser cases passed their assertions. The generated report showed 5 kW pre-trip headroom, 5 kW critical and 20 kW other unmet load during the trip, and 7 kW of restart output. Clearing the outage restored all critical supply. Reset restored the trip input.

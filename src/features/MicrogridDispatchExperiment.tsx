@@ -13,7 +13,10 @@ import {
   type RecurringProjectDemand,
 } from "../engine/powergridProjectDemand";
 import type { ActiveProjectDemand } from "./RadialFeederExperiment";
-import { PowerGridDispatchLessons } from "./PowerGridDispatchLessons";
+import {
+  PowerGridDispatchLessons,
+  type DispatchLesson,
+} from "./PowerGridDispatchLessons";
 import { RURAL_MICROGRID_TEACHING_PROFILE } from "../engine/powergridRegions";
 import {
   SMARD_GERMANY_DAY,
@@ -820,8 +823,8 @@ export function MicrogridDispatchExperiment({
     });
     setSaved(false);
   };
-  const loadPracticalLesson = (lesson: "solar" | "evening") => {
-    setState({
+  const loadPracticalLesson = (lesson: DispatchLesson) => {
+    const base: Editable = {
       ...defaults(),
       intervalHours: 1,
       windSpeeds: [0, 0],
@@ -838,7 +841,24 @@ export function MicrogridDispatchExperiment({
       batteryDischargeEfficiency: 100,
       backupKW: 0,
       rampKW: 0,
-    });
+    };
+    setState(
+      lesson === "outage"
+        ? {
+            ...base,
+            windSpeeds: [0, 0, 0],
+            irradiance: [0, 0, 0],
+            demand: [10, 30, 12],
+            critical: [5, 10, 8],
+            batteryKWh: 15,
+            initialSoc: 100,
+            batteryPowerKW: 5,
+            backupKW: 20,
+            rampKW: 10,
+            backupOutages: "2",
+          }
+        : base,
+    );
     setSaved(false);
   };
   const inputs: MicrogridDispatchInputs = useMemo(() => {
