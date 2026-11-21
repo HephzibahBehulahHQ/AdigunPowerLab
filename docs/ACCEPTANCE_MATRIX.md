@@ -362,3 +362,5 @@ The solar thermal worksheet distinguishes incident solar power, receiver heat, e
 The tidal stream worksheet exposes flow power, shaft and electrical potentials, and rating-limited available power. The cut-in and cut-out thresholds use the entered speed and reset to the worked example.
 
 The binary geothermal worksheet reports recovered heat, unconstrained gross potential, nameplate-limited gross output and net power after auxiliaries. Temperature ordering and the Carnot ceiling are validated before export.
+
+The wave-energy worksheet checks field limits, distinguishes crest flux from converter power, applies the electrical rating and enforces inclusive shutdown height.

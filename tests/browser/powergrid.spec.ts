@@ -3,6 +3,32 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("deep-water wave case caps output and shuts down at the configured height", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const wave = page.getByRole("region", { name: "Deep-water wave energy" });
+  const height = wave.getByLabel("Significant wave height (m)");
+  await expect(
+    wave.getByText("Available electrical power", { exact: true }).locator(".."),
+  ).toContainText("100 kW");
+  await height.fill("5");
+  const pending = page.waitForEvent("download");
+  const report = wave.getByRole("button", {
+    name: "Export wave energy results",
+  });
+  await report.click();
+  const data = JSON.parse(await readFile(await (await pending).path(), "utf8"));
+  expect(data.result.crestPowerKWPerM).toBeCloseTo(98.12, 1);
+  expect(data.result.electricalPotentialKW).toBeGreaterThan(100);
+  expect(data.result.shutdown).toBe(true);
+  expect(data.result.availableKW).toBe(0);
+  await height.fill("-1");
+  await expect(report).toBeDisabled();
+  await wave.getByRole("button", { name: "Reset wave energy inputs" }).click();
+  await expect(height).toHaveValue("2");
+});
+
 test("binary geothermal case separates recovered heat, gross output and net import", async ({
   page,
 }) => {
