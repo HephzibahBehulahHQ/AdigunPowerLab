@@ -7,6 +7,7 @@ import {
   type MicrogridDispatchInputs,
 } from "../engine/microgridDispatch";
 import type { PvPerformanceInputs } from "../engine/pvPerformance";
+import { RURAL_MICROGRID_TEACHING_PROFILE } from "../engine/powergridRegions";
 import { LanguageContext } from "../i18n";
 import type { Locale } from "../i18n";
 
@@ -15,6 +16,17 @@ const LIMITS =
   "This is an illustrative AC-bus dispatch, not a site forecast or utility operation model. No feeder/transformer losses, costs, frequency response or unit-specific transient models are included. Entered profiles are assumptions. Generic backup capacity is dispatched after storage and grid imports with the entered ramp-up ceiling; ramp-down is instantaneous.";
 const pvDefaults = DEFAULT_MICROGRID_DISPATCH_INPUTS.pvByInterval[0];
 const copy: Record<string, [string, string, string]> = {
+  "Load rural microgrid teaching scenario": [
+    "Ländliches Mikronetz-Lehrbeispiel laden",
+    "Ṣí àpẹẹrẹ microgrid agbègbè ìgbèríko",
+    "Load rural microgrid teaching scenario",
+  ],
+  "Replaces the dispatch inputs with an illustrative 24-hour rural clinic and community scenario. Values are authored teaching assumptions.":
+    [
+      "Ersetzt die Eingaben durch ein 24-Stunden-Lehrbeispiel für eine ländliche Klinik und Gemeinde. Die Werte sind didaktische Annahmen.",
+      "Ó rọ́pò ìtẹ̀wọlé pẹ̀lú àpẹẹrẹ wákàtí 24 fún ilé ìwòsàn kékeré àti àwùjọ ìgbèríko. Àwọn iye jẹ́ àfojúsùn ẹ̀kọ́.",
+      "E replace dispatch inputs with 24-hour rural clinic and community teaching example. The values na teaching assumptions.",
+    ],
   "Startup fuel per start (MJ)": [
     "Brennstoffenergie je Start (MJ)",
     "Agbára epo fún ìbẹ̀rẹ̀ kọ̀ọ̀kan (MJ)",
@@ -662,6 +674,24 @@ export function MicrogridDispatchExperiment() {
   const label = (s: string) => tr(s, locale);
   const [state, setState] = useState<Editable>(readSaved);
   const [saved, setSaved] = useState(false);
+  const loadRuralScenario = () => {
+    const profile = RURAL_MICROGRID_TEACHING_PROFILE;
+    setState({
+      ...defaults(),
+      intervalHours: profile.intervalHours,
+      windSpeeds: [...profile.windSpeeds],
+      irradiance: [...profile.irradiance],
+      demand: [...profile.demand],
+      critical: [...profile.critical],
+      pvDcKW: 48,
+      pvAcKW: 40,
+      batteryKWh: 80,
+      initialSoc: 50,
+      backupKW: 15,
+      rampKW: 15,
+    });
+    setSaved(false);
+  };
   const inputs: MicrogridDispatchInputs = useMemo(() => {
     const pvByInterval: PvPerformanceInputs[] = state.irradiance.map(
       (planeOfArrayIrradianceWm2) => ({
@@ -894,6 +924,21 @@ export function MicrogridDispatchExperiment() {
           </p>
         </div>
       </div>
+      <div className="pg-actions">
+        <button
+          type="button"
+          className="button"
+          onClick={loadRuralScenario}
+          aria-describedby="pg-rural-profile-note"
+        >
+          {label("Load rural microgrid teaching scenario")}
+        </button>
+      </div>
+      <p id="pg-rural-profile-note" className="pg-model-note">
+        {label(
+          "Replaces the dispatch inputs with an illustrative 24-hour rural clinic and community scenario. Values are authored teaching assumptions.",
+        )}
+      </p>
       <div className="pg-wind-controls">
         {field("windSpeeds", "Wind speed (m/s)", state.windSpeeds, true)}
         {field("irradiance", "Solar irradiance (W/m²)", state.irradiance, true)}

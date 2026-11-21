@@ -278,3 +278,5 @@ Generic backup-generator outage and ramp-limited restart are modeled. Reported r
 Constant heat-rate fuel accounting and optional direct CO₂ are available for backup generation. Part-load curves and complete system emissions remain open.
 
 Startup fuel and a finite consumable fuel budget are implemented. Fuel replenishment, warm/cold start differentiation, minimum up/down times and part-load curves remain open.
+
+An authored rural microgrid preset now exercises chronological dispatch with an entire teaching day. Sourced country-specific generation and demand time series remain open.

@@ -1,6 +1,25 @@
 import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
 
+test("microgrid dispatch loads and exports the rural teaching day", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const section = page
+    .locator(".pg-pv")
+    .filter({ has: page.locator("#pg-microgrid-title") });
+  await section
+    .getByRole("button", { name: "Load rural microgrid teaching scenario" })
+    .click();
+  await expect(section.getByTestId("microgrid-intervalHours")).toHaveValue("4");
+  const promise = page.waitForEvent("download");
+  await section.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const download = await promise;
+  const payload = JSON.parse(await readFile(await download.path(), "utf8"));
+  expect(payload.result.intervals).toHaveLength(6);
+  expect(payload.result.totalDemandKWh).toBe(448);
+});
+
 test("microgrid dispatch exports thermal backup fuel and direct CO₂", async ({
   page,
 }) => {

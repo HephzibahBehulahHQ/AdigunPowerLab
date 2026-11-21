@@ -252,3 +252,5 @@ Enter backup outage interval numbers independently of grid outages. The backup u
 Enable thermal backup to enter net heat rate in MJ of fuel per kWh of net electricity. Optionally enter a direct CO₂ factor in kg/GJ on the same heating-value basis. Fuel equals generated electrical energy times heat rate. Direct CO₂ equals fuel energy in GJ times the factor. See [EIA on heat rate](https://www.eia.gov/tools/faqs/faq.php?id=107).
 
 Enter startup fuel per start and optionally set initial fuel inventory in MJ. The model counts startup when generation rises from zero, includes it in total fuel and direct CO2, and consumes fuel only when the unit delivers power. An empty inventory field assumes unlimited fuel. A specified zero inventory supplies no power.
+
+In Microgrid dispatch, choose Load rural microgrid teaching scenario to replace the current form with six four-hour intervals for a fictional clinic and rural community. Edit the assumptions before saving or exporting. Loading the scenario leaves the previously saved dispatch inputs available until you save again.

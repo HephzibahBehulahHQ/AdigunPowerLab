@@ -1731,6 +1731,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Tẹ epo fún ìbẹ̀rẹ̀ kọ̀ọ̀kan àti ìpamọ́ epo ìbẹ̀rẹ̀ bí o bá fẹ́. Tí ìpamọ́ bá ní ààlà, generator nílò epo tó fún ìbẹ̀rẹ̀, epo tó kù sì fi ààlà sí agbára.",
       "Enter startup fuel for each start and starting fuel inventory if you want. When fuel get limit, generator need enough to start and fuel wey remain limit the power.",
     ],
+  "Load the rural microgrid teaching scenario to replace the current dispatch inputs with an editable 24-hour clinic and community example.":
+    [
+      "Laden Sie das ländliche Mikronetz-Lehrbeispiel, um die aktuellen Eingaben durch ein bearbeitbares 24-Stunden-Beispiel für Klinik und Gemeinde zu ersetzen.",
+      "Ṣí àpẹẹrẹ microgrid agbègbè ìgbèríko láti rọ́pò ìtẹ̀wọlé pẹ̀lú àpẹẹrẹ ilé ìwòsàn àti àwùjọ fún wákàtí 24 tí o lè ṣàtúnṣe.",
+      "Load di rural microgrid teaching scenario to replace current inputs with one editable 24-hour clinic and community example.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

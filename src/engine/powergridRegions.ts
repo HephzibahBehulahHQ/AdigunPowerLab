@@ -1,5 +1,14 @@
 import type { PowerGridInputs } from "./powergrid";
 
+// Authored teaching inputs, with six equal four-hour intervals covering one day.
+export const RURAL_MICROGRID_TEACHING_PROFILE = {
+  intervalHours: 4,
+  windSpeeds: [0, 0, 0, 0, 0, 0],
+  irradiance: [0, 0, 450, 750, 140, 0],
+  demand: [9, 8, 22, 25, 30, 18],
+  critical: [5, 5, 8, 8, 12, 9],
+} as const;
+
 export interface RegionalTeachingPreset {
   id: string;
   engineeringRegion: string;

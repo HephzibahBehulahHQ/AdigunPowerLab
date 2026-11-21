@@ -286,3 +286,5 @@ The candidate also supports backup-generator outage intervals and restart from z
 Thermal backup can now account for fuel energy at an entered net heat rate and optional direct combustion CO₂. The model uses actual interval generation and does not change the dispatch priority.
 
 Thermal backup now supports startup fuel and optional finite fuel inventory. Fuel availability caps generation and backup headroom, and the interval exports report startup consumption and remaining fuel.
+
+The candidate now includes an editable rural clinic and community dispatch day. Six four-hour intervals illustrate solar variation, evening demand, storage and critical loads.

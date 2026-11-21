@@ -472,3 +472,5 @@ Backup outage and restart passed TypeScript, 18 focused dispatch and localizatio
 Thermal backup passed TypeScript, 18 focused dispatch and localization tests, and the Chromium fuel accounting workflow. Chromium verified that 20 kWh of backup output at 10 MJ/kWh and 60 kg CO2/GJ exports 200 MJ and 12 kg direct CO2 after save and reload. Unit coverage verifies no fuel usage during a modeled backup outage.
 
 Startup fuel and finite inventory passed TypeScript, 18 focused tests and Chromium save/reload and JSON export. With 150 MJ available, 30 MJ startup and 10 MJ/kWh, the one-hour interval delivered 12 kWh and exhausted the inventory. The dispatch fixture covers fuel-limited restart after an outage and zero output after depletion.
+
+The rural teaching preset passed TypeScript, nine localization tests and Chromium load-and-export acceptance. The exported dispatch includes six four-hour intervals with 448 kWh of illustrative demand.
