@@ -131,6 +131,17 @@ const copy: Record<string, [string, string, string]> = {
     "Agbára epo fún ìbẹ̀rẹ̀ kọ̀ọ̀kan (MJ)",
     "Startup fuel for each start (MJ)",
   ],
+  "Minimum stable backup output (kW)": [
+    "Minimale stabile Reserveleistung (kW)",
+    "Agbára afẹ́yinti tó kéré jù ní ìṣiṣẹ́ (kW)",
+    "Smallest steady backup output (kW)",
+  ],
+  "Minimum stable backup output must be between zero and the generator rating.":
+    [
+      "Die minimale stabile Reserveleistung muss zwischen null und der Generatornennleistung liegen.",
+      "Agbára afẹ́yinti tó kéré jù gbọ́dọ̀ wà láàárín òdo àti agbára orúkọ generator.",
+      "Smallest steady backup output must dey between zero and di generator rating.",
+    ],
   "Initial fuel inventory (MJ), optional": [
     "Anfangsbrennstoffvorrat (MJ), optional",
     "Ìpamọ́ epo ìbẹ̀rẹ̀ (MJ), àṣàyàn",
@@ -660,6 +671,7 @@ interface Editable {
   backupHeatRate: number;
   backupCO2Factor: string;
   backupStartupFuel: number;
+  backupMinimumStableKW: number;
   backupInitialFuel: string;
 }
 
@@ -696,6 +708,7 @@ function defaults(): Editable {
     backupHeatRate: 10,
     backupCO2Factor: "",
     backupStartupFuel: 0,
+    backupMinimumStableKW: 0,
     backupInitialFuel: "",
     pumpedInitial: 0,
     pumpLimit: 25,
@@ -862,6 +875,10 @@ function buildDispatchInputs(
         ? {
             heatRateMJPerKWh: state.backupHeatRate,
             startupFuelMJ: state.backupStartupFuel,
+            minimumStableKW:
+              state.backupMinimumStableKW === 0
+                ? undefined
+                : state.backupMinimumStableKW,
             initialFuelMJ: state.backupInitialFuel.trim()
               ? Number(state.backupInitialFuel)
               : undefined,
@@ -1503,6 +1520,11 @@ export function MicrogridDispatchExperiment({
               "backupStartupFuel",
               "Startup fuel per start (MJ)",
               state.backupStartupFuel,
+            )}
+            {field(
+              "backupMinimumStableKW",
+              "Minimum stable backup output (kW)",
+              state.backupMinimumStableKW,
             )}
             <label className="pg-field">
               <span>{label("Initial fuel inventory (MJ), optional")}</span>

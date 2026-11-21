@@ -1441,10 +1441,13 @@ test("microgrid dispatch exports thermal backup fuel and direct CO₂", async ({
     name: "Initial fuel inventory (MJ), optional",
   });
   await inventory.fill("150");
+  const minimum = section.getByTestId("microgrid-backupMinimumStableKW");
+  await minimum.fill("12");
   await section.getByRole("button", { name: "Save scenario locally" }).click();
   await page.reload();
   await expect(factor).toHaveValue("60");
   await expect(inventory).toHaveValue("150");
+  await expect(minimum).toHaveValue("12");
   const exportPromise = page.waitForEvent("download");
   await section.getByRole("button", { name: "Export dispatch JSON" }).click();
   const download = await exportPromise;
@@ -1455,6 +1458,17 @@ test("microgrid dispatch exports thermal backup fuel and direct CO₂", async ({
     backupStartupFuelMJ: 30,
     backupRemainingFuelMJ: 0,
     backupDirectCO2Kg: 9,
+  });
+  await minimum.fill("13");
+  const stoppedExport = page.waitForEvent("download");
+  await section.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const stopped = JSON.parse(
+    await readFile(await (await stoppedExport).path(), "utf8"),
+  );
+  expect(stopped.result.intervals[0]).toMatchObject({
+    backupGenerationKW: 0,
+    backupStartupFuelMJ: 0,
+    backupRemainingFuelMJ: 150,
   });
 });
 

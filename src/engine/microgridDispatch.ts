@@ -48,6 +48,7 @@ export interface MicrogridDispatchInputs {
       directCO2KgPerGJ?: number;
       startupFuelMJ?: number;
       initialFuelMJ?: number;
+      minimumStableKW?: number;
     };
   };
   grid?: {
@@ -331,6 +332,16 @@ export function validateMicrogridDispatchInputs(
       break;
     }
   }
+  const minimumStableKW = g.thermal?.minimumStableKW ?? 0;
+  if (
+    !Number.isFinite(minimumStableKW) ||
+    minimumStableKW < 0 ||
+    minimumStableKW > g.ratedKW
+  ) {
+    errors.push(
+      "Minimum stable backup output must be between zero and the generator rating.",
+    );
+  }
   if (
     g.outageIntervals?.some(
       (interval) =>
@@ -569,10 +580,15 @@ export function calculateMicrogridDispatch(
             Math.max(0, remainingFuelMJ - potentialStartupFuelMJ) /
               runningFuelMJPerKW,
           );
-    const backupGenerationKW = Math.min(
+    const minimumStableKW = thermal?.minimumStableKW ?? 0;
+    const stableGeneratorLimitKW =
+      fueledGeneratorLimitKW >= minimumStableKW ? fueledGeneratorLimitKW : 0;
+    const requestedBackupKW = Math.min(
       residualDeficitKW - gridImportKW,
-      fueledGeneratorLimitKW,
+      stableGeneratorLimitKW,
     );
+    const backupGenerationKW =
+      requestedBackupKW >= minimumStableKW ? requestedBackupKW : 0;
     const backupStartupFuelMJ = thermal
       ? backupGenerationKW > 0
         ? potentialStartupFuelMJ
@@ -636,7 +652,7 @@ export function calculateMicrogridDispatch(
       batterySocPercent: (socKWh / capacityKWh) * 100,
       backupGenerationKW,
       backupInService,
-      backupHeadroomKW: fueledGeneratorLimitKW - backupGenerationKW,
+      backupHeadroomKW: stableGeneratorLimitKW - backupGenerationKW,
       backupFuelEnergyMJ,
       backupStartupFuelMJ,
       backupRemainingFuelMJ: remainingFuelMJ,
