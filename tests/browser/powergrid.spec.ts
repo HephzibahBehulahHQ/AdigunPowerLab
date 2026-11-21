@@ -3,6 +3,36 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("binary geothermal case separates recovered heat, gross output and net import", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const plant = page.getByRole("region", {
+    name: "Binary-cycle geothermal generation",
+  });
+  await expect(
+    plant.getByText("Recovered heat", { exact: true }).locator(".."),
+  ).toContainText("14,630 kW");
+  await expect(
+    plant.getByText("Net electrical output", { exact: true }).locator(".."),
+  ).toContainText("1,350 kW");
+  const efficiency = plant.getByLabel("Heat-to-gross-electric efficiency (%)");
+  await efficiency.fill("50");
+  const report = plant.getByRole("button", {
+    name: "Export geothermal results",
+  });
+  await expect(report).toBeDisabled();
+  await efficiency.fill("12");
+  await plant.getByLabel("Brine mass flow (kg/s)").fill("0");
+  const pending = page.waitForEvent("download");
+  await report.click();
+  const data = JSON.parse(await readFile(await (await pending).path(), "utf8"));
+  expect(data.result.grossAvailableKW).toBe(0);
+  expect(data.result.netKW).toBe(-150);
+  await plant.getByRole("button", { name: "Reset geothermal inputs" }).click();
+  await expect(plant.getByLabel("Brine mass flow (kg/s)")).toHaveValue("50");
+});
+
 test("tidal stream turbine scales with speed cubed and stops at cut-out", async ({
   page,
 }) => {
