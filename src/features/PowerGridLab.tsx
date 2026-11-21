@@ -11,6 +11,7 @@ import {
 import type { PowerGridInputs, PowerGridReading } from "../engine/powergrid";
 import { applyRegionalTeachingPreset } from "../engine/powergridRegions";
 import { RadialFeederExperiment } from "./RadialFeederExperiment";
+import { MeshedPowerFlowExperiment } from "./MeshedPowerFlowExperiment";
 import { PvPerformanceExperiment } from "./PvPerformanceExperiment";
 import { HydroPerformanceExperiment } from "./HydroPerformanceExperiment";
 import { WindResourceExperiment } from "./WindResourceExperiment";
@@ -505,6 +506,7 @@ export function PowerGridLab() {
       <HydroPerformanceExperiment locale={locale} />
       <WindResourceExperiment />
       <MicrogridDispatchExperiment />
+      <MeshedPowerFlowExperiment locale={locale} />
     </section>
   );
 }

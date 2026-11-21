@@ -264,3 +264,5 @@ Select 22 January 2025 (CET) or 18 June 2025 (CEST) in the historical table. In 
 Select the reservoir, turbine, generator, step-up transformer or tower in the 3D scene to highlight shared equipment in the hydro drawings. Selecting it in a hydro drawing also updates the 3D inspector. The receiving transformer links the 3D and downstream views.
 
 On narrow screens, scroll down from the camera controls to the equipment buttons and inspector. Both remain available through the keyboard, including when the schematic substitutes for the WebGL view.
+
+In Meshed AC power flow, edit the load, generator or A–B transformer tap and phase shift. Open one branch to see a connected contingency. Isolating a bus stops the solve and disables export. The tables show voltages, net bus injections, and power entering each line end. The solver converts a PV bus to PQ at the first violated reactive limit and holds it there for the remainder of that solve.

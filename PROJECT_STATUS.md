@@ -300,3 +300,5 @@ Milestone 4 now shares selection between the 3D scene, hydro cutaway, hydro sing
 Milestone 4 camera changes now reuse WebGL shaders and geometry. The model handles context loss and restoration, and equipment inspection remains accessible if rendering is unavailable.
 
 On phone-width screens the 3D camera and equipment inspector now stack vertically. Camera sliders have localized accessible names.
+
+Milestone 5 has a separate balanced meshed AC solver and editable three-bus experiment. It supports slack/PV/PQ buses, series impedance, charging, transformer ratios and phase shifts, and bounded convergence with island checks.

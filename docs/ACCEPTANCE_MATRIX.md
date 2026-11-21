@@ -292,3 +292,5 @@ Six shared visual assets synchronize selection between the station model and the
 Camera controls update WebGL uniforms without allocating scene buffers. A forced missing-WebGL browser case exercises keyboard equipment selection in the linked schematic. Device performance budgets and wider assistive-technology review remain open.
 
 The station controls and inspector fit within the tested 390 px viewport, including forced WebGL fallback. The browser extension exercises context loss and restoration where supported.
+
+A 100 MVA three-bus AC teaching case now exercises a Newton power-mismatch solver with numerical Jacobian. The reference bus supplies residual active and reactive power. The initial independent phasor fixture and focused contingency evidence cover this implementation slice. Larger benchmark cases, contingency batches and dynamic lessons remain open. [MATPOWER AC formulation reference](https://matpower.org/docs/MATPOWER-manual-8.0.pdf)

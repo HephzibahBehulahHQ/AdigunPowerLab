@@ -1,6 +1,32 @@
 import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
 
+test("meshed AC case solves the triangle and blocks export of an island", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const section = page.getByRole("region", { name: "Meshed AC power flow" });
+  await expect(section.getByRole("status")).toContainText("Converged");
+  const branches = section.getByRole("table", { name: "Branch results" });
+  await expect(branches.getByRole("row")).toHaveCount(4);
+  await section.getByRole("checkbox", { name: "A–B" }).uncheck();
+  await expect(branches.getByRole("row")).toHaveCount(3);
+  const promise = page.waitForEvent("download");
+  await section.getByRole("button", { name: "Export AC results" }).click();
+  const download = await promise;
+  const payload = JSON.parse(await readFile(await download.path(), "utf8"));
+  expect(
+    payload.result.branches.map((branch: { id: string }) => branch.id),
+  ).toEqual(["A–C", "B–C"]);
+  await section.getByRole("checkbox", { name: "A–C" }).uncheck();
+  await expect(section.getByRole("status")).toContainText(
+    "island has no slack bus",
+  );
+  await expect(
+    section.getByRole("button", { name: "Export AC results" }),
+  ).toBeDisabled();
+});
+
 test("POWERGRID camera redraws without allocating scene buffers", async ({
   page,
 }) => {

@@ -1767,6 +1767,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Lórí ojú-ìbojú kékeré, ìṣàkóso camera àti àyẹ̀wò ẹ̀rọ wà lókè ara wọn kí o lè lò wọ́n láìyí sí ẹ̀gbẹ́.",
       "For narrow screen, camera controls and equipment inspector dey one under the other so you fit use both without scrolling sideways.",
     ],
+  "In Meshed AC power flow, edit the generator, load or A–B tap and open a branch to compare solved bus voltages and flows. The solver reports islands without a slack bus and shows when the generator reaches a reactive limit.":
+    [
+      "Ändern Sie im vermaschten AC-Lastfluss Generator, Last oder A–B-Stufe. Öffnen Sie einen Zweig, um Knotenspannungen und Flüsse zu vergleichen. Der Solver meldet Inseln ohne Referenzknoten und erreichte Blindleistungsgrenzen.",
+      "Nínú ìṣàn agbára AC onílupu, ṣàtúnṣe generator, ẹrù tàbí tap A–B, kí o sì ṣí ẹ̀ka kan láti fi foliteji àti ìṣàn wé. Ìṣirò fi erékùṣù tí kò ní slack bus àti ààlà reactive hàn.",
+      "For meshed AC power flow edit generator, load or A–B tap, then open branch to compare bus voltage and flow. Solver report island wey no get slack bus and show when generator reach reactive limit.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",
