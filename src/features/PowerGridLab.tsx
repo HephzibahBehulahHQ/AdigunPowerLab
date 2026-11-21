@@ -31,6 +31,10 @@ import { HydroPerformanceExperiment } from "./HydroPerformanceExperiment";
 import { WindResourceExperiment } from "./WindResourceExperiment";
 import { MicrogridDispatchExperiment } from "./MicrogridDispatchExperiment";
 import { RegionalGridPreset } from "./RegionalGridPreset";
+import {
+  listRecoveredPowerGridScenarios,
+  type RecoveredPowerGridScenario,
+} from "../storage/powergridRecovery";
 import { SmardHistoricalDay } from "./SmardHistoricalDay";
 import { HydroStationScene, type HydroEquipmentId } from "./HydroStationScene";
 import { GenerationPlantScene } from "./GenerationPlantScene";
@@ -91,6 +95,36 @@ const scenarioCopy = {
     "This transmission scenario file no valid.",
     "Apply go change worksheet. Save separately to update browser copy.",
     "Browser save fail.",
+  ],
+} satisfies Record<Locale, string[]>;
+const recoveryCopy = {
+  en: [
+    "Show recovered experiments",
+    "Recovered transmission experiments",
+    "No recovered transmission experiments.",
+    "Could not read recovered experiments.",
+    "Unnamed transmission experiment",
+  ],
+  de: [
+    "Wiederhergestellte Versuche anzeigen",
+    "Wiederhergestellte Übertragungsversuche",
+    "Keine wiederhergestellten Übertragungsversuche.",
+    "Wiederhergestellte Versuche konnten nicht gelesen werden.",
+    "Unbenannter Übertragungsversuch",
+  ],
+  yo: [
+    "Fi ìdánwò tí a gba padà hàn",
+    "Ìdánwò gbigbe tí a gba padà",
+    "Kò sí ìdánwò gbigbe tí a gba padà.",
+    "A kò lè ka ìdánwò tí a gba padà.",
+    "Ìdánwò gbigbe aláìlórúkọ",
+  ],
+  pcm: [
+    "Show recovered experiments",
+    "Recovered transmission experiments",
+    "No recovered transmission experiments.",
+    "We no fit read recovered experiments.",
+    "Unnamed transmission experiment",
   ],
 } satisfies Record<Locale, string[]>;
 const reportCopy = {
@@ -364,6 +398,18 @@ export function PowerGridLab() {
     null,
   );
   const [importError, setImportError] = useState(false);
+  const [recovered, setRecovered] = useState<
+    RecoveredPowerGridScenario[] | null
+  >(null);
+  const [recoveryError, setRecoveryError] = useState(false);
+  const [recoveryBusy, setRecoveryBusy] = useState(false);
+  const [
+    showRecovered,
+    recoveredHeading,
+    noRecovered,
+    recoveryFailure,
+    unnamedRecovered,
+  ] = recoveryCopy[locale];
   const importSequence = useRef(0);
   const [reportBusy, setReportBusy] = useState(false);
   const [reportError, setReportError] = useState(false);
@@ -722,6 +768,56 @@ export function PowerGridLab() {
         />
       </label>
       {importError && <p role="alert">{invalidImportLabel}</p>}
+      <button
+        className="button"
+        type="button"
+        disabled={recoveryBusy}
+        onClick={async () => {
+          setRecoveryBusy(true);
+          setRecoveryError(false);
+          try {
+            setRecovered(await listRecoveredPowerGridScenarios());
+          } catch {
+            setRecoveryError(true);
+          } finally {
+            setRecoveryBusy(false);
+          }
+        }}
+      >
+        {showRecovered}
+      </button>
+      {recoveryError && <p role="alert">{recoveryFailure}</p>}
+      {recovered && (
+        <section aria-labelledby="pg-recovered-title">
+          <h3 id="pg-recovered-title">{recoveredHeading}</h3>
+          {recovered.length === 0 ? (
+            <p>{noRecovered}</p>
+          ) : (
+            <ul>
+              {recovered.map((row) => (
+                <li key={row.key}>
+                  <button
+                    className="button"
+                    type="button"
+                    onClick={() => {
+                      importSequence.current++;
+                      setImportError(false);
+                      setImportPreview(row.scenario);
+                    }}
+                  >
+                    {row.scenario.name || unnamedRecovered}
+                  </button>{" "}
+                  <time dateTime={row.restoredAt}>
+                    {new Date(row.restoredAt).toLocaleString(
+                      locale === "pcm" ? "en-NG" : locale,
+                    )}
+                  </time>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+      )}
       {importPreview && (
         <section aria-labelledby="pg-scenario-preview-title">
           <h3 id="pg-scenario-preview-title">{previewLabel}</h3>

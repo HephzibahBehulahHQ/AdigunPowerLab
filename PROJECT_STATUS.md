@@ -312,3 +312,5 @@ Milestone 5 now also includes an aggregate primary-frequency lesson for a genera
 Milestone 6 now includes a downloadable PDF for the transmission-voltage comparison. It snapshots current inputs and observations at export time, renders the schematic and loss comparison, and includes optional student notes.
 
 The transmission experiment now saves its name, notes and selected preset. Versioned JSON import validates and previews inputs, then applies only after confirmation. Older version-1 JSON and existing browser saves remain readable.
+
+All-project workspace backups now include saved transmission experiments and recovered copies. Restoring stores the experiments separately in the workspace transaction. PowerGrid Lab can preview and apply a recovered copy without automatically replacing the saved worksheet.

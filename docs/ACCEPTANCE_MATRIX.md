@@ -301,4 +301,4 @@ The primary-frequency experiment covers a single aggregate area and a permanent 
 
 The step-up transmission worksheet exports a snapshot PDF with objective, schematic, assumptions, inputs, comparison readings, loss bars and optional notes. Combined lab reports, report workflows for other experiments and workspace recovery integration remain open.
 
-The transmission worksheet has named and versioned local saves, JSON export and validated import with preview and explicit apply. Applying and saving are separate actions. Workspace-wide recovery and history remain open.
+The transmission worksheet has named and versioned local saves, JSON export and validated import with preview and explicit apply. All-project workspace backups retain saved transmission experiments and recovered copies. The workspace transaction creates separate recovery records for explicit review in the lab. Recovery for other experiment types and experiment history remain open.

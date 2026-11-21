@@ -1797,6 +1797,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Yan Gbé JSON àpẹẹrẹ wọlé láti ṣàyẹ̀wò ìdánwò gbigbe. Lílò mú orúkọ, àkọsílẹ̀ àti ìtẹ̀wọlé sínú worksheet. Fi pamọ́ lọ́tọ̀ láti rọ́pò ẹ̀dà browser.",
       "Choose Import scenario JSON to preview transmission experiment. Apply put name, notes and inputs for worksheet. Save separately to replace browser copy.",
     ],
+  "An all-project workspace backup includes saved transmission experiments. After restoring a backup, choose Show recovered experiments in PowerGrid Lab to preview and apply a recovered copy.":
+    [
+      "Sicherungen aller Projekte enthalten gespeicherte Übertragungsversuche. Nach der Wiederherstellung können Sie in PowerGrid Lab wiederhergestellte Versuche anzeigen, prüfen und anwenden.",
+      "Ẹ̀dà ààbò gbogbo iṣẹ́ ní ìdánwò gbigbe tí a fi pamọ́. Lẹ́yìn ìdápadà, yan Fi ìdánwò tí a gba padà hàn nínú PowerGrid Lab láti ṣàyẹ̀wò àti lò ẹ̀dà.",
+      "All-project workspace backup include saved transmission experiments. After restore, choose Show recovered experiments for PowerGrid Lab to check and apply a copy.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

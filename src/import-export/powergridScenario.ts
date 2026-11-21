@@ -66,7 +66,7 @@ export function unpackPowerGridScenario(
   };
 }
 
-export function readSavedPowerGridScenario(): PowerGridScenario {
+export function readStoredPowerGridScenario(): PowerGridScenario | null {
   try {
     const saved: unknown = JSON.parse(
       localStorage.getItem(POWERGRID_SCENARIO_KEY) ?? "null",
@@ -78,5 +78,15 @@ export function readSavedPowerGridScenario(): PowerGridScenario {
   } catch {
     // An unavailable or invalid saved copy does not prevent opening the lab.
   }
-  return { inputs: DEFAULT_POWERGRID_INPUTS, name: "", notes: "" };
+  return null;
+}
+
+export function readSavedPowerGridScenario(): PowerGridScenario {
+  return (
+    readStoredPowerGridScenario() ?? {
+      inputs: DEFAULT_POWERGRID_INPUTS,
+      name: "",
+      notes: "",
+    }
+  );
 }

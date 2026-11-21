@@ -2,6 +2,58 @@ import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 
+test("workspace backup restores a separate transmission experiment copy", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  await page
+    .getByRole("textbox", { name: "Experiment name" })
+    .fill("Archived transmission");
+  await page.getByRole("button", { name: "Save experiment locally" }).click();
+  await page.goto("/#/settings");
+  const backup = page.getByRole("region", {
+    name: "Workspace backup & restore",
+  });
+  const promise = page.waitForEvent("download");
+  await backup.getByRole("button", { name: "Export workspace backup" }).click();
+  const download = await promise;
+  const bytes = await readFile(await download.path());
+  expect(JSON.parse(bytes.toString()).powergridTransmission[0].name).toBe(
+    "Archived transmission",
+  );
+  await page.goto("/#POWERGRID");
+  await page
+    .getByRole("textbox", { name: "Experiment name" })
+    .fill("Current transmission");
+  await page.getByRole("button", { name: "Save experiment locally" }).click();
+  await page.goto("/#/settings");
+  await backup.locator('input[type="file"]').setInputFiles({
+    name: "workspace.json",
+    mimeType: "application/json",
+    buffer: bytes,
+  });
+  await expect(backup.getByText("Archived transmission")).toBeVisible();
+  await backup.getByRole("button", { name: "Restore reviewed backup" }).click();
+  await expect(
+    backup.getByText("Workspace restored. Existing projects were preserved."),
+  ).toBeVisible();
+  await expect(backup.getByText("Processing workspace backup…")).toHaveCount(0);
+  await page.goto("/#POWERGRID");
+  const labName = page.getByRole("textbox", { name: "Experiment name" });
+  await expect(labName).toHaveValue("Current transmission");
+  await page
+    .getByRole("button", { name: "Show recovered experiments" })
+    .click();
+  await page
+    .getByRole("button", { name: "Archived transmission", exact: true })
+    .click();
+  await expect(labName).toHaveValue("Current transmission");
+  await page.getByRole("button", { name: "Apply imported scenario" }).click();
+  await expect(labName).toHaveValue("Archived transmission");
+  await page.reload();
+  await expect(labName).toHaveValue("Current transmission");
+});
+
 test("transmission import previews, applies and saves separately", async ({
   page,
 }) => {

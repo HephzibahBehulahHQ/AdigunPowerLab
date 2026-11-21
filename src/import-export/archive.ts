@@ -2,6 +2,10 @@ import { ENGINE_VERSION, type Project } from "../domain/types";
 import { validateProjectImport } from "../domain/project";
 import { parseBillJson, type BillDocument } from "./reports";
 import {
+  unpackPowerGridScenario,
+  type packPowerGridScenario,
+} from "./powergridScenario";
+import {
   validateMeasurementPayload,
   type MeasurementPayload,
 } from "../storage/measurements";
@@ -30,6 +34,7 @@ export interface WorkspaceArchive {
   engineVersion: string;
   projects: ArchivedProject[];
   recoveryRecords: RecoveryRecord[];
+  powergridTransmission?: ReturnType<typeof packPowerGridScenario>[];
   integrity: { algorithm: "SHA-256"; digest: string };
 }
 export interface ArchiveCounts {
@@ -40,6 +45,7 @@ export interface ArchiveCounts {
   bills: number;
   measurements: number;
   recoveryRecords: number;
+  powergridTransmission: number;
 }
 export interface ArchivePreview {
   valid: boolean;
@@ -61,6 +67,7 @@ const emptyCounts = (): ArchiveCounts => ({
   bills: 0,
   measurements: 0,
   recoveryRecords: 0,
+  powergridTransmission: 0,
 });
 
 /** Sorted-key JSON permits whitespace/key-order changes without weakening content integrity. */
@@ -109,6 +116,7 @@ export async function sealWorkspaceArchive(
   projects: ArchivedProject[],
   recoveryRecords: RecoveryRecord[] = [],
   exportedAt = new Date().toISOString(),
+  powergridTransmission?: WorkspaceArchive["powergridTransmission"],
 ): Promise<WorkspaceArchive> {
   const content = structuredClone({
     format: "adigunpowerlab-workspace" as const,
@@ -117,6 +125,7 @@ export async function sealWorkspaceArchive(
     engineVersion: ENGINE_VERSION,
     projects,
     recoveryRecords,
+    ...(powergridTransmission?.length ? { powergridTransmission } : {}),
   });
   return {
     ...content,
@@ -165,6 +174,22 @@ export async function validateWorkspaceArchive(
       throw new Error(
         "Backup integrity check failed. The file is incomplete or has changed.",
       );
+    if (data.powergridTransmission !== undefined) {
+      if (
+        !Array.isArray(data.powergridTransmission) ||
+        data.powergridTransmission.length > 1000 ||
+        data.powergridTransmission.some(
+          (scenario) =>
+            !object(scenario) ||
+            scenario.schemaVersion !== 2 ||
+            !unpackPowerGridScenario(scenario),
+        )
+      )
+        errors.push(
+          "Invalid PowerGrid transmission experiments in workspace backup.",
+        );
+      else counts.powergridTransmission = data.powergridTransmission.length;
+    }
     const ids = new Set<string>();
     for (const [index, raw] of data.projects.entries()) {
       const label = `Project ${index + 1}`;

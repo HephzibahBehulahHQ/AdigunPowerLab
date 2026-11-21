@@ -274,3 +274,5 @@ In Primary frequency response, start with the 50 Hz example and change aggregate
 For the step-up transmission worksheet, add an optional experiment name and student notes before saving. Export lab report PDF captures the current worksheet, including the selected regional preset if available. The report contains the objective, voltage stages, entered power and resistance, calculated readings, loss comparison, equation, assumptions and notes.
 
 Use Import scenario JSON to preview an earlier transmission worksheet. Apply imported scenario replaces the editable inputs. Save experiment locally updates the saved browser copy. Version-1 exports restore electrical inputs, and version-2 exports also carry the name, notes and preset. Readings are recalculated from the validated inputs.
+
+For workspace recovery, save the transmission experiment and choose All local projects in Settings → Workspace backup & restore. The backup preview lists included transmission experiments. After restoring, open PowerGrid Lab and choose Show recovered experiments. Select a copy, review its inputs, and apply it when ready. Save experiment locally to make it the saved worksheet.
