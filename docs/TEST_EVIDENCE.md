@@ -509,3 +509,5 @@ Transmission report PDF passed TypeScript, nine localization tests, four transmi
 Transmission scenario restore passed TypeScript, 13 focused tests and Chromium. The browser checks version-1 preview and apply without overwriting the browser copy, version-2 named save/reload and re-export, and rejection of an unsupported schema without changing inputs. The named PDF was downloaded and visually reviewed after Poppler rendering.
 
 Transmission workspace recovery passed TypeScript, 15 archive and localization tests, and Chromium backup/restore and direct import workflows. Coverage confirms integrity validation, rejection of invalid experiment inputs, archive preview, transactional recovery, and preservation of the existing browser worksheet after applying an unsaved recovered copy.
+
+Transmission edit history passed TypeScript, 13 focused tests and the Chromium import workflow. The browser verifies undo/redo of an entire imported scenario, redo invalidation after a fresh edit, and a fresh history after reloading the separately saved worksheet.

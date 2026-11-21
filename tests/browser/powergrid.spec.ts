@@ -80,6 +80,17 @@ test("transmission import previews, applies and saves separately", async ({
   await expect(power).toHaveValue("100");
   await page.getByRole("button", { name: "Apply imported scenario" }).click();
   await expect(power).toHaveValue("120");
+  const undo = page.getByRole("button", { name: "Undo transmission edit" });
+  const redo = page.getByRole("button", { name: "Redo transmission edit" });
+  await undo.click();
+  await expect(power).toHaveValue("100");
+  await redo.click();
+  await expect(power).toHaveValue("120");
+  await undo.click();
+  await power.fill("110");
+  await expect(redo).toBeDisabled();
+  await undo.click();
+  await expect(power).toHaveValue("100");
   await page.reload();
   await expect(power).toHaveValue("100");
   await upload({
@@ -97,6 +108,7 @@ test("transmission import previews, applies and saves separately", async ({
   await page.reload();
   await expect(name).toHaveValue("Transmission review");
   await expect(power).toHaveValue("125");
+  await expect(undo).toBeDisabled();
   await expect(
     page.getByRole("textbox", { name: "Student notes (optional)" }),
   ).toHaveValue("Compare line loss.");

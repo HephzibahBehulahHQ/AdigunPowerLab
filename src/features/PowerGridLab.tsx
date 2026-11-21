@@ -1,4 +1,5 @@
-import { useContext, useMemo, useRef, useState } from "react";
+import { useContext, useMemo, useReducer, useRef, useState } from "react";
+import type { SetStateAction } from "react";
 import { Download, Save, RotateCcw, Zap } from "lucide-react";
 import { LanguageContext } from "../i18n";
 import type { Locale } from "../i18n";
@@ -127,6 +128,61 @@ const recoveryCopy = {
     "Unnamed transmission experiment",
   ],
 } satisfies Record<Locale, string[]>;
+const historyCopy = {
+  en: ["Undo transmission edit", "Redo transmission edit"],
+  de: [
+    "Übertragungsänderung rückgängig machen",
+    "Übertragungsänderung wiederholen",
+  ],
+  yo: ["Dá àtúnṣe gbigbe padà", "Tún àtúnṣe gbigbe ṣe"],
+  pcm: ["Undo transmission edit", "Redo transmission edit"],
+} satisfies Record<Locale, string[]>;
+
+interface ScenarioHistory {
+  current: PowerGridScenario;
+  past: PowerGridScenario[];
+  future: PowerGridScenario[];
+}
+type ScenarioEdit =
+  | { type: "edit"; change: SetStateAction<PowerGridScenario> }
+  | { type: "undo" }
+  | { type: "redo" };
+const historyLimit = 40;
+
+function editTransmissionHistory(
+  state: ScenarioHistory,
+  action: ScenarioEdit,
+): ScenarioHistory {
+  if (action.type === "undo") {
+    const previous = state.past.at(-1);
+    return previous
+      ? {
+          current: previous,
+          past: state.past.slice(0, -1),
+          future: [state.current, ...state.future],
+        }
+      : state;
+  }
+  if (action.type === "redo") {
+    const next = state.future[0];
+    return next
+      ? {
+          current: next,
+          past: [...state.past, state.current],
+          future: state.future.slice(1),
+        }
+      : state;
+  }
+  const current =
+    typeof action.change === "function"
+      ? action.change(state.current)
+      : action.change;
+  return {
+    current,
+    past: [...state.past.slice(1 - historyLimit), state.current],
+    future: [],
+  };
+}
 const reportCopy = {
   en: [
     "Transmission voltage lab report",
@@ -392,7 +448,19 @@ export function PowerGridLab() {
     previewExplanation,
     saveFailure,
   ] = scenarioCopy[locale];
-  const [scenario, setScenario] = useState(readSavedPowerGridScenario);
+  const [history, editHistory] = useReducer(
+    editTransmissionHistory,
+    null,
+    () => ({
+      current: readSavedPowerGridScenario(),
+      past: [],
+      future: [],
+    }),
+  );
+  const [undoLabel, redoLabel] = historyCopy[locale];
+  const scenario = history.current;
+  const setScenario = (change: SetStateAction<PowerGridScenario>) =>
+    editHistory({ type: "edit", change });
   const { inputs, name, notes, regionalPresetId } = scenario;
   const [importPreview, setImportPreview] = useState<PowerGridScenario | null>(
     null,
@@ -706,6 +774,28 @@ export function PowerGridLab() {
       {reportError && <p role="status">{reportFailure}</p>}
       {saveError && <p role="status">{saveFailure}</p>}
       <div className="pg-actions">
+        <button
+          className="button"
+          type="button"
+          disabled={!history.past.length}
+          onClick={() => {
+            editHistory({ type: "undo" });
+            setSaved(false);
+          }}
+        >
+          {undoLabel}
+        </button>
+        <button
+          className="button"
+          type="button"
+          disabled={!history.future.length}
+          onClick={() => {
+            editHistory({ type: "redo" });
+            setSaved(false);
+          }}
+        >
+          {redoLabel}
+        </button>
         <button className="button" onClick={persist} disabled={!!errors.length}>
           <Save size={16} />
           {text.save}

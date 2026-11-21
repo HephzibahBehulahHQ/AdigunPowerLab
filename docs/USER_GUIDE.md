@@ -276,3 +276,5 @@ For the step-up transmission worksheet, add an optional experiment name and stud
 Use Import scenario JSON to preview an earlier transmission worksheet. Apply imported scenario replaces the editable inputs. Save experiment locally updates the saved browser copy. Version-1 exports restore electrical inputs, and version-2 exports also carry the name, notes and preset. Readings are recalculated from the validated inputs.
 
 For workspace recovery, save the transmission experiment and choose All local projects in Settings → Workspace backup & restore. The backup preview lists included transmission experiments. After restoring, open PowerGrid Lab and choose Show recovered experiments. Select a copy, review its inputs, and apply it when ready. Save experiment locally to make it the saved worksheet.
+
+Use Undo transmission edit and Redo transmission edit while the worksheet is open. The history includes ordinary inputs, notes, presets, applied imports and reset. It keeps up to 40 edits per open session. Editing after an undo clears the redo path. Closing the worksheet clears its edit history, and saving is a separate action.
