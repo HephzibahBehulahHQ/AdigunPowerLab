@@ -120,3 +120,9 @@ PR #92 merged main `4e7d96e5e9186f5bf983fae288eec017a2a64dcc` after candidate ru
 PR #116 passed all repository gates. Pages published main validation artifact 14719582388 as Pages artifact 14719347994. The custom domain and repository Pages URL returned HTTP 200 for the HTML and production entry module, which contained the PowerGrid launcher.
 
 PR #117 passed all repository gates. Pages published main validation artifact 14719359146 as Pages artifact 14720455616. Both public routes returned HTTP 200 for the HTML and the PowerGrid module containing the solar thermal lesson.
+
+| PR | Exact main revision | Main validation | Pages | Public Chromium check |
+| --- | --- | --- | --- | --- |
+| [#125 Biomass](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/125) | `36d1fa61c1593c4b35143d7569e667c86314f8d6` | [44953618362](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44953618362) | [44954458680](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44954458680) | Seven editable controls and a net output reading rendered. |
+| [#127 Diesel](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/127) | `da6197a6582e70cc6d510caadd365a6bf7c4fa0f` | [44954779487](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44954779487) | [44955429216](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44955429216) | The 30 L case exported 50 kW and zero fuel remaining. |
+| [#128 Coal](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/pull/128) | `d5df080d08b4628283cef5dea3498c6f78e8fb21` | [44955670221](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44955670221) | [44956551898](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44956551898) | The 320 t case exported 200 MW, 800 MWh and zero coal remaining. |

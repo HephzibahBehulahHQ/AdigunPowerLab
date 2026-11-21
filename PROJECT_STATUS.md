@@ -404,4 +404,6 @@ The diesel increment adds a steady-interval worksheet using entered no-load and 
 
 The coal steam increment adds a one-interval worksheet for net heat rate, net generation, coal consumption and remaining inventory.
 
+Biomass, diesel and coal passed their main and Pages workflows and were checked in public Chromium. The exact revisions, workflow receipts and live checks are recorded in docs/DEPLOYMENT.md.
+
 Public Pages sampling verified the reduced-motion station layout at desktop, tablet and phone widths. Chromium rendered WebGL at all three widths and recorded two-frame azimuth input timing in docs/TEST_EVIDENCE.md.
