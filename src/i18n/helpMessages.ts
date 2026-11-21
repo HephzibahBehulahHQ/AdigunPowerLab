@@ -2019,6 +2019,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú worksheet òru omi nuclear, yí ooru tí a fi sí steam cycle padà kí o sì wé agbára àpapọ̀ pẹ̀lú agbára lẹ́yìn lílo ilé-iṣẹ́.",
       "For nuclear steam worksheet, change heat wey reach steam cycle and compare gross power with power wey remain after plant use.",
     ],
+  "Use biogas engine in dispatch to transfer the electrical limit and fuel requirements. Heat recovery remains in the biogas worksheet.":
+    [
+      "Übernehmen Sie Leistungsgrenze und Brennstoffbedarf des Biogasmotors. Die Wärmerückgewinnung bleibt im Biogas-Arbeitsblatt.",
+      "Gbé ààlà agbára iná àti epo biogas lọ sí dispatch. Ìmúpadà ooru wà nínú worksheet biogas.",
+      "Use biogas engine for dispatch to copy electrical limit and fuel use. Heat recovery stay for biogas worksheet.",
+    ],
   "Use biomass in dispatch to transfer wet-feed-limited output and the fuel energy in the optional initial wet stock.":
     [
       "Übernehmen Sie die durch die feuchte Zufuhr begrenzte Leistung und den Energieinhalt des optionalen Anfangsvorrats in die Einsatzplanung.",

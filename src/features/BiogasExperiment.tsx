@@ -1,9 +1,11 @@
 import { useState } from "react";
 import type { Locale } from "../i18n";
+import type { ThermalDispatchSettings } from "../engine/microgridDispatch";
 import { downloadFile } from "../import-export/files";
 import {
   BIOGAS_FIELDS,
   calculateBiogasChp,
+  getBiogasDispatchFuelSettings,
   METHANE_LHV_KWH_PER_NM3,
   type BiogasInputs,
 } from "../engine/biogasChp";
@@ -146,13 +148,27 @@ const copy = {
   }
 >;
 
-export function BiogasExperiment({ locale }: { locale: Locale }) {
+const dispatchLabels = {
+  en: "Use biogas engine in dispatch",
+  de: "Biogasmotor in der Einsatzplanung verwenden",
+  yo: "Lo ẹ̀rọ biogas nínú dispatch",
+  pcm: "Use biogas engine for dispatch",
+} satisfies Record<Locale, string>;
+
+export function BiogasExperiment({
+  locale,
+  onDispatch,
+}: {
+  locale: Locale;
+  onDispatch: (settings: ThermalDispatchSettings) => void;
+}) {
   const [draft, setDraft] = useState(defaults);
   const text = copy[locale];
   const inputs = Object.fromEntries(
     fields.map(([key]) => [key, draft[key] === "" ? NaN : Number(draft[key])]),
   ) as BiogasInputs;
   const result = calculateBiogasChp(inputs);
+  const dispatch = getBiogasDispatchFuelSettings(inputs);
   const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 3 });
   return (
     <section className="panel panel-pad pg-panel" aria-labelledby="pg-biogas">
@@ -193,6 +209,14 @@ export function BiogasExperiment({ locale }: { locale: Locale }) {
         <p role="status">{text.invalid}</p>
       )}
       <div className="pg-actions">
+        <button
+          className="button"
+          type="button"
+          disabled={!dispatch}
+          onClick={() => dispatch && onDispatch(dispatch)}
+        >
+          {dispatchLabels[locale]}
+        </button>
         <button
           className="button"
           type="button"

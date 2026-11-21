@@ -199,11 +199,28 @@ test("biogas engine separates useful heat from rating-limited electric output", 
   expect(base.usefulHeatKW).toBe(100);
   expect(base.usedBiogasNm3H).toBeLessThan(100);
   await methane.fill("0");
+  const transfer = lab.getByRole("button", {
+    name: "Use biogas engine in dispatch",
+  });
+  await expect(transfer).toBeDisabled();
   const standby = await exportCase();
   expect(standby.netElectricKW).toBe(-10);
   expect(standby.usefulHeatKW).toBe(0);
   await lab.getByRole("button", { name: "Reset biogas inputs" }).click();
   await expect(methane).toHaveValue("60");
+  await transfer.click();
+  const dispatch = page.getByRole("region", {
+    name: "Microgrid dispatch laboratory",
+  });
+  await expect(dispatch.getByTestId("microgrid-backupKW")).toHaveValue("190");
+  const handoff = page.waitForEvent("download");
+  await dispatch.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const { thermal } = JSON.parse(
+    await readFile(await (await handoff).path(), "utf8"),
+  ).inputs.backupGenerator;
+  expect(thermal.heatRateMJPerKWh).toBe(10);
+  expect(thermal.runningInterceptMJPerHour).toBe(100);
+  expect(thermal.initialFuelMJ).toBeUndefined();
 });
 
 test("fuel cell caps AC output and preserves unused hydrogen", async ({

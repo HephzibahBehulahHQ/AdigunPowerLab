@@ -114,6 +114,8 @@ The combined-cycle worksheet transfers net rating after the entered fuel-flow ca
 
 The solid biomass worksheet transfers its wet-feed-limited net capacity and fuel slope. Optional starting wet stock in kg is converted to fuel energy using the calculated as-fired heating value. Running auxiliaries are converted to fixed fuel use; the transfer does not include offline plant electricity use.
 
+The biogas worksheet transfers net engine output after the methane-content and flow limits. Running auxiliaries are included in the fuel curve. The electrical dispatch solver does not co-optimize heat demand or recovery. The rated flow is not a stored fuel inventory.
+
 ## Concentrating solar thermal power tower
 
 The teaching model converts direct normal irradiance times mirror aperture to incident MW, multiplies by combined field and receiver efficiency to estimate collected heat, then applies the entered net heat-to-power efficiency. The available output is capped at the electrical nameplate and drops to zero below the entered minimum load. All presets are illustrative and storage, startup, ramps and dispatch are outside the model.
