@@ -3,6 +3,31 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("solid biomass derates wet fuel and recalculates net output", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const plant = page.getByRole("region", {
+    name: "Solid biomass steam generation",
+  });
+  const moisture = plant.getByLabel("Wet-basis moisture (%)");
+  await expect(
+    plant.getByText("Net electrical output", { exact: true }).locator(".."),
+  ).toContainText("2.85 MW");
+  await moisture.fill("50");
+  const pending = page.waitForEvent("download");
+  await plant.getByRole("button", { name: "Export biomass results" }).click();
+  const result = JSON.parse(
+    await readFile(await (await pending).path(), "utf8"),
+  ).result;
+  expect(result.wetLhvMJKg).toBeCloseTo(7.78);
+  expect(result.usedWetFeedKgH).toBe(3600);
+  expect(result.steamHeatMW).toBeCloseTo(6.613);
+  expect(result.netOutputMW).toBeCloseTo(1.8339);
+  await plant.getByRole("button", { name: "Reset biomass inputs" }).click();
+  await expect(moisture).toHaveValue("30");
+});
+
 test("biogas engine separates useful heat from rating-limited electric output", async ({
   page,
 }) => {

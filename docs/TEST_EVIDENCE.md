@@ -651,6 +651,10 @@ TypeScript and 20 Help checks passed. Chromium confirmed the inverter caps gross
 
 TypeScript and 20 Help checks passed. Chromium verified the 200 kW nameplate cap, 190 kW net electricity, 177.778 kW recoverable heat, 100 kW useful heat demand, and reduced gas use at the rating cap. Zero methane produced no power or heat and retained the entered auxiliary demand. JSON export and reset passed. The local runner stalled during teardown.
 
+### POWERGRID LAB solid biomass steam generation
+
+TypeScript and 20 Help checks passed. Chromium verified 2.85 MW net at the reference rating limit and, at 50% wet-basis moisture, 7.78 MJ/kg as-fired LHV, 6.613 MW heat to steam and 1.8339 MW net. JSON export and reset passed. The local runner stalled during teardown.
+
 ### Illustrated workspace and field guides
 
 Chromium verified the Overview menu opens to Workspace, shows one POWERGRID LAB tile under Engineering, and opens Cables & Protection. The cable and motor guides mounted their credited video players on request and focused the calculator without leaving the route. Local Chromium reported those tests passed before the runner stalled during teardown.
@@ -664,6 +668,8 @@ The expanded Chromium regression verified player activation and focus for Single
 Chromium verified the Engineering Toolbox exercise opens Single-phase AC current directly and the Engineering Reference exercise focuses the equations. Bundled report, backup, revision and Help recordings were independently verified by advancing playback time.
 
 The complete Overview navigation regression checked all four menu groups, the 19 real route links, the Help dialog tile, and successful decoding of all 20 tile images. All 20 Help search checks passed.
+
+Production Chromium verified playback of the report, workspace backup, revision comparison, and Help recordings on GitHub Pages after the recordings release. Each media element advanced its playback time and decoded a video frame.
 
 ### Visual POWERGRID experiments
 

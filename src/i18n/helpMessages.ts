@@ -1989,6 +1989,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú ẹ́ńjìnnì biogas, yí ìpín methane àti ìbéèrè ooru padà. Wé agbára iná net, ooru tí a lè gba àti ooru tí a pèsè.",
       "For biogas engine, change methane fraction and heat demand. Compare net electricity, heat wey dem fit recover and heat wey reach demand.",
     ],
+  "In solid biomass steam generation, vary wet-basis moisture and compare wet fuel heating value, heat to the steam cycle and net electrical output.":
+    [
+      "Ändern Sie im Biomasse-Dampfkraftwerk die Feuchte bezogen auf Nassmasse. Vergleichen Sie Heizwert, Wärme für den Dampfkreislauf und elektrische Nettoleistung.",
+      "Nínú solid biomass steam, yí ìpín omi nínú gbogbo mass padà. Wé iye ooru idana olómi, ooru sí steam cycle àti agbára iná net.",
+      "For solid biomass steam generation, change moisture for total wet mass. Compare wet fuel heating value, heat wey reach steam cycle and net electric power.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",
