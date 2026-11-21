@@ -6,6 +6,7 @@ import {
 } from "../engine/powergridRegions";
 import { LanguageContext } from "../i18n";
 import type { Locale } from "../i18n";
+import { PowerGridSplitPhase } from "./PowerGridSplitPhase";
 
 const copy: Record<
   Locale,
@@ -258,6 +259,7 @@ export function RegionalGridPreset({
           {text.applied}
         </p>
       )}
+      {isUS && <PowerGridSplitPhase locale={locale} />}
     </section>
   );
 }

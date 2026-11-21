@@ -1750,6 +1750,21 @@ test("Pacific Northwest preset keeps split-phase service separate from the balan
   await expect(
     page.getByText(/Residential 120\/240 V split-phase service/),
   ).toBeVisible();
+  const split = page.getByRole("region", {
+    name: "120/240 V split-phase experiment",
+  });
+  const neutral = split.getByRole("meter", { name: "N", exact: true });
+  await expect(neutral).toHaveAttribute("value", "5");
+  await split.getByLabel("L2–N · 120 V (kW)").fill("1.2");
+  await expect(neutral).toHaveAttribute("value", "0");
+  await split.getByLabel("L1–L2 · 240 V (kW)").fill("4.8");
+  await expect(
+    split.getByRole("meter", { name: "L1", exact: true }),
+  ).toHaveAttribute("value", "30");
+  await expect(
+    split.getByRole("meter", { name: "L2", exact: true }),
+  ).toHaveAttribute("value", "30");
+  await expect(neutral).toHaveAttribute("value", "0");
   const consumer = page.getByLabel("Consumer voltage (kV)");
   await consumer.fill("0.43");
   await page
