@@ -317,6 +317,8 @@ In **Renewables & Storage**, watch the solar and battery microgrid footage, then
 
 In **EV & Flexible Loads**, watch a fleet charging demonstration. In the planner, move departure earlier with the same charger limit and compare unmet energy.
 
+In **Power Quality**, watch the capacitor bank demonstration, open **Power-factor correction**, and compare kvar requirements at displacement power factor targets of 0.95 and 0.98.
+
 In **Adigun BOT · Transmission worksheet**, preview a 10% increase and inspect the before/after values. Confirm to apply it, or cancel to keep editing. A worksheet edit or undo invalidates the open preview. Use **Undo transmission edit** to revert an applied proposal. **Export current lab report** downloads the current worksheet results.
 
 Select equipment in the station model and open **Explain selected station equipment** in the lab BOT. The explanation follows the station selection and describes the component's role and interfaces.

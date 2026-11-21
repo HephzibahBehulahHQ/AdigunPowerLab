@@ -959,6 +959,11 @@ test("engineering field guides link footage to the calculator", async ({
 }) => {
   for (const lesson of [
     {
+      route: "quality",
+      title: "Compare capacitor bank demand",
+      clip: "-Cp9guj0B_M",
+    },
+    {
       route: "renewables",
       title: "Store solar energy for later",
       clip: "937640",
@@ -985,7 +990,7 @@ test("engineering field guides link footage to the calculator", async ({
     await guide.getByRole("button", { name: /^Watch/ }).click();
     await expect(guide.locator("iframe")).toHaveAttribute(
       "src",
-      `https://www.dvidshub.net/video/embed/${lesson.clip}`,
+      new RegExp(`/embed/${lesson.clip}$`),
     );
     await guide.getByRole("button", { name: "Go to the calculator" }).click();
     await expect(page.locator("#engineering-calculator")).toBeFocused();

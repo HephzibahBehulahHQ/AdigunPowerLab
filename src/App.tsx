@@ -1831,7 +1831,9 @@ export default function App() {
                   )}
                   {["cables", "motors", "quality", "tools"].includes(route) && (
                     <>
-                      {(route === "cables" || route === "motors") && (
+                      {(route === "cables" ||
+                        route === "motors" ||
+                        route === "quality") && (
                         <EngineeringFieldGuide
                           key={route}
                           route={route}

@@ -2,6 +2,34 @@ import { useState } from "react";
 import type { Locale } from "../i18n";
 
 const cases = {
+  quality: {
+    clip: "-Cp9guj0B_M",
+    slug: "",
+    image: "electrical-test-tools.png",
+    credit: "Schneider Electric",
+    copy: {
+      en: [
+        "Compare capacitor bank demand",
+        "Watch a capacitor bank demonstration",
+        "Open Power-factor correction. Raise target displacement power factor from 0.95 to 0.98 and compare the required correction in kvar.",
+      ],
+      de: [
+        "Kondensatorbedarf vergleichen",
+        "Vorführung einer Kondensatoranlage ansehen",
+        "Öffnen Sie die Leistungsfaktorkorrektur. Erhöhen Sie den Zielwert von 0,95 auf 0,98 und vergleichen Sie den Bedarf in kvar.",
+      ],
+      yo: [
+        "Wé iye capacitor tí a nílò",
+        "Wo àfihàn àkójọpọ̀ capacitor",
+        "Ṣí ìṣírò àtúnṣe power factor. Gbé àfojúsùn sókè láti 0.95 sí 0.98, kí o sì wé iye kvar tí a nílò.",
+      ],
+      pcm: [
+        "Compare capacitor bank demand",
+        "Watch di capacitor bank demo",
+        "Open Power-factor correction. Raise target power factor from 0.95 to 0.98 and compare di kvar wey e need.",
+      ],
+    },
+  },
   ev: {
     clip: "373814",
     slug: "us-air-force-tests-first-all-electric-vehicle-fleet-california",
@@ -135,6 +163,14 @@ export function EngineeringFieldGuide({
   const [playing, setPlaying] = useState(false);
   const study = cases[route];
   const [title, video, exercise] = study.copy[locale];
+  const embed =
+    route === "quality"
+      ? `https://www.youtube-nocookie.com/embed/${study.clip}`
+      : `https://www.dvidshub.net/video/embed/${study.clip}`;
+  const source =
+    route === "quality"
+      ? `https://www.youtube.com/watch?v=${study.clip}`
+      : `https://www.dvidshub.net/video/${study.clip}/${study.slug}`;
   return (
     <section
       className="panel panel-pad"
@@ -144,11 +180,7 @@ export function EngineeringFieldGuide({
       <div className="pg-home-video">
         <div className="pg-home-video-frame">
           {playing ? (
-            <iframe
-              src={`https://www.dvidshub.net/video/embed/${study.clip}`}
-              title={video}
-              allowFullScreen
-            />
+            <iframe src={embed} title={video} allowFullScreen />
           ) : (
             <button
               className="pg-field-video-play"
@@ -186,11 +218,7 @@ export function EngineeringFieldGuide({
                   : "Go to the calculator"}
           </button>
           <p>
-            <a
-              href={`https://www.dvidshub.net/video/${study.clip}/${study.slug}`}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={source} target="_blank" rel="noreferrer">
               {study.credit}
             </a>
           </p>
