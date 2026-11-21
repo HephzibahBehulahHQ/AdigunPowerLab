@@ -1,6 +1,35 @@
 import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
 
+test("primary frequency response recalculates and exports the dynamic trace", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const section = page.getByRole("region", {
+    name: "Primary frequency response",
+  });
+  await expect(section).toContainText("-0.1 Hz/s");
+  const inertia = section.getByRole("spinbutton", {
+    name: "Aggregate inertia H (s)",
+  });
+  await inertia.fill("10");
+  await expect(section).toContainText("-0.05 Hz/s");
+  await expect(
+    section.getByRole("img", { name: "Primary frequency response" }),
+  ).toBeVisible();
+  const promise = page.waitForEvent("download");
+  await section.getByRole("button", { name: "Export frequency trace" }).click();
+  const download = await promise;
+  const payload = JSON.parse(await readFile(await download.path(), "utf8"));
+  expect(payload.result.initialRoCoFHzPerSecond).toBe(-0.05);
+  expect(payload.result.nadir.frequencyHz).toBeLessThan(50);
+  expect(payload.result.samples.at(-1).seconds).toBe(30);
+  await inertia.fill("0");
+  await expect(
+    section.getByRole("button", { name: "Export frequency trace" }),
+  ).toBeDisabled();
+});
+
 test("meshed AC case solves the triangle and blocks export of an island", async ({
   page,
 }) => {

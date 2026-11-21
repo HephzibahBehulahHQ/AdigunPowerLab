@@ -501,3 +501,5 @@ Run `node scripts/verify-matpower-case9.mjs <input-file> <solution-file>` using 
 | `soln9_pf.mat` | `ffa8e28cb1fc0e2b60ea52f21de40c8b15353ff37b7aaa97f93501ca514d126d` |
 
 On 21 November 2026 the case converged in four iterations with a maximum mismatch of 1.59 × 10⁻¹² pu. Across all nine buses and both ends of all nine branches, maximum absolute errors were 2.65 × 10⁻¹³ pu, 5.91 × 10⁻¹² degrees, 8.33 × 10⁻¹¹ MW and 3.08 × 10⁻¹⁰ Mvar. This reference exercises line charging and multiple PV buses under base-case conditions. Separate analytical tests exercise transformer phase shift and binding reactive limits.
+
+Primary frequency response passed TypeScript, nine localization tests, three analytical-model tests, and Chromium. The numerical fixtures cover inertial ramp slope, droop/damping equilibrium, reserve saturation, and the 5% boundary. Chromium verified an inertia edit, chart visibility, exported samples and invalid-input export gating.
