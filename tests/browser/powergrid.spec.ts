@@ -20,7 +20,11 @@ test("transmission BOT rejects a stale proposal and supports confirmation and un
   const undo = page.getByRole("button", { name: "Undo transmission edit" });
   await preview.click();
   await expect(voltage).toHaveValue("330");
-  await expect(bot.getByRole("group")).toContainText("363 kV");
+  await expect(
+    bot.getByRole("group", {
+      name: "Voltage, current and loss before → after",
+    }),
+  ).toContainText("363 kV");
   await voltage.fill("400");
   await undo.click();
   await expect(confirm).toHaveCount(0);
@@ -1867,6 +1871,20 @@ test("POWERGRID navigable station scene selects named equipment and keeps a keyb
   });
   await expect(towerPicks.first()).toHaveAttribute("aria-pressed", "true");
   await expect(towerPicks.last()).toHaveAttribute("aria-pressed", "true");
+  const stationBot = page.getByRole("region", {
+    name: "Adigun BOT · Transmission worksheet",
+  });
+  await stationBot
+    .getByText("Explain selected station equipment", { exact: true })
+    .click();
+  await expect(
+    stationBot.getByRole("heading", {
+      name: "Transmission tower & conductors",
+    }),
+  ).toBeVisible();
+  await expect(stationBot).toContainText(
+    "insulated phase conductors and a shield wire",
+  );
   await expect(scene.locator("article")).toContainText(
     "insulated phase conductors and a shield wire",
   );
@@ -1900,4 +1918,9 @@ test("POWERGRID navigable station scene selects named equipment and keeps a keyb
   await expect(
     scene.getByRole("button", { name: "Receiving-substation transformer" }),
   ).toHaveAttribute("aria-pressed", "true");
+  await expect(
+    stationBot.getByRole("heading", {
+      name: "Receiving-substation transformer",
+    }),
+  ).toBeVisible();
 });

@@ -1905,6 +1905,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú Adigun BOT, ṣàyẹ̀wò fólítéèjì gbigbe tó ga sí i kí o tó jẹ́rìí rẹ̀. Ìyípadà worksheet sọ àwòyẹ̀wò di asán. Undo dá worksheet padà sí ipò ṣáájú.",
       "For lab Adigun BOT, preview higher transmission voltage before you confirm. Any worksheet change cancel di preview. Undo bring back di previous worksheet state.",
     ],
+  "Use Explain selected station equipment in the lab BOT to read the function and interfaces of the active station component.":
+    [
+      "Öffnen Sie im Labor-BOT die Erklärung zum ausgewählten Betriebsmittel, um seine Funktion und Schnittstellen zu lesen.",
+      "Lo àlàyé ohun èlò tí a yàn nínú BOT ìdánwò láti ka iṣẹ́ àti àwọn ìsopọ̀ ohun èlò ibùdó.",
+      "Use Explain selected station equipment for lab BOT to read wetin di selected equipment do and where e connect.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

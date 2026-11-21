@@ -213,6 +213,15 @@ const assets: Asset[] = [
   },
 ];
 
+export function describeStationAsset(id: Station3DAssetId, locale: Locale) {
+  const asset = assets.find((candidate) => candidate.id === id)!;
+  return {
+    name: asset.label[locale],
+    role: asset.role[locale],
+    terminals: asset.terminals[locale],
+  };
+}
+
 function compile(gl: WebGLRenderingContext, type: number, source: string) {
   const shader = gl.createShader(type);
   if (!shader) throw new Error("WebGL shader allocation failed");
@@ -510,7 +519,7 @@ export function PowerGridStation3DScene({
   const [renderError, setRenderError] = useState("");
   const [contextRevision, setContextRevision] = useState(0);
   const lang = locale in assets[0].label ? locale : "en";
-  const selectedAsset = assets.find((asset) => asset.id === selected)!;
+  const selectedAsset = describeStationAsset(selected, lang);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -783,8 +792,8 @@ export function PowerGridStation3DScene({
             ))}
           </div>
           <article aria-live="polite" style={{ marginTop: "0.75rem" }}>
-            <h4>{selectedAsset.label[lang]}</h4>
-            <p>{selectedAsset.role[lang]}</p>
+            <h4>{selectedAsset.name}</h4>
+            <p>{selectedAsset.role}</p>
             <strong>
               {lang === "de"
                 ? "Anschlüsse und Grenzen"
@@ -794,7 +803,7 @@ export function PowerGridStation3DScene({
                     ? "Terminals and limits"
                     : "Terminals and limits"}
             </strong>
-            <p>{selectedAsset.terminals[lang]}</p>
+            <p>{selectedAsset.terminals}</p>
           </article>
         </div>
       </div>

@@ -937,6 +937,7 @@ export function PowerGridLab({
         inputs={inputs}
         result={result}
         revision={history}
+        stationAsset={stationAsset}
         reportBusy={reportBusy}
         onApply={(proposal) => {
           editHistory({ type: "apply-bot-proposal", proposal });

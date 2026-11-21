@@ -310,3 +310,5 @@ In **Practical lesson: Microgrid operation**, load the rural operating case and 
 At the top of POWERGRID LAB, use **Source to socket** to predict where voltage changes. Edit a worksheet voltage and trace it through the route and equipment diagrams. In **Why step up voltage?**, change the higher transmission voltage and compare current and loss. Enter your explanation in **Student notes** before exporting the lab report PDF. **Restore worked transmission inputs** resets the worksheet values while keeping your notes.
 
 In **Adigun BOT · Transmission worksheet**, preview a 10% increase and inspect the before/after values. Confirm to apply it, or cancel to keep editing. A worksheet edit or undo invalidates the open preview. Use **Undo transmission edit** to revert an applied proposal. **Export current lab report** downloads the current worksheet results.
+
+Select equipment in the station model and open **Explain selected station equipment** in the lab BOT. The explanation follows the station selection and describes the component's role and interfaces.

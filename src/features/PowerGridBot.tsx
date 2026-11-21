@@ -5,6 +5,17 @@ import {
 } from "../engine/powergrid";
 import type { PowerGridComparison, PowerGridInputs } from "../engine/powergrid";
 import type { Locale } from "../i18n";
+import {
+  describeStationAsset,
+  type Station3DAssetId,
+} from "./PowerGridStation3DScene";
+
+const selectedAssetLabel = {
+  en: "Explain selected station equipment",
+  de: "Ausgewähltes Betriebsmittel erklären",
+  yo: "Ṣàlàyé ohun èlò tí a yàn",
+  pcm: "Explain di station equipment wey you select",
+} satisfies Record<Locale, string>;
 
 export interface TransmissionVoltageProposal<Revision> {
   kind: "raise-transmission-voltage";
@@ -72,6 +83,7 @@ export function PowerGridBot<Revision>({
   inputs,
   result,
   revision,
+  stationAsset,
   reportBusy,
   onApply,
   onReport,
@@ -80,6 +92,7 @@ export function PowerGridBot<Revision>({
   inputs: PowerGridInputs;
   result?: PowerGridComparison;
   revision: Revision;
+  stationAsset: Station3DAssetId;
   reportBusy: boolean;
   onApply: (proposal: TransmissionVoltageProposal<Revision>) => void;
   onReport: () => void;
@@ -106,6 +119,7 @@ export function PowerGridBot<Revision>({
   const canPreview = !!result && validatePowerGridInputs(target).length === 0;
   const active =
     proposal?.revision === revision && proposal !== undefined && canPreview;
+  const equipment = describeStationAsset(stationAsset, locale);
   const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 3 });
   const describe = (reading: PowerGridComparison["raised"]) =>
     `${format.format(reading.voltageKV)} kV · ${format.format(reading.currentA)} A · ${format.format(reading.lineLossMW)} MW`;
@@ -115,6 +129,12 @@ export function PowerGridBot<Revision>({
       aria-labelledby="pg-bot-title"
     >
       <h3 id="pg-bot-title">{title}</h3>
+      <details>
+        <summary>{selectedAssetLabel[locale]}</summary>
+        <h4>{equipment.name}</h4>
+        <p>{equipment.role}</p>
+        <p>{equipment.terminals}</p>
+      </details>
       <p>{explanation}</p>
       <p>{result ? `${summary} · ${describe(result.raised)}` : invalid}</p>
       <div className="pg-actions">

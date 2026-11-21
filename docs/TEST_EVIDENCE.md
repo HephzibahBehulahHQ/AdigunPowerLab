@@ -567,3 +567,7 @@ TypeScript and 24 Help and transmission solver tests passed. The Chromium founda
 ### POWERGRID LAB deterministic transmission BOT
 
 TypeScript and 20 Help catalogue checks passed. Focused Chromium assertions verified a 330-to-363 kV preview without mutation, stale preview rejection after edit and undo, explicit confirmation of a fresh preview and undo of the resulting edit.
+
+### POWERGRID LAB BOT station context
+
+TypeScript and 20 Help checks passed. Focused Chromium assertions verified the BOT explanation follows keyboard selection of the 3D tower and the receiving transformer selected through the downstream diagram. The voltage proposal check passed after scoping its selector to the named preview group.
