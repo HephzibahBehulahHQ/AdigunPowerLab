@@ -39,3 +39,5 @@ Wind speeds, interval duration and turbine count are user-entered teaching input
 The solar thermal worksheet uses the conversion chain from the [U.S. Department of Energy power tower reference](https://www.energy.gov/cmei/systems/power-tower-system-concentrating-solar-thermal-power-basics). The worksheet's efficiencies, aperture, irradiance, capacity and operating threshold are illustrative inputs.
 
 The [DOE-hosted tidal stream resource assessment](https://www.energy.gov/sites/default/files/2013/12/f5/1023527.pdf) documents how turbines extract kinetic energy from tidal currents. The lab operating points and limits are educational inputs.
+
+The binary geothermal worksheet follows the separation of brine and working-fluid loops described in the [DOE geothermal electricity generation reference](https://www.energy.gov/hgeo/geothermal/geothermal-electricity-generation). All operating points and fluid-property simplifications are analytical teaching assumptions.

@@ -97,7 +97,7 @@ The fixed-voltage lesson compares a lossless transformer with a 1,000 kVA teachi
 | Nuclear steam | Source catalogue entry remains open. |
 | Diesel and other liquid fuel | Generic thermal backup supports entered heat rate, startup fuel and fuel inventory. A liquid-fuel asset-specific curve remains open. |
 | Biomass and biogas | Source catalogue entry remains open. |
-| Geothermal | Source catalogue entry remains open. |
+| Geothermal | Binary-cycle brine heat, gross rating and auxiliary load worksheet. Reservoir and dispatch models remain open. |
 | Tidal and wave | Tidal stream turbine worksheet with current speed, capture fraction, rating and operating thresholds. Wave generation remains open. |
 | Battery storage | Chronological SOC, reserve, charge/discharge limits and directional efficiencies. |
 | Hydrogen and fuel cell | Source catalogue entry remains open. |
@@ -111,3 +111,7 @@ The teaching model converts direct normal irradiance times mirror aperture to in
 ## Tidal stream turbine
 
 The worksheet estimates flow power through the swept area as 0.5 × water density × area × speed³. It uses an illustrative fixed seawater density of 1,025 kg/m³. An entered rotor capture fraction gives shaft power, and drivetrain efficiency gives electrical potential. The model bounds available output by the rating at or above cut-in and below cut-out. It excludes wake interaction, blockage, transient loads, tidal chronology and dispatch.
+
+## Binary-cycle geothermal
+
+Recovered heat is brine mass flow × 4.18 kJ/(kg·K) × the production-to-reinjection temperature drop. The gross electrical estimate uses the entered conversion efficiency, subject to the Carnot upper bound at the production and heat sink temperatures. Actual gross output is capped by nameplate. Net output subtracts the entered auxiliary demand, so a negative reading represents required external supply. The solver assumes single-phase brine and steady operating conditions.

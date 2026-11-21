@@ -1959,6 +1959,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú turbine ìṣàn omi òkun, yí iyára omi padà, kí o sì wé agbára omi, agbára shaft àti agbára iná tó wà. Lo iyára ìbẹ̀rẹ̀ àti ìdádúró láti ṣàyẹ̀wò ààlà iṣẹ́.",
       "For tidal stream turbine, change current speed and compare water power, possible shaft power and electrical power wey dey available. Use cut-in and cut-out to check di operating range.",
     ],
+  "In binary-cycle geothermal generation, vary brine flow or temperature drop. Compare recovered heat, gross output and net power after plant auxiliaries, then export the results.":
+    [
+      "Ändern Sie im geothermischen Binärkreislauf den Solemassenstrom oder die Temperaturdifferenz. Vergleichen Sie Wärmeleistung, Bruttoleistung und Nettoleistung nach Eigenbedarf und exportieren Sie die Ergebnisse.",
+      "Nínú binary-cycle geothermal, yí ìṣàn omi tàbí ìdínkù ooru padà. Wé ooru tí a gba, agbára gross àti agbára net lẹ́yìn lílo ilé iṣẹ́, kí o sì gba èsì.",
+      "For binary-cycle geothermal, change brine flow or temperature drop. Compare heat wey dem collect, gross power and net power after wetin plant use, then download di results.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

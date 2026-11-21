@@ -360,3 +360,5 @@ The Windows production candidate passed interrupted-update recovery, old-tab mod
 The solar thermal worksheet distinguishes incident solar power, receiver heat, electrical potential, minimum load and rating-limited available electrical output. The worksheet uses direct normal irradiance and user-entered efficiencies.
 
 The tidal stream worksheet exposes flow power, shaft and electrical potentials, and rating-limited available power. The cut-in and cut-out thresholds use the entered speed and reset to the worked example.
+
+The binary geothermal worksheet reports recovered heat, unconstrained gross potential, nameplate-limited gross output and net power after auxiliaries. Temperature ordering and the Carnot ceiling are validated before export.

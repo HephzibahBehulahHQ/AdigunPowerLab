@@ -378,3 +378,5 @@ PR #116 merged and deployed as 0abafe1. Both public paths served the production 
 PR #117 merged and deployed as 93fff33. The solar thermal lesson is served by both public Pages paths. The next generation catalogue entries remain open.
 
 The tidal stream increment adds a source-linked turbine worksheet with a swept-area flow calculation, separate shaft and electrical potential, rating, cut-in and cut-out, and a JSON export. Wave generation remains open.
+
+The geothermal increment adds a source-linked binary-cycle worksheet with brine temperatures and flow, gross output and signed net output after auxiliary load. The learner can reset the worked case and export JSON.
