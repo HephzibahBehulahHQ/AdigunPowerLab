@@ -3,6 +3,36 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("poor power factor lesson loads a worked case and resets edited inputs", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const lesson = page.getByRole("region", {
+    name: "Practical lesson: Poor power factor",
+  });
+  await lesson.getByText("Worked reference", { exact: true }).click();
+  await expect(lesson.getByRole("row", { name: /0.80/ })).toContainText(
+    "4.484",
+  );
+  await expect(lesson.getByRole("row", { name: /1.00/ })).toContainText(
+    "2.870",
+  );
+  const load = lesson.getByRole("button", {
+    name: "Load or reset lesson inputs",
+  });
+  const factor = page.getByLabel("Power factor (PF)", { exact: true });
+  await load.click();
+  await expect(factor).toHaveValue("0.8");
+  await page.getByRole("button", { name: "Set comparison baseline" }).click();
+  await factor.fill("1");
+  const pending = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export scenario JSON" }).click();
+  const data = JSON.parse(await readFile(await (await pending).path(), "utf8"));
+  expect(data.baselineComparison.changes.raisedLossMW).toBeLessThan(0);
+  await load.click();
+  await expect(factor).toHaveValue("0.8");
+});
+
 test("radial feeder imports only reviewed project demand and records provenance", async ({
   page,
 }) => {

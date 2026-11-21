@@ -1839,6 +1839,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Lẹ́yìn tí workspace bá ti pa fáìlì rẹ̀ mọ́, o lè ṣí PowerGrid Lab àti gbé ìròyìn gbigbe jáde láìsí ìkànnì, bí o kò tilẹ̀ tíì ṣí i nígbà tí ìkànnì wà.",
       "After workspace finish cache the files, you fit open PowerGrid Lab and export transmission report offline, even if you never open the lab online.",
     ],
+  "In the poor power factor lesson, make a prediction, reveal the worked reference, and load the lesson inputs. Compare your readings after editing power factor, then record your interpretation in the transmission PDF.":
+    [
+      "Sagen Sie im Versuch zum niedrigen Leistungsfaktor das Ergebnis voraus, öffnen Sie das Referenzbeispiel und laden Sie die Versuchswerte. Vergleichen Sie die Werte nach Änderung des Leistungsfaktors und halten Sie Ihre Erklärung im Übertragungs-PDF fest.",
+      "Nínú ìdánwò ìpín agbára kékeré, sọ àsọtẹ́lẹ̀, ṣí àpẹẹrẹ ìṣírò, kí o sì gbé iye ìdánwò wọlé. Wé àwọn èsì lẹ́yìn yíyí ìpín agbára padà, kí o sì kọ ìtumọ̀ rẹ sínú PDF gbigbe.",
+      "For the low power factor lesson, predict wetin go happen, open the reference calculation and load the lesson values. Compare the readings after you change power factor, then write your explanation for the transmission PDF.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

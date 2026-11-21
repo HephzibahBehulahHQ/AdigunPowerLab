@@ -48,6 +48,7 @@ import {
 import { SmardHistoricalDay } from "./SmardHistoricalDay";
 import { HydroStationScene, type HydroEquipmentId } from "./HydroStationScene";
 import { GenerationPlantScene } from "./GenerationPlantScene";
+import { PowerGridTransmissionLesson } from "./PowerGridTransmissionLesson";
 import {
   DistributionNetworkScene,
   type DistributionEquipmentId,
@@ -890,6 +891,13 @@ export function PowerGridLab({
           )}
         </section>
       </div>
+      <PowerGridTransmissionLesson
+        locale={locale}
+        onLoad={(inputs) => {
+          setScenario({ ...scenario, inputs, regionalPresetId: undefined });
+          setSaved(false);
+        }}
+      />
       <details className="panel panel-pad pg-limit">
         <summary>{text.assumptions}</summary>
         <p>{text.assumptionText}</p>

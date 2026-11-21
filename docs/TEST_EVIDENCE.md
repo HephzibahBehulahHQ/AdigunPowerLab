@@ -523,3 +523,7 @@ Recurring project demand transfer passed TypeScript, 18 focused tests and Chromi
 ### POWERGRID LAB deferred route and cold offline entry
 
 The Windows production build emitted a separate PowerGrid Lab chunk. The production offline smoke passed in Chromium at / and /AdigunPowerLab/, including offline reload, prior project recovery, initial PowerGrid entry offline, the PDF signature, and hydro image decoding. Both runs recorded zero page errors and zero unexpected network failures. The smoke checks page resource timing for deferred lab entry. Service-worker precaching can still download the lab chunk during cache installation.
+
+### POWERGRID LAB practical lesson on power factor
+
+TypeScript and all 20 Help catalogue checks passed locally. The targeted Chromium case passed the worked-loss checks (4.484 MW at 0.80 and 2.870 MW at 1.00), applied the lesson inputs, exported a signed loss reduction against the pinned baseline, and reset the edited power factor. Hosted validation remains pending.

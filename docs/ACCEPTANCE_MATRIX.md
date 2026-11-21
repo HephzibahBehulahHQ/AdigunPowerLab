@@ -312,3 +312,5 @@ Reviewed active-project demand transfer covers balanced design P and Q for a sel
 ### POWERGRID LAB production loading and offline entry
 
 Local Chromium verified that Overview has no PowerGrid Lab script entry in its page resource timing. After the service worker precached the application, the first entry to #POWERGRID worked offline at both the root and repository base path. The transmission PDF and hydro image worked offline at both paths. Hosted verification remains open.
+
+The poor-power-factor curriculum item now has a prediction, assumptions, worked values at 0.80 and 1.00, editable worksheet inputs, interpretation prompts and a case reset. It uses the transmission report and scenario comparison. Other curriculum items still need their full teaching workflow verified.
