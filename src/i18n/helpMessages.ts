@@ -1911,6 +1911,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Lo àlàyé ohun èlò tí a yàn nínú BOT ìdánwò láti ka iṣẹ́ àti àwọn ìsopọ̀ ohun èlò ibùdó.",
       "Use Explain selected station equipment for lab BOT to read wetin di selected equipment do and where e connect.",
     ],
+  "In the dispatch BOT, choose an interval to compare battery discharge limits with the power supplied and the unmet critical and noncritical demand.":
+    [
+      "Wählen Sie im Dispatch-BOT ein Intervall, um die Entladegrenzen mit der gelieferten Leistung und den ungedeckten kritischen und unkritischen Lasten zu vergleichen.",
+      "Nínú dispatch BOT, yan àkókò kan láti wé ààlà fífi agbára batiri jáde pẹ̀lú agbára tí a pèsè àti ẹrù pàtàkì àti mìíràn tí kò rí agbára.",
+      "For dispatch BOT, choose interval to compare battery discharge limits with power wey e supply and critical and other loads wey no get supply.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

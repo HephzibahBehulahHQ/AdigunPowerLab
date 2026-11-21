@@ -350,3 +350,5 @@ Source to socket and Why step up voltage now have guided practical lessons with 
 The lab now has a deterministic Adigun BOT panel for transmission. It explains line loss, summarizes current readings, offers PDF export and previews a 10% voltage increase until confirmed. The worksheet reducer rejects stale revisions and records confirmed changes in undo history. Broader BOT lesson and asset contexts remain open.
 
 The lab BOT now explains the selected station asset using the same localized function and interface descriptions as the station inspector. Synchronized selection changes from the cutaway or distribution view also update this explanation.
+
+The dispatch BOT now explains the selected solved interval. It shows the renewable deficit, the battery power and reserve-adjusted energy limits, actual discharge and remaining unmet critical and noncritical load. The JSON includes the solver's interval battery energy limit.

@@ -571,3 +571,7 @@ TypeScript and 20 Help catalogue checks passed. Focused Chromium assertions veri
 ### POWERGRID LAB BOT station context
 
 TypeScript and 20 Help checks passed. Focused Chromium assertions verified the BOT explanation follows keyboard selection of the 3D tower and the receiving transformer selected through the downstream diagram. The voltage proposal check passed after scoping its selector to the named preview group.
+
+### POWERGRID LAB BOT dispatch context
+
+TypeScript and 29 Help and solver tests passed. The focused Chromium case verified the solver-derived 20 kW battery energy limit in the JSON and the selected evening interval's explanation. Cutting the battery power limit to 10 kW updated the displayed discharge and increased unmet noncritical demand from 25 kW to 35 kW.

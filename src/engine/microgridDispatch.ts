@@ -92,6 +92,7 @@ export interface MicrogridDispatchInterval {
   criticalDemandKW: number;
   batteryChargeKW: number;
   batteryDischargeKW: number;
+  batteryEnergyLimitKW: number;
   batterySocKWh: number;
   batterySocPercent: number;
   backupGenerationKW: number;
@@ -630,6 +631,7 @@ export function calculateMicrogridDispatch(
       criticalDemandKW,
       batteryChargeKW,
       batteryDischargeKW,
+      batteryEnergyLimitKW: dischargeEnergyLimitKW,
       batterySocKWh: socKWh,
       batterySocPercent: (socKWh / capacityKWh) * 100,
       backupGenerationKW,

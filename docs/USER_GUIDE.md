@@ -312,3 +312,5 @@ At the top of POWERGRID LAB, use **Source to socket** to predict where voltage c
 In **Adigun BOT · Transmission worksheet**, preview a 10% increase and inspect the before/after values. Confirm to apply it, or cancel to keep editing. A worksheet edit or undo invalidates the open preview. Use **Undo transmission edit** to revert an applied proposal. **Export current lab report** downloads the current worksheet results.
 
 Select equipment in the station model and open **Explain selected station equipment** in the lab BOT. The explanation follows the station selection and describes the component's role and interfaces.
+
+In **Adigun BOT · Dispatch explanation**, select an interval and compare the deficit after renewables with the battery power limit and energy available above reserve. Check the supplied battery power and both unmet load readings. Edit the worksheet to see the explanation update for the selected interval.

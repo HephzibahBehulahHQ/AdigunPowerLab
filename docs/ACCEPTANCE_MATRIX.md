@@ -336,3 +336,5 @@ The two foundations lessons use the live generator, transmission, distribution a
 The lab BOT can explain fixed-power line losses, summarize raised-voltage readings, suggest the distance lesson, export the current PDF and preview one typed voltage proposal. Applying requires the same worksheet revision and adds an undo step. Selected-asset and dispatch-specific BOT explanations remain open.
 
 Station-asset BOT explanations follow the live shared station selection and show the documented function and interfaces in each locale. Dispatch-specific BOT explanations remain open.
+
+The dispatch BOT adds an interval-specific explanation from the live dispatch result. The readings update after edits and are withheld when the dispatch inputs do not solve.

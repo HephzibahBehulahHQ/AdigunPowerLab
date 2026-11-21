@@ -15,6 +15,7 @@ import {
 } from "../engine/powergridProjectDemand";
 import type { ActiveProjectDemand } from "./RadialFeederExperiment";
 import { PowerGridCommunityCapstone } from "./PowerGridCommunityCapstone";
+import { PowerGridDispatchBot } from "./PowerGridDispatchBot";
 import {
   PowerGridDispatchLessons,
   PowerGridOperatingLesson,
@@ -1145,6 +1146,11 @@ export function MicrogridDispatchExperiment({
         </div>
       </div>
       <PowerGridDispatchLessons locale={locale} onLoad={loadPracticalLesson} />
+      <PowerGridDispatchBot
+        locale={locale}
+        result={result}
+        batteryPowerKW={inputs.battery.maxDischargeKW}
+      />
       <PowerGridOperatingLesson
         locale={locale}
         reference={ruralReference.result}

@@ -214,6 +214,21 @@ test("midday solar and evening peak lessons export their worked dispatch", async
   expect(evening.batteryDischargeKW).toBe(20);
   expect(evening.criticalUnservedKW).toBe(0);
   expect(evening.nonCriticalUnservedKW).toBe(25);
+  const bot = section.getByRole("region", {
+    name: "Adigun BOT · Dispatch explanation",
+  });
+  await bot.getByLabel("Dispatch interval").selectOption("2");
+  expect(evening.batteryEnergyLimitKW).toBe(20);
+  await expect(
+    bot.getByText("Unmet noncritical demand").locator(".."),
+  ).toContainText("25 kW");
+  await section.getByTestId("microgrid-batteryPowerKW").fill("10");
+  await expect(bot.getByText("Battery supplied").locator("..")).toContainText(
+    "10 kW",
+  );
+  await expect(
+    bot.getByText("Unmet noncritical demand").locator(".."),
+  ).toContainText("35 kW");
 });
 
 test("transformer lesson calculates losses and flags overload in the report", async ({
