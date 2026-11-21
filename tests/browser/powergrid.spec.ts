@@ -35,6 +35,24 @@ test("microgrid dispatch persists scaled historical generation and keeps source 
     license: "CC BY 4.0",
     teachingKWPerReportedHourlyMWh: 0.001,
   });
+  await section
+    .getByRole("button", { name: "Load scaled German winter day" })
+    .click();
+  await section.getByRole("button", { name: "Save scenario locally" }).click();
+  await page.reload();
+  await expect(
+    section.getByText("Selected historical day 2025-01-22.", { exact: false }),
+  ).toBeVisible();
+  const winterPromise = page.waitForEvent("download");
+  await section.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const winter = JSON.parse(
+    await readFile(await (await winterPromise).path(), "utf8"),
+  );
+  expect(winter.result.intervals[0].demandKW).toBeCloseTo(52.8245, 6);
+  expect(winter.result.intervals[0].windAvailableKW).toBeCloseTo(6.451, 6);
+  expect(winter.historicalSource.intervals[0].start).toBe(
+    "2025-01-22T00:00:00+01:00",
+  );
 });
 
 test("historical SMARD day shows all hours and exports attributed measurements", async ({
@@ -60,6 +78,14 @@ test("historical SMARD day shows all hours and exports attributed measurements",
     gridLoadMWh: 45137.8,
     residualMWh: 40301.8,
   });
+  await page
+    .getByRole("combobox", { name: "Historical date" })
+    .selectOption("2025-01-22");
+  await expect(table.getByRole("row")).toHaveCount(25);
+  await expect(table.getByText("00:00", { exact: true })).toHaveAttribute(
+    "datetime",
+    "2025-01-22T00:00:00+01:00",
+  );
 });
 
 test("microgrid dispatch loads and exports the rural teaching day", async ({

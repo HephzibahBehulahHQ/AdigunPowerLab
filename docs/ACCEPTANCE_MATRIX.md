@@ -284,3 +284,5 @@ An authored rural microgrid preset now exercises chronological dispatch with an 
 The regional lab includes one sourced German historical day for load, PV and wind. Additional regions and seasonal coverage remain open.
 
 The dispatch laboratory can now use scaled historical German load, solar and wind with an editable equipment scenario. Additional national profiles and seasonal comparisons remain open.
+
+The German comparison and scaled dispatch now include one January day and one June day. These examples compare two observed days. Additional regions and representative seasonal samples remain open.

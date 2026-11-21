@@ -8,7 +8,10 @@ import {
 } from "../engine/microgridDispatch";
 import type { PvPerformanceInputs } from "../engine/pvPerformance";
 import { RURAL_MICROGRID_TEACHING_PROFILE } from "../engine/powergridRegions";
-import { SMARD_GERMANY_DAY } from "../data/smardGermanyDay";
+import {
+  SMARD_GERMANY_DAY,
+  SMARD_GERMANY_WINTER_DAY,
+} from "../data/smardGermanyDay";
 import { LanguageContext } from "../i18n";
 import type { Locale } from "../i18n";
 
@@ -17,16 +20,26 @@ const LIMITS =
   "This is an illustrative AC-bus dispatch, not a site forecast or utility operation model. No feeder/transformer losses, costs, frequency response or unit-specific transient models are included. Entered profiles are assumptions. Generic backup capacity is dispatched after storage and grid imports with the entered ramp-up ceiling; ramp-down is instantaneous.";
 const pvDefaults = DEFAULT_MICROGRID_DISPATCH_INPUTS.pvByInterval[0];
 const copy: Record<string, [string, string, string]> = {
+  "Load scaled German winter day": [
+    "Skalierten deutschen Wintertag laden",
+    "Ṣí ọjọ́ òtútù Jámánì tí a dín ní ìwọ̀n",
+    "Load scaled German winter day",
+  ],
+  "Selected historical day": [
+    "Gewählter historischer Tag",
+    "Ọjọ́ àtijọ́ tí a yàn",
+    "Selected historical day",
+  ],
   "Load scaled German historical day": [
     "Skalierten historischen Tag für Deutschland laden",
     "Ṣí ọjọ́ àtijọ́ Jámánì tí a dín ní ìwọ̀n",
     "Load scaled German historical day",
   ],
-  "Replaces dispatch inputs with the 18 June 2025 SMARD day. Each 1,000 MWh reported per hour becomes 1 kW in the teaching model. Critical demand starts at an illustrative 20% of load.":
+  "Replaces dispatch inputs with the selected SMARD day. Each 1,000 MWh reported per hour becomes 1 kW in the teaching model. Critical demand starts at an illustrative 20% of load.":
     [
-      "Ersetzt die Eingaben durch den SMARD-Tag vom 18. Juni 2025. Je 1.000 MWh pro Stunde entsprechen 1 kW im Lehrmodell. Die kritische Last beginnt bei beispielhaften 20 %.",
-      "Ó rọ́pò ìtẹ̀wọlé pẹ̀lú ọjọ́ SMARD 18 Oṣù Kẹfà 2025. Gbogbo 1,000 MWh fún wákàtí kan di 1 kW nínú àwòṣe ẹ̀kọ́. Ìbéèrè pàtàkì bẹ̀rẹ̀ ní 20% gẹ́gẹ́ bí àpẹẹrẹ.",
-      "E replace inputs with the SMARD day for 18 June 2025. Every 1,000 MWh for one hour become 1 kW for this teaching model. Critical demand start at 20% as example.",
+      "Ersetzt die Eingaben durch den gewählten SMARD-Tag. Je 1.000 MWh pro Stunde entsprechen 1 kW im Lehrmodell. Die kritische Last beginnt bei beispielhaften 20 %.",
+      "Ó rọ́pò ìtẹ̀wọlé pẹ̀lú ọjọ́ SMARD tí a yàn. Gbogbo 1,000 MWh fún wákàtí kan di 1 kW nínú àwòṣe ẹ̀kọ́. Ìbéèrè pàtàkì bẹ̀rẹ̀ ní 20% gẹ́gẹ́ bí àpẹẹrẹ.",
+      "E replace inputs with the SMARD day wey you choose. Every 1,000 MWh for one hour become 1 kW for this teaching model. Critical demand start at 20% as example.",
     ],
   "Historical mode uses 24 fixed hourly solar and wind observations. Reset to defaults or load the rural scenario to return to weather inputs.":
     [
@@ -544,6 +557,7 @@ function tr(message: string, locale: Locale) {
 
 interface Editable {
   historicalGermany: boolean;
+  historicalWinter: boolean;
   intervalHours: number;
   windSpeeds: number[];
   irradiance: number[];
@@ -589,6 +603,7 @@ interface Editable {
 function defaults(): Editable {
   return {
     historicalGermany: false,
+    historicalWinter: false,
     intervalHours: DEFAULT_MICROGRID_DISPATCH_INPUTS.intervalHours,
     hydroFlows: "",
     hydroHead: 30,
@@ -656,6 +671,7 @@ function readSaved(): Editable {
           ...defaults(),
           ...value,
           historicalGermany: value.historicalGermany === true,
+          historicalWinter: value.historicalWinter === true,
           hydroFlows:
             typeof value.hydroFlows === "string" ? value.hydroFlows : "",
           reservoirInflows:
@@ -701,13 +717,16 @@ export function MicrogridDispatchExperiment() {
   const label = (s: string) => tr(s, locale);
   const [state, setState] = useState<Editable>(readSaved);
   const [saved, setSaved] = useState(false);
-  const loadHistoricalDay = () => {
-    const demand = SMARD_GERMANY_DAY.intervals.map(
-      (row) => row.gridLoadMWh / 1_000,
-    );
+  const historicalDay = state.historicalWinter
+    ? SMARD_GERMANY_WINTER_DAY
+    : SMARD_GERMANY_DAY;
+  const loadHistoricalDay = (winter: boolean) => {
+    const day = winter ? SMARD_GERMANY_WINTER_DAY : SMARD_GERMANY_DAY;
+    const demand = day.intervals.map((row) => row.gridLoadMWh / 1_000);
     setState({
       ...defaults(),
       historicalGermany: true,
+      historicalWinter: winter,
       windSpeeds: [],
       irradiance: [],
       demand,
@@ -751,7 +770,7 @@ export function MicrogridDispatchExperiment() {
       },
       pvByInterval,
       reportedRenewables: state.historicalGermany
-        ? SMARD_GERMANY_DAY.intervals.map((row) => ({
+        ? historicalDay.intervals.map((row) => ({
             solarKW: row.solarMWh / 1_000,
             windKW: (row.onshoreMWh + row.offshoreMWh) / 1_000,
           }))
@@ -830,7 +849,7 @@ export function MicrogridDispatchExperiment() {
               generationEfficiency: state.pumpedGenerationEfficiency / 100,
             },
     };
-  }, [state]);
+  }, [state, historicalDay]);
   const errors = useMemo(
     () => validateMicrogridDispatchInputs(inputs),
     [inputs],
@@ -896,7 +915,7 @@ export function MicrogridDispatchExperiment() {
             inputs,
             historicalSource: state.historicalGermany
               ? {
-                  ...SMARD_GERMANY_DAY,
+                  ...historicalDay,
                   teachingKWPerReportedHourlyMWh: 0.001,
                   initialCriticalDemandFraction: 0.2,
                 }
@@ -990,10 +1009,18 @@ export function MicrogridDispatchExperiment() {
         <button
           type="button"
           className="button"
-          onClick={loadHistoricalDay}
+          onClick={() => loadHistoricalDay(false)}
           aria-describedby="pg-historical-profile-note"
         >
           {label("Load scaled German historical day")}
+        </button>
+        <button
+          type="button"
+          className="button"
+          onClick={() => loadHistoricalDay(true)}
+          aria-describedby="pg-historical-profile-note"
+        >
+          {label("Load scaled German winter day")}
         </button>
       </div>
       <p id="pg-rural-profile-note" className="pg-model-note">
@@ -1003,11 +1030,12 @@ export function MicrogridDispatchExperiment() {
       </p>
       <p id="pg-historical-profile-note" className="pg-model-note">
         {label(
-          "Replaces dispatch inputs with the 18 June 2025 SMARD day. Each 1,000 MWh reported per hour becomes 1 kW in the teaching model. Critical demand starts at an illustrative 20% of load.",
+          "Replaces dispatch inputs with the selected SMARD day. Each 1,000 MWh reported per hour becomes 1 kW in the teaching model. Critical demand starts at an illustrative 20% of load.",
         )}
       </p>
       {state.historicalGermany && (
         <p className="pg-model-note">
+          {label("Selected historical day")} {historicalDay.date}.{" "}
           {label(
             "Historical mode uses 24 fixed hourly solar and wind observations. Reset to defaults or load the rural scenario to return to weather inputs.",
           )}

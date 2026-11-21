@@ -258,3 +258,5 @@ In Microgrid dispatch, choose Load rural microgrid teaching scenario to replace 
 Open Germany: historical load and generation beside the regional presets. Compare one-hour MWh values for 18 June 2025 in CEST. The final column subtracts PV and both wind categories from reported load. Use Export historical JSON to retain the observations, time zone, source URLs and CC BY 4.0 attribution. The comparison uses national data and leaves dispatch inputs unchanged.
 
 Choose Load scaled German historical day inside Microgrid dispatch. The preset uses 24 one-hour intervals. Each 1,000 MWh reported during an hour becomes 1 kW of teaching power, and wind combines the two reported categories. Critical demand starts at 20% of scaled load as an editable assumption. Compare storage and backup behavior or export JSON with provenance.
+
+Select 22 January 2025 (CET) or 18 June 2025 (CEST) in the historical table. In dispatch, choose Load scaled German winter day for January or Load scaled German historical day for June. The two daily examples share the same scale and one-hour intervals.

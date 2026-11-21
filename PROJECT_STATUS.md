@@ -292,3 +292,5 @@ The candidate now includes an editable rural clinic and community dispatch day. 
 Added a historical Germany comparison day with hourly SMARD grid load, solar, onshore and offshore wind, and derived residual load. The reference is available locally and exported with attribution.
 
 SMARD observations now drive a scaled dispatch scenario with fixed hourly solar and wind and editable demand and equipment. JSON preserves the source day, attribution, license, scaling and illustrative critical-demand assumption.
+
+The German historical comparison now includes 22 January 2025 as a winter example alongside the June day. Both can drive dispatch at the same scale, with original local offsets and provenance retained.

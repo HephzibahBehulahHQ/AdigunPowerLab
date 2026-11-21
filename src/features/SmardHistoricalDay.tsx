@@ -1,12 +1,16 @@
-import { SMARD_GERMANY_DAY } from "../data/smardGermanyDay";
+import { useState } from "react";
+import {
+  SMARD_GERMANY_DAY,
+  SMARD_GERMANY_WINTER_DAY,
+} from "../data/smardGermanyDay";
 import type { Locale } from "../i18n";
 import { downloadFile } from "../import-export/files";
 
 const copy = {
   en: [
     "Germany: historical load and generation",
-    "Reported national values for 18 June 2025, in local time. This historical day is separate from the editable dispatch inputs.",
-    "Start (CEST)",
+    "Reported national values in local time. Select a day to inspect its hourly observations.",
+    "Start (local time)",
     "Grid load",
     "Solar",
     "Onshore wind",
@@ -16,8 +20,8 @@ const copy = {
   ],
   de: [
     "Deutschland: historische Last und Erzeugung",
-    "Gemeldete bundesweite Werte für den 18. Juni 2025 in Ortszeit. Dieser historische Tag ist von den bearbeitbaren Dispatch-Eingaben getrennt.",
-    "Beginn (MESZ)",
+    "Gemeldete bundesweite Werte in Ortszeit. Wählen Sie einen Tag, um seine Stundenwerte zu prüfen.",
+    "Beginn (Ortszeit)",
     "Netzlast",
     "Photovoltaik",
     "Wind an Land",
@@ -27,8 +31,8 @@ const copy = {
   ],
   yo: [
     "Jámánì: ìbéèrè àti ìṣẹ̀dá iná àtijọ́",
-    "Àwọn iye orílẹ̀-èdè fún 18 Oṣù Kẹfà 2025, ní àkókò agbègbè. Ọjọ́ àtijọ́ yìí yà sọ́tọ̀ sí ìtẹ̀wọlé dispatch tí a lè ṣàtúnṣe.",
-    "Ìbẹ̀rẹ̀ (CEST)",
+    "Àwọn iye orílẹ̀-èdè ní àkókò agbègbè. Yan ọjọ́ kan láti ṣàyẹ̀wò iye wákàtí rẹ̀.",
+    "Ìbẹ̀rẹ̀ (àkókò agbègbè)",
     "Ìbéèrè grid",
     "Oorun",
     "Afẹ́fẹ́ lórí ilẹ̀",
@@ -38,8 +42,8 @@ const copy = {
   ],
   pcm: [
     "Germany: past load and generation",
-    "Reported country-wide values for 18 June 2025, for local time. This historical day dey separate from dispatch inputs wey you fit edit.",
-    "Start (CEST)",
+    "Reported country-wide values for local time. Choose one day to check the hourly values.",
+    "Start (local time)",
     "Grid load",
     "Solar",
     "Wind for land",
@@ -50,6 +54,14 @@ const copy = {
 } satisfies Record<Locale, string[]>;
 
 export function SmardHistoricalDay({ locale }: { locale: Locale }) {
+  const [winter, setWinter] = useState(false);
+  const day = winter ? SMARD_GERMANY_WINTER_DAY : SMARD_GERMANY_DAY;
+  const dateLabel = {
+    en: "Historical date",
+    de: "Historisches Datum",
+    yo: "Ọjọ́ àtijọ́",
+    pcm: "Historical date",
+  }[locale];
   const [
     title,
     note,
@@ -68,6 +80,24 @@ export function SmardHistoricalDay({ locale }: { locale: Locale }) {
     <details className="panel panel-pad pg-panel">
       <summary>{title}</summary>
       <p>{note}</p>
+      <label className="pg-field">
+        <span>{dateLabel}</span>
+        <select
+          value={day.date}
+          onChange={(event) =>
+            setWinter(
+              event.currentTarget.value === SMARD_GERMANY_WINTER_DAY.date,
+            )
+          }
+        >
+          <option value={SMARD_GERMANY_DAY.date}>
+            {SMARD_GERMANY_DAY.date} (UTC+02:00)
+          </option>
+          <option value={SMARD_GERMANY_WINTER_DAY.date}>
+            {SMARD_GERMANY_WINTER_DAY.date} (UTC+01:00)
+          </option>
+        </select>
+      </label>
       <p>
         <a href={SMARD_GERMANY_DAY.dataUseUrl}>
           {SMARD_GERMANY_DAY.attribution}
@@ -90,7 +120,7 @@ export function SmardHistoricalDay({ locale }: { locale: Locale }) {
             </tr>
           </thead>
           <tbody>
-            {SMARD_GERMANY_DAY.intervals.map((row) => (
+            {day.intervals.map((row) => (
               <tr key={row.start}>
                 <th scope="row">
                   <time dateTime={row.start}>{row.start.slice(11, 16)}</time>
@@ -114,8 +144,8 @@ export function SmardHistoricalDay({ locale }: { locale: Locale }) {
         className="button"
         onClick={() =>
           downloadFile(
-            "powergrid-smard-germany-2025-06-18.json",
-            JSON.stringify(SMARD_GERMANY_DAY, null, 2),
+            `powergrid-smard-germany-${day.date}.json`,
+            JSON.stringify(day, null, 2),
             "application/json",
           )
         }

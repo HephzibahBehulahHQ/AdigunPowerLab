@@ -1749,6 +1749,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Ṣí ọjọ́ àtijọ́ Jámánì tí a dín ní ìwọ̀n nínú Microgrid dispatch. Àwọn iye oorun àti afẹ́fẹ́ SMARD dúró fún wákàtí kọ̀ọ̀kan. O lè ṣàtúnṣe ìbéèrè àti ìbéèrè pàtàkì. JSON pa iye àkọ́kọ́ àti ìwọ̀n mọ́.",
       "Load scaled German historical day for Microgrid dispatch to use SMARD solar and wind as fixed hourly output. You fit edit demand and critical load, and JSON keep original values and scale.",
     ],
+  "Switch between the January and June SMARD days to compare seasonal examples. Both dispatch presets use the same scale and one-hour intervals.":
+    [
+      "Wechseln Sie zwischen den SMARD-Tagen im Januar und Juni, um saisonale Beispiele zu vergleichen. Beide Dispatch-Vorgaben nutzen dieselbe Skalierung und Stundenintervalle.",
+      "Yí padà láàárín ọjọ́ SMARD Oṣù Kínní àti Oṣù Kẹfà láti fi àpẹẹrẹ àsìkò wé. Àpẹẹrẹ méjèèjì ní ìwọ̀n kan náà àti àárín wákàtí kan.",
+      "Switch between January and June SMARD days to compare seasonal examples. Both dispatch presets use the same scale and one-hour intervals.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",
