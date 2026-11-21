@@ -527,3 +527,7 @@ The Windows production build emitted a separate PowerGrid Lab chunk. The product
 ### POWERGRID LAB practical lesson on power factor
 
 TypeScript and all 20 Help catalogue checks passed locally. The targeted Chromium case passed the worked-loss checks (4.484 MW at 0.80 and 2.870 MW at 1.00), applied the lesson inputs, exported a signed loss reduction against the pinned baseline, and reset the edited power factor. Hosted validation remains pending.
+
+### POWERGRID LAB transmission-distance lesson
+
+Local TypeScript and 26 Help and radial solver tests passed. The focused Chromium case verified export is disabled out of range, a 40 km line yields 8 Ω resistance and 16 Ω reactance per phase, the reference meets the receiving-voltage floor while the 40 km case falls below it, real losses increase, interpretation survives in the report, and reset restores 25 km. The local runner stalled during teardown.

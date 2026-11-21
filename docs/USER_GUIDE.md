@@ -290,3 +290,5 @@ In Microgrid dispatch, choose Review active project demand day and inspect the r
 In the installed production app, let the offline cache finish preparing while connected. You can then open **POWERGRID LAB** for the first time while offline and download the transmission comparison PDF.
 
 In **Practical lesson: Poor power factor**, predict how correcting power factor will affect line current and conductor loss. Reveal the worked reference, choose **Load or reset lesson inputs**, and pin the resulting case as the baseline. Set **Power factor** to 1, compare the readings, enter your interpretation in the transmission notes, and export the PDF. Loading or resetting the lesson updates the open transmission worksheet. Use Undo to recover your previous inputs.
+
+Open **Practical lesson: Transmission distance** beneath the radial feeder. Make a prediction and reveal the 5 km and 25 km reference results. Change the line length between 1 and 40 km to find where the receiving voltage falls below 10.45 kV. Add your interpretation and download the JSON report. The report includes both solved cases. Reset clears the interpretation and returns the length to 25 km.

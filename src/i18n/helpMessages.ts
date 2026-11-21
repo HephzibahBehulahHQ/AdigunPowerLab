@@ -1845,6 +1845,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú ìdánwò ìpín agbára kékeré, sọ àsọtẹ́lẹ̀, ṣí àpẹẹrẹ ìṣírò, kí o sì gbé iye ìdánwò wọlé. Wé àwọn èsì lẹ́yìn yíyí ìpín agbára padà, kí o sì kọ ìtumọ̀ rẹ sínú PDF gbigbe.",
       "For the low power factor lesson, predict wetin go happen, open the reference calculation and load the lesson values. Compare the readings after you change power factor, then write your explanation for the transmission PDF.",
     ],
+  "In the transmission distance lesson, compare 5 km and 25 km, vary the length to find the receiving-voltage threshold, and download the calculation report.":
+    [
+      "Vergleichen Sie im Entfernungsversuch 5 km und 25 km, ändern Sie die Länge bis zur Spannungsgrenze am Empfangsende und laden Sie den Berechnungsbericht herunter.",
+      "Nínú ìdánwò ìjìnnà gbigbe iná, wé 5 km àti 25 km, yí gígùn padà láti rí ààlà fólítéèjì ìgbàwọlé, kí o sì gba ìròyìn ìṣírò.",
+      "For transmission distance lesson, compare 5 km and 25 km, change length to find where receiving voltage cross the limit, then download the calculation report.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

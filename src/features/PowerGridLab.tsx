@@ -49,6 +49,7 @@ import { SmardHistoricalDay } from "./SmardHistoricalDay";
 import { HydroStationScene, type HydroEquipmentId } from "./HydroStationScene";
 import { GenerationPlantScene } from "./GenerationPlantScene";
 import { PowerGridTransmissionLesson } from "./PowerGridTransmissionLesson";
+import { PowerGridDistanceLesson } from "./PowerGridDistanceLesson";
 import {
   DistributionNetworkScene,
   type DistributionEquipmentId,
@@ -1240,6 +1241,7 @@ export function PowerGridLab({
         </section>
       )}
       <RadialFeederExperiment activeDemand={activeDemand} />
+      <PowerGridDistanceLesson locale={locale} />
       <PvPerformanceExperiment />
       <HydroPerformanceExperiment locale={locale} />
       <WindResourceExperiment />

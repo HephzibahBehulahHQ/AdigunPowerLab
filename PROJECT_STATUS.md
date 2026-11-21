@@ -328,3 +328,5 @@ Microgrid dispatch also accepts a reviewed 24-hour recurring-day active demand s
 PowerGrid Lab now loads on entry to #POWERGRID. Local production checks at the root and repository base path confirmed the first lab visit after going offline, a valid transmission PDF download, and a decoded hydro image. The service worker now emits portable precache paths. The production bootstrap is 814 kB (246 kB gzip), with a separate 318 kB lab module (93 kB gzip). Hosted validation and the structured practical curriculum remain open.
 
 The first structured practical lesson covers poor power factor. It adds a prediction, balanced-model assumptions, a worked comparison, and a resettable case in the existing transmission worksheet. The workbook supports baseline comparison, student notes and report export. The rest of the structured curriculum remains open.
+
+The transmission-distance lesson now uses the balanced radial AC solver with an adjustable 1–40 km two-bus line. It compares the receiving voltage and real loss with a 5 km reference, and exports both solved cases and the student's interpretation.

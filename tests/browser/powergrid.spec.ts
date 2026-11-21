@@ -3,6 +3,40 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("distance lesson scales impedance and exports the solved voltage comparison", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const lesson = page.getByRole("region", {
+    name: "Practical lesson: Transmission distance",
+  });
+  const length = lesson.getByLabel("Line length (km)", { exact: true });
+  const report = lesson.getByRole("button", {
+    name: "Download distance lesson report (JSON)",
+  });
+  await length.fill("41");
+  await expect(report).toBeDisabled();
+  await length.fill("40");
+  await lesson
+    .getByLabel("Student interpretation")
+    .fill("Voltage fell below 0.95 pu.");
+  const pending = page.waitForEvent("download");
+  await report.click();
+  const data = JSON.parse(await readFile(await (await pending).path(), "utf8"));
+  expect(data.current.input.branches[0].resistanceOhm).toBe(8);
+  expect(data.current.input.branches[0].reactanceOhm).toBe(16);
+  expect(data.current.result.status).toBe("converged");
+  expect(data.reference.result.buses[1].voltageConstraint).toBe("ok");
+  expect(data.current.result.buses[1].voltageConstraint).toBe("low");
+  expect(data.current.result.realLossMW).toBeGreaterThan(
+    data.reference.result.realLossMW,
+  );
+  expect(data.notes).toBe("Voltage fell below 0.95 pu.");
+  await lesson.getByRole("button", { name: "Reset distance lesson" }).click();
+  await expect(length).toHaveValue("25");
+  await expect(lesson.getByLabel("Student interpretation")).toHaveValue("");
+});
+
 test("poor power factor lesson loads a worked case and resets edited inputs", async ({
   page,
 }) => {
