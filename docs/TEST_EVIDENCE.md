@@ -482,3 +482,5 @@ Scaled SMARD dispatch passed TypeScript, 18 focused tests and both historical an
 Winter SMARD acquisition verified 24 consecutive non-null values in each source series. TypeScript, nine localization tests and both historical Chromium tests passed, covering date selection, winter scenario save and reload, first-hour reported generation, and winter timestamp offset in dispatch JSON.
 
 Shared visual equipment selection passed TypeScript, nine localization tests and the Chromium keyboard station flow. Selecting the 3D tower highlights the hydro cutaway and single-line tower; choosing the step-up transformer or downstream receiving transformer updates the 3D inspector.
+
+Camera rendering passed TypeScript, nine localization tests and three Chromium station checks. Actual WebGL instrumentation observed a redraw on azimuth change with no additional buffer allocations. The forced missing-WebGL case verified the fallback and keyboard selection. Automatic restoration after an actual GPU reset was not exercised.

@@ -296,3 +296,5 @@ SMARD observations now drive a scaled dispatch scenario with fixed hourly solar 
 The German historical comparison now includes 22 January 2025 as a winter example alongside the June day. Both can drive dispatch at the same scale, with original local offsets and provenance retained.
 
 Milestone 4 now shares selection between the 3D scene, hydro cutaway, hydro single-line and downstream diagram for equipment represented in both views. Equipment with no shared representation keeps its own inspector.
+
+Milestone 4 camera changes now reuse WebGL shaders and geometry. The model handles context loss and restoration, and equipment inspection remains accessible if rendering is unavailable.

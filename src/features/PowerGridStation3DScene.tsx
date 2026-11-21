@@ -478,8 +478,11 @@ function buildScene(gl: WebGLRenderingContext, selected: AssetId) {
 
   const positionBuffer = gl.createBuffer(),
     colorBuffer = gl.createBuffer();
-  if (!positionBuffer || !colorBuffer)
+  if (!positionBuffer || !colorBuffer) {
+    if (positionBuffer) gl.deleteBuffer(positionBuffer);
+    if (colorBuffer) gl.deleteBuffer(colorBuffer);
     throw new Error("WebGL buffer allocation failed");
+  }
   gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
   gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
@@ -497,30 +500,64 @@ export function PowerGridStation3DScene({
   onSelect: (asset: AssetId) => void;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const drawRef = useRef<
+    ((yaw: number, pitch: number, zoom: number) => void) | null
+  >(null);
   const [yaw, setYaw] = useState(-0.32);
   const [pitch, setPitch] = useState(0.12);
   const [zoom, setZoom] = useState(1);
   const [unavailable, setUnavailable] = useState(false);
   const [renderError, setRenderError] = useState("");
+  const [contextRevision, setContextRevision] = useState(0);
   const lang = locale in assets[0].label ? locale : "en";
   const selectedAsset = assets.find((asset) => asset.id === selected)!;
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    const onContextLost = (event: Event) => {
+      event.preventDefault();
+      drawRef.current = null;
+      setUnavailable(true);
+    };
+    const onContextRestored = () =>
+      setContextRevision((revision) => revision + 1);
+    canvas.addEventListener("webglcontextlost", onContextLost);
+    canvas.addEventListener("webglcontextrestored", onContextRestored);
+    return () => {
+      canvas.removeEventListener("webglcontextlost", onContextLost);
+      canvas.removeEventListener("webglcontextrestored", onContextRestored);
+    };
+  }, []);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
     let program: WebGLProgram | undefined,
-      scene: ReturnType<typeof buildScene> | undefined;
+      scene: ReturnType<typeof buildScene> | undefined,
+      vertex: WebGLShader | undefined,
+      fragment: WebGLShader | undefined;
+    let gl: WebGLRenderingContext | null = null;
+    const release = () => {
+      drawRef.current = null;
+      if (scene) {
+        gl?.deleteBuffer(scene.positionBuffer);
+        gl?.deleteBuffer(scene.colorBuffer);
+      }
+      if (program) gl?.deleteProgram(program);
+    };
     try {
-      const gl = canvas.getContext("webgl", {
+      const context = canvas.getContext("webgl", {
         antialias: true,
         alpha: false,
         preserveDrawingBuffer: false,
       });
-      if (!gl) {
+      if (!context || context.isContextLost()) {
         setUnavailable(true);
         return;
       }
-      const vertex = compile(
+      gl = context;
+      vertex = compile(
         gl,
         gl.VERTEX_SHADER,
         `
@@ -539,7 +576,7 @@ export function PowerGridStation3DScene({
           vColor=aColor;
         }`,
       );
-      const fragment = compile(
+      fragment = compile(
         gl,
         gl.FRAGMENT_SHADER,
         `
@@ -559,7 +596,6 @@ export function PowerGridStation3DScene({
       gl.viewport(0, 0, canvas.width, canvas.height);
       gl.clearColor(0.055, 0.08, 0.13, 1);
       gl.enable(gl.DEPTH_TEST);
-      gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
       gl.useProgram(program);
       const position = gl.getAttribLocation(program, "aPosition");
       gl.bindBuffer(gl.ARRAY_BUFFER, scene.positionBuffer);
@@ -569,28 +605,36 @@ export function PowerGridStation3DScene({
       gl.bindBuffer(gl.ARRAY_BUFFER, scene.colorBuffer);
       gl.enableVertexAttribArray(color);
       gl.vertexAttribPointer(color, 3, gl.FLOAT, false, 0, 0);
-      gl.uniform1f(gl.getUniformLocation(program, "uYaw"), yaw);
-      gl.uniform1f(gl.getUniformLocation(program, "uPitch"), pitch);
-      gl.uniform1f(gl.getUniformLocation(program, "uZoom"), zoom);
-      gl.drawArrays(gl.TRIANGLES, 0, scene.count);
+      const yawLocation = gl.getUniformLocation(program, "uYaw");
+      const pitchLocation = gl.getUniformLocation(program, "uPitch");
+      const zoomLocation = gl.getUniformLocation(program, "uZoom");
+      const count = scene.count;
+      drawRef.current = (nextYaw, nextPitch, nextZoom) => {
+        if (context.isContextLost()) return;
+        context.clear(context.COLOR_BUFFER_BIT | context.DEPTH_BUFFER_BIT);
+        context.uniform1f(yawLocation, nextYaw);
+        context.uniform1f(pitchLocation, nextPitch);
+        context.uniform1f(zoomLocation, nextZoom);
+        context.drawArrays(context.TRIANGLES, 0, count);
+      };
       setUnavailable(false);
       setRenderError("");
-      gl.deleteShader(vertex);
-      gl.deleteShader(fragment);
-      return () => {
-        if (scene) {
-          gl.deleteBuffer(scene.positionBuffer);
-          gl.deleteBuffer(scene.colorBuffer);
-        }
-        if (program) gl.deleteProgram(program);
-      };
+      return release;
     } catch (error) {
+      release();
       setUnavailable(true);
       setRenderError(
         error instanceof Error ? error.message : "WebGL scene unavailable",
       );
+    } finally {
+      if (vertex) gl?.deleteShader(vertex);
+      if (fragment) gl?.deleteShader(fragment);
     }
-  }, [selected, yaw, pitch, zoom]);
+  }, [selected, contextRevision]);
+
+  useEffect(() => {
+    drawRef.current?.(yaw, pitch, zoom);
+  }, [selected, contextRevision, yaw, pitch, zoom]);
 
   return (
     <section className="panel panel-pad" aria-labelledby="pg-station-3d-title">
@@ -624,34 +668,33 @@ export function PowerGridStation3DScene({
         }}
       >
         <div>
-          {unavailable ? (
+          {unavailable && (
             <div role="status" className="notice">
               <p>
                 {lang === "de"
-                  ? "3D-Ansicht nicht verfügbar. Die zugängliche Stationsschaltung oben bleibt verfügbar."
+                  ? "3D-Ansicht nicht verfügbar. Das zugängliche Stationsschema bleibt verfügbar."
                   : lang === "yo"
-                    ? "3D view kò sí. Schematic station tó ṣeé lò wà lókè."
+                    ? "3D view kò sí. Schematic station tó ṣeé lò ṣì wà."
                     : lang === "pcm"
-                      ? "3D view no dey available. Use the labelled station schematic above."
-                      : "3D view unavailable. Use the labelled station schematic above."}
+                      ? "3D view no dey available. Use the labelled station schematic."
+                      : "3D view unavailable. Use the labelled station schematic."}
               </p>
               {renderError && <small>{renderError}</small>}
             </div>
-          ) : (
-            <canvas
-              ref={canvasRef}
-              width={1000}
-              height={460}
-              aria-hidden="true"
-              style={{
-                display: "block",
-                width: "100%",
-                height: "auto",
-                borderRadius: "0.75rem",
-                background: "#0e1522",
-              }}
-            />
           )}
+          <canvas
+            ref={canvasRef}
+            width={1000}
+            height={460}
+            aria-hidden="true"
+            style={{
+              display: unavailable ? "none" : "block",
+              width: "100%",
+              height: "auto",
+              borderRadius: "0.75rem",
+              background: "#0e1522",
+            }}
+          />
           <fieldset
             style={{
               display: "grid",

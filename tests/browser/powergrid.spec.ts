@@ -1,6 +1,87 @@
 import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
 
+test("POWERGRID camera redraws without allocating scene buffers", async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    const prototype = WebGLRenderingContext.prototype;
+    const createBuffer = prototype.createBuffer;
+    prototype.createBuffer = function () {
+      if (this.canvas instanceof HTMLCanvasElement) {
+        this.canvas.dataset.buffers = String(
+          Number(this.canvas.dataset.buffers ?? 0) + 1,
+        );
+      }
+      return createBuffer.call(this);
+    };
+    const drawArrays = prototype.drawArrays;
+    prototype.drawArrays = function (mode, first, count) {
+      if (this.canvas instanceof HTMLCanvasElement) {
+        this.canvas.dataset.draws = String(
+          Number(this.canvas.dataset.draws ?? 0) + 1,
+        );
+      }
+      return drawArrays.call(this, mode, first, count);
+    };
+  });
+  await page.goto("/#POWERGRID");
+  const scene = page.getByRole("region", {
+    name: "Navigable power station and grid model",
+  });
+  const canvas = scene.locator("canvas");
+  await expect(
+    canvas
+      .locator("xpath=..")
+      .getByRole("status")
+      .or(scene.locator("canvas[data-draws]")),
+  ).toHaveCount(1);
+  test.skip(
+    await scene.getByRole("status").isVisible(),
+    "WebGL is unavailable in this browser",
+  );
+  const buffers = await canvas.getAttribute("data-buffers");
+  const draws = Number(await canvas.getAttribute("data-draws"));
+  await scene.getByLabel("3D azimuth").fill("0.61");
+  await expect
+    .poll(async () => Number(await canvas.getAttribute("data-draws")))
+    .toBeGreaterThan(draws);
+  await expect(canvas).toHaveAttribute("data-buffers", buffers!);
+});
+
+test("POWERGRID retains equipment inspection when WebGL is unavailable", async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    HTMLCanvasElement.prototype.getContext = new Proxy(
+      HTMLCanvasElement.prototype.getContext,
+      {
+        apply(original, canvas, args) {
+          return String(args[0]).startsWith("webgl")
+            ? null
+            : Reflect.apply(original, canvas, args);
+        },
+      },
+    );
+  });
+  await page.goto("/#POWERGRID");
+  const scene = page.getByRole("region", {
+    name: "Navigable power station and grid model",
+  });
+  await expect(scene.getByRole("status")).toContainText("3D view unavailable");
+  await expect(scene.locator("canvas")).toBeHidden();
+  await scene
+    .getByRole("button", { name: "Transmission tower & conductors" })
+    .focus();
+  await page.keyboard.press("Enter");
+  await expect(
+    page
+      .locator('section[aria-labelledby="pg-station-title"]')
+      .getByRole("button", { name: /Inspect: Lattice transmission tower/ })
+      .first(),
+  ).toHaveAttribute("aria-pressed", "true");
+});
+
 test("microgrid dispatch persists scaled historical generation and keeps source data in JSON", async ({
   page,
 }) => {
