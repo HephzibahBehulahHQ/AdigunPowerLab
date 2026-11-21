@@ -19,6 +19,7 @@ export interface MeshedBranch {
   chargingPU?: number;
   tap?: number;
   shiftDeg?: number;
+  ratingMVA?: number;
   inService: boolean;
 }
 
@@ -138,6 +139,8 @@ export function solveMeshedPowerFlow(inputs: MeshedInputs) {
         !Number.isFinite(tap) ||
         tap < 0.5 ||
         tap > 2 ||
+        (branch.ratingMVA !== undefined &&
+          (!Number.isFinite(branch.ratingMVA) || branch.ratingMVA <= 0)) ||
         !Number.isFinite(shiftDeg) ||
         Math.abs(shiftDeg) > 180
       );
@@ -320,4 +323,69 @@ export function solveMeshedPowerFlow(inputs: MeshedInputs) {
     } as const;
   }
   return failure("not-converged");
+}
+
+function summarizeCase(
+  input: MeshedInputs,
+  result: ReturnType<typeof solveMeshedPowerFlow>,
+) {
+  if (!result.converged) return { status: result.reason } as const;
+  const ratings = new Map(
+    input.branches.map((branch) => [branch.id, branch.ratingMVA]),
+  );
+  const loaded = result.branches.flatMap((branch) => {
+    const rating = ratings.get(branch.id);
+    if (rating === undefined) return [];
+    const fromMVA = Math.hypot(branch.fromMW, branch.fromMvar);
+    const toMVA = Math.hypot(branch.toMW, branch.toMvar);
+    return [
+      {
+        id: branch.id,
+        loadingPercent: (100 * Math.max(fromMVA, toMVA)) / rating,
+      },
+    ];
+  });
+  const minVoltagePU = Math.min(...result.buses.map((bus) => bus.voltagePU));
+  const maxVoltagePU = Math.max(...result.buses.map((bus) => bus.voltagePU));
+  const voltageViolations = result.buses
+    .filter((bus) => bus.voltagePU < 0.95 || bus.voltagePU > 1.05)
+    .map((bus) => bus.id);
+  const overloaded = loaded
+    .filter((branch) => branch.loadingPercent > 100)
+    .map((branch) => branch.id);
+  return {
+    status:
+      voltageViolations.length || overloaded.length ? "violations" : "clear",
+    minVoltagePU,
+    maxVoltagePU,
+    voltageViolations,
+    overloaded,
+    loaded,
+    residualPU: result.residualPU,
+  } as const;
+}
+
+export function compareSingleBranchOutages(
+  input: MeshedInputs,
+  base: ReturnType<typeof solveMeshedPowerFlow>,
+) {
+  const baseline = summarizeCase(input, base);
+  if (!base.converged) return { baseline, outages: [] };
+  return {
+    baseline,
+    outages: input.branches
+      .filter((branch) => branch.inService)
+      .map(({ id }) => {
+        const scenario = {
+          ...input,
+          branches: input.branches.map((branch) =>
+            branch.id === id ? { ...branch, inService: false } : branch,
+          ),
+        };
+        return {
+          openedBranch: id,
+          ...summarizeCase(scenario, solveMeshedPowerFlow(scenario)),
+        };
+      }),
+  };
 }

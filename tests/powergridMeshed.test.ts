@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  compareSingleBranchOutages,
   solveMeshedPowerFlow,
   type MeshedInputs,
 } from "../src/engine/powergridMeshed";
@@ -53,6 +54,43 @@ const triangle: MeshedInputs = {
 };
 
 describe("meshed AC power flow", () => {
+  it("screens every active branch and preserves islanded outcomes", () => {
+    const rated = {
+      ...triangle,
+      branches: triangle.branches.map((branch, index) => ({
+        ...branch,
+        ratingMVA: index === 2 ? 1 : 500,
+      })),
+    };
+    const comparison = compareSingleBranchOutages(
+      rated,
+      solveMeshedPowerFlow(rated),
+    );
+    expect(comparison.baseline).toMatchObject({
+      status: "violations",
+      overloaded: ["BC"],
+    });
+    expect(comparison.outages.map((row) => row.openedBranch)).toEqual([
+      "AB",
+      "AC",
+      "BC",
+    ]);
+    const radial = {
+      ...rated,
+      branches: rated.branches.map((branch) => ({
+        ...branch,
+        inService: branch.id !== "BC",
+      })),
+    };
+    const radialComparison = compareSingleBranchOutages(
+      radial,
+      solveMeshedPowerFlow(radial),
+    );
+    expect(radialComparison.outages).toEqual([
+      { openedBranch: "AB", status: "islanded" },
+      { openedBranch: "AC", status: "islanded" },
+    ]);
+  });
   it("recovers known phasors and conserves branch losses on a closed triangle", () => {
     const result = solveMeshedPowerFlow(triangle);
     expect(result.converged).toBe(true);

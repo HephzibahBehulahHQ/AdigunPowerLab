@@ -302,3 +302,5 @@ Milestone 4 camera changes now reuse WebGL shaders and geometry. The model handl
 On phone-width screens the 3D camera and equipment inspector now stack vertically. Camera sliders have localized accessible names.
 
 Milestone 5 has a separate balanced meshed AC solver and editable three-bus experiment. It supports slack/PV/PQ buses, series impedance, charging, transformer ratios and phase shifts, and bounded convergence with island checks.
+
+Milestone 5 now runs one outage per in-service branch and compares each result with the AC base case. The comparison reports voltage and apparent-power limit violations separately from islanding and solver failures.

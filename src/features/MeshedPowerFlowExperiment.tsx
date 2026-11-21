@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  compareSingleBranchOutages,
   solveMeshedPowerFlow,
   type MeshedInputs,
 } from "../engine/powergridMeshed";
@@ -14,6 +15,9 @@ const defaults = {
   limitMvar: 35,
   tap: 1,
   shiftDeg: 0,
+  ratingAB: 60,
+  ratingAC: 65,
+  ratingBC: 50,
   ab: true,
   ac: true,
   bc: true,
@@ -21,6 +25,73 @@ const defaults = {
 const storageKey = "adigunpowerlab.powergrid.meshed.v1";
 
 const messages: Record<string, [string, string, string]> = {
+  "A–B rating (MVA)": [
+    "A–B Nennscheinleistung (MVA)",
+    "Ààlà A–B (MVA)",
+    "A–B rating (MVA)",
+  ],
+  "A–C rating (MVA)": [
+    "A–C Nennscheinleistung (MVA)",
+    "Ààlà A–C (MVA)",
+    "A–C rating (MVA)",
+  ],
+  "B–C rating (MVA)": [
+    "B–C Nennscheinleistung (MVA)",
+    "Ààlà B–C (MVA)",
+    "B–C rating (MVA)",
+  ],
+  "Compare single branch outages": [
+    "Einzelne Zweigausfälle vergleichen",
+    "Fi ìdádúró ẹ̀ka kọ̀ọ̀kan wé",
+    "Compare single branch outages",
+  ],
+  "Single branch outage comparison": [
+    "Vergleich einzelner Zweigausfälle",
+    "Àfiwé ìdádúró ẹ̀ka kọ̀ọ̀kan",
+    "Single branch outage comparison",
+  ],
+  "Each case opens one currently active branch. The screening band is 0.95–1.05 pu. Loading uses the greater apparent power at either end. The initial ratings are illustrative.":
+    [
+      "Jeder Fall öffnet einen aktuell aktiven Zweig. Das Prüfband beträgt 0,95–1,05 pu. Die Auslastung nutzt die größere Scheinleistung beider Enden. Die voreingestellten Leistungen sind Beispiele.",
+      "Àpẹẹrẹ kọ̀ọ̀kan ṣí ẹ̀ka kan tó ń ṣiṣẹ́. Ààlà àyẹ̀wò jẹ́ 0.95–1.05 pu. A lo S tó pọ̀ jù láàárín òpin méjèèjì. Ààlà ìbẹ̀rẹ̀ jẹ́ àpẹẹrẹ.",
+      "Each case open one branch wey dey in service. Screening band na 0.95–1.05 pu. Loading use the bigger apparent power for either end. The starting ratings na examples.",
+    ],
+  "Base case": ["Ausgangsfall", "Àpẹẹrẹ ìbẹ̀rẹ̀", "Base case"],
+  "Opened branch": ["Geöffneter Zweig", "Ẹ̀ka tí a ṣí", "Opened branch"],
+  Status: ["Status", "Ipò", "Status"],
+  "Minimum voltage (pu)": [
+    "Minimale Spannung (pu)",
+    "Foliteji tó kéré jù (pu)",
+    "Minimum voltage (pu)",
+  ],
+  "Maximum voltage (pu)": [
+    "Maximale Spannung (pu)",
+    "Foliteji tó pọ̀ jù (pu)",
+    "Maximum voltage (pu)",
+  ],
+  "Voltage violations": [
+    "Spannungsgrenzverletzungen",
+    "Foliteji tó kọjá ààlà",
+    "Voltage violations",
+  ],
+  "Overloaded branches": [
+    "Überlastete Zweige",
+    "Ẹ̀ka tó kọjá ààlà",
+    "Overloaded branches",
+  ],
+  "Within limits": [
+    "Innerhalb der Grenzen",
+    "Wà láàárín ààlà",
+    "Within limits",
+  ],
+  "Limit violations": [
+    "Grenzverletzungen",
+    "Àwọn ààlà tí a kọjá",
+    "Limit violations",
+  ],
+  Islanded: ["Inselbildung", "Ó di erékùṣù", "Islanded"],
+  "No convergence": ["Keine Konvergenz", "Ìṣirò kò péye", "No convergence"],
+  Invalid: ["Ungültig", "Kò péye", "Invalid"],
   "Meshed AC power flow": [
     "AC-Lastfluss im vermaschten Netz",
     "Ìṣàn agbára AC nínú nẹ́tíwọ́ọ̀kì onílupu",
@@ -123,6 +194,9 @@ const numericFields = [
   ["limitMvar", "Generator reactive limit ±Mvar"],
   ["tap", "A–B tap ratio"],
   ["shiftDeg", "A–B phase shift (°)"],
+  ["ratingAB", "A–B rating (MVA)"],
+  ["ratingAC", "A–C rating (MVA)"],
+  ["ratingBC", "B–C rating (MVA)"],
 ] as const;
 const switches = [
   ["ab", "A–B"],
@@ -132,7 +206,8 @@ const switches = [
 
 function readCase(): typeof defaults {
   try {
-    const saved = JSON.parse(localStorage.getItem(storageKey) ?? "null");
+    const raw = JSON.parse(localStorage.getItem(storageKey) ?? "null");
+    const saved = { ...defaults, ...raw };
     if (
       saved &&
       numericFields.every(([key]) => Number.isFinite(saved[key])) &&
@@ -148,6 +223,7 @@ function readCase(): typeof defaults {
 export function MeshedPowerFlowExperiment({ locale }: { locale: Locale }) {
   const [state, setState] = useState(readCase);
   const [saved, setSaved] = useState<boolean | null>(null);
+  const [compare, setCompare] = useState(false);
   const label = (value: string) =>
     locale === "en"
       ? value
@@ -176,6 +252,7 @@ export function MeshedPowerFlowExperiment({ locale }: { locale: Locale }) {
         reactancePU: 0.15,
         tap: state.tap,
         shiftDeg: state.shiftDeg,
+        ratingMVA: state.ratingAB,
         inService: state.ab,
       },
       {
@@ -184,6 +261,7 @@ export function MeshedPowerFlowExperiment({ locale }: { locale: Locale }) {
         to: "C",
         resistancePU: 0.025,
         reactancePU: 0.2,
+        ratingMVA: state.ratingAC,
         inService: state.ac,
       },
       {
@@ -192,11 +270,23 @@ export function MeshedPowerFlowExperiment({ locale }: { locale: Locale }) {
         to: "C",
         resistancePU: 0.01,
         reactancePU: 0.1,
+        ratingMVA: state.ratingBC,
         inService: state.bc,
       },
     ],
   };
   const result = solveMeshedPowerFlow(input);
+  const comparison =
+    compare && result.converged
+      ? compareSingleBranchOutages(input, result)
+      : undefined;
+  const statuses = {
+    clear: "Within limits",
+    violations: "Limit violations",
+    islanded: "Islanded",
+    "not-converged": "No convergence",
+    invalid: "Invalid",
+  } as const;
   const format = new Intl.NumberFormat(locale === "pcm" ? "en-NG" : locale, {
     maximumFractionDigits: 5,
   });
@@ -340,6 +430,15 @@ export function MeshedPowerFlowExperiment({ locale }: { locale: Locale }) {
         <button
           type="button"
           className="button"
+          aria-pressed={compare}
+          disabled={!result.converged}
+          onClick={() => setCompare(!compare)}
+        >
+          {label("Compare single branch outages")}
+        </button>
+        <button
+          type="button"
+          className="button"
           disabled={!result.converged}
           onClick={() => {
             try {
@@ -360,7 +459,7 @@ export function MeshedPowerFlowExperiment({ locale }: { locale: Locale }) {
             downloadFile(
               "powergrid-meshed-ac.json",
               JSON.stringify(
-                { model: "balanced-ac-power-flow", input, result },
+                { model: "balanced-ac-power-flow", input, result, comparison },
                 null,
                 2,
               ),
@@ -376,6 +475,59 @@ export function MeshedPowerFlowExperiment({ locale }: { locale: Locale }) {
           </span>
         )}
       </div>
+      {comparison && (
+        <>
+          <p>
+            {label(
+              "Each case opens one currently active branch. The screening band is 0.95–1.05 pu. Loading uses the greater apparent power at either end. The initial ratings are illustrative.",
+            )}
+          </p>
+          <div className="pg-table-wrap">
+            <table className="pg-wind-table">
+              <caption>{label("Single branch outage comparison")}</caption>
+              <thead>
+                <tr>
+                  {[
+                    "Opened branch",
+                    "Status",
+                    "Minimum voltage (pu)",
+                    "Maximum voltage (pu)",
+                    "Voltage violations",
+                    "Overloaded branches",
+                  ].map((name) => (
+                    <th key={name} scope="col">
+                      {label(name)}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { openedBranch: label("Base case"), ...comparison.baseline },
+                  ...comparison.outages,
+                ].map((row) => (
+                  <tr key={row.openedBranch}>
+                    <th scope="row">{row.openedBranch}</th>
+                    <td>{label(statuses[row.status])}</td>
+                    <td>
+                      {row.minVoltagePU !== undefined
+                        ? format.format(row.minVoltagePU)
+                        : "—"}
+                    </td>
+                    <td>
+                      {row.maxVoltagePU !== undefined
+                        ? format.format(row.maxVoltagePU)
+                        : "—"}
+                    </td>
+                    <td>{row.voltageViolations?.join(", ") || "—"}</td>
+                    <td>{row.overloaded?.join(", ") || "—"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
     </section>
   );
 }

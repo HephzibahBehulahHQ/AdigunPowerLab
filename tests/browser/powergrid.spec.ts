@@ -9,8 +9,18 @@ test("meshed AC case solves the triangle and blocks export of an island", async 
   await expect(section.getByRole("status")).toContainText("Converged");
   const branches = section.getByRole("table", { name: "Branch results" });
   await expect(branches.getByRole("row")).toHaveCount(4);
+  await section
+    .getByRole("button", { name: "Compare single branch outages" })
+    .click();
+  const comparison = section.getByRole("table", {
+    name: "Single branch outage comparison",
+  });
+  await expect(comparison.getByRole("row")).toHaveCount(5);
   await section.getByRole("checkbox", { name: "A–B" }).uncheck();
   await expect(branches.getByRole("row")).toHaveCount(3);
+  await expect(comparison.getByRole("cell", { name: "Islanded" })).toHaveCount(
+    2,
+  );
   const promise = page.waitForEvent("download");
   await section.getByRole("button", { name: "Export AC results" }).click();
   const download = await promise;
@@ -18,6 +28,10 @@ test("meshed AC case solves the triangle and blocks export of an island", async 
   expect(
     payload.result.branches.map((branch: { id: string }) => branch.id),
   ).toEqual(["A–C", "B–C"]);
+  expect(payload.comparison.outages).toEqual([
+    { openedBranch: "A–C", status: "islanded" },
+    { openedBranch: "B–C", status: "islanded" },
+  ]);
   await section.getByRole("checkbox", { name: "A–C" }).uncheck();
   await expect(section.getByRole("status")).toContainText(
     "island has no slack bus",

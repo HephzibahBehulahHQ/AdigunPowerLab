@@ -488,3 +488,5 @@ Camera rendering passed TypeScript, nine localization tests and three Chromium s
 The 390 × 844 Chromium fallback case confirmed the 3D station panel fits horizontally and keyboard selection reaches the schematic. The WebGL extension test restored the context, rebuilt buffers and retained the azimuth control value. TypeScript and nine localization tests passed.
 
 Meshed AC verification passed TypeScript, nine localization tests, four numerical tests and Chromium acceptance. The independent rectangular-phasor fixture checks voltage, angle, slack injections and branch-loss balance. Other fixtures cover PV limit conversion, transformer ratio and phase offset, island detection and iteration exhaustion. Chromium verifies three closed branches, a connected outage, JSON results and island export gating.
+
+N−1 comparison passed TypeScript, 14 focused numerical and localization tests, and Chromium. Coverage verifies complete enumeration of in-service branches, MVA overload screening, islanded outage outcomes, live comparison after opening a base-case branch, and exported contingency statuses.

@@ -293,4 +293,6 @@ Camera controls update WebGL uniforms without allocating scene buffers. A forced
 
 The station controls and inspector fit within the tested 390 px viewport, including forced WebGL fallback. The browser extension exercises context loss and restoration where supported.
 
-A 100 MVA three-bus AC teaching case now exercises a Newton power-mismatch solver with numerical Jacobian. The reference bus supplies residual active and reactive power. The initial independent phasor fixture and focused contingency evidence cover this implementation slice. Larger benchmark cases, contingency batches and dynamic lessons remain open. [MATPOWER AC formulation reference](https://matpower.org/docs/MATPOWER-manual-8.0.pdf)
+A 100 MVA three-bus AC teaching case now exercises a Newton power-mismatch solver with numerical Jacobian. The reference bus supplies residual active and reactive power. The initial independent phasor fixture and focused contingency evidence cover this implementation slice. Larger benchmark cases and dynamic lessons remain open. [MATPOWER AC formulation reference](https://matpower.org/docs/MATPOWER-manual-8.0.pdf)
+
+The three-bus teaching case now supports automated single-branch outage batches with voltage and loading checks. The display identifies islanded results separately. Larger benchmarks, other contingency types and dynamic response remain open.

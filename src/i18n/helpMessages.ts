@@ -1773,6 +1773,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú ìṣàn agbára AC onílupu, ṣàtúnṣe generator, ẹrù tàbí tap A–B, kí o sì ṣí ẹ̀ka kan láti fi foliteji àti ìṣàn wé. Ìṣirò fi erékùṣù tí kò ní slack bus àti ààlà reactive hàn.",
       "For meshed AC power flow edit generator, load or A–B tap, then open branch to compare bus voltage and flow. Solver report island wey no get slack bus and show when generator reach reactive limit.",
     ],
+  "Choose Compare single branch outages to open each active branch in turn. Compare the voltage band and apparent-power ratings, and inspect any islanded cases separately.":
+    [
+      "Wählen Sie Einzelne Zweigausfälle vergleichen, um jeden aktiven Zweig einzeln zu öffnen. Vergleichen Sie Spannungsband und Scheinleistungsgrenzen und prüfen Sie Inseln separat.",
+      "Yan Fi ìdádúró ẹ̀ka kọ̀ọ̀kan wé láti ṣí ẹ̀ka tó ń ṣiṣẹ́ lẹ́ẹ̀kan. Fi ààlà foliteji àti agbára S wé, kí o sì ṣàyẹ̀wò erékùṣù lọ́tọ̀.",
+      "Choose Compare single branch outages to open each active branch one by one. Compare voltage band and apparent power rating and inspect island cases separately.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

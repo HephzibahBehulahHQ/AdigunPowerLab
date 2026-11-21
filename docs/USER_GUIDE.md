@@ -266,3 +266,5 @@ Select the reservoir, turbine, generator, step-up transformer or tower in the 3D
 On narrow screens, scroll down from the camera controls to the equipment buttons and inspector. Both remain available through the keyboard, including when the schematic substitutes for the WebGL view.
 
 In Meshed AC power flow, edit the load, generator or A–B transformer tap and phase shift. Open one branch to see a connected contingency. Isolating a bus stops the solve and disables export. The tables show voltages, net bus injections, and power entering each line end. The solver converts a PV bus to PQ at the first violated reactive limit and holds it there for the remainder of that solve.
+
+Choose Compare single branch outages in the meshed AC experiment. The comparison opens one currently active branch per case, using 0.95–1.05 pu for voltage screening and the greater line-end MVA against your entered rating. Export AC results includes the comparison while it is displayed.
