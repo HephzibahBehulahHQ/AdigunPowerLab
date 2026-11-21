@@ -370,3 +370,5 @@ Independent numerical verification now includes a closed-form two-bus AC case an
 The transformer lesson now compares the ideal and lossy cases at the same apparent load, with both results in the JSON export. An independent fixture covers real-power balance, no-load core loss and the nameplate threshold.
 
 The production update smoke fixture now checks file containment using native path semantics. Windows root and repository-base update and offline checks passed against the transformer-comparison build. The source catalogue implementation matrix records supported models and remaining entries.
+
+The next catalogue increment adds a sourced solar thermal power tower worksheet with editable irradiance, aperture, efficiencies and operating limits. It has independent reset and JSON export.

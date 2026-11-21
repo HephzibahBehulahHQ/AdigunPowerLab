@@ -328,3 +328,5 @@ Valid transmission edits are autosaved as a browser draft. When reopening the la
 Scroll to the navigable station model to start its 3D renderer. You can use Tab and the arrow keys to move the camera controls. If WebGL is unavailable, use the equipment list and station schematic.
 
 Open **Compare with an ideal transformer** in the transformer loading lesson to compare the same load and rating with zero core and winding losses. Both cases are in the JSON report. At zero load the ideal efficiency is undefined.
+
+In **Solar thermal power tower**, change direct irradiance, aperture or efficiencies and compare incident power, collected heat and available output. Compare the 800 W/m² reference with 100 W/m² to see the minimum stable load cutoff. Use the JSON export for the current inputs and outputs.

@@ -48,6 +48,7 @@ import { MeshedPowerFlowExperiment } from "./MeshedPowerFlowExperiment";
 import { PowerGridFrequencyExperiment } from "./PowerGridFrequencyExperiment";
 import { PvPerformanceExperiment } from "./PvPerformanceExperiment";
 import { HydroPerformanceExperiment } from "./HydroPerformanceExperiment";
+import { SolarThermalExperiment } from "./SolarThermalExperiment";
 import { WindResourceExperiment } from "./WindResourceExperiment";
 import { MicrogridDispatchExperiment } from "./MicrogridDispatchExperiment";
 import { RegionalGridPreset } from "./RegionalGridPreset";
@@ -1406,6 +1407,7 @@ export function PowerGridLab({
       <PowerGridDistanceLesson locale={locale} />
       <PvPerformanceExperiment />
       <HydroPerformanceExperiment locale={locale} />
+      <SolarThermalExperiment locale={locale} />
       <WindResourceExperiment />
       <MicrogridDispatchExperiment activeDemand={activeDemand} />
       <MeshedPowerFlowExperiment locale={locale} />

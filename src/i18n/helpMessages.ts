@@ -1947,6 +1947,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Ṣí àfiwé transformer ideal láti rí bí àìsí àdánù core àti winding ṣe yí ìmúṣẹ padà ní ẹrù kan náà. JSON ní àpẹẹrẹ méjèèjì.",
       "Open ideal transformer comparison to see efficiency if core and winding get zero loss for di same load. Both cases dey inside di JSON report.",
     ],
+  "In the solar thermal power tower, vary direct irradiance and compare collected heat with electrical output. Below the minimum stable load, available output is zero.":
+    [
+      "Ändern Sie im solarthermischen Turmkraftwerk die direkte Einstrahlung und vergleichen Sie gewonnene Wärme mit elektrischer Leistung. Unter der stabilen Mindestlast ist keine Leistung verfügbar.",
+      "Nínú ilé agbára ooru oòrùn, yí ìmọ́lẹ̀ taara padà kí o sì wé ooru tí a gba pẹ̀lú agbára iná. Ní ìsàlẹ̀ ẹrù iṣẹ́ tó kéré jù, agbára tó wà jẹ́ òdo.",
+      "For solar thermal tower, change direct sunlight and compare heat wey dem collect with electrical output. Below minimum stable load, available output na zero.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

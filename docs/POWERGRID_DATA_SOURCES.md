@@ -35,3 +35,5 @@ The solar and wind images are custom teaching illustrations generated for this p
 The worksheet uses Appendix D's tabulated NREL 6 MW (2015) reference turbine curve from [NREL/TP-6A20-67414](https://www.nrel.gov/docs/fy17osti/67414.pdf) (2017 report). This is a research reference turbine, not a commercial machine selected for a site. The model linearly interpolates the supplied wind-speed/power points, including the published zero-output cut-out point.
 
 Wind speeds, interval duration and turbine count are user-entered teaching inputs. The example sequence exercises zero, partial-load, rated and cut-out regions; it is not measured weather or a regional profile. Air density, hub-height adjustment, turbulence, wakes, electrical conversion, availability, curtailment, control strategy and long-term energy yield are outside scope.
+
+The solar thermal worksheet uses the conversion chain from the [U.S. Department of Energy power tower reference](https://www.energy.gov/cmei/systems/power-tower-system-concentrating-solar-thermal-power-basics). The worksheet's efficiencies, aperture, irradiance, capacity and operating threshold are illustrative inputs.
