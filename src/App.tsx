@@ -124,6 +124,7 @@ import {
   Simulation,
 } from "./features/WorkspacePages";
 import { WorkspaceLabMenu } from "./features/WorkspaceLabMenu";
+import { EngineeringFieldGuide } from "./features/EngineeringFieldGuide";
 import {
   Renewables,
   EVPlanner,
@@ -1686,6 +1687,11 @@ export default function App() {
                   )}
                   {route === "loads" && (
                     <>
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
+                      />
                       <LoadOperations
                         project={project}
                         change={change}
@@ -1694,55 +1700,73 @@ export default function App() {
                       <button className="button" onClick={() => go("library")}>
                         {t("Add from library")}
                       </button>
-                      <Loads
-                        project={project}
-                        result={result}
-                        detailMode={detailMode}
-                        selected={selected}
-                        onAdd={() => setEditor({})}
-                        onEdit={(load) => setEditor({ load })}
-                        onSelect={(id) => {
-                          setSelected(id);
-                          setShowTrace(false);
-                        }}
-                        onDuplicate={(load) =>
-                          change((p) =>
-                            p.loads.push({
-                              ...structuredClone(load),
-                              id: crypto.randomUUID(),
-                              name: load.name + " · copy",
-                            }),
-                          )
-                        }
-                        onDelete={(id) =>
-                          setCommandReview({
-                            preview: previewProjectCommand(project, {
-                              kind: "loads.delete",
-                              ids: [id],
-                            }),
-                          })
-                        }
-                        onImport={() => fileInput.current?.click()}
-                        onExport={() => exportLoads(project)}
-                        onLibrary={() => go("library")}
-                      />
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        <Loads
+                          project={project}
+                          result={result}
+                          detailMode={detailMode}
+                          selected={selected}
+                          onAdd={() => setEditor({})}
+                          onEdit={(load) => setEditor({ load })}
+                          onSelect={(id) => {
+                            setSelected(id);
+                            setShowTrace(false);
+                          }}
+                          onDuplicate={(load) =>
+                            change((p) =>
+                              p.loads.push({
+                                ...structuredClone(load),
+                                id: crypto.randomUUID(),
+                                name: load.name + " · copy",
+                              }),
+                            )
+                          }
+                          onDelete={(id) =>
+                            setCommandReview({
+                              preview: previewProjectCommand(project, {
+                                kind: "loads.delete",
+                                ids: [id],
+                              }),
+                            })
+                          }
+                          onImport={() => fileInput.current?.click()}
+                          onExport={() => exportLoads(project)}
+                          onLibrary={() => go("library")}
+                        />
+                      </div>
                     </>
                   )}
                   {route === "boards" && (
                     <>
-                      <ProjectOrganization project={project} change={change} />
-                      <Boards
-                        project={project}
-                        result={result}
-                        detailMode={detailMode}
-                        change={change}
-                        onSelect={setSelected}
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
                       />
+                      <ProjectOrganization project={project} change={change} />
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        <Boards
+                          project={project}
+                          result={result}
+                          detailMode={detailMode}
+                          change={change}
+                          onSelect={setSelected}
+                        />
+                      </div>
                     </>
                   )}
                   {route === "diagram" && (
                     <>
-                      <div className="tab-bar">
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
+                      />
+                      <div
+                        className="tab-bar"
+                        id="engineering-calculator"
+                        tabIndex={-1}
+                      >
                         <button
                           className={diagramView === "single" ? "active" : ""}
                           onClick={() => setDiagramView("single")}
@@ -1786,13 +1810,20 @@ export default function App() {
                   )}
                   {route === "simulation" && (
                     <>
-                      <Simulation
-                        project={project}
-                        result={result}
-                        detailMode={detailMode}
-                        onComplete={rememberCalendar}
-                        animationsPaused={motion === "paused"}
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
                       />
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        <Simulation
+                          project={project}
+                          result={result}
+                          detailMode={detailMode}
+                          onComplete={rememberCalendar}
+                          animationsPaused={motion === "paused"}
+                        />
+                      </div>
                       <details
                         className="advanced-section"
                         open={detailMode === "engineering"}
@@ -1829,25 +1860,46 @@ export default function App() {
                     />
                   )}
                   {["cables", "motors", "quality", "tools"].includes(route) && (
-                    <Toolbox
-                      detailMode={detailMode}
-                      project={project}
-                      change={change}
-                      selectedId={selected}
-                      key={`${route}:${toolId}:${toolRequest}`}
-                      initialTool={
-                        toolId || (route === "cables" ? "T16" : undefined)
-                      }
-                      category={
-                        route === "cables"
-                          ? "Cables|Protection"
-                          : route === "motors"
-                            ? "Motors|Supply|Distribution"
-                            : route === "quality"
-                              ? "Quality"
-                              : undefined
-                      }
-                    />
+                    <>
+                      {(route === "cables" ||
+                        route === "motors" ||
+                        route === "quality") && (
+                        <EngineeringFieldGuide
+                          key={route}
+                          route={route}
+                          locale={locale}
+                          onOpenCalculator={() => {
+                            setToolId(
+                              { cables: "T16", motors: "T14", quality: "T33" }[
+                                route
+                              ],
+                            );
+                            setToolRequest((request) => request + 1);
+                          }}
+                        />
+                      )}
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        <Toolbox
+                          detailMode={detailMode}
+                          project={project}
+                          change={change}
+                          selectedId={selected}
+                          key={`${route}:${toolId}:${toolRequest}`}
+                          initialTool={
+                            toolId || (route === "cables" ? "T16" : undefined)
+                          }
+                          category={
+                            route === "cables"
+                              ? "Cables|Protection"
+                              : route === "motors"
+                                ? "Motors|Supply|Distribution"
+                                : route === "quality"
+                                  ? "Quality"
+                                  : undefined
+                          }
+                        />
+                      </div>
+                    </>
                   )}
                   {route === "cables" && (
                     <FeederAssessment
@@ -1857,87 +1909,134 @@ export default function App() {
                     />
                   )}
                   {route === "renewables" && (
-                    <Renewables
-                      key={project.id}
-                      project={project}
-                      detailMode={detailMode}
-                      change={change}
-                      onComplete={(calculated, inputs) =>
-                        setReportContext((context) => ({
-                          ...context,
-                          energy: {
-                            projectId: latest.current.id,
-                            revision: calculated.revision,
-                            calculatedAt: new Date().toISOString(),
-                            result: calculated,
-                            inputs: inputs as EnergyOptions,
-                            source:
-                              "Completed renewable/storage dispatch with entered profiles",
-                          },
-                        }))
-                      }
-                    />
+                    <>
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
+                      />
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        <Renewables
+                          key={project.id}
+                          project={project}
+                          detailMode={detailMode}
+                          change={change}
+                          onComplete={(calculated, inputs) =>
+                            setReportContext((context) => ({
+                              ...context,
+                              energy: {
+                                projectId: latest.current.id,
+                                revision: calculated.revision,
+                                calculatedAt: new Date().toISOString(),
+                                result: calculated,
+                                inputs: inputs as EnergyOptions,
+                                source:
+                                  "Completed renewable/storage dispatch with entered profiles",
+                              },
+                            }))
+                          }
+                        />
+                      </div>
+                    </>
                   )}
                   {route === "ev" && (
-                    <EVPlanner
-                      project={project}
-                      result={result}
-                      detailMode={detailMode}
-                      change={change}
-                      onComplete={(sessionId, plan, inputs) =>
-                        setReportContext((context) => {
-                          const revision = latest.current.revision;
-                          const prior =
-                            context.ev?.revision === revision
-                              ? context.ev.result
-                              : [];
-                          return {
-                            ...context,
-                            ev: {
-                              projectId: latest.current.id,
-                              revision,
-                              calculatedAt: new Date().toISOString(),
-                              result: [
-                                ...prior.filter(
-                                  (row) => row.sessionId !== sessionId,
-                                ),
-                                { sessionId, plan },
-                              ],
-                              inputs,
-                              source:
-                                "Completed dated EV allocation with entered session constraints",
-                            },
-                          };
-                        })
-                      }
-                    />
+                    <>
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
+                      />
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        <EVPlanner
+                          project={project}
+                          result={result}
+                          detailMode={detailMode}
+                          change={change}
+                          onComplete={(sessionId, plan, inputs) =>
+                            setReportContext((context) => {
+                              const revision = latest.current.revision;
+                              const prior =
+                                context.ev?.revision === revision
+                                  ? context.ev.result
+                                  : [];
+                              return {
+                                ...context,
+                                ev: {
+                                  projectId: latest.current.id,
+                                  revision,
+                                  calculatedAt: new Date().toISOString(),
+                                  result: [
+                                    ...prior.filter(
+                                      (row) => row.sessionId !== sessionId,
+                                    ),
+                                    { sessionId, plan },
+                                  ],
+                                  inputs,
+                                  source:
+                                    "Completed dated EV allocation with entered session constraints",
+                                },
+                              };
+                            })
+                          }
+                        />
+                      </div>
+                    </>
                   )}
                   {route === "costs" && (
-                    <Costs
-                      key={project.id}
-                      project={project}
-                      result={result}
-                      detailMode={detailMode}
-                      change={change}
-                    />
+                    <>
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
+                      />
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        <Costs
+                          key={project.id}
+                          project={project}
+                          result={result}
+                          detailMode={detailMode}
+                          change={change}
+                        />
+                      </div>
+                    </>
                   )}
                   {route === "scenarios" && (
-                    <ScenarioWorkspace
-                      key={project.id}
-                      detailMode={detailMode}
-                      change={change}
-                      onTrash={(id) =>
-                        void setTrashed(id, true)
-                          .then(refreshRecords)
-                          .catch((e) => setError(e.message))
-                      }
-                      project={project}
-                      records={records}
-                      onCreate={(p) => void createAndOpen(p)}
-                      onOpen={(p) => void openProject(p)}
-                    />
+                    <>
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
+                      />
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        <ScenarioWorkspace
+                          key={project.id}
+                          detailMode={detailMode}
+                          change={change}
+                          onTrash={(id) =>
+                            void setTrashed(id, true)
+                              .then(refreshRecords)
+                              .catch((e) => setError(e.message))
+                          }
+                          project={project}
+                          records={records}
+                          onCreate={(p) => void createAndOpen(p)}
+                          onOpen={(p) => void openProject(p)}
+                        />
+                      </div>
+                    </>
                   )}
-                  {route === "library" && libraryPage()}
+                  {route === "library" && (
+                    <>
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
+                      />
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        {libraryPage()}
+                      </div>
+                    </>
+                  )}
                   {route === "reports" && (
                     <>
                       <div className="tab-bar">

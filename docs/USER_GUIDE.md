@@ -311,6 +311,22 @@ At the top of POWERGRID LAB, use **Source to socket** to predict where voltage c
 
 Select a piece of equipment to inspect its field photo or play the powerhouse footage. The **Test voltage** slider compares current and conductor loss against the 132 kV reference without editing the saved worksheet.
 
+On Overview, **Explore the workspace** groups illustrated links by menu section. In **Cables & Protection** and **Motors & Supply**, play the credited field footage and select **Go to the calculator** to try the exercise with editable inputs.
+
+In **Renewables & Storage**, watch the solar and battery microgrid footage, then compare two battery capacities using the same solar and load profiles.
+
+In **EV & Flexible Loads**, watch a fleet charging demonstration. In the planner, move departure earlier with the same charger limit and compare unmet energy.
+
+In **Power Quality**, watch the capacitor bank demonstration, open **Power-factor correction**, and compare kvar requirements at displacement power factor targets of 0.95 and 0.98.
+
+In **Single-Line Studio**, watch a transformer installation and trace a supply node through the project diagram. In **Schedules & Simulation**, watch a winter demand response and find the peak on a simulated demand curve.
+
+In **Load Schedule**, watch a backup generator installation and compare load quantity with installed power and daily energy. In **Boards & Circuits**, watch a breaker inspection and compare design current with the entered breaker rating in a reference circuit.
+
+In **Scenarios & Optimization**, watch a hybrid microgrid case study and compare a changed load schedule with a saved baseline. In **Equipment Library**, watch a generator inspection and compare an equipment record's ratings with the resulting project load.
+
+In **Costs & Carbon**, watch the utility explanation and compare estimates at two demand charges using the same energy price and schedule.
+
 In **Adigun BOT · Transmission worksheet**, preview a 10% increase and inspect the before/after values. Confirm to apply it, or cancel to keep editing. A worksheet edit or undo invalidates the open preview. Use **Undo transmission edit** to revert an applied proposal. **Export current lab report** downloads the current worksheet results.
 
 Select equipment in the station model and open **Explain selected station equipment** in the lab BOT. The explanation follows the station selection and describes the component's role and interfaces.

@@ -954,6 +954,101 @@ test("Overview's visual menu opens engineering tools", async ({ page }) => {
   await expect(page).toHaveURL(/#\/cables$/);
 });
 
+test("engineering field guides link footage to the calculator", async ({
+  page,
+}) => {
+  for (const lesson of [
+    {
+      route: "costs",
+      title: "Separate demand charges from energy charges",
+      clip: "yHlhF0nEJ14",
+      action: "Go to tariff settings",
+    },
+    {
+      route: "scenarios",
+      title: "Compare a design change with its baseline",
+      clip: "995797",
+      action: "Go to scenarios",
+    },
+    {
+      route: "library",
+      title: "Match an equipment record to a real device",
+      clip: "410589",
+      action: "Go to the equipment library",
+    },
+    {
+      route: "loads",
+      title: "Build a load list for backup power",
+      clip: "939154",
+      action: "Go to the load list",
+    },
+    {
+      route: "boards",
+      title: "Compare circuit demand and protection",
+      clip: "1007562",
+      action: "Go to the circuit list",
+    },
+    {
+      route: "diagram",
+      title: "Trace the supply in a single-line diagram",
+      clip: "902345",
+      action: "Go to the diagram",
+    },
+    {
+      route: "simulation",
+      title: "Find the hours with highest demand",
+      clip: "993768",
+      action: "Go to the simulation",
+    },
+    {
+      route: "quality",
+      title: "Compare capacitor bank demand",
+      clip: "-Cp9guj0B_M",
+      input: "Target displacement PF",
+    },
+    {
+      route: "renewables",
+      title: "Store solar energy for later",
+      clip: "937640",
+    },
+    {
+      route: "ev",
+      title: "Fit charging into the parking window",
+      clip: "373814",
+    },
+    {
+      route: "cables",
+      title: "Follow the cable from the transformer",
+      clip: "902345",
+    },
+    {
+      route: "motors",
+      title: "Inspect a motor and its supply",
+      clip: "848540",
+      input: "Identical motors to start",
+    },
+  ]) {
+    await page.goto(`/#/${lesson.route}`);
+    const guide = page.getByRole("region", { name: lesson.title });
+    await expect(guide.locator("iframe")).toHaveCount(0);
+    await guide.getByRole("button", { name: /^Watch/ }).click();
+    await expect(guide.locator("iframe")).toHaveAttribute(
+      "src",
+      new RegExp(`/embed/${lesson.clip}$`),
+    );
+    await guide
+      .getByRole("button", { name: lesson.action ?? "Go to the calculator" })
+      .click();
+    await expect(page.locator("#engineering-calculator")).toBeFocused();
+    if (lesson.input) {
+      await expect(
+        page.locator("#engineering-calculator").getByLabel(lesson.input),
+      ).toBeVisible();
+    }
+    await expect(page).toHaveURL(new RegExp(`#/${lesson.route}$`));
+  }
+});
+
 test("Overview pairs credited facility photos and documentary video with working calculations", async ({
   page,
 }) => {
