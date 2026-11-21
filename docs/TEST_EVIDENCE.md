@@ -623,3 +623,5 @@ PR #117 passed [candidate 44935354512](https://github.com/HephzibahBehulahHQ/Adi
 ### POWERGRID LAB tidal stream turbine
 
 TypeScript and 20 Help checks passed. Chromium verified 410 kW flow power at 2 m/s and 51.25 kW at 1 m/s, a 120 kW cap at the worked point, zero available output at cut-out despite positive potential, JSON content and reset. The local runner stalled during teardown.
+
+Three analytical tidal stream tests also passed. They verify the 410 → 164 → 147.6 kW power chain, the 120 kW nameplate limit, inclusive cut-in, exclusive cut-out and invalid-input rejection.
