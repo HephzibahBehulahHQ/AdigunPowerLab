@@ -377,3 +377,5 @@ The hydrogen fuel cell worksheet converts an entered inventory and feed limit to
 The biogas worksheet distinguishes available and used fuel, caps electricity at nameplate, and limits useful heat to demand and recoverable residual heat.
 
 The solid biomass worksheet distinguishes dry and as-fired heating value, available and used fuel, steam heat, gross output and net electrical output.
+
+The diesel worksheet exposes the fuel curve's no-load intercept, rating and inventory limits, minimum load cutoff, fuel used and remaining fuel.
