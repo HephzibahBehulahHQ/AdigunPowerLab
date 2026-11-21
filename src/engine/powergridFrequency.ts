@@ -23,6 +23,7 @@ export const DEFAULT_FREQUENCY_INPUTS: FrequencyInputs = {
 
 const FIELD_KEYS = Object.keys(FREQUENCY_FIELDS) as (keyof FrequencyInputs)[];
 const MAX_STEP_SECONDS = 0.01;
+const MIN_STEP_SECONDS = 0.001;
 const DEVIATION_LIMIT_PU = 0.05;
 type State = readonly [frequencyPU: number, governorPU: number];
 const advanced = (
@@ -31,8 +32,14 @@ const advanced = (
   step: number,
 ): State => [frequency + step * df, governor + step * dg];
 
-export function simulateFrequencyResponse(input: FrequencyInputs) {
+export function simulateFrequencyResponse(
+  input: FrequencyInputs,
+  maxStepSeconds = MAX_STEP_SECONDS,
+) {
   if (
+    !Number.isFinite(maxStepSeconds) ||
+    maxStepSeconds < MIN_STEP_SECONDS ||
+    maxStepSeconds > MAX_STEP_SECONDS ||
     FIELD_KEYS.some((key) => {
       const { min, max } = FREQUENCY_FIELDS[key];
       return (
@@ -53,7 +60,7 @@ export function simulateFrequencyResponse(input: FrequencyInputs) {
       (requested - governor) / input.governorSeconds,
     ];
   };
-  const steps = Math.ceil(input.durationSeconds / MAX_STEP_SECONDS);
+  const steps = Math.ceil(input.durationSeconds / maxStepSeconds);
   const step = input.durationSeconds / steps;
   let state: State = [0, 0];
   const samples = [

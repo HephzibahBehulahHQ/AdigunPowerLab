@@ -72,3 +72,9 @@ This is not a feeder/network solution. Feeder and transformer losses, imports/ex
 ## Visual station model boundary
 
 The navigable WebGL station model uses original simplified meshes to teach relative equipment placement from reservoir through a hydro unit, step-up transformer, switchyard, transmission tower, receiving transformer, home and industry. It has no geographic scale, asset survey, equipment nameplate values or solved electrical state. Phase conductor colours are illustrative; transmission neutrals vary by network and are not implied by every line. Use the detailed hydro cutaway for connection and terminal explanations. WebGL availability is feature-detected and the station schematic remains available when it cannot render.
+
+## Independent two-bus check and frequency step refinement
+
+For a balanced two-bus line with fixed receiving load P + jQ, the sending and receiving magnitudes satisfy |Vs|² = |Vr|² + 2(RP + XQ) + (R² + X²)(P² + Q²)/|Vr|². With line-to-line kV, total three-phase MW/Mvar and per-phase ohms, the higher-voltage root gives the reference receiving voltage. The fixture also checks line current and sending-end P/Q against conductor losses.
+
+The aggregate frequency lesson uses fourth-order Runge–Kutta with a default maximum step of 0.01 s. The numerical verification compares the same four-second disturbance at 0.01 and 0.005 s, including nadir magnitude, time and ending frequency. The refinement setting is an engine verification input; the classroom control defaults are unchanged.

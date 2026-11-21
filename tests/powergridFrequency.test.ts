@@ -5,6 +5,27 @@ import {
 } from "../src/engine/powergridFrequency";
 
 describe("aggregate frequency response", () => {
+  it("keeps the transient nadir stable when the integration step is halved", () => {
+    const input = { ...DEFAULT_FREQUENCY_INPUTS, durationSeconds: 4 };
+    const standard = simulateFrequencyResponse(input)!;
+    const refined = simulateFrequencyResponse(input, 0.005)!;
+    expect(standard.integrationStepSeconds).toBe(0.01);
+    expect(refined.integrationStepSeconds).toBe(0.005);
+    expect(standard.nadir.seconds).toBeGreaterThan(0);
+    expect(standard.nadir.seconds).toBeLessThan(input.durationSeconds);
+    expect(
+      Math.abs(standard.nadir.seconds - refined.nadir.seconds),
+    ).toBeLessThanOrEqual(0.01);
+    expect(
+      Math.abs(standard.nadir.frequencyHz - refined.nadir.frequencyHz),
+    ).toBeLessThan(0.00001);
+    expect(standard.samples.at(-1)!.frequencyHz).toBeCloseTo(
+      refined.samples.at(-1)!.frequencyHz,
+      7,
+    );
+    expect(simulateFrequencyResponse(input, 0)).toBeNull();
+  });
+
   it("matches the analytical inertial ramp with damping and reserve disabled", () => {
     const result = simulateFrequencyResponse({
       ...DEFAULT_FREQUENCY_INPUTS,

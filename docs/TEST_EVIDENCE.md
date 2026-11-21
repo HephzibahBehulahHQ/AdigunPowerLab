@@ -599,3 +599,7 @@ TypeScript and 26 Help and archive checks passed. Chromium verified that a valid
 ### POWERGRID LAB deferred station rendering
 
 TypeScript and 20 Help checks passed. Three Chromium cases verified no draw before the station canvas approached the viewport, reuse of scene buffers after camera input, no idle redraw across frames with reduced motion requested, and keyboard inspection with WebGL disabled. The synchronized station/BOT group selection passed.
+
+### POWERGRID LAB analytical AC and time-step sensitivity
+
+TypeScript and the full Windows unit suite passed: 445 tests in 34 files, using Vitest with four workers. The two-bus case verified receiving voltage, line current and sending P/Q with a closed-form high-voltage root. The frequency case verified that halving the step from 0.01 to 0.005 s changes the nadir by less than 0.00001 Hz, with nadir time within 0.01 s and ending frequency agreeing to seven decimal places.
