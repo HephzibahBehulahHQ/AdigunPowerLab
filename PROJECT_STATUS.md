@@ -380,3 +380,5 @@ PR #117 merged and deployed as 93fff33. The solar thermal lesson is served by bo
 The tidal stream increment adds a source-linked turbine worksheet with a swept-area flow calculation, separate shaft and electrical potential, rating, cut-in and cut-out, and a JSON export. Wave generation remains open.
 
 The geothermal increment adds a source-linked binary-cycle worksheet with brine temperatures and flow, gross output and signed net output after auxiliary load. The learner can reset the worked case and export JSON.
+
+The wave-energy increment adds an independent deep-water sea-state worksheet with wave flux, capture width, conversion efficiency, rating and shutdown height. It reports resource and available output separately and provides JSON export.

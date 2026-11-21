@@ -98,7 +98,7 @@ The fixed-voltage lesson compares a lossless transformer with a 1,000 kVA teachi
 | Diesel and other liquid fuel | Generic thermal backup supports entered heat rate, startup fuel and fuel inventory. A liquid-fuel asset-specific curve remains open. |
 | Biomass and biogas | Source catalogue entry remains open. |
 | Geothermal | Binary-cycle brine heat, gross rating and auxiliary load worksheet. Reservoir and dispatch models remain open. |
-| Tidal and wave | Tidal stream turbine worksheet with current speed, capture fraction, rating and operating thresholds. Wave generation remains open. |
+| Tidal and wave | Separate tidal stream turbine and deep-water wave conversion point calculations. Device performance matrices and chronological dispatch remain open. |
 | Battery storage | Chronological SOC, reserve, charge/discharge limits and directional efficiencies. |
 | Hydrogen and fuel cell | Source catalogue entry remains open. |
 
@@ -115,3 +115,7 @@ The worksheet estimates flow power through the swept area as 0.5 × water densit
 ## Binary-cycle geothermal
 
 Recovered heat is brine mass flow × 4.18 kJ/(kg·K) × the production-to-reinjection temperature drop. The gross electrical estimate uses the entered conversion efficiency, subject to the Carnot upper bound at the production and heat sink temperatures. Actual gross output is capped by nameplate. Net output subtracts the entered auxiliary demand, so a negative reading represents required external supply. The solver assumes single-phase brine and steady operating conditions.
+
+## Deep-water wave conversion
+
+Wave flux per metre of crest is seawater density × gravity² × significant wave height² × energy period / (64π). The model uses 1,025 kg/m³ and 9.81 m/s². Multiplying flux by effective capture width estimates absorbed power, then conversion efficiency gives electrical potential. Available output is capped by nameplate and falls to zero at the configured shutdown height. The worksheet assumes deep water and a single sea state.

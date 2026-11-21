@@ -334,3 +334,5 @@ In **Solar thermal power tower**, change direct irradiance, aperture or efficien
 In **Tidal stream turbine**, change current speed from 2 m/s to 1 m/s and compare flow power. Try the cut-out speed to see why electrical potential can remain positive while available output falls to zero. Export the current tidal stream results as JSON.
 
 In **Binary-cycle geothermal generation**, vary brine flow or the production and reinjection temperatures. Compare recovered heat, gross potential, rating-limited output and net output. A negative net value means the entered plant auxiliaries require power from outside the plant. Reset or export the case as JSON.
+
+In **Deep-water wave energy**, vary significant wave height and energy period. Compare wave power per metre with the electrical output after capture and conversion. Raise wave height to the entered shutdown limit to see available output fall to zero.

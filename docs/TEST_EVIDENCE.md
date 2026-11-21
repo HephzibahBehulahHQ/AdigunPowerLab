@@ -629,3 +629,7 @@ Three analytical tidal stream tests also passed. They verify the 410 → 164 →
 ### POWERGRID LAB binary-cycle geothermal
 
 TypeScript and 20 Help checks passed. Chromium verified 14,630 kW recovered heat, 1,350 kW net at the rated worked point, rejection of efficiency above the Carnot ceiling, signed −150 kW net demand at zero flow, JSON content and reset. The local runner stalled during teardown.
+
+### POWERGRID LAB deep-water wave energy
+
+TypeScript and 20 Help checks passed. Chromium verified the 100 kW nameplate cap, about 98.12 kW/m crest flux at 5 m significant height and 8 s energy period, zero available output at shutdown, JSON content, invalid-input handling and reset. The local runner stalled during teardown.

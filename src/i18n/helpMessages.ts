@@ -1965,6 +1965,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú binary-cycle geothermal, yí ìṣàn omi tàbí ìdínkù ooru padà. Wé ooru tí a gba, agbára gross àti agbára net lẹ́yìn lílo ilé iṣẹ́, kí o sì gba èsì.",
       "For binary-cycle geothermal, change brine flow or temperature drop. Compare heat wey dem collect, gross power and net power after wetin plant use, then download di results.",
     ],
+  "In deep-water wave energy, vary wave height or energy period. Compare power per metre with device output, then try the shutdown height and export the case.":
+    [
+      "Ändern Sie im Tiefwasser-Wellenversuch die Wellenhöhe oder Energieperiode. Vergleichen Sie die Leistung je Meter mit der Geräteleistung, testen Sie die Abschalthöhe und exportieren Sie den Fall.",
+      "Nínú agbára ìgbì omi jinlẹ̀, yí gíga ìgbì tàbí àkókò agbára padà. Wé agbára fún mita pẹ̀lú agbára ẹrọ, dán gíga ìdádúró wò, kí o sì gba èsì.",
+      "For deep-water wave energy, change wave height or energy period. Compare power for each metre with device output, try di shutdown height, then download di case.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",
