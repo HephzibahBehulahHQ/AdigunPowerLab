@@ -304,3 +304,5 @@ On phone-width screens the 3D camera and equipment inspector now stack verticall
 Milestone 5 has a separate balanced meshed AC solver and editable three-bus experiment. It supports slack/PV/PQ buses, series impedance, charging, transformer ratios and phase shifts, and bounded convergence with island checks.
 
 Milestone 5 now runs one outage per in-service branch and compares each result with the AC base case. The comparison reports voltage and apparent-power limit violations separately from islanding and solver failures.
+
+The meshed solver reproduced MATPOWER 8.1’s independently published nine-bus AC solution. All bus voltages and angles and both-end branch P/Q flows were checked. Inputs, solution hashes and maximum deviations are recorded in the test evidence.

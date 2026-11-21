@@ -490,3 +490,14 @@ The 390 × 844 Chromium fallback case confirmed the 3D station panel fits horizo
 Meshed AC verification passed TypeScript, nine localization tests, four numerical tests and Chromium acceptance. The independent rectangular-phasor fixture checks voltage, angle, slack injections and branch-loss balance. Other fixtures cover PV limit conversion, transformer ratio and phase offset, island detection and iteration exhaustion. Chromium verifies three closed branches, a connected outage, JSON results and island export gating.
 
 N−1 comparison passed TypeScript, 14 focused numerical and localization tests, and Chromium. Coverage verifies complete enumeration of in-service branches, MVA overload screening, islanded outage outcomes, live comparison after opening a base-case branch, and exported contingency statuses.
+
+### Independent MATPOWER 8.1 nine-bus solution
+
+Run `node scripts/verify-matpower-case9.mjs <input-file> <solution-file>` using the upstream [t_case9_pf.m](https://raw.githubusercontent.com/MATPOWER/matpower/8.1/lib/t/t_case9_pf.m) and [soln9_pf.mat](https://raw.githubusercontent.com/MATPOWER/matpower/8.1/lib/t/soln9_pf.mat). The script imports the project solver and reads the published MATLAB v5 solution matrices without requiring MATLAB, Octave, or packages.
+
+| Upstream fixture | SHA-256 |
+| --- | --- |
+| `t_case9_pf.m` | `5ac7438cfc9ef249e85639efbd824121210aab7956730e2b37b7a37b416f7d94` |
+| `soln9_pf.mat` | `ffa8e28cb1fc0e2b60ea52f21de40c8b15353ff37b7aaa97f93501ca514d126d` |
+
+On 21 November 2026 the case converged in four iterations with a maximum mismatch of 1.59 × 10⁻¹² pu. Across all nine buses and both ends of all nine branches, maximum absolute errors were 2.65 × 10⁻¹³ pu, 5.91 × 10⁻¹² degrees, 8.33 × 10⁻¹¹ MW and 3.08 × 10⁻¹⁰ Mvar. This reference exercises line charging and multiple PV buses under base-case conditions. Separate analytical tests exercise transformer phase shift and binding reactive limits.
