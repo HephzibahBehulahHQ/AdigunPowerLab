@@ -128,3 +128,5 @@ The WebGL model is original schematic teaching geometry, not a photograph, surve
 ## Draft PR #116 qualification evidence
 
 The 12 initial lesson workflows are indexed in [POWERGRID_CURRICULUM.md](POWERGRID_CURRICULUM.md). This candidate also adds worker-backed contingency comparisons, dispatch BOT explanations, and transmission PDF baseline comparisons. Exact local and hosted verification belongs in [TEST_EVIDENCE.md](TEST_EVIDENCE.md). The curriculum index documents current workflows. Exact-candidate release gates and publication verification remain separate.
+
+The earlier header checkpoint `63c464e34aabb4c44220bb615461718d0c92f1ad` passed [hosted run 44933422356](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44933422356), including lint, unit, build, both browser suites and root/base-path update and offline smoke. This receipt applies to that revision. Later catalogue and release boundaries are recorded in [POWERGRID_MODELS.md](POWERGRID_MODELS.md) and [TEST_EVIDENCE.md](TEST_EVIDENCE.md).

@@ -354,3 +354,5 @@ The 3D acceptance check verifies no initial offscreen draw, on-demand rendering,
 The two-bus fixture checks receiving voltage, current and sending P/Q against a closed-form reference. The dynamic fixture checks nadir magnitude, nadir time and final frequency under step halving.
 
 The transformer lesson exposes a lossless comparison using the same rating and load. Unit checks cover ideal and lossy real-power balance, winding losses, no-load behavior and invalid inputs.
+
+The Windows production candidate passed interrupted-update recovery, old-tab module retention, unsaved billing protection, and cold PowerGrid entry and worker execution offline at both deployment paths. Hosted receipts are revision-specific.

@@ -1,6 +1,12 @@
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
-import { resolve, extname } from "node:path";
+import {
+  resolve,
+  extname,
+  relative as relativePath,
+  isAbsolute,
+  sep,
+} from "node:path";
 import assert from "node:assert/strict";
 import { chromium, expect } from "@playwright/test";
 
@@ -73,7 +79,13 @@ const server = createServer(async (request, response) => {
   const relative =
     decodeURIComponent(pathname.slice(basePath.length)) || "index.html";
   const file = resolve(root, relative);
-  if (!file.startsWith(root + "/")) {
+  const fromRoot = relativePath(root, file);
+  if (
+    !fromRoot ||
+    fromRoot === ".." ||
+    fromRoot.startsWith(`..${sep}`) ||
+    isAbsolute(fromRoot)
+  ) {
     response.writeHead(403).end();
     return;
   }

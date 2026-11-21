@@ -607,3 +607,7 @@ TypeScript and the full Windows unit suite passed: 445 tests in 34 files, using 
 ### POWERGRID LAB ideal and lossy transformer comparison
 
 TypeScript and 22 transformer and Help checks passed. The analytical fixture verified conservation at 500 kVA with power factor 0.8, including 400 kW ideal input and 404.5 kW lossy input. It also verified no-load behavior, the overload threshold and invalid input rejection. Chromium verified ideal and lossy report content and the rating warning.
+
+### POWERGRID LAB Windows qualification at 6fe55e44ecfc384bf88dbacd99d812a7e445c821
+
+TypeScript and the Windows production build passed. The full PowerGrid Chromium file reported all 44 cases passing; the local runner stalled during teardown. An earlier attempt to split the dev server and browser across tool invocations could not reach the server and was stopped. The build emitted a 378.74 kB lab module (111.47 kB gzip) and an 817.71 kB bootstrap (247.35 kB gzip). The Windows update fixture initially returned HTTP 403 for paths in dist. With the native-path containment correction, update and offline smoke both passed at / and /AdigunPowerLab/, including offline worker execution and PDF export. The earlier 63c464e hosted gate is recorded in POWERGRID_ACCEPTANCE.md.
