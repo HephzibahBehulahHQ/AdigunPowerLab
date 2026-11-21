@@ -19,6 +19,12 @@ export interface PowerGridScenario {
   regionalPresetId?: string;
 }
 
+export interface PowerGridRevision {
+  scenario: PowerGridScenario;
+  savedAt?: string;
+}
+const REVISION_LIMIT = 20;
+
 export function packPowerGridScenario(scenario: PowerGridScenario) {
   return { schemaVersion: 2, model: POWERGRID_SCENARIO_MODEL, ...scenario };
 }
@@ -66,24 +72,88 @@ export function unpackPowerGridScenario(
   };
 }
 
-export function readStoredPowerGridScenario(): PowerGridScenario | null {
+const storedDate = (value: unknown) =>
+  typeof value === "string" && Number.isFinite(Date.parse(value))
+    ? value
+    : undefined;
+
+export function readStoredPowerGridDocument(): {
+  current: PowerGridScenario | null;
+  savedAt?: string;
+  revisions: PowerGridRevision[];
+} {
   try {
     const saved: unknown = JSON.parse(
       localStorage.getItem(POWERGRID_SCENARIO_KEY) ?? "null",
     );
     const scenario = unpackPowerGridScenario(saved);
-    if (scenario) return scenario;
+    if (scenario) {
+      const record = saved as Record<string, unknown>;
+      const revisions = Array.isArray(record.revisions)
+        ? record.revisions
+            .slice(0, REVISION_LIMIT)
+            .flatMap((entry: unknown) => {
+              if (!entry || typeof entry !== "object") return [];
+              const revision = entry as Record<string, unknown>;
+              const scenario = unpackPowerGridScenario(revision.scenario);
+              return scenario
+                ? [{ scenario, savedAt: storedDate(revision.savedAt) }]
+                : [];
+            })
+        : [];
+      return {
+        current: scenario,
+        savedAt: storedDate(record.savedAt),
+        revisions,
+      };
+    }
     const oldInputs = checkedInputs(saved);
-    if (oldInputs) return { inputs: oldInputs, name: "", notes: "" };
+    if (oldInputs)
+      return {
+        current: { inputs: oldInputs, name: "", notes: "" },
+        revisions: [],
+      };
   } catch {
     // An unavailable or invalid saved copy does not prevent opening the lab.
   }
-  return null;
+  return { current: null, revisions: [] };
+}
+
+export function savePowerGridRevision(scenario: PowerGridScenario) {
+  const validated = unpackPowerGridScenario(packPowerGridScenario(scenario));
+  if (!validated) throw new Error("Invalid transmission scenario.");
+  const next = packPowerGridScenario(validated);
+  const stored = readStoredPowerGridDocument();
+  if (
+    stored.current &&
+    JSON.stringify(next) ===
+      JSON.stringify(packPowerGridScenario(stored.current))
+  ) {
+    return stored.revisions;
+  }
+  const revisions = stored.current
+    ? [
+        { scenario: stored.current, savedAt: stored.savedAt },
+        ...stored.revisions,
+      ].slice(0, REVISION_LIMIT)
+    : [];
+  localStorage.setItem(
+    POWERGRID_SCENARIO_KEY,
+    JSON.stringify({
+      ...next,
+      savedAt: new Date().toISOString(),
+      revisions: revisions.map((revision) => ({
+        savedAt: revision.savedAt,
+        scenario: packPowerGridScenario(revision.scenario),
+      })),
+    }),
+  );
+  return revisions;
 }
 
 export function readSavedPowerGridScenario(): PowerGridScenario {
   return (
-    readStoredPowerGridScenario() ?? {
+    readStoredPowerGridDocument().current ?? {
       inputs: DEFAULT_POWERGRID_INPUTS,
       name: "",
       notes: "",

@@ -18,7 +18,9 @@ import {
   packPowerGridScenario,
   readSavedPowerGridScenario,
   unpackPowerGridScenario,
-  POWERGRID_SCENARIO_KEY,
+  readStoredPowerGridDocument,
+  savePowerGridRevision,
+  type PowerGridRevision,
   POWERGRID_SCENARIO_MAX_BYTES,
   POWERGRID_SCENARIO_NAME_LIMIT,
   POWERGRID_SCENARIO_NOTES_LIMIT,
@@ -136,6 +138,15 @@ const historyCopy = {
   ],
   yo: ["Dá àtúnṣe gbigbe padà", "Tún àtúnṣe gbigbe ṣe"],
   pcm: ["Undo transmission edit", "Redo transmission edit"],
+} satisfies Record<Locale, string[]>;
+const revisionCopy = {
+  en: ["Saved transmission revisions", "No earlier transmission revisions."],
+  de: [
+    "Gespeicherte Übertragungsrevisionen",
+    "Keine früheren Übertragungsrevisionen.",
+  ],
+  yo: ["Àwọn àtúnṣe gbigbe tí a fi pamọ́", "Kò sí àtúnṣe gbigbe tẹ́lẹ̀."],
+  pcm: ["Saved transmission revisions", "No earlier transmission revisions."],
 } satisfies Record<Locale, string[]>;
 
 interface ScenarioHistory {
@@ -466,6 +477,8 @@ export function PowerGridLab() {
     null,
   );
   const [importError, setImportError] = useState(false);
+  const [revisions, setRevisions] = useState<PowerGridRevision[] | null>(null);
+  const [revisionHeading, noRevisions] = revisionCopy[locale];
   const [recovered, setRecovered] = useState<
     RecoveredPowerGridScenario[] | null
   >(null);
@@ -503,10 +516,8 @@ export function PowerGridLab() {
   const persist = () => {
     if (errors.length) return;
     try {
-      localStorage.setItem(
-        POWERGRID_SCENARIO_KEY,
-        JSON.stringify(packPowerGridScenario(scenario)),
-      );
+      const updated = savePowerGridRevision(scenario);
+      if (revisions !== null) setRevisions(updated);
       setSaved(true);
       setSaveError(false);
     } catch {
@@ -877,6 +888,48 @@ export function PowerGridLab() {
         {showRecovered}
       </button>
       {recoveryError && <p role="alert">{recoveryFailure}</p>}
+      <details
+        className="panel panel-pad"
+        onToggle={(event) => {
+          if (event.currentTarget.open)
+            setRevisions(readStoredPowerGridDocument().revisions);
+        }}
+      >
+        <summary>{revisionHeading}</summary>
+        {revisions &&
+          (revisions.length === 0 ? (
+            <p>{noRevisions}</p>
+          ) : (
+            <ul>
+              {revisions.map(({ scenario: revision, savedAt }, index) => (
+                <li key={index}>
+                  <button
+                    className="button"
+                    type="button"
+                    onClick={() => {
+                      importSequence.current++;
+                      setImportError(false);
+                      setImportPreview(revision);
+                    }}
+                  >
+                    {revision.name || unnamedRecovered} ·{" "}
+                    {fmt(revision.inputs.powerMW)} MW
+                  </button>
+                  {savedAt && (
+                    <>
+                      {" "}
+                      <time dateTime={savedAt}>
+                        {new Date(savedAt).toLocaleString(
+                          locale === "pcm" ? "en-NG" : locale,
+                        )}
+                      </time>
+                    </>
+                  )}
+                </li>
+              ))}
+            </ul>
+          ))}
+      </details>
       {recovered && (
         <section aria-labelledby="pg-recovered-title">
           <h3 id="pg-recovered-title">{recoveredHeading}</h3>

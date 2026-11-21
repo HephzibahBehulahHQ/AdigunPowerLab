@@ -19,7 +19,7 @@ import {
 import type { ProjectRecord } from "./projects";
 import {
   packPowerGridScenario,
-  readStoredPowerGridScenario,
+  readStoredPowerGridDocument,
 } from "../import-export/powergridScenario";
 import {
   POWERGRID_RECOVERY_PREFIX,
@@ -201,8 +201,13 @@ export async function collectWorkspaceBackup(
   }
   const transmission = [];
   if (!options.projectIds) {
-    const saved = readStoredPowerGridScenario();
-    if (saved) transmission.push(packPowerGridScenario(saved));
+    const saved = readStoredPowerGridDocument();
+    if (saved.current) transmission.push(packPowerGridScenario(saved.current));
+    transmission.push(
+      ...saved.revisions.map((revision) =>
+        packPowerGridScenario(revision.scenario),
+      ),
+    );
     for (const value of raw.metadata) {
       const row = readRecoveredPowerGridRow(value);
       if (row) transmission.push(packPowerGridScenario(row.scenario));

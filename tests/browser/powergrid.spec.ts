@@ -8,6 +8,10 @@ test("workspace backup restores a separate transmission experiment copy", async 
   await page.goto("/#POWERGRID");
   await page
     .getByRole("textbox", { name: "Experiment name" })
+    .fill("Earlier transmission");
+  await page.getByRole("button", { name: "Save experiment locally" }).click();
+  await page
+    .getByRole("textbox", { name: "Experiment name" })
     .fill("Archived transmission");
   await page.getByRole("button", { name: "Save experiment locally" }).click();
   await page.goto("/#/settings");
@@ -20,6 +24,9 @@ test("workspace backup restores a separate transmission experiment copy", async 
   const bytes = await readFile(await download.path());
   expect(JSON.parse(bytes.toString()).powergridTransmission[0].name).toBe(
     "Archived transmission",
+  );
+  expect(JSON.parse(bytes.toString()).powergridTransmission[1].name).toBe(
+    "Earlier transmission",
   );
   await page.goto("/#POWERGRID");
   await page
@@ -41,6 +48,15 @@ test("workspace backup restores a separate transmission experiment copy", async 
   await page.goto("/#POWERGRID");
   const labName = page.getByRole("textbox", { name: "Experiment name" });
   await expect(labName).toHaveValue("Current transmission");
+  await page.getByText("Saved transmission revisions", { exact: true }).click();
+  await page
+    .getByRole("button", { name: "Earlier transmission · 100 MW" })
+    .click();
+  await expect(
+    page.getByRole("region", { name: "Import preview" }),
+  ).toContainText("Earlier transmission");
+  await expect(labName).toHaveValue("Current transmission");
+  await page.getByRole("button", { name: "Cancel import" }).click();
   await page
     .getByRole("button", { name: "Show recovered experiments" })
     .click();

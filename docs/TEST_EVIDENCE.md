@@ -511,3 +511,5 @@ Transmission scenario restore passed TypeScript, 13 focused tests and Chromium. 
 Transmission workspace recovery passed TypeScript, 15 archive and localization tests, and Chromium backup/restore and direct import workflows. Coverage confirms integrity validation, rejection of invalid experiment inputs, archive preview, transactional recovery, and preservation of the existing browser worksheet after applying an unsaved recovered copy.
 
 Transmission edit history passed TypeScript, 13 focused tests and the Chromium import workflow. The browser verifies undo/redo of an entire imported scenario, redo invalidation after a fresh edit, and a fresh history after reloading the separately saved worksheet.
+
+Saved transmission revisions passed TypeScript, 15 focused archive and localization tests, and two Chromium workflows. Browser coverage verifies a prior saved revision in a new page session, a non-destructive revision preview, prior and current snapshots in the workspace JSON, and recovery as independent copies.

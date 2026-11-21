@@ -278,3 +278,5 @@ Use Import scenario JSON to preview an earlier transmission worksheet. Apply imp
 For workspace recovery, save the transmission experiment and choose All local projects in Settings → Workspace backup & restore. The backup preview lists included transmission experiments. After restoring, open PowerGrid Lab and choose Show recovered experiments. Select a copy, review its inputs, and apply it when ready. Save experiment locally to make it the saved worksheet.
 
 Use Undo transmission edit and Redo transmission edit while the worksheet is open. The history includes ordinary inputs, notes, presets, applied imports and reset. It keeps up to 40 edits per open session. Editing after an undo clears the redo path. Closing the worksheet clears its edit history, and saving is a separate action.
+
+Open Saved transmission revisions to preview one of the last 20 saved versions. Apply a revision to the worksheet, then save it explicitly if you want it to become the new saved version. Saving unchanged inputs and metadata adds no revision. All-project backups include earlier revision contents as recoverable experiment copies.

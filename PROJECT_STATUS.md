@@ -316,3 +316,5 @@ The transmission experiment now saves its name, notes and selected preset. Versi
 All-project workspace backups now include saved transmission experiments and recovered copies. Restoring stores the experiments separately in the workspace transaction. PowerGrid Lab can preview and apply a recovered copy without automatically replacing the saved worksheet.
 
 The transmission worksheet now supports undo and redo for up to 40 edit states while open, including whole-scenario imports and resets. The explicit saved snapshot remains separate.
+
+Explicit transmission saves now retain up to 20 earlier distinct save states. Users can preview these revisions after reload, and an all-project workspace backup includes their scenario contents for recovery as separate lab copies.

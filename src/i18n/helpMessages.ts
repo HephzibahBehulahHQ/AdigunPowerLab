@@ -1809,6 +1809,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Lo Dá àtúnṣe gbigbe padà àti Tún àtúnṣe gbigbe ṣe fún ìyípadà nínú worksheet tó ṣí, pẹ̀lú ìgbéwọlé àti preset. Fi pamọ́ lọ́tọ̀ láti tún ẹ̀dà browser ṣe.",
       "Use Undo transmission edit and Redo transmission edit for changes in the open worksheet, including imports and presets. Save separately to update the browser copy.",
     ],
+  "Open Saved transmission revisions to preview earlier explicit saves. Applying a revision updates the open worksheet. Save again to make that version the current browser copy.":
+    [
+      "Öffnen Sie Gespeicherte Übertragungsrevisionen, um frühere Sicherungen zu prüfen. Anwenden aktualisiert das geöffnete Arbeitsblatt. Speichern Sie erneut, um diese Version zur aktuellen Browserkopie zu machen.",
+      "Ṣí Àwọn àtúnṣe gbigbe tí a fi pamọ́ láti wo àwọn ẹ̀dà tó ti wà. Lílo ẹ̀dà yí worksheet tó ṣí padà. Fi pamọ́ lẹ́ẹ̀kan sí i kí ó di ẹ̀dà browser lọ́wọ́lọ́wọ́.",
+      "Open Saved transmission revisions to check earlier saves. Apply change the open worksheet. Save again to make that version the current browser copy.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",
