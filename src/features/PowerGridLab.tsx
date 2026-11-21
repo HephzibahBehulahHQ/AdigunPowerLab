@@ -17,10 +17,24 @@ import { WindResourceExperiment } from "./WindResourceExperiment";
 import { MicrogridDispatchExperiment } from "./MicrogridDispatchExperiment";
 import { RegionalGridPreset } from "./RegionalGridPreset";
 import { SmardHistoricalDay } from "./SmardHistoricalDay";
-import { HydroStationScene } from "./HydroStationScene";
+import { HydroStationScene, type HydroEquipmentId } from "./HydroStationScene";
 import { GenerationPlantScene } from "./GenerationPlantScene";
-import { DistributionNetworkScene } from "./DistributionNetworkScene";
-import { PowerGridStation3DScene } from "./PowerGridStation3DScene";
+import {
+  DistributionNetworkScene,
+  type DistributionEquipmentId,
+} from "./DistributionNetworkScene";
+import {
+  PowerGridStation3DScene,
+  type Station3DAssetId,
+} from "./PowerGridStation3DScene";
+
+const sharedHydroAssets = [
+  ["reservoir", "reservoir"],
+  ["turbine", "turbine"],
+  ["generator", "generator"],
+  ["gsu", "unit-transformer"],
+  ["tower", "tower"],
+] as const satisfies readonly (readonly [HydroEquipmentId, Station3DAssetId])[];
 
 const SAVE_KEY = "adigunpowerlab.powergrid.experiment.v1";
 const copy: Record<Locale, Record<string, string>> = {
@@ -231,6 +245,11 @@ function Meter({
 export function PowerGridLab() {
   const locale = useContext(LanguageContext);
   const text = copy[locale];
+  const [stationAsset, setStationAsset] =
+    useState<Station3DAssetId>("generator");
+  const [hydroAsset, setHydroAsset] = useState<HydroEquipmentId>("generator");
+  const [distributionAsset, setDistributionAsset] =
+    useState<DistributionEquipmentId>("receivingTransformer");
   const [inputs, setInputs] = useState<PowerGridInputs>(() => {
     try {
       const saved: unknown = JSON.parse(
@@ -338,10 +357,39 @@ export function PowerGridLab() {
         }}
       />
       <SmardHistoricalDay locale={locale} />
-      <PowerGridStation3DScene locale={locale} />
-      <HydroStationScene locale={locale} />
+      <PowerGridStation3DScene
+        locale={locale}
+        selected={stationAsset}
+        onSelect={(asset) => {
+          setStationAsset(asset);
+          const shared = sharedHydroAssets.find(
+            ([, station]) => station === asset,
+          );
+          if (shared) setHydroAsset(shared[0]);
+          if (asset === "receiving-transformer")
+            setDistributionAsset("receivingTransformer");
+        }}
+      />
+      <HydroStationScene
+        locale={locale}
+        selected={hydroAsset}
+        onSelect={(asset) => {
+          setHydroAsset(asset);
+          const shared = sharedHydroAssets.find(([hydro]) => hydro === asset);
+          if (shared) setStationAsset(shared[1]);
+        }}
+      />
       <GenerationPlantScene />
-      <DistributionNetworkScene locale={locale} inputs={inputs} />
+      <DistributionNetworkScene
+        locale={locale}
+        inputs={inputs}
+        selected={distributionAsset}
+        onSelect={(asset) => {
+          setDistributionAsset(asset);
+          if (asset === "receivingTransformer")
+            setStationAsset("receiving-transformer");
+        }}
+      />
       <p className="pg-equation">{text.formula}</p>
       <div className="pg-columns">
         <section

@@ -1034,6 +1034,12 @@ test("POWERGRID navigable station scene selects named equipment and keeps a keyb
   await tower.focus();
   await page.keyboard.press("Enter");
   await expect(tower).toHaveAttribute("aria-pressed", "true");
+  const cutaway = page.locator('section[aria-labelledby="pg-station-title"]');
+  const towerPicks = cutaway.getByRole("button", {
+    name: /Inspect: Lattice transmission tower/,
+  });
+  await expect(towerPicks.first()).toHaveAttribute("aria-pressed", "true");
+  await expect(towerPicks.last()).toHaveAttribute("aria-pressed", "true");
   await expect(scene.locator("article")).toContainText(
     "insulated phase conductors and a shield wire",
   );
@@ -1049,4 +1055,22 @@ test("POWERGRID navigable station scene selects named equipment and keeps a keyb
     .toBe(true);
   await expect(scene).toContainText("L1/L2/L3");
   await expect(scene).toContainText("PE");
+  const stepUp = cutaway
+    .getByRole("button", { name: /Inspect: Generator step-up transformer/ })
+    .first();
+  await stepUp.focus();
+  await page.keyboard.press("Enter");
+  await expect(
+    scene.getByRole("button", { name: /Generator step-up transformer/ }),
+  ).toHaveAttribute("aria-pressed", "true");
+  const downstream = page.locator(
+    'section[aria-labelledby="pg-downstream-title"]',
+  );
+  await downstream
+    .getByRole("button", { name: /Inspect: HV → MV transformer/ })
+    .focus();
+  await page.keyboard.press("Enter");
+  await expect(
+    scene.getByRole("button", { name: "Receiving-substation transformer" }),
+  ).toHaveAttribute("aria-pressed", "true");
 });

@@ -1,9 +1,8 @@
-import { useState } from "react";
 import type { KeyboardEvent, ReactNode } from "react";
 import type { Locale } from "../i18n";
 import type { PowerGridInputs } from "../engine/powergrid";
 
-type EquipmentId =
+export type DistributionEquipmentId =
   | "receivingBay"
   | "disconnectors"
   | "breaker"
@@ -20,6 +19,8 @@ type EquipmentId =
   | "motor"
   | "neutral"
   | "protectiveEarth";
+
+type EquipmentId = DistributionEquipmentId;
 
 type Item = {
   name: string;
@@ -655,12 +656,15 @@ function Device({
 export function DistributionNetworkScene({
   locale,
   inputs,
+  selected,
+  onSelect: setSelected,
 }: {
   locale: Locale;
   inputs: PowerGridInputs;
+  selected: EquipmentId;
+  onSelect: (asset: EquipmentId) => void;
 }) {
   const text = copy[locale];
-  const [selected, setSelected] = useState<EquipmentId>("receivingTransformer");
   const item = text.items[selected];
   const receivingKV = inputs.raisedVoltageKV;
   const mediumKV = inputs.distributionVoltageKV;

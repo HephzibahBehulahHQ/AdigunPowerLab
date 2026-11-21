@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Locale } from "../i18n";
 
-type AssetId =
+export type Station3DAssetId =
   | "reservoir"
   | "turbine"
   | "generator"
@@ -11,6 +11,8 @@ type AssetId =
   | "receiving-transformer"
   | "house"
   | "industry";
+
+type AssetId = Station3DAssetId;
 
 type Asset = {
   id: AssetId;
@@ -485,9 +487,16 @@ function buildScene(gl: WebGLRenderingContext, selected: AssetId) {
   return { positionBuffer, colorBuffer, count: vertices.length / 3 };
 }
 
-export function PowerGridStation3DScene({ locale }: { locale: Locale }) {
+export function PowerGridStation3DScene({
+  locale,
+  selected,
+  onSelect,
+}: {
+  locale: Locale;
+  selected: AssetId;
+  onSelect: (asset: AssetId) => void;
+}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [selected, setSelected] = useState<AssetId>("generator");
   const [yaw, setYaw] = useState(-0.32);
   const [pitch, setPitch] = useState(0.12);
   const [zoom, setZoom] = useState(1);
@@ -717,7 +726,7 @@ export function PowerGridStation3DScene({ locale }: { locale: Locale }) {
                 key={asset.id}
                 type="button"
                 aria-pressed={selected === asset.id}
-                onClick={() => setSelected(asset.id)}
+                onClick={() => onSelect(asset.id)}
               >
                 {asset.label[lang]}
               </button>

@@ -480,3 +480,5 @@ SMARD acquisition verified 24 consecutive timestamps with non-null observations 
 Scaled SMARD dispatch passed TypeScript, 18 focused tests and both historical and rural scenario Chromium checks. The saved historical preset exported 24 one-hour dispatch results with verified first-hour demand, solar, wind, power balance, and original source attribution.
 
 Winter SMARD acquisition verified 24 consecutive non-null values in each source series. TypeScript, nine localization tests and both historical Chromium tests passed, covering date selection, winter scenario save and reload, first-hour reported generation, and winter timestamp offset in dispatch JSON.
+
+Shared visual equipment selection passed TypeScript, nine localization tests and the Chromium keyboard station flow. Selecting the 3D tower highlights the hydro cutaway and single-line tower; choosing the step-up transformer or downstream receiving transformer updates the 3D inspector.

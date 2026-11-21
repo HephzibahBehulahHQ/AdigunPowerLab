@@ -1755,6 +1755,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Yí padà láàárín ọjọ́ SMARD Oṣù Kínní àti Oṣù Kẹfà láti fi àpẹẹrẹ àsìkò wé. Àpẹẹrẹ méjèèjì ní ìwọ̀n kan náà àti àárín wákàtí kan.",
       "Switch between January and June SMARD days to compare seasonal examples. Both dispatch presets use the same scale and one-hour intervals.",
     ],
+  "The 3D model shares selection with the hydro cutaway and single-line for the reservoir, turbine, generator, step-up transformer and tower. The receiving transformer also shares selection with the distribution diagram.":
+    [
+      "Das 3D-Modell teilt die Auswahl für Speicher, Turbine, Generator, Maschinentransformator und Freileitungsmast mit Wasserkraft-Schnitt und Einlinienschema. Der Empfangstransformator teilt seine Auswahl mit dem Verteilnetzschema.",
+      "Àwòṣe 3D pín yíyan àdágún, turbine, generator, transformer tó ń gbé foliteji sókè àti tower pẹ̀lú àwòrán hydro àti single-line. Receiving transformer tún pín yíyan pẹ̀lú àwòrán distribution.",
+      "Di 3D model share selection with hydro cutaway and single-line for reservoir, turbine, generator, step-up transformer and tower. Di receiving transformer share selection with distribution diagram too.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",
