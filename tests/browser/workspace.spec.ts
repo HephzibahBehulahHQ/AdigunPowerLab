@@ -1049,23 +1049,26 @@ test("engineering field guides link footage to the calculator", async ({
   }
 });
 
-test("engineering report walkthrough plays the bundled recording", async ({
+test("report and backup walkthroughs play their bundled recordings", async ({
   page,
 }) => {
-  await page.goto("/#/reports");
-  const video = page
-    .getByRole("region", { name: "Watch the report workflow" })
-    .locator("video");
-  await expect(video).toBeVisible();
-  await video.evaluate((element: HTMLVideoElement) => {
-    element.muted = true;
-    return element.play();
-  });
-  await expect
-    .poll(() =>
-      video.evaluate((element: HTMLVideoElement) => element.currentTime),
-    )
-    .toBeGreaterThan(0);
+  for (const { route, title } of [
+    { route: "reports", title: "Watch the report workflow" },
+    { route: "settings", title: "Watch the workspace backup workflow" },
+  ]) {
+    await page.goto(`/#/${route}`);
+    const video = page.getByRole("region", { name: title }).locator("video");
+    await expect(video).toBeVisible();
+    await video.evaluate((element: HTMLVideoElement) => {
+      element.muted = true;
+      return element.play();
+    });
+    await expect
+      .poll(() =>
+        video.evaluate((element: HTMLVideoElement) => element.currentTime),
+      )
+      .toBeGreaterThan(0);
+  }
 });
 
 test("Overview pairs credited facility photos and documentary video with working calculations", async ({

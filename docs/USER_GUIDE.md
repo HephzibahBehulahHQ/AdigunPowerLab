@@ -329,6 +329,8 @@ In **Costs & Carbon**, watch the utility explanation and compare estimates at tw
 
 In **Reports & Estimates**, the Engineering report includes a short recording of the report workflow. Choose report sections, freeze the preview, then review the frozen revision before exporting.
 
+In **Settings**, watch the workspace backup recording, select the project scope and revision history, and export a file to keep outside browser storage.
+
 In **Adigun BOT · Transmission worksheet**, preview a 10% increase and inspect the before/after values. Confirm to apply it, or cancel to keep editing. A worksheet edit or undo invalidates the open preview. Use **Undo transmission edit** to revert an applied proposal. **Export current lab report** downloads the current worksheet results.
 
 Select equipment in the station model and open **Explain selected station equipment** in the lab BOT. The explanation follows the station selection and describes the component's role and interfaces.

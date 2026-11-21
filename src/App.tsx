@@ -125,7 +125,7 @@ import {
 } from "./features/WorkspacePages";
 import { WorkspaceLabMenu } from "./features/WorkspaceLabMenu";
 import { EngineeringFieldGuide } from "./features/EngineeringFieldGuide";
-import { ReportWalkthrough } from "./features/ReportWalkthrough";
+import { WorkspaceRecording } from "./features/WorkspaceRecording";
 import {
   Renewables,
   EVPlanner,
@@ -2041,7 +2041,10 @@ export default function App() {
                   {route === "reports" && (
                     <>
                       {reportTab === "engineering" && (
-                        <ReportWalkthrough locale={locale} />
+                        <WorkspaceRecording
+                          locale={locale}
+                          recording="report"
+                        />
                       )}
                       <div className="tab-bar">
                         <button
@@ -2252,6 +2255,7 @@ export default function App() {
                           </button>
                         </div>
                       </section>
+                      <WorkspaceRecording locale={locale} recording="backup" />
                       <WorkspaceRecovery
                         activeProject={project}
                         onRestored={async ({ activeIds }) => {
