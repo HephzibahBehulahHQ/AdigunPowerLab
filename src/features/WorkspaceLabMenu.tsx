@@ -44,7 +44,9 @@ export function WorkspaceLabMenu({
 }) {
   const t = useT();
   const groups = [...new Set(entries.map(({ group }) => group))];
-  const [group, setGroup] = useState(groups[0]);
+  const [group, setGroup] = useState(
+    entries.find(({ id }) => id === "overview")?.group ?? groups[0],
+  );
   return (
     <section
       className="panel panel-pad workspace-lab-menu"

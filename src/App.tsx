@@ -1670,14 +1670,7 @@ export default function App() {
                   {route === "overview" && (
                     <>
                       <WorkspaceLabMenu
-                        entries={[
-                          ...routes,
-                          {
-                            id: "powergrid",
-                            label: "POWERGRID LAB",
-                            group: "Engineering",
-                          },
-                        ]}
+                        entries={routes}
                         locale={locale}
                         onRoute={go}
                       />
