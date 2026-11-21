@@ -2,6 +2,74 @@ import { useState } from "react";
 import type { Locale } from "../i18n";
 
 const cases = {
+  scenarios: {
+    clip: "995797",
+    slug: "powering-mission-erdc-hydrogen-nanogrid-fort-bliss",
+    image: "solar-plant-illustration.jpg",
+    credit: "Crista V. Mack · Fort Bliss Public Affairs",
+    copy: {
+      en: [
+        "Compare a design change with its baseline",
+        "Watch a hybrid microgrid case study",
+        "Create a scenario from a reference project. Change the operating hours of one load in the copy, then compare its daily energy and cost with the baseline.",
+      ],
+      de: [
+        "Eine Planungsänderung mit dem Ausgangsfall vergleichen",
+        "Fallstudie zu einem Hybrid-Mikronetz ansehen",
+        "Erstellen Sie ein Szenario aus einem Referenzprojekt. Ändern Sie die Betriebszeit eines Verbrauchers und vergleichen Sie Tagesenergie und Kosten.",
+      ],
+      yo: [
+        "Wé àyípadà àpẹrẹ pẹ̀lú ìpìlẹ̀ rẹ̀",
+        "Wo àpẹẹrẹ microgrid adalu",
+        "Ṣẹ̀dá àpẹẹrẹ tuntun láti iṣẹ́ àpẹẹrẹ. Yí wákàtí ẹrù kan padà, kí o sì wé agbára àti iye owó ojoojúmọ́ pẹ̀lú ìpìlẹ̀.",
+      ],
+      pcm: [
+        "Compare design change with di baseline",
+        "Watch hybrid microgrid case study",
+        "Create scenario from reference project. Change how long one load dey run for di copy, then compare daily energy and cost with di baseline.",
+      ],
+    },
+    action: {
+      en: "Go to scenarios",
+      de: "Zu den Szenarien",
+      yo: "Lọ sí àwọn àpẹẹrẹ",
+      pcm: "Open di scenarios",
+    },
+  },
+  library: {
+    clip: "410589",
+    slug: "guardsman-171st-perform-generator-maintenance",
+    image: "electrical-test-tools.png",
+    credit: "Cheri Micale · 171st Air Refueling Wing",
+    copy: {
+      en: [
+        "Match an equipment record to a real device",
+        "Watch technicians inspect generator equipment",
+        "Find a motor in the Equipment Library, inspect its rating and source, then add it to a reference project and compare the imported load data.",
+      ],
+      de: [
+        "Einen Bibliothekseintrag einem realen Gerät zuordnen",
+        "Generatorprüfung durch Techniker ansehen",
+        "Suchen Sie einen Motor in der Bibliothek. Prüfen Sie Nennwert und Quelle und vergleichen Sie nach dem Hinzufügen die übernommenen Lastdaten.",
+      ],
+      yo: [
+        "Fi àkọsílẹ̀ ohun èlò wé ẹ̀rọ gidi",
+        "Wo bí àwọn onímọ̀ ṣe ń yẹ generator wò",
+        "Wá mọ́tò nínú àkójọ ohun èlò. Ṣàyẹ̀wò iye àti orísun rẹ̀, fi kún iṣẹ́ àpẹẹrẹ, kí o sì wé dátà tí wọ́n gbé wọlé.",
+      ],
+      pcm: [
+        "Match equipment record with real device",
+        "Watch technicians check generator equipment",
+        "Find motor for Equipment Library. Check di rating and source, add am to reference project and compare di load data wey enter.",
+      ],
+    },
+    action: {
+      en: "Go to the equipment library",
+      de: "Zur Gerätebibliothek",
+      yo: "Lọ sí àkójọ ohun èlò",
+      pcm: "Open di equipment library",
+    },
+  },
   loads: {
     clip: "939154",
     slug: "usace-completes-installation-two-emergency-generators-hendersonville-nc",

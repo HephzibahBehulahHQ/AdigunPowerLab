@@ -658,3 +658,5 @@ Chromium verified the Overview menu opens to Workspace, shows one POWERGRID LAB 
 The expanded browser check verified the solar and battery guide and the EV charging guide mount the intended players and focus each planner while preserving the route.
 
 Chromium also verified that the Power Quality guide mounts its manufacturer video player and opens the Power-factor correction tool. The motor guide opens Motor start sequence directly.
+
+The expanded Chromium regression verified player activation and focus for Single-Line Studio, Schedules & Simulation, Load Schedule, Boards & Circuits, Scenarios & Optimization, and Equipment Library. The HTTP media playback itself remains unverified.

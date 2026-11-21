@@ -959,6 +959,18 @@ test("engineering field guides link footage to the calculator", async ({
 }) => {
   for (const lesson of [
     {
+      route: "scenarios",
+      title: "Compare a design change with its baseline",
+      clip: "995797",
+      action: "Go to scenarios",
+    },
+    {
+      route: "library",
+      title: "Match an equipment record to a real device",
+      clip: "410589",
+      action: "Go to the equipment library",
+    },
+    {
       route: "loads",
       title: "Build a load list for backup power",
       clip: "939154",

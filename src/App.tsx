@@ -1992,22 +1992,42 @@ export default function App() {
                     />
                   )}
                   {route === "scenarios" && (
-                    <ScenarioWorkspace
-                      key={project.id}
-                      detailMode={detailMode}
-                      change={change}
-                      onTrash={(id) =>
-                        void setTrashed(id, true)
-                          .then(refreshRecords)
-                          .catch((e) => setError(e.message))
-                      }
-                      project={project}
-                      records={records}
-                      onCreate={(p) => void createAndOpen(p)}
-                      onOpen={(p) => void openProject(p)}
-                    />
+                    <>
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
+                      />
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        <ScenarioWorkspace
+                          key={project.id}
+                          detailMode={detailMode}
+                          change={change}
+                          onTrash={(id) =>
+                            void setTrashed(id, true)
+                              .then(refreshRecords)
+                              .catch((e) => setError(e.message))
+                          }
+                          project={project}
+                          records={records}
+                          onCreate={(p) => void createAndOpen(p)}
+                          onOpen={(p) => void openProject(p)}
+                        />
+                      </div>
+                    </>
                   )}
-                  {route === "library" && libraryPage()}
+                  {route === "library" && (
+                    <>
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
+                      />
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        {libraryPage()}
+                      </div>
+                    </>
+                  )}
                   {route === "reports" && (
                     <>
                       <div className="tab-bar">
