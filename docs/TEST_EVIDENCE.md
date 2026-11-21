@@ -656,3 +656,5 @@ TypeScript and 20 Help checks passed. Chromium verified the 200 kW nameplate cap
 Chromium verified the Overview menu opens to Workspace, shows one POWERGRID LAB tile under Engineering, and opens Cables & Protection. The cable and motor guides mounted their credited video players on request and focused the calculator without leaving the route. Local Chromium reported those tests passed before the runner stalled during teardown.
 
 The expanded browser check verified the solar and battery guide and the EV charging guide mount the intended players and focus each planner while preserving the route.
+
+Chromium also verified that the Power Quality guide mounts its manufacturer video player and opens the Power-factor correction tool. The motor guide opens Motor start sequence directly.

@@ -156,9 +156,11 @@ const cases = {
 export function EngineeringFieldGuide({
   route,
   locale,
+  onOpenCalculator,
 }: {
   route: keyof typeof cases;
   locale: Locale;
+  onOpenCalculator?: () => void;
 }) {
   const [playing, setPlaying] = useState(false);
   const study = cases[route];
@@ -202,6 +204,7 @@ export function EngineeringFieldGuide({
             className="button"
             type="button"
             onClick={() => {
+              onOpenCalculator?.();
               const calculator = document.getElementById(
                 "engineering-calculator",
               );

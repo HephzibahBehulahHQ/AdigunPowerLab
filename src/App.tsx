@@ -1838,6 +1838,14 @@ export default function App() {
                           key={route}
                           route={route}
                           locale={locale}
+                          onOpenCalculator={() => {
+                            setToolId(
+                              { cables: "T16", motors: "T14", quality: "T33" }[
+                                route
+                              ],
+                            );
+                            setToolRequest((request) => request + 1);
+                          }}
                         />
                       )}
                       <div id="engineering-calculator" tabIndex={-1}>

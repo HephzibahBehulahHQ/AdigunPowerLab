@@ -962,6 +962,7 @@ test("engineering field guides link footage to the calculator", async ({
       route: "quality",
       title: "Compare capacitor bank demand",
       clip: "-Cp9guj0B_M",
+      input: "Target displacement PF",
     },
     {
       route: "renewables",
@@ -982,6 +983,7 @@ test("engineering field guides link footage to the calculator", async ({
       route: "motors",
       title: "Inspect a motor and its supply",
       clip: "848540",
+      input: "Identical motors to start",
     },
   ]) {
     await page.goto(`/#/${lesson.route}`);
@@ -994,6 +996,11 @@ test("engineering field guides link footage to the calculator", async ({
     );
     await guide.getByRole("button", { name: "Go to the calculator" }).click();
     await expect(page.locator("#engineering-calculator")).toBeFocused();
+    if (lesson.input) {
+      await expect(
+        page.locator("#engineering-calculator").getByLabel(lesson.input),
+      ).toBeVisible();
+    }
     await expect(page).toHaveURL(new RegExp(`#/${lesson.route}$`));
   }
 });
