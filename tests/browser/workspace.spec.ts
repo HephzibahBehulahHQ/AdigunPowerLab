@@ -954,6 +954,35 @@ test("Overview's visual menu opens engineering tools", async ({ page }) => {
   await expect(page).toHaveURL(/#\/cables$/);
 });
 
+test("engineering field guides link footage to the calculator", async ({
+  page,
+}) => {
+  for (const lesson of [
+    {
+      route: "cables",
+      title: "Follow the cable from the transformer",
+      clip: "902345",
+    },
+    {
+      route: "motors",
+      title: "Inspect a motor and its supply",
+      clip: "848540",
+    },
+  ]) {
+    await page.goto(`/#/${lesson.route}`);
+    const guide = page.getByRole("region", { name: lesson.title });
+    await expect(guide.locator("iframe")).toHaveCount(0);
+    await guide.getByRole("button", { name: /^Watch/ }).click();
+    await expect(guide.locator("iframe")).toHaveAttribute(
+      "src",
+      `https://www.dvidshub.net/video/embed/${lesson.clip}`,
+    );
+    await guide.getByRole("button", { name: "Go to the calculator" }).click();
+    await expect(page.locator("#engineering-calculator")).toBeFocused();
+    await expect(page).toHaveURL(new RegExp(`#/${lesson.route}$`));
+  }
+});
+
 test("Overview pairs credited facility photos and documentary video with working calculations", async ({
   page,
 }) => {

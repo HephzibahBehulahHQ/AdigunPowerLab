@@ -649,4 +649,6 @@ TypeScript and 20 Help checks passed. Chromium confirmed the inverter caps gross
 
 ### POWERGRID LAB biogas engine and heat recovery
 
+The illustrated Overview menu browser test verified the initial Workspace group, one POWERGRID LAB tile in Engineering, and navigation to Cables & Protection. A separate Chromium test verified both Engineering field guides mount their credited video player on request and focus the route's calculator without leaving the page. Local Chromium reported both tests passed before the runner stalled during teardown.
+
 TypeScript and 20 Help checks passed. Chromium verified the 200 kW nameplate cap, 190 kW net electricity, 177.778 kW recoverable heat, 100 kW useful heat demand, and reduced gas use at the rating cap. Zero methane produced no power or heat and retained the entered auxiliary demand. JSON export and reset passed. The local runner stalled during teardown.
