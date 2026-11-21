@@ -1900,38 +1900,47 @@ export default function App() {
                     </>
                   )}
                   {route === "ev" && (
-                    <EVPlanner
-                      project={project}
-                      result={result}
-                      detailMode={detailMode}
-                      change={change}
-                      onComplete={(sessionId, plan, inputs) =>
-                        setReportContext((context) => {
-                          const revision = latest.current.revision;
-                          const prior =
-                            context.ev?.revision === revision
-                              ? context.ev.result
-                              : [];
-                          return {
-                            ...context,
-                            ev: {
-                              projectId: latest.current.id,
-                              revision,
-                              calculatedAt: new Date().toISOString(),
-                              result: [
-                                ...prior.filter(
-                                  (row) => row.sessionId !== sessionId,
-                                ),
-                                { sessionId, plan },
-                              ],
-                              inputs,
-                              source:
-                                "Completed dated EV allocation with entered session constraints",
-                            },
-                          };
-                        })
-                      }
-                    />
+                    <>
+                      <EngineeringFieldGuide
+                        key={route}
+                        route={route}
+                        locale={locale}
+                      />
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        <EVPlanner
+                          project={project}
+                          result={result}
+                          detailMode={detailMode}
+                          change={change}
+                          onComplete={(sessionId, plan, inputs) =>
+                            setReportContext((context) => {
+                              const revision = latest.current.revision;
+                              const prior =
+                                context.ev?.revision === revision
+                                  ? context.ev.result
+                                  : [];
+                              return {
+                                ...context,
+                                ev: {
+                                  projectId: latest.current.id,
+                                  revision,
+                                  calculatedAt: new Date().toISOString(),
+                                  result: [
+                                    ...prior.filter(
+                                      (row) => row.sessionId !== sessionId,
+                                    ),
+                                    { sessionId, plan },
+                                  ],
+                                  inputs,
+                                  source:
+                                    "Completed dated EV allocation with entered session constraints",
+                                },
+                              };
+                            })
+                          }
+                        />
+                      </div>
+                    </>
                   )}
                   {route === "costs" && (
                     <Costs

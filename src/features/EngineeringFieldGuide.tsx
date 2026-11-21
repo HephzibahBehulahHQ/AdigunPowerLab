@@ -2,6 +2,34 @@ import { useState } from "react";
 import type { Locale } from "../i18n";
 
 const cases = {
+  ev: {
+    clip: "373814",
+    slug: "us-air-force-tests-first-all-electric-vehicle-fleet-california",
+    image: "distribution-consumers.png",
+    credit: "Krista Knaus · U.S. Air Force",
+    copy: {
+      en: [
+        "Fit charging into the parking window",
+        "Watch a fleet charging demonstration",
+        "Keep the charger limit fixed and move departure earlier. Compare unmet energy before and after.",
+      ],
+      de: [
+        "Laden innerhalb der Standzeit",
+        "Vorführung einer Flottenladestation ansehen",
+        "Lassen Sie die Ladeleistung unverändert und setzen Sie die Abfahrt früher an. Vergleichen Sie die fehlende Energie.",
+      ],
+      yo: [
+        "Ṣètò gbigba agbára ní àkókò ìdúró",
+        "Wo àfihàn bí ọkọ̀ iná ṣe ń gba agbára",
+        "Jẹ́ kí ààlà agbára ṣaja dúró, kí o sì mú ìgbà ìlọ kù. Wé agbára tí kò pé.",
+      ],
+      pcm: [
+        "Fit charging inside parking time",
+        "Watch di fleet charging demo",
+        "Keep di charger limit di same and move departure earlier. Compare energy wey di vehicle no get.",
+      ],
+    },
+  },
   renewables: {
     clip: "937640",
     slug: "b-roll-ribbon-cutting-ceremony-renewable-energy-microgrid-fort-hunter-liggett",

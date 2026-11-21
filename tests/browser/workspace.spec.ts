@@ -964,6 +964,11 @@ test("engineering field guides link footage to the calculator", async ({
       clip: "937640",
     },
     {
+      route: "ev",
+      title: "Fit charging into the parking window",
+      clip: "373814",
+    },
+    {
       route: "cables",
       title: "Follow the cable from the transformer",
       clip: "902345",
