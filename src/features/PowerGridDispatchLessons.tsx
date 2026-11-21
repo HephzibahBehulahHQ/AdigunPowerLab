@@ -59,6 +59,13 @@ const ruralCopy = {
   ],
 } satisfies Record<Locale, readonly string[]>;
 
+const batteryStateCopy = {
+  en: "Battery state of charge",
+  de: "Ladezustand des Speichers",
+  yo: "Iye agbára tó wà nínú batiri",
+  pcm: "Battery charge wey remain",
+} satisfies Record<Locale, string>;
+
 export function PowerGridOperatingLesson({
   locale,
   reference,
@@ -72,6 +79,7 @@ export function PowerGridOperatingLesson({
   onReset: () => void;
   onExport: () => void;
 }) {
+  const [selected, setSelected] = useState(0);
   const [
     title,
     prediction,
@@ -86,6 +94,23 @@ export function PowerGridOperatingLesson({
     report,
   ] = ruralCopy[locale];
   const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 2 });
+  const row = reference.intervals[selected];
+  const [
+    intervalLabel,
+    ,
+    ,
+    charging,
+    discharging,
+    generator,
+    ,
+    criticalUnserved,
+  ] = instruments[locale];
+  const readings = [
+    [charging, row.batteryChargeKW],
+    [discharging, row.batteryDischargeKW],
+    [generator, row.backupGenerationKW],
+    [criticalUnserved, row.criticalUnservedKW],
+  ] as const;
   return (
     <section
       className="panel panel-pad pg-panel"
@@ -93,9 +118,54 @@ export function PowerGridOperatingLesson({
     >
       <h4 id="pg-operating-lesson">{title}</h4>
       <p>{prediction}</p>
-      <p>{assumptions}</p>
+      <div className="pg-home-video">
+        <figure className="pg-foundation-media">
+          <img
+            src="./assets/powergrid/field-photos/solar-array.jpg"
+            alt=""
+            loading="lazy"
+          />
+        </figure>
+        <div>
+          <div className="pg-actions" role="group" aria-label={intervalLabel}>
+            {reference.intervals.map((_, index) => (
+              <button
+                className="button"
+                type="button"
+                key={index}
+                aria-pressed={selected === index}
+                onClick={() => setSelected(index)}
+              >
+                {index * reference.intervalHours}–
+                {(index + 1) * reference.intervalHours} h
+              </button>
+            ))}
+          </div>
+          <dl className="pg-foundation-readings" aria-live="polite">
+            <div>
+              <dt>{batteryStateCopy[locale]}</dt>
+              <dd>{format.format(row.batterySocKWh)} kWh</dd>
+              <dd>
+                <meter
+                  className="pg-voltage-meter"
+                  aria-label={batteryStateCopy[locale]}
+                  value={row.batterySocPercent}
+                  max={100}
+                />
+              </dd>
+            </div>
+            {readings.map(([label, value]) => (
+              <div key={label}>
+                <dt>{label}</dt>
+                <dd>{format.format(value)} kW</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
       <details>
         <summary>{worked}</summary>
+        <p>{assumptions}</p>
         <dl>
           <dt>{backup}</dt>
           <dd>{format.format(reference.backupEnergyKWh)}</dd>
@@ -109,7 +179,14 @@ export function PowerGridOperatingLesson({
       </details>
       <p>{question}</p>
       <div className="pg-actions">
-        <button className="button" type="button" onClick={onReset}>
+        <button
+          className="button"
+          type="button"
+          onClick={() => {
+            setSelected(0);
+            onReset();
+          }}
+        >
           {reset}
         </button>
         <button

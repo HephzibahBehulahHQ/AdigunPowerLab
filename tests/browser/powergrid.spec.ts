@@ -1284,6 +1284,13 @@ test("microgrid dispatch loads and exports the rural teaching day", async ({
   const operating = section.getByRole("region", {
     name: "Practical lesson: Microgrid operation",
   });
+  await operating.getByRole("button", { name: "16–20 h", exact: true }).click();
+  const batteryMeter = operating.getByRole("meter", {
+    name: "Battery state of charge",
+  });
+  expect(
+    await batteryMeter.evaluate((meter: HTMLMeterElement) => meter.value),
+  ).toBeCloseTo(payload.result.intervals[4].batterySocPercent);
   await operating.getByText("Worked result", { exact: true }).click();
   await expect(
     operating.getByText("Battery throughput (kWh)", { exact: true }),
