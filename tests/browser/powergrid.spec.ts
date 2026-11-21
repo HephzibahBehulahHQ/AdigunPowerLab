@@ -1832,7 +1832,11 @@ test("PowerGrid direct hash, history, local save and real JSON/CSV exports", asy
       ),
     )
     .toBeGreaterThan(0);
-  await expect(page.getByText("437.4 A", { exact: true })).toBeVisible();
+  await expect(
+    page
+      .locator('[aria-labelledby="pg-results-title"]')
+      .getByText("437.4 A", { exact: true }),
+  ).toBeVisible();
 
   await page.getByLabel("Transmitted real power (MW)").fill("120");
   await expect(page.getByText("524.9 A")).toBeVisible();
