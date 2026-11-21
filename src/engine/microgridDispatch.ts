@@ -24,6 +24,7 @@ export interface MicrogridDispatchInputs {
       capacityM3: number;
       initialM3: number;
       environmentalReleaseM3s: number;
+      fullStorageHeadRiseM?: number;
     };
   };
   demandKW: number[];
@@ -46,6 +47,7 @@ export interface MicrogridDispatchInterval {
   windAvailableKW: number;
   hydroAvailableKW: number;
   hydroWater?: {
+    netHeadM: number;
     turbineM3: number;
     environmentalReleaseM3: number;
     unmetEnvironmentalReleaseM3: number;
@@ -171,6 +173,22 @@ export function validateMicrogridDispatchInputs(
       errors.push("Enter valid hydro inputs with a rating up to 1,000,000 kW.");
     }
     const reservoir = hydro.reservoir;
+    const headRiseM = reservoir?.fullStorageHeadRiseM ?? 0;
+    if (
+      !Number.isFinite(headRiseM) ||
+      headRiseM < 0 ||
+      (reservoir &&
+        hydro.flowsM3s.some(
+          (flowM3s) =>
+            !calculateHydroPerformance({
+              ...hydro,
+              netHeadM: hydro.netHeadM + headRiseM,
+              flowM3s: Math.max(1, flowM3s),
+            }),
+        ))
+    ) {
+      errors.push("Enter a valid non-negative reservoir head rise.");
+    }
     if (
       reservoir &&
       (reservoir.inflowsM3s.length !== count ||
@@ -257,18 +275,23 @@ export function calculateMicrogridDispatch(
   const reservoir = hydro?.reservoir;
   let waterM3 = reservoir?.initialM3 ?? 0;
   const seconds = intervalHours * 3600;
-  const hydroKWPerM3s = hydro
-    ? (calculateHydroPerformance({ ...hydro, flowM3s: 1 })
-        ?.uncappedElectricalKW ?? 0)
-    : 0;
   const intervals = inputs.demandKW.map((demandKW, index) => {
     const pvAvailableKW = calculatePvPerformance(
       inputs.pvByInterval[index],
     ).acPowerKW;
     const windAvailableKW = wind.intervals[index].farmPowerKW;
     let turbineFlowM3s = hydro?.flowsM3s[index] ?? 0;
+    let netHeadM = hydro?.netHeadM ?? 0;
     let hydroWater: MicrogridDispatchInterval["hydroWater"];
     if (reservoir && hydro) {
+      netHeadM +=
+        (reservoir.fullStorageHeadRiseM ?? 0) *
+        (waterM3 / reservoir.capacityM3);
+      const hydroKWPerM3s = calculateHydroPerformance({
+        ...hydro,
+        netHeadM,
+        flowM3s: 1,
+      })!.uncappedElectricalKW;
       const availableM3 = waterM3 + reservoir.inflowsM3s[index] * seconds;
       const releaseTargetM3 = reservoir.environmentalReleaseM3s * seconds;
       const environmentalReleaseM3 = Math.min(availableM3, releaseTargetM3);
@@ -284,6 +307,7 @@ export function calculateMicrogridDispatch(
       const afterReleaseM3 = remainingM3 - turbineM3;
       waterM3 = Math.min(afterReleaseM3, reservoir.capacityM3);
       hydroWater = {
+        netHeadM,
         turbineM3,
         environmentalReleaseM3,
         unmetEnvironmentalReleaseM3: releaseTargetM3 - environmentalReleaseM3,
@@ -294,6 +318,7 @@ export function calculateMicrogridDispatch(
     const hydroAvailableKW = hydro
       ? calculateHydroPerformance({
           ...hydro,
+          netHeadM,
           flowM3s: turbineFlowM3s,
         })!.availableKW
       : 0;

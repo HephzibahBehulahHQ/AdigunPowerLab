@@ -1695,6 +1695,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Láti ṣàwòṣe agbára àdágún, tẹ omi tó wọlé àti ìṣàn turbine tí o fẹ́ fún àkókò kọ̀ọ̀kan. Ṣètò ìwọ̀n àdágún, omi ìbẹ̀rẹ̀ àti ìṣàn àyíká, kí o sì ṣàyẹ̀wò omi tó kù, omi tó ṣàn kọjá àti àìtó.",
       "To model reservoir hydro, enter inflow and requested turbine flow for each interval. Set capacity, starting water and bypass flow, then check water wey remain, spill and bypass shortfall.",
     ],
+  "Enter a head rise at full reservoir to model changing head. Each interval uses its starting fill fraction. Enter zero for fixed head.":
+    [
+      "Geben Sie die zusätzliche Fallhöhe bei vollem Speicher ein. Jedes Intervall nutzt den Füllstand zu seinem Beginn. Null ergibt eine konstante Fallhöhe.",
+      "Tẹ àfikún gíga omi nígbà tí àdágún kún. Àkókò kọ̀ọ̀kan lo ìkún omi ní ìbẹ̀rẹ̀ rẹ̀. Tẹ òdo kí gíga omi dúró ṣinṣin.",
+      "Enter extra head when reservoir full to model changing head. Each interval use how full am be when e start. Enter zero for fixed head.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

@@ -274,3 +274,5 @@ The spatial selection work shipped in PR #110 and the navigable teaching station
 The candidate also integrates optional entered hydro flow into chronological microgrid dispatch. It calculates hydro availability at fixed net head, applies the installed rating limit and includes the result in the shared energy balance and interval exports.
 
 Reservoir hydro now adds a bounded water balance to this candidate. Bypass is allocated first, then requested turbine flow is limited by water and rated output. The model reports spill, remaining water and unmet bypass.
+
+Reservoir hydro also supports a linear head rise with interval-start volume. Zero rise preserves fixed head. JSON and CSV retain the net head used for each reservoir interval.

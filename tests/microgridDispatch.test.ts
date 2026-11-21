@@ -24,6 +24,7 @@ describe("chronological microgrid dispatch", () => {
       },
     });
     expect(result.intervals[0].hydroWater).toEqual({
+      netHeadM: 10,
       turbineM3: 164,
       environmentalReleaseM3: 36,
       unmetEnvironmentalReleaseM3: 0,
@@ -38,6 +39,38 @@ describe("chronological microgrid dispatch", () => {
     expect(result.intervals[2].hydroWater?.storageM3).toBe(300);
     for (const row of result.intervals)
       expect(row.balanceResidualKW).toBeCloseTo(0, 8);
+  });
+  it("uses beginning-of-interval storage to vary head and generation", () => {
+    const base = DEFAULT_MICROGRID_DISPATCH_INPUTS;
+    const hydro = {
+      netHeadM: 10,
+      efficiencyPercent: 100,
+      ratedKW: 100,
+      flowsM3s: [0.1, 0.1, 0, 0, 0, 0],
+      reservoir: {
+        capacityM3: 720,
+        initialM3: 720,
+        environmentalReleaseM3s: 0,
+        inflowsM3s: [0, 0, 0, 0, 0, 0],
+        fullStorageHeadRiseM: 10,
+      },
+    };
+    const { intervals } = calculateMicrogridDispatch({ ...base, hydro });
+    expect(intervals[0].hydroWater?.netHeadM).toBe(20);
+    expect(intervals[1].hydroWater?.netHeadM).toBe(15);
+    expect(intervals[1].hydroAvailableKW).toBeCloseTo(
+      intervals[0].hydroAvailableKW * 0.75,
+    );
+    expect(intervals[1].hydroWater?.storageM3).toBe(0);
+    expect(
+      validateMicrogridDispatchInputs({
+        ...base,
+        hydro: {
+          ...hydro,
+          reservoir: { ...hydro.reservoir, fullStorageHeadRiseM: -1 },
+        },
+      }),
+    ).toContain("Enter a valid non-negative reservoir head rise.");
   });
   it("uses rated hydro output in the interval balance and validates its profile", () => {
     const base = DEFAULT_MICROGRID_DISPATCH_INPUTS;

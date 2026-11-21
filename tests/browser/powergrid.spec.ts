@@ -33,6 +33,9 @@ test("microgrid dispatch saves and exports optional hydro generation", async ({
   await section
     .getByRole("spinbutton", { name: "Initial reservoir water (m³)" })
     .fill("0");
+  await section
+    .getByRole("spinbutton", { name: "Head rise at full reservoir (m)" })
+    .fill("10");
   await expect(
     section.getByRole("columnheader", { name: "Reservoir water (m³)" }),
   ).toBeVisible();
@@ -43,6 +46,7 @@ test("microgrid dispatch saves and exports optional hydro generation", async ({
   );
   expect(reservoirPayload.result.intervals[0].hydroAvailableKW).toBe(0);
   expect(reservoirPayload.result.intervals[0].hydroWater.storageM3).toBe(0);
+  expect(reservoirPayload.result.intervals[0].hydroWater.netHeadM).toBe(30);
 });
 
 test("hydropower recalculates, saves inputs and exports the rating-limited output", async ({

@@ -77,11 +77,22 @@ const copy: Record<string, [string, string, string]> = {
       "Tẹ ìṣàn omi kan fún àkókò kọ̀ọ̀kan àti ààlà ìpamọ́ àti ìtúsílẹ̀ tó péye.",
       "Enter one valid reservoir inflow for each interval and correct storage and release limits.",
     ],
-  "With reservoir inflows, the model meets bypass first, then limits requested turbine flow to available water and generator rating. Net head stays fixed.":
+  "Net head (m)": ["Nettofallhöhe (m)", "Gíga omi tó kù (m)", "Net head (m)"],
+  "Head rise at full reservoir (m)": [
+    "Zusätzliche Fallhöhe bei vollem Speicher (m)",
+    "Àfikún gíga omi nígbà tí àdágún kún (m)",
+    "Extra head when reservoir full (m)",
+  ],
+  "Enter a valid non-negative reservoir head rise.": [
+    "Geben Sie eine gültige, nichtnegative zusätzliche Fallhöhe ein.",
+    "Tẹ àfikún gíga omi tó péye, tó jẹ́ òdo tàbí jù bẹ́ẹ̀ lọ.",
+    "Enter valid extra head wey be zero or more.",
+  ],
+  "The model allocates bypass first and limits turbine flow by water and rating. Net head adds the full-reservoir rise scaled by starting fill. A zero rise keeps head fixed.":
     [
-      "Bei Eingabe von Zuflüssen bedient das Modell zuerst den Bypass. Der Turbinendurchfluss ist dann durch Wasserangebot und Nennleistung begrenzt. Die Nettofallhöhe bleibt konstant.",
-      "Tí o bá tẹ omi tó wọ àdágún, omi àyíká ló kọ́kọ́ gba omi. Omi tó kù àti agbára orúkọ ló fi ààlà sí ìṣàn turbine. Gíga omi dúró ṣinṣin.",
-      "If you enter reservoir inflow, bypass get water first. Water wey remain and generator rating limit turbine flow. Net head stay fixed.",
+      "Das Modell bedient zuerst den Bypass und begrenzt den Turbinendurchfluss durch Wasserangebot und Nennleistung. Die zusätzliche Fallhöhe hängt vom Füllstand am Intervallanfang ab. Bei null bleibt die Fallhöhe konstant.",
+      "Omi àyíká ló kọ́kọ́ gba omi. Omi tó kù àti agbára orúkọ fi ààlà sí ìṣàn turbine. Àfikún gíga omi dá lórí ìkún àdágún ní ìbẹ̀rẹ̀ àkókò. Àfikún òdo mú gíga omi dúró ṣinṣin.",
+      "Bypass get water first. Water wey remain and generator rating limit turbine flow. Extra head depend on how full the reservoir dey at interval start. Zero extra head keeps head fixed.",
     ],
   "Hydro flow must have one value per demand interval.": [
     "Geben Sie für jedes Lastintervall einen Durchflusswert ein.",
@@ -296,6 +307,7 @@ interface Editable {
   reservoirCapacity: number;
   reservoirInitial: number;
   reservoirBypass: number;
+  reservoirHeadRise: number;
   demand: number[];
   critical: number[];
   pvDcKW: number;
@@ -322,6 +334,7 @@ function defaults(): Editable {
     reservoirCapacity: 10000,
     reservoirInitial: 5000,
     reservoirBypass: 0,
+    reservoirHeadRise: 0,
     windSpeeds: DEFAULT_MICROGRID_DISPATCH_INPUTS.wind.windSpeedsMps,
     irradiance: DEFAULT_MICROGRID_DISPATCH_INPUTS.pvByInterval.map(
       (x) => x.planeOfArrayIrradianceWm2,
@@ -425,6 +438,7 @@ export function MicrogridDispatchExperiment() {
                     capacityM3: state.reservoirCapacity,
                     initialM3: state.reservoirInitial,
                     environmentalReleaseM3s: state.reservoirBypass,
+                    fullStorageHeadRiseM: state.reservoirHeadRise,
                   }
                 : undefined,
             }
@@ -522,7 +536,7 @@ export function MicrogridDispatchExperiment() {
       download(
         "powergrid-microgrid-intervals.csv",
         [
-          "interval,pv_available_kW,wind_available_kW,renewable_available_kW,demand_kW,critical_demand_kW,battery_charge_kW,battery_discharge_kW,battery_soc_kWh,backup_generation_kW,curtailment_kW,critical_unserved_kW,noncritical_unserved_kW,served_kW,balance_residual_kW,hydro_available_kW,reservoir_storage_m3,turbine_m3,environmental_bypass_m3,unmet_bypass_m3,spill_m3",
+          "interval,pv_available_kW,wind_available_kW,renewable_available_kW,demand_kW,critical_demand_kW,battery_charge_kW,battery_discharge_kW,battery_soc_kWh,backup_generation_kW,curtailment_kW,critical_unserved_kW,noncritical_unserved_kW,served_kW,balance_residual_kW,hydro_available_kW,reservoir_storage_m3,turbine_m3,environmental_bypass_m3,unmet_bypass_m3,spill_m3,reservoir_net_head_m",
           ...result.intervals.map((r) =>
             [
               r.interval,
@@ -546,6 +560,7 @@ export function MicrogridDispatchExperiment() {
               r.hydroWater?.environmentalReleaseM3,
               r.hydroWater?.unmetEnvironmentalReleaseM3,
               r.hydroWater?.spillM3,
+              r.hydroWater?.netHeadM,
             ].join(","),
           ),
         ].join("\r\n"),
@@ -624,6 +639,11 @@ export function MicrogridDispatchExperiment() {
               "Environmental bypass (m³/s)",
               state.reservoirBypass,
             )}
+            {field(
+              "reservoirHeadRise",
+              "Head rise at full reservoir (m)",
+              state.reservoirHeadRise,
+            )}
           </>
         )}
         {field("demand", "Total demand (kW)", state.demand, true)}
@@ -674,7 +694,7 @@ export function MicrogridDispatchExperiment() {
       {inputs.hydro?.reservoir && (
         <p>
           {label(
-            "With reservoir inflows, the model meets bypass first, then limits requested turbine flow to available water and generator rating. Net head stays fixed.",
+            "The model allocates bypass first and limits turbine flow by water and rating. Net head adds the full-reservoir rise scaled by starting fill. A zero rise keeps head fixed.",
           )}
         </p>
       )}
@@ -733,6 +753,7 @@ export function MicrogridDispatchExperiment() {
                     ...(inputs.hydro?.reservoir
                       ? [
                           "Reservoir water (m³)",
+                          "Net head (m)",
                           "Water spilled (m³)",
                           "Unmet bypass (m³)",
                         ]
@@ -759,6 +780,7 @@ export function MicrogridDispatchExperiment() {
                     {r.hydroWater && (
                       <>
                         <td>{fmt(r.hydroWater.storageM3)}</td>
+                        <td>{fmt(r.hydroWater.netHeadM)}</td>
                         <td>{fmt(r.hydroWater.spillM3)}</td>
                         <td>{fmt(r.hydroWater.unmetEnvironmentalReleaseM3)}</td>
                       </>

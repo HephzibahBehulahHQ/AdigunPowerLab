@@ -460,3 +460,5 @@ Local Chromium acceptance passed for editing the rating, saving across reload, e
 Local Chromium also passed both microgrid dispatch scenarios, including hydro profile length validation, save and reload, and exported per-interval available power. Focused unit tests verified output clipping and interval power balance. TypeScript and focused localization checks passed.
 
 Reservoir dispatch passed TypeScript, 14 focused dispatch and localization tests, and both Chromium dispatch tests. Cases included reservoir depletion, environmental bypass priority and shortfall, spill, and exported zero output from an empty reservoir.
+
+Variable reservoir head passed TypeScript, 15 focused unit and localization tests, and the Chromium hydro dispatch scenario. The numerical fixture verifies 20 m at full storage, 15 m at half storage, and proportional power at equal turbine flow.

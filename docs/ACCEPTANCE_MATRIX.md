@@ -267,4 +267,4 @@ The steady-state worksheet models hydraulic-to-electrical conversion with a gene
 
 The chronological microgrid now includes optional interval hydro flow at fixed net head. Environmental flow scheduling and pumped storage remain open.
 
-Reservoir branch coverage includes conservation of stored water, bypass shortfall, spill and limited generation. Variable head, optimized reservoir scheduling and pumping remain open.
+Reservoir branch coverage includes conservation of stored water, bypass shortfall, spill and limited generation. Reservoir head can vary linearly with starting storage. Site-specific elevation curves, optimized reservoir scheduling and pumping remain open.
