@@ -1707,6 +1707,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú Microgrid dispatch, tẹ ìwọ̀n ìpamọ́ omi tó ju òdo lọ. Agbára tó ṣẹ́ kù ń ṣiṣẹ́ pump, omi ìpamọ́ sì ń ṣe iná ṣáájú backup. Ṣàyẹ̀wò agbára pump, ìṣẹ̀dá iná, agbára omi tí a pa mọ́ àti àdánù.",
       "For Microgrid dispatch, enter pumped storage capacity wey pass zero. Renewable power wey remain run the pump, and storage supply power before backup. Check pump input, generated power, stored water energy and loss.",
     ],
+  "Set grid import and export limits and optionally enter outage interval numbers. During an outage the microgrid relies on local resources. The interval table shows islanding, reconnection and grid exchange.":
+    [
+      "Stellen Sie Netzbezugs- und Einspeisegrenzen ein und geben Sie optional Ausfallintervalle an. Bei Netzausfall nutzt das Mikronetz lokale Ressourcen. Die Intervalltabelle zeigt Inselbetrieb, Wiederverbindung und Netzaustausch.",
+      "Ṣètò ààlà gbígba àti fífi agbára sí grid, kí o sì tẹ nọ́mbà àkókò ìdádúró bí o bá fẹ́. Nígbà ìdádúró, microgrid lo agbára inú rẹ̀. Tábìlì fi ìyapa, ìsopọ̀ padà àti ìpàṣípààrọ̀ grid hàn.",
+      "Set grid import and export limits and enter outage interval numbers if you want. During outage di microgrid use local power. Di table show when e disconnect, reconnect and exchange power.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

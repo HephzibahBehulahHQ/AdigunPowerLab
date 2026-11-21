@@ -244,3 +244,5 @@ For reservoir hydro, also enter one inflow value per interval and set reservoir 
 Set a positive pumped storage capacity in Microgrid dispatch. Enter initial hydraulic energy, pump and generator limits, and their efficiencies. The interval table and exports report pump input, recovered power, stored energy, and losses. This energy-equivalent model is separate from the natural-inflow reservoir water balance.
 
 [U.S. Department of Energy — Pumped storage hydropower](https://www.energy.gov/cmei/water/pumped-storage-hydropower)
+
+Set grid import and export limits and enter optional comma-separated outage intervals starting at 1. During these intervals the shared bus uses local resources and both grid flows are zero. The connection state and grid exchange appear in the interval table and exports; totals report imported and exported energy.

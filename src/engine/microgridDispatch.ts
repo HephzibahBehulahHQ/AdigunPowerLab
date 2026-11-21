@@ -39,6 +39,11 @@ export interface MicrogridDispatchInputs {
     dischargeEfficiency: number;
   };
   backupGenerator: { ratedKW: number; rampUpKWPerInterval: number };
+  grid?: {
+    importLimitKW: number;
+    exportLimitKW: number;
+    outageIntervals: number[];
+  };
   pumpedStorage?: {
     capacityKWh: number;
     initialKWh: number;
@@ -54,6 +59,9 @@ export interface MicrogridDispatchInterval {
   pvAvailableKW: number;
   windAvailableKW: number;
   hydroAvailableKW: number;
+  gridImportKW: number;
+  gridExportKW: number;
+  gridConnected: boolean;
   pumpedStorage?: {
     pumpKW: number;
     generationKW: number;
@@ -93,6 +101,8 @@ export interface MicrogridDispatchResult {
   renewableEnergyAvailableKWh: number;
   renewableEnergyCurtailedKWh: number;
   backupEnergyKWh: number;
+  gridImportEnergyKWh: number;
+  gridExportEnergyKWh: number;
   batteryThroughputKWh: number;
   intervals: MicrogridDispatchInterval[];
 }
@@ -256,6 +266,21 @@ export function validateMicrogridDispatchInputs(
       errors.push(`${label} must be greater than 0 and at most 1.`);
   }
   const g = inputs.backupGenerator;
+  const grid = inputs.grid;
+  if (
+    grid &&
+    (![grid.importLimitKW, grid.exportLimitKW].every(
+      (limit) => Number.isFinite(limit) && limit >= 0 && limit <= 1_000_000,
+    ) ||
+      !grid.outageIntervals.every(
+        (interval) =>
+          Number.isInteger(interval) && interval >= 1 && interval <= count,
+      ))
+  ) {
+    errors.push(
+      "Enter valid grid limits and outage interval numbers within the demand profile.",
+    );
+  }
   const pumped = inputs.pumpedStorage;
   if (
     pumped &&
@@ -300,7 +325,7 @@ export function validateMicrogridDispatchInputs(
  * Chronological teaching dispatch: available PV, wind and hydro serve load first, then
  * surplus charges the battery; deficits use battery discharge then a bounded
  * backup unit. Remaining supply serves critical demand before non-critical
- * demand. This is an AC-bus energy balance without feeder losses or exports.
+ * demand. Grid exchange is bounded at the shared AC bus, without feeder losses.
  */
 export function calculateMicrogridDispatch(
   inputs: MicrogridDispatchInputs,
@@ -313,6 +338,8 @@ export function calculateMicrogridDispatch(
   let socKWh = (capacityKWh * battery.initialSocPercent) / 100;
   let previousGeneratorKW = 0;
   const pumped = inputs.pumpedStorage;
+  const grid = inputs.grid;
+  const outages = new Set(grid?.outageIntervals);
   let pumpedEnergyKWh = pumped?.initialKWh ?? 0;
   const wind = calculateWindPerformance(inputs.wind);
   const hydro = inputs.hydro;
@@ -429,12 +456,24 @@ export function calculateMicrogridDispatch(
         conversionLossKWh: chargingKWh - addedKWh + withdrawnKWh - deliveredKWh,
       };
     }
+    const gridConnected = Boolean(grid && !outages.has(index + 1));
+    const residualDeficitKW = Math.max(
+      0,
+      deficitKW - batteryDischargeKW - pumpedGenerationKW,
+    );
+    const residualSurplusKW = Math.max(0, surplusKW - batteryChargeKW - pumpKW);
+    const gridImportKW = gridConnected
+      ? Math.min(grid!.importLimitKW, residualDeficitKW)
+      : 0;
+    const gridExportKW = gridConnected
+      ? Math.min(grid!.exportLimitKW, residualSurplusKW)
+      : 0;
     const generatorLimitKW = Math.min(
       generator.ratedKW,
       previousGeneratorKW + generator.rampUpKWPerInterval,
     );
     const backupGenerationKW = Math.min(
-      Math.max(0, deficitKW - batteryDischargeKW - pumpedGenerationKW),
+      residualDeficitKW - gridImportKW,
       generatorLimitKW,
     );
     previousGeneratorKW = backupGenerationKW;
@@ -443,6 +482,7 @@ export function calculateMicrogridDispatch(
       renewableToLoadKW +
       batteryDischargeKW +
       pumpedGenerationKW +
+      gridImportKW +
       backupGenerationKW;
     const servedDemandKW = Math.min(demandKW, availableToLoadKW);
     const criticalServedKW = Math.min(criticalDemandKW, servedDemandKW);
@@ -451,17 +491,16 @@ export function calculateMicrogridDispatch(
       nonCriticalDemandKW,
       Math.max(0, servedDemandKW - criticalServedKW),
     );
-    const renewableCurtailmentKW = Math.max(
-      0,
-      surplusKW - batteryChargeKW - pumpKW,
-    );
+    const renewableCurtailmentKW = residualSurplusKW - gridExportKW;
     const balanceResidualKW =
       renewableAvailableKW +
       batteryDischargeKW +
       pumpedGenerationKW +
+      gridImportKW +
       backupGenerationKW -
       batteryChargeKW -
       pumpKW -
+      gridExportKW -
       renewableCurtailmentKW -
       servedDemandKW;
     return {
@@ -469,6 +508,9 @@ export function calculateMicrogridDispatch(
       pvAvailableKW,
       windAvailableKW,
       hydroAvailableKW,
+      gridImportKW,
+      gridExportKW,
+      gridConnected,
       pumpedStorage,
       hydroWater,
       renewableAvailableKW,
@@ -498,6 +540,8 @@ export function calculateMicrogridDispatch(
     renewableEnergyAvailableKWh: sum((row) => row.renewableAvailableKW),
     renewableEnergyCurtailedKWh: sum((row) => row.renewableCurtailmentKW),
     backupEnergyKWh: sum((row) => row.backupGenerationKW),
+    gridImportEnergyKWh: sum((row) => row.gridImportKW),
+    gridExportEnergyKWh: sum((row) => row.gridExportKW),
     batteryThroughputKWh: sum(
       (row) => row.batteryChargeKW + row.batteryDischargeKW,
     ),

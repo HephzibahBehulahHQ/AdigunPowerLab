@@ -464,3 +464,5 @@ Reservoir dispatch passed TypeScript, 14 focused dispatch and localization tests
 Variable reservoir head passed TypeScript, 15 focused unit and localization tests, and the Chromium hydro dispatch scenario. The numerical fixture verifies 20 m at full storage, 15 m at half storage, and proportional power at equal turbine flow.
 
 Pumped storage passed TypeScript and 16 focused tests. The numerical fixture turns 18 kWh of pump input into 11.52 kWh delivered at 80% efficiency in each direction. All three focused Chromium dispatch scenarios passed, with the pumped storage CSV assertion rerun after correcting its handling of Windows line endings.
+
+Grid exchange passed TypeScript, 17 focused unit and localization tests, and four Chromium dispatch scenarios. The numerical case verifies capped export, curtailment, loss of imports during islanding, resumed import after reconnection and the power balance. Browser acceptance verifies invalid outage rejection, save/reload and exported islanded state.

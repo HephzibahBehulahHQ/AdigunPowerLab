@@ -6,6 +6,53 @@ import {
 } from "../src/engine/microgridDispatch";
 
 describe("chronological microgrid dispatch", () => {
+  it("limits grid exchange, islands during outages, and resumes imports on restoration", () => {
+    const base = DEFAULT_MICROGRID_DISPATCH_INPUTS;
+    const inputs = {
+      ...base,
+      wind: { ...base.wind, windSpeedsMps: [0, 0, 0, 0, 0, 0] },
+      pvByInterval: base.pvByInterval.map((pv) => ({
+        ...pv,
+        planeOfArrayIrradianceWm2: 0,
+      })),
+      battery: { ...base.battery, maxChargeKW: 0, maxDischargeKW: 0 },
+      hydro: {
+        netHeadM: 30,
+        ratedKW: 50,
+        efficiencyPercent: 85,
+        flowsM3s: [1, 0, 0, 0, 0, 0],
+      },
+      grid: { importLimitKW: 15, exportLimitKW: 10, outageIntervals: [2] },
+    };
+    const { intervals, gridExportEnergyKWh } =
+      calculateMicrogridDispatch(inputs);
+    expect(intervals[0]).toMatchObject({
+      gridExportKW: 10,
+      renewableCurtailmentKW: 8,
+    });
+    expect(intervals[1]).toMatchObject({
+      gridConnected: false,
+      gridImportKW: 0,
+      gridExportKW: 0,
+      nonCriticalUnservedKW: 8,
+    });
+    expect(intervals[2]).toMatchObject({
+      gridConnected: true,
+      gridImportKW: 15,
+      backupGenerationKW: 11,
+    });
+    expect(gridExportEnergyKWh).toBe(10);
+    for (const row of intervals)
+      expect(row.balanceResidualKW).toBeCloseTo(0, 8);
+    expect(
+      validateMicrogridDispatchInputs({
+        ...inputs,
+        grid: { ...inputs.grid, outageIntervals: [7] },
+      }),
+    ).toContain(
+      "Enter valid grid limits and outage interval numbers within the demand profile.",
+    );
+  });
   it("charges pumped storage from surplus and recovers only the round-trip yield", () => {
     const base = DEFAULT_MICROGRID_DISPATCH_INPUTS;
     const pumpedStorage = {

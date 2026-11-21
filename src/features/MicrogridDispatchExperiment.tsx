@@ -12,9 +12,51 @@ import type { Locale } from "../i18n";
 
 const INPUT_KEY = "adigunpowerlab.powergrid.microgrid-dispatch.v1";
 const LIMITS =
-  "This is an illustrative AC-bus dispatch, not a site forecast or utility operation model. No feeder/transformer losses, exports, fuel use, costs, emissions, frequency response or unit-specific generator model are included. Entered profiles are assumptions. Generic backup capacity is dispatched after storage with the entered ramp-up ceiling; ramp-down is instantaneous.";
+  "This is an illustrative AC-bus dispatch, not a site forecast or utility operation model. No feeder/transformer losses, fuel use, costs, emissions, frequency response or unit-specific generator model are included. Entered profiles are assumptions. Generic backup capacity is dispatched after storage and grid imports with the entered ramp-up ceiling; ramp-down is instantaneous.";
 const pvDefaults = DEFAULT_MICROGRID_DISPATCH_INPUTS.pvByInterval[0];
 const copy: Record<string, [string, string, string]> = {
+  "Grid import limit (kW)": [
+    "Netzbezugsgrenze (kW)",
+    "Ààlà gbígba agbára grid (kW)",
+    "Grid import limit (kW)",
+  ],
+  "Grid export limit (kW)": [
+    "Einspeisegrenze (kW)",
+    "Ààlà fífi agbára ránṣẹ́ sí grid (kW)",
+    "Grid export limit (kW)",
+  ],
+  "Grid outage intervals (optional)": [
+    "Netzausfallintervalle (optional)",
+    "Àkókò tí grid kò sí (àṣàyàn)",
+    "Grid outage intervals (optional)",
+  ],
+  "Grid import": ["Netzbezug", "Agbára láti grid", "Grid import"],
+  "Grid export": ["Netzeinspeisung", "Agbára sí grid", "Grid export"],
+  "Grid import (kW)": [
+    "Netzbezug (kW)",
+    "Agbára láti grid (kW)",
+    "Grid import (kW)",
+  ],
+  "Grid export (kW)": [
+    "Netzeinspeisung (kW)",
+    "Agbára sí grid (kW)",
+    "Grid export (kW)",
+  ],
+  "Grid connection": ["Netzverbindung", "Ìsopọ̀ grid", "Grid connection"],
+  Connected: ["Verbunden", "A so pọ̀", "Connected"],
+  Islanded: ["Inselbetrieb", "Grid kò sí", "Islanded"],
+  "Enter valid grid limits and outage interval numbers within the demand profile.":
+    [
+      "Geben Sie gültige Netzgrenzen und Ausfallintervalle innerhalb des Lastprofils ein.",
+      "Tẹ ààlà grid àti nọ́mbà àkókò ìdádúró tó wà nínú àtòjọ ìbéèrè.",
+      "Enter correct grid limits and outage interval numbers inside the demand profile.",
+    ],
+  "Enter comma-separated outage interval numbers starting at 1. Storage acts first, then grid imports precede backup. Remaining surplus can be exported while connected.":
+    [
+      "Geben Sie Ausfallintervalle ab 1 durch Kommas getrennt ein. Zuerst arbeiten die Speicher, danach folgt Netzbezug vor Reserveerzeugung. Verbleibender Überschuss kann bei Netzverbindung eingespeist werden.",
+      "Tẹ nọ́mbà àkókò ìdádúró láti 1, pẹ̀lú kọ́mà láàárín wọn. Ìpamọ́ ló kọ́kọ́ ṣiṣẹ́, grid sì pèsè ṣáájú backup. A lè rán agbára tó ṣẹ́ kù sí grid tí a bá so pọ̀.",
+      "Enter outage interval numbers from 1, with commas between them. Storage work first, then grid import before backup. Extra power fit go to grid when connection dey.",
+    ],
   "Pumped storage capacity (kWh), zero to disable": [
     "Pumpspeicherkapazität (kWh), null zum Abschalten",
     "Ìwọ̀n ìpamọ́ agbára omi (kWh), òdo láti pa á",
@@ -343,11 +385,11 @@ const copy: Record<string, [string, string, string]> = {
     "Ṣàtúnṣe iye tí kò tọ́ kí o tó fi pamọ́ tàbí export.",
     "Fix invalid values before saving or exporting.",
   ],
-  "This is an illustrative AC-bus dispatch, not a site forecast or utility operation model. No feeder/transformer losses, exports, fuel use, costs, emissions, frequency response or unit-specific generator model are included. Entered profiles are assumptions. Generic backup capacity is dispatched after storage with the entered ramp-up ceiling; ramp-down is instantaneous.":
+  "This is an illustrative AC-bus dispatch, not a site forecast or utility operation model. No feeder/transformer losses, fuel use, costs, emissions, frequency response or unit-specific generator model are included. Entered profiles are assumptions. Generic backup capacity is dispatched after storage and grid imports with the entered ramp-up ceiling; ramp-down is instantaneous.":
     [
-      "Dies ist ein illustratives AC-Sammelschienen-Dispatchmodell, keine Standortprognose oder Netzbetriebsrechnung. Leitungs-/Transformatorverluste, Exporte, Brennstoff, Kosten, Emissionen, Frequenzregelung und ein anlagenspezifisches Generatormodell sind nicht enthalten. Die Profileingaben sind Annahmen. Generische Reserveleistung folgt nach dem Speicher mit der eingegebenen Hochfahrgrenze; das Abfahren erfolgt unmittelbar.",
-      "Èyí jẹ́ dispatch AC-bus fún ẹ̀kọ́, kì í ṣe asọtẹ́lẹ̀ ibi kan tàbí model iṣẹ́ utility. A kò fi feeder/transformer loss, export, fuel, iye owó, emission, frequency response tàbí unit-specific generator model kún un. Profile tí a tẹ̀ jẹ́ àfojúsùn. Backup capacity gbogbogbò ń ṣiṣẹ́ lẹ́yìn storage pẹ̀lú ramp-up limit tí a tẹ̀; ramp-down ń ṣẹlẹ̀ lẹ́sẹ̀kẹsẹ̀.",
-      "Na AC-bus dispatch teaching model, no be site forecast or utility operation model. E no include feeder/transformer loss, export, fuel use, cost, emission, frequency response or source-specific generator model. Profiles wey you enter na assumptions. Generic backup capacity run after storage with di ramp-up limit; ramp-down happen at once.",
+      "Dies ist ein illustratives AC-Sammelschienen-Dispatchmodell, keine Standortprognose oder Netzbetriebsrechnung. Leitungs-/Transformatorverluste, Brennstoff, Kosten, Emissionen, Frequenzregelung und ein anlagenspezifisches Generatormodell sind nicht enthalten. Die Profileingaben sind Annahmen. Generische Reserveleistung folgt nach den Speichern und dem Netzbezug mit der eingegebenen Hochfahrgrenze; das Abfahren erfolgt unmittelbar.",
+      "Èyí jẹ́ dispatch AC-bus fún ẹ̀kọ́, kì í ṣe asọtẹ́lẹ̀ ibi kan tàbí model iṣẹ́ utility. A kò fi feeder/transformer loss, fuel, iye owó, emission, frequency response tàbí unit-specific generator model kún un. Profile tí a tẹ̀ jẹ́ àfojúsùn. Backup capacity gbogbogbò ń ṣiṣẹ́ lẹ́yìn storage àti grid import pẹ̀lú ramp-up limit tí a tẹ̀; ramp-down ń ṣẹlẹ̀ lẹ́sẹ̀kẹsẹ̀.",
+      "Na AC-bus dispatch teaching model, no be site forecast or utility operation model. E no include feeder/transformer loss, fuel use, cost, emission, frequency response or source-specific generator model. Profiles wey you enter na assumptions. Generic backup capacity run after storage and grid imports with di ramp-up limit; ramp-down happen at once.",
     ],
 };
 
@@ -377,6 +419,9 @@ interface Editable {
   turbines: number;
   batteryKWh: number;
   pumpedCapacity: number;
+  gridImportLimit: number;
+  gridExportLimit: number;
+  gridOutages: string;
   pumpedInitial: number;
   pumpLimit: number;
   pumpedGenerationLimit: number;
@@ -414,6 +459,9 @@ function defaults(): Editable {
     turbines: DEFAULT_MICROGRID_DISPATCH_INPUTS.wind.turbineCount,
     batteryKWh: DEFAULT_MICROGRID_DISPATCH_INPUTS.battery.capacityKWh,
     pumpedCapacity: 0,
+    gridImportLimit: 0,
+    gridExportLimit: 0,
+    gridOutages: "",
     pumpedInitial: 0,
     pumpLimit: 25,
     pumpedGenerationLimit: 25,
@@ -456,6 +504,8 @@ function readSaved(): Editable {
             typeof value.reservoirInflows === "string"
               ? value.reservoirInflows
               : "",
+          gridOutages:
+            typeof value.gridOutages === "string" ? value.gridOutages : "",
         };
     }
   } catch {
@@ -473,7 +523,7 @@ function download(name: string, content: string, type: string) {
   URL.revokeObjectURL(url);
 }
 
-function parseFlowProfile(profile: string) {
+function parseNumericProfile(profile: string) {
   return profile.split(",").map((flow) => (flow.trim() ? Number(flow) : NaN));
 }
 
@@ -505,10 +555,10 @@ export function MicrogridDispatchExperiment() {
               netHeadM: state.hydroHead,
               efficiencyPercent: state.hydroEfficiency,
               ratedKW: state.hydroRating,
-              flowsM3s: parseFlowProfile(state.hydroFlows),
+              flowsM3s: parseNumericProfile(state.hydroFlows),
               reservoir: state.reservoirInflows.trim()
                 ? {
-                    inflowsM3s: parseFlowProfile(state.reservoirInflows),
+                    inflowsM3s: parseNumericProfile(state.reservoirInflows),
                     capacityM3: state.reservoirCapacity,
                     initialM3: state.reservoirInitial,
                     environmentalReleaseM3s: state.reservoirBypass,
@@ -533,6 +583,18 @@ export function MicrogridDispatchExperiment() {
         ratedKW: state.backupKW,
         rampUpKWPerInterval: state.rampKW,
       },
+      grid:
+        state.gridImportLimit === 0 &&
+        state.gridExportLimit === 0 &&
+        !state.gridOutages.trim()
+          ? undefined
+          : {
+              importLimitKW: state.gridImportLimit,
+              exportLimitKW: state.gridExportLimit,
+              outageIntervals: state.gridOutages.trim()
+                ? parseNumericProfile(state.gridOutages)
+                : [],
+            },
       pumpedStorage:
         state.pumpedCapacity === 0
           ? undefined
@@ -621,7 +683,7 @@ export function MicrogridDispatchExperiment() {
       download(
         "powergrid-microgrid-intervals.csv",
         [
-          "interval,pv_available_kW,wind_available_kW,renewable_available_kW,demand_kW,critical_demand_kW,battery_charge_kW,battery_discharge_kW,battery_soc_kWh,backup_generation_kW,curtailment_kW,critical_unserved_kW,noncritical_unserved_kW,served_kW,balance_residual_kW,hydro_available_kW,reservoir_storage_m3,turbine_m3,environmental_bypass_m3,unmet_bypass_m3,spill_m3,reservoir_net_head_m,pump_input_kW,pumped_generation_kW,hydraulic_storage_kWh,pumped_storage_losses_kWh",
+          "interval,pv_available_kW,wind_available_kW,renewable_available_kW,demand_kW,critical_demand_kW,battery_charge_kW,battery_discharge_kW,battery_soc_kWh,backup_generation_kW,curtailment_kW,critical_unserved_kW,noncritical_unserved_kW,served_kW,balance_residual_kW,hydro_available_kW,reservoir_storage_m3,turbine_m3,environmental_bypass_m3,unmet_bypass_m3,spill_m3,reservoir_net_head_m,grid_import_kW,grid_export_kW,grid_connected,pump_input_kW,pumped_generation_kW,hydraulic_storage_kWh,pumped_storage_losses_kWh",
           ...result.intervals.map((r) =>
             [
               r.interval,
@@ -646,6 +708,9 @@ export function MicrogridDispatchExperiment() {
               r.hydroWater?.unmetEnvironmentalReleaseM3,
               r.hydroWater?.spillM3,
               r.hydroWater?.netHeadM,
+              r.gridImportKW,
+              r.gridExportKW,
+              r.gridConnected,
               r.pumpedStorage?.pumpKW,
               r.pumpedStorage?.generationKW,
               r.pumpedStorage?.storedKWh,
@@ -795,6 +860,28 @@ export function MicrogridDispatchExperiment() {
         )}
         {field("backupKW", "Dispatchable backup limit (kW)", state.backupKW)}
         {field("rampKW", "Backup ramp-up per interval (kW)", state.rampKW)}
+        {field(
+          "gridImportLimit",
+          "Grid import limit (kW)",
+          state.gridImportLimit,
+        )}
+        {field(
+          "gridExportLimit",
+          "Grid export limit (kW)",
+          state.gridExportLimit,
+        )}
+        <label className="pg-field">
+          <span>{label("Grid outage intervals (optional)")}</span>
+          <input
+            type="text"
+            value={state.gridOutages}
+            onChange={(event) => {
+              const gridOutages = event.currentTarget.value;
+              setState((old) => ({ ...old, gridOutages }));
+              setSaved(false);
+            }}
+          />
+        </label>
       </div>
       <p>
         {label(
@@ -838,6 +925,12 @@ export function MicrogridDispatchExperiment() {
                 "kWh",
               ],
               ["Backup energy", result.backupEnergyKWh, "kWh"],
+              ...(inputs.grid
+                ? [
+                    ["Grid import", result.gridImportEnergyKWh, "kWh"],
+                    ["Grid export", result.gridExportEnergyKWh, "kWh"],
+                  ]
+                : []),
               [
                 "Renewable curtailment",
                 result.renewableEnergyCurtailedKWh,
@@ -869,6 +962,13 @@ export function MicrogridDispatchExperiment() {
                     "Curtailment kW",
                     "Critical unmet kW",
                     "Non-critical unmet kW",
+                    ...(inputs.grid
+                      ? [
+                          "Grid connection",
+                          "Grid import (kW)",
+                          "Grid export (kW)",
+                        ]
+                      : []),
                     ...(inputs.hydro?.reservoir
                       ? [
                           "Reservoir water (m³)",
@@ -904,6 +1004,15 @@ export function MicrogridDispatchExperiment() {
                     <td>{fmt(r.renewableCurtailmentKW)}</td>
                     <td>{fmt(r.criticalUnservedKW)}</td>
                     <td>{fmt(r.nonCriticalUnservedKW)}</td>
+                    {inputs.grid && (
+                      <>
+                        <td>
+                          {label(r.gridConnected ? "Connected" : "Islanded")}
+                        </td>
+                        <td>{fmt(r.gridImportKW)}</td>
+                        <td>{fmt(r.gridExportKW)}</td>
+                      </>
+                    )}
                     {r.hydroWater && (
                       <>
                         <td>{fmt(r.hydroWater.storageM3)}</td>
@@ -928,6 +1037,11 @@ export function MicrogridDispatchExperiment() {
         </>
       )}
       <p className="pg-model-note">{label(LIMITS)}</p>
+      <p className="pg-model-note">
+        {label(
+          "Enter comma-separated outage interval numbers starting at 1. Storage acts first, then grid imports precede backup. Remaining surplus can be exported while connected.",
+        )}
+      </p>
       {inputs.pumpedStorage && (
         <p className="pg-model-note">
           {label(

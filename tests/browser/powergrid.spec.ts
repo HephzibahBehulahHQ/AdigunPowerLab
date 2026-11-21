@@ -1,6 +1,42 @@
 import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
 
+test("microgrid dispatch saves grid outages and exports islanding state", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const section = page
+    .locator(".pg-pv")
+    .filter({ has: page.locator("#pg-microgrid-title") });
+  await section.getByTestId("microgrid-batteryPowerKW").fill("0");
+  await section.getByTestId("microgrid-gridImportLimit").fill("10");
+  const outages = section.getByRole("textbox", {
+    name: "Grid outage intervals (optional)",
+  });
+  await outages.fill("7");
+  await expect(section.getByRole("alert")).toContainText(
+    "outage interval numbers",
+  );
+  await outages.fill("2");
+  await section.getByRole("button", { name: "Save scenario locally" }).click();
+  await page.reload();
+  await expect(outages).toHaveValue("2");
+  await expect(section.getByRole("cell", { name: "Islanded" })).toHaveCount(1);
+  const exportPromise = page.waitForEvent("download");
+  await section.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const download = await exportPromise;
+  const payload = JSON.parse(await readFile(await download.path(), "utf8"));
+  expect(payload.result.intervals[0]).toMatchObject({
+    gridConnected: true,
+    gridImportKW: 10,
+  });
+  expect(payload.result.intervals[1]).toMatchObject({
+    gridConnected: false,
+    gridImportKW: 0,
+    gridExportKW: 0,
+  });
+});
+
 test("microgrid dispatch exports pumped storage delivery and losses", async ({
   page,
 }) => {

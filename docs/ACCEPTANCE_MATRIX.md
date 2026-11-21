@@ -270,3 +270,5 @@ The chronological microgrid now includes optional interval hydro flow at fixed n
 Reservoir branch coverage includes conservation of stored water, bypass shortfall, spill and limited generation. Reservoir head can vary linearly with starting storage. Site-specific elevation curves and optimized reservoir scheduling remain open.
 
 The pumped storage slice accounts for electrical pumping consumption, stored hydraulic energy, delivered generation and round-trip losses. Coupled reservoir elevation, hydraulic machinery curves and optimized scheduling remain open.
+
+Chronological grid exchange, islanding and restoration are implemented at the shared AC bus with entered limits. Dynamic synchronization, protection, network losses and spinning reserve remain open.
