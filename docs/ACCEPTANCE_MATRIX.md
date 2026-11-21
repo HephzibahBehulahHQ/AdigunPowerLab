@@ -300,3 +300,5 @@ The three-bus teaching case supports automated single-branch outage batches with
 The primary-frequency experiment covers a single aggregate area and a permanent generation loss. It uses normalized deviation `x = (f − f₀)/f₀` and governor increment `p` on the same system power base. The equations are `2H dx/dt = p − loss − D x` and `T dp/dt = clamp(−x/R, 0, reserve) − p`. The fourth-order Runge–Kutta integration uses steps no longer than 0.01 s and stops at 5% deviation. This scope excludes secondary control, inter-area dynamics and protection. [NREL model reference](https://docs.nrel.gov/docs/fy24osti/88101.pdf)
 
 The step-up transmission worksheet exports a snapshot PDF with objective, schematic, assumptions, inputs, comparison readings, loss bars and optional notes. Combined lab reports, report workflows for other experiments and workspace recovery integration remain open.
+
+The transmission worksheet has named and versioned local saves, JSON export and validated import with preview and explicit apply. Applying and saving are separate actions. Workspace-wide recovery and history remain open.

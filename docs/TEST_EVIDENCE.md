@@ -505,3 +505,5 @@ On 21 November 2026 the case converged in four iterations with a maximum mismatc
 Primary frequency response passed TypeScript, nine localization tests, three analytical-model tests, and Chromium. The numerical fixtures cover inertial ramp slope, droop/damping equilibrium, reserve saturation, and the 5% boundary. Chromium verified an inertia edit, chart visibility, exported samples and invalid-input export gating.
 
 Transmission report PDF passed TypeScript, nine localization tests, four transmission-model tests and Chromium download acceptance. Poppler confirmed a one-page A4 export. Visual review checked the diagram, reading columns, loss bars, model text, page numbering and embedded-font rendering of Yorùbá and German notes.
+
+Transmission scenario restore passed TypeScript, 13 focused tests and Chromium. The browser checks version-1 preview and apply without overwriting the browser copy, version-2 named save/reload and re-export, and rejection of an unsupported schema without changing inputs. The named PDF was downloaded and visually reviewed after Poppler rendering.

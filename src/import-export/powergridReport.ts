@@ -4,6 +4,7 @@ import { embeddedFont } from "./reports";
 
 export interface PowerGridReportSnapshot {
   inputs: PowerGridInputs;
+  name: string;
   notes: string;
   preset?: string;
   locale: string;
@@ -11,7 +12,8 @@ export interface PowerGridReportSnapshot {
 }
 
 export async function createPowerGridReport(source: PowerGridReportSnapshot) {
-  const { inputs, notes, preset, locale, labels } = structuredClone(source);
+  const { inputs, name, notes, preset, locale, labels } =
+    structuredClone(source);
   const result = calculatePowerGrid(inputs);
   const font = await embeddedFont();
   const doc = new jsPDF({ unit: "mm", format: "a4", putOnlyUsedFonts: true });
@@ -54,6 +56,7 @@ export async function createPowerGridReport(source: PowerGridReportSnapshot) {
   paragraph("ADIGUNPOWERLAB · POWERGRID LAB", 10);
   y += 3;
   paragraph(labels.reportTitle, 19);
+  if (name.trim()) paragraph(name.trim(), 11);
   paragraph("Model ID: balanced-three-phase-constant-power-line-loss / v1", 8);
   if (preset) paragraph(preset);
   heading(labels.reportObjective);

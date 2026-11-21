@@ -1,4 +1,4 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useMemo, useRef, useState } from "react";
 import { Download, Save, RotateCcw, Zap } from "lucide-react";
 import { LanguageContext } from "../i18n";
 import type { Locale } from "../i18n";
@@ -6,11 +6,23 @@ import { downloadFile } from "../import-export/files";
 import {
   calculatePowerGrid,
   DEFAULT_POWERGRID_INPUTS,
-  isPowerGridInputs,
   validatePowerGridInputs,
 } from "../engine/powergrid";
 import type { PowerGridInputs, PowerGridReading } from "../engine/powergrid";
-import { applyRegionalTeachingPreset } from "../engine/powergridRegions";
+import {
+  applyRegionalTeachingPreset,
+  REGIONAL_TEACHING_PRESETS,
+} from "../engine/powergridRegions";
+import {
+  packPowerGridScenario,
+  readSavedPowerGridScenario,
+  unpackPowerGridScenario,
+  POWERGRID_SCENARIO_KEY,
+  POWERGRID_SCENARIO_MAX_BYTES,
+  POWERGRID_SCENARIO_NAME_LIMIT,
+  POWERGRID_SCENARIO_NOTES_LIMIT,
+  type PowerGridScenario,
+} from "../import-export/powergridScenario";
 import { RadialFeederExperiment } from "./RadialFeederExperiment";
 import { MeshedPowerFlowExperiment } from "./MeshedPowerFlowExperiment";
 import { PowerGridFrequencyExperiment } from "./PowerGridFrequencyExperiment";
@@ -39,7 +51,48 @@ const sharedHydroAssets = [
   ["tower", "tower"],
 ] as const satisfies readonly (readonly [HydroEquipmentId, Station3DAssetId])[];
 
-const SAVE_KEY = "adigunpowerlab.powergrid.experiment.v1";
+const scenarioCopy = {
+  en: [
+    "Experiment name",
+    "Import scenario JSON",
+    "Import preview",
+    "Apply imported scenario",
+    "Cancel import",
+    "Invalid transmission scenario file.",
+    "Applying changes the worksheet. Save separately to update the browser copy.",
+    "Browser save failed.",
+  ],
+  de: [
+    "Versuchsname",
+    "Szenario-JSON importieren",
+    "Importvorschau",
+    "Importiertes Szenario anwenden",
+    "Import abbrechen",
+    "Ungültige Datei für das Übertragungsszenario.",
+    "Anwenden ändert das Arbeitsblatt. Speichern Sie separat, um die Browserkopie zu aktualisieren.",
+    "Speichern im Browser fehlgeschlagen.",
+  ],
+  yo: [
+    "Orúkọ ìdánwò",
+    "Gbé JSON àpẹẹrẹ wọlé",
+    "Àwòyẹ̀wò ìgbéwọlé",
+    "Lo àpẹẹrẹ tí a gbé wọlé",
+    "Fagilé ìgbéwọlé",
+    "Fáìlì àpẹẹrẹ gbigbe kò péye.",
+    "Lílo rẹ̀ yí worksheet padà. Fi pamọ́ lọ́tọ̀ láti mú ẹ̀dà browser dọ́gba.",
+    "Ìfipamọ́ browser kùnà.",
+  ],
+  pcm: [
+    "Experiment name",
+    "Import scenario JSON",
+    "Import preview",
+    "Apply imported scenario",
+    "Cancel import",
+    "This transmission scenario file no valid.",
+    "Apply go change worksheet. Save separately to update browser copy.",
+    "Browser save fail.",
+  ],
+} satisfies Record<Locale, string[]>;
 const reportCopy = {
   en: [
     "Transmission voltage lab report",
@@ -295,8 +348,23 @@ export function PowerGridLab() {
     reportExport,
     reportFailure,
   ] = reportCopy[locale];
-  const [notes, setNotes] = useState("");
-  const [reportPreset, setReportPreset] = useState<string>();
+  const [
+    experimentNameLabel,
+    importLabel,
+    previewLabel,
+    applyLabel,
+    cancelLabel,
+    invalidImportLabel,
+    previewExplanation,
+    saveFailure,
+  ] = scenarioCopy[locale];
+  const [scenario, setScenario] = useState(readSavedPowerGridScenario);
+  const { inputs, name, notes, regionalPresetId } = scenario;
+  const [importPreview, setImportPreview] = useState<PowerGridScenario | null>(
+    null,
+  );
+  const [importError, setImportError] = useState(false);
+  const importSequence = useRef(0);
   const [reportBusy, setReportBusy] = useState(false);
   const [reportError, setReportError] = useState(false);
   const [stationAsset, setStationAsset] =
@@ -304,30 +372,47 @@ export function PowerGridLab() {
   const [hydroAsset, setHydroAsset] = useState<HydroEquipmentId>("generator");
   const [distributionAsset, setDistributionAsset] =
     useState<DistributionEquipmentId>("receivingTransformer");
-  const [inputs, setInputs] = useState<PowerGridInputs>(() => {
-    try {
-      const saved: unknown = JSON.parse(
-        localStorage.getItem(SAVE_KEY) ?? "null",
-      );
-      return isPowerGridInputs(saved) ? saved : DEFAULT_POWERGRID_INPUTS;
-    } catch {
-      return DEFAULT_POWERGRID_INPUTS;
-    }
-  });
   const [saved, setSaved] = useState(false);
+  const [saveError, setSaveError] = useState(false);
   const errors = useMemo(() => validatePowerGridInputs(inputs), [inputs]);
   const result = useMemo(
     () => (errors.length ? undefined : calculatePowerGrid(inputs)),
     [inputs, errors.length],
   );
   const update = (key: keyof PowerGridInputs, value: number) => {
-    setInputs((previous) => ({ ...previous, [key]: value }));
+    setScenario((previous) => ({
+      ...previous,
+      inputs: { ...previous.inputs, [key]: value },
+    }));
     setSaved(false);
   };
   const persist = () => {
     if (errors.length) return;
-    localStorage.setItem(SAVE_KEY, JSON.stringify(inputs));
-    setSaved(true);
+    try {
+      localStorage.setItem(
+        POWERGRID_SCENARIO_KEY,
+        JSON.stringify(packPowerGridScenario(scenario)),
+      );
+      setSaved(true);
+      setSaveError(false);
+    } catch {
+      setSaved(false);
+      setSaveError(true);
+    }
+  };
+  const importScenario = async (file: File) => {
+    const sequence = ++importSequence.current;
+    setImportPreview(null);
+    setImportError(false);
+    try {
+      if (file.size > POWERGRID_SCENARIO_MAX_BYTES)
+        throw new Error("Scenario file too large");
+      const restored = unpackPowerGridScenario(JSON.parse(await file.text()));
+      if (!restored) throw new Error("Invalid scenario");
+      if (sequence === importSequence.current) setImportPreview(restored);
+    } catch {
+      if (sequence === importSequence.current) setImportError(true);
+    }
   };
   const exportFile = (kind: "json" | "csv") => {
     if (!result) return;
@@ -335,9 +420,7 @@ export function PowerGridLab() {
       kind === "json"
         ? JSON.stringify(
             {
-              schemaVersion: 1,
-              model: "balanced-three-phase-constant-power-line-loss",
-              inputs,
+              ...packPowerGridScenario(scenario),
               comparison: result,
               assumptions: text.assumptionText,
             },
@@ -366,8 +449,11 @@ export function PowerGridLab() {
     if (!result || reportBusy) return;
     const snapshot = {
       inputs: { ...inputs },
+      name,
       notes,
-      preset: reportPreset,
+      preset: REGIONAL_TEACHING_PRESETS.find(
+        (preset) => preset.id === regionalPresetId,
+      )?.engineeringRegion,
       locale: locale === "pcm" ? "en-NG" : locale,
       labels: {
         ...text,
@@ -433,11 +519,12 @@ export function PowerGridLab() {
       <p className="pg-isolation">{text.independent}</p>
       <RegionalGridPreset
         onApply={(preset) => {
-          setInputs((previous) =>
-            applyRegionalTeachingPreset(previous, preset),
-          );
+          setScenario((previous) => ({
+            ...previous,
+            inputs: applyRegionalTeachingPreset(previous.inputs, preset),
+            regionalPresetId: preset.id,
+          }));
           setSaved(false);
-          setReportPreset(preset.engineeringRegion);
         }}
       />
       <SmardHistoricalDay locale={locale} />
@@ -548,15 +635,30 @@ export function PowerGridLab() {
         </p>
       )}
       <label className="pg-field">
+        <span>{experimentNameLabel}</span>
+        <input
+          maxLength={POWERGRID_SCENARIO_NAME_LIMIT}
+          value={name}
+          onChange={(event) => {
+            setScenario({ ...scenario, name: event.currentTarget.value });
+            setSaved(false);
+          }}
+        />
+      </label>
+      <label className="pg-field">
         <span>{reportNotes}</span>
         <textarea
           rows={2}
-          maxLength={400}
+          maxLength={POWERGRID_SCENARIO_NOTES_LIMIT}
           value={notes}
-          onChange={(event) => setNotes(event.currentTarget.value)}
+          onChange={(event) => {
+            setScenario({ ...scenario, notes: event.currentTarget.value });
+            setSaved(false);
+          }}
         />
       </label>
       {reportError && <p role="status">{reportFailure}</p>}
+      {saveError && <p role="status">{saveFailure}</p>}
       <div className="pg-actions">
         <button className="button" onClick={persist} disabled={!!errors.length}>
           <Save size={16} />
@@ -595,15 +697,87 @@ export function PowerGridLab() {
         <button
           className="button"
           onClick={() => {
-            setInputs(DEFAULT_POWERGRID_INPUTS);
+            setScenario({
+              inputs: DEFAULT_POWERGRID_INPUTS,
+              name: "",
+              notes: "",
+            });
             setSaved(false);
-            setReportPreset(undefined);
           }}
         >
           <RotateCcw size={16} />
           {text.reset}
         </button>
       </div>
+      <label className="pg-field">
+        <span>{importLabel}</span>
+        <input
+          type="file"
+          accept=".json,application/json"
+          onChange={(event) => {
+            const file = event.currentTarget.files?.[0];
+            event.currentTarget.value = "";
+            if (file) void importScenario(file);
+          }}
+        />
+      </label>
+      {importError && <p role="alert">{invalidImportLabel}</p>}
+      {importPreview && (
+        <section aria-labelledby="pg-scenario-preview-title">
+          <h3 id="pg-scenario-preview-title">{previewLabel}</h3>
+          {importPreview.name && <p>{importPreview.name}</p>}
+          <p>
+            {fmt(importPreview.inputs.powerMW)} MW ·{" "}
+            {fmt(importPreview.inputs.baseVoltageKV)} /{" "}
+            {fmt(importPreview.inputs.raisedVoltageKV)} kV
+          </p>
+          <dl className="pg-metrics">
+            <div>
+              <dt>{text.pf}</dt>
+              <dd>{fmt(importPreview.inputs.powerFactor)}</dd>
+            </div>
+            <div>
+              <dt>{text.resistance}</dt>
+              <dd>{fmt(importPreview.inputs.lineResistanceOhm)} Ω</dd>
+            </div>
+            <div>
+              <dt>{text.generation}</dt>
+              <dd>{fmt(importPreview.inputs.generationVoltageKV)} kV</dd>
+            </div>
+            <div>
+              <dt>{text.distribution}</dt>
+              <dd>{fmt(importPreview.inputs.distributionVoltageKV)} kV</dd>
+            </div>
+            <div>
+              <dt>{text.consumer}</dt>
+              <dd>{fmt(importPreview.inputs.consumerVoltageKV)} kV</dd>
+            </div>
+          </dl>
+          {importPreview.notes && <p>{importPreview.notes}</p>}
+          <p>{previewExplanation}</p>
+          <div className="pg-actions">
+            <button
+              className="button"
+              type="button"
+              onClick={() => {
+                setScenario(importPreview);
+                setImportPreview(null);
+                setSaved(false);
+                setSaveError(false);
+              }}
+            >
+              {applyLabel}
+            </button>
+            <button
+              className="button"
+              type="button"
+              onClick={() => setImportPreview(null)}
+            >
+              {cancelLabel}
+            </button>
+          </div>
+        </section>
+      )}
       <RadialFeederExperiment />
       <PvPerformanceExperiment />
       <HydroPerformanceExperiment locale={locale} />

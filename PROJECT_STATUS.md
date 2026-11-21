@@ -310,3 +310,5 @@ The meshed solver reproduced MATPOWER 8.1’s independently published nine-bus A
 Milestone 5 now also includes an aggregate primary-frequency lesson for a generation-loss step. Learners can edit inertia, damping, reserve, and droop response and export the integrated trace.
 
 Milestone 6 now includes a downloadable PDF for the transmission-voltage comparison. It snapshots current inputs and observations at export time, renders the schematic and loss comparison, and includes optional student notes.
+
+The transmission experiment now saves its name, notes and selected preset. Versioned JSON import validates and previews inputs, then applies only after confirmation. Older version-1 JSON and existing browser saves remain readable.

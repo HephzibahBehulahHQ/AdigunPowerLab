@@ -1,10 +1,80 @@
 import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
+import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
+
+test("transmission import previews, applies and saves separately", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const name = page.getByRole("textbox", { name: "Experiment name" });
+  const power = page.getByLabel("Transmitted real power (MW)");
+  const picker = page.getByLabel("Import scenario JSON");
+  const upload = (value: unknown) =>
+    picker.setInputFiles({
+      name: "transmission.json",
+      mimeType: "application/json",
+      buffer: Buffer.from(JSON.stringify(value)),
+    });
+  const save = page.getByRole("button", { name: "Save experiment locally" });
+  await save.click();
+  await upload({
+    schemaVersion: 1,
+    model: "balanced-three-phase-constant-power-line-loss",
+    inputs: { ...DEFAULT_POWERGRID_INPUTS, powerMW: 120 },
+  });
+  await expect(
+    page.getByRole("region", { name: "Import preview" }),
+  ).toContainText("120 MW");
+  await expect(power).toHaveValue("100");
+  await page.getByRole("button", { name: "Apply imported scenario" }).click();
+  await expect(power).toHaveValue("120");
+  await page.reload();
+  await expect(power).toHaveValue("100");
+  await upload({
+    schemaVersion: 2,
+    model: "balanced-three-phase-constant-power-line-loss",
+    inputs: { ...DEFAULT_POWERGRID_INPUTS, powerMW: 125 },
+    name: "Transmission review",
+    notes: "Compare line loss.",
+  });
+  await expect(
+    page.getByRole("region", { name: "Import preview" }),
+  ).toContainText("Transmission review");
+  await page.getByRole("button", { name: "Apply imported scenario" }).click();
+  await save.click();
+  await page.reload();
+  await expect(name).toHaveValue("Transmission review");
+  await expect(power).toHaveValue("125");
+  await expect(
+    page.getByRole("textbox", { name: "Student notes (optional)" }),
+  ).toHaveValue("Compare line loss.");
+  const exportPromise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export scenario JSON" }).click();
+  const download = await exportPromise;
+  const exported = JSON.parse(await readFile(await download.path(), "utf8"));
+  expect(exported).toMatchObject({
+    schemaVersion: 2,
+    inputs: { powerMW: 125 },
+    name: "Transmission review",
+    notes: "Compare line loss.",
+  });
+  await upload({
+    schemaVersion: 99,
+    model: "balanced-three-phase-constant-power-line-loss",
+  });
+  await expect(page.getByRole("alert")).toContainText(
+    "Invalid transmission scenario file.",
+  );
+  await expect(power).toHaveValue("125");
+});
 
 test("transmission lab exports a PDF snapshot with student notes", async ({
   page,
 }, testInfo) => {
   await page.goto("/#POWERGRID");
+  await page
+    .getByRole("textbox", { name: "Experiment name" })
+    .fill("Transmission review");
   await page
     .getByRole("textbox", { name: "Student notes (optional)" })
     .fill("Yorùbá · Höhere Spannung");

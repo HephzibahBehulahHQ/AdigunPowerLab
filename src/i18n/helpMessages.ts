@@ -1791,6 +1791,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fi àkọsílẹ̀ akẹ́kọ̀ọ́ kún un bí o bá fẹ́, kí o sì gbé àfiwé gbigbe jáde bí ìròyìn PDF. Ìròyìn pa ìtẹ̀wọlé, àbájáde, ìlànà ìṣirò àti àfojúsùn mọ́.",
       "Add student notes if you want and export the transmission comparison as lab report PDF. The report keep current inputs, readings, formula and model assumptions together.",
     ],
+  "Choose Import scenario JSON to preview a transmission experiment. Apply imports the name, notes and inputs into the worksheet. Save separately to replace the stored browser copy.":
+    [
+      "Wählen Sie Szenario-JSON importieren, um einen Übertragungsversuch vorab zu prüfen. Anwenden übernimmt Name, Notizen und Eingaben ins Arbeitsblatt. Speichern ersetzt separat die Browserkopie.",
+      "Yan Gbé JSON àpẹẹrẹ wọlé láti ṣàyẹ̀wò ìdánwò gbigbe. Lílò mú orúkọ, àkọsílẹ̀ àti ìtẹ̀wọlé sínú worksheet. Fi pamọ́ lọ́tọ̀ láti rọ́pò ẹ̀dà browser.",
+      "Choose Import scenario JSON to preview transmission experiment. Apply put name, notes and inputs for worksheet. Save separately to replace browser copy.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

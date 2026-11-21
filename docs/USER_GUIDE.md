@@ -271,4 +271,6 @@ Choose Compare single branch outages in the meshed AC experiment. The comparison
 
 In Primary frequency response, start with the 50 Hz example and change aggregate inertia, generation loss, droop or reserve. Read the initial rate of change, the lowest modeled frequency and the final plotted sample. Export frequency trace includes the input assumptions and numeric samples. The chart ends early if the deviation crosses the 5% teaching model boundary.
 
-For the step-up transmission worksheet, add optional student notes and choose Export lab report PDF. The report contains the objective, voltage stages, entered power and resistance, calculated readings, loss comparison, equation, assumptions and notes. A regional preset applied during the current session is identified. Export snapshots the inputs and notes when clicked.
+For the step-up transmission worksheet, add an optional experiment name and student notes before saving. Export lab report PDF captures the current worksheet, including the selected regional preset if available. The report contains the objective, voltage stages, entered power and resistance, calculated readings, loss comparison, equation, assumptions and notes.
+
+Use Import scenario JSON to preview an earlier transmission worksheet. Apply imported scenario replaces the editable inputs. Save experiment locally updates the saved browser copy. Version-1 exports restore electrical inputs, and version-2 exports also carry the name, notes and preset. Readings are recalculated from the validated inputs.
