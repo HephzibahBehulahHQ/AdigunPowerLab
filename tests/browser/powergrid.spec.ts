@@ -778,6 +778,8 @@ test("transmission comparison keeps a pinned baseline while editing a working co
 test("workspace backup restores a separate transmission experiment copy", async ({
   page,
 }) => {
+  await page.goto("/#/settings");
+  await expect(page.locator(".save-badge")).toContainText("Saved locally");
   await page.goto("/#POWERGRID");
   await page
     .getByRole("textbox", { name: "Experiment name" })
@@ -795,12 +797,10 @@ test("workspace backup restores a separate transmission experiment copy", async 
   await backup.getByRole("button", { name: "Export workspace backup" }).click();
   const download = await promise;
   const bytes = await readFile(await download.path());
-  expect(JSON.parse(bytes.toString()).powergridTransmission[0].name).toBe(
-    "Archived transmission",
-  );
-  expect(JSON.parse(bytes.toString()).powergridTransmission[1].name).toBe(
-    "Earlier transmission",
-  );
+  const archive = JSON.parse(bytes.toString());
+  expect(archive.projects.length).toBeGreaterThan(0);
+  expect(archive.powergridTransmission[0].name).toBe("Archived transmission");
+  expect(archive.powergridTransmission[1].name).toBe("Earlier transmission");
   await page.goto("/#POWERGRID");
   await page
     .getByRole("textbox", { name: "Experiment name" })
@@ -814,10 +814,7 @@ test("workspace backup restores a separate transmission experiment copy", async 
   });
   await expect(backup.getByText("Archived transmission")).toBeVisible();
   await backup.getByRole("button", { name: "Restore reviewed backup" }).click();
-  await expect(backup).toContainText(
-    "Workspace restored. Existing projects were preserved.",
-  );
-  await expect(backup.getByText("Processing workspace backup…")).toHaveCount(0);
+  await expect(page).toHaveURL(/#\/overview$/);
   await page.goto("/#POWERGRID");
   const labName = page.getByRole("textbox", { name: "Experiment name" });
   await expect(labName).toHaveValue("Current transmission");

@@ -1,5 +1,10 @@
 # Test evidence
 
+### Combined-cycle release browser gate correction
+
+Exact main cd84e34 stopped in [run 44941752932](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44941752932) with the Settings restore region already unmounted. The restore workflow opens the restored active project and routes to Overview. The corrected case waits for a saved initial project and for Overview after restore, then verifies the saved transmission case and its separate recovered copy. TypeScript and three consecutive focused Windows Chromium assertions passed. The local runner stalled during teardown.
+
+
 ## POWERGRID LAB Milestone 2 radial feeder workflow
 
 - `tests/powergridRadial.test.ts`: **6/6 focused numerical tests passed** locally, covering real/reactive balance, constraints, outages and disconnected load, topology and impedance rejection, convergence diagnostics, and validation of saved input shapes. Scoped strict TypeScript, Prettier, and `git diff --check` passed.
