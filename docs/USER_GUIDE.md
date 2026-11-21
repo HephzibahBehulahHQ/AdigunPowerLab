@@ -257,6 +257,8 @@ Use **Minimum stable backup output** to keep the unit off when remaining load, r
 
 For a linear fuel curve, enter the fixed **Running fuel intercept** in MJ/h and use the heat rate field for the incremental fuel rate in MJ/kWh. The intercept is charged during intervals in which the generator produces power.
 
+Select **Use diesel curve in dispatch** to transfer the diesel worksheet's rating, minimum output, fuel curve and initial inventory. Review the dispatch ramp and startup fuel settings before running the scenario.
+
 In Microgrid dispatch, choose Load rural microgrid teaching scenario to replace the current form with six four-hour intervals for a fictional clinic and rural community. Edit the assumptions before saving or exporting. Loading the scenario leaves the previously saved dispatch inputs available until you save again.
 
 Open Germany: historical load and generation beside the regional presets. Compare one-hour MWh values for 18 June 2025 in CEST. The final column subtracts PV and both wind categories from reported load. Use Export historical JSON to retain the observations, time zone, source URLs and CC BY 4.0 attribution. The comparison uses national data and leaves dispatch inputs unchanged.

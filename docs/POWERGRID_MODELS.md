@@ -106,6 +106,8 @@ The thermal backup model exposes user-entered heat rate, optional direct emissio
 
 An optional running fuel intercept adds a fixed fuel rate in MJ/h whenever the generator delivers power. With this enabled, the entered heat rate represents the incremental slope of the fuel curve in MJ/kWh. Finite inventory must cover startup and the running intercept before energy can be assigned to generation. Offline intervals incur neither running nor startup fuel.
 
+The diesel worksheet can transfer its rating, minimum output, no-load fuel rate, incremental fuel rate and initial inventory to the chronological dispatch worksheet. Litres are converted to MJ using the same teaching heating value. Demand, renewable profiles, interval duration, ramping and startup assumptions remain controlled by the dispatch worksheet.
+
 ## Concentrating solar thermal power tower
 
 The teaching model converts direct normal irradiance times mirror aperture to incident MW, multiplies by combined field and receiver efficiency to estimate collected heat, then applies the entered net heat-to-power efficiency. The available output is capped at the electrical nameplate and drops to zero below the entered minimum load. All presets are illustrative and storage, startup, ramps and dispatch are outside the model.

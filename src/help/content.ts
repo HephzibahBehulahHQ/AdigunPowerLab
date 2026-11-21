@@ -644,6 +644,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "In biogas engine and heat recovery, vary methane concentration and heat demand. Compare net electricity, recoverable heat and heat actually supplied.",
       "In solid biomass steam generation, vary wet-basis moisture and compare wet fuel heating value, heat to the steam cycle and net electrical output.",
       "In the diesel generator worksheet, change the electrical request or fuel inventory. Compare the fuel curve, available output and remaining diesel.",
+      "Use diesel curve in dispatch transfers the rating, minimum load and fuel curve to the chronological worksheet.",
       "In the coal steam worksheet, change coal inventory or net heat rate and compare net generation and remaining coal.",
       "In the nuclear steam worksheet, adjust the heat supplied to the steam cycle and compare gross generation with net power after plant electricity use.",
       "Below the hydro cutaway, select the combined-cycle gas, utility solar PV or wind study. Choose each equipment control to read its purpose and representative process or electrical interface. Terminal markings, ratings, protection and arrangement vary by manufacturer and site; confirm them from approved drawings. The custom plant images are teaching illustrations, not photographs of an identified operating facility.",

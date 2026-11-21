@@ -12,6 +12,18 @@ export const DIESEL_FIELDS = {
 
 export type DieselInputs = Record<keyof typeof DIESEL_FIELDS, number>;
 
+export function getDieselDispatchFuelSettings(inputs: DieselInputs) {
+  const mjPerLitre = DIESEL_LHV_KWH_PER_L * 3.6;
+  return {
+    ratingKW: inputs.ratingKW,
+    minimumStableKW: (inputs.ratingKW * inputs.minimumLoadPercent) / 100,
+    incrementalMJPerKWh:
+      ((inputs.ratedFuelLH - inputs.noLoadFuelLH) * mjPerLitre) /
+      inputs.ratingKW,
+    runningInterceptMJPerHour: inputs.noLoadFuelLH * mjPerLitre,
+    inventoryMJ: inputs.inventoryL * mjPerLitre,
+  };
+}
 export function calculateDieselGenerator(inputs: DieselInputs) {
   if (
     inputs.noLoadFuelLH >= inputs.ratedFuelLH ||

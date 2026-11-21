@@ -2019,6 +2019,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú worksheet òru omi láti èédú, yí iye èédú tàbí ìwọ̀n ooru padà, kí o sì wé iná tí a mú jáde àti èédú tó kù.",
       "For coal steam worksheet, change coal wey dey or net heat rate, then compare electricity wey e make and coal wey remain.",
     ],
+  "Use diesel curve in dispatch transfers the rating, minimum load and fuel curve to the chronological worksheet.":
+    [
+      "Übernehmen Sie Nennleistung, Mindestlast und Dieselkennlinie in das chronologische Arbeitsblatt.",
+      "Gbé agbára orúkọ, ẹrù tó kéré jù àti ìṣírò epo diesel lọ sí worksheet àkókò.",
+      "Use diesel curve for dispatch to copy rating, smallest load and fuel curve into di chronological worksheet.",
+    ],
   "In the diesel generator worksheet, change the electrical request or fuel inventory. Compare the fuel curve, available output and remaining diesel.":
     [
       "Ändern Sie beim Dieselgenerator Leistungsanforderung oder Kraftstoffvorrat. Vergleichen Sie Kraftstoffkennlinie, verfügbare Leistung und verbleibenden Diesel.",

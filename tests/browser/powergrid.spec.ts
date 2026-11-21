@@ -94,6 +94,22 @@ test("diesel fuel curve limits generation and accounts for the no-load intercept
   expect(stopped.remainingL).toBe(12);
   await generator.getByRole("button", { name: "Reset diesel inputs" }).click();
   await expect(inventory).toHaveValue("60");
+  await generator
+    .getByRole("button", { name: "Use diesel curve in dispatch" })
+    .click();
+  const dispatch = page.getByRole("region", {
+    name: "Microgrid dispatch laboratory",
+  });
+  await expect(dispatch.getByTestId("microgrid-backupKW")).toHaveValue("100");
+  const handoff = page.waitForEvent("download");
+  await dispatch.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const settings = JSON.parse(
+    await readFile(await (await handoff).path(), "utf8"),
+  ).inputs.backupGenerator.thermal;
+  expect(settings.minimumStableKW).toBe(30);
+  expect(settings.heatRateMJPerKWh).toBeCloseTo(8.5968);
+  expect(settings.runningInterceptMJPerHour).toBeCloseTo(107.46);
+  expect(settings.initialFuelMJ).toBeCloseTo(2149.2);
 });
 
 test("solid biomass derates wet fuel and recalculates net output", async ({

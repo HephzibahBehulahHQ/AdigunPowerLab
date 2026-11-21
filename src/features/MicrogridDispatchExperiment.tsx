@@ -1,4 +1,4 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { Download, RotateCcw, Save, SunMedium } from "lucide-react";
 import {
   calculateMicrogridDispatch,
@@ -8,6 +8,10 @@ import {
   type MicrogridDispatchResult,
 } from "../engine/microgridDispatch";
 import type { PvPerformanceInputs } from "../engine/pvPerformance";
+import {
+  getDieselDispatchFuelSettings,
+  type DieselInputs,
+} from "../engine/dieselGenerator";
 import {
   isRecurringProjectDemand,
   snapshotRecurringProjectDemand,
@@ -219,12 +223,17 @@ const copy: Record<string, [string, string, string]> = {
     "CO₂ taara láti backup (kg)",
     "Backup direct CO₂ (kg)",
   ],
-  "Enter a heat rate of 3.6–1,000 MJ/kWh and an optional CO₂ factor of 0–1,000 kg/GJ.":
+  "Enter a positive fuel slope and at least 3.6 MJ/kWh total fuel at rated output.":
     [
-      "Geben Sie einen Nettowärmeverbrauch von 3,6–1.000 MJ/kWh und optional einen CO₂-Faktor von 0–1.000 kg/GJ ein.",
-      "Tẹ ooru epo láàárín 3.6–1,000 MJ/kWh àti òṣùwọ̀n CO₂ àṣàyàn láàárín 0–1,000 kg/GJ.",
-      "Enter heat rate from 3.6 to 1,000 MJ/kWh and optional CO₂ factor from 0 to 1,000 kg/GJ.",
+      "Geben Sie einen positiven Anstieg und bei Nennleistung mindestens 3,6 MJ/kWh Gesamtbrennstoff ein.",
+      "Tẹ ìwọ̀n epo àfikún tó ju òdo lọ àti epo lápapọ̀ tó kéré tán 3.6 MJ/kWh ní agbára orúkọ.",
+      "Enter positive extra fuel per kWh and at least 3.6 MJ/kWh total fuel at rated power.",
     ],
+  "Enter a direct CO₂ factor from zero to 1,000 kg/GJ.": [
+    "Geben Sie einen direkten CO₂-Faktor zwischen null und 1.000 kg/GJ ein.",
+    "Tẹ òṣùwọ̀n CO₂ tààrà láàárín òdo àti 1,000 kg/GJ.",
+    "Enter direct CO₂ factor from zero to 1,000 kg/GJ.",
+  ],
   "Fuel energy uses a constant net heat rate. Use the same heating-value basis for the heat rate and CO₂ factor. Part-load heat-rate changes are outside this model.":
     [
       "Die Brennstoffenergie verwendet einen konstanten Nettowärmeverbrauch. Verwenden Sie für Wärmeverbrauch und CO₂-Faktor dieselbe Heizwertbasis. Änderungen des Wärmeverbrauchs bei Teillast werden nicht modelliert.",
@@ -995,13 +1004,30 @@ const dispatchLessonReferences = {
 
 export function MicrogridDispatchExperiment({
   activeDemand,
+  dieselInputs,
 }: {
   activeDemand?: ActiveProjectDemand;
+  dieselInputs?: DieselInputs;
 }) {
   const locale = useContext(LanguageContext);
   const label = (s: string) => tr(s, locale);
   const [state, setState] = useState<Editable>(readSaved);
   const [saved, setSaved] = useState(false);
+  useEffect(() => {
+    if (!dieselInputs) return;
+    const diesel = getDieselDispatchFuelSettings(dieselInputs);
+    setState((previous) => ({
+      ...previous,
+      thermalBackup: true,
+      backupKW: diesel.ratingKW,
+      backupHeatRate: diesel.incrementalMJPerKWh,
+      backupMinimumStableKW: diesel.minimumStableKW,
+      backupRunningIntercept: diesel.runningInterceptMJPerHour,
+      backupInitialFuel: String(diesel.inventoryMJ),
+      backupCO2Factor: "",
+    }));
+    setSaved(false);
+  }, [dieselInputs]);
   const [capstoneNotes, setCapstoneNotes] = useState("");
   const [capstoneReference, setCapstoneReference] = useState<{
     inputs: MicrogridDispatchInputs;

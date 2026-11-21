@@ -57,6 +57,7 @@ import { FuelCellExperiment } from "./FuelCellExperiment";
 import { BiogasExperiment } from "./BiogasExperiment";
 import { SolidBiomassExperiment } from "./SolidBiomassExperiment";
 import { DieselExperiment } from "./DieselExperiment";
+import type { DieselInputs } from "../engine/dieselGenerator";
 import { CoalSteamExperiment } from "./CoalSteamExperiment";
 import { NuclearSteamExperiment } from "./NuclearSteamExperiment";
 import { WindResourceExperiment } from "./WindResourceExperiment";
@@ -640,6 +641,7 @@ export function PowerGridLab({
   ] = recoveryCopy[locale];
   const importSequence = useRef(0);
   const [reportBusy, setReportBusy] = useState(false);
+  const [dispatchDiesel, setDispatchDiesel] = useState<DieselInputs>();
   const [reportError, setReportError] = useState(false);
   const [stationAsset, setStationAsset] =
     useState<Station3DAssetId>("generator");
@@ -1423,14 +1425,25 @@ export function PowerGridLab({
       <WaveEnergyExperiment locale={locale} />
       <GeothermalExperiment locale={locale} />
       <CombinedCycleExperiment locale={locale} />
-      <DieselExperiment locale={locale} />
+      <DieselExperiment
+        locale={locale}
+        onDispatch={(diesel) => {
+          setDispatchDiesel(diesel);
+          document
+            .getElementById("pg-microgrid-title")
+            ?.scrollIntoView({ block: "start" });
+        }}
+      />
       <CoalSteamExperiment locale={locale} />
       <NuclearSteamExperiment locale={locale} />
       <FuelCellExperiment locale={locale} />
       <BiogasExperiment locale={locale} />
       <SolidBiomassExperiment locale={locale} />
       <WindResourceExperiment />
-      <MicrogridDispatchExperiment activeDemand={activeDemand} />
+      <MicrogridDispatchExperiment
+        activeDemand={activeDemand}
+        dieselInputs={dispatchDiesel}
+      />
       <MeshedPowerFlowExperiment locale={locale} />
       <PowerGridFrequencyExperiment locale={locale} />
     </section>

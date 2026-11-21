@@ -308,19 +308,28 @@ export function validateMicrogridDispatchInputs(
       errors.push(`${label} must be greater than 0 and at most 1.`);
   }
   const g = inputs.backupGenerator;
+  const runningIntercept = g.thermal?.runningInterceptMJPerHour ?? 0;
   if (
     g.thermal &&
     (!Number.isFinite(g.thermal.heatRateMJPerKWh) ||
-      g.thermal.heatRateMJPerKWh < 3.6 ||
-      g.thermal.heatRateMJPerKWh > 1_000 ||
-      (g.thermal.directCO2KgPerGJ !== undefined &&
-        (!Number.isFinite(g.thermal.directCO2KgPerGJ) ||
-          g.thermal.directCO2KgPerGJ < 0 ||
-          g.thermal.directCO2KgPerGJ > 1_000)))
+      g.thermal.heatRateMJPerKWh <= 0 ||
+      (g.ratedKW > 0 &&
+        g.thermal.heatRateMJPerKWh + runningIntercept / g.ratedKW <
+          3.6 - 1e-12) ||
+      g.thermal.heatRateMJPerKWh > 1e7)
   ) {
     errors.push(
-      "Enter a heat rate of 3.6–1,000 MJ/kWh and an optional CO₂ factor of 0–1,000 kg/GJ.",
+      "Enter a positive fuel slope and at least 3.6 MJ/kWh total fuel at rated output.",
     );
+  }
+  const emissionsFactor = g.thermal?.directCO2KgPerGJ;
+  if (
+    emissionsFactor !== undefined &&
+    (!Number.isFinite(emissionsFactor) ||
+      emissionsFactor < 0 ||
+      emissionsFactor > 1_000)
+  ) {
+    errors.push("Enter a direct CO₂ factor from zero to 1,000 kg/GJ.");
   }
   for (const amount of [g.thermal?.startupFuelMJ, g.thermal?.initialFuelMJ]) {
     if (
@@ -343,7 +352,6 @@ export function validateMicrogridDispatchInputs(
       "Minimum stable backup output must be between zero and the generator rating.",
     );
   }
-  const runningIntercept = g.thermal?.runningInterceptMJPerHour ?? 0;
   if (
     !Number.isFinite(runningIntercept) ||
     runningIntercept < 0 ||
