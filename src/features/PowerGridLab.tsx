@@ -57,7 +57,9 @@ import { FuelCellExperiment } from "./FuelCellExperiment";
 import { BiogasExperiment } from "./BiogasExperiment";
 import { SolidBiomassExperiment } from "./SolidBiomassExperiment";
 import { DieselExperiment } from "./DieselExperiment";
-import type { DieselInputs } from "../engine/dieselGenerator";
+import { getDieselDispatchFuelSettings } from "../engine/dieselGenerator";
+import { getCoalDispatchFuelSettings } from "../engine/coalSteam";
+import type { ThermalDispatchSettings } from "../engine/microgridDispatch";
 import { CoalSteamExperiment } from "./CoalSteamExperiment";
 import { NuclearSteamExperiment } from "./NuclearSteamExperiment";
 import { WindResourceExperiment } from "./WindResourceExperiment";
@@ -641,7 +643,13 @@ export function PowerGridLab({
   ] = recoveryCopy[locale];
   const importSequence = useRef(0);
   const [reportBusy, setReportBusy] = useState(false);
-  const [dispatchDiesel, setDispatchDiesel] = useState<DieselInputs>();
+  const [dispatchFuel, setDispatchFuel] = useState<ThermalDispatchSettings>();
+  const useFuelInDispatch = (settings: ThermalDispatchSettings) => {
+    setDispatchFuel(settings);
+    document
+      .getElementById("pg-microgrid-title")
+      ?.scrollIntoView({ block: "start" });
+  };
   const [reportError, setReportError] = useState(false);
   const [stationAsset, setStationAsset] =
     useState<Station3DAssetId>("generator");
@@ -1427,14 +1435,16 @@ export function PowerGridLab({
       <CombinedCycleExperiment locale={locale} />
       <DieselExperiment
         locale={locale}
-        onDispatch={(diesel) => {
-          setDispatchDiesel(diesel);
-          document
-            .getElementById("pg-microgrid-title")
-            ?.scrollIntoView({ block: "start" });
-        }}
+        onDispatch={(diesel) =>
+          useFuelInDispatch(getDieselDispatchFuelSettings(diesel))
+        }
       />
-      <CoalSteamExperiment locale={locale} />
+      <CoalSteamExperiment
+        locale={locale}
+        onDispatch={(coal) =>
+          useFuelInDispatch(getCoalDispatchFuelSettings(coal))
+        }
+      />
       <NuclearSteamExperiment locale={locale} />
       <FuelCellExperiment locale={locale} />
       <BiogasExperiment locale={locale} />
@@ -1442,7 +1452,7 @@ export function PowerGridLab({
       <WindResourceExperiment />
       <MicrogridDispatchExperiment
         activeDemand={activeDemand}
-        dieselInputs={dispatchDiesel}
+        fuelSettings={dispatchFuel}
       />
       <MeshedPowerFlowExperiment locale={locale} />
       <PowerGridFrequencyExperiment locale={locale} />

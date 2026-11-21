@@ -108,6 +108,8 @@ An optional running fuel intercept adds a fixed fuel rate in MJ/h whenever the g
 
 The diesel worksheet can transfer its rating, minimum output, no-load fuel rate, incremental fuel rate and initial inventory to the chronological dispatch worksheet. Litres are converted to MJ using the same teaching heating value. Demand, renewable profiles, interval duration, ramping and startup assumptions remain controlled by the dispatch worksheet.
 
+The coal worksheet transfers its net rating, net heat rate and initial inventory to dispatch. Initial coal mass in tonnes is converted to MJ using the entered heat content in MJ/kg. Dispatch uses the existing ramp and startup assumptions and clears any previously entered fixed running fuel rate or CO₂ factor.
+
 ## Concentrating solar thermal power tower
 
 The teaching model converts direct normal irradiance times mirror aperture to incident MW, multiplies by combined field and receiver efficiency to estimate collected heat, then applies the entered net heat-to-power efficiency. The available output is capped at the electrical nameplate and drops to zero below the entered minimum load. All presets are illustrative and storage, startup, ramps and dispatch are outside the model.

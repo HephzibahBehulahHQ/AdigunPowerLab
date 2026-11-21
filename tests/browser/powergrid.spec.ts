@@ -59,6 +59,28 @@ test("coal steam inventory caps net output and exports the energy balance", asyn
     coalUsedTonnes: 320,
     coalRemainingTonnes: 0,
   });
+  await inventory.fill("0.005");
+  await plant
+    .getByRole("button", { name: "Use coal inventory in dispatch" })
+    .click();
+  const dispatch = page.getByRole("region", {
+    name: "Microgrid dispatch laboratory",
+  });
+  await expect(dispatch.getByTestId("microgrid-backupKW")).toHaveValue(
+    "500000",
+  );
+  await dispatch.getByTestId("microgrid-batteryPowerKW").fill("0");
+  const handoff = page.waitForEvent("download");
+  await dispatch.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const chronological = JSON.parse(
+    await readFile(await (await handoff).path(), "utf8"),
+  );
+  expect(chronological.inputs.backupGenerator.thermal.initialFuelMJ).toBe(125);
+  expect(chronological.result.intervals[0]).toMatchObject({
+    backupGenerationKW: 12.5,
+    backupRemainingFuelMJ: 0,
+  });
+  expect(chronological.result.intervals[1].backupGenerationKW).toBe(0);
   await inventory.fill("");
   await expect(exportButton).toBeDisabled();
   await plant.getByRole("button", { name: "Reset coal inputs" }).click();

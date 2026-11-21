@@ -2013,6 +2013,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú worksheet òru omi nuclear, yí ooru tí a fi sí steam cycle padà kí o sì wé agbára àpapọ̀ pẹ̀lú agbára lẹ́yìn lílo ilé-iṣẹ́.",
       "For nuclear steam worksheet, change heat wey reach steam cycle and compare gross power with power wey remain after plant use.",
     ],
+  "Use coal inventory in dispatch to carry plant capacity, net heat rate and fuel stock into the chronological worksheet.":
+    [
+      "Übernehmen Sie Anlagenleistung, Netto-Wärmebedarf und Kohlevorrat in das chronologische Arbeitsblatt.",
+      "Gbé agbára ilé-iṣẹ́, ìwọ̀n ooru àti ìpamọ́ èédú lọ sí worksheet àkókò.",
+      "Use coal inventory for dispatch to copy plant capacity, net heat rate and coal wey dey into di chronological worksheet.",
+    ],
   "In the coal steam worksheet, change coal inventory or net heat rate and compare net generation and remaining coal.":
     [
       "Ändern Sie im Kohledampf-Arbeitsblatt den Kohlevorrat oder den Netto-Wärmebedarf und vergleichen Sie Nettoerzeugung und Restvorrat.",

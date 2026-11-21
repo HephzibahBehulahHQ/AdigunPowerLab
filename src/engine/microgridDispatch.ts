@@ -67,6 +67,14 @@ export interface MicrogridDispatchInputs {
   };
 }
 
+export interface ThermalDispatchSettings {
+  ratingKW: number;
+  minimumStableKW: number;
+  incrementalMJPerKWh: number;
+  runningInterceptMJPerHour: number;
+  inventoryMJ: number;
+}
+
 export interface MicrogridDispatchInterval {
   interval: number;
   pvAvailableKW: number;

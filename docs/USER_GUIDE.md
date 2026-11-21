@@ -403,4 +403,6 @@ In **Diesel generator fuel curve**, adjust the requested power or initial invent
 
 In **Coal steam generation**, adjust coal inventory, plant capacity, or net heat rate. Use the same heating-value basis for net heat rate and coal heat content. Compare net generation and coal remaining, then export the inputs and results as JSON.
 
+Choose **Use coal inventory in dispatch** to transfer plant capacity, heat rate and initial fuel energy to the chronological worksheet. The calculation converts coal tonnes to MJ using the entered heating value.
+
 In **Nuclear steam generation**, adjust the heat supplied to the steam cycle and compare gross generation with net grid power. A negative net reading indicates electricity imported to cover on-site use in the teaching case.

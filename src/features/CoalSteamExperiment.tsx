@@ -120,7 +120,20 @@ const copy = {
   },
 };
 
-export function CoalSteamExperiment({ locale }: { locale: Locale }) {
+const dispatchLabels = {
+  en: "Use coal inventory in dispatch",
+  de: "Kohlevorrat in der Einsatzplanung verwenden",
+  yo: "Lo ìpamọ́ èédú nínú dispatch",
+  pcm: "Use coal wey dey for dispatch",
+} satisfies Record<Locale, string>;
+
+export function CoalSteamExperiment({
+  locale,
+  onDispatch,
+}: {
+  locale: Locale;
+  onDispatch: (inputs: CoalSteamInputs) => void;
+}) {
   const [draft, setDraft] = useState(defaults);
   const text = copy[locale];
   const inputs = Object.fromEntries(
@@ -167,6 +180,14 @@ export function CoalSteamExperiment({ locale }: { locale: Locale }) {
         <p role="status">{text.invalid}</p>
       )}
       <div className="pg-actions">
+        <button
+          className="button"
+          type="button"
+          disabled={!result}
+          onClick={() => result && onDispatch(inputs)}
+        >
+          {dispatchLabels[locale]}
+        </button>
         <button
           className="button"
           type="button"

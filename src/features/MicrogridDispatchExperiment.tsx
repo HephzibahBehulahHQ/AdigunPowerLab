@@ -6,12 +6,9 @@ import {
   validateMicrogridDispatchInputs,
   type MicrogridDispatchInputs,
   type MicrogridDispatchResult,
+  type ThermalDispatchSettings,
 } from "../engine/microgridDispatch";
 import type { PvPerformanceInputs } from "../engine/pvPerformance";
-import {
-  getDieselDispatchFuelSettings,
-  type DieselInputs,
-} from "../engine/dieselGenerator";
 import {
   isRecurringProjectDemand,
   snapshotRecurringProjectDemand,
@@ -1004,30 +1001,29 @@ const dispatchLessonReferences = {
 
 export function MicrogridDispatchExperiment({
   activeDemand,
-  dieselInputs,
+  fuelSettings,
 }: {
   activeDemand?: ActiveProjectDemand;
-  dieselInputs?: DieselInputs;
+  fuelSettings?: ThermalDispatchSettings;
 }) {
   const locale = useContext(LanguageContext);
   const label = (s: string) => tr(s, locale);
   const [state, setState] = useState<Editable>(readSaved);
   const [saved, setSaved] = useState(false);
   useEffect(() => {
-    if (!dieselInputs) return;
-    const diesel = getDieselDispatchFuelSettings(dieselInputs);
+    if (!fuelSettings) return;
     setState((previous) => ({
       ...previous,
       thermalBackup: true,
-      backupKW: diesel.ratingKW,
-      backupHeatRate: diesel.incrementalMJPerKWh,
-      backupMinimumStableKW: diesel.minimumStableKW,
-      backupRunningIntercept: diesel.runningInterceptMJPerHour,
-      backupInitialFuel: String(diesel.inventoryMJ),
+      backupKW: fuelSettings.ratingKW,
+      backupHeatRate: fuelSettings.incrementalMJPerKWh,
+      backupMinimumStableKW: fuelSettings.minimumStableKW,
+      backupRunningIntercept: fuelSettings.runningInterceptMJPerHour,
+      backupInitialFuel: String(fuelSettings.inventoryMJ),
       backupCO2Factor: "",
     }));
     setSaved(false);
-  }, [dieselInputs]);
+  }, [fuelSettings]);
   const [capstoneNotes, setCapstoneNotes] = useState("");
   const [capstoneReference, setCapstoneReference] = useState<{
     inputs: MicrogridDispatchInputs;
