@@ -1983,6 +1983,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú hydrogen fuel cell, yí ìpamọ́ ìbẹ̀rẹ̀, gígùn àkókò tàbí rating AC padà. Wé agbára AC gross àti net, kí o sì ṣàyẹ̀wò hydrogen tó kù.",
       "For hydrogen fuel cell, change starting fuel, interval duration or AC rating. Compare gross and net AC output and check how much hydrogen remain.",
     ],
+  "In biogas engine and heat recovery, vary methane concentration and heat demand. Compare net electricity, recoverable heat and heat actually supplied.":
+    [
+      "Ändern Sie beim Biogasmotor Methananteil und Wärmebedarf. Vergleichen Sie Nettostrom, rückgewinnbare Wärme und die tatsächlich gelieferte Wärme.",
+      "Nínú ẹ́ńjìnnì biogas, yí ìpín methane àti ìbéèrè ooru padà. Wé agbára iná net, ooru tí a lè gba àti ooru tí a pèsè.",
+      "For biogas engine, change methane fraction and heat demand. Compare net electricity, heat wey dem fit recover and heat wey reach demand.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",
