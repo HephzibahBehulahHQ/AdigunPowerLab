@@ -281,4 +281,6 @@ Startup fuel and a finite consumable fuel budget are implemented. Fuel replenish
 
 An authored rural microgrid preset now exercises chronological dispatch with an entire teaching day. Sourced country-specific generation and demand time series remain open.
 
-The regional lab includes one sourced German historical day for load, PV and wind. A historical dispatch input mode, additional regions and seasonal coverage remain open.
+The regional lab includes one sourced German historical day for load, PV and wind. Additional regions and seasonal coverage remain open.
+
+The dispatch laboratory can now use scaled historical German load, solar and wind with an editable equipment scenario. Additional national profiles and seasonal comparisons remain open.

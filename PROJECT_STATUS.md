@@ -290,3 +290,5 @@ Thermal backup now supports startup fuel and optional finite fuel inventory. Fue
 The candidate now includes an editable rural clinic and community dispatch day. Six four-hour intervals illustrate solar variation, evening demand, storage and critical loads.
 
 Added a historical Germany comparison day with hourly SMARD grid load, solar, onshore and offshore wind, and derived residual load. The reference is available locally and exported with attribution.
+
+SMARD observations now drive a scaled dispatch scenario with fixed hourly solar and wind and editable demand and equipment. JSON preserves the source day, attribution, license, scaling and illustrative critical-demand assumption.

@@ -17,6 +17,7 @@ export interface MicrogridDispatchInputs {
   intervalHours: number;
   wind: WindPerformanceInputs;
   pvByInterval: PvPerformanceInputs[];
+  reportedRenewables?: { solarKW: number; windKW: number }[];
   hydro?: Omit<typeof DEFAULT_HYDRO_INPUTS, "flowM3s"> & {
     flowsM3s: number[];
     reservoir?: {
@@ -172,15 +173,19 @@ export function validateMicrogridDispatchInputs(
   if (count < 1 || count > 96)
     errors.push("Enter between 1 and 96 demand intervals.");
   if (
-    inputs.pvByInterval.length !== count ||
     inputs.criticalDemandKW.length !== count ||
-    inputs.wind.windSpeedsMps.length !== count
+    (!inputs.reportedRenewables &&
+      (inputs.pvByInterval.length !== count ||
+        inputs.wind.windSpeedsMps.length !== count))
   ) {
     errors.push(
       "PV, wind, critical-demand and total-demand profiles must have the same number of intervals.",
     );
   }
-  if (inputs.wind.intervalHours !== inputs.intervalHours)
+  if (
+    !inputs.reportedRenewables &&
+    inputs.wind.intervalHours !== inputs.intervalHours
+  )
     errors.push("Wind and dispatch interval durations must match.");
   inputs.demandKW.forEach((demand, i) => {
     if (!Number.isFinite(demand) || demand < 0 || demand > 1_000_000)
@@ -191,15 +196,31 @@ export function validateMicrogridDispatchInputs(
         `Critical demand interval ${i + 1} must be from 0 to its total demand.`,
       );
   });
-  inputs.pvByInterval.forEach((pv, i) => {
-    for (const error of validatePV(pv))
-      errors.push(`PV interval ${i + 1}: ${error}`);
-    if (pv.dcNameplateKW > 1_000_000 || pv.inverterAcRatingKW > 1_000_000)
+  if (inputs.reportedRenewables) {
+    if (
+      inputs.reportedRenewables.length !== count ||
+      inputs.reportedRenewables.some(
+        ({ solarKW, windKW }) =>
+          ![solarKW, windKW].every(
+            (value) =>
+              Number.isFinite(value) && value >= 0 && value <= 1_000_000,
+          ),
+      )
+    )
       errors.push(
-        `PV interval ${i + 1}: capacities must not exceed 1,000,000 kW.`,
+        "Reported solar and wind must provide valid power for every demand interval.",
       );
-  });
-  for (const error of validateWind(inputs.wind)) errors.push(error);
+  } else {
+    inputs.pvByInterval.forEach((pv, i) => {
+      for (const error of validatePV(pv))
+        errors.push(`PV interval ${i + 1}: ${error}`);
+      if (pv.dcNameplateKW > 1_000_000 || pv.inverterAcRatingKW > 1_000_000)
+        errors.push(
+          `PV interval ${i + 1}: capacities must not exceed 1,000,000 kW.`,
+        );
+    });
+    for (const error of validateWind(inputs.wind)) errors.push(error);
+  }
   const hydro = inputs.hydro;
   if (hydro) {
     if (hydro.flowsM3s.length !== count) {
@@ -397,16 +418,20 @@ export function calculateMicrogridDispatch(
   const outages = new Set(grid?.outageIntervals);
   const backupOutages = new Set(generator.outageIntervals);
   let pumpedEnergyKWh = pumped?.initialKWh ?? 0;
-  const wind = calculateWindPerformance(inputs.wind);
+  const wind = inputs.reportedRenewables
+    ? undefined
+    : calculateWindPerformance(inputs.wind);
   const hydro = inputs.hydro;
   const reservoir = hydro?.reservoir;
   let waterM3 = reservoir?.initialM3 ?? 0;
   const seconds = intervalHours * 3600;
   const intervals = inputs.demandKW.map((demandKW, index) => {
-    const pvAvailableKW = calculatePvPerformance(
-      inputs.pvByInterval[index],
-    ).acPowerKW;
-    const windAvailableKW = wind.intervals[index].farmPowerKW;
+    const reported = inputs.reportedRenewables?.[index];
+    const pvAvailableKW =
+      reported?.solarKW ??
+      calculatePvPerformance(inputs.pvByInterval[index]).acPowerKW;
+    const windAvailableKW =
+      reported?.windKW ?? wind!.intervals[index].farmPowerKW;
     let turbineFlowM3s = hydro?.flowsM3s[index] ?? 0;
     let netHeadM = hydro?.netHeadM ?? 0;
     let hydroWater: MicrogridDispatchInterval["hydroWater"];

@@ -8,6 +8,7 @@ import {
 } from "../engine/microgridDispatch";
 import type { PvPerformanceInputs } from "../engine/pvPerformance";
 import { RURAL_MICROGRID_TEACHING_PROFILE } from "../engine/powergridRegions";
+import { SMARD_GERMANY_DAY } from "../data/smardGermanyDay";
 import { LanguageContext } from "../i18n";
 import type { Locale } from "../i18n";
 
@@ -16,6 +17,29 @@ const LIMITS =
   "This is an illustrative AC-bus dispatch, not a site forecast or utility operation model. No feeder/transformer losses, costs, frequency response or unit-specific transient models are included. Entered profiles are assumptions. Generic backup capacity is dispatched after storage and grid imports with the entered ramp-up ceiling; ramp-down is instantaneous.";
 const pvDefaults = DEFAULT_MICROGRID_DISPATCH_INPUTS.pvByInterval[0];
 const copy: Record<string, [string, string, string]> = {
+  "Load scaled German historical day": [
+    "Skalierten historischen Tag für Deutschland laden",
+    "Ṣí ọjọ́ àtijọ́ Jámánì tí a dín ní ìwọ̀n",
+    "Load scaled German historical day",
+  ],
+  "Replaces dispatch inputs with the 18 June 2025 SMARD day. Each 1,000 MWh reported per hour becomes 1 kW in the teaching model. Critical demand starts at an illustrative 20% of load.":
+    [
+      "Ersetzt die Eingaben durch den SMARD-Tag vom 18. Juni 2025. Je 1.000 MWh pro Stunde entsprechen 1 kW im Lehrmodell. Die kritische Last beginnt bei beispielhaften 20 %.",
+      "Ó rọ́pò ìtẹ̀wọlé pẹ̀lú ọjọ́ SMARD 18 Oṣù Kẹfà 2025. Gbogbo 1,000 MWh fún wákàtí kan di 1 kW nínú àwòṣe ẹ̀kọ́. Ìbéèrè pàtàkì bẹ̀rẹ̀ ní 20% gẹ́gẹ́ bí àpẹẹrẹ.",
+      "E replace inputs with the SMARD day for 18 June 2025. Every 1,000 MWh for one hour become 1 kW for this teaching model. Critical demand start at 20% as example.",
+    ],
+  "Historical mode uses 24 fixed hourly solar and wind observations. Reset to defaults or load the rural scenario to return to weather inputs.":
+    [
+      "Der historische Modus verwendet 24 feste Stundenwerte für Solar und Wind. Mit den Standardwerten oder dem ländlichen Szenario kehren Sie zu Wettereingaben zurück.",
+      "Àwòṣe àtijọ́ lo iye oorun àti afẹ́fẹ́ fún wákàtí 24. Padà sí iye àkọ́kọ́ tàbí ṣí àpẹẹrẹ ìgbèríko láti tún lo ojú-ọjọ́.",
+      "Historical mode use 24 fixed solar and wind observations. Reset to defaults or load rural scenario to use weather inputs again.",
+    ],
+  "Reported solar and wind must provide valid power for every demand interval.":
+    [
+      "Für jedes Lastintervall müssen gültige gemeldete Solar- und Windleistungen vorliegen.",
+      "Àwọn iye oorun àti afẹ́fẹ́ gbọ́dọ̀ péye fún àkókò ìbéèrè kọ̀ọ̀kan.",
+      "Reported solar and wind must get valid power for each demand interval.",
+    ],
   "Load rural microgrid teaching scenario": [
     "Ländliches Mikronetz-Lehrbeispiel laden",
     "Ṣí àpẹẹrẹ microgrid agbègbè ìgbèríko",
@@ -519,6 +543,7 @@ function tr(message: string, locale: Locale) {
 }
 
 interface Editable {
+  historicalGermany: boolean;
   intervalHours: number;
   windSpeeds: number[];
   irradiance: number[];
@@ -563,6 +588,7 @@ interface Editable {
 
 function defaults(): Editable {
   return {
+    historicalGermany: false,
     intervalHours: DEFAULT_MICROGRID_DISPATCH_INPUTS.intervalHours,
     hydroFlows: "",
     hydroHead: 30,
@@ -629,6 +655,7 @@ function readSaved(): Editable {
         return {
           ...defaults(),
           ...value,
+          historicalGermany: value.historicalGermany === true,
           hydroFlows:
             typeof value.hydroFlows === "string" ? value.hydroFlows : "",
           reservoirInflows:
@@ -674,6 +701,20 @@ export function MicrogridDispatchExperiment() {
   const label = (s: string) => tr(s, locale);
   const [state, setState] = useState<Editable>(readSaved);
   const [saved, setSaved] = useState(false);
+  const loadHistoricalDay = () => {
+    const demand = SMARD_GERMANY_DAY.intervals.map(
+      (row) => row.gridLoadMWh / 1_000,
+    );
+    setState({
+      ...defaults(),
+      historicalGermany: true,
+      windSpeeds: [],
+      irradiance: [],
+      demand,
+      critical: demand.map((value) => value * 0.2),
+    });
+    setSaved(false);
+  };
   const loadRuralScenario = () => {
     const profile = RURAL_MICROGRID_TEACHING_PROFILE;
     setState({
@@ -702,13 +743,19 @@ export function MicrogridDispatchExperiment() {
       }),
     );
     return {
-      intervalHours: state.intervalHours,
+      intervalHours: state.historicalGermany ? 1 : state.intervalHours,
       wind: {
         windSpeedsMps: state.windSpeeds,
         intervalHours: state.intervalHours,
         turbineCount: state.turbines,
       },
       pvByInterval,
+      reportedRenewables: state.historicalGermany
+        ? SMARD_GERMANY_DAY.intervals.map((row) => ({
+            solarKW: row.solarMWh / 1_000,
+            windKW: (row.onshoreMWh + row.offshoreMWh) / 1_000,
+          }))
+        : undefined,
       hydro:
         state.hydroFlows.trim() || state.reservoirInflows.trim()
           ? {
@@ -847,6 +894,13 @@ export function MicrogridDispatchExperiment() {
             model:
               "chronological-ac-bus-dispatch-pv-wind-hydro-battery-critical-load",
             inputs,
+            historicalSource: state.historicalGermany
+              ? {
+                  ...SMARD_GERMANY_DAY,
+                  teachingKWPerReportedHourlyMWh: 0.001,
+                  initialCriticalDemandFraction: 0.2,
+                }
+              : undefined,
             result,
             limitations: label(LIMITS),
           },
@@ -933,15 +987,44 @@ export function MicrogridDispatchExperiment() {
         >
           {label("Load rural microgrid teaching scenario")}
         </button>
+        <button
+          type="button"
+          className="button"
+          onClick={loadHistoricalDay}
+          aria-describedby="pg-historical-profile-note"
+        >
+          {label("Load scaled German historical day")}
+        </button>
       </div>
       <p id="pg-rural-profile-note" className="pg-model-note">
         {label(
           "Replaces the dispatch inputs with an illustrative 24-hour rural clinic and community scenario. Values are authored teaching assumptions.",
         )}
       </p>
+      <p id="pg-historical-profile-note" className="pg-model-note">
+        {label(
+          "Replaces dispatch inputs with the 18 June 2025 SMARD day. Each 1,000 MWh reported per hour becomes 1 kW in the teaching model. Critical demand starts at an illustrative 20% of load.",
+        )}
+      </p>
+      {state.historicalGermany && (
+        <p className="pg-model-note">
+          {label(
+            "Historical mode uses 24 fixed hourly solar and wind observations. Reset to defaults or load the rural scenario to return to weather inputs.",
+          )}
+        </p>
+      )}
       <div className="pg-wind-controls">
-        {field("windSpeeds", "Wind speed (m/s)", state.windSpeeds, true)}
-        {field("irradiance", "Solar irradiance (W/m²)", state.irradiance, true)}
+        {!state.historicalGermany && (
+          <>
+            {field("windSpeeds", "Wind speed (m/s)", state.windSpeeds, true)}
+            {field(
+              "irradiance",
+              "Solar irradiance (W/m²)",
+              state.irradiance,
+              true,
+            )}
+          </>
+        )}
         <label className="pg-field">
           <span>{label("Hydro flow by interval (m³/s), optional")}</span>
           <textarea
@@ -999,10 +1082,18 @@ export function MicrogridDispatchExperiment() {
         )}
         {field("demand", "Total demand (kW)", state.demand, true)}
         {field("critical", "Critical demand (kW)", state.critical, true)}
-        {field("pvDcKW", "PV array DC rating (kW)", state.pvDcKW)}
-        {field("pvAcKW", "PV inverter AC rating (kW)", state.pvAcKW)}
-        {field("turbines", "Wind turbines", state.turbines)}
-        {field("intervalHours", "Interval duration (h)", state.intervalHours)}
+        {!state.historicalGermany && (
+          <>
+            {field("pvDcKW", "PV array DC rating (kW)", state.pvDcKW)}
+            {field("pvAcKW", "PV inverter AC rating (kW)", state.pvAcKW)}
+            {field("turbines", "Wind turbines", state.turbines)}
+            {field(
+              "intervalHours",
+              "Interval duration (h)",
+              state.intervalHours,
+            )}
+          </>
+        )}
         {field("batteryKWh", "Battery capacity (kWh)", state.batteryKWh)}
         {field(
           "pumpedCapacity",

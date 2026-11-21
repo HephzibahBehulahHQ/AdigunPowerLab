@@ -1743,6 +1743,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Ṣí Jámánì: ìbéèrè àti ìṣẹ̀dá iná àtijọ́ láti fi ọjọ́ kan ti ìbéèrè grid, oorun àti afẹ́fẹ́ SMARD wé. Gbé JSON jáde pẹ̀lú àkókò, orísun àti ìwé-àṣẹ.",
       "Open Germany: past load and generation to compare one day of national grid load, solar and wind from SMARD. Export JSON to keep timestamps, source links and license.",
     ],
+  "Load the scaled German historical day in Microgrid dispatch to use SMARD solar and wind observations as fixed hourly output. Demand and critical load remain editable, and JSON retains the original observations and scaling.":
+    [
+      "Laden Sie im Mikronetz den skalierten historischen Tag für Deutschland. Die SMARD-Solar- und Windwerte dienen als feste Stundenerzeugung. Last und kritische Last bleiben bearbeitbar. JSON enthält Originaldaten und Skalierung.",
+      "Ṣí ọjọ́ àtijọ́ Jámánì tí a dín ní ìwọ̀n nínú Microgrid dispatch. Àwọn iye oorun àti afẹ́fẹ́ SMARD dúró fún wákàtí kọ̀ọ̀kan. O lè ṣàtúnṣe ìbéèrè àti ìbéèrè pàtàkì. JSON pa iye àkọ́kọ́ àti ìwọ̀n mọ́.",
+      "Load scaled German historical day for Microgrid dispatch to use SMARD solar and wind as fixed hourly output. You fit edit demand and critical load, and JSON keep original values and scale.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

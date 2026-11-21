@@ -476,3 +476,5 @@ Startup fuel and finite inventory passed TypeScript, 18 focused tests and Chromi
 The rural teaching preset passed TypeScript, nine localization tests and Chromium load-and-export acceptance. The exported dispatch includes six four-hour intervals with 448 kWh of illustrative demand.
 
 SMARD acquisition verified 24 consecutive timestamps with non-null observations for each of four hourly series. TypeScript, nine localization tests and Chromium table/export acceptance passed. The browser test checks all 24 rows, attribution, license, first timestamp, source load and derived residual.
+
+Scaled SMARD dispatch passed TypeScript, 18 focused tests and both historical and rural scenario Chromium checks. The saved historical preset exported 24 one-hour dispatch results with verified first-hour demand, solar, wind, power balance, and original source attribution.

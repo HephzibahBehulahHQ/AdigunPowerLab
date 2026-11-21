@@ -1,6 +1,42 @@
 import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
 
+test("microgrid dispatch persists scaled historical generation and keeps source data in JSON", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const section = page
+    .locator(".pg-pv")
+    .filter({ has: page.locator("#pg-microgrid-title") });
+  await section
+    .getByRole("button", { name: "Load scaled German historical day" })
+    .click();
+  await expect(
+    section.getByRole("textbox", { name: "Wind speed (m/s)" }),
+  ).toHaveCount(0);
+  await section.getByRole("button", { name: "Save scenario locally" }).click();
+  await page.reload();
+  await expect(
+    section.getByRole("textbox", { name: "Wind speed (m/s)" }),
+  ).toHaveCount(0);
+  const promise = page.waitForEvent("download");
+  await section.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const download = await promise;
+  const payload = JSON.parse(await readFile(await download.path(), "utf8"));
+  expect(payload.result.intervals).toHaveLength(24);
+  expect(payload.result.intervalHours).toBe(1);
+  const first = payload.result.intervals[0];
+  expect(first.demandKW).toBeCloseTo(45.1378, 6);
+  expect(first.pvAvailableKW).toBeCloseTo(0.05475, 6);
+  expect(first.windAvailableKW).toBeCloseTo(4.78125, 6);
+  expect(first.balanceResidualKW).toBeCloseTo(0, 8);
+  expect(payload.historicalSource).toMatchObject({
+    date: "2025-06-18",
+    license: "CC BY 4.0",
+    teachingKWPerReportedHourlyMWh: 0.001,
+  });
+});
+
 test("historical SMARD day shows all hours and exports attributed measurements", async ({
   page,
 }) => {
