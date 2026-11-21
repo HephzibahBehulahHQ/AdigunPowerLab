@@ -3,6 +3,40 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("nuclear steam separates gross generation from net electrical energy", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const plant = page.getByRole("region", { name: "Nuclear steam generation" });
+  const heat = plant.getByLabel("Heat supplied to the steam cycle (MW)");
+  await expect(plant.getByText("950 MW", { exact: true })).toBeVisible();
+  const diagram = plant.getByRole("img");
+  await diagram.locator("..").scrollIntoViewIfNeeded();
+  await expect
+    .poll(() =>
+      diagram.evaluate((image: HTMLImageElement) => image.naturalWidth),
+    )
+    .toBeGreaterThan(0);
+  await heat.fill("100");
+  const pending = page.waitForEvent("download");
+  await plant
+    .getByRole("button", { name: "Export nuclear steam results" })
+    .click();
+  const { result } = JSON.parse(
+    await readFile(await (await pending).path(), "utf8"),
+  );
+  expect(result).toEqual({
+    grossMW: 34,
+    netMW: -16,
+    netMWh: -64,
+    unconvertedHeatMW: 66,
+  });
+  await plant
+    .getByRole("button", { name: "Reset nuclear steam inputs" })
+    .click();
+  await expect(heat).toHaveValue("3000");
+});
+
 test("coal steam inventory caps net output and exports the energy balance", async ({
   page,
 }) => {

@@ -92,9 +92,9 @@ The fixed-voltage lesson compares a lossless transformer with a 1,000 kVA teachi
 | Solar PV | Irradiance, cell temperature, DC/AC conversion and clipping. |
 | Concentrated solar thermal | Steady-state direct solar power tower with receiver and cycle efficiencies, nameplate and minimum output. Storage and dispatch remain open. |
 | Onshore and offshore wind | One attributed NREL offshore reference turbine curve. Separate onshore and offshore resource or turbine selection remains open. |
-| Coal steam | Source catalogue entry remains open. |
+| Coal steam | Net heat rate, plant rating and finite coal inventory over one interval. |
 | Gas turbines and combined cycle | Equipment study and steady-state gas/steam worksheet with fuel, nameplate and minimum load. Chronological dispatch and plant-specific curves remain open. |
-| Nuclear steam | Source catalogue entry remains open. |
+| Nuclear steam | Educational steady steam-cycle energy balance with entered heat, conversion efficiency, gross rating and plant electricity use. |
 | Diesel and other liquid fuel | Diesel generator worksheet with a linear fuel curve and finite inventory. Generic thermal backup retains chronological heat rate, startup fuel and inventory. Other liquid-fuel curves remain open. |
 | Biomass and biogas | Solid biomass steam and gaseous biogas CHP worksheets. Chronological dispatch integration remains open. |
 | Geothermal | Binary-cycle brine heat, gross rating and auxiliary load worksheet. Reservoir and dispatch models remain open. |
@@ -139,3 +139,7 @@ The as-fired lower heating value is the dry lower heating value times the dry ma
 ## Diesel generator fuel curve
 
 The steady-interval model uses a linear fuel rate between the no-load and rated points, consistent with HOMER's curve form for fixed-speed generators. Maximum power is bounded by nameplate and by available fuel after accounting for the running intercept. The model turns the unit off when the feasible request is below minimum stable load. It validates the rated point against an approximate 9.95 kWh/L diesel lower heating value. Real curves, startup, idle scheduling and ramp limits are outside this worksheet.
+
+## Nuclear steam generation
+
+The worksheet accepts heat already supplied to the steam cycle. It caps gross electrical output at the generator rating, subtracts entered station electricity use and integrates signed net power over the interval. Heat not converted to electricity includes any surplus when the rating binds. The teaching model has no reactor physics, cooling system or protection model. The public-domain NRC plant illustration is credited through the EIA source page.

@@ -678,3 +678,5 @@ Chromium verified the Engineering Toolbox exercise opens Single-phase AC current
 The complete Overview navigation regression checked all four menu groups, the 19 real route links, the Help dialog tile, and successful decoding of all 20 tile images. All 20 Help search checks passed.
 
 Production Chromium verified playback of the report, workspace backup, revision comparison, and Help recordings on GitHub Pages after the recordings release. Each media element advanced its playback time and decoded a video frame.
+
+The nuclear steam browser case decoded the credited NRC illustration, verified 950 MW net at the reference generator rating, and exported 34 MW gross and −16 MW net at 100 MW of steam-cycle heat.

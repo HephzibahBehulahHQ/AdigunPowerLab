@@ -378,3 +378,5 @@ In **Solid biomass steam generation**, hold wet feed and dry fuel heating value 
 In **Diesel generator fuel curve**, adjust the requested power or initial inventory. Compare available power with actual output, running fuel rate and remaining diesel. A fuel-limited case below minimum stable load shuts down for the modelled interval.
 
 In **Coal steam generation**, adjust coal inventory, plant capacity, or net heat rate. Use the same heating-value basis for net heat rate and coal heat content. Compare net generation and coal remaining, then export the inputs and results as JSON.
+
+In **Nuclear steam generation**, adjust the heat supplied to the steam cycle and compare gross generation with net grid power. A negative net reading indicates electricity imported to cover on-site use in the teaching case.
