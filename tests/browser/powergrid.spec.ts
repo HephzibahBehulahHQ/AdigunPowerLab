@@ -1,6 +1,24 @@
 import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
 
+test("transmission lab exports a PDF snapshot with student notes", async ({
+  page,
+}, testInfo) => {
+  await page.goto("/#POWERGRID");
+  await page
+    .getByRole("textbox", { name: "Student notes (optional)" })
+    .fill("Yorùbá · Höhere Spannung");
+  const downloadPromise = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export lab report PDF" }).click();
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toBe(
+    "powergrid-transmission-report.pdf",
+  );
+  const path = testInfo.outputPath("powergrid-transmission-report.pdf");
+  await download.saveAs(path);
+  expect((await readFile(path)).subarray(0, 5).toString()).toBe("%PDF-");
+});
+
 test("primary frequency response recalculates and exports the dynamic trace", async ({
   page,
 }) => {

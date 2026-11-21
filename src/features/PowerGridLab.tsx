@@ -2,6 +2,7 @@ import { useContext, useMemo, useState } from "react";
 import { Download, Save, RotateCcw, Zap } from "lucide-react";
 import { LanguageContext } from "../i18n";
 import type { Locale } from "../i18n";
+import { downloadFile } from "../import-export/files";
 import {
   calculatePowerGrid,
   DEFAULT_POWERGRID_INPUTS,
@@ -39,6 +40,44 @@ const sharedHydroAssets = [
 ] as const satisfies readonly (readonly [HydroEquipmentId, Station3DAssetId])[];
 
 const SAVE_KEY = "adigunpowerlab.powergrid.experiment.v1";
+const reportCopy = {
+  en: [
+    "Transmission voltage lab report",
+    "Objective",
+    "Compare line current and resistive loss at two transmission voltages for the same transmitted power.",
+    "Source-to-consumer schematic",
+    "Student notes (optional)",
+    "Export lab report PDF",
+    "PDF export failed.",
+  ],
+  de: [
+    "Laborbericht Übertragungsspannung",
+    "Lernziel",
+    "Vergleichen Sie Strom und ohmsche Verluste bei zwei Übertragungsspannungen für dieselbe übertragene Leistung.",
+    "Schema von der Quelle zum Verbraucher",
+    "Notizen (optional)",
+    "Laborbericht als PDF exportieren",
+    "PDF-Export fehlgeschlagen.",
+  ],
+  yo: [
+    "Ìròyìn ìdánwò foliteji gbigbe",
+    "Ète",
+    "Fi ìṣàn iná àti àdánù resistance wé fún foliteji gbigbe méjì ní agbára kan náà.",
+    "Àwòrán láti orísun dé oníbàárà",
+    "Àkọsílẹ̀ akẹ́kọ̀ọ́ (àṣàyàn)",
+    "Gbé ìròyìn PDF jáde",
+    "Ìgbéjáde PDF kùnà.",
+  ],
+  pcm: [
+    "Transmission voltage lab report",
+    "Objective",
+    "Compare line current and resistance loss for two transmission voltages with the same transmitted power.",
+    "Source to consumer diagram",
+    "Student notes (optional)",
+    "Export lab report PDF",
+    "PDF export fail.",
+  ],
+} satisfies Record<Locale, string[]>;
 const copy: Record<Locale, Record<string, string>> = {
   en: {
     title: "Why step up voltage?",
@@ -247,6 +286,19 @@ function Meter({
 export function PowerGridLab() {
   const locale = useContext(LanguageContext);
   const text = copy[locale];
+  const [
+    reportTitle,
+    reportObjective,
+    reportObjectiveText,
+    reportNetwork,
+    reportNotes,
+    reportExport,
+    reportFailure,
+  ] = reportCopy[locale];
+  const [notes, setNotes] = useState("");
+  const [reportPreset, setReportPreset] = useState<string>();
+  const [reportBusy, setReportBusy] = useState(false);
+  const [reportError, setReportError] = useState(false);
   const [stationAsset, setStationAsset] =
     useState<Station3DAssetId>("generator");
   const [hydroAsset, setHydroAsset] = useState<HydroEquipmentId>("generator");
@@ -310,6 +362,35 @@ export function PowerGridLab() {
     link.click();
     window.setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
+  const exportPdf = async () => {
+    if (!result || reportBusy) return;
+    const snapshot = {
+      inputs: { ...inputs },
+      notes,
+      preset: reportPreset,
+      locale: locale === "pcm" ? "en-NG" : locale,
+      labels: {
+        ...text,
+        reportTitle,
+        reportObjective,
+        reportObjectiveText,
+        reportNetwork,
+        reportNotes,
+      },
+    };
+    setReportBusy(true);
+    setReportError(false);
+    try {
+      const { createPowerGridReport } =
+        await import("../import-export/powergridReport");
+      const pdf = await createPowerGridReport(snapshot);
+      downloadFile("powergrid-transmission-report.pdf", pdf);
+    } catch {
+      setReportError(true);
+    } finally {
+      setReportBusy(false);
+    }
+  };
 
   const field = (
     key: keyof PowerGridInputs,
@@ -356,6 +437,7 @@ export function PowerGridLab() {
             applyRegionalTeachingPreset(previous, preset),
           );
           setSaved(false);
+          setReportPreset(preset.engineeringRegion);
         }}
       />
       <SmardHistoricalDay locale={locale} />
@@ -465,6 +547,16 @@ export function PowerGridLab() {
           {text.invalidSave}
         </p>
       )}
+      <label className="pg-field">
+        <span>{reportNotes}</span>
+        <textarea
+          rows={2}
+          maxLength={400}
+          value={notes}
+          onChange={(event) => setNotes(event.currentTarget.value)}
+        />
+      </label>
+      {reportError && <p role="status">{reportFailure}</p>}
       <div className="pg-actions">
         <button className="button" onClick={persist} disabled={!!errors.length}>
           <Save size={16} />
@@ -493,9 +585,19 @@ export function PowerGridLab() {
         </button>
         <button
           className="button"
+          type="button"
+          onClick={() => void exportPdf()}
+          disabled={!result || reportBusy}
+        >
+          <Download size={16} />
+          {reportExport}
+        </button>
+        <button
+          className="button"
           onClick={() => {
             setInputs(DEFAULT_POWERGRID_INPUTS);
             setSaved(false);
+            setReportPreset(undefined);
           }}
         >
           <RotateCcw size={16} />

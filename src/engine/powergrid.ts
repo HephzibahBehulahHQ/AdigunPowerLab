@@ -48,7 +48,18 @@ export function validatePowerGridInputs(inputs: PowerGridInputs): string[] {
     const currentA =
       (inputs.powerMW * 1000) / (Math.sqrt(3) * voltageKV * inputs.powerFactor);
     const lossMW = (3 * currentA ** 2 * inputs.lineResistanceOhm) / 1_000_000;
-    if (Number.isFinite(lossMW) && lossMW >= inputs.powerMW) {
+    if (
+      !Number.isFinite(currentA) ||
+      currentA <= 0 ||
+      !Number.isFinite(lossMW) ||
+      lossMW <= 0
+    ) {
+      errors.push(
+        "Current and line losses must be representable as positive finite values.",
+      );
+      break;
+    }
+    if (lossMW >= inputs.powerMW) {
       errors.push("Calculated line loss must be below transmitted real power.");
       break;
     }

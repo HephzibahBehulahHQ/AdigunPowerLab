@@ -308,3 +308,5 @@ Milestone 5 now runs one outage per in-service branch and compares each result w
 The meshed solver reproduced MATPOWER 8.1’s independently published nine-bus AC solution. All bus voltages and angles and both-end branch P/Q flows were checked. Inputs, solution hashes and maximum deviations are recorded in the test evidence.
 
 Milestone 5 now also includes an aggregate primary-frequency lesson for a generation-loss step. Learners can edit inertia, damping, reserve, and droop response and export the integrated trace.
+
+Milestone 6 now includes a downloadable PDF for the transmission-voltage comparison. It snapshots current inputs and observations at export time, renders the schematic and loss comparison, and includes optional student notes.

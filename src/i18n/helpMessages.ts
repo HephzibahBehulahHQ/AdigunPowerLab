@@ -1785,6 +1785,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú ìdáhùn igbohunsafẹfẹ àkọ́kọ́, ṣàtúnṣe inertia, droop, ìpamọ́ àti bí ìpàdánù agbára lójijì ṣe tóbi. Fi ìyípadà ìbẹ̀rẹ̀ àti igbohunsafẹfẹ tó kéré jù wé tàbí gbé àwòrán jáde.",
       "For primary frequency response, change inertia, droop, reserve and size of sudden generation loss. Compare starting rate and lowest modeled frequency or export the trace.",
     ],
+  "Add optional student notes and export the transmission comparison as a lab report PDF. The report freezes the active inputs, calculated readings, formula and model assumptions.":
+    [
+      "Fügen Sie optional Notizen hinzu und exportieren Sie den Übertragungsvergleich als Laborbericht. Der PDF-Bericht hält Eingaben, berechnete Messwerte, Formel und Modellannahmen fest.",
+      "Fi àkọsílẹ̀ akẹ́kọ̀ọ́ kún un bí o bá fẹ́, kí o sì gbé àfiwé gbigbe jáde bí ìròyìn PDF. Ìròyìn pa ìtẹ̀wọlé, àbájáde, ìlànà ìṣirò àti àfojúsùn mọ́.",
+      "Add student notes if you want and export the transmission comparison as lab report PDF. The report keep current inputs, readings, formula and model assumptions together.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",
