@@ -674,3 +674,5 @@ The combined curriculum run reported all ten selected Chromium tests passing in 
 The Pacific Northwest browser case verified the 60 Hz and 120/240 V context, applied the 230 kV transmission and 12.47 kV distribution values, and preserved a previously edited balanced consumer voltage. The Nigeria/Germany comparison still passed in the same Chromium run.
 
 The split-phase browser case verified 5 A neutral current with unequal 120 V loads. Balancing the loads reduced the neutral current to zero. Increasing 240 V demand raised both line currents to 30 A while the neutral remained at zero.
+
+The South African regional browser case verified the dated coal and renewable energy meters and applied 275 kV, 400 kV and 132 kV to the intended worksheet fields.

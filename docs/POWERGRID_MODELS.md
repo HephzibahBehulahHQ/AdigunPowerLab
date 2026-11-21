@@ -52,6 +52,8 @@ Nigeria-inspired uses NERC Grid Code Version 02 nominal stages 330/132/33/11 kV 
 
 The United States-inspired Pacific Northwest preset compares BPA 115/230 kV transmission stages and uses an illustrative 12.47 kV distribution stage. Applying it leaves the balanced consumer and generator terminal voltage unchanged. Its separate 120/240 V worksheet assumes fixed source voltages and resistive loads. It adds the line-to-line load current to each line and takes the absolute difference of the two 120 V load currents for the neutral. The calculation excludes voltage drop, harmonic current, open-neutral faults and conductor sizing.
 
+The Southern Africa-inspired example represents South Africa specifically. It uses 275 and 400 kV for transmission comparison, 132 kV downstream and 50 Hz context. The CSIR 2024 coal and utility-scale renewable energy totals provide dated context. They do not set dispatch inputs.
+
 Currency codes and IANA time-zone identifiers are displayed separately as region metadata. Frequency is informational and the steady-state solvers do not calculate frequency response. No regional weather, renewable availability, generation dispatch or demand profiles are loaded. These are source-backed teaching contexts, not operational replicas; source dates and simplifications are recorded in [`POWERGRID_DATA_SOURCES.md`](POWERGRID_DATA_SOURCES.md). Other regional, rural-microgrid and custom presets remain unimplemented.
 
 ## Milestone 3 slice: NREL reference-wind curve and entered intervals
