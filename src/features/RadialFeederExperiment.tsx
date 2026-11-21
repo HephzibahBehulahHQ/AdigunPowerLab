@@ -106,6 +106,65 @@ const INITIAL: RadialNetworkInput = {
   ],
 };
 
+const feederTripCopy = {
+  en: {
+    title: "Practical lesson: Feeder trip",
+    prediction:
+      "Which consumer groups lose supply if the main north feeder opens? Will the south feeder still serve its load?",
+    assumptions:
+      "Start with the 11 kV training case. It has one source, fixed demand and no alternate ties. Switch changes are steady-state cases.",
+    worked: "Worked restoration sequence",
+    result:
+      "Opening the main north feeder disconnects both north groups (0.22 MW total). South remains supplied. Reclose the main feeder with the lateral open to restore 0.14 MW. Reclose the lateral to restore the remaining 0.08 MW.",
+    instructions:
+      "Reset the training case and save a comparison reference. Use the In service checkboxes to try the sequence. Export the solved JSON before reclosing the lateral if you want a record of partial restoration.",
+    question:
+      "Why does reclosing the lateral alone restore nothing while the main feeder is open? Which switch restores the larger load first?",
+  },
+  de: {
+    title: "Praxisversuch: Abzweigausfall",
+    prediction:
+      "Welche Verbrauchergruppen fallen aus, wenn der Hauptabzweig Nord öffnet? Bleibt die Last im Süden versorgt?",
+    assumptions:
+      "Beginnen Sie mit dem 11-kV-Übungsfall mit einer Quelle, konstanten Lasten und ohne Ersatzverbindung. Die Schaltzustände werden stationär berechnet.",
+    worked: "Berechnete Wiederversorgung",
+    result:
+      "Das Öffnen des Hauptabzweigs Nord trennt beide Nordgruppen (insgesamt 0,22 MW). Süd bleibt versorgt. Schließen Sie den Hauptabzweig bei offenem Nordstich, um 0,14 MW wieder zu versorgen. Schließen Sie dann den Stich für die restlichen 0,08 MW.",
+    instructions:
+      "Setzen Sie den Übungsfall zurück und speichern Sie eine Vergleichsreferenz. Probieren Sie die Reihenfolge über die Kontrollkästchen für den Betriebszustand aus. Exportieren Sie den gelösten Fall als JSON vor dem Schließen des Stichs, um die teilweise Wiederversorgung festzuhalten.",
+    question:
+      "Warum stellt der Nordstich allein keine Versorgung wieder her, solange der Hauptabzweig offen ist? Welcher Schalter versorgt die größere Last zuerst?",
+  },
+  yo: {
+    title: "Ìdánwò: Bí ẹ̀ka pinpin ṣe já",
+    prediction:
+      "Àwọn ẹgbẹ́ oníbàárà wo ni yóò pàdánù agbára bí ẹ̀ka àríwá pàtàkì bá ṣí? Ṣé ẹ̀ka gúúsù yóò ṣì fún ẹrù rẹ̀ ní agbára?",
+    assumptions:
+      "Bẹ̀rẹ̀ pẹ̀lú àpẹẹrẹ 11 kV tí ó ní orísun kan, ẹrù tí kò yí padà, tí kò sì ní ọ̀nà afẹ́yinti. Ìṣírò kọọkan jẹ́ fún ipò tí ó dúró.",
+    worked: "Àpẹẹrẹ ìmúpadàbọ̀ agbára",
+    result:
+      "Ṣíṣí ẹ̀ka àríwá pàtàkì yọ ẹgbẹ́ àríwá méjèèjì (0.22 MW lápapọ̀). Gúúsù ṣì ní agbára. Pa ẹ̀ka pàtàkì nígbà tí ẹ̀ka kékeré ṣì ṣí láti dá 0.14 MW padà. Pa ẹ̀ka kékeré láti dá 0.08 MW tó kù padà.",
+    instructions:
+      "Dá àpẹẹrẹ ìdánilẹ́kọ̀ọ́ padà, kí o sì fi ìfiwéra ìbẹ̀rẹ̀ pamọ́. Lo àwọn àpótí ipò iṣẹ́ láti gbìyànjú ìtòlẹ́sẹẹsẹ náà. Gba JSON ìṣírò kí o tó pa ẹ̀ka kékeré láti fi ìmúpadàbọ̀ apá kan pamọ́.",
+    question:
+      "Kí ló dé tí pípa ẹ̀ka kékeré nìkan kò fi dá agbára padà bí ẹ̀ka pàtàkì bá ṣí? Switch wo ni yóò kọ́kọ́ dá ẹrù tó pọ̀ jù padà?",
+  },
+  pcm: {
+    title: "Practical lesson: Feeder trip",
+    prediction:
+      "Which customer groups go lose supply if main north feeder open? South feeder go still carry im load?",
+    assumptions:
+      "Start with di 11 kV training case. E get one source, steady demand and no alternate connection. Each switch position na steady-state case.",
+    worked: "Worked restoration steps",
+    result:
+      "Open main north feeder and both north groups go lose supply (0.22 MW together). South still get supply. Close main feeder while lateral still open to restore 0.14 MW. Close lateral to restore di remaining 0.08 MW.",
+    instructions:
+      "Reset di training case and save di comparison reference. Use di In service boxes to try di steps. Download solved JSON before you close di lateral if you want record of partial restoration.",
+    question:
+      "Why closing only di lateral no restore supply if main feeder still open? Which switch restore di bigger load first?",
+  },
+} satisfies Record<Locale, Record<string, string>>;
+
 const copy: Record<Locale, Record<string, string>> = {
   en: {
     title: "Radial feeder: voltage drop and outages",
@@ -406,6 +465,7 @@ export function RadialFeederExperiment({
 }) {
   const locale = useContext(LanguageContext);
   const text = copy[locale];
+  const trip = feederTripCopy[locale];
   const [input, setInput] = useState<RadialNetworkInput>(loadSaved);
   const [saved, setSaved] = useState(false);
   const [demandPreview, setDemandPreview] =
@@ -492,6 +552,7 @@ export function RadialFeederExperiment({
             assumptions: text.modelText,
             input,
             result,
+            reference,
           },
           null,
           2,
@@ -544,6 +605,20 @@ export function RadialFeederExperiment({
         </div>
       </header>
       <p className="pg-isolation">{text.illustrative}</p>
+      <section
+        className="panel panel-pad pg-panel"
+        aria-labelledby="pg-feeder-trip"
+      >
+        <h3 id="pg-feeder-trip">{trip.title}</h3>
+        <p>{trip.prediction}</p>
+        <p>{trip.assumptions}</p>
+        <details>
+          <summary>{trip.worked}</summary>
+          <p>{trip.result}</p>
+        </details>
+        <p>{trip.instructions}</p>
+        <p>{trip.question}</p>
+      </section>
       {activeDemand && load.length > 0 && (
         <button
           className="button"

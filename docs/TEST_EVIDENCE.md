@@ -531,3 +531,7 @@ TypeScript and all 20 Help catalogue checks passed locally. The targeted Chromiu
 ### POWERGRID LAB transmission-distance lesson
 
 Local TypeScript and 26 Help and radial solver tests passed. The focused Chromium case verified export is disabled out of range, a 40 km line yields 8 Ω resistance and 16 Ω reactance per phase, the reference meets the receiving-voltage floor while the 40 km case falls below it, real losses increase, interpretation survives in the report, and reset restores 25 km. The local runner stalled during teardown.
+
+### POWERGRID LAB feeder-trip lesson
+
+TypeScript and 26 Help and radial solver tests passed. The focused Chromium case verified a 0.22 MW outage, staged restoration with 0.08 MW still disconnected, JSON export of the partial case and pinned pre-trip reference, and full reconnection. The local browser runner stalled during teardown.

@@ -330,3 +330,5 @@ PowerGrid Lab now loads on entry to #POWERGRID. Local production checks at the r
 The first structured practical lesson covers poor power factor. It adds a prediction, balanced-model assumptions, a worked comparison, and a resettable case in the existing transmission worksheet. The workbook supports baseline comparison, student notes and report export. The rest of the structured curriculum remains open.
 
 The transmission-distance lesson now uses the balanced radial AC solver with an adjustable 1–40 km two-bus line. It compares the receiving voltage and real loss with a 5 km reference, and exports both solved cases and the student's interpretation.
+
+The feeder-trip lesson now walks learners through a full north feeder outage and staged restoration in the existing radial worksheet. Solved JSON includes the pinned pre-trip reference when one is available.

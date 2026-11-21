@@ -316,3 +316,5 @@ Local Chromium verified that Overview has no PowerGrid Lab script entry in its p
 The poor-power-factor curriculum item now has a prediction, assumptions, worked values at 0.80 and 1.00, editable worksheet inputs, interpretation prompts and a case reset. It uses the transmission report and scenario comparison. Other curriculum items still need their full teaching workflow verified.
 
 The transmission-distance curriculum item has a prediction, explicit constant-P/Q and per-km impedance assumptions, a worked 5 km versus 25 km comparison, editable length, an interpretation question, a case reset, and a JSON calculation report.
+
+The feeder-trip curriculum item adds a prediction, steady-state assumptions, a worked load-restoration sequence, interpretation questions, and instructions for using the editable switches and training reset. The solved scenario JSON can capture the outage or partial restoration alongside the pinned reference.

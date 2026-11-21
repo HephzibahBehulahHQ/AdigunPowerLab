@@ -1348,6 +1348,11 @@ test("radial feeder solves loads, compares an outage, saves and exports readings
     }),
   ).toBeVisible();
   await expect(page.getByText(/Converged ·/)).toBeVisible();
+  const lesson = page.getByRole("region", {
+    name: "Practical lesson: Feeder trip",
+  });
+  await lesson.getByText("Worked restoration sequence").click();
+  await expect(lesson.getByText(/0.22 MW total/)).toBeVisible();
   await page.getByRole("button", { name: "Set comparison reference" }).click();
 
   await page.getByLabel("In service: Main north feeder").uncheck();
@@ -1355,7 +1360,21 @@ test("radial feeder solves loads, compares an outage, saves and exports readings
     page.getByText("Islanded: some consumer groups are unserved"),
   ).toBeVisible();
   await expect(page.getByText("0 → 0.22 MW")).toBeVisible();
+  const lateral = page.getByLabel("In service: North lateral", { exact: true });
+  await lateral.uncheck();
   await page.getByLabel("In service: Main north feeder").check();
+  await expect(page.getByText("0 → 0.08 MW")).toBeVisible();
+  const partialDownload = page.waitForEvent("download");
+  await page
+    .getByRole("button", { name: "Export solved scenario JSON" })
+    .click();
+  const partial = JSON.parse(
+    await readFile(await (await partialDownload).path(), "utf8"),
+  );
+  expect(partial.result.unservedBusIds).toEqual(["north_group"]);
+  expect(partial.reference.result.unservedBusIds).toEqual([]);
+  await lateral.check();
+  await expect(page.getByText(/Converged ·/)).toBeVisible();
 
   const load = page.getByLabel("North feeder group Active load (MW)");
   await load.fill("0.2");

@@ -1851,6 +1851,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú ìdánwò ìjìnnà gbigbe iná, wé 5 km àti 25 km, yí gígùn padà láti rí ààlà fólítéèjì ìgbàwọlé, kí o sì gba ìròyìn ìṣírò.",
       "For transmission distance lesson, compare 5 km and 25 km, change length to find where receiving voltage cross the limit, then download the calculation report.",
     ],
+  "In the feeder trip lesson, reset the radial training case, set a comparison reference, and restore the north loads in stages. Export the solved JSON to record the current case and reference.":
+    [
+      "Setzen Sie im Abzweigversuch den radialen Übungsfall zurück, setzen Sie eine Vergleichsreferenz und versorgen Sie die Nordlasten schrittweise wieder. Exportieren Sie das JSON mit dem aktuellen Fall und der Referenz.",
+      "Nínú ìdánwò ẹ̀ka pinpin, dá àpẹẹrẹ radial padà, ṣètò ìfiwéra ìbẹ̀rẹ̀, kí o sì dá ẹrù àríwá padà ní ìpele. Gba JSON ìṣírò pẹ̀lú àpẹẹrẹ lọwọlọwọ àti ìfiwéra.",
+      "For feeder trip lesson, reset di radial training case, set comparison reference and restore di north loads step by step. Download solved JSON to keep di current case and reference.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",
