@@ -98,7 +98,7 @@ The fixed-voltage lesson compares a lossless transformer with a 1,000 kVA teachi
 | Diesel and other liquid fuel | Generic thermal backup supports entered heat rate, startup fuel and fuel inventory. A liquid-fuel asset-specific curve remains open. |
 | Biomass and biogas | Source catalogue entry remains open. |
 | Geothermal | Source catalogue entry remains open. |
-| Tidal and wave | Source catalogue entry remains open. |
+| Tidal and wave | Tidal stream turbine worksheet with current speed, capture fraction, rating and operating thresholds. Wave generation remains open. |
 | Battery storage | Chronological SOC, reserve, charge/discharge limits and directional efficiencies. |
 | Hydrogen and fuel cell | Source catalogue entry remains open. |
 
@@ -107,3 +107,7 @@ The thermal backup model exposes user-entered heat rate and optional direct emis
 ## Concentrating solar thermal power tower
 
 The teaching model converts direct normal irradiance times mirror aperture to incident MW, multiplies by combined field and receiver efficiency to estimate collected heat, then applies the entered net heat-to-power efficiency. The available output is capped at the electrical nameplate and drops to zero below the entered minimum load. All presets are illustrative and storage, startup, ramps and dispatch are outside the model.
+
+## Tidal stream turbine
+
+The worksheet estimates flow power through the swept area as 0.5 × water density × area × speed³. It uses an illustrative fixed seawater density of 1,025 kg/m³. An entered rotor capture fraction gives shaft power, and drivetrain efficiency gives electrical potential. The model bounds available output by the rating at or above cut-in and below cut-out. It excludes wake interaction, blockage, transient loads, tidal chronology and dispatch.

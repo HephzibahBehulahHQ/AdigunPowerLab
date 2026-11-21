@@ -37,3 +37,5 @@ The worksheet uses Appendix D's tabulated NREL 6 MW (2015) reference turbine cur
 Wind speeds, interval duration and turbine count are user-entered teaching inputs. The example sequence exercises zero, partial-load, rated and cut-out regions; it is not measured weather or a regional profile. Air density, hub-height adjustment, turbulence, wakes, electrical conversion, availability, curtailment, control strategy and long-term energy yield are outside scope.
 
 The solar thermal worksheet uses the conversion chain from the [U.S. Department of Energy power tower reference](https://www.energy.gov/cmei/systems/power-tower-system-concentrating-solar-thermal-power-basics). The worksheet's efficiencies, aperture, irradiance, capacity and operating threshold are illustrative inputs.
+
+The [DOE-hosted tidal stream resource assessment](https://www.energy.gov/sites/default/files/2013/12/f5/1023527.pdf) documents how turbines extract kinetic energy from tidal currents. The lab operating points and limits are educational inputs.

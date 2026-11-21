@@ -358,3 +358,5 @@ The transformer lesson exposes a lossless comparison using the same rating and l
 The Windows production candidate passed interrupted-update recovery, old-tab module retention, unsaved billing protection, and cold PowerGrid entry and worker execution offline at both deployment paths. Hosted receipts are revision-specific.
 
 The solar thermal worksheet distinguishes incident solar power, receiver heat, electrical potential, minimum load and rating-limited available electrical output. The worksheet uses direct normal irradiance and user-entered efficiencies.
+
+The tidal stream worksheet exposes flow power, shaft and electrical potentials, and rating-limited available power. The cut-in and cut-out thresholds use the entered speed and reset to the worked example.
