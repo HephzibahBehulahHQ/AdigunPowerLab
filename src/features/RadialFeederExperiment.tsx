@@ -2,6 +2,11 @@ import { useContext, useMemo, useState } from "react";
 import { Download, GitCompare, RotateCcw, Save } from "lucide-react";
 import { LanguageContext } from "../i18n";
 import type { Locale } from "../i18n";
+import type { CalculationResult, Project } from "../domain/types";
+import {
+  snapshotProjectDemand,
+  type ProjectDemandSnapshot,
+} from "../engine/powergridProjectDemand";
 import {
   isRadialNetworkInput,
   solveRadialNetwork,
@@ -13,6 +18,53 @@ import type {
 } from "../engine/powergridRadial";
 
 const SAVE_KEY = "adigunpowerlab.powergrid.radial.v1";
+export interface ActiveProjectDemand {
+  project: Project;
+  result: CalculationResult;
+}
+
+const demandCopy = {
+  en: [
+    "Review active project demand",
+    "Project demand snapshot",
+    "Downstream consumer group",
+    "Apply project demand",
+    "Cancel",
+    "The project needs positive design demand, valid AC loads and known reactive power.",
+    "Apply replaces this group's load with the reviewed balanced design P and Q. The source project stays unchanged.",
+    "Project revision",
+  ],
+  de: [
+    "Last des aktiven Projekts prüfen",
+    "Projektlast-Momentaufnahme",
+    "Nachgelagerte Verbrauchergruppe",
+    "Projektlast anwenden",
+    "Abbrechen",
+    "Das Projekt benötigt positive Auslegungslast, gültige AC-Verbraucher und bekannte Blindleistung.",
+    "Anwenden ersetzt die Gruppenlast durch die geprüfte symmetrische Auslegungs-Wirk- und Blindleistung. Das Quellprojekt bleibt unverändert.",
+    "Projektrevision",
+  ],
+  yo: [
+    "Ṣàyẹ̀wò ìbéèrè iṣẹ́ lọwọlọwọ",
+    "Àwòrán ìbéèrè iṣẹ́",
+    "Ẹgbẹ́ oníbàárà ní ìsàlẹ̀",
+    "Lo ìbéèrè iṣẹ́",
+    "Fagilé",
+    "Iṣẹ́ nílò ìbéèrè tó ju òdo lọ, ẹrù AC tó péye àti agbára reactive tí a mọ̀.",
+    "Lílo rọ́pò ẹrù ẹgbẹ́ pẹ̀lú P àti Q tí a ṣàyẹ̀wò. Iṣẹ́ orísun dúró bí ó ti wà.",
+    "Àtúnṣe iṣẹ́",
+  ],
+  pcm: [
+    "Review active project demand",
+    "Project demand snapshot",
+    "Downstream consumer group",
+    "Apply project demand",
+    "Cancel",
+    "Project need positive design demand, valid AC loads and known reactive power.",
+    "Apply replace this group load with the reviewed balanced design P and Q. Source project stay the same.",
+    "Project revision",
+  ],
+} satisfies Record<Locale, string[]>;
 
 const INITIAL: RadialNetworkInput = {
   sourceBusId: "source",
@@ -347,11 +399,29 @@ function download(name: string, mime: string, value: string) {
   window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-export function RadialFeederExperiment() {
+export function RadialFeederExperiment({
+  activeDemand,
+}: {
+  activeDemand?: ActiveProjectDemand;
+}) {
   const locale = useContext(LanguageContext);
   const text = copy[locale];
   const [input, setInput] = useState<RadialNetworkInput>(loadSaved);
   const [saved, setSaved] = useState(false);
+  const [demandPreview, setDemandPreview] =
+    useState<ProjectDemandSnapshot | null>(null);
+  const [demandError, setDemandError] = useState(false);
+  const [demandTarget, setDemandTarget] = useState("");
+  const [
+    reviewLabel,
+    previewLabel,
+    targetLabel,
+    applyLabel,
+    cancelLabel,
+    unavailableLabel,
+    demandNote,
+    revisionLabel,
+  ] = demandCopy[locale];
   const [reference, setReference] = useState<{
     input: RadialNetworkInput;
     result: RadialNetworkResult;
@@ -374,7 +444,16 @@ export function RadialFeederExperiment() {
     setInput((previous) => ({
       ...previous,
       buses: previous.buses.map((bus) =>
-        bus.id === id ? { ...bus, [key]: value } : bus,
+        bus.id === id
+          ? {
+              ...bus,
+              [key]: value,
+              demandSource:
+                key !== "minVoltagePU" && bus[key] !== value
+                  ? undefined
+                  : bus.demandSource,
+            }
+          : bus,
       ),
     }));
     setSaved(false);
@@ -465,6 +544,98 @@ export function RadialFeederExperiment() {
         </div>
       </header>
       <p className="pg-isolation">{text.illustrative}</p>
+      {activeDemand && load.length > 0 && (
+        <button
+          className="button"
+          type="button"
+          onClick={() => {
+            const snapshot = snapshotProjectDemand(
+              activeDemand.project,
+              activeDemand.result,
+            );
+            setDemandPreview(snapshot);
+            setDemandError(!snapshot);
+            setDemandTarget(load.at(-1)!.id);
+          }}
+        >
+          {reviewLabel}
+        </button>
+      )}
+      {demandError && <p role="status">{unavailableLabel}</p>}
+      {demandPreview && (
+        <section aria-labelledby="pg-project-demand-title">
+          <h4 id="pg-project-demand-title">{previewLabel}</h4>
+          <p>
+            {demandPreview.projectName} · {revisionLabel}{" "}
+            {demandPreview.source.revision}
+          </p>
+          <p>
+            {fmt(demandPreview.loadMW, 6)} MW · {fmt(demandPreview.loadMvar, 6)}{" "}
+            Mvar
+          </p>
+          <label className="pg-field">
+            <span>{targetLabel}</span>
+            <select
+              value={demandTarget}
+              onChange={(event) => setDemandTarget(event.currentTarget.value)}
+            >
+              {load.map((bus) => (
+                <option value={bus.id} key={bus.id}>
+                  {busName(bus.id)}
+                </option>
+              ))}
+            </select>
+          </label>
+          <p>{demandNote}</p>
+          <div className="pg-actions">
+            <button
+              className="button"
+              type="button"
+              onClick={() => {
+                setInput((previous) => ({
+                  ...previous,
+                  buses: previous.buses.map((bus) =>
+                    bus.id === demandTarget && bus.id !== previous.sourceBusId
+                      ? {
+                          ...bus,
+                          loadMW: demandPreview.loadMW,
+                          loadMvar: demandPreview.loadMvar,
+                          demandSource: demandPreview.source,
+                        }
+                      : bus,
+                  ),
+                }));
+                setSaved(false);
+                setDemandPreview(null);
+              }}
+            >
+              {applyLabel}
+            </button>
+            <button
+              className="button"
+              type="button"
+              onClick={() => setDemandPreview(null)}
+            >
+              {cancelLabel}
+            </button>
+          </div>
+        </section>
+      )}
+      {load.some((bus) => bus.demandSource) && (
+        <ul className="pg-model-note">
+          {load.flatMap((bus) =>
+            bus.demandSource
+              ? [
+                  <li key={bus.id}>
+                    {busName(bus.id)} · {revisionLabel}{" "}
+                    {bus.demandSource.revision} ·{" "}
+                    {bus.demandSource.engineVersion}
+                  </li>,
+                ]
+              : [],
+          )}
+        </ul>
+      )}
       <section
         className="panel panel-pad pg-panel"
         aria-labelledby="pg-radial-input-title"

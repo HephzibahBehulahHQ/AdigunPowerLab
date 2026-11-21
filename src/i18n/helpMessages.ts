@@ -1821,6 +1821,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Ṣètò ìpìlẹ̀ àfiwé ṣáájú àtúnṣe, tàbí ṣe ẹ̀dà ìdánwò gbigbe láti dán àyípadà onírúkọ wò. Àfiwé fi ìyípadà sí ìpìlẹ̀ hàn, ó sì wà nínú JSON.",
       "Set comparison baseline before you edit, or duplicate transmission experiment to try one named version. Live comparison show changes from baseline and dey inside JSON export.",
     ],
+  "In Radial feeder, review the active project’s calculated design demand and choose a downstream group. Applying the snapshot replaces only that group’s balanced load and includes the source project revision in the solved scenario JSON.":
+    [
+      "Prüfen Sie im radialen Abzweig die berechnete Auslegungslast des aktiven Projekts und wählen Sie eine nachgelagerte Gruppe. Anwenden ersetzt nur ihre symmetrische Last. Die Quellprojektrevision ist im JSON enthalten.",
+      "Nínú Radial feeder, ṣàyẹ̀wò ìbéèrè iṣẹ́ lọwọlọwọ kí o yan ẹgbẹ́ ní ìsàlẹ̀. Lílo rẹ̀ rọ́pò ẹrù ẹgbẹ́ yẹn nìkan, ó sì fi àtúnṣe iṣẹ́ orísun sínú JSON.",
+      "For Radial feeder review active project design demand and choose downstream group. Apply replace only that group balanced load and keep source project revision inside solved JSON.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

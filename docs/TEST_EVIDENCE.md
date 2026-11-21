@@ -515,3 +515,5 @@ Transmission edit history passed TypeScript, 13 focused tests and the Chromium i
 Saved transmission revisions passed TypeScript, 15 focused archive and localization tests, and two Chromium workflows. Browser coverage verifies a prior saved revision in a new page session, a non-destructive revision preview, prior and current snapshots in the workspace JSON, and recovery as independent copies.
 
 Transmission baseline comparison passed TypeScript, 13 focused tests, and Chromium. The browser pins a 100 MW baseline, duplicates the scenario, changes the working copy to 120 MW, verifies the live and exported +20 MW difference, clears the baseline, and reloads the original saved experiment.
+
+Reviewed project-demand transfer passed TypeScript, 15 focused radial and localization tests, and Chromium. Browser coverage checks the preview leaves the feeder unchanged, applies the exact aggregate design load, exports the active project ID and revision, and confirms the workspace project ID, revision and loads are unchanged.

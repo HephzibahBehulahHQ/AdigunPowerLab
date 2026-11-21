@@ -1643,7 +1643,9 @@ export default function App() {
                 </p>
               )}
               {route === "powergrid" ? (
-                <PowerGridLab />
+                <PowerGridLab
+                  activeDemand={loaded ? { project, result } : undefined}
+                />
               ) : !loaded ? (
                 <div className="loading">
                   <LoaderCircle className="spin" />

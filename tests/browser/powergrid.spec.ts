@@ -1,6 +1,75 @@
 import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
+import { createLoad, createProject } from "../../src/domain/project";
+
+test("radial feeder imports only reviewed project demand and records provenance", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const project = createProject("Downstream design fixture");
+  project.coincidence = 1;
+  project.growthPercent = 0;
+  project.loads = [createLoad({ name: "Design heater", rating: 2, pf: 1 })];
+  await page.locator('input[type=file][accept=".json,.csv"]').setInputFiles({
+    name: "downstream.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(project)),
+  });
+  await page
+    .getByRole("dialog")
+    .getByRole("button", { name: "Apply import", exact: true })
+    .click();
+  await expect(page.locator(".load-table")).toContainText("Design heater");
+  const exportProject = async () => {
+    const pending = page.waitForEvent("download");
+    await page
+      .getByRole("button", { name: "Export project", exact: true })
+      .first()
+      .click();
+    return JSON.parse(await readFile(await (await pending).path(), "utf8"));
+  };
+  const original = await exportProject();
+  await page.goto("/#POWERGRID");
+  const feeder = page.getByRole("region", {
+    name: "Radial feeder: voltage drop and outages",
+  });
+  const demand = feeder.getByLabel("South feeder group Active load (MW)", {
+    exact: true,
+  });
+  await feeder
+    .getByRole("button", { name: "Review active project demand" })
+    .click();
+  const preview = feeder.getByRole("region", {
+    name: "Project demand snapshot",
+  });
+  await expect(preview).toContainText("Downstream design fixture");
+  await expect(demand).toHaveValue("0.12");
+  await preview.getByRole("button", { name: "Apply project demand" }).click();
+  await expect(demand).toHaveValue("0.002");
+  const promise = page.waitForEvent("download");
+  await feeder
+    .getByRole("button", { name: "Export solved scenario JSON" })
+    .click();
+  const download = await promise;
+  const exported = JSON.parse(await readFile(await download.path(), "utf8"));
+  const downstream = exported.input.buses.find(
+    (bus: { id: string }) => bus.id === "south_feeder",
+  );
+  expect(downstream.demandSource).toMatchObject({
+    projectId: original.id,
+    revision: original.revision,
+    basis: "balanced-project-design-pq",
+  });
+  expect(downstream.demandSource.revision).toEqual(expect.any(Number));
+  await page.goto("/#/overview");
+  const after = await exportProject();
+  expect(after).toMatchObject({
+    id: original.id,
+    revision: original.revision,
+    loads: original.loads,
+  });
+});
 
 test("transmission comparison keeps a pinned baseline while editing a working copy", async ({
   page,

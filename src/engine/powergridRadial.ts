@@ -1,9 +1,18 @@
+export interface RadialProjectDemandSource {
+  projectId: string;
+  revision: number;
+  engineVersion: string;
+  capturedAt: string;
+  basis: "balanced-project-design-pq";
+}
+
 export interface RadialBus {
   id: string;
   loadMW: number;
   loadMvar: number;
   minVoltagePU?: number;
   maxVoltagePU?: number;
+  demandSource?: RadialProjectDemandSource;
 }
 
 export interface RadialBranch {
@@ -78,13 +87,27 @@ export function isRadialNetworkInput(
   const validBus = (bus: unknown) => {
     if (!bus || typeof bus !== "object") return false;
     const item = bus as Partial<RadialBus>;
+    const provenance = item.demandSource;
     return (
       typeof item.id === "string" &&
       typeof item.loadMW === "number" &&
       typeof item.loadMvar === "number" &&
       (item.minVoltagePU === undefined ||
         typeof item.minVoltagePU === "number") &&
-      (item.maxVoltagePU === undefined || typeof item.maxVoltagePU === "number")
+      (item.maxVoltagePU === undefined ||
+        typeof item.maxVoltagePU === "number") &&
+      (provenance === undefined ||
+        (provenance !== null &&
+          typeof provenance === "object" &&
+          typeof provenance.projectId === "string" &&
+          provenance.projectId.length > 0 &&
+          Number.isSafeInteger(provenance.revision) &&
+          provenance.revision >= 0 &&
+          typeof provenance.engineVersion === "string" &&
+          provenance.engineVersion.length > 0 &&
+          typeof provenance.capturedAt === "string" &&
+          Number.isFinite(Date.parse(provenance.capturedAt)) &&
+          provenance.basis === "balanced-project-design-pq"))
     );
   };
   const validBranch = (branch: unknown) => {

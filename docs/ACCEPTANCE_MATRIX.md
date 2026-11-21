@@ -306,3 +306,5 @@ The transmission worksheet has named and versioned local saves, JSON export and 
 Transmission supports bounded in-session undo and redo, including imported and recovered scenarios, and up to 20 earlier explicit save states. Workspace backups retain distinct revision contents as recoverable copies. Revision tracking and undo for other experiments remain open.
 
 Transmission supports a named working duplicate and an in-session baseline. The screen and JSON show signed input and result changes. Persistent baselines and comparison reports for additional experiments remain open.
+
+Reviewed active-project demand transfer is implemented for a selected radial group using balanced design P and Q. It preserves lab provenance and the source workspace. Phase-specific, scheduled and DC converter-aware transfer remain open.

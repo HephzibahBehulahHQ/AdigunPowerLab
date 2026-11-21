@@ -30,7 +30,10 @@ import {
   POWERGRID_SCENARIO_NOTES_LIMIT,
   type PowerGridScenario,
 } from "../import-export/powergridScenario";
-import { RadialFeederExperiment } from "./RadialFeederExperiment";
+import {
+  RadialFeederExperiment,
+  type ActiveProjectDemand,
+} from "./RadialFeederExperiment";
 import { MeshedPowerFlowExperiment } from "./MeshedPowerFlowExperiment";
 import { PowerGridFrequencyExperiment } from "./PowerGridFrequencyExperiment";
 import { PvPerformanceExperiment } from "./PvPerformanceExperiment";
@@ -491,7 +494,11 @@ function Meter({
   );
 }
 
-export function PowerGridLab() {
+export function PowerGridLab({
+  activeDemand,
+}: {
+  activeDemand?: ActiveProjectDemand;
+}) {
   const locale = useContext(LanguageContext);
   const text = copy[locale];
   const [
@@ -1224,7 +1231,7 @@ export function PowerGridLab() {
           </div>
         </section>
       )}
-      <RadialFeederExperiment />
+      <RadialFeederExperiment activeDemand={activeDemand} />
       <PvPerformanceExperiment />
       <HydroPerformanceExperiment locale={locale} />
       <WindResourceExperiment />
