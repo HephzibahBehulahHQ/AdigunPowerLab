@@ -125,6 +125,7 @@ import {
 } from "./features/WorkspacePages";
 import { WorkspaceLabMenu } from "./features/WorkspaceLabMenu";
 import { EngineeringFieldGuide } from "./features/EngineeringFieldGuide";
+import { ReportWalkthrough } from "./features/ReportWalkthrough";
 import {
   Renewables,
   EVPlanner,
@@ -2039,6 +2040,9 @@ export default function App() {
                   )}
                   {route === "reports" && (
                     <>
+                      {reportTab === "engineering" && (
+                        <ReportWalkthrough locale={locale} />
+                      )}
                       <div className="tab-bar">
                         <button
                           className={

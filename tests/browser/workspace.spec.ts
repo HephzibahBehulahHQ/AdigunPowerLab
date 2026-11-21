@@ -1049,6 +1049,25 @@ test("engineering field guides link footage to the calculator", async ({
   }
 });
 
+test("engineering report walkthrough plays the bundled recording", async ({
+  page,
+}) => {
+  await page.goto("/#/reports");
+  const video = page
+    .getByRole("region", { name: "Watch the report workflow" })
+    .locator("video");
+  await expect(video).toBeVisible();
+  await video.evaluate((element: HTMLVideoElement) => {
+    element.muted = true;
+    return element.play();
+  });
+  await expect
+    .poll(() =>
+      video.evaluate((element: HTMLVideoElement) => element.currentTime),
+    )
+    .toBeGreaterThan(0);
+});
+
 test("Overview pairs credited facility photos and documentary video with working calculations", async ({
   page,
 }) => {
