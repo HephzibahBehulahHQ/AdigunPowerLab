@@ -587,3 +587,7 @@ TypeScript and 20 Help checks passed. The focused Chromium test downloaded a mul
 ### POWERGRID LAB header placement and navigation
 
 TypeScript, formatting and 20 Help checks passed. Focused Chromium verified rightmost placement, full visibility and keyboard entry at 1,440, 768 and 390 px, unchanged desktop launcher geometry while Search is open, exact hash, refresh and history, and narrow-screen controls. The phone test exposed header clipping on Overview; removing the phone project control's inherited minimum width corrected it. The local runner stalled during teardown.
+
+### POWERGRID LAB unsaved customer-work isolation
+
+TypeScript and the focused Chromium assertions passed. The test rejected IndexedDB writes to the projects store, confirmed the save failure, entered #POWERGRID and edited transmitted power, then returned to Loads and downloaded the original in-memory customer draft with its unsaved 2.3 kW entry. The local runner stalled during teardown.

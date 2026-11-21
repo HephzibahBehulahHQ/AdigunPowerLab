@@ -3,6 +3,58 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("PowerGrid round trip preserves a customer edit after local storage rejects it", async ({
+  page,
+}) => {
+  await page.goto("/#/loads");
+  const badge = page.locator(".save-badge");
+  await expect(badge).toContainText("Saved locally");
+  await page.evaluate(() => {
+    const put = IDBObjectStore.prototype.put;
+    IDBObjectStore.prototype.put = function (...args: Parameters<typeof put>) {
+      if (this.name === "projects")
+        throw new DOMException("Test write failure", "QuotaExceededError");
+      return put.apply(this, args);
+    };
+  });
+  await page
+    .getByRole("button", { name: "Add load", exact: true })
+    .first()
+    .click();
+  const dialog = page.getByRole("dialog");
+  await dialog
+    .getByLabel("Name", { exact: true })
+    .fill("Unsaved customer load");
+  await dialog.getByLabel(/^Rating/).fill("2.3");
+  await dialog.getByRole("button", { name: "Add load", exact: true }).click();
+  await expect(badge).toContainText("Save failed");
+  await page
+    .getByRole("banner")
+    .getByRole("button", { name: "POWERGRID LAB", exact: true })
+    .click();
+  await expect(page).toHaveURL(/#POWERGRID$/);
+  const power = page.getByLabel("Transmitted real power (MW)");
+  await expect(power).toHaveValue("100");
+  await power.fill("120");
+  await page.goBack();
+  await expect(page).toHaveURL(/#\/loads$/);
+  await expect(badge).toContainText("Save failed");
+  await expect(page.locator(".load-table")).toContainText(
+    "Unsaved customer load",
+  );
+  const pending = page.waitForEvent("download");
+  await page
+    .locator(".app-alert")
+    .getByRole("button", { name: "Export project", exact: true })
+    .click();
+  const exported = JSON.parse(
+    await readFile(await (await pending).path(), "utf8"),
+  );
+  expect(exported.loads).toContainEqual(
+    expect.objectContaining({ name: "Unsaved customer load", rating: 2.3 }),
+  );
+});
+
 test("transmission BOT rejects a stale proposal and supports confirmation and undo", async ({
   page,
 }) => {

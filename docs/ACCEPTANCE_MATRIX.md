@@ -344,3 +344,5 @@ Meshed N−1 comparison runs in a worker. Changing case inputs clears the old ro
 Transmission report output includes the pinned baseline, when present, as a named before/after comparison with signed changes.
 
 The header acceptance case checks the visible POWERGRID LAB launcher is to the right of the language control, fits the viewport at 1,440, 768 and 390 px, and opens the exact route by keyboard. At desktop width, opening Search leaves the launcher bounds unchanged.
+
+The PowerGrid route isolation check forces a project write failure, opens and edits the lab, returns to Loads with Back, and confirms the unsaved customer load is present both in the table and the project recovery export.

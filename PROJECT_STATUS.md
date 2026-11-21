@@ -358,3 +358,5 @@ Meshed AC branch-outage comparisons now run in a dedicated worker. Editing the c
 The transmission PDF snapshot now includes the pinned worksheet name, baseline readings, current readings and signed differences. The comparison is frozen before the PDF module loads.
 
 The POWERGRID LAB launcher is the final top-bar control. The qualification checks now cover right-edge placement and keyboard entry at desktop, tablet and phone widths, plus header geometry while Search is open.
+
+The draft now has direct browser coverage for entering and leaving POWERGRID LAB after an engineering-project save failure. The curriculum guide indexes all 12 requested lesson workflows and their reports.

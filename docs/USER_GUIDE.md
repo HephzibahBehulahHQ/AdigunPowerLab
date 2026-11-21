@@ -320,3 +320,5 @@ With **Compare single branch outages** enabled, changing the meshed case recompu
 To include baseline readings and signed differences in the transmission PDF, pin the original worksheet before editing and then export the report. The PDF captures the comparison as it stood when you clicked Export.
 
 Open **POWERGRID LAB** at the far right of the top bar. With the launcher focused, press Enter to open the lab.
+
+If PowerLab shows **Save failed**, opening POWERGRID LAB and returning with browser Back keeps the customer draft available in the same tab. Use **Export project** in the save-failure alert to keep a recovery copy.
