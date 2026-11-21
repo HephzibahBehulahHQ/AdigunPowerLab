@@ -336,3 +336,5 @@ In **Tidal stream turbine**, change current speed from 2 m/s to 1 m/s and compar
 In **Binary-cycle geothermal generation**, vary brine flow or the production and reinjection temperatures. Compare recovered heat, gross potential, rating-limited output and net output. A negative net value means the entered plant auxiliaries require power from outside the plant. Reset or export the case as JSON.
 
 In **Deep-water wave energy**, vary significant wave height and energy period. Compare wave power per metre with the electrical output after capture and conversion. Raise wave height to the entered shutdown limit to see available output fall to zero.
+
+In **Gas and steam combined cycle**, change heat recovery or the gross generation request. Compare gas turbine output, recovered heat and steam generation. Enter a request below the minimum stable load to see that standby auxiliaries still require power. Export the current case as JSON.

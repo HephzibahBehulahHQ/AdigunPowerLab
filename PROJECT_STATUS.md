@@ -382,3 +382,5 @@ The tidal stream increment adds a source-linked turbine worksheet with a swept-a
 The geothermal increment adds a source-linked binary-cycle worksheet with brine temperatures and flow, gross output and signed net output after auxiliary load. The learner can reset the worked case and export JSON.
 
 The wave-energy increment adds an independent deep-water sea-state worksheet with wave flux, capture width, conversion efficiency, rating and shutdown height. It reports resource and available output separately and provides JSON export.
+
+The combined-cycle increment adds a worksheet for fuel-limited potential, available and dispatched gross generation, gas and steam output, recovered heat and net output after plant use.

@@ -3,6 +3,38 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("combined cycle joins gas and steam output and respects stable minimum load", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const plant = page.getByRole("region", {
+    name: "Gas and steam combined cycle",
+  });
+  const request = plant.getByLabel("Requested gross generation (MW)");
+  const exportCase = async () => {
+    const pending = page.waitForEvent("download");
+    await plant
+      .getByRole("button", { name: "Export combined cycle results" })
+      .click();
+    return JSON.parse(await readFile(await (await pending).path(), "utf8"))
+      .result;
+  };
+  const base = await exportCase();
+  expect(base.grossPotentialMW).toBeCloseTo(170.4);
+  expect(base.availableGrossMW).toBe(160);
+  expect(base.gasOutputMW + base.steamOutputMW).toBeCloseTo(150);
+  expect(base.fuelUsedMW).toBeCloseTo(150 / 0.568);
+  expect(base.netOutputMW).toBe(147);
+  await request.fill("10");
+  const standby = await exportCase();
+  expect(standby.fuelUsedMW).toBe(0);
+  expect(standby.netOutputMW).toBe(-3);
+  await plant
+    .getByRole("button", { name: "Reset combined cycle inputs" })
+    .click();
+  await expect(request).toHaveValue("150");
+});
+
 test("deep-water wave case caps output and shuts down at the configured height", async ({
   page,
 }) => {

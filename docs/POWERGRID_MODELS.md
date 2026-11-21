@@ -93,7 +93,7 @@ The fixed-voltage lesson compares a lossless transformer with a 1,000 kVA teachi
 | Concentrated solar thermal | Steady-state direct solar power tower with receiver and cycle efficiencies, nameplate and minimum output. Storage and dispatch remain open. |
 | Onshore and offshore wind | One attributed NREL offshore reference turbine curve. Separate onshore and offshore resource or turbine selection remains open. |
 | Coal steam | Source catalogue entry remains open. |
-| Gas turbines and combined cycle | Combined-cycle equipment study. Gas-specific performance and dispatch remain open. |
+| Gas turbines and combined cycle | Equipment study and steady-state gas/steam worksheet with fuel, nameplate and minimum load. Chronological dispatch and plant-specific curves remain open. |
 | Nuclear steam | Source catalogue entry remains open. |
 | Diesel and other liquid fuel | Generic thermal backup supports entered heat rate, startup fuel and fuel inventory. A liquid-fuel asset-specific curve remains open. |
 | Biomass and biogas | Source catalogue entry remains open. |
@@ -119,3 +119,7 @@ Recovered heat is brine mass flow × 4.18 kJ/(kg·K) × the production-to-reinje
 ## Deep-water wave conversion
 
 Wave flux per metre of crest is seawater density × gravity² × significant wave height² × energy period / (64π). The model uses 1,025 kg/m³ and 9.81 m/s². Multiplying flux by effective capture width estimates absorbed power, then conversion efficiency gives electrical potential. Available output is capped by nameplate and falls to zero at the configured shutdown height. The worksheet assumes deep water and a single sea state.
+
+## Gas and steam combined cycle
+
+The gross conversion fraction is gas turbine efficiency plus (1 − gas turbine efficiency) × heat recovery fraction × steam cycle efficiency. The model caps available output by fuel and gross rating. It selects the lower of requested and available gross output and produces no power below minimum stable load. Fuel used is gross output divided by the combined conversion fraction, and the two turbine outputs are based on that actual fuel input. Entered auxiliary demand is deducted even in standby.

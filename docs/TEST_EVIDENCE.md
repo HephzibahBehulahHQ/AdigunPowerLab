@@ -633,3 +633,7 @@ TypeScript and 20 Help checks passed. Chromium verified 14,630 kW recovered heat
 ### POWERGRID LAB deep-water wave energy
 
 TypeScript and 20 Help checks passed. Chromium verified the 100 kW nameplate cap, about 98.12 kW/m crest flux at 5 m significant height and 8 s energy period, zero available output at shutdown, JSON content, invalid-input handling and reset. The local runner stalled during teardown.
+
+### POWERGRID LAB gas and steam combined cycle
+
+TypeScript and 20 Help checks passed. Chromium verified 170.4 MW fuel-limited potential, 160 MW available gross, 150 MW summed gas and steam generation, 147 MW net, and a 3 MW auxiliary import with zero fuel use below minimum load. JSON export and reset passed. The local runner stalled during teardown.

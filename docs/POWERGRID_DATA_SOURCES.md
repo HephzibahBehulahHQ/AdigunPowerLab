@@ -43,3 +43,5 @@ The [DOE-hosted tidal stream resource assessment](https://www.energy.gov/sites/d
 The binary geothermal worksheet follows the separation of brine and working-fluid loops described in the [DOE geothermal electricity generation reference](https://www.energy.gov/hgeo/geothermal/geothermal-electricity-generation). All operating points and fluid-property simplifications are analytical teaching assumptions.
 
 The deep-water wave worksheet follows equation 19 in the [OSTI-hosted wave energy converter study](https://www.osti.gov/servlets/purl/3014149). The study describes wave flux per metre of crest. The lab uses an illustrative capture width, seawater density and operating limits.
+
+The [DOE gas turbine power plant reference](https://www.energy.gov/hgeo/how-gas-turbine-power-plants-work) describes exhaust heat recovery and the gas/steam conversion chain. The worksheet parameters are illustrative and come from user inputs.
