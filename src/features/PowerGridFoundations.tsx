@@ -240,8 +240,18 @@ export function PowerGridFoundations({
             {[comparison.base, comparison.raised].map((reading, index) => (
               <tr key={index}>
                 <th scope="row">{index === 0 ? 132 : voltage}</th>
-                <td>{format.format(reading.currentA)}</td>
-                <td>{format.format(reading.lineLossMW)}</td>
+                <td>
+                  {reading.currentA.toLocaleString(locale, {
+                    maximumFractionDigits: 1,
+                  })}{" "}
+                  A
+                </td>
+                <td>
+                  {reading.lineLossMW.toLocaleString(locale, {
+                    maximumFractionDigits: 3,
+                  })}{" "}
+                  MW
+                </td>
               </tr>
             ))}
           </tbody>
