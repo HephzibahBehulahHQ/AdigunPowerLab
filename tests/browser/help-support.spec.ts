@@ -15,6 +15,30 @@ async function openHelp(page: Page) {
   return page.getByRole("dialog", { name: "Help & Support", exact: true });
 }
 
+test("the illustrated Help tile opens a playable guide recording", async ({
+  page,
+}) => {
+  await ready(page);
+  const menu = page.getByRole("region", { name: "Explore the workspace" });
+  await menu.getByRole("button", { name: "Resources", exact: true }).click();
+  await menu
+    .getByRole("button", { name: "Help and Guide", exact: true })
+    .click();
+  const help = page.getByRole("dialog", { name: "Help & Support" });
+  const video = help
+    .getByRole("region", { name: "Watch how to find a guide" })
+    .locator("video");
+  await video.evaluate((element: HTMLVideoElement) => {
+    element.muted = true;
+    return element.play();
+  });
+  await expect
+    .poll(() =>
+      video.evaluate((element: HTMLVideoElement) => element.currentTime),
+    )
+    .toBeGreaterThan(0);
+});
+
 test("Help and Guide sidebar opens the illustrated workflow and Bot tour", async ({
   page,
 }) => {

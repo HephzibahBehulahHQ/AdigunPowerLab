@@ -81,10 +81,38 @@ const history = {
   ],
 } satisfies Record<Locale, readonly string[]>;
 
+const help = {
+  en: [
+    "Watch how to find a guide",
+    "Search for the task or tool you need",
+    "Read the matching guide",
+    "Open its workspace or calculator",
+  ],
+  de: [
+    "Suche nach einem Leitfaden ansehen",
+    "Nach Aufgabe oder Werkzeug suchen",
+    "Passenden Leitfaden lesen",
+    "Arbeitsbereich oder Rechner öffnen",
+  ],
+  yo: [
+    "Wo bí a ṣe ń wá ìtọ́sọ́nà",
+    "Wá iṣẹ́ tàbí irinṣẹ́ tí o nílò",
+    "Ka ìtọ́sọ́nà tó bá mu",
+    "Ṣí ibi iṣẹ́ tàbí ẹ̀rọ ìṣírò rẹ̀",
+  ],
+  pcm: [
+    "Watch how to find guide",
+    "Search for di task or tool wey you need",
+    "Read di guide wey match",
+    "Open di workspace or calculator",
+  ],
+} satisfies Record<Locale, readonly string[]>;
+
 const recordings = {
   report: { asset: "engineering-report", steps: report },
   backup: { asset: "workspace-backup", steps: backup },
   history: { asset: "revision-comparison", steps: history },
+  help: { asset: "help-search", steps: help },
 };
 
 export function WorkspaceRecording({

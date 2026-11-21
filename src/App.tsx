@@ -1687,6 +1687,7 @@ export default function App() {
                         entries={routes}
                         locale={locale}
                         onRoute={go}
+                        onOpenHelp={() => openHelp()}
                       />
                       <Overview
                         project={project}
