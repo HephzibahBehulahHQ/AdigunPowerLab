@@ -1504,6 +1504,18 @@ test("microgrid dispatch exports thermal backup fuel and direct CO₂", async ({
     backupStartupFuelMJ: 0,
     backupRemainingFuelMJ: 150,
   });
+  await minimum.fill("0");
+  await section.getByTestId("microgrid-backupRunningIntercept").fill("10");
+  const interceptExport = page.waitForEvent("download");
+  await section.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const withIntercept = JSON.parse(
+    await readFile(await (await interceptExport).path(), "utf8"),
+  );
+  expect(withIntercept.result.intervals[0]).toMatchObject({
+    backupGenerationKW: 11,
+    backupFuelEnergyMJ: 150,
+    backupRemainingFuelMJ: 0,
+  });
 });
 
 test("microgrid dispatch saves grid outages and exports islanding state", async ({

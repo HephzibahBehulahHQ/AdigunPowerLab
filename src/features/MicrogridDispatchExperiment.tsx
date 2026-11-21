@@ -136,6 +136,21 @@ const copy: Record<string, [string, string, string]> = {
     "Agbára afẹ́yinti tó kéré jù ní ìṣiṣẹ́ (kW)",
     "Smallest steady backup output (kW)",
   ],
+  "Running fuel intercept (MJ/h)": [
+    "Brennstoff-Grundverbrauch im Betrieb (MJ/h)",
+    "Ìwọ̀n epo ìpìlẹ̀ ní ìṣiṣẹ́ (MJ/h)",
+    "Base fuel rate when generator dey run (MJ/h)",
+  ],
+  "Incremental fuel rate (MJ/kWh)": [
+    "Zusätzlicher Brennstoffverbrauch (MJ/kWh)",
+    "Ìwọ̀n epo àfikún (MJ/kWh)",
+    "Extra fuel for each kWh (MJ/kWh)",
+  ],
+  "Enter a running fuel intercept from zero to 1,000,000,000 MJ/h.": [
+    "Geben Sie einen Brennstoff-Grundverbrauch von 0 bis 1.000.000.000 MJ/h ein.",
+    "Tẹ ìwọ̀n epo ìpìlẹ̀ láàárín òdo àti 1,000,000,000 MJ/h.",
+    "Enter base running fuel rate from zero to 1,000,000,000 MJ/h.",
+  ],
   "Minimum stable backup output must be between zero and the generator rating.":
     [
       "Die minimale stabile Reserveleistung muss zwischen null und der Generatornennleistung liegen.",
@@ -672,6 +687,7 @@ interface Editable {
   backupCO2Factor: string;
   backupStartupFuel: number;
   backupMinimumStableKW: number;
+  backupRunningIntercept: number;
   backupInitialFuel: string;
 }
 
@@ -709,6 +725,7 @@ function defaults(): Editable {
     backupCO2Factor: "",
     backupStartupFuel: 0,
     backupMinimumStableKW: 0,
+    backupRunningIntercept: 0,
     backupInitialFuel: "",
     pumpedInitial: 0,
     pumpLimit: 25,
@@ -879,6 +896,10 @@ function buildDispatchInputs(
               state.backupMinimumStableKW === 0
                 ? undefined
                 : state.backupMinimumStableKW,
+            runningInterceptMJPerHour:
+              state.backupRunningIntercept === 0
+                ? undefined
+                : state.backupRunningIntercept,
             initialFuelMJ: state.backupInitialFuel.trim()
               ? Number(state.backupInitialFuel)
               : undefined,
@@ -1513,7 +1534,9 @@ export function MicrogridDispatchExperiment({
           <>
             {field(
               "backupHeatRate",
-              "Net heat rate (MJ/kWh)",
+              state.backupRunningIntercept > 0
+                ? "Incremental fuel rate (MJ/kWh)"
+                : "Net heat rate (MJ/kWh)",
               state.backupHeatRate,
             )}
             {field(
@@ -1525,6 +1548,11 @@ export function MicrogridDispatchExperiment({
               "backupMinimumStableKW",
               "Minimum stable backup output (kW)",
               state.backupMinimumStableKW,
+            )}
+            {field(
+              "backupRunningIntercept",
+              "Running fuel intercept (MJ/h)",
+              state.backupRunningIntercept,
             )}
             <label className="pg-field">
               <span>{label("Initial fuel inventory (MJ), optional")}</span>

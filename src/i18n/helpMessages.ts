@@ -1725,6 +1725,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Mú ìṣirò epo backup ṣiṣẹ́, kí o tẹ ooru epo generator fún ìṣẹ̀dá. Tẹ òṣùwọ̀n CO₂ lórí ìpìlẹ̀ iye ooru epo kan náà fún CO₂ ìjóná taara.",
       "Turn on thermal backup fuel use and enter generator net heat rate. Enter direct CO₂ factor on the same fuel heat basis to include direct combustion CO₂.",
     ],
+  "To use a linear fuel curve, enter the fixed running fuel intercept in MJ/h and the incremental rate in MJ/kWh.":
+    [
+      "Für eine lineare Brennstoffkennlinie geben Sie den Grundverbrauch in MJ/h und den Zusatzverbrauch in MJ/kWh ein.",
+      "Fún ìṣírò epo tó tẹ̀lé ìlà, tẹ ìwọ̀n epo ìpìlẹ̀ ní MJ/h àti ìwọ̀n àfikún ní MJ/kWh.",
+      "For linear fuel curve, enter di base running fuel in MJ/h and extra fuel for each kWh in MJ/kWh.",
+    ],
   "Set minimum stable backup output to keep the generator off when remaining demand, ramping or available fuel cannot support that output.":
     [
       "Stellen Sie die minimale stabile Reserveleistung ein. Der Generator bleibt aus, wenn Restbedarf, Leistungsanstieg oder Brennstoff nicht ausreichen.",

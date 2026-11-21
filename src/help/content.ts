@@ -595,6 +595,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "Enable thermal backup fuel use and enter the generator’s net heat rate. Enter a direct CO₂ factor on the same fuel heating-value basis to include direct combustion CO₂ in the results.",
       "Enter startup fuel per start and an optional initial fuel inventory. With a finite inventory, the generator needs enough fuel to start and can only deliver as much power as the remaining fuel allows.",
       "Set minimum stable backup output to keep the generator off when remaining demand, ramping or available fuel cannot support that output.",
+      "To use a linear fuel curve, enter the fixed running fuel intercept in MJ/h and the incremental rate in MJ/kWh.",
       "Load the rural microgrid teaching scenario to replace the current dispatch inputs with an editable 24-hour clinic and community example.",
       "Open Germany: historical load and generation to compare one day of national grid load, solar and wind from SMARD. Export JSON to retain timestamps, source links and license.",
       "Load the scaled German historical day in Microgrid dispatch to use SMARD solar and wind observations as fixed hourly output. Demand and critical load remain editable, and JSON retains the original observations and scaling.",

@@ -49,6 +49,7 @@ export interface MicrogridDispatchInputs {
       startupFuelMJ?: number;
       initialFuelMJ?: number;
       minimumStableKW?: number;
+      runningInterceptMJPerHour?: number;
     };
   };
   grid?: {
@@ -342,6 +343,16 @@ export function validateMicrogridDispatchInputs(
       "Minimum stable backup output must be between zero and the generator rating.",
     );
   }
+  const runningIntercept = g.thermal?.runningInterceptMJPerHour ?? 0;
+  if (
+    !Number.isFinite(runningIntercept) ||
+    runningIntercept < 0 ||
+    runningIntercept > 1e9
+  ) {
+    errors.push(
+      "Enter a running fuel intercept from zero to 1,000,000,000 MJ/h.",
+    );
+  }
   if (
     g.outageIntervals?.some(
       (interval) =>
@@ -571,14 +582,20 @@ export function calculateMicrogridDispatch(
       : 0;
     const potentialStartupFuelMJ =
       previousGeneratorKW === 0 ? (thermal?.startupFuelMJ ?? 0) : 0;
+    const potentialRunningInterceptMJ =
+      intervalHours * (thermal?.runningInterceptMJPerHour ?? 0);
     const runningFuelMJPerKW = intervalHours * (thermal?.heatRateMJPerKWh ?? 0);
     const fueledGeneratorLimitKW =
       remainingFuelMJ === undefined
         ? generatorLimitKW
         : Math.min(
             generatorLimitKW,
-            Math.max(0, remainingFuelMJ - potentialStartupFuelMJ) /
-              runningFuelMJPerKW,
+            Math.max(
+              0,
+              remainingFuelMJ -
+                potentialStartupFuelMJ -
+                potentialRunningInterceptMJ,
+            ) / runningFuelMJPerKW,
           );
     const minimumStableKW = thermal?.minimumStableKW ?? 0;
     const stableGeneratorLimitKW =
@@ -596,7 +613,11 @@ export function calculateMicrogridDispatch(
       : undefined;
     previousGeneratorKW = backupGenerationKW;
     const backupFuelEnergyMJ = thermal
-      ? backupGenerationKW * runningFuelMJPerKW + (backupStartupFuelMJ ?? 0)
+      ? backupGenerationKW > 0
+        ? backupGenerationKW * runningFuelMJPerKW +
+          potentialRunningInterceptMJ +
+          potentialStartupFuelMJ
+        : 0
       : undefined;
     if (remainingFuelMJ !== undefined && backupFuelEnergyMJ !== undefined) {
       remainingFuelMJ = Math.max(0, remainingFuelMJ - backupFuelEnergyMJ);

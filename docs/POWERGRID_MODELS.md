@@ -104,6 +104,8 @@ The fixed-voltage lesson compares a lossless transformer with a 1,000 kVA teachi
 
 The thermal backup model exposes user-entered heat rate, optional direct emissions and minimum stable output. Backup stays off if residual demand, the ramp ceiling or fuel availability cannot support the minimum. The model does not overgenerate to reach the minimum and charges startup fuel only when generation begins. Fuel costs remain outside the calculation.
 
+An optional running fuel intercept adds a fixed fuel rate in MJ/h whenever the generator delivers power. With this enabled, the entered heat rate represents the incremental slope of the fuel curve in MJ/kWh. Finite inventory must cover startup and the running intercept before energy can be assigned to generation. Offline intervals incur neither running nor startup fuel.
+
 ## Concentrating solar thermal power tower
 
 The teaching model converts direct normal irradiance times mirror aperture to incident MW, multiplies by combined field and receiver efficiency to estimate collected heat, then applies the entered net heat-to-power efficiency. The available output is capped at the electrical nameplate and drops to zero below the entered minimum load. All presets are illustrative and storage, startup, ramps and dispatch are outside the model.
