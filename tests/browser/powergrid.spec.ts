@@ -1,6 +1,31 @@
 import { expect, test } from "./fixtures";
 import { readFile } from "node:fs/promises";
 
+test("hydropower recalculates, saves inputs and exports the rating-limited output", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const hydro = page.getByRole("region", { name: "Hydropower head and flow" });
+  const rating = hydro.getByLabel("Installed electrical rating (kW)");
+  await rating.fill("500");
+  await expect(hydro).toContainText("500 kW");
+  await hydro.getByRole("button", { name: "Save locally" }).click();
+  await expect(hydro.getByRole("status")).toHaveText("Saved");
+  await page.reload();
+  await expect(rating).toHaveValue("500");
+  const exportPromise = page.waitForEvent("download");
+  await hydro.getByRole("link", { name: "Export JSON" }).click();
+  const download = await exportPromise;
+  expect(download.suggestedFilename()).toBe("powergrid-hydro.json");
+  const payload = JSON.parse(await readFile(await download.path(), "utf8"));
+  expect(payload.result.availableKW).toBe(500);
+  await rating.fill("");
+  await expect(
+    hydro.getByRole("button", { name: "Save locally" }),
+  ).toBeDisabled();
+  await expect(hydro.getByRole("link", { name: "Export JSON" })).toHaveCount(0);
+});
+
 test("POWERGRID documentary facility gallery renders every local photo", async ({
   page,
 }) => {
