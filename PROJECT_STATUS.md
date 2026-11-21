@@ -388,3 +388,5 @@ The combined-cycle increment adds a worksheet for fuel-limited potential, availa
 The fuel cell increment adds an inventory-limited hydrogen worksheet with adjustable DC and AC ratings, gross and net output, fuel used and fuel remaining. It includes JSON export, reset and Help in all four languages.
 
 The biogas increment adds a methane-fraction and flow-based engine CHP worksheet, with separate electrical output, recoverable heat, useful heat demand and JSON export. Solid biomass remains open.
+
+The solid biomass increment adds a wet-basis moisture and steam generation worksheet with gross and net output, used fuel and JSON export. It complements the separate biogas engine model.
