@@ -356,3 +356,5 @@ The two-bus fixture checks receiving voltage, current and sending P/Q against a 
 The transformer lesson exposes a lossless comparison using the same rating and load. Unit checks cover ideal and lossy real-power balance, winding losses, no-load behavior and invalid inputs.
 
 The Windows production candidate passed interrupted-update recovery, old-tab module retention, unsaved billing protection, and cold PowerGrid entry and worker execution offline at both deployment paths. Hosted receipts are revision-specific.
+
+The solar thermal worksheet distinguishes incident solar power, receiver heat, electrical potential, minimum load and rating-limited available electrical output. The worksheet uses direct normal irradiance and user-entered efficiencies.

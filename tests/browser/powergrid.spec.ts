@@ -3,6 +3,39 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("solar thermal tower separates collected heat, potential and available output", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const tower = page.getByRole("region", { name: "Solar thermal power tower" });
+  await expect(
+    tower.getByText("Collected heat", { exact: true }).locator(".."),
+  ).toContainText("48 MW");
+  await expect(
+    tower
+      .getByText("Available electrical output", { exact: true })
+      .locator(".."),
+  ).toContainText("15 MW");
+  await tower.getByLabel("Direct normal irradiance (W/m²)").fill("100");
+  const pending = page.waitForEvent("download");
+  await tower
+    .getByRole("button", { name: "Export solar thermal results" })
+    .click();
+  const data = JSON.parse(await readFile(await (await pending).path(), "utf8"));
+  expect(data.result.potentialMW).toBeCloseTo(2.1);
+  expect(data.result.availableMW).toBe(0);
+  await tower.getByLabel("Direct normal irradiance (W/m²)").fill("-1");
+  await expect(
+    tower.getByRole("button", { name: "Export solar thermal results" }),
+  ).toBeDisabled();
+  await tower
+    .getByRole("button", { name: "Reset solar thermal inputs" })
+    .click();
+  await expect(tower.getByLabel("Direct normal irradiance (W/m²)")).toHaveValue(
+    "800",
+  );
+});
+
 test("transmission draft autosaves valid edits separately from the named save", async ({
   page,
 }) => {

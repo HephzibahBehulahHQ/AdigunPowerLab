@@ -611,3 +611,7 @@ TypeScript and 22 transformer and Help checks passed. The analytical fixture ver
 ### POWERGRID LAB Windows qualification at 6fe55e44ecfc384bf88dbacd99d812a7e445c821
 
 TypeScript and the Windows production build passed. The full PowerGrid Chromium file reported all 44 cases passing; the local runner stalled during teardown. An earlier attempt to split the dev server and browser across tool invocations could not reach the server and was stopped. The build emitted a 378.74 kB lab module (111.47 kB gzip) and an 817.71 kB bootstrap (247.35 kB gzip). The Windows update fixture initially returned HTTP 403 for paths in dist. With the native-path containment correction, update and offline smoke both passed at / and /AdigunPowerLab/, including offline worker execution and PDF export. The earlier 63c464e hosted gate is recorded in POWERGRID_ACCEPTANCE.md.
+
+### POWERGRID LAB solar thermal tower
+
+TypeScript and 20 Help checks passed. Chromium verified 48 MW of collected heat and 15 MW of rating-limited electrical output for the worked example. The exported low-irradiance case reported 2.1 MW electrical potential and zero available output below minimum stable load. Invalid inputs disabled export and reset restored the reference. The local runner stalled during teardown.

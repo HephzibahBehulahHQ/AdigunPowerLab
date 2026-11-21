@@ -90,7 +90,7 @@ The fixed-voltage lesson compares a lossless transformer with a 1,000 kVA teachi
 | Reservoir hydro and run-of-river hydro | Head/flow/rating calculation, optional reservoir water balance and chronological dispatch. |
 | Pumped storage | Chronological pumping and generation with capacity, power limits and directional efficiencies. |
 | Solar PV | Irradiance, cell temperature, DC/AC conversion and clipping. |
-| Concentrated solar thermal | Source-specific solver remains open. |
+| Concentrated solar thermal | Steady-state direct solar power tower with receiver and cycle efficiencies, nameplate and minimum output. Storage and dispatch remain open. |
 | Onshore and offshore wind | One attributed NREL offshore reference turbine curve. Separate onshore and offshore resource or turbine selection remains open. |
 | Coal steam | Source catalogue entry remains open. |
 | Gas turbines and combined cycle | Combined-cycle equipment study. Gas-specific performance and dispatch remain open. |
@@ -103,3 +103,7 @@ The fixed-voltage lesson compares a lossless transformer with a 1,000 kVA teachi
 | Hydrogen and fuel cell | Source catalogue entry remains open. |
 
 The thermal backup model exposes user-entered heat rate and optional direct emissions. Fuel costs and source-specific minimum stable generation are outside the current calculation.
+
+## Concentrating solar thermal power tower
+
+The teaching model converts direct normal irradiance times mirror aperture to incident MW, multiplies by combined field and receiver efficiency to estimate collected heat, then applies the entered net heat-to-power efficiency. The available output is capped at the electrical nameplate and drops to zero below the entered minimum load. All presets are illustrative and storage, startup, ramps and dispatch are outside the model.
