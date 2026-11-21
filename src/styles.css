@@ -4758,6 +4758,33 @@ details p {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.65rem;
 }
+.workspace-lab-menu {
+  margin-bottom: 1rem;
+}
+.workspace-lab-menu ul {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.workspace-lab-tile {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: start;
+  text-decoration: none;
+  cursor: pointer;
+}
+.workspace-lab-tile:focus-visible {
+  outline-offset: -3px;
+}
+.workspace-lab-tile span {
+  display: block;
+  padding: 0.75rem;
+  font-weight: 600;
+}
 .pg-home-photo {
   min-width: 0;
   overflow: hidden;
