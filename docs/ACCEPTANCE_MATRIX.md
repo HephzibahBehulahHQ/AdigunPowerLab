@@ -1,5 +1,10 @@
 # AdigunPowerLab acceptance audit
 
+## Backup restore acceptance correction
+
+The workspace recovery check starts with a persisted active project and waits for Overview after restore. It verifies transmission recovery through the separate recovered-copy workflow rather than transient Settings feedback.
+
+
 Audit date: 13 November 2026. Scope: original specification sections 01–33, fixtures F01–F20 and tools T01–T51, plus the recovered continuation.
 
 ## POWERGRID LAB Milestone 1 checkpoint: 14 November 2026
@@ -367,4 +372,4 @@ The wave-energy worksheet checks field limits, distinguishes crest flux from con
 
 The gas/steam worksheet applies fuel, rating and minimum stable load, and exports the dispatched gas and steam contributions and signed net output.
 
-The workspace recovery check starts with a persisted active project and waits for Overview after restore. It verifies transmission recovery through the separate recovered-copy workflow rather than transient Settings feedback.
+The hydrogen fuel cell worksheet converts an entered inventory and feed limit to output using LHV, stack and inverter efficiencies. A rating bottleneck reduces fuel use and preserves the unused mass.

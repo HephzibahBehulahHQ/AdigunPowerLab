@@ -1,5 +1,10 @@
 # AdigunPowerLab — current status
 
+## Backup restore acceptance correction
+
+Combined-cycle main validation run 44941752932 stopped before publication when the backup browser test raced the automatic transition from Settings to Overview. A focused test correction now waits for the restored project to open, then inspects the recovered transmission case.
+
+
 Date: 15 November 2026. Owner: Hephzibah Behulah.
 
 ## POWERGRID real facility photographs — deployed (15 November 2026)
@@ -385,4 +390,4 @@ The wave-energy increment adds an independent deep-water sea-state worksheet wit
 
 The combined-cycle increment adds a worksheet for fuel-limited potential, available and dispatched gross generation, gas and steam output, recovered heat and net output after plant use.
 
-Combined-cycle main validation run 44941752932 stopped before publication when the backup browser test raced the automatic transition from Settings to Overview. A focused test correction now waits for the restored project to open, then inspects the recovered transmission case.
+The fuel cell increment adds an inventory-limited hydrogen worksheet with adjustable DC and AC ratings, gross and net output, fuel used and fuel remaining. It includes JSON export, reset and Help in all four languages.

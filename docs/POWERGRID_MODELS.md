@@ -100,7 +100,7 @@ The fixed-voltage lesson compares a lossless transformer with a 1,000 kVA teachi
 | Geothermal | Binary-cycle brine heat, gross rating and auxiliary load worksheet. Reservoir and dispatch models remain open. |
 | Tidal and wave | Separate tidal stream turbine and deep-water wave conversion point calculations. Device performance matrices and chronological dispatch remain open. |
 | Battery storage | Chronological SOC, reserve, charge/discharge limits and directional efficiencies. |
-| Hydrogen and fuel cell | Source catalogue entry remains open. |
+| Hydrogen and fuel cell | Finite-inventory hydrogen fuel cell conversion worksheet. Hydrogen production, storage design and dispatch integration remain open. |
 
 The thermal backup model exposes user-entered heat rate and optional direct emissions. Fuel costs and source-specific minimum stable generation are outside the current calculation.
 
@@ -123,3 +123,7 @@ Wave flux per metre of crest is seawater density × gravity² × significant wav
 ## Gas and steam combined cycle
 
 The gross conversion fraction is gas turbine efficiency plus (1 − gas turbine efficiency) × heat recovery fraction × steam cycle efficiency. The model caps available output by fuel and gross rating. It selects the lower of requested and available gross output and produces no power below minimum stable load. Fuel used is gross output divided by the combined conversion fraction, and the two turbine outputs are based on that actual fuel input. Entered auxiliary demand is deducted even in standby.
+
+## Hydrogen fuel cell
+
+Effective available feed is the minimum of the feed limit and starting mass divided by the interval duration. The DC potential is available feed × hydrogen lower heating value × stack efficiency. AC output is bounded by fuel, DC stack rating and inverter AC rating. Actual hydrogen use follows the constrained DC output and modelled interval, leaving unused fuel in inventory. Entered auxiliaries are deducted from gross AC, including when the entered inventory is zero.

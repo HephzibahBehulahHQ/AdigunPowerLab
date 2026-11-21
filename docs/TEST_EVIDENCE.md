@@ -1,5 +1,10 @@
 # Test evidence
 
+### Combined-cycle release browser gate correction
+
+Exact main cd84e34 stopped in [run 44941752932](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44941752932) with the Settings restore region already unmounted. The restore workflow opens the restored active project and routes to Overview. The corrected case waits for a saved initial project and for Overview after restore, then verifies the saved transmission case and its separate recovered copy. TypeScript and three consecutive focused Windows Chromium assertions passed. The local runner stalled during teardown.
+
+
 ## POWERGRID LAB Milestone 2 radial feeder workflow
 
 - `tests/powergridRadial.test.ts`: **6/6 focused numerical tests passed** locally, covering real/reactive balance, constraints, outages and disconnected load, topology and impedance rejection, convergence diagnostics, and validation of saved input shapes. Scoped strict TypeScript, Prettier, and `git diff --check` passed.
@@ -638,6 +643,6 @@ TypeScript and 20 Help checks passed. Chromium verified the 100 kW nameplate cap
 
 TypeScript and 20 Help checks passed. Chromium verified 170.4 MW fuel-limited potential, 160 MW available gross, 150 MW summed gas and steam generation, 147 MW net, and a 3 MW auxiliary import with zero fuel use below minimum load. JSON export and reset passed. The local runner stalled during teardown.
 
-### Combined-cycle release browser gate correction
+### POWERGRID LAB hydrogen fuel cell
 
-Exact main cd84e34 stopped in [run 44941752932](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44941752932) with the Settings restore region already unmounted. The restore workflow opens the restored active project and routes to Overview. The corrected case waits for a saved initial project and for Overview after restore, then verifies the saved transmission case and its separate recovered copy. TypeScript and three consecutive focused Windows Chromium assertions passed. The local runner stalled during teardown.
+TypeScript and 20 Help checks passed. Chromium confirmed the inverter caps gross output at 200 kW and the auxiliary demand reduces it to 190 kW net. At 4 kg over two hours, gross output was 31.968 kW, all 4 kg were consumed and remaining fuel was zero. Reset and JSON export passed. The local runner stalled during teardown.

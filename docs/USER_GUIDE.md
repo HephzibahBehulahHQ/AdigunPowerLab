@@ -338,3 +338,5 @@ In **Binary-cycle geothermal generation**, vary brine flow or the production and
 In **Deep-water wave energy**, vary significant wave height and energy period. Compare wave power per metre with the electrical output after capture and conversion. Raise wave height to the entered shutdown limit to see available output fall to zero.
 
 In **Gas and steam combined cycle**, change heat recovery or the gross generation request. Compare gas turbine output, recovered heat and steam generation. Enter a request below the minimum stable load to see that standby auxiliaries still require power. Export the current case as JSON.
+
+In **Hydrogen fuel cell generation**, change starting inventory or interval duration and compare fuel-limited DC potential with available AC. Change the inverter rating and inspect how much hydrogen remains. Export the current case as JSON.
