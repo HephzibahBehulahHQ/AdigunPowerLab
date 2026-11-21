@@ -1,5 +1,10 @@
 # AdigunPowerLab — current status
 
+## Backup restore acceptance correction
+
+Combined-cycle main validation run 44941752932 stopped before publication when the backup browser test raced the automatic transition from Settings to Overview. A focused test correction now waits for the restored project to open, then inspects the recovered transmission case.
+
+
 Date: 15 November 2026. Owner: Hephzibah Behulah.
 
 ## POWERGRID real facility photographs — deployed (15 November 2026)

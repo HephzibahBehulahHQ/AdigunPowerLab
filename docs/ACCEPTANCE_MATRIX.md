@@ -1,5 +1,10 @@
 # AdigunPowerLab acceptance audit
 
+## Backup restore acceptance correction
+
+The workspace recovery check starts with a persisted active project and waits for Overview after restore. It verifies transmission recovery through the separate recovered-copy workflow rather than transient Settings feedback.
+
+
 Audit date: 13 November 2026. Scope: original specification sections 01–33, fixtures F01–F20 and tools T01–T51, plus the recovered continuation.
 
 ## POWERGRID LAB Milestone 1 checkpoint: 14 November 2026
