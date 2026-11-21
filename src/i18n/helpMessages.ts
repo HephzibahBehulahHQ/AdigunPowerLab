@@ -1935,6 +1935,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "A fi àtúnṣe gbigbe tó péye pamọ́ lọ́tọ̀ gẹ́gẹ́ bí àkọ́kọ́. Nígbà tí o bá tún ṣí yàrá náà, dá àkọ́kọ́ padà tàbí sọ ọ́ nù kí ìfipamọ́ lè tẹ̀síwájú. Fi ìdánwò pamọ́ fúnra rẹ láti mú ẹ̀dà orúkọ dọ́gba.",
       "Valid transmission edits save by demself as separate draft. When you open lab again, restore or discard di draft before autosave continue. Use Save experiment locally to update di saved experiment name and values.",
     ],
+  "Scroll to the 3D station model to start its renderer. Use the keyboard to adjust the camera or inspect equipment.":
+    [
+      "Scrollen Sie zum 3D-Stationsmodell, um die Darstellung zu starten. Kamera und Betriebsmittelauswahl lassen sich per Tastatur bedienen.",
+      "Yí ojú ìwé dé àwòrán ibùdó 3D láti bẹ̀rẹ̀ ìfihàn. Lo keyboard láti ṣàtúnṣe camera tàbí ṣàyẹ̀wò ohun èlò.",
+      "Scroll reach di 3D station model to start di view. Use keyboard to adjust camera or inspect equipment.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

@@ -780,6 +780,7 @@ test("meshed AC case solves the triangle and blocks export of an island", async 
 test("POWERGRID camera redraws without allocating scene buffers", async ({
   page,
 }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
   await page.addInitScript(() => {
     const prototype = WebGLRenderingContext.prototype;
     const createBuffer = prototype.createBuffer;
@@ -806,6 +807,9 @@ test("POWERGRID camera redraws without allocating scene buffers", async ({
     name: "Navigable power station and grid model",
   });
   const canvas = scene.locator("canvas");
+  await expect(canvas).toHaveCount(1);
+  await expect(scene.locator("canvas[data-draws]")).toHaveCount(0);
+  await canvas.scrollIntoViewIfNeeded();
   await expect(
     canvas
       .locator("xpath=..")
@@ -823,6 +827,14 @@ test("POWERGRID camera redraws without allocating scene buffers", async ({
     .poll(async () => Number(await canvas.getAttribute("data-draws")))
     .toBeGreaterThan(draws);
   await expect(canvas).toHaveAttribute("data-buffers", buffers!);
+  const idleDraws = await canvas.evaluate(async (element) => {
+    const before = element.dataset.draws;
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+    );
+    return { before, after: element.dataset.draws };
+  });
+  expect(idleDraws.after).toBe(idleDraws.before);
   const contextCanBeLost = await canvas.evaluate(
     (element: HTMLCanvasElement) => {
       const loseContext = element
@@ -871,6 +883,7 @@ test("POWERGRID retains equipment inspection when WebGL is unavailable", async (
   const scene = page.getByRole("region", {
     name: "Navigable power station and grid model",
   });
+  await scene.getByRole("heading").first().scrollIntoViewIfNeeded();
   await expect(scene.getByRole("status")).toContainText("3D view unavailable");
   await expect(scene.locator("canvas")).toBeHidden();
   const sceneFits = await scene.evaluate(

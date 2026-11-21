@@ -518,8 +518,28 @@ export function PowerGridStation3DScene({
   const [unavailable, setUnavailable] = useState(false);
   const [renderError, setRenderError] = useState("");
   const [contextRevision, setContextRevision] = useState(0);
+  const [renderRequested, setRenderRequested] = useState(false);
   const lang = locale in assets[0].label ? locale : "en";
   const selectedAsset = describeStationAsset(selected, lang);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setRenderRequested(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setRenderRequested(true);
+        observer.disconnect();
+      },
+      { rootMargin: "160px 0px" },
+    );
+    observer.observe(canvas);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -541,7 +561,7 @@ export function PowerGridStation3DScene({
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas || !renderRequested) return;
     let program: WebGLProgram | undefined,
       scene: ReturnType<typeof buildScene> | undefined,
       vertex: WebGLShader | undefined,
@@ -639,11 +659,11 @@ export function PowerGridStation3DScene({
       if (vertex) gl?.deleteShader(vertex);
       if (fragment) gl?.deleteShader(fragment);
     }
-  }, [selected, contextRevision]);
+  }, [selected, contextRevision, renderRequested]);
 
   useEffect(() => {
     drawRef.current?.(yaw, pitch, zoom);
-  }, [selected, contextRevision, yaw, pitch, zoom]);
+  }, [selected, contextRevision, renderRequested, yaw, pitch, zoom]);
 
   return (
     <section className="panel panel-pad" aria-labelledby="pg-station-3d-title">

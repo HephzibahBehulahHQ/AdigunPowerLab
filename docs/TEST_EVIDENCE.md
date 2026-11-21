@@ -595,3 +595,7 @@ TypeScript and the focused Chromium assertions passed. The test rejected Indexed
 ### POWERGRID LAB transmission draft autosave
 
 TypeScript and 26 Help and archive checks passed. Chromium verified that a valid 120 MW working draft survives a subsequent invalid edit and reload, the named 100 MW save opens independently, and discard removes the draft. Baseline comparison passed. Workspace backup recovery timed out in the grouped run and passed when rerun alone.
+
+### POWERGRID LAB deferred station rendering
+
+TypeScript and 20 Help checks passed. Three Chromium cases verified no draw before the station canvas approached the viewport, reuse of scene buffers after camera input, no idle redraw across frames with reduced motion requested, and keyboard inspection with WebGL disabled. The synchronized station/BOT group selection passed.

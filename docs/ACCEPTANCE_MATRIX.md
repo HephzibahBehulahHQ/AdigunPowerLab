@@ -348,3 +348,5 @@ The header acceptance case checks the visible POWERGRID LAB launcher is to the r
 The PowerGrid route isolation check forces a project write failure, opens and edits the lab, returns to Loads with Back, and confirms the unsaved customer load is present both in the table and the project recovery export.
 
 Transmission now keeps a validated autosaved working draft separate from the named local save and its revisions. Reopening offers restore or discard and preserves the last valid draft across invalid edits.
+
+The 3D acceptance check verifies no initial offscreen draw, on-demand rendering, buffer reuse and idle redraw behavior with reduced motion requested. A separate phone case forces WebGL to be unavailable and verifies keyboard inspection.
