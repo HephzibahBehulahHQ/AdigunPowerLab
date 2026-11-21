@@ -44,6 +44,49 @@ const copy = {
   ],
 } satisfies Record<Locale, readonly string[]>;
 
+const bench = {
+  en: [
+    "Test a backup outage in interval 5",
+    "Evening peak · interval 5",
+    "Pinned reference",
+    "Current design",
+    "PV available",
+    "Battery discharge",
+    "Backup generation",
+    "Critical demand unserved",
+  ],
+  de: [
+    "Generatorausfall im fünften Intervall testen",
+    "Abendspitze · fünftes Intervall",
+    "Fixierte Referenz",
+    "Aktueller Entwurf",
+    "Verfügbarer Solarstrom",
+    "Speicherentladung",
+    "Reserveerzeugung",
+    "Ungedeckte kritische Last",
+  ],
+  yo: [
+    "Dán ìdádúró afẹ́yinti wò ní àkókò karùn-ún",
+    "Ìbéèrè ìrọ̀lẹ́ · àkókò karùn-ún",
+    "Ìpìlẹ̀ tí a fipamọ́",
+    "Àpẹrẹ lọwọlọwọ",
+    "Agbára PV tó wà",
+    "Agbára tó jáde láti batiri",
+    "Agbára afẹ́yinti",
+    "Ẹrù pàtàkì tí kò rí agbára",
+  ],
+  pcm: [
+    "Test backup outage for interval 5",
+    "Evening peak · interval 5",
+    "Baseline wey you pin",
+    "Current design",
+    "PV wey dey",
+    "Battery discharge",
+    "Backup generation",
+    "Critical demand wey no get supply",
+  ],
+} satisfies Record<Locale, readonly string[]>;
+
 export function PowerGridCommunityCapstone({
   locale,
   reference,
@@ -52,6 +95,7 @@ export function PowerGridCommunityCapstone({
   onNotes,
   onLoad,
   onPin,
+  onTestOutage,
 }: {
   locale: Locale;
   reference?: MicrogridDispatchResult;
@@ -60,10 +104,15 @@ export function PowerGridCommunityCapstone({
   onNotes: (notes: string) => void;
   onLoad: () => void;
   onPin: () => void;
+  onTestOutage: () => void;
 }) {
   const [title, prediction, worked, question, load, pin, noteLabel, compare] =
     copy[locale];
   const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 2 });
+  const [testOutage, intervalTitle, pinned, current, ...metrics] =
+    bench[locale];
+  const peak = result?.intervals[4];
+  const baselinePeak = reference?.intervals[4];
 
   return (
     <section
@@ -72,8 +121,11 @@ export function PowerGridCommunityCapstone({
     >
       <h4 id="pg-community-capstone">{title}</h4>
       <p>{prediction}</p>
-      <p>{worked}</p>
-      <p>{question}</p>
+      <details>
+        <summary>{title}</summary>
+        <p>{worked}</p>
+        <p>{question}</p>
+      </details>
       <div className="pg-actions">
         <button className="button" type="button" onClick={onLoad}>
           {load}
@@ -86,7 +138,49 @@ export function PowerGridCommunityCapstone({
         >
           {pin}
         </button>
+        <button
+          className="button"
+          type="button"
+          disabled={!peak}
+          onClick={onTestOutage}
+        >
+          {testOutage}
+        </button>
       </div>
+      {peak && (
+        <div className="pg-table-wrap">
+          <table aria-label={intervalTitle}>
+            <caption>{intervalTitle}</caption>
+            <thead>
+              <tr>
+                <td />
+                <th scope="col">{pinned}</th>
+                <th scope="col">{current}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {(
+                [
+                  "pvAvailableKW",
+                  "batteryDischargeKW",
+                  "backupGenerationKW",
+                  "criticalUnservedKW",
+                ] as const
+              ).map((key, index) => (
+                <tr key={key}>
+                  <th scope="row">{metrics[index]}</th>
+                  <td>
+                    {baselinePeak
+                      ? `${format.format(baselinePeak[key])} kW`
+                      : "—"}
+                  </td>
+                  <td>{format.format(peak[key])} kW</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
       {reference && result && (
         <p role="status">
           {compare} {format.format(reference.criticalUnservedEnergyKWh)} →{" "}
