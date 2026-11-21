@@ -72,7 +72,7 @@ export interface ThermalDispatchSettings {
   minimumStableKW: number;
   incrementalMJPerKWh: number;
   runningInterceptMJPerHour: number;
-  inventoryMJ: number;
+  inventoryMJ?: number;
 }
 
 export interface MicrogridDispatchInterval {

@@ -248,6 +248,24 @@ test("combined cycle joins gas and steam output and respects stable minimum load
     .getByRole("button", { name: "Reset combined cycle inputs" })
     .click();
   await expect(request).toHaveValue("150");
+  await plant
+    .getByRole("button", { name: "Use combined cycle in dispatch" })
+    .click();
+  const dispatch = page.getByRole("region", {
+    name: "Microgrid dispatch laboratory",
+  });
+  await expect(dispatch.getByTestId("microgrid-backupKW")).toHaveValue(
+    "157000",
+  );
+  const handoff = page.waitForEvent("download");
+  await dispatch.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const { thermal } = JSON.parse(
+    await readFile(await (await handoff).path(), "utf8"),
+  ).inputs.backupGenerator;
+  expect(thermal.minimumStableKW).toBe(29000);
+  expect(thermal.heatRateMJPerKWh).toBeCloseTo(3.6 / 0.568);
+  expect(thermal.runningInterceptMJPerHour).toBeCloseTo((3000 * 3.6) / 0.568);
+  expect(thermal.initialFuelMJ).toBeUndefined();
 });
 
 test("deep-water wave case caps output and shuts down at the configured height", async ({

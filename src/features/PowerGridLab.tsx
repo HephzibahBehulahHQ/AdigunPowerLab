@@ -1432,7 +1432,7 @@ export function PowerGridLab({
       <TidalStreamExperiment locale={locale} />
       <WaveEnergyExperiment locale={locale} />
       <GeothermalExperiment locale={locale} />
-      <CombinedCycleExperiment locale={locale} />
+      <CombinedCycleExperiment locale={locale} onDispatch={useFuelInDispatch} />
       <DieselExperiment
         locale={locale}
         onDispatch={(diesel) =>

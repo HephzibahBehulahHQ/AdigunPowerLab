@@ -1,8 +1,10 @@
 import { useState } from "react";
 import type { Locale } from "../i18n";
+import type { ThermalDispatchSettings } from "../engine/microgridDispatch";
 import { downloadFile } from "../import-export/files";
 import {
   calculateCombinedCycle,
+  getCombinedCycleDispatchFuelSettings,
   COMBINED_CYCLE_FIELDS,
   type CombinedCycleInputs,
 } from "../engine/combinedCycle";
@@ -156,13 +158,27 @@ const copy = {
   }
 >;
 
-export function CombinedCycleExperiment({ locale }: { locale: Locale }) {
+const dispatchLabels = {
+  en: "Use combined cycle in dispatch",
+  de: "Kombikraftwerk in der Einsatzplanung verwenden",
+  yo: "Lo gas àti òru omi nínú dispatch",
+  pcm: "Use combined cycle for dispatch",
+} satisfies Record<Locale, string>;
+
+export function CombinedCycleExperiment({
+  locale,
+  onDispatch,
+}: {
+  locale: Locale;
+  onDispatch: (settings: ThermalDispatchSettings) => void;
+}) {
   const [draft, setDraft] = useState(defaults);
   const text = copy[locale];
   const inputs = Object.fromEntries(
     fields.map(([key]) => [key, draft[key] === "" ? NaN : Number(draft[key])]),
   ) as CombinedCycleInputs;
   const result = calculateCombinedCycle(inputs);
+  const dispatch = getCombinedCycleDispatchFuelSettings(inputs);
   const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 3 });
   return (
     <section
@@ -204,6 +220,14 @@ export function CombinedCycleExperiment({ locale }: { locale: Locale }) {
         <p role="status">{text.invalid}</p>
       )}
       <div className="pg-actions">
+        <button
+          className="button"
+          type="button"
+          disabled={!dispatch}
+          onClick={() => dispatch && onDispatch(dispatch)}
+        >
+          {dispatchLabels[locale]}
+        </button>
         <button
           className="button"
           type="button"

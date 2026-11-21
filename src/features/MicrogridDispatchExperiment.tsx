@@ -1019,7 +1019,10 @@ export function MicrogridDispatchExperiment({
       backupHeatRate: fuelSettings.incrementalMJPerKWh,
       backupMinimumStableKW: fuelSettings.minimumStableKW,
       backupRunningIntercept: fuelSettings.runningInterceptMJPerHour,
-      backupInitialFuel: String(fuelSettings.inventoryMJ),
+      backupInitialFuel:
+        fuelSettings.inventoryMJ === undefined
+          ? ""
+          : String(fuelSettings.inventoryMJ),
       backupCO2Factor: "",
     }));
     setSaved(false);

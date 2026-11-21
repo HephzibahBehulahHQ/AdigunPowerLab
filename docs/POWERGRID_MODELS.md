@@ -110,6 +110,8 @@ The diesel worksheet can transfer its rating, minimum output, no-load fuel rate,
 
 The coal worksheet transfers its net rating, net heat rate and initial inventory to dispatch. Initial coal mass in tonnes is converted to MJ using the entered heat content in MJ/kg. Dispatch uses the existing ramp and startup assumptions and clears any previously entered fixed running fuel rate or CO₂ factor.
 
+The combined-cycle worksheet transfers net rating after the entered fuel-flow cap and auxiliaries, a net minimum derived from the gross operating minimum, and the fuel slope at the entered combined efficiency. Running auxiliary use becomes a fixed running fuel equivalent. The available fuel flow is not an inventory. Standby electric use remains part of the separate steam-and-gas worksheet; enter it as dispatch demand to include it during offline intervals.
+
 ## Concentrating solar thermal power tower
 
 The teaching model converts direct normal irradiance times mirror aperture to incident MW, multiplies by combined field and receiver efficiency to estimate collected heat, then applies the entered net heat-to-power efficiency. The available output is capped at the electrical nameplate and drops to zero below the entered minimum load. All presets are illustrative and storage, startup, ramps and dispatch are outside the model.

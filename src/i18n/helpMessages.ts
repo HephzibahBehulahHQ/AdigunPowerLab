@@ -1983,6 +1983,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú agbára ìgbì omi jinlẹ̀, yí gíga ìgbì tàbí àkókò agbára padà. Wé agbára fún mita pẹ̀lú agbára ẹrọ, dán gíga ìdádúró wò, kí o sì gba èsì.",
       "For deep-water wave energy, change wave height or energy period. Compare power for each metre with device output, try di shutdown height, then download di case.",
     ],
+  "Use combined cycle in dispatch to copy the net output limit, minimum load and running fuel requirements into the chronological worksheet.":
+    [
+      "Übernehmen Sie Nettoleistungsgrenze, Mindestlast und Brennstoffbedarf des Kombikraftwerks in das chronologische Arbeitsblatt.",
+      "Gbé ààlà agbára tó kù, ẹrù tó kéré jù àti epo ìṣiṣẹ́ gas àti òru omi lọ sí worksheet àkókò.",
+      "Use combined cycle for dispatch to copy di net power limit, minimum load and running fuel requirements.",
+    ],
   "In the gas and steam combined cycle worksheet, compare gas turbine power with steam generation from recovered heat. Change the requested gross output to explore the minimum stable load.":
     [
       "Vergleichen Sie im Kombikraftwerk die Gasturbinenleistung mit der Dampferzeugung aus Abwärme. Ändern Sie die angeforderte Bruttoleistung, um die stabile Mindestlast zu untersuchen.",

@@ -640,6 +640,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "In binary-cycle geothermal generation, vary brine flow or temperature drop. Compare recovered heat, gross output and net power after plant auxiliaries, then export the results.",
       "In deep-water wave energy, vary wave height or energy period. Compare power per metre with device output, then try the shutdown height and export the case.",
       "In the gas and steam combined cycle worksheet, compare gas turbine power with steam generation from recovered heat. Change the requested gross output to explore the minimum stable load.",
+      "Use combined cycle in dispatch to copy the net output limit, minimum load and running fuel requirements into the chronological worksheet.",
       "In hydrogen fuel cell generation, vary starting inventory, interval duration or the AC rating. Compare gross and net AC output and check how much hydrogen remains.",
       "In biogas engine and heat recovery, vary methane concentration and heat demand. Compare net electricity, recoverable heat and heat actually supplied.",
       "In solid biomass steam generation, vary wet-basis moisture and compare wet fuel heating value, heat to the steam cycle and net electrical output.",

@@ -393,6 +393,8 @@ In **Deep-water wave energy**, vary significant wave height and energy period. C
 
 In **Gas and steam combined cycle**, change heat recovery or the gross generation request. Compare gas turbine output, recovered heat and steam generation. Enter a request below the minimum stable load to see that standby auxiliaries still require power. Export the current case as JSON.
 
+Use **Use combined cycle in dispatch** to transfer the fuel-flow-limited net rating, net minimum load and running auxiliary fuel equivalent. The dispatch model accounts for these auxiliaries while generating. Add any standby electrical demand to the dispatch load profile if you want it included during offline intervals.
+
 In **Hydrogen fuel cell generation**, change starting inventory or interval duration and compare fuel-limited DC potential with available AC. Change the inverter rating and inspect how much hydrogen remains. Export the current case as JSON.
 
 In **Biogas engine and heat recovery**, vary methane fraction, available dry biogas flow and useful heat demand. Compare recoverable heat with heat supplied to demand, and gross electricity with net output after plant load. Export the case as JSON.
