@@ -1446,7 +1446,7 @@ export function PowerGridLab({
         }
       />
       <NuclearSteamExperiment locale={locale} />
-      <FuelCellExperiment locale={locale} />
+      <FuelCellExperiment locale={locale} onDispatch={useFuelInDispatch} />
       <BiogasExperiment locale={locale} onDispatch={useFuelInDispatch} />
       <SolidBiomassExperiment locale={locale} onDispatch={useFuelInDispatch} />
       <WindResourceExperiment />

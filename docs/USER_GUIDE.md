@@ -397,6 +397,8 @@ Use **Use combined cycle in dispatch** to transfer the fuel-flow-limited net rat
 
 In **Hydrogen fuel cell generation**, change starting inventory or interval duration and compare fuel-limited DC potential with available AC. Change the inverter rating and inspect how much hydrogen remains. Export the current case as JSON.
 
+Select **Use fuel cell in dispatch** to transfer the instantaneous net AC limit, the running fuel curve and starting hydrogen inventory. Dispatch depletes that inventory on its own timeline. The worksheet duration controls only the steady-interval comparison.
+
 In **Biogas engine and heat recovery**, vary methane fraction, available dry biogas flow and useful heat demand. Compare recoverable heat with heat supplied to demand, and gross electricity with net output after plant load. Export the case as JSON.
 
 Select **Use biogas engine in dispatch** to copy the net electrical limit and running fuel curve. Heat recovery stays in the biogas worksheet; dispatch calculates electrical supply and fuel use.

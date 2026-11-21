@@ -374,6 +374,8 @@ The gas/steam worksheet applies fuel, rating and minimum stable load, and export
 
 The hydrogen fuel cell worksheet converts an entered inventory and feed limit to output using LHV, stack and inverter efficiencies. A rating bottleneck reduces fuel use and preserves the unused mass.
 
+The dispatch handoff carries the instantaneous net AC limit, conversion losses, running auxiliary fuel demand and finite starting inventory. The chronological dispatch timeline determines depletion.
+
 The biogas worksheet distinguishes available and used fuel, caps electricity at nameplate, and limits useful heat to demand and recoverable residual heat.
 
 The solid biomass worksheet distinguishes dry and as-fired heating value, available and used fuel, steam heat, gross output and net electrical output.
