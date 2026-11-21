@@ -3,6 +3,37 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("fuel cell caps AC output and preserves unused hydrogen", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const cell = page.getByRole("region", {
+    name: "Hydrogen fuel cell generation",
+  });
+  const inventory = cell.getByLabel("Initial hydrogen inventory (kg)");
+  const exportCase = async () => {
+    const pending = page.waitForEvent("download");
+    await cell
+      .getByRole("button", { name: "Export fuel cell results" })
+      .click();
+    return JSON.parse(await readFile(await (await pending).path(), "utf8"))
+      .result;
+  };
+  const reference = await exportCase();
+  expect(reference.grossAcKW).toBe(200);
+  expect(reference.netAcKW).toBe(190);
+  expect(reference.remainingKg).toBeCloseTo(
+    30 - (200 * 2) / (0.96 * 0.5 * 33.3),
+  );
+  await inventory.fill("4");
+  const limited = await exportCase();
+  expect(limited.grossAcKW).toBeCloseTo(31.968);
+  expect(limited.fuelUsedKg).toBeCloseTo(4);
+  expect(limited.remainingKg).toBeCloseTo(0);
+  await cell.getByRole("button", { name: "Reset fuel cell inputs" }).click();
+  await expect(inventory).toHaveValue("30");
+});
+
 test("combined cycle joins gas and steam output and respects stable minimum load", async ({
   page,
 }) => {

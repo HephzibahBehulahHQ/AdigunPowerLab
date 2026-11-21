@@ -45,3 +45,5 @@ The binary geothermal worksheet follows the separation of brine and working-flui
 The deep-water wave worksheet follows equation 19 in the [OSTI-hosted wave energy converter study](https://www.osti.gov/servlets/purl/3014149). The study describes wave flux per metre of crest. The lab uses an illustrative capture width, seawater density and operating limits.
 
 The [DOE gas turbine power plant reference](https://www.energy.gov/hgeo/how-gas-turbine-power-plants-work) describes exhaust heat recovery and the gas/steam conversion chain. The worksheet parameters are illustrative and come from user inputs.
+
+The hydrogen fuel cell worksheet uses the lower heating value of 33.3 kWh/kg from the [DOE Alternative Fuels Data Center fuel properties comparison](https://afdc.energy.gov/fuels/properties). Its operating point and stack and inverter parameters are illustrative.

@@ -637,3 +637,7 @@ TypeScript and 20 Help checks passed. Chromium verified the 100 kW nameplate cap
 ### POWERGRID LAB gas and steam combined cycle
 
 TypeScript and 20 Help checks passed. Chromium verified 170.4 MW fuel-limited potential, 160 MW available gross, 150 MW summed gas and steam generation, 147 MW net, and a 3 MW auxiliary import with zero fuel use below minimum load. JSON export and reset passed. The local runner stalled during teardown.
+
+### POWERGRID LAB hydrogen fuel cell
+
+TypeScript and 20 Help checks passed. Chromium confirmed the inverter caps gross output at 200 kW and the auxiliary demand reduces it to 190 kW net. At 4 kg over two hours, gross output was 31.968 kW, all 4 kg were consumed and remaining fuel was zero. Reset and JSON export passed. The local runner stalled during teardown.

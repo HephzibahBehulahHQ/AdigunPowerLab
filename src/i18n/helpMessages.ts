@@ -1977,6 +1977,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú combined cycle, wé agbára turbine gáàsì pẹ̀lú agbára steam láti inú ooru tí a gba. Yí agbára gross tí a béèrè padà láti ṣàyẹ̀wò ẹrù iṣẹ́ tó kéré jù.",
       "For combined cycle worksheet, compare gas turbine power with steam generation from recovered heat. Change di requested gross power to check di minimum stable load.",
     ],
+  "In hydrogen fuel cell generation, vary starting inventory, interval duration or the AC rating. Compare gross and net AC output and check how much hydrogen remains.":
+    [
+      "Ändern Sie bei der Wasserstoff-Brennstoffzelle den Anfangsvorrat, die Intervalldauer oder die AC-Nennleistung. Vergleichen Sie Brutto- und Nettoleistung sowie den verbleibenden Wasserstoff.",
+      "Nínú hydrogen fuel cell, yí ìpamọ́ ìbẹ̀rẹ̀, gígùn àkókò tàbí rating AC padà. Wé agbára AC gross àti net, kí o sì ṣàyẹ̀wò hydrogen tó kù.",
+      "For hydrogen fuel cell, change starting fuel, interval duration or AC rating. Compare gross and net AC output and check how much hydrogen remain.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

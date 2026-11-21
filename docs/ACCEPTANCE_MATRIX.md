@@ -366,3 +366,5 @@ The binary geothermal worksheet reports recovered heat, unconstrained gross pote
 The wave-energy worksheet checks field limits, distinguishes crest flux from converter power, applies the electrical rating and enforces inclusive shutdown height.
 
 The gas/steam worksheet applies fuel, rating and minimum stable load, and exports the dispatched gas and steam contributions and signed net output.
+
+The hydrogen fuel cell worksheet converts an entered inventory and feed limit to output using LHV, stack and inverter efficiencies. A rating bottleneck reduces fuel use and preserves the unused mass.
