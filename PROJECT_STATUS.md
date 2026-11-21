@@ -360,3 +360,5 @@ The transmission PDF snapshot now includes the pinned worksheet name, baseline r
 The POWERGRID LAB launcher is the final top-bar control. The qualification checks now cover right-edge placement and keyboard entry at desktop, tablet and phone widths, plus header geometry while Search is open.
 
 The draft now has direct browser coverage for entering and leaving POWERGRID LAB after an engineering-project save failure. The curriculum guide indexes all 12 requested lesson workflows and their reports.
+
+Valid transmission edits now autosave to a separate browser draft. On reopening, students can restore or discard it. Invalid input keeps the last valid draft, and restoration uses the existing worksheet undo history.

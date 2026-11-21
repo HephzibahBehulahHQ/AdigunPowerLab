@@ -591,3 +591,7 @@ TypeScript, formatting and 20 Help checks passed. Focused Chromium verified righ
 ### POWERGRID LAB unsaved customer-work isolation
 
 TypeScript and the focused Chromium assertions passed. The test rejected IndexedDB writes to the projects store, confirmed the save failure, entered #POWERGRID and edited transmitted power, then returned to Loads and downloaded the original in-memory customer draft with its unsaved 2.3 kW entry. The local runner stalled during teardown.
+
+### POWERGRID LAB transmission draft autosave
+
+TypeScript and 26 Help and archive checks passed. Chromium verified that a valid 120 MW working draft survives a subsequent invalid edit and reload, the named 100 MW save opens independently, and discard removes the draft. Baseline comparison passed. Workspace backup recovery timed out in the grouped run and passed when rerun alone.

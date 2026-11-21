@@ -322,3 +322,5 @@ To include baseline readings and signed differences in the transmission PDF, pin
 Open **POWERGRID LAB** at the far right of the top bar. With the launcher focused, press Enter to open the lab.
 
 If PowerLab shows **Save failed**, opening POWERGRID LAB and returning with browser Back keeps the customer draft available in the same tab. Use **Export project** in the save-failure alert to keep a recovery copy.
+
+Valid transmission edits are autosaved as a browser draft. When reopening the lab, choose **Restore transmission draft** or **Discard transmission draft** to resume autosave. Restore applies the draft to the worksheet and can be undone. Use **Save experiment locally** to update the named saved copy before creating a workspace backup.

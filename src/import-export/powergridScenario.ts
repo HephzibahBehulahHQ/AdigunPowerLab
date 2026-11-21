@@ -8,6 +8,7 @@ import { REGIONAL_TEACHING_PRESETS } from "../engine/powergridRegions";
 export const POWERGRID_SCENARIO_MODEL =
   "balanced-three-phase-constant-power-line-loss";
 export const POWERGRID_SCENARIO_KEY = "adigunpowerlab.powergrid.experiment.v1";
+const draftKey = "adigunpowerlab.powergrid.transmission-draft.v1";
 export const POWERGRID_SCENARIO_MAX_BYTES = 64 * 1024;
 export const POWERGRID_SCENARIO_NAME_LIMIT = 80;
 export const POWERGRID_SCENARIO_NOTES_LIMIT = 400;
@@ -159,4 +160,33 @@ export function readSavedPowerGridScenario(): PowerGridScenario {
       notes: "",
     }
   );
+}
+
+export function readPowerGridDraft(): PowerGridScenario | null {
+  try {
+    const draft = unpackPowerGridScenario(
+      JSON.parse(localStorage.getItem(draftKey) ?? "null"),
+    );
+    return draft && !matchesSavedScenario(draft) ? draft : null;
+  } catch {
+    return null;
+  }
+}
+
+function matchesSavedScenario(scenario: PowerGridScenario) {
+  return (
+    JSON.stringify(packPowerGridScenario(scenario)) ===
+    JSON.stringify(packPowerGridScenario(readSavedPowerGridScenario()))
+  );
+}
+
+export function storePowerGridDraft(scenario: PowerGridScenario) {
+  const packed = packPowerGridScenario(scenario);
+  if (!unpackPowerGridScenario(packed)) return;
+  if (matchesSavedScenario(scenario)) clearPowerGridDraft();
+  else localStorage.setItem(draftKey, JSON.stringify(packed));
+}
+
+export function clearPowerGridDraft() {
+  localStorage.removeItem(draftKey);
 }

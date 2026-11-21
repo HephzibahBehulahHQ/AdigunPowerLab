@@ -1929,6 +1929,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fi àpẹẹrẹ gbigbe ṣe ìpìlẹ̀ kí o tó ṣàtúnṣe, kí PDF ní orúkọ ìpìlẹ̀ àti ìyípadà pẹ̀lú àmì rere tàbí odi.",
       "Pin transmission baseline before you edit so di lab report PDF go include di reference name and the plus or minus changes.",
     ],
+  "Valid transmission edits autosave as a separate draft. After reopening the lab, restore or discard that draft before autosave resumes. Use Save experiment locally to update the named saved experiment.":
+    [
+      "Gültige Änderungen werden automatisch als separater Übertragungsentwurf gespeichert. Stellen Sie ihn nach dem Öffnen wieder her oder verwerfen Sie ihn, damit die automatische Speicherung fortgesetzt wird. Speichern Sie den Versuch ausdrücklich, um den benannten Stand zu aktualisieren.",
+      "A fi àtúnṣe gbigbe tó péye pamọ́ lọ́tọ̀ gẹ́gẹ́ bí àkọ́kọ́. Nígbà tí o bá tún ṣí yàrá náà, dá àkọ́kọ́ padà tàbí sọ ọ́ nù kí ìfipamọ́ lè tẹ̀síwájú. Fi ìdánwò pamọ́ fúnra rẹ láti mú ẹ̀dà orúkọ dọ́gba.",
+      "Valid transmission edits save by demself as separate draft. When you open lab again, restore or discard di draft before autosave continue. Use Save experiment locally to update di saved experiment name and values.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

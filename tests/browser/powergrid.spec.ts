@@ -3,6 +3,36 @@ import { readFile } from "node:fs/promises";
 import { DEFAULT_POWERGRID_INPUTS } from "../../src/engine/powergrid";
 import { createLoad, createProject } from "../../src/domain/project";
 
+test("transmission draft autosaves valid edits separately from the named save", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const power = page.getByLabel("Transmitted real power (MW)");
+  const save = page.getByRole("button", { name: "Save experiment locally" });
+  const restore = page.getByRole("button", {
+    name: "Restore transmission draft",
+  });
+  const name = page.getByRole("textbox", { name: "Experiment name" });
+  await name.fill("Saved classroom case");
+  await save.click();
+  await name.fill("Working draft");
+  await power.fill("120");
+  await power.fill("");
+  await page.reload();
+  await expect(name).toHaveValue("Saved classroom case");
+  await expect(power).toHaveValue("100");
+  await restore.click();
+  await expect(name).toHaveValue("Working draft");
+  await expect(power).toHaveValue("120");
+  await page.reload();
+  await page
+    .getByRole("button", { name: "Discard transmission draft" })
+    .click();
+  await page.reload();
+  await expect(restore).toHaveCount(0);
+  await expect(name).toHaveValue("Saved classroom case");
+});
+
 test("PowerGrid round trip preserves a customer edit after local storage rejects it", async ({
   page,
 }) => {
@@ -542,9 +572,9 @@ test("workspace backup restores a separate transmission experiment copy", async 
   });
   await expect(backup.getByText("Archived transmission")).toBeVisible();
   await backup.getByRole("button", { name: "Restore reviewed backup" }).click();
-  await expect(
-    backup.getByText("Workspace restored. Existing projects were preserved."),
-  ).toBeVisible();
+  await expect(backup).toContainText(
+    "Workspace restored. Existing projects were preserved.",
+  );
   await expect(backup.getByText("Processing workspace backup…")).toHaveCount(0);
   await page.goto("/#POWERGRID");
   const labName = page.getByRole("textbox", { name: "Experiment name" });

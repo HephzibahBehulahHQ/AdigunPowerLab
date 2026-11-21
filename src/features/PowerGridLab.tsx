@@ -1,4 +1,11 @@
-import { useContext, useMemo, useReducer, useRef, useState } from "react";
+import {
+  useContext,
+  useEffect,
+  useMemo,
+  useReducer,
+  useRef,
+  useState,
+} from "react";
 import type { SetStateAction } from "react";
 import { Download, Save, RotateCcw, Zap } from "lucide-react";
 import { LanguageContext } from "../i18n";
@@ -21,6 +28,9 @@ import {
 import {
   packPowerGridScenario,
   readSavedPowerGridScenario,
+  readPowerGridDraft,
+  storePowerGridDraft,
+  clearPowerGridDraft,
   unpackPowerGridScenario,
   readStoredPowerGridDocument,
   savePowerGridRevision,
@@ -226,6 +236,33 @@ type ScenarioEdit =
   | { type: "undo" }
   | { type: "redo" };
 const historyLimit = 40;
+
+const draftCopy = {
+  en: [
+    "An autosaved transmission draft is available. Restore it or discard it to resume autosave.",
+    "Restore transmission draft",
+    "Discard transmission draft",
+    "Transmission draft autosave failed.",
+  ],
+  de: [
+    "Ein automatisch gespeicherter Übertragungsentwurf ist verfügbar. Stellen Sie ihn wieder her oder verwerfen Sie ihn, um wieder automatisch zu speichern.",
+    "Übertragungsentwurf wiederherstellen",
+    "Übertragungsentwurf verwerfen",
+    "Der Übertragungsentwurf konnte nicht automatisch gespeichert werden.",
+  ],
+  yo: [
+    "A ti fi àkọ́kọ́ gbigbe pamọ́ fúnra rẹ̀. Dá a padà tàbí sọ ọ́ nù kí ìfipamọ́ lè tẹ̀síwájú.",
+    "Dá àkọ́kọ́ gbigbe padà",
+    "Sọ àkọ́kọ́ gbigbe nù",
+    "Ìfipamọ́ àkọ́kọ́ gbigbe kùnà.",
+  ],
+  pcm: [
+    "Transmission draft wey save by itself dey available. Restore am or discard am so autosave fit continue.",
+    "Restore transmission draft",
+    "Discard transmission draft",
+    "Transmission draft autosave fail.",
+  ],
+} satisfies Record<Locale, readonly string[]>;
 
 function editTransmissionHistory(
   state: ScenarioHistory,
@@ -600,6 +637,20 @@ export function PowerGridLab({
     useState<DistributionEquipmentId>("receivingTransformer");
   const [saved, setSaved] = useState(false);
   const [saveError, setSaveError] = useState(false);
+  const [pendingDraft, setPendingDraft] = useState(readPowerGridDraft);
+  const [draftError, setDraftError] = useState(false);
+  const [draftNotice, restoreDraftLabel, discardDraftLabel, draftFailure] =
+    draftCopy[locale];
+  const edited = history.past.length > 0 || history.future.length > 0;
+  useEffect(() => {
+    if (!edited || pendingDraft) return;
+    try {
+      storePowerGridDraft(scenario);
+      setDraftError(false);
+    } catch {
+      setDraftError(true);
+    }
+  }, [edited, pendingDraft, scenario]);
   const errors = useMemo(() => validatePowerGridInputs(inputs), [inputs]);
   const result = useMemo(
     () => (errors.length ? undefined : calculatePowerGrid(inputs)),
@@ -822,6 +873,43 @@ export function PowerGridLab({
         </div>
       </header>
       <p className="pg-isolation">{text.independent}</p>
+      {pendingDraft && (
+        <section
+          className="panel panel-pad pg-panel"
+          aria-label={restoreDraftLabel}
+        >
+          <p>{draftNotice}</p>
+          <div className="pg-actions">
+            <button
+              className="button"
+              type="button"
+              onClick={() => {
+                setScenario(pendingDraft);
+                setSaved(false);
+                setPendingDraft(null);
+              }}
+            >
+              {restoreDraftLabel}
+            </button>
+            <button
+              className="button"
+              type="button"
+              onClick={() => {
+                try {
+                  clearPowerGridDraft();
+                  setPendingDraft(null);
+                  setDraftError(false);
+                } catch {
+                  setDraftError(true);
+                }
+              }}
+            >
+              {discardDraftLabel}
+            </button>
+          </div>
+        </section>
+      )}
+      {draftError && <p role="status">{draftFailure}</p>}
       <PowerGridFoundations
         locale={locale}
         inputs={inputs}
