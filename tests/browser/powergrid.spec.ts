@@ -397,6 +397,15 @@ test("foundations lessons trace edited stages and restore the worked case", asyn
   });
   await expect(source).toContainText("11 kV → 330 kV → 33 kV → 0.4 kV");
   await expect(step).toContainText("0.459 MW");
+  await source.getByRole("button", { name: "Step-up transformer" }).click();
+  await expect(
+    source.getByRole("img", { name: "Step-up transformer" }),
+  ).toBeVisible();
+  await source.getByRole("button", { name: "Play powerhouse footage" }).click();
+  await expect(source.locator("iframe")).toHaveAttribute("src", /993768$/);
+  const slider = step.getByRole("slider");
+  await slider.fill("200");
+  await expect(step).toContainText("1.25 MW");
   const generator = page.getByLabel("Generator voltage (kV)", { exact: true });
   await generator.fill("13.8");
   await expect(source).toContainText("13.8 kV → 330 kV → 33 kV → 0.4 kV");
@@ -1879,7 +1888,11 @@ test("PowerGrid direct hash, history, local save and real JSON/CSV exports", asy
       ),
     )
     .toBeGreaterThan(0);
-  await expect(page.getByText("437.4 A", { exact: true })).toBeVisible();
+  await expect(
+    page
+      .locator('[aria-labelledby="pg-results-title"]')
+      .getByText("437.4 A", { exact: true }),
+  ).toBeVisible();
 
   await page.getByLabel("Transmitted real power (MW)").fill("120");
   await expect(page.getByText("524.9 A")).toBeVisible();
