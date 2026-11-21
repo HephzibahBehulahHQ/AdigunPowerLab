@@ -272,3 +272,5 @@ A separate WebGL view now assembles original three-dimensional educational geome
 The spatial selection work shipped in PR #110 and the navigable teaching station scene followed in PR #112. Added a steady-state hydropower worksheet with four-locale guidance, local save and source-labelled JSON export. Reservoir scheduling and further source-specific dispatch models remain open.
 
 The candidate also integrates optional entered hydro flow into chronological microgrid dispatch. It calculates hydro availability at fixed net head, applies the installed rating limit and includes the result in the shared energy balance and interval exports.
+
+Reservoir hydro now adds a bounded water balance to this candidate. Bypass is allocated first, then requested turbine flow is limited by water and rated output. The model reports spill, remaining water and unmet bypass.

@@ -25,6 +25,24 @@ test("microgrid dispatch saves and exports optional hydro generation", async ({
   const payload = JSON.parse(await readFile(await download.path(), "utf8"));
   expect(payload.result.intervals[0].hydroAvailableKW).toBe(50);
   expect(payload.result.intervals[1].hydroAvailableKW).toBe(0);
+  await section
+    .getByRole("textbox", {
+      name: "Reservoir inflow by interval (m³/s), optional",
+    })
+    .fill("0, 0, 0, 0, 0, 0");
+  await section
+    .getByRole("spinbutton", { name: "Initial reservoir water (m³)" })
+    .fill("0");
+  await expect(
+    section.getByRole("columnheader", { name: "Reservoir water (m³)" }),
+  ).toBeVisible();
+  const reservoirExport = page.waitForEvent("download");
+  await section.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const reservoirPayload = JSON.parse(
+    await readFile(await (await reservoirExport).path(), "utf8"),
+  );
+  expect(reservoirPayload.result.intervals[0].hydroAvailableKW).toBe(0);
+  expect(reservoirPayload.result.intervals[0].hydroWater.storageM3).toBe(0);
 });
 
 test("hydropower recalculates, saves inputs and exports the rating-limited output", async ({

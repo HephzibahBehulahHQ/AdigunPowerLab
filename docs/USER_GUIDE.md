@@ -238,3 +238,5 @@ Use **Save scenario locally** to keep this independent lab case in the current b
 In POWERGRID LAB, enter net head after waterway losses, turbine flow, combined turbine-generator efficiency and installed electrical rating. Read the hydraulic power, conversion output and available generator power after the rating limit. Save the inputs in this browser or export the inputs and results as JSON.
 
 To include hydro in Microgrid dispatch, type one comma-separated turbine-flow value per demand interval, then enter net head, efficiency and rating. The interval table and both exports include available hydro power. Clear the flow profile to omit hydro.
+
+For reservoir hydro, also enter one inflow value per interval and set reservoir capacity, initial volume and environmental bypass. The model holds net head fixed and uses the entered turbine schedule. Inspect reservoir storage, spill and bypass shortage in the interval table. Exports also include actual turbine and bypass volumes.

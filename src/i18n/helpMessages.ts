@@ -1689,6 +1689,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú Microgrid dispatch, tẹ ìṣàn omi kan fún àkókò ìbéèrè kọ̀ọ̀kan bí o bá fẹ́, pẹ̀lú gíga omi, ìmúṣẹ àti agbára orúkọ tí kò yí. Agbára omi tó wà wọ inú ìwọ̀ntúnwọ̀nsì agbára.",
       "For Microgrid dispatch, enter one optional hydro flow for each demand interval, plus fixed net head, efficiency and rating. Di hydro power wey dey available join di common power balance.",
     ],
+  "To model reservoir hydro, enter an inflow and requested turbine flow for each interval. Set storage capacity, starting volume and bypass flow, then inspect storage, spill and bypass shortfall.":
+    [
+      "Geben Sie für jedes Intervall Zufluss und gewünschten Turbinendurchfluss ein. Stellen Sie Kapazität, Anfangsvolumen und Bypassabfluss ein und prüfen Sie Speicherinhalt, Überlauf und Bypassdefizit.",
+      "Láti ṣàwòṣe agbára àdágún, tẹ omi tó wọlé àti ìṣàn turbine tí o fẹ́ fún àkókò kọ̀ọ̀kan. Ṣètò ìwọ̀n àdágún, omi ìbẹ̀rẹ̀ àti ìṣàn àyíká, kí o sì ṣàyẹ̀wò omi tó kù, omi tó ṣàn kọjá àti àìtó.",
+      "To model reservoir hydro, enter inflow and requested turbine flow for each interval. Set capacity, starting water and bypass flow, then check water wey remain, spill and bypass shortfall.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

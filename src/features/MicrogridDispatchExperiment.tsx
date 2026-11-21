@@ -36,6 +36,53 @@ const copy: Record<string, [string, string, string]> = {
     "Hydro installed rating (kW)",
   ],
   "Hydro kW": ["Wasserkraft kW", "Agbára omi kW", "Hydro kW"],
+  "Reservoir inflow by interval (m³/s), optional": [
+    "Speicherzufluss je Intervall (m³/s), optional",
+    "Omi tó ń wọ àdágún fún àkókò kọ̀ọ̀kan (m³/s), àṣàyàn",
+    "Reservoir inflow for each interval (m³/s), optional",
+  ],
+  "Reservoir capacity (m³)": [
+    "Speicherkapazität (m³)",
+    "Ìwọ̀n àdágún (m³)",
+    "Reservoir capacity (m³)",
+  ],
+  "Initial reservoir water (m³)": [
+    "Anfangsvolumen (m³)",
+    "Omi ìbẹ̀rẹ̀ nínú àdágún (m³)",
+    "Starting reservoir water (m³)",
+  ],
+  "Environmental bypass (m³/s)": [
+    "Ökologischer Bypassabfluss (m³/s)",
+    "Ìṣàn omi fún àyíká (m³/s)",
+    "Environmental bypass (m³/s)",
+  ],
+  "Reservoir water (m³)": [
+    "Speicherinhalt (m³)",
+    "Omi inú àdágún (m³)",
+    "Reservoir water (m³)",
+  ],
+  "Water spilled (m³)": [
+    "Überlauf (m³)",
+    "Omi tó ṣàn kọjá (m³)",
+    "Water wey spill (m³)",
+  ],
+  "Unmet bypass (m³)": [
+    "Fehlende Bypassmenge (m³)",
+    "Omi àyíká tí kò tó (m³)",
+    "Bypass water shortfall (m³)",
+  ],
+  "Enter one valid reservoir inflow per interval and valid storage and release limits.":
+    [
+      "Geben Sie je Intervall einen gültigen Zufluss sowie gültige Speicher- und Abflussgrenzen ein.",
+      "Tẹ ìṣàn omi kan fún àkókò kọ̀ọ̀kan àti ààlà ìpamọ́ àti ìtúsílẹ̀ tó péye.",
+      "Enter one valid reservoir inflow for each interval and correct storage and release limits.",
+    ],
+  "With reservoir inflows, the model meets bypass first, then limits requested turbine flow to available water and generator rating. Net head stays fixed.":
+    [
+      "Bei Eingabe von Zuflüssen bedient das Modell zuerst den Bypass. Der Turbinendurchfluss ist dann durch Wasserangebot und Nennleistung begrenzt. Die Nettofallhöhe bleibt konstant.",
+      "Tí o bá tẹ omi tó wọ àdágún, omi àyíká ló kọ́kọ́ gba omi. Omi tó kù àti agbára orúkọ ló fi ààlà sí ìṣàn turbine. Gíga omi dúró ṣinṣin.",
+      "If you enter reservoir inflow, bypass get water first. Water wey remain and generator rating limit turbine flow. Net head stay fixed.",
+    ],
   "Hydro flow must have one value per demand interval.": [
     "Geben Sie für jedes Lastintervall einen Durchflusswert ein.",
     "Tẹ iye ìṣàn kan fún àkókò ìbéèrè kọ̀ọ̀kan.",
@@ -245,6 +292,10 @@ interface Editable {
   hydroHead: number;
   hydroEfficiency: number;
   hydroRating: number;
+  reservoirInflows: string;
+  reservoirCapacity: number;
+  reservoirInitial: number;
+  reservoirBypass: number;
   demand: number[];
   critical: number[];
   pvDcKW: number;
@@ -267,6 +318,10 @@ function defaults(): Editable {
     hydroHead: 30,
     hydroEfficiency: 85,
     hydroRating: 50,
+    reservoirInflows: "",
+    reservoirCapacity: 10000,
+    reservoirInitial: 5000,
+    reservoirBypass: 0,
     windSpeeds: DEFAULT_MICROGRID_DISPATCH_INPUTS.wind.windSpeedsMps,
     irradiance: DEFAULT_MICROGRID_DISPATCH_INPUTS.pvByInterval.map(
       (x) => x.planeOfArrayIrradianceWm2,
@@ -310,6 +365,10 @@ function readSaved(): Editable {
           ...value,
           hydroFlows:
             typeof value.hydroFlows === "string" ? value.hydroFlows : "",
+          reservoirInflows:
+            typeof value.reservoirInflows === "string"
+              ? value.reservoirInflows
+              : "",
         };
     }
   } catch {
@@ -325,6 +384,10 @@ function download(name: string, content: string, type: string) {
   a.download = name;
   a.click();
   URL.revokeObjectURL(url);
+}
+
+function parseFlowProfile(profile: string) {
+  return profile.split(",").map((flow) => (flow.trim() ? Number(flow) : NaN));
 }
 
 export function MicrogridDispatchExperiment() {
@@ -349,16 +412,23 @@ export function MicrogridDispatchExperiment() {
         turbineCount: state.turbines,
       },
       pvByInterval,
-      hydro: state.hydroFlows.trim()
-        ? {
-            netHeadM: state.hydroHead,
-            efficiencyPercent: state.hydroEfficiency,
-            ratedKW: state.hydroRating,
-            flowsM3s: state.hydroFlows
-              .split(",")
-              .map((flow) => (flow.trim() ? Number(flow) : NaN)),
-          }
-        : undefined,
+      hydro:
+        state.hydroFlows.trim() || state.reservoirInflows.trim()
+          ? {
+              netHeadM: state.hydroHead,
+              efficiencyPercent: state.hydroEfficiency,
+              ratedKW: state.hydroRating,
+              flowsM3s: parseFlowProfile(state.hydroFlows),
+              reservoir: state.reservoirInflows.trim()
+                ? {
+                    inflowsM3s: parseFlowProfile(state.reservoirInflows),
+                    capacityM3: state.reservoirCapacity,
+                    initialM3: state.reservoirInitial,
+                    environmentalReleaseM3s: state.reservoirBypass,
+                  }
+                : undefined,
+            }
+          : undefined,
       demandKW: state.demand,
       criticalDemandKW: state.critical,
       battery: {
@@ -452,7 +522,7 @@ export function MicrogridDispatchExperiment() {
       download(
         "powergrid-microgrid-intervals.csv",
         [
-          "interval,pv_available_kW,wind_available_kW,renewable_available_kW,demand_kW,critical_demand_kW,battery_charge_kW,battery_discharge_kW,battery_soc_kWh,backup_generation_kW,curtailment_kW,critical_unserved_kW,noncritical_unserved_kW,served_kW,balance_residual_kW,hydro_available_kW",
+          "interval,pv_available_kW,wind_available_kW,renewable_available_kW,demand_kW,critical_demand_kW,battery_charge_kW,battery_discharge_kW,battery_soc_kWh,backup_generation_kW,curtailment_kW,critical_unserved_kW,noncritical_unserved_kW,served_kW,balance_residual_kW,hydro_available_kW,reservoir_storage_m3,turbine_m3,environmental_bypass_m3,unmet_bypass_m3,spill_m3",
           ...result.intervals.map((r) =>
             [
               r.interval,
@@ -471,6 +541,11 @@ export function MicrogridDispatchExperiment() {
               r.servedDemandKW,
               r.balanceResidualKW,
               r.hydroAvailableKW,
+              r.hydroWater?.storageM3,
+              r.hydroWater?.turbineM3,
+              r.hydroWater?.environmentalReleaseM3,
+              r.hydroWater?.unmetEnvironmentalReleaseM3,
+              r.hydroWater?.spillM3,
             ].join(","),
           ),
         ].join("\r\n"),
@@ -520,6 +595,37 @@ export function MicrogridDispatchExperiment() {
           state.hydroEfficiency,
         )}
         {field("hydroRating", "Hydro installed rating (kW)", state.hydroRating)}
+        <label className="pg-field">
+          <span>{label("Reservoir inflow by interval (m³/s), optional")}</span>
+          <textarea
+            rows={2}
+            value={state.reservoirInflows}
+            onChange={(event) => {
+              const reservoirInflows = event.currentTarget.value;
+              setState((old) => ({ ...old, reservoirInflows }));
+              setSaved(false);
+            }}
+          />
+        </label>
+        {state.reservoirInflows.trim() && (
+          <>
+            {field(
+              "reservoirCapacity",
+              "Reservoir capacity (m³)",
+              state.reservoirCapacity,
+            )}
+            {field(
+              "reservoirInitial",
+              "Initial reservoir water (m³)",
+              state.reservoirInitial,
+            )}
+            {field(
+              "reservoirBypass",
+              "Environmental bypass (m³/s)",
+              state.reservoirBypass,
+            )}
+          </>
+        )}
         {field("demand", "Total demand (kW)", state.demand, true)}
         {field("critical", "Critical demand (kW)", state.critical, true)}
         {field("pvDcKW", "PV array DC rating (kW)", state.pvDcKW)}
@@ -564,6 +670,13 @@ export function MicrogridDispatchExperiment() {
             ))}
           </ul>
         </div>
+      )}
+      {inputs.hydro?.reservoir && (
+        <p>
+          {label(
+            "With reservoir inflows, the model meets bypass first, then limits requested turbine flow to available water and generator rating. Net head stays fixed.",
+          )}
+        </p>
       )}
       {result && (
         <>
@@ -617,6 +730,13 @@ export function MicrogridDispatchExperiment() {
                     "Curtailment kW",
                     "Critical unmet kW",
                     "Non-critical unmet kW",
+                    ...(inputs.hydro?.reservoir
+                      ? [
+                          "Reservoir water (m³)",
+                          "Water spilled (m³)",
+                          "Unmet bypass (m³)",
+                        ]
+                      : []),
                   ].map((s) => (
                     <th key={s}>{label(s)}</th>
                   ))}
@@ -636,6 +756,13 @@ export function MicrogridDispatchExperiment() {
                     <td>{fmt(r.renewableCurtailmentKW)}</td>
                     <td>{fmt(r.criticalUnservedKW)}</td>
                     <td>{fmt(r.nonCriticalUnservedKW)}</td>
+                    {r.hydroWater && (
+                      <>
+                        <td>{fmt(r.hydroWater.storageM3)}</td>
+                        <td>{fmt(r.hydroWater.spillM3)}</td>
+                        <td>{fmt(r.hydroWater.unmetEnvironmentalReleaseM3)}</td>
+                      </>
+                    )}
                   </tr>
                 ))}
               </tbody>

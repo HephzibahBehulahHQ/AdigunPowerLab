@@ -458,3 +458,5 @@ PR #104 merged as `6ef06254a990309834d64c278ccc9af643c3e779`. Candidate [run 436
 Local Chromium acceptance passed for editing the rating, saving across reload, exporting actual JSON, and blocking save/export with invalid input. Numerical tests cover unit conversion, rating clipping, zero flow, and invalid or overflowing input.
 
 Local Chromium also passed both microgrid dispatch scenarios, including hydro profile length validation, save and reload, and exported per-interval available power. Focused unit tests verified output clipping and interval power balance. TypeScript and focused localization checks passed.
+
+Reservoir dispatch passed TypeScript, 14 focused dispatch and localization tests, and both Chromium dispatch tests. Cases included reservoir depletion, environmental bypass priority and shortfall, spill, and exported zero output from an empty reservoir.

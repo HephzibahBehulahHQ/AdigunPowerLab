@@ -6,6 +6,39 @@ import {
 } from "../src/engine/microgridDispatch";
 
 describe("chronological microgrid dispatch", () => {
+  it("conserves reservoir water across depletion, bypass shortage and spill", () => {
+    const base = DEFAULT_MICROGRID_DISPATCH_INPUTS;
+    const result = calculateMicrogridDispatch({
+      ...base,
+      hydro: {
+        netHeadM: 10,
+        efficiencyPercent: 100,
+        ratedKW: 100,
+        flowsM3s: [1, 1, 0, 0, 0, 0],
+        reservoir: {
+          capacityM3: 300,
+          initialM3: 200,
+          environmentalReleaseM3s: 0.01,
+          inflowsM3s: [0, 0, 1, 0, 0, 0],
+        },
+      },
+    });
+    expect(result.intervals[0].hydroWater).toEqual({
+      turbineM3: 164,
+      environmentalReleaseM3: 36,
+      unmetEnvironmentalReleaseM3: 0,
+      spillM3: 0,
+      storageM3: 0,
+    });
+    expect(result.intervals[0].hydroAvailableKW).toBeCloseTo(4.46747);
+    expect(result.intervals[1].hydroWater?.unmetEnvironmentalReleaseM3).toBe(
+      36,
+    );
+    expect(result.intervals[2].hydroWater?.spillM3).toBe(3264);
+    expect(result.intervals[2].hydroWater?.storageM3).toBe(300);
+    for (const row of result.intervals)
+      expect(row.balanceResidualKW).toBeCloseTo(0, 8);
+  });
   it("uses rated hydro output in the interval balance and validates its profile", () => {
     const base = DEFAULT_MICROGRID_DISPATCH_INPUTS;
     const hydro = {

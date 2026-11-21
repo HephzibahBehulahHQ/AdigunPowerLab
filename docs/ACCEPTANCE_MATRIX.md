@@ -265,4 +265,6 @@ The NREL reference-wind worksheet is deployed by PR #103. PR #104 merged as `6ef
 
 The steady-state worksheet models hydraulic-to-electrical conversion with a generator nameplate limit. Reservoir scheduling, dispatch integration and regional time series remain open.
 
-The chronological microgrid now includes optional interval hydro flow at fixed net head. Reservoir water balance, environmental flow scheduling and pumped storage remain open.
+The chronological microgrid now includes optional interval hydro flow at fixed net head. Environmental flow scheduling and pumped storage remain open.
+
+Reservoir branch coverage includes conservation of stored water, bypass shortfall, spill and limited generation. Variable head, optimized reservoir scheduling and pumping remain open.
