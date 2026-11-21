@@ -124,6 +124,7 @@ import {
   Simulation,
 } from "./features/WorkspacePages";
 import { WorkspaceLabMenu } from "./features/WorkspaceLabMenu";
+import { EngineeringFieldGuide } from "./features/EngineeringFieldGuide";
 import {
   Renewables,
   EVPlanner,
@@ -1829,25 +1830,36 @@ export default function App() {
                     />
                   )}
                   {["cables", "motors", "quality", "tools"].includes(route) && (
-                    <Toolbox
-                      detailMode={detailMode}
-                      project={project}
-                      change={change}
-                      selectedId={selected}
-                      key={`${route}:${toolId}:${toolRequest}`}
-                      initialTool={
-                        toolId || (route === "cables" ? "T16" : undefined)
-                      }
-                      category={
-                        route === "cables"
-                          ? "Cables|Protection"
-                          : route === "motors"
-                            ? "Motors|Supply|Distribution"
-                            : route === "quality"
-                              ? "Quality"
-                              : undefined
-                      }
-                    />
+                    <>
+                      {(route === "cables" || route === "motors") && (
+                        <EngineeringFieldGuide
+                          key={route}
+                          route={route}
+                          locale={locale}
+                        />
+                      )}
+                      <div id="engineering-calculator" tabIndex={-1}>
+                        <Toolbox
+                          detailMode={detailMode}
+                          project={project}
+                          change={change}
+                          selectedId={selected}
+                          key={`${route}:${toolId}:${toolRequest}`}
+                          initialTool={
+                            toolId || (route === "cables" ? "T16" : undefined)
+                          }
+                          category={
+                            route === "cables"
+                              ? "Cables|Protection"
+                              : route === "motors"
+                                ? "Motors|Supply|Distribution"
+                                : route === "quality"
+                                  ? "Quality"
+                                  : undefined
+                          }
+                        />
+                      </div>
+                    </>
                   )}
                   {route === "cables" && (
                     <FeederAssessment
