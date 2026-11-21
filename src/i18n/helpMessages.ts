@@ -2001,6 +2001,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú solid biomass steam, yí ìpín omi nínú gbogbo mass padà. Wé iye ooru idana olómi, ooru sí steam cycle àti agbára iná net.",
       "For solid biomass steam generation, change moisture for total wet mass. Compare wet fuel heating value, heat wey reach steam cycle and net electric power.",
     ],
+  "In the nuclear steam worksheet, adjust the heat supplied to the steam cycle and compare gross generation with net power after plant electricity use.":
+    [
+      "Ändern Sie im Kernkraft-Arbeitsblatt die Wärmezufuhr und vergleichen Sie Bruttoerzeugung mit der Leistung nach Eigenbedarf.",
+      "Nínú worksheet òru omi nuclear, yí ooru tí a fi sí steam cycle padà kí o sì wé agbára àpapọ̀ pẹ̀lú agbára lẹ́yìn lílo ilé-iṣẹ́.",
+      "For nuclear steam worksheet, change heat wey reach steam cycle and compare gross power with power wey remain after plant use.",
+    ],
   "In the coal steam worksheet, change coal inventory or net heat rate and compare net generation and remaining coal.":
     [
       "Ändern Sie im Kohledampf-Arbeitsblatt den Kohlevorrat oder den Netto-Wärmebedarf und vergleichen Sie Nettoerzeugung und Restvorrat.",
