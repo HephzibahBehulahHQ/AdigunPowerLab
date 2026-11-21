@@ -107,7 +107,6 @@ import type {
 import { Modal, Field, Notice, ResizeHandle } from "./features/ui";
 import { LoadEditor } from "./features/LoadEditor";
 import { HelpSupport } from "./features/HelpSupport";
-import { PowerGridLab } from "./features/PowerGridLab";
 import { searchHelp } from "./help/content";
 import {
   DetailModeControl,
@@ -158,6 +157,11 @@ import { resetBotWindowState } from "./bot/windowState";
 const ReportWorkspace = lazy(() =>
   import("./features/ReportWorkspace").then((module) => ({
     default: module.ReportWorkspace,
+  })),
+);
+const PowerGridLab = lazy(() =>
+  import("./features/PowerGridLab").then((module) => ({
+    default: module.PowerGridLab,
   })),
 );
 const Billing = lazy(() =>
@@ -1643,9 +1647,18 @@ export default function App() {
                 </p>
               )}
               {route === "powergrid" ? (
-                <PowerGridLab
-                  activeDemand={loaded ? { project, result } : undefined}
-                />
+                <Suspense
+                  fallback={
+                    <div className="loading" role="status">
+                      <LoaderCircle className="spin" aria-hidden="true" />
+                      {t("Loading PowerGrid Lab…")}
+                    </div>
+                  }
+                >
+                  <PowerGridLab
+                    activeDemand={loaded ? { project, result } : undefined}
+                  />
+                </Suspense>
               ) : !loaded ? (
                 <div className="loading">
                   <LoaderCircle className="spin" />

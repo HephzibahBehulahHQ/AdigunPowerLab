@@ -714,7 +714,7 @@ export function HydroStationScene({
       </header>
       <figure className="pg-station-illustration">
         <img
-          src="/assets/powergrid-hydro-station-illustration.png"
+          src="./assets/powergrid-hydro-station-illustration.png"
           alt={text.visualAlt}
           loading="eager"
           decoding="async"

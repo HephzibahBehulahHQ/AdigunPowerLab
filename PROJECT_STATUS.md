@@ -324,3 +324,5 @@ Transmission now supports duplicating the open experiment as a named working cop
 The radial feeder can now consume a reviewed snapshot of the active project's balanced design P and Q. The selected lab group records the source project ID, revision, calculation engine, and capture time. The source project stays unchanged.
 
 Microgrid dispatch also accepts a reviewed 24-hour recurring-day active demand snapshot. The JSON retains the original hourly demand and provenance alongside the editable dispatch inputs.
+
+PowerGrid Lab now loads on entry to #POWERGRID. Local production checks at the root and repository base path confirmed the first lab visit after going offline, a valid transmission PDF download, and a decoded hydro image. The service worker now emits portable precache paths. The production bootstrap is 814 kB (246 kB gzip), with a separate 318 kB lab module (93 kB gzip). Hosted validation and the structured practical curriculum remain open.

@@ -308,3 +308,7 @@ Transmission supports bounded in-session undo and redo, including imported and r
 Transmission supports a named working duplicate and an in-session baseline. The screen and JSON show signed input and result changes. Persistent baselines and comparison reports for additional experiments remain open.
 
 Reviewed active-project demand transfer covers balanced design P and Q for a selected radial group and recurring hourly active demand for microgrid dispatch. Both retain provenance and preserve the source workspace. Phase-specific, dated calendar and DC converter-aware transfers remain open.
+
+### POWERGRID LAB production loading and offline entry
+
+Local Chromium verified that Overview has no PowerGrid Lab script entry in its page resource timing. After the service worker precached the application, the first entry to #POWERGRID worked offline at both the root and repository base path. The transmission PDF and hydro image worked offline at both paths. Hosted verification remains open.

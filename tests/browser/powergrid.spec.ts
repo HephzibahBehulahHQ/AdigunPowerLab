@@ -870,7 +870,7 @@ test("generation plant studies switch real illustrations and expose equipment in
   const image = studies.locator("figure img");
   await expect(image).toHaveAttribute(
     "src",
-    "/assets/thermal-gas-powerhouse.png",
+    "./assets/thermal-gas-powerhouse.png",
   );
   await image.scrollIntoViewIfNeeded();
   await expect
@@ -879,7 +879,7 @@ test("generation plant studies switch real illustrations and expose equipment in
   await studies.getByRole("button", { name: "Utility-scale solar PV" }).click();
   await expect(image).toHaveAttribute(
     "src",
-    "/assets/solar-plant-illustration.jpg",
+    "./assets/solar-plant-illustration.jpg",
   );
   await expect(image).toHaveAttribute(
     "alt",
@@ -900,7 +900,7 @@ test("generation plant studies switch real illustrations and expose equipment in
   await studies.getByRole("button", { name: "Utility wind plant" }).click();
   await expect(image).toHaveAttribute(
     "src",
-    "/assets/wind-plant-illustration.jpg",
+    "./assets/wind-plant-illustration.jpg",
   );
   await studies
     .getByRole("button", { name: "Rotor blades, hub and pitch system" })
@@ -956,7 +956,11 @@ test("regional teaching scenario applies sourced voltage stages only", async ({
       "Nigeria-inspired · educational, not an operational grid replica",
     ),
   ).toBeVisible();
-  await expect(page.getByText("50 Hz", { exact: true })).toBeVisible();
+  await expect(
+    page
+      .getByRole("region", { name: "Regional teaching scenario" })
+      .getByText("50 Hz", { exact: true }),
+  ).toBeVisible();
   await expect(page.getByText("NGN", { exact: true })).toBeVisible();
   await expect(page.getByText("Africa/Lagos", { exact: true })).toBeVisible();
   await page.getByLabel("Base transmission voltage (kV)").fill("120");

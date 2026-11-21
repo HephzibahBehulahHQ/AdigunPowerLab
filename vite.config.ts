@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { readdirSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { join, relative, sep } from "node:path";
 export default defineConfig({
   base: "./",
   plugins: [
@@ -13,7 +13,7 @@ export default defineConfig({
           readdirSync(dir, { withFileTypes: true }).flatMap((f) =>
             f.isDirectory()
               ? walk(join(dir, f.name))
-              : [join(dir, f.name).replace(/^dist\//, "")],
+              : [relative("dist", join(dir, f.name)).split(sep).join("/")],
           );
         const files = walk("dist").filter(
           (f) => !f.endsWith(".map") && f !== "sw.js",

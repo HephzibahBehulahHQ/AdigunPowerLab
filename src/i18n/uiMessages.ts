@@ -260,6 +260,11 @@ export const uiMessages: Record<string, [string, string, string]> = {
     "Ń ṣiṣẹ́ lórí ẹ̀dà ààbò…",
     "E dey process workspace backup…",
   ],
+  "Loading PowerGrid Lab…": [
+    "PowerGrid Lab wird geladen…",
+    "Ń ṣí PowerGrid Lab…",
+    "PowerGrid Lab dey load…",
+  ],
   "Backup restore preview": [
     "Wiederherstellungsvorschau",
     "Àwòrán ìdápadà ẹ̀dà ààbò ṣáájú",

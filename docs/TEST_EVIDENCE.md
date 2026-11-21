@@ -519,3 +519,7 @@ Transmission baseline comparison passed TypeScript, 13 focused tests, and Chromi
 Reviewed project-demand transfer passed TypeScript, 15 focused radial and localization tests, and Chromium. Browser coverage checks the preview leaves the feeder unchanged, applies the exact aggregate design load, exports the active project ID and revision, and confirms the workspace project ID, revision and loads are unchanged.
 
 Recurring project demand transfer passed TypeScript, 18 focused tests and Chromium. The browser reviewed a 48 kWh day from a 2 kW fixture, applied 24 hourly loads, verified the original profile and source revision in dispatch JSON, and confirmed the source workspace was unchanged.
+
+### POWERGRID LAB deferred route and cold offline entry
+
+The Windows production build emitted a separate PowerGrid Lab chunk. The production offline smoke passed in Chromium at / and /AdigunPowerLab/, including offline reload, prior project recovery, initial PowerGrid entry offline, the PDF signature, and hydro image decoding. Both runs recorded zero page errors and zero unexpected network failures. The smoke checks page resource timing for deferred lab entry. Service-worker precaching can still download the lab chunk during cache installation.

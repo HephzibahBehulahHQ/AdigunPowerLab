@@ -106,7 +106,7 @@ const copy: Record<Locale, Copy> = {
 
 const photos = [
   {
-    image: "/assets/powergrid/field-photos/hydro-generator.jpg",
+    image: "./assets/powergrid/field-photos/hydro-generator.jpg",
     title: {
       en: "Bonneville powerhouse generator",
       de: "Generator im Kraftwerk Bonneville",
@@ -125,7 +125,7 @@ const photos = [
       "https://www.dvidshub.net/image/7443974/generator-bonneville-lock-and-dam",
   },
   {
-    image: "/assets/powergrid/field-photos/substation-switchyard.jpg",
+    image: "./assets/powergrid/field-photos/substation-switchyard.jpg",
     title: {
       en: "Al Ameen 400 kV substation",
       de: "Umspannwerk Al Ameen mit 400 kV",
@@ -143,7 +143,7 @@ const photos = [
       "https://www.dvidshub.net/image/6274/al-ameen-substation-400-kilovolt-gas-insulated-system",
   },
   {
-    image: "/assets/powergrid/field-photos/distribution-pole-transformer.jpg",
+    image: "./assets/powergrid/field-photos/distribution-pole-transformer.jpg",
     title: {
       en: "Pole-mounted distribution transformer",
       de: "Masttransformator der Ortsnetzverteilung",

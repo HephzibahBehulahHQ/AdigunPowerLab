@@ -1833,6 +1833,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú Microgrid dispatch, ṣàyẹ̀wò ọjọ́ ìbéèrè iṣẹ́ lọwọlọwọ kí o tó lo iye wákàtí 24. JSON pa ìbéèrè wákàtí àkọ́kọ́ àti àtúnṣe orísun mọ́.",
       "For Microgrid dispatch review active project recurring demand day before you apply the 24 hourly loads. The JSON keep original hourly profile and source revision.",
     ],
+  "After the workspace finishes caching its files, you can open PowerGrid Lab and export a transmission report offline, even if the lab was never opened online.":
+    [
+      "Sobald der Arbeitsbereich seine Dateien zwischengespeichert hat, können Sie PowerGrid Lab offline öffnen und einen Übertragungsbericht exportieren, auch wenn das Labor zuvor nie online geöffnet wurde.",
+      "Lẹ́yìn tí workspace bá ti pa fáìlì rẹ̀ mọ́, o lè ṣí PowerGrid Lab àti gbé ìròyìn gbigbe jáde láìsí ìkànnì, bí o kò tilẹ̀ tíì ṣí i nígbà tí ìkànnì wà.",
+      "After workspace finish cache the files, you fit open PowerGrid Lab and export transmission report offline, even if you never open the lab online.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",
