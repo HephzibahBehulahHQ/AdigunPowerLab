@@ -366,3 +366,5 @@ The binary geothermal worksheet reports recovered heat, unconstrained gross pote
 The wave-energy worksheet checks field limits, distinguishes crest flux from converter power, applies the electrical rating and enforces inclusive shutdown height.
 
 The gas/steam worksheet applies fuel, rating and minimum stable load, and exports the dispatched gas and steam contributions and signed net output.
+
+The workspace recovery check starts with a persisted active project and waits for Overview after restore. It verifies transmission recovery through the separate recovered-copy workflow rather than transient Settings feedback.

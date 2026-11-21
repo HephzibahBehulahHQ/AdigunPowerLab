@@ -384,3 +384,5 @@ The geothermal increment adds a source-linked binary-cycle worksheet with brine 
 The wave-energy increment adds an independent deep-water sea-state worksheet with wave flux, capture width, conversion efficiency, rating and shutdown height. It reports resource and available output separately and provides JSON export.
 
 The combined-cycle increment adds a worksheet for fuel-limited potential, available and dispatched gross generation, gas and steam output, recovered heat and net output after plant use.
+
+Combined-cycle main validation run 44941752932 stopped before publication when the backup browser test raced the automatic transition from Settings to Overview. A focused test correction now waits for the restored project to open, then inspects the recovered transmission case.
