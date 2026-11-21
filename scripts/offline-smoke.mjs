@@ -126,6 +126,15 @@ try {
     .getByRole("heading", { name: "Meshed AC power flow", exact: true })
     .waitFor();
   await page
+    .getByRole("button", { name: "Compare single branch outages", exact: true })
+    .click();
+  await page
+    .getByRole("table", {
+      name: "Single branch outage comparison",
+      exact: true,
+    })
+    .waitFor();
+  await page
     .locator('img[src$="powergrid-hydro-station-illustration.png"]')
     .first()
     .scrollIntoViewIfNeeded();
@@ -180,6 +189,7 @@ try {
     pdfExportOffline: true,
     powergridRouteDeferred: !powergridLoadedOnOverview,
     powergridOfflineColdEntry: true,
+    powergridContingencyOffline: true,
     powergridPdfOffline: true,
     powergridImageOffline: true,
     serviceWorkerControlled: await page.evaluate(

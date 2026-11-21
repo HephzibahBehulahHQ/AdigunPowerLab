@@ -314,3 +314,5 @@ In **Adigun BOT · Transmission worksheet**, preview a 10% increase and inspect 
 Select equipment in the station model and open **Explain selected station equipment** in the lab BOT. The explanation follows the station selection and describes the component's role and interfaces.
 
 In **Adigun BOT · Dispatch explanation**, select an interval and compare the deficit after renewables with the battery power limit and energy available above reserve. Check the supplied battery power and both unmet load readings. Edit the worksheet to see the explanation update for the selected interval.
+
+With **Compare single branch outages** enabled, changing the meshed case recomputes the comparison. Wait for the updated table before exporting. Turn comparison off to cancel it and export the base case alone.

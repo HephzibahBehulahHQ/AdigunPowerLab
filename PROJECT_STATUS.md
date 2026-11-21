@@ -352,3 +352,5 @@ The lab now has a deterministic Adigun BOT panel for transmission. It explains l
 The lab BOT now explains the selected station asset using the same localized function and interface descriptions as the station inspector. Synchronized selection changes from the cutaway or distribution view also update this explanation.
 
 The dispatch BOT now explains the selected solved interval. It shows the renewable deficit, the battery power and reserve-adjusted energy limits, actual discharge and remaining unmet critical and noncritical load. The JSON includes the solver's interval battery energy limit.
+
+Meshed AC branch-outage comparisons now run in a dedicated worker. Editing the case, disabling comparison or leaving the lab cancels obsolete work. Results and comparison exports stay tied to the active solved case.

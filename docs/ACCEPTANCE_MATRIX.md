@@ -338,3 +338,5 @@ The lab BOT can explain fixed-power line losses, summarize raised-voltage readin
 Station-asset BOT explanations follow the live shared station selection and show the documented function and interfaces in each locale. Dispatch-specific BOT explanations remain open.
 
 The dispatch BOT adds an interval-specific explanation from the live dispatch result. The readings update after edits and are withheld when the dispatch inputs do not solve.
+
+Meshed N−1 comparison runs in a worker. Changing case inputs clears the old rows immediately, cancels obsolete work, and disables comparison export until current rows arrive.

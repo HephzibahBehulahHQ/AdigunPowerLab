@@ -575,3 +575,7 @@ TypeScript and 20 Help checks passed. Focused Chromium assertions verified the B
 ### POWERGRID LAB BOT dispatch context
 
 TypeScript and 29 Help and solver tests passed. The focused Chromium case verified the solver-derived 20 kW battery energy limit in the JSON and the selected evening interval's explanation. Cutting the battery power limit to 10 kW updated the displayed discharge and increased unmet noncritical demand from 25 kW to 35 kW.
+
+### POWERGRID LAB cancellable contingency comparison
+
+The Windows production build emitted a 5.15 kB contingency worker. Root and repository-base Chromium offline smoke both executed the worker and displayed the outage table, with zero page errors and unexpected network failures. The targeted browser case verified that editing an active branch replaces the comparison and exports the current branch cases. TypeScript and 28 targeted Help, meshed solver and PDF checks passed. The earlier full local run reported 442 passes and one billing PDF timeout; the timed-out test passed on the targeted rerun. The local Chromium runner stalled during teardown.

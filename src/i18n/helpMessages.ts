@@ -1917,6 +1917,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú dispatch BOT, yan àkókò kan láti wé ààlà fífi agbára batiri jáde pẹ̀lú agbára tí a pèsè àti ẹrù pàtàkì àti mìíràn tí kò rí agbára.",
       "For dispatch BOT, choose interval to compare battery discharge limits with power wey e supply and critical and other loads wey no get supply.",
     ],
+  "In meshed AC power flow, outage comparison recalculates after an edit. Wait for the updated rows before exporting a comparison.":
+    [
+      "Der Ausfallvergleich im vermaschten AC-Lastfluss wird nach Änderungen neu berechnet. Warten Sie vor dem Export auf die aktualisierten Zeilen.",
+      "Nínú meshed AC power flow, ìfiwéra ìdádúró tún ṣe ìṣírò lẹ́yìn àtúnṣe. Dúró de èsì tuntun kí o tó gbé ìfiwéra jáde.",
+      "For meshed AC power flow, outage comparison calculate again after edits. Wait for di new rows before you download di comparison.",
+    ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
     "POWERGRID LAB: Fi foliteji gbigbe wé",

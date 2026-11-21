@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
-  compareSingleBranchOutages,
   solveMeshedPowerFlow,
   type MeshedInputs,
 } from "../engine/powergridMeshed";
 import type { Locale } from "../i18n";
 import { downloadFile } from "../import-export/files";
+import type {
+  ContingencyRequest,
+  ContingencyResponse,
+} from "../workers/powergridContingency";
 
 const defaults = {
   loadMW: 55,
@@ -25,6 +28,16 @@ const defaults = {
 const storageKey = "adigunpowerlab.powergrid.meshed.v1";
 
 const messages: Record<string, [string, string, string]> = {
+  "Calculating branch outages…": [
+    "Abzweigausfälle werden berechnet…",
+    "Ìṣírò ìdádúró ẹ̀ka ń lọ…",
+    "Di branch outage calculation dey run…",
+  ],
+  "Could not calculate branch outages. Turn comparison off and on to retry.": [
+    "Abzweigausfälle konnten nicht berechnet werden. Schalten Sie den Vergleich aus und wieder ein.",
+    "Ìṣírò ìdádúró ẹ̀ka kò ṣiṣẹ́. Pa ìfiwéra kí o sì tún tan án.",
+    "Di branch outage calculation fail. Turn comparison off and on to try again.",
+  ],
   "A–B rating (MVA)": [
     "A–B Nennscheinleistung (MVA)",
     "Ààlà A–B (MVA)",
@@ -224,62 +237,98 @@ export function MeshedPowerFlowExperiment({ locale }: { locale: Locale }) {
   const [state, setState] = useState(readCase);
   const [saved, setSaved] = useState<boolean | null>(null);
   const [compare, setCompare] = useState(false);
+  const [outcome, setOutcome] = useState<{
+    input: MeshedInputs;
+    response: ContingencyResponse;
+  }>();
   const label = (value: string) =>
     locale === "en"
       ? value
       : (messages[value]?.[locale === "de" ? 0 : locale === "yo" ? 1 : 2] ??
         value);
-  const input: MeshedInputs = {
-    baseMVA: 100,
-    buses: [
-      { id: "A", kind: "slack", voltagePU: 1 },
-      {
-        id: "B",
-        kind: "pv",
-        netMW: state.generationMW,
-        voltagePU: state.generatorVoltage,
-        minNetMvar: -state.limitMvar,
-        maxNetMvar: state.limitMvar,
-      },
-      { id: "C", kind: "pq", netMW: -state.loadMW, netMvar: -state.loadMvar },
-    ],
-    branches: [
-      {
-        id: "A–B",
-        from: "A",
-        to: "B",
-        resistancePU: 0.02,
-        reactancePU: 0.15,
-        tap: state.tap,
-        shiftDeg: state.shiftDeg,
-        ratingMVA: state.ratingAB,
-        inService: state.ab,
-      },
-      {
-        id: "A–C",
-        from: "A",
-        to: "C",
-        resistancePU: 0.025,
-        reactancePU: 0.2,
-        ratingMVA: state.ratingAC,
-        inService: state.ac,
-      },
-      {
-        id: "B–C",
-        from: "B",
-        to: "C",
-        resistancePU: 0.01,
-        reactancePU: 0.1,
-        ratingMVA: state.ratingBC,
-        inService: state.bc,
-      },
-    ],
-  };
-  const result = solveMeshedPowerFlow(input);
+  const input = useMemo<MeshedInputs>(
+    () => ({
+      baseMVA: 100,
+      buses: [
+        { id: "A", kind: "slack", voltagePU: 1 },
+        {
+          id: "B",
+          kind: "pv",
+          netMW: state.generationMW,
+          voltagePU: state.generatorVoltage,
+          minNetMvar: -state.limitMvar,
+          maxNetMvar: state.limitMvar,
+        },
+        { id: "C", kind: "pq", netMW: -state.loadMW, netMvar: -state.loadMvar },
+      ],
+      branches: [
+        {
+          id: "A–B",
+          from: "A",
+          to: "B",
+          resistancePU: 0.02,
+          reactancePU: 0.15,
+          tap: state.tap,
+          shiftDeg: state.shiftDeg,
+          ratingMVA: state.ratingAB,
+          inService: state.ab,
+        },
+        {
+          id: "A–C",
+          from: "A",
+          to: "C",
+          resistancePU: 0.025,
+          reactancePU: 0.2,
+          ratingMVA: state.ratingAC,
+          inService: state.ac,
+        },
+        {
+          id: "B–C",
+          from: "B",
+          to: "C",
+          resistancePU: 0.01,
+          reactancePU: 0.1,
+          ratingMVA: state.ratingBC,
+          inService: state.bc,
+        },
+      ],
+    }),
+    [state],
+  );
+  const result = useMemo(() => solveMeshedPowerFlow(input), [input]);
+  const needsComparison = compare && result.converged;
+  const response =
+    needsComparison && outcome?.input === input ? outcome.response : undefined;
   const comparison =
-    compare && result.converged
-      ? compareSingleBranchOutages(input, result)
-      : undefined;
+    response && "comparison" in response ? response.comparison : undefined;
+  useEffect(() => {
+    if (!needsComparison) return;
+    let worker: Worker | undefined;
+    let active = true;
+    const finish = (response: ContingencyResponse) => {
+      if (!active) return;
+      setOutcome({ input, response });
+      worker?.terminate();
+    };
+    try {
+      worker = new Worker(
+        new URL("../workers/powergridContingency.ts", import.meta.url),
+        { type: "module" },
+      );
+      worker.onmessage = ({ data }: MessageEvent<ContingencyResponse>) =>
+        finish(data);
+      worker.onerror = () => finish({ error: true });
+      worker.onmessageerror = () => finish({ error: true });
+      const request: ContingencyRequest = { input, baseline: result };
+      worker.postMessage(request);
+    } catch {
+      finish({ error: true });
+    }
+    return () => {
+      active = false;
+      worker?.terminate();
+    };
+  }, [input, needsComparison, result]);
   const statuses = {
     clear: "Within limits",
     violations: "Limit violations",
@@ -432,7 +481,10 @@ export function MeshedPowerFlowExperiment({ locale }: { locale: Locale }) {
           className="button"
           aria-pressed={compare}
           disabled={!result.converged}
-          onClick={() => setCompare(!compare)}
+          onClick={() => {
+            setOutcome(undefined);
+            setCompare(!compare);
+          }}
         >
           {label("Compare single branch outages")}
         </button>
@@ -454,7 +506,7 @@ export function MeshedPowerFlowExperiment({ locale }: { locale: Locale }) {
         <button
           type="button"
           className="button"
-          disabled={!result.converged}
+          disabled={!result.converged || (compare && !comparison)}
           onClick={() =>
             downloadFile(
               "powergrid-meshed-ac.json",
@@ -475,6 +527,15 @@ export function MeshedPowerFlowExperiment({ locale }: { locale: Locale }) {
           </span>
         )}
       </div>
+      {needsComparison && !comparison && (
+        <p role="status">
+          {label(
+            response
+              ? "Could not calculate branch outages. Turn comparison off and on to retry."
+              : "Calculating branch outages…",
+          )}
+        </p>
+      )}
       {comparison && (
         <>
           <p>
