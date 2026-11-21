@@ -127,6 +127,8 @@ The WebGL model is original schematic teaching geometry, not a photograph, surve
 
 ## Draft PR #116 qualification evidence
 
+Subsequent live Pages sampling verified that the navigable station fits 1440 px desktop, 768 px tablet and 390 px phone viewports with reduced motion and software WebGL. The measured two-frame input latencies and browser configuration are recorded in [TEST_EVIDENCE.md](TEST_EVIDENCE.md). Device testing and independent accessibility review remain open.
+
 The 12 initial lesson workflows are indexed in [POWERGRID_CURRICULUM.md](POWERGRID_CURRICULUM.md). This candidate also adds worker-backed contingency comparisons, dispatch BOT explanations, and transmission PDF baseline comparisons. Exact local and hosted verification belongs in [TEST_EVIDENCE.md](TEST_EVIDENCE.md). The curriculum index documents current workflows. Exact-candidate release gates and publication verification remain separate.
 
 The earlier header checkpoint `63c464e34aabb4c44220bb615461718d0c92f1ad` passed [hosted run 44933422356](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44933422356), including lint, unit, build, both browser suites and root/base-path update and offline smoke. This receipt applies to that revision. Later catalogue and release boundaries are recorded in [POWERGRID_MODELS.md](POWERGRID_MODELS.md) and [TEST_EVIDENCE.md](TEST_EVIDENCE.md).
