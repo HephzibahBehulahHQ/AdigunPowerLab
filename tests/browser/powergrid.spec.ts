@@ -1739,6 +1739,31 @@ test("regional teaching scenario applies sourced voltage stages only", async ({
   ).toHaveAttribute("href", /nerc\.gov\.ng/);
 });
 
+test("Pacific Northwest preset keeps split-phase service separate from the balanced worksheet", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  await page
+    .getByLabel("Engineering region")
+    .selectOption("us-pacific-northwest-inspired");
+  await expect(page.getByText("60 Hz", { exact: true })).toBeVisible();
+  await expect(
+    page.getByText(/Residential 120\/240 V split-phase service/),
+  ).toBeVisible();
+  const consumer = page.getByLabel("Consumer voltage (kV)");
+  await consumer.fill("0.43");
+  await page
+    .getByRole("button", { name: "Apply 115 / 230 / 12.47 kV stages" })
+    .click();
+  await expect(page.getByLabel("Raised transmission voltage (kV)")).toHaveValue(
+    "230",
+  );
+  await expect(page.getByLabel("Distribution voltage (kV)")).toHaveValue(
+    "12.47",
+  );
+  await expect(consumer).toHaveValue("0.43");
+});
+
 test("Germany-inspired scenario applies the 50Hertz-area voltage context", async ({
   page,
 }) => {

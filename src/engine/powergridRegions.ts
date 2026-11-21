@@ -102,9 +102,47 @@ export const GERMANY_TEACHING_PRESET: RegionalTeachingPreset = {
   ],
 };
 
+export const US_PACIFIC_NORTHWEST_PRESET: RegionalTeachingPreset = {
+  id: "us-pacific-northwest-inspired",
+  engineeringRegion: "United States-inspired · Pacific Northwest",
+  frequencyHz: 60,
+  currencyCode: "USD",
+  timeZone: "America/Los_Angeles",
+  nominalVoltageStagesKV: [230, 115, 12.47],
+  stepUpInputs: {
+    baseVoltageKV: 115,
+    raisedVoltageKV: 230,
+    distributionVoltageKV: 12.47,
+  },
+  voltageConvention:
+    "The transmission example uses documented BPA 115 and 230 kV stages. The 12.47 kV distribution stage is illustrative. Residential 120/240 V split-phase service is a separate single-phase context.",
+  resourceProfile: "No Pacific Northwest resource profile is loaded.",
+  demandProfile: "No Pacific Northwest demand profile is loaded.",
+  simplifications:
+    "Applying updates 115/230/12.47 kV. Generator terminals and balanced consumer voltage stay as entered. The balanced comparison does not model residential split-phase service or frequency response.",
+  sourceReferences: [
+    {
+      url: "https://www.bpa.gov/-/media/Aep/transmission/attachment-k/2025-BPA-Transmission-Plan_Final.pdf",
+      title: "Bonneville Power Administration · 2025 Transmission Plan",
+      date: "2025; accessed 21 November 2026",
+    },
+    {
+      url: "https://www.energy.gov/oe/learn-more-about-interconnections",
+      title: "U.S. Department of Energy · Western Interconnection",
+      date: "Accessed 21 November 2026",
+    },
+    {
+      url: "https://web8.seattle.gov/city-light-engineering-standards/Home/GetPDF?libId=StandardsforElectricService&searchForfileName=Standards+for+Electric+Service+2020+Edition.pdf",
+      title: "Seattle City Light · Standards for Electric Service",
+      date: "2020; accessed 21 November 2026",
+    },
+  ],
+};
+
 export const REGIONAL_TEACHING_PRESETS = [
   NIGERIA_TEACHING_PRESET,
   GERMANY_TEACHING_PRESET,
+  US_PACIFIC_NORTHWEST_PRESET,
 ] as const;
 
 export function applyRegionalTeachingPreset(

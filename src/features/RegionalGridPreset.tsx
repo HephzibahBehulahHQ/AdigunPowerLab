@@ -130,6 +130,33 @@ const copy: Record<
   },
 };
 
+const usCopy = {
+  en: [
+    "United States-inspired · Pacific Northwest",
+    "Pacific Northwest teaching example",
+    "Apply 115 / 230 / 12.47 kV stages",
+    "The 115 and 230 kV stages are sourced. The 12.47 kV distribution stage is illustrative. Residential 120/240 V split-phase service and 60 Hz are contextual, while the worksheet remains a balanced three-phase comparison.",
+  ],
+  de: [
+    "USA · Beispiel Pazifischer Nordwesten",
+    "Übungsfall Pazifischer Nordwesten",
+    "115 / 230 / 12,47 kV übernehmen",
+    "115 und 230 kV sind belegt. Die Verteilung mit 12,47 kV ist illustrativ. 120/240 V Einphasen-Dreileitersystem und 60 Hz dienen als Kontext für den symmetrischen Drehstromvergleich.",
+  ],
+  yo: [
+    "Àpẹẹrẹ United States · Pacific Northwest",
+    "Àpẹẹrẹ ẹ̀kọ́ Pacific Northwest",
+    "Lo 115 / 230 / 12.47 kV",
+    "115 àti 230 kV ní orísun; 12.47 kV jẹ́ àpẹẹrẹ pinpin. Iṣẹ́ 120/240 V split-phase àti 60 Hz jẹ́ àlàyé agbègbè; àfiwé náà jẹ́ ìpele mẹ́ta tó dọ́gba.",
+  ],
+  pcm: [
+    "United States example · Pacific Northwest",
+    "Pacific Northwest teaching example",
+    "Apply 115 / 230 / 12.47 kV stages",
+    "115 and 230 kV get source. 12.47 kV na distribution example. Di 120/240 V split-phase service and 60 Hz na context. Di worksheet still compare balanced three-phase.",
+  ],
+} satisfies Record<Locale, readonly string[]>;
+
 export function RegionalGridPreset({
   onApply,
 }: {
@@ -143,6 +170,8 @@ export function RegionalGridPreset({
     (item) => item.id === selectedId,
   )!;
   const isNigeria = preset.id === "nigeria-inspired";
+  const isUS = preset.id === "us-pacific-northwest-inspired";
+  const [usName, usLabel, usApply, usScope] = usCopy[locale];
 
   return (
     <section
@@ -152,7 +181,7 @@ export function RegionalGridPreset({
       <header>
         <span className="eyebrow">
           <MapPin size={14} aria-hidden="true" />
-          {isNigeria ? text.label : text.labelGermany}
+          {isUS ? usLabel : isNigeria ? text.label : text.labelGermany}
         </span>
         <h3 id="pg-region-title">{text.title}</h3>
         <p>{text.intro}</p>
@@ -169,6 +198,7 @@ export function RegionalGridPreset({
         >
           <option value="nigeria-inspired">{text.nigeria}</option>
           <option value="germany-inspired">{text.germany}</option>
+          <option value="us-pacific-northwest-inspired">{usName}</option>
         </select>
       </label>
       <dl className="pg-region-facts">
@@ -200,7 +230,7 @@ export function RegionalGridPreset({
         </div>
       </dl>
       <p className="pg-region-scope">
-        {isNigeria ? text.scope : text.scopeGermany}
+        {isUS ? usScope : isNigeria ? text.scope : text.scopeGermany}
       </p>
       <ul className="pg-region-sources">
         {preset.sourceReferences.map((source) => (
@@ -221,7 +251,7 @@ export function RegionalGridPreset({
           setApplied(true);
         }}
       >
-        {isNigeria ? text.apply : text.applyGermany}
+        {isUS ? usApply : isNigeria ? text.apply : text.applyGermany}
       </button>
       {applied && (
         <p className="pg-saved" role="status">

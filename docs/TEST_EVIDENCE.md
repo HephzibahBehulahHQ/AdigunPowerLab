@@ -670,3 +670,5 @@ The complete Overview navigation regression checked all four menu groups, the 19
 Focused Chromium cases checked terminal ratios, voltage and distance controls, the power-factor worksheet handoff, transformer overload, dispatch interval readings, the feeder switch map, rural battery charge, and regional loss comparison. In the community capstone, loading produces the documented 30 kW backup case, pinning captures zero unmet critical energy, and the interval 5 outage control produces zero backup generation in that interval.
 
 The combined curriculum run reported all ten selected Chromium tests passing in one run, covering all twelve practical lessons. The local Playwright runner stalled during teardown after reporting the ten results.
+
+The Pacific Northwest browser case verified the 60 Hz and 120/240 V context, applied the 230 kV transmission and 12.47 kV distribution values, and preserved a previously edited balanced consumer voltage. The Nigeria/Germany comparison still passed in the same Chromium run.
