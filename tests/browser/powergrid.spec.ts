@@ -2282,7 +2282,9 @@ test("microgrid dispatch recalculates, validates, saves and exports interval bal
   await section.getByTestId("microgrid-reserveSoc").fill("0");
   await section.getByTestId("microgrid-batteryPowerKW").fill("0");
   await section.getByTestId("microgrid-backupKW").fill("0");
-  await expect(section.locator("tbody tr").first()).toContainText("50");
+  await expect(
+    section.locator(".pg-wind-table tbody tr").first(),
+  ).toContainText("50");
   await section.getByRole("button", { name: "Save scenario locally" }).click();
   await expect(
     section.getByRole("button", { name: "Saved in this browser" }),
