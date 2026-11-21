@@ -2030,6 +2030,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú Agbára omi: gíga àti ìṣàn, ṣàtúnṣe gíga omi tó kù, ìṣàn turbine, ìmúṣẹ àpapọ̀ àti agbára orúkọ. Fi agbára omi wé agbára generator tó wà, kí o sì fi pamọ́ tàbí gbé JSON jáde.",
       "For Hydropower head and water flow, change net head, turbine flow, combined efficiency and installed rating. Compare water power with generator power wey dey available, then save for this device or export JSON.",
     ],
+  "In POWERGRID LAB, use the controls beside the equipment images to change voltage, distance, power factor and transformer loading. In the dispatch lessons choose an interval, and in Feeder trip use the map to see which load groups disconnect.":
+    [
+      "Ändern Sie im POWERGRID LAB neben den Gerätebildern Spannung, Entfernung, Leistungsfaktor und Transformatorlast. Wählen Sie in den Einsatzversuchen ein Intervall und prüfen Sie im Schaltbild, welche Lastgruppen getrennt werden.",
+      "Nínú POWERGRID LAB, lo àwọn ìṣàkóso lẹ́gbẹ̀ẹ́ àwòrán ẹ̀rọ láti yí fólítéèjì, ìjìnnà, ìpín agbára àti ẹrù transformer padà. Yan àkókò nínú ìdánwò dispatch, kí o sì lo àwòrán switch láti rí ẹgbẹ́ ẹrù tó já.",
+      "For POWERGRID LAB, use di controls near equipment pictures to change voltage, distance, power factor and transformer load. Choose interval for dispatch lesson, then use di Feeder trip map to see which loads lose supply.",
+    ],
   "On Overview, choose a group in Explore the workspace. Open an illustrated destination to find a field video and exercise, or an application recording for reports, backups, history and Help.":
     [
       "Wählen Sie in der Übersicht unter Arbeitsbereich erkunden eine Gruppe. Öffnen Sie einen bebilderten Bereich mit Video und Übung oder eine Bildschirmaufnahme für Berichte, Sicherung, Verlauf und Hilfe.",

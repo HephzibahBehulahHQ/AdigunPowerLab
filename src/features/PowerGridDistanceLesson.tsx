@@ -34,6 +34,33 @@ function solveDistance(lengthKm: number) {
 const reference = solveDistance(referenceKm);
 const example = solveDistance(exampleKm);
 
+const visualCopy = {
+  en: [
+    "Transmission substation",
+    "Adjust line length",
+    "Sending voltage",
+    "Receiving voltage",
+  ],
+  de: [
+    "Umspannwerk",
+    "Leitungslänge ändern",
+    "Sendespannung",
+    "Empfangsspannung",
+  ],
+  yo: [
+    "Ibùdó gbigbe iná",
+    "Ṣàtúnṣe gígùn okùn",
+    "Fólítéèjì ìfiranṣẹ́",
+    "Fólítéèjì ìgbàwọlé",
+  ],
+  pcm: [
+    "Transmission substation",
+    "Change line length",
+    "Sending voltage",
+    "Receiving voltage",
+  ],
+} satisfies Record<Locale, readonly string[]>;
+
 const copy = {
   en: {
     title: "Practical lesson: Transmission distance",
@@ -116,6 +143,8 @@ export function PowerGridDistanceLesson({ locale }: { locale: Locale }) {
   const valid = km >= 1 && km <= 40;
   const current = valid ? solveDistance(km) : undefined;
   const text = copy[locale];
+  const [photoLabel, sliderLabel, sourceLabel, receiverLabel] =
+    visualCopy[locale];
   const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 3 });
   const table = (label: string, cases: (typeof reference)[]) => (
     <table aria-label={label}>
@@ -145,9 +174,58 @@ export function PowerGridDistanceLesson({ locale }: { locale: Locale }) {
     >
       <h3 id="pg-distance-title">{text.title}</h3>
       <p>{text.prediction}</p>
-      <p>{text.assumptions}</p>
+      <div className="pg-home-video">
+        <figure className="pg-foundation-media">
+          <img
+            src="./assets/transmission-substation.png"
+            alt={photoLabel}
+            loading="lazy"
+          />
+          <figcaption>{photoLabel}</figcaption>
+        </figure>
+        <div>
+          <label className="pg-field">
+            <span>{sliderLabel}</span>
+            <input
+              type="range"
+              min={1}
+              max={40}
+              step={0.5}
+              value={valid ? km : exampleKm}
+              onChange={(event) => setLength(event.currentTarget.value)}
+            />
+          </label>
+          <div className="pg-actions">
+            {[referenceKm, exampleKm].map((distance) => (
+              <button
+                className="button"
+                type="button"
+                key={distance}
+                onClick={() => setLength(String(distance))}
+              >
+                {distance} km
+              </button>
+            ))}
+          </div>
+          <dl className="pg-foundation-readings">
+            <div>
+              <dt>{sourceLabel}</dt>
+              <dd>11 kV</dd>
+            </div>
+            <div>
+              <dt>{receiverLabel}</dt>
+              <dd>
+                {current
+                  ? `${format.format(current.result.buses[1].voltageLLKV)} kV`
+                  : "—"}
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
       <details>
         <summary>{text.worked}</summary>
+        <p>{text.assumptions}</p>
         {table(text.worked, [reference, example])}
       </details>
       <label className="pg-field">
