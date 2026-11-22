@@ -4,14 +4,41 @@ import {
   calculateWindPerformance,
   DEFAULT_WIND_PERFORMANCE_INPUTS,
   validateWindPerformanceInputs,
+  WIND_TURBINE_REFERENCES,
   type WindPerformanceInputs,
 } from "../engine/windPerformance";
 import { LanguageContext } from "../i18n";
 import type { Locale } from "../i18n";
 
 const INPUT_KEY = "adigunpowerlab.powergrid.wind-performance.v1";
-const source = "https://www.nrel.gov/docs/fy17osti/67414.pdf";
 const strings: Record<string, [string, string, string]> = {
+  "Reference turbine": [
+    "Referenzwindturbine",
+    "Turbine àpẹẹrẹ",
+    "Reference turbine",
+  ],
+  "NREL 6 MW offshore": [
+    "NREL 6 MW auf See",
+    "NREL 6 MW lórí òkun",
+    "NREL 6 MW offshore",
+  ],
+  "NREL 4 MW onshore": [
+    "NREL 4 MW an Land",
+    "NREL 4 MW lórí ilẹ̀",
+    "NREL 4 MW onshore",
+  ],
+  "Apply the selected reference curve to your wind speeds and compare output at the same resource.":
+    [
+      "Wenden Sie die gewählte Referenzkurve auf dieselben Windgeschwindigkeiten an und vergleichen Sie die Leistung.",
+      "Lo curve àpẹẹrẹ tí o yàn fún iyára afẹ́fẹ́ kan náà kí o fi agbára wé ara wọn.",
+      "Use di reference curve wey you choose for di same wind speeds and compare power.",
+    ],
+  "The onshore curve is linearly interpolated between published points. It reaches 4 MW at 9.75 m/s and zero at 25 m/s.":
+    [
+      "Die Landwindkurve wird zwischen den veröffentlichten Punkten linear interpoliert. Sie erreicht 4 MW bei 9,75 m/s und null bei 25 m/s.",
+      "A ṣe interpolation láàárín àwọn point curve ilẹ̀. Ó dé 4 MW ní 9.75 m/s àti òdo ní 25 m/s.",
+      "Di onshore curve dey interpolate between published points. E reach 4 MW at 9.75 m/s and zero at 25 m/s.",
+    ],
   "Wind resource and generation experiment": [
     "Windressourcen- und Erzeugungsexperiment",
     "Ìdánwò orísun afẹ́fẹ́ àti ìṣẹ̀dá agbára",
@@ -132,6 +159,20 @@ function saveFile(filename: string, mime: string, content: string) {
 export function WindResourceExperiment() {
   const locale = useContext(LanguageContext);
   const label = (message: string) => text(message, locale);
+  const [reference, setReference] = useState<
+    NonNullable<WindPerformanceInputs["reference"]>
+  >(() => {
+    try {
+      const saved: unknown = JSON.parse(
+        localStorage.getItem(INPUT_KEY) ?? "null",
+      );
+      if (validSaved(saved)) return saved.reference ?? "offshore";
+    } catch {
+      /* use the offshore reference exercise */
+    }
+    return "offshore";
+  });
+  const turbine = WIND_TURBINE_REFERENCES[reference];
   const [windText, setWindText] = useState(() => {
     try {
       const saved: unknown = JSON.parse(
@@ -179,14 +220,15 @@ export function WindResourceExperiment() {
     windSpeedsMps: speeds,
     intervalHours,
     turbineCount,
+    reference,
   };
   const errors = useMemo(
     () => validateWindPerformanceInputs(inputs),
-    [windText, intervalHours, turbineCount],
+    [windText, intervalHours, turbineCount, reference],
   );
   const result = useMemo(
     () => (errors.length ? null : calculateWindPerformance(inputs)),
-    [errors, windText, intervalHours, turbineCount],
+    [errors, windText, intervalHours, turbineCount, reference],
   );
   const format = (value: number) =>
     new Intl.NumberFormat(locale === "pcm" ? "en-NG" : locale, {
@@ -201,11 +243,10 @@ export function WindResourceExperiment() {
         "application/json",
         JSON.stringify(
           {
-            model:
-              "nrel-6mw-reference-turbine-tabulated-power-curve-linear-interpolation",
+            model: turbine.model,
             inputs,
             result,
-            source,
+            source: turbine.source,
             limitations:
               "User-entered wind profile; not site weather, commercial turbine data, or a site-yield forecast.",
           },
@@ -250,12 +291,29 @@ export function WindResourceExperiment() {
           </h3>
           <p>
             {label(
-              "Apply the NREL 6 MW reference-turbine power curve to your interval wind speeds. No site weather is loaded.",
+              "Apply the selected reference curve to your wind speeds and compare output at the same resource.",
             )}
           </p>
         </div>
       </div>
       <div className="pg-wind-controls">
+        <label className="pg-field">
+          <span>{label("Reference turbine")}</span>
+          <select
+            value={reference}
+            onChange={(event) => {
+              setReference(
+                event.currentTarget.value === "onshore"
+                  ? "onshore"
+                  : "offshore",
+              );
+              setSaved(false);
+            }}
+          >
+            <option value="offshore">{label("NREL 6 MW offshore")}</option>
+            <option value="onshore">{label("NREL 4 MW onshore")}</option>
+          </select>
+        </label>
         <label className="pg-field">
           <span>{label("Wind speed by interval (m/s, comma-separated)")}</span>
           <textarea
@@ -360,7 +418,9 @@ export function WindResourceExperiment() {
         <summary>{label("Model and data limits")}</summary>
         <p>
           {label(
-            "The published NREL 6 MW reference turbine table is linearly interpolated between its supplied points; below the tabulated curve it starts at zero, and the cut-out region follows the published zero-output points.",
+            reference === "onshore"
+              ? "The onshore curve is linearly interpolated between published points. It reaches 4 MW at 9.75 m/s and zero at 25 m/s."
+              : "The published NREL 6 MW reference turbine table is linearly interpolated between its supplied points; below the tabulated curve it starts at zero, and the cut-out region follows the published zero-output points.",
           )}
         </p>
         <p>
@@ -368,8 +428,10 @@ export function WindResourceExperiment() {
             "Wind speeds and interval length are entered teaching inputs, not measured weather. The reference turbine is not a commercial machine or a site-specific yield estimate; air density, shear, turbulence, wakes, availability, electrical losses, curtailment and operating strategy are not modeled.",
           )}
         </p>
-        <a href={source} target="_blank" rel="noreferrer">
-          NREL/TP-6A20-67414 · Appendix D, reference turbine power curves
+        <a href={turbine.source} target="_blank" rel="noreferrer">
+          {reference === "onshore"
+            ? "NREL Turbine Archive · 2020 ATB 4 MW"
+            : "NREL/TP-6A20-67414 · Appendix D, reference turbine power curves"}
         </a>
       </details>
       <div className="pg-actions">
@@ -408,6 +470,7 @@ export function WindResourceExperiment() {
         <button
           className="button"
           onClick={() => {
+            setReference("offshore");
             setWindText(
               DEFAULT_WIND_PERFORMANCE_INPUTS.windSpeedsMps.join(", "),
             );
