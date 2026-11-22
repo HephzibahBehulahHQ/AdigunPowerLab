@@ -619,6 +619,8 @@ The focused Chromium case also verified that the onshore interval at 12 m/s show
 
 Compared the onshore solver against every row of the pinned NREL source blob. All 90 wind-speed and electrical-power pairs matched within 1e-9 kW, including the compressed nameplate plateau and cut-out rows.
 
+Dispatch wind selection passed TypeScript, 29 Help and microgrid engine tests, and two focused Chromium cases. The saved onshore reference exported 494 kW available wind at 5 m/s and the pinned curve source. The historical case continued to export its recorded and scaled wind generation.
+
 ### POWERGRID LAB analytical AC and time-step sensitivity
 
 TypeScript and the full Windows unit suite passed: 445 tests in 34 files, using Vitest with four workers. The two-bus case verified receiving voltage, line current and sending P/Q with a closed-form high-voltage root. The frequency case verified that halving the step from 0.01 to 0.005 s changes the nadir by less than 0.00001 Hz, with nadir time within 0.01 s and ending frequency agreeing to seven decimal places.
