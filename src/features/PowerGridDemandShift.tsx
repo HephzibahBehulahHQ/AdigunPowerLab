@@ -2,6 +2,47 @@ import { useState } from "react";
 import type { Locale } from "../i18n";
 import { MAX_MICROGRID_DEMAND_KW } from "../engine/microgridDispatch";
 
+export interface DemandShiftRecord {
+  fromInterval: number;
+  toInterval: number;
+  powerKW: number;
+  energyKWh: number;
+  fromBeforeKW: number;
+  fromAfterKW: number;
+  toBeforeKW: number;
+  toAfterKW: number;
+}
+
+export function isDemandShiftRecord(
+  value: unknown,
+): value is DemandShiftRecord {
+  if (!value || typeof value !== "object") return false;
+  const shift = value as DemandShiftRecord;
+  return (
+    [shift.fromInterval, shift.toInterval].every(
+      (index) => Number.isInteger(index) && index >= 1 && index <= 96,
+    ) &&
+    shift.fromInterval !== shift.toInterval &&
+    [
+      shift.fromBeforeKW,
+      shift.fromAfterKW,
+      shift.toBeforeKW,
+      shift.toAfterKW,
+    ].every(
+      (power) =>
+        Number.isFinite(power) &&
+        power >= 0 &&
+        power <= MAX_MICROGRID_DEMAND_KW,
+    ) &&
+    Number.isFinite(shift.powerKW) &&
+    shift.powerKW > 0 &&
+    Number.isFinite(shift.energyKWh) &&
+    shift.energyKWh > 0 &&
+    Math.abs(shift.fromBeforeKW - shift.fromAfterKW - shift.powerKW) <= 1e-8 &&
+    Math.abs(shift.toAfterKW - shift.toBeforeKW - shift.powerKW) <= 1e-8
+  );
+}
+
 const copy = {
   en: [
     "Shift flexible demand",
@@ -50,18 +91,19 @@ export function PowerGridDemandShift({
   demand,
   critical,
   intervalHours,
+  lastShift,
   onShift,
 }: {
   locale: Locale;
   demand: number[];
   critical: number[];
   intervalHours: number;
-  onShift: (demand: number[]) => void;
+  lastShift?: DemandShiftRecord;
+  onShift: (demand: number[], shift: DemandShiftRecord) => void;
 }) {
   const [from, setFrom] = useState(0);
   const [to, setTo] = useState(1);
   const [power, setPower] = useState("1");
-  const [movedKWh, setMovedKWh] = useState<number>();
   const [
     title,
     description,
@@ -137,16 +179,46 @@ export function PowerGridDemandShift({
           const shifted = [...demand];
           shifted[from] = Math.max(critical[from], shifted[from] - kw);
           shifted[to] += kw;
-          onShift(shifted);
-          setMovedKWh(kw * intervalHours);
+          onShift(shifted, {
+            fromInterval: from + 1,
+            toInterval: to + 1,
+            powerKW: kw,
+            energyKWh: kw * intervalHours,
+            fromBeforeKW: demand[from],
+            fromAfterKW: shifted[from],
+            toBeforeKW: demand[to],
+            toAfterKW: shifted[to],
+          });
         }}
       >
         {apply}
       </button>
-      {movedKWh !== undefined && (
-        <p role="status">
-          {movedLabel} · {format.format(movedKWh)} kWh
-        </p>
+      {lastShift && (
+        <div role="status">
+          <p>
+            {movedLabel} · {format.format(lastShift.energyKWh)} kWh
+          </p>
+          <dl className="pg-metrics">
+            <div>
+              <dt>
+                {fromLabel} {lastShift.fromInterval}
+              </dt>
+              <dd>
+                {format.format(lastShift.fromBeforeKW)} →{" "}
+                {format.format(lastShift.fromAfterKW)} kW
+              </dd>
+            </div>
+            <div>
+              <dt>
+                {toLabel} {lastShift.toInterval}
+              </dt>
+              <dd>
+                {format.format(lastShift.toBeforeKW)} →{" "}
+                {format.format(lastShift.toAfterKW)} kW
+              </dd>
+            </div>
+          </dl>
+        </div>
       )}
     </section>
   );

@@ -2699,7 +2699,20 @@ test("dispatch demand shift preserves energy and critical demand", async ({
   await power.fill("5");
   await apply.click();
   await expect(shift.getByRole("status")).toContainText("5 kWh");
+  await dispatch.getByRole("button", { name: "Save scenario locally" }).click();
+  await page.reload();
+  await expect(shift.getByRole("status")).toContainText("5 kWh");
   const after = await exportDispatch();
+  expect(after.lastDemandShift).toEqual({
+    fromInterval: 1,
+    toInterval: 2,
+    powerKW: 5,
+    energyKWh: 5,
+    fromBeforeKW: before.inputs.demandKW[0],
+    fromAfterKW: before.inputs.demandKW[0] - 5,
+    toBeforeKW: before.inputs.demandKW[1],
+    toAfterKW: before.inputs.demandKW[1] + 5,
+  });
   expect(after.inputs.demandKW).toEqual(
     before.inputs.demandKW.map(
       (value: number, index: number) =>

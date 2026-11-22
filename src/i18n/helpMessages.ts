@@ -2294,6 +2294,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Gbé apá ìbéèrè tí kò ṣe pàtàkì lọ sí interval mìíràn. Fi agbára backup ṣáájú àti lẹ́yìn wé. Energy àpapọ̀ àti ìbéèrè tó ṣe pàtàkì kò yí padà.",
       "Move part of di demand wey no critical to another interval. Compare backup power before and after. Total energy and critical demand stay di same.",
     ],
+  "Save or export dispatch to keep the most recent demand shift, including the interval loads before and after the transfer.":
+    [
+      "Speichern oder exportieren Sie die Einsatzplanung mit der letzten Lastverschiebung und den Intervalllasten vor und nach der Verschiebung.",
+      "Fipamọ́ tàbí gbé dispatch jáde láti pa ìyípadà ìbéèrè tó ṣẹ̀ṣẹ̀ ṣẹlẹ̀ mọ́, pẹ̀lú ìbéèrè interval ṣáájú àti lẹ́yìn rẹ̀.",
+      "Save or export dispatch to keep di last demand shift and di load for each interval before and after di move.",
+    ],
   "REAL POWER STATION VIDEO": [
     "ECHTE KRAFTWERK-VIDEOS",
     "FÍDÍÓ IBÙDÓ AGBÁRA GIDI",
