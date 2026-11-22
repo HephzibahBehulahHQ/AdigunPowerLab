@@ -67,6 +67,8 @@ export interface MicrogridDispatchInputs {
   };
 }
 
+export const MAX_MICROGRID_DEMAND_KW = 1_000_000;
+
 export interface ThermalDispatchSettings {
   ratingKW: number;
   minimumStableKW: number;
@@ -199,7 +201,11 @@ export function validateMicrogridDispatchInputs(
   )
     errors.push("Wind and dispatch interval durations must match.");
   inputs.demandKW.forEach((demand, i) => {
-    if (!Number.isFinite(demand) || demand < 0 || demand > 1_000_000)
+    if (
+      !Number.isFinite(demand) ||
+      demand < 0 ||
+      demand > MAX_MICROGRID_DEMAND_KW
+    )
       errors.push(`Demand interval ${i + 1} must be from 0 to 1,000,000 kW.`);
     const critical = inputs.criticalDemandKW[i];
     if (!Number.isFinite(critical) || critical < 0 || critical > demand)

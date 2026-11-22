@@ -18,6 +18,7 @@ import {
 import type { ActiveProjectDemand } from "./RadialFeederExperiment";
 import { PowerGridCommunityCapstone } from "./PowerGridCommunityCapstone";
 import { PowerGridDispatchBot } from "./PowerGridDispatchBot";
+import { PowerGridDemandShift } from "./PowerGridDemandShift";
 import {
   PowerGridDispatchLessons,
   PowerGridOperatingLesson,
@@ -1424,6 +1425,18 @@ export function MicrogridDispatchExperiment({
           "Replaces the dispatch inputs with an illustrative 24-hour rural clinic and community scenario. Values are authored teaching assumptions.",
         )}
       </p>
+      {result && !state.historicalGermany && state.demand.length > 1 && (
+        <PowerGridDemandShift
+          locale={locale}
+          demand={state.demand}
+          critical={state.critical}
+          intervalHours={state.intervalHours}
+          onShift={(demand) => {
+            setState((previous) => ({ ...previous, demand }));
+            setSaved(false);
+          }}
+        />
+      )}
       <p id="pg-historical-profile-note" className="pg-model-note">
         {label(
           "Replaces dispatch inputs with the selected SMARD day. Each 1,000 MWh reported per hour becomes 1 kW in the teaching model. Critical demand starts at an illustrative 20% of load.",
