@@ -403,3 +403,9 @@ The solid biomass increment adds a wet-basis moisture and steam generation works
 The diesel increment adds a steady-interval worksheet using entered no-load and rated fuel rates, minimum load, fuel inventory and output limits. The existing chronological thermal backup remains separate.
 
 The coal steam increment adds a one-interval worksheet for net heat rate, net generation, coal consumption and remaining inventory.
+
+Biomass, diesel and coal passed their main and Pages workflows and were checked in public Chromium. The exact revisions, workflow receipts and live checks are recorded in docs/DEPLOYMENT.md.
+
+Thermal minimum stable output also passed exact-main validation and Pages publication. Public dispatch exports confirmed startup and fuel depletion at the feasible minimum, and zero startup fuel when the minimum exceeded available output.
+
+Public Pages sampling verified the reduced-motion station layout at desktop, tablet and phone widths. Chromium rendered WebGL at all three widths and recorded two-frame azimuth input timing in docs/TEST_EVIDENCE.md.

@@ -605,6 +605,14 @@ TypeScript and 26 Help and archive checks passed. Chromium verified that a valid
 
 TypeScript and 20 Help checks passed. Three Chromium cases verified no draw before the station canvas approached the viewport, reuse of scene buffers after camera input, no idle redraw across frames with reduced motion requested, and keyboard inspection with WebGL disabled. The synchronized station/BOT group selection passed.
 
+Public Pages Chromium sampling after the diesel deployment used reduced motion and headless software WebGL. At 1440 × 900, 768 × 1024 and 390 × 844, the scene canvas rendered and both the document and scene had matching client and scroll widths. Across 20 azimuth input events per viewport, the 95th-percentile elapsed time through two animation frames was 83, 183 and 83 ms respectively. The sample measures this browser and rendering configuration. It does not measure physical mobile-device latency or isolate the GPU draw time.
+
+At 390 × 844 with reduced motion, live Chromium selected the step-up transformer with Enter and adjusted the voltage slider from 330 kV to 329 kV with Arrow Left. The conductor-loss meter updated to 0.461932 MW. The existing foundations browser case now exercises those keyboard actions.
+
+The focused Chromium header test passed at 1440, 768 and 390 px. The POWERGRID launcher stayed at the same coordinates when command search opened and closed, and Enter navigated to the exact #POWERGRID route at every width.
+
+Public Chromium with a 390 × 844 viewport, reduced motion and WebGL disabled displayed the station fallback. Enter on the station tower control selected the upstream schematic tower. Enter on the downstream HV-to-MV transformer selected the matching receiving-substation station control.
+
 ### POWERGRID LAB analytical AC and time-step sensitivity
 
 TypeScript and the full Windows unit suite passed: 445 tests in 34 files, using Vitest with four workers. The two-bus case verified receiving voltage, line current and sending P/Q with a closed-form high-voltage root. The frequency case verified that halving the step from 0.01 to 0.005 s changes the nadir by less than 0.00001 Hz, with nadir time within 0.01 s and ending frequency agreeing to seven decimal places.

@@ -92,15 +92,15 @@ The fixed-voltage lesson compares a lossless transformer with a 1,000 kVA teachi
 | Solar PV | Irradiance, cell temperature, DC/AC conversion and clipping. |
 | Concentrated solar thermal | Steady-state direct solar power tower with receiver and cycle efficiencies, nameplate and minimum output. Storage and dispatch remain open. |
 | Onshore and offshore wind | One attributed NREL offshore reference turbine curve. Separate onshore and offshore resource or turbine selection remains open. |
-| Coal steam | Net heat rate, plant rating and finite coal inventory over one interval. |
-| Gas turbines and combined cycle | Equipment study and steady-state gas/steam worksheet with fuel, nameplate and minimum load. Chronological dispatch and plant-specific curves remain open. |
+| Coal steam | Net heat rate, plant rating and finite coal inventory over one interval. These settings can seed chronological dispatch. |
+| Gas turbines and combined cycle | Equipment study and steady-state gas/steam worksheet. Its net rating, minimum output and fuel curve can seed chronological dispatch. A standalone gas-turbine dispatch curve remains open. |
 | Nuclear steam | Educational steady steam-cycle energy balance with entered heat, conversion efficiency, gross rating and plant electricity use. |
-| Diesel and other liquid fuel | Diesel generator worksheet with a linear fuel curve and finite inventory. Generic thermal backup retains chronological heat rate, startup fuel and inventory. Other liquid-fuel curves remain open. |
-| Biomass and biogas | Solid biomass steam and gaseous biogas CHP worksheets. Chronological dispatch integration remains open. |
+| Diesel and other liquid fuel | Diesel generator worksheet with a linear fuel curve and finite inventory. The worksheet can seed chronological dispatch, where startup fuel is entered separately. Other liquid-fuel curves remain open. |
+| Biomass and biogas | Solid biomass steam and gaseous biogas CHP worksheets. Both can seed electrical dispatch. Heat recovery remains in the biogas worksheet. |
 | Geothermal | Binary-cycle brine heat, gross rating and auxiliary load worksheet. Reservoir and dispatch models remain open. |
 | Tidal and wave | Separate tidal stream turbine and deep-water wave conversion point calculations. Device performance matrices and chronological dispatch remain open. |
 | Battery storage | Chronological SOC, reserve, charge/discharge limits and directional efficiencies. |
-| Hydrogen and fuel cell | Finite-inventory hydrogen fuel cell conversion worksheet. Hydrogen production, storage design and dispatch integration remain open. |
+| Hydrogen and fuel cell | Hydrogen conversion worksheet with a finite-inventory chronological dispatch handoff. Hydrogen production and storage design remain open. |
 
 The thermal backup model exposes user-entered heat rate, optional direct emissions and minimum stable output. Backup stays off if residual demand, the ramp ceiling or fuel availability cannot support the minimum. The model does not overgenerate to reach the minimum and charges startup fuel only when generation begins. Fuel costs remain outside the calculation.
 
@@ -113,6 +113,10 @@ The coal worksheet transfers its net rating, net heat rate and initial inventory
 The combined-cycle worksheet transfers net rating after the entered fuel-flow cap and auxiliaries, a net minimum derived from the gross operating minimum, and the fuel slope at the entered combined efficiency. Running auxiliary use becomes a fixed running fuel equivalent. The available fuel flow is not an inventory. Standby electric use remains part of the separate steam-and-gas worksheet; enter it as dispatch demand to include it during offline intervals.
 
 The solid biomass worksheet transfers its wet-feed-limited net capacity and fuel slope. Optional starting wet stock in kg is converted to fuel energy using the calculated as-fired heating value. Running auxiliaries are converted to fixed fuel use; the transfer does not include offline plant electricity use.
+
+Biogas transfers net electrical capacity and a linear fuel curve based on gas flow, methane fraction, conversion efficiency and electrical auxiliaries. The source worksheet accounts for useful heat separately. The handoff does not set a gas inventory.
+
+The hydrogen fuel cell transfers its instantaneous net AC capacity, running fuel curve and starting hydrogen energy calculated from mass and lower heating value. The dispatch timeline depletes that starting inventory. The steady worksheet duration does not set the dispatch power limit.
 
 The biogas worksheet transfers net engine output after the methane-content and flow limits. Running auxiliaries are included in the fuel curve. The electrical dispatch solver does not co-optimize heat demand or recovery. The rated flow is not a stored fuel inventory.
 
