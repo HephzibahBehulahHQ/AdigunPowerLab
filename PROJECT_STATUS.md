@@ -432,4 +432,6 @@ A follow-up candidate stores both demand sliders with the saved meshed case, wit
 
 The meshed demand profile is live. Public Chromium verified the peak voltage change, three islanded exports after disconnecting the slack bus, and convergence after reconnection.
 
+Meshed profile saving is also live. Public Chromium restored both edited demand sliders and verified the resulting profile in the JSON export.
+
 Public Pages sampling verified the reduced-motion station layout at desktop, tablet and phone widths. Chromium rendered WebGL at all three widths and recorded two-frame azimuth input timing in docs/TEST_EVIDENCE.md.
