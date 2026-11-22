@@ -418,4 +418,8 @@ The onshore wind worksheet, Pacific Northwest preset with split-phase experiment
 
 The gas turbine comparison candidate adds an open-cycle case alongside the combined-cycle result, with separate dispatch handoffs and both calculations in the worksheet JSON.
 
+The gas turbine comparison is now published and verified. The equal-fuel exercise and the open-cycle dispatch export are recorded in docs/DEPLOYMENT.md.
+
+The demand-response candidate adds an interval transfer for entered flexible load. It preserves critical demand and total energy and recalculates dispatch from the revised demand profile.
+
 Public Pages sampling verified the reduced-motion station layout at desktop, tablet and phone widths. Chromium rendered WebGL at all three widths and recorded two-frame azimuth input timing in docs/TEST_EVIDENCE.md.

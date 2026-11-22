@@ -2676,6 +2676,40 @@ test("NREL reference wind curve calculates, saves and exports entered intervals"
   expect(onshore.source).toContain("662d920de487f61e3806c044a893e334c07701fe");
 });
 
+test("dispatch demand shift preserves energy and critical demand", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const dispatch = page.getByRole("region", {
+    name: "Microgrid dispatch laboratory",
+  });
+  const shift = dispatch.getByRole("region", { name: "Shift flexible demand" });
+  const exportDispatch = async () => {
+    const pending = page.waitForEvent("download");
+    await dispatch
+      .getByRole("button", { name: "Export dispatch JSON" })
+      .click();
+    return JSON.parse(await readFile(await (await pending).path(), "utf8"));
+  };
+  const before = await exportDispatch();
+  const power = shift.getByLabel("Power to shift (kW)");
+  const apply = shift.getByRole("button", { name: "Apply demand shift" });
+  await power.fill("1000000");
+  await expect(apply).toBeDisabled();
+  await power.fill("5");
+  await apply.click();
+  await expect(shift.getByRole("status")).toContainText("5 kWh");
+  const after = await exportDispatch();
+  expect(after.inputs.demandKW).toEqual(
+    before.inputs.demandKW.map(
+      (value: number, index: number) =>
+        value + (index === 0 ? -5 : index === 1 ? 5 : 0),
+    ),
+  );
+  expect(after.inputs.criticalDemandKW).toEqual(before.inputs.criticalDemandKW);
+  expect(after.result.totalDemandKWh).toBe(before.result.totalDemandKWh);
+});
+
 test("microgrid dispatch recalculates, validates, saves and exports interval balance", async ({
   page,
 }) => {

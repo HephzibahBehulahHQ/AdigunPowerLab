@@ -227,6 +227,8 @@ Below the PV worksheet, open **Wind resource and generation experiment**. The ed
 
 Switch **Reference turbine** to **NREL 4 MW onshore** and keep the entered wind profile to compare the two curves. Each interval meter shows per-turbine output against the selected nameplate. In microgrid dispatch, **Wind reference turbine** selects the curve for entered wind speeds. Historical generation uses its recorded output. Saving remembers your choice and the dispatch JSON includes the active source.
 
+In microgrid dispatch, use **Shift flexible demand** to move part of the entered noncritical load between two intervals. The panel shows how much can move and reports the energy transferred. Compare the new backup and unmet-demand readings with your reference run. Saving or exporting the scenario includes the revised demand profile.
+
 The curve is from Appendix D of [NREL/TP-6A20-67414](https://www.nrel.gov/docs/fy17osti/67414.pdf). It describes a research reference turbine, not commercial equipment or a site-specific forecast. The entered wind sequence is an analytical teaching profile, not measured local weather. Air-density and hub-height correction, wakes, availability, electrical losses, curtailment, storage and dispatch are not included.
 
 ## POWERGRID LAB classroom dispatch

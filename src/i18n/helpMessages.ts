@@ -2288,6 +2288,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Dispatch ń pèsè critical demand kọ́kọ́. Wo àbájáde interval láti mọ ìgbà tí generation, storage, grid import tàbí backup pèsè agbára. Ṣàyẹ̀wò balance residual AC àti demand tí kò rí ìpèsè, kí o fipamọ́ scenario tàbí gbé JSON àti CSV jáde.",
       "Dispatch supply critical demand first. Check each interval to see when generation, storage, grid import or backup supply di load. Check di AC-bus balance and any demand wey no get supply, then save di scenario or export JSON and CSV.",
     ],
+  "Use Shift flexible demand to move part of an entered noncritical load to another interval. Compare backup output before and after. The transfer preserves total energy and critical demand.":
+    [
+      "Verschieben Sie einen Teil der eingegebenen unkritischen Last in ein anderes Intervall. Vergleichen Sie die Reserveleistung davor und danach. Gesamtenergie und kritische Last bleiben erhalten.",
+      "Gbé apá ìbéèrè tí kò ṣe pàtàkì lọ sí interval mìíràn. Fi agbára backup ṣáájú àti lẹ́yìn wé. Energy àpapọ̀ àti ìbéèrè tó ṣe pàtàkì kò yí padà.",
+      "Move part of di demand wey no critical to another interval. Compare backup power before and after. Total energy and critical demand stay di same.",
+    ],
   "REAL POWER STATION VIDEO": [
     "ECHTE KRAFTWERK-VIDEOS",
     "FÍDÍÓ IBÙDÓ AGBÁRA GIDI",
