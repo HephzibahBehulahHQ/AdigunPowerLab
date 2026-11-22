@@ -404,7 +404,17 @@ export function WindResourceExperiment() {
                   <tr key={row.interval}>
                     <th scope="row">{row.interval}</th>
                     <td>{format(row.windSpeedMps)} m/s</td>
-                    <td>{format(row.powerPerTurbineKW)} kW</td>
+                    <td>
+                      <span className="pg-wind-output">
+                        <meter
+                          aria-label={`${label("Per turbine")} · ${label("Interval")} ${row.interval}`}
+                          min={0}
+                          max={turbine.ratingKW}
+                          value={row.powerPerTurbineKW}
+                        />
+                        {format(row.powerPerTurbineKW)} kW
+                      </span>
+                    </td>
                     <td>{format(row.farmPowerKW)} kW</td>
                     <td>{format(row.farmEnergyKWh)} kWh</td>
                   </tr>

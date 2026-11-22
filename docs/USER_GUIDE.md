@@ -225,7 +225,7 @@ At the top of the lab, choose **Nigeria-inspired** or **Germany-inspired · 50He
 
 Below the PV worksheet, open **Wind resource and generation experiment**. The editable lesson starts with six equal-duration wind-speed intervals. Enter comma-separated speeds from 0 to 30 m/s, an interval duration up to 24 hours and an integer count of identical reference turbines. The NREL 6 MW (2015) reference curve is linearly interpolated for each interval. Read per-turbine and farm output, interval energy, total energy, mean power and profile capacity factor. Save stores these lab inputs in this browser. JSON includes source-labelled inputs/results; CSV contains the calculated interval readings. Refresh reloads saved inputs; Reset returns to the lesson sequence.
 
-Switch **Reference turbine** to **NREL 4 MW onshore** and keep the entered wind profile to compare the two curves. Saving remembers your chosen turbine. Microgrid dispatch uses its separate offshore reference curve.
+Switch **Reference turbine** to **NREL 4 MW onshore** and keep the entered wind profile to compare the two curves. Each interval meter shows per-turbine output against the selected nameplate. Saving remembers your chosen turbine. Microgrid dispatch uses its separate offshore reference curve.
 
 The curve is from Appendix D of [NREL/TP-6A20-67414](https://www.nrel.gov/docs/fy17osti/67414.pdf). It describes a research reference turbine, not commercial equipment or a site-specific forecast. The entered wind sequence is an analytical teaching profile, not measured local weather. Air-density and hub-height correction, wakes, availability, electrical losses, curtailment, storage and dispatch are not included.
 
