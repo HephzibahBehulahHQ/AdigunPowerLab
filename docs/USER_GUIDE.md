@@ -281,6 +281,8 @@ In Meshed AC power flow, edit the load, generator or A–B transformer tap and p
 
 Choose Compare single branch outages in the meshed AC experiment. The comparison opens one currently active branch per case, using 0.95–1.05 pu for voltage screening and the greater line-end MVA against your entered rating. Export AC results includes the comparison while it is displayed.
 
+Use **Meshed demand profile** to vary low and peak demand around the entered case. Read minimum bus voltage, real branch losses and solve status. Each row is an independent steady-state solve with active and reactive demand scaled together. Export demand profile downloads the three inputs and results, including failed solves.
+
 In Primary frequency response, start with the 50 Hz example and change aggregate inertia, generation loss, droop or reserve. Read the initial rate of change, the lowest modeled frequency and the final plotted sample. Export frequency trace includes the input assumptions and numeric samples. The chart ends early if the deviation crosses the 5% teaching model boundary.
 
 For the step-up transmission worksheet, add an optional experiment name and student notes before saving. Export lab report PDF captures the current worksheet, including the selected regional preset if available. The report contains the objective, voltage stages, entered power and resistance, calculated readings, loss comparison, equation, assumptions and notes.

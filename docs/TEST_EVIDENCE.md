@@ -627,6 +627,8 @@ The flexible-demand exercise passed TypeScript, 20 Help tests and Chromium. The 
 
 The shift record follow-up passed the same targeted checks. Chromium saved and reloaded the event and verified the exported interval numbers, power, energy and before/after loads.
 
+The meshed demand profile passed TypeScript, 25 meshed solver and Help tests, and the focused Chromium export check. Editing the peak to 150% exported 60%, 100% and 150% solves. The 150% row used 82.5 MW and 37.5 Mvar of demand and the solved load-bus voltage fell relative to the base row.
+
 ### POWERGRID LAB analytical AC and time-step sensitivity
 
 TypeScript and the full Windows unit suite passed: 445 tests in 34 files, using Vitest with four workers. The two-bus case verified receiving voltage, line current and sending P/Q with a closed-form high-voltage root. The frequency case verified that halving the step from 0.01 to 0.005 s changes the nadir by less than 0.00001 Hz, with nadir time within 0.01 s and ending frequency agreeing to seven decimal places.

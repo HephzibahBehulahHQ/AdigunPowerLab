@@ -426,4 +426,6 @@ A follow-up candidate preserves the latest applied shift in saved dispatch scena
 
 Demand shifting and saved intervention records are now live. Public Chromium verified conservation, the receiving interval limit, and save/reload with the before/after readings in the JSON export.
 
+The meshed demand-profile candidate compares independent low, base and peak AC solves. The lab exposes voltage, real losses, convergence and the actual per-interval inputs and results in JSON.
+
 Public Pages sampling verified the reduced-motion station layout at desktop, tablet and phone widths. Chromium rendered WebGL at all three widths and recorded two-frame azimuth input timing in docs/TEST_EVIDENCE.md.

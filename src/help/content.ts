@@ -637,6 +637,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "Use Explain selected station equipment in the lab BOT to read the function and interfaces of the active station component.",
       "In the dispatch BOT, choose an interval to compare battery discharge limits with the power supplied and the unmet critical and noncritical demand.",
       "In meshed AC power flow, outage comparison recalculates after an edit. Wait for the updated rows before exporting a comparison.",
+      "Use Meshed demand profile to compare three independent AC solves at low, normal and peak demand. Check minimum voltage, losses and convergence, then export the three cases.",
       "Pin a transmission baseline before editing to include the named reference and signed changes in the lab report PDF.",
       "Valid transmission edits autosave as a separate draft. After reopening the lab, restore or discard that draft before autosave resumes. Use Save experiment locally to update the named saved experiment.",
       "In the solar thermal power tower, vary direct irradiance and compare collected heat with electrical output. Below the minimum stable load, available output is zero.",

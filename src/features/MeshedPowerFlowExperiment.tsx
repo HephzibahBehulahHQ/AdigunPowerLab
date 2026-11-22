@@ -5,6 +5,7 @@ import {
 } from "../engine/powergridMeshed";
 import type { Locale } from "../i18n";
 import { downloadFile } from "../import-export/files";
+import { PowerGridMeshedProfile } from "./PowerGridMeshedProfile";
 import type {
   ContingencyRequest,
   ContingencyResponse,
@@ -475,6 +476,7 @@ export function MeshedPowerFlowExperiment({ locale }: { locale: Locale }) {
           </div>
         </>
       )}
+      <PowerGridMeshedProfile locale={locale} input={input} />
       <div className="pg-actions">
         <button
           type="button"

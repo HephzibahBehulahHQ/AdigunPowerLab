@@ -1929,6 +1929,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú dispatch BOT, yan àkókò kan láti wé ààlà fífi agbára batiri jáde pẹ̀lú agbára tí a pèsè àti ẹrù pàtàkì àti mìíràn tí kò rí agbára.",
       "For dispatch BOT, choose interval to compare battery discharge limits with power wey e supply and critical and other loads wey no get supply.",
     ],
+  "Use Meshed demand profile to compare three independent AC solves at low, normal and peak demand. Check minimum voltage, losses and convergence, then export the three cases.":
+    [
+      "Vergleichen Sie im Lastprofil drei unabhängige AC-Berechnungen bei niedriger, normaler und hoher Last. Prüfen Sie Mindestspannung, Verluste und Konvergenz und exportieren Sie die drei Fälle.",
+      "Lo àpẹẹrẹ ìbéèrè meshed láti fi ìṣírò AC mẹ́ta wé ní ìbéèrè kékeré, àárín àti tó ga. Wo foliteji tó kéré jù, àdánù àti convergence, kí o sì gbé wọn jáde.",
+      "Use meshed demand profile compare three separate AC solves for low, normal and peak demand. Check lowest voltage, losses and convergence, then export di three cases.",
+    ],
   "In meshed AC power flow, outage comparison recalculates after an edit. Wait for the updated rows before exporting a comparison.":
     [
       "Der Ausfallvergleich im vermaschten AC-Lastfluss wird nach Änderungen neu berechnet. Warten Sie vor dem Export auf die aktualisierten Zeilen.",

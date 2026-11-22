@@ -2676,6 +2676,30 @@ test("NREL reference wind curve calculates, saves and exports entered intervals"
   expect(onshore.source).toContain("662d920de487f61e3806c044a893e334c07701fe");
 });
 
+test("meshed demand profile solves and exports each edited interval", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const profile = page.getByRole("region", { name: "Meshed demand profile" });
+  await profile.getByRole("slider", { name: "Peak demand (%)" }).fill("150");
+  const pending = page.waitForEvent("download");
+  await profile.getByRole("button", { name: "Export demand profile" }).click();
+  const { intervals } = JSON.parse(
+    await readFile(await (await pending).path(), "utf8"),
+  );
+  expect(
+    intervals.map((row: { demandPercent: number }) => row.demandPercent),
+  ).toEqual([60, 100, 150]);
+  expect(intervals[2].input.buses[2]).toMatchObject({
+    netMW: -82.5,
+    netMvar: -37.5,
+  });
+  expect(intervals[2].result.converged).toBe(true);
+  expect(intervals[2].result.buses[2].voltagePU).toBeLessThan(
+    intervals[1].result.buses[2].voltagePU,
+  );
+});
+
 test("dispatch demand shift preserves energy and critical demand", async ({
   page,
 }) => {
