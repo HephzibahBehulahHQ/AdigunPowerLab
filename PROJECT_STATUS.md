@@ -408,4 +408,6 @@ Biomass, diesel and coal passed their main and Pages workflows and were checked 
 
 Thermal minimum stable output also passed exact-main validation and Pages publication. Public dispatch exports confirmed startup and fuel depletion at the feasible minimum, and zero startup fuel when the minimum exceeded available output.
 
+The wind worksheet candidate adds the NREL 2020 ATB 4 MW onshore reference curve alongside the existing 6 MW offshore default. It saves the selected turbine and identifies the curve and its source in JSON exports.
+
 Public Pages sampling verified the reduced-motion station layout at desktop, tablet and phone widths. Chromium rendered WebGL at all three widths and recorded two-frame azimuth input timing in docs/TEST_EVIDENCE.md.

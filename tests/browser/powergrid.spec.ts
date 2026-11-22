@@ -2512,6 +2512,31 @@ test("NREL reference wind curve calculates, saves and exports entered intervals"
     name: "Wind speed by interval (m/s, comma-separated)",
   });
   await expect(restored).toHaveValue("4, 5, 12, 26");
+  const reference = restoredSection.getByRole("combobox", {
+    name: /Reference turbine/,
+  });
+  await reference.selectOption("onshore");
+  await expect(restoredSection.getByText("4,719 kWh")).toBeVisible();
+  const ratedOutput = restoredSection.getByRole("meter", {
+    name: "Per turbine · Interval 3",
+  });
+  await expect(ratedOutput).toHaveAttribute("max", "4000");
+  await expect(ratedOutput).toHaveAttribute("value", "4000");
+  await restoredSection
+    .getByRole("button", { name: "Save inputs locally" })
+    .click();
+  await page.reload();
+  await expect(reference).toHaveValue("onshore");
+  const onshoreDownload = page.waitForEvent("download");
+  await restoredSection
+    .getByRole("button", { name: "Export wind case JSON" })
+    .click();
+  const onshore = JSON.parse(
+    await readFile(await (await onshoreDownload).path(), "utf8"),
+  );
+  expect(onshore.inputs.reference).toBe("onshore");
+  expect(onshore.result.totalEnergyKWh).toBe(4719);
+  expect(onshore.source).toContain("662d920de487f61e3806c044a893e334c07701fe");
 });
 
 test("microgrid dispatch recalculates, validates, saves and exports interval balance", async ({

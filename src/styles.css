@@ -4414,13 +4414,17 @@ details p {
 
 .pg-wind-controls {
   display: grid;
-  grid-template-columns: minmax(220px, 2fr) repeat(2, minmax(150px, 1fr));
+  grid-template-columns: minmax(150px, 1fr) minmax(220px, 2fr) repeat(
+      2,
+      minmax(120px, 1fr)
+    );
   gap: 1rem;
   margin-block: 1rem;
 }
 
 .pg-wind-controls textarea,
-.pg-wind-controls input {
+.pg-wind-controls input,
+.pg-wind-controls select {
   width: 100%;
   border: 1px solid var(--border, #475569);
   border-radius: 0.5rem;
@@ -4450,6 +4454,17 @@ details p {
   border-bottom: 1px solid var(--border, #475569);
   text-align: right;
   white-space: nowrap;
+}
+
+.pg-wind-output {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.pg-wind-output meter {
+  inline-size: 4rem;
 }
 
 .pg-wind-table thead th:first-child,

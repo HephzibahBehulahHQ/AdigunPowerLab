@@ -613,6 +613,12 @@ The focused Chromium header test passed at 1440, 768 and 390 px. The POWERGRID l
 
 Public Chromium with a 390 × 844 viewport, reduced motion and WebGL disabled displayed the station fallback. Enter on the station tower control selected the upstream schematic tower. Enter on the downstream HV-to-MV transformer selected the matching receiving-substation station control.
 
+Onshore wind candidate: TypeScript, 20 Help tests, four wind engine tests and the focused Chromium save and export case passed. At 4, 5, 12 and 26 m/s in one-hour intervals, switching from offshore to onshore changed energy from 6,808 to 4,719 kWh. Save/reload restored the onshore choice and JSON carried the pinned source blob.
+
+The focused Chromium case also verified that the onshore interval at 12 m/s shows a 4,000 kW output meter at its 4,000 kW nameplate limit.
+
+Compared the onshore solver against every row of the pinned NREL source blob. All 90 wind-speed and electrical-power pairs matched within 1e-9 kW, including the compressed nameplate plateau and cut-out rows.
+
 ### POWERGRID LAB analytical AC and time-step sensitivity
 
 TypeScript and the full Windows unit suite passed: 445 tests in 34 files, using Vitest with four workers. The two-bus case verified receiving voltage, line current and sending P/Q with a closed-form high-voltage root. The frequency case verified that halving the step from 0.01 to 0.005 s changes the nadir by less than 0.00001 Hz, with nadir time within 0.01 s and ending frequency agreeing to seven decimal places.
