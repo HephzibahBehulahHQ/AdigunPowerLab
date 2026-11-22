@@ -65,6 +65,7 @@ import { NuclearSteamExperiment } from "./NuclearSteamExperiment";
 import { WindResourceExperiment } from "./WindResourceExperiment";
 import { MicrogridDispatchExperiment } from "./MicrogridDispatchExperiment";
 import { RegionalGridPreset } from "./RegionalGridPreset";
+import { PowerGridCustomContext } from "./PowerGridCustomContext";
 import {
   listRecoveredPowerGridScenarios,
   type RecoveredPowerGridScenario,
@@ -622,7 +623,7 @@ export function PowerGridLab({
   const scenario = history.current;
   const setScenario = (change: SetStateAction<PowerGridScenario>) =>
     editHistory({ type: "edit", change });
-  const { inputs, name, notes, regionalPresetId } = scenario;
+  const { inputs, name, notes, regionalPresetId, customContext } = scenario;
   const [importPreview, setImportPreview] = useState<PowerGridScenario | null>(
     null,
   );
@@ -813,9 +814,11 @@ export function PowerGridLab({
       inputs: { ...inputs },
       name,
       notes,
-      preset: REGIONAL_TEACHING_PRESETS.find(
-        (preset) => preset.id === regionalPresetId,
-      )?.engineeringRegion,
+      preset: customContext
+        ? `${customContext.frequencyHz} Hz · ${customContext.currencyCode} · ${customContext.timeZone}`
+        : REGIONAL_TEACHING_PRESETS.find(
+            (preset) => preset.id === regionalPresetId,
+          )?.engineeringRegion,
       locale: locale === "pcm" ? "en-NG" : locale,
       comparison: baseline
         ? {
@@ -949,6 +952,20 @@ export function PowerGridLab({
             ...previous,
             inputs: applyRegionalTeachingPreset(previous.inputs, preset),
             regionalPresetId: preset.id,
+            customContext: undefined,
+          }));
+          setSaved(false);
+        }}
+      />
+      <PowerGridCustomContext
+        key={JSON.stringify(customContext)}
+        locale={locale}
+        context={customContext}
+        onApply={(nextContext) => {
+          setScenario((previous) => ({
+            ...previous,
+            regionalPresetId: undefined,
+            customContext: nextContext,
           }));
           setSaved(false);
         }}
@@ -1372,6 +1389,13 @@ export function PowerGridLab({
         <section aria-labelledby="pg-scenario-preview-title">
           <h3 id="pg-scenario-preview-title">{previewLabel}</h3>
           {importPreview.name && <p>{importPreview.name}</p>}
+          {importPreview.customContext && (
+            <p>
+              {importPreview.customContext.frequencyHz} Hz ·{" "}
+              {importPreview.customContext.currencyCode} ·{" "}
+              {importPreview.customContext.timeZone}
+            </p>
+          )}
           <p>
             {fmt(importPreview.inputs.powerMW)} MW ·{" "}
             {fmt(importPreview.inputs.baseVoltageKV)} /{" "}

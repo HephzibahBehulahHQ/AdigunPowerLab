@@ -54,6 +54,8 @@ The United States-inspired Pacific Northwest preset compares BPA 115/230 kV tran
 
 The Southern Africa-inspired example represents South Africa specifically. It uses 275 and 400 kV for transmission comparison, 132 kV downstream and 50 Hz context. The CSIR 2024 coal and utility-scale renewable energy totals provide dated context. They do not set dispatch inputs.
 
+Custom system metadata supports learner-entered frequency, currency and IANA time zone. It is stored with the transmission scenario and carried through JSON import/export and PDF reporting. Voltages, resources, loads and topology retain their existing independent worksheet inputs and model boundaries.
+
 Currency codes and IANA time-zone identifiers are displayed separately as region metadata. Frequency is informational and the steady-state solvers do not calculate frequency response. No regional weather, renewable availability, generation dispatch or demand profiles are loaded. These are source-backed teaching contexts, not operational replicas; source dates and simplifications are recorded in [`POWERGRID_DATA_SOURCES.md`](POWERGRID_DATA_SOURCES.md). Other regional, rural-microgrid and custom presets remain unimplemented.
 
 ## Milestone 3 slice: NREL reference-wind curve and entered intervals

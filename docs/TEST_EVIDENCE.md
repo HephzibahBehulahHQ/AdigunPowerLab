@@ -710,3 +710,5 @@ The Pacific Northwest browser case verified the 60 Hz and 120/240 V context, app
 The split-phase browser case verified 5 A neutral current with unequal 120 V loads. Balancing the loads reduced the neutral current to zero. Increasing 240 V demand raised both line currents to 30 A while the neutral remained at zero.
 
 The South African regional browser case verified the dated coal and renewable energy meters and applied 275 kV, 400 kV and 132 kV to the intended worksheet fields.
+
+The custom system browser case rejected an invalid time zone, saved and restored 55 Hz, CAD and America/Toronto, and exported the context while preserving the transmission readings and input voltages.

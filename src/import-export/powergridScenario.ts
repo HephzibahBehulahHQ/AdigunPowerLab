@@ -18,6 +18,41 @@ export interface PowerGridScenario {
   name: string;
   notes: string;
   regionalPresetId?: string;
+  customContext?: PowerGridCustomContext;
+}
+
+export interface PowerGridCustomContext {
+  frequencyHz: number;
+  currencyCode: string;
+  timeZone: string;
+}
+
+export function checkPowerGridCustomContext(
+  value: unknown,
+): PowerGridCustomContext | null {
+  if (!value || typeof value !== "object") return null;
+  const { frequencyHz, currencyCode, timeZone } = value as Record<
+    string,
+    unknown
+  >;
+  if (
+    typeof frequencyHz !== "number" ||
+    !Number.isFinite(frequencyHz) ||
+    frequencyHz < 1 ||
+    frequencyHz > 100 ||
+    typeof currencyCode !== "string" ||
+    !/^[A-Z]{3}$/.test(currencyCode) ||
+    typeof timeZone !== "string" ||
+    !timeZone ||
+    timeZone.length > 80
+  )
+    return null;
+  try {
+    new Intl.DateTimeFormat("en", { timeZone });
+  } catch {
+    return null;
+  }
+  return { frequencyHz, currencyCode, timeZone };
 }
 
 export interface PowerGridRevision {
@@ -54,11 +89,17 @@ export function unpackPowerGridScenario(
   if (!inputs) return null;
   if (record.schemaVersion === 1) return { inputs, name: "", notes: "" };
   const { name, notes, regionalPresetId } = record;
+  const customContext =
+    record.customContext === undefined
+      ? undefined
+      : checkPowerGridCustomContext(record.customContext);
   if (
     typeof name !== "string" ||
     name.length > POWERGRID_SCENARIO_NAME_LIMIT ||
     typeof notes !== "string" ||
     notes.length > POWERGRID_SCENARIO_NOTES_LIMIT ||
+    customContext === null ||
+    (customContext !== undefined && regionalPresetId !== undefined) ||
     (regionalPresetId !== undefined &&
       !REGIONAL_TEACHING_PRESETS.some(
         (preset) => preset.id === regionalPresetId,
@@ -70,6 +111,7 @@ export function unpackPowerGridScenario(
     name,
     notes,
     regionalPresetId: regionalPresetId as string | undefined,
+    ...(customContext ? { customContext } : {}),
   };
 }
 
