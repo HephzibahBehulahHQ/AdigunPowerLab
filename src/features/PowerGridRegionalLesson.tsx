@@ -6,13 +6,14 @@ import {
 import type { PowerGridInputs } from "../engine/powergrid";
 import {
   applyRegionalTeachingPreset,
-  REGIONAL_TEACHING_PRESETS,
+  GERMANY_TEACHING_PRESET,
+  NIGERIA_TEACHING_PRESET,
 } from "../engine/powergridRegions";
 import type { Locale } from "../i18n";
 import { downloadFile } from "../import-export/files";
 
 function solveCases(shared: PowerGridInputs) {
-  return REGIONAL_TEACHING_PRESETS.map((preset) => {
+  return [NIGERIA_TEACHING_PRESET, GERMANY_TEACHING_PRESET].map((preset) => {
     const inputs = applyRegionalTeachingPreset(shared, preset);
     const result = validatePowerGridInputs(inputs).length
       ? undefined

@@ -2072,6 +2072,18 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú Agbára omi: gíga àti ìṣàn, ṣàtúnṣe gíga omi tó kù, ìṣàn turbine, ìmúṣẹ àpapọ̀ àti agbára orúkọ. Fi agbára omi wé agbára generator tó wà, kí o sì fi pamọ́ tàbí gbé JSON jáde.",
       "For Hydropower head and water flow, change net head, turbine flow, combined efficiency and installed rating. Compare water power with generator power wey dey available, then save for this device or export JSON.",
     ],
+  "In the split-phase experiment, balance the two 120 V loads and then add 240 V load. Compare the line and neutral currents.":
+    [
+      "Gleichen Sie im Einphasen-Dreileiterversuch die beiden 120-V-Lasten an und erhöhen Sie die 240-V-Last. Vergleichen Sie Leiter- und Neutralleiterströme.",
+      "Nínú ìdánwò split-phase, ṣe ẹrù 120 V méjèèjì dọ́gba, kí o sì fi ẹrù 240 V kún un. Wé ìṣàn inú ìlà àti neutral.",
+      "For split-phase experiment, balance di two 120 V loads and add 240 V load. Compare line and neutral currents.",
+    ],
+  "Choose United States-inspired in Engineering region to apply Pacific Northwest transmission stages. The residential 120/240 V example is separate from the balanced three-phase worksheet.":
+    [
+      "Wählen Sie als Netzregion das USA-Beispiel, um die Übertragungsstufen des Pazifischen Nordwestens zu übernehmen. Das 120/240-V-Hausnetz ist ein separates Beispiel.",
+      "Yan àpẹẹrẹ United States láti lo ìpele gbigbe Pacific Northwest. Àpẹẹrẹ ilé 120/240 V yà sọ́tọ̀ sí worksheet ìpele mẹ́ta tó dọ́gba.",
+      "Choose United States example to apply di Pacific Northwest transmission stages. Di 120/240 V home supply example dey separate from di balanced three-phase worksheet.",
+    ],
   "In POWERGRID LAB, use the controls beside the equipment images to change voltage, distance, power factor and transformer loading. In the dispatch lessons choose an interval, and in Feeder trip use the map to see which load groups disconnect.":
     [
       "Ändern Sie im POWERGRID LAB neben den Gerätebildern Spannung, Entfernung, Leistungsfaktor und Transformatorlast. Wählen Sie in den Einsatzversuchen ein Intervall und prüfen Sie im Schaltbild, welche Lastgruppen getrennt werden.",
