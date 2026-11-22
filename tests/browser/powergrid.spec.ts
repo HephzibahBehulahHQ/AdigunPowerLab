@@ -250,6 +250,19 @@ test("fuel cell caps AC output and preserves unused hydrogen", async ({
   expect(limited.grossAcKW).toBeCloseTo(31.968);
   expect(limited.fuelUsedKg).toBeCloseTo(4);
   expect(limited.remainingKg).toBeCloseTo(0);
+  await cell.getByRole("button", { name: "Use fuel cell in dispatch" }).click();
+  const dispatch = page.getByRole("region", {
+    name: "Microgrid dispatch laboratory",
+  });
+  await expect(dispatch.getByTestId("microgrid-backupKW")).toHaveValue("190");
+  const handoff = page.waitForEvent("download");
+  await dispatch.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const { thermal } = JSON.parse(
+    await readFile(await (await handoff).path(), "utf8"),
+  ).inputs.backupGenerator;
+  expect(thermal.heatRateMJPerKWh).toBeCloseTo(7.5);
+  expect(thermal.runningInterceptMJPerHour).toBeCloseTo(75);
+  expect(thermal.initialFuelMJ).toBeCloseTo(479.52);
   await cell.getByRole("button", { name: "Reset fuel cell inputs" }).click();
   await expect(inventory).toHaveValue("30");
 });

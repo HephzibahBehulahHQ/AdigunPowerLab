@@ -2019,6 +2019,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú worksheet òru omi nuclear, yí ooru tí a fi sí steam cycle padà kí o sì wé agbára àpapọ̀ pẹ̀lú agbára lẹ́yìn lílo ilé-iṣẹ́.",
       "For nuclear steam worksheet, change heat wey reach steam cycle and compare gross power with power wey remain after plant use.",
     ],
+  "Use fuel cell in dispatch to copy the net AC power limit, running fuel use and starting hydrogen inventory. The dispatch timeline determines when the inventory runs out.":
+    [
+      "Übernehmen Sie mit der Brennstoffzelle die AC-Nettoleistungsgrenze, den Kraftstoffverbrauch im Betrieb und den anfänglichen Wasserstoffvorrat in die Einsatzplanung. Der Zeitverlauf zeigt, wann der Vorrat aufgebraucht ist.",
+      "Lo sẹẹli epo nínú dispatch láti gbé ààlà agbára AC, lílo epo nígbà iṣẹ́ àti ìpamọ́ hydrogen ìbẹ̀rẹ̀. Àkókò dispatch fi hàn ìgbà tí hydrogen bá tán.",
+      "Use fuel cell for dispatch to copy the net AC power limit, fuel wey e dey use when e run, and hydrogen wey dey at the start. Dispatch timeline show when hydrogen go finish.",
+    ],
   "Use biogas engine in dispatch to transfer the electrical limit and fuel requirements. Heat recovery remains in the biogas worksheet.":
     [
       "Übernehmen Sie Leistungsgrenze und Brennstoffbedarf des Biogasmotors. Die Wärmerückgewinnung bleibt im Biogas-Arbeitsblatt.",

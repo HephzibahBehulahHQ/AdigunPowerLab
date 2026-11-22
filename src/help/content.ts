@@ -642,6 +642,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "In the gas and steam combined cycle worksheet, compare gas turbine power with steam generation from recovered heat. Change the requested gross output to explore the minimum stable load.",
       "Use combined cycle in dispatch to copy the net output limit, minimum load and running fuel requirements into the chronological worksheet.",
       "In hydrogen fuel cell generation, vary starting inventory, interval duration or the AC rating. Compare gross and net AC output and check how much hydrogen remains.",
+      "Use fuel cell in dispatch to copy the net AC power limit, running fuel use and starting hydrogen inventory. The dispatch timeline determines when the inventory runs out.",
       "In biogas engine and heat recovery, vary methane concentration and heat demand. Compare net electricity, recoverable heat and heat actually supplied.",
       "In solid biomass steam generation, vary wet-basis moisture and compare wet fuel heating value, heat to the steam cycle and net electrical output.",
       "In the diesel generator worksheet, change the electrical request or fuel inventory. Compare the fuel curve, available output and remaining diesel.",

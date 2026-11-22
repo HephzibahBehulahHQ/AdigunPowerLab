@@ -645,6 +645,8 @@ TypeScript and 20 Help checks passed. Chromium verified 170.4 MW fuel-limited po
 
 ### POWERGRID LAB hydrogen fuel cell
 
+Focused Chromium test passed with 4 kg of hydrogen. The steady two-hour case became inventory-limited at 31.968 kW gross AC. The dispatch export retained the 190 kW net equipment limit, 479.52 MJ starting inventory, 7.5 MJ/kWh running slope and 75 MJ/h auxiliary intercept. TypeScript and 20 Help tests passed.
+
 TypeScript and 20 Help checks passed. Chromium confirmed the inverter caps gross output at 200 kW and the auxiliary demand reduces it to 190 kW net. At 4 kg over two hours, gross output was 31.968 kW, all 4 kg were consumed and remaining fuel was zero. Reset and JSON export passed. The local runner stalled during teardown.
 
 ### POWERGRID LAB biogas engine and heat recovery
