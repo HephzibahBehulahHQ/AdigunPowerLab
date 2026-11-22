@@ -2721,6 +2721,16 @@ test("dispatch demand shift preserves energy and critical demand", async ({
   );
   expect(after.inputs.criticalDemandKW).toEqual(before.inputs.criticalDemandKW);
   expect(after.result.totalDemandKWh).toBe(before.result.totalDemandKWh);
+  await dispatch
+    .getByRole("textbox", { name: "Total demand (kW)" })
+    .fill("50, 999998.5, 50, 50, 50, 50");
+  await power.fill("1.6");
+  await expect(apply).toBeDisabled();
+  await power.fill("1.5");
+  await apply.click();
+  const atLimit = await exportDispatch();
+  expect(atLimit.inputs.demandKW.slice(0, 2)).toEqual([48.5, 1_000_000]);
+  expect(atLimit.result.totalDemandKWh).toBe(1_000_248.5);
 });
 
 test("microgrid dispatch recalculates, validates, saves and exports interval balance", async ({
