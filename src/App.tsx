@@ -1539,6 +1539,7 @@ export default function App() {
             </div>
             <button
               className="button small-button"
+              aria-label={t("Save")}
               onClick={() => void persist()}
             >
               <Save size={15} />
@@ -1546,6 +1547,7 @@ export default function App() {
             </button>
             <button
               className="button small-button"
+              aria-label={t("Export project")}
               onClick={() => exportProject(project)}
             >
               <Download size={15} />

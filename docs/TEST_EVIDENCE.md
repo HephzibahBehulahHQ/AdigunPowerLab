@@ -631,6 +631,8 @@ The meshed demand profile passed TypeScript, 25 meshed solver and Help tests, an
 
 The meshed save follow-up passed TypeScript, 20 Help tests and the focused Chromium case. Reload restored a saved 150% peak and the export retained the corresponding load and voltage results.
 
+A public phone-width Chromium accessibility-tree sample found two unnamed buttons among 384 sampled buttons, form controls and sliders on POWERGRID LAB. The workspace toolbar Save and Export project names were lost when the visible labels were hidden. The focused local mobile accessibility test passed with explicit localized names, along with TypeScript.
+
 ### POWERGRID LAB analytical AC and time-step sensitivity
 
 TypeScript and the full Windows unit suite passed: 445 tests in 34 files, using Vitest with four workers. The two-bus case verified receiving voltage, line current and sending P/Q with a closed-form high-voltage root. The frequency case verified that halving the step from 0.01 to 0.005 s changes the nadir by less than 0.00001 Hz, with nadir time within 0.01 s and ending frequency agreeing to seven decimal places.

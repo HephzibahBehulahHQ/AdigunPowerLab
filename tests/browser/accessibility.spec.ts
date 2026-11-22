@@ -1,5 +1,19 @@
 import { test, expect } from "./fixtures";
 
+test("phone-width PowerGrid toolbar keeps the save and export controls named", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/#POWERGRID");
+  const toolbar = page.locator(".workspace-toolbar");
+  await expect(
+    toolbar.getByRole("button", { name: "Save", exact: true }),
+  ).toBeVisible();
+  await expect(
+    toolbar.getByRole("button", { name: "Export project", exact: true }),
+  ).toBeVisible();
+});
+
 test("load dialog keeps keyboard focus inside and restores the opening control", async ({
   page,
 }) => {
