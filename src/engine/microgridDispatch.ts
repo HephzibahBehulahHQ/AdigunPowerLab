@@ -48,6 +48,8 @@ export interface MicrogridDispatchInputs {
       directCO2KgPerGJ?: number;
       startupFuelMJ?: number;
       initialFuelMJ?: number;
+      minimumStableKW?: number;
+      runningInterceptMJPerHour?: number;
     };
   };
   grid?: {
@@ -63,6 +65,14 @@ export interface MicrogridDispatchInputs {
     pumpEfficiency: number;
     generationEfficiency: number;
   };
+}
+
+export interface ThermalDispatchSettings {
+  ratingKW: number;
+  minimumStableKW: number;
+  incrementalMJPerKWh: number;
+  runningInterceptMJPerHour: number;
+  inventoryMJ?: number;
 }
 
 export interface MicrogridDispatchInterval {
@@ -306,19 +316,28 @@ export function validateMicrogridDispatchInputs(
       errors.push(`${label} must be greater than 0 and at most 1.`);
   }
   const g = inputs.backupGenerator;
+  const runningIntercept = g.thermal?.runningInterceptMJPerHour ?? 0;
   if (
     g.thermal &&
     (!Number.isFinite(g.thermal.heatRateMJPerKWh) ||
-      g.thermal.heatRateMJPerKWh < 3.6 ||
-      g.thermal.heatRateMJPerKWh > 1_000 ||
-      (g.thermal.directCO2KgPerGJ !== undefined &&
-        (!Number.isFinite(g.thermal.directCO2KgPerGJ) ||
-          g.thermal.directCO2KgPerGJ < 0 ||
-          g.thermal.directCO2KgPerGJ > 1_000)))
+      g.thermal.heatRateMJPerKWh <= 0 ||
+      (g.ratedKW > 0 &&
+        g.thermal.heatRateMJPerKWh + runningIntercept / g.ratedKW <
+          3.6 - 1e-12) ||
+      g.thermal.heatRateMJPerKWh > 1e7)
   ) {
     errors.push(
-      "Enter a heat rate of 3.6–1,000 MJ/kWh and an optional CO₂ factor of 0–1,000 kg/GJ.",
+      "Enter a positive fuel slope and at least 3.6 MJ/kWh total fuel at rated output.",
     );
+  }
+  const emissionsFactor = g.thermal?.directCO2KgPerGJ;
+  if (
+    emissionsFactor !== undefined &&
+    (!Number.isFinite(emissionsFactor) ||
+      emissionsFactor < 0 ||
+      emissionsFactor > 1_000)
+  ) {
+    errors.push("Enter a direct CO₂ factor from zero to 1,000 kg/GJ.");
   }
   for (const amount of [g.thermal?.startupFuelMJ, g.thermal?.initialFuelMJ]) {
     if (
@@ -330,6 +349,25 @@ export function validateMicrogridDispatchInputs(
       );
       break;
     }
+  }
+  const minimumStableKW = g.thermal?.minimumStableKW ?? 0;
+  if (
+    !Number.isFinite(minimumStableKW) ||
+    minimumStableKW < 0 ||
+    minimumStableKW > g.ratedKW
+  ) {
+    errors.push(
+      "Minimum stable backup output must be between zero and the generator rating.",
+    );
+  }
+  if (
+    !Number.isFinite(runningIntercept) ||
+    runningIntercept < 0 ||
+    runningIntercept > 1e9
+  ) {
+    errors.push(
+      "Enter a running fuel intercept from zero to 1,000,000,000 MJ/h.",
+    );
   }
   if (
     g.outageIntervals?.some(
@@ -560,19 +598,30 @@ export function calculateMicrogridDispatch(
       : 0;
     const potentialStartupFuelMJ =
       previousGeneratorKW === 0 ? (thermal?.startupFuelMJ ?? 0) : 0;
+    const potentialRunningInterceptMJ =
+      intervalHours * (thermal?.runningInterceptMJPerHour ?? 0);
     const runningFuelMJPerKW = intervalHours * (thermal?.heatRateMJPerKWh ?? 0);
     const fueledGeneratorLimitKW =
       remainingFuelMJ === undefined
         ? generatorLimitKW
         : Math.min(
             generatorLimitKW,
-            Math.max(0, remainingFuelMJ - potentialStartupFuelMJ) /
-              runningFuelMJPerKW,
+            Math.max(
+              0,
+              remainingFuelMJ -
+                potentialStartupFuelMJ -
+                potentialRunningInterceptMJ,
+            ) / runningFuelMJPerKW,
           );
-    const backupGenerationKW = Math.min(
+    const minimumStableKW = thermal?.minimumStableKW ?? 0;
+    const stableGeneratorLimitKW =
+      fueledGeneratorLimitKW >= minimumStableKW ? fueledGeneratorLimitKW : 0;
+    const requestedBackupKW = Math.min(
       residualDeficitKW - gridImportKW,
-      fueledGeneratorLimitKW,
+      stableGeneratorLimitKW,
     );
+    const backupGenerationKW =
+      requestedBackupKW >= minimumStableKW ? requestedBackupKW : 0;
     const backupStartupFuelMJ = thermal
       ? backupGenerationKW > 0
         ? potentialStartupFuelMJ
@@ -580,7 +629,11 @@ export function calculateMicrogridDispatch(
       : undefined;
     previousGeneratorKW = backupGenerationKW;
     const backupFuelEnergyMJ = thermal
-      ? backupGenerationKW * runningFuelMJPerKW + (backupStartupFuelMJ ?? 0)
+      ? backupGenerationKW > 0
+        ? backupGenerationKW * runningFuelMJPerKW +
+          potentialRunningInterceptMJ +
+          potentialStartupFuelMJ
+        : 0
       : undefined;
     if (remainingFuelMJ !== undefined && backupFuelEnergyMJ !== undefined) {
       remainingFuelMJ = Math.max(0, remainingFuelMJ - backupFuelEnergyMJ);
@@ -636,7 +689,7 @@ export function calculateMicrogridDispatch(
       batterySocPercent: (socKWh / capacityKWh) * 100,
       backupGenerationKW,
       backupInService,
-      backupHeadroomKW: fueledGeneratorLimitKW - backupGenerationKW,
+      backupHeadroomKW: stableGeneratorLimitKW - backupGenerationKW,
       backupFuelEnergyMJ,
       backupStartupFuelMJ,
       backupRemainingFuelMJ: remainingFuelMJ,

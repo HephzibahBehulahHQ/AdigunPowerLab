@@ -97,18 +97,34 @@ The fixed-voltage lesson compares a lossless transformer with a 1,000 kVA teachi
 | Pumped storage | Chronological pumping and generation with capacity, power limits and directional efficiencies. |
 | Solar PV | Irradiance, cell temperature, DC/AC conversion and clipping. |
 | Concentrated solar thermal | Steady-state direct solar power tower with receiver and cycle efficiencies, nameplate and minimum output. Storage and dispatch remain open. |
-| Onshore and offshore wind | One attributed NREL offshore reference turbine curve. Separate onshore and offshore resource or turbine selection remains open. |
-| Coal steam | Source catalogue entry remains open. |
-| Gas turbines and combined cycle | Equipment study and steady-state gas/steam worksheet with fuel, nameplate and minimum load. Chronological dispatch and plant-specific curves remain open. |
-| Nuclear steam | Source catalogue entry remains open. |
-| Diesel and other liquid fuel | Generic thermal backup supports entered heat rate, startup fuel and fuel inventory. A liquid-fuel asset-specific curve remains open. |
-| Biomass and biogas | Biogas engine CHP worksheet with methane fraction and heat demand. Solid biomass and dispatch remain open. |
+| Onshore and offshore wind | Selectable NREL 2020 ATB 4 MW onshore and 6 MW offshore reference curves. Entered wind profiles are shared across the comparison. Chronological dispatch uses the offshore curve. |
+| Coal steam | Net heat rate, plant rating and finite coal inventory over one interval. These settings can seed chronological dispatch. |
+| Gas turbines and combined cycle | Equipment study and steady-state gas/steam worksheet. Its net rating, minimum output and fuel curve can seed chronological dispatch. A standalone gas-turbine dispatch curve remains open. |
+| Nuclear steam | Educational steady steam-cycle energy balance with entered heat, conversion efficiency, gross rating and plant electricity use. |
+| Diesel and other liquid fuel | Diesel generator worksheet with a linear fuel curve and finite inventory. The worksheet can seed chronological dispatch, where startup fuel is entered separately. Other liquid-fuel curves remain open. |
+| Biomass and biogas | Solid biomass steam and gaseous biogas CHP worksheets. Both can seed electrical dispatch. Heat recovery remains in the biogas worksheet. |
 | Geothermal | Binary-cycle brine heat, gross rating and auxiliary load worksheet. Reservoir and dispatch models remain open. |
 | Tidal and wave | Separate tidal stream turbine and deep-water wave conversion point calculations. Device performance matrices and chronological dispatch remain open. |
 | Battery storage | Chronological SOC, reserve, charge/discharge limits and directional efficiencies. |
-| Hydrogen and fuel cell | Finite-inventory hydrogen fuel cell conversion worksheet. Hydrogen production, storage design and dispatch integration remain open. |
+| Hydrogen and fuel cell | Hydrogen conversion worksheet with a finite-inventory chronological dispatch handoff. Hydrogen production and storage design remain open. |
 
-The thermal backup model exposes user-entered heat rate and optional direct emissions. Fuel costs and source-specific minimum stable generation are outside the current calculation.
+The thermal backup model exposes user-entered heat rate, optional direct emissions and minimum stable output. Backup stays off if residual demand, the ramp ceiling or fuel availability cannot support the minimum. The model does not overgenerate to reach the minimum and charges startup fuel only when generation begins. Fuel costs remain outside the calculation.
+
+An optional running fuel intercept adds a fixed fuel rate in MJ/h whenever the generator delivers power. With this enabled, the entered heat rate represents the incremental slope of the fuel curve in MJ/kWh. Finite inventory must cover startup and the running intercept before energy can be assigned to generation. Offline intervals incur neither running nor startup fuel.
+
+The diesel worksheet can transfer its rating, minimum output, no-load fuel rate, incremental fuel rate and initial inventory to the chronological dispatch worksheet. Litres are converted to MJ using the same teaching heating value. Demand, renewable profiles, interval duration, ramping and startup assumptions remain controlled by the dispatch worksheet.
+
+The coal worksheet transfers its net rating, net heat rate and initial inventory to dispatch. Initial coal mass in tonnes is converted to MJ using the entered heat content in MJ/kg. Dispatch uses the existing ramp and startup assumptions and clears any previously entered fixed running fuel rate or CO₂ factor.
+
+The combined-cycle worksheet transfers net rating after the entered fuel-flow cap and auxiliaries, a net minimum derived from the gross operating minimum, and the fuel slope at the entered combined efficiency. Running auxiliary use becomes a fixed running fuel equivalent. The available fuel flow is not an inventory. Standby electric use remains part of the separate steam-and-gas worksheet; enter it as dispatch demand to include it during offline intervals.
+
+The solid biomass worksheet transfers its wet-feed-limited net capacity and fuel slope. Optional starting wet stock in kg is converted to fuel energy using the calculated as-fired heating value. Running auxiliaries are converted to fixed fuel use; the transfer does not include offline plant electricity use.
+
+Biogas transfers net electrical capacity and a linear fuel curve based on gas flow, methane fraction, conversion efficiency and electrical auxiliaries. The source worksheet accounts for useful heat separately. The handoff does not set a gas inventory.
+
+The hydrogen fuel cell transfers its instantaneous net AC capacity, running fuel curve and starting hydrogen energy calculated from mass and lower heating value. The dispatch timeline depletes that starting inventory. The steady worksheet duration does not set the dispatch power limit.
+
+The biogas worksheet transfers net engine output after the methane-content and flow limits. Running auxiliaries are included in the fuel curve. The electrical dispatch solver does not co-optimize heat demand or recovery. The rated flow is not a stored fuel inventory.
 
 ## Concentrating solar thermal power tower
 
@@ -137,3 +153,15 @@ Effective available feed is the minimum of the feed limit and starting mass divi
 ## Biogas engine and heat recovery
 
 The biogas worksheet uses dry gas flow at 0 °C and one atmosphere. Methane lower heating value is 35.77 MJ per normal cubic metre, and the entered methane fraction sets the biogas heating value. The engine uses only the fuel needed for rating-limited gross output. A fraction of the remaining fuel energy is recoverable heat, and useful heat is limited by entered demand. The worksheet subtracts entered auxiliary electrical load from gross generation.
+
+## Solid biomass steam generation
+
+The as-fired lower heating value is the dry lower heating value times the dry mass fraction, less an illustrative 2.44 MJ per kg of feed moisture evaporated, with a zero floor. The worksheet applies entered boiler and steam cycle efficiencies, caps gross output by nameplate, and reports the corresponding used wet feed and steam heat. Net output subtracts entered auxiliaries. This is an illustrative steady-state balance without combustion, ash, emissions or feed handling calculations.
+
+## Diesel generator fuel curve
+
+The steady-interval model uses a linear fuel rate between the no-load and rated points, consistent with HOMER's curve form for fixed-speed generators. Maximum power is bounded by nameplate and by available fuel after accounting for the running intercept. The model turns the unit off when the feasible request is below minimum stable load. It validates the rated point against an approximate 9.95 kWh/L diesel lower heating value. Real curves, startup, idle scheduling and ramp limits are outside this worksheet.
+
+## Nuclear steam generation
+
+The worksheet accepts heat already supplied to the steam cycle. It caps gross electrical output at the generator rating, subtracts entered station electricity use and integrates signed net power over the interval. Heat not converted to electricity includes any surplus when the rating binds. The teaching model has no reactor physics, cooling system or protection model. The public-domain NRC plant illustration is credited through the EIA source page.

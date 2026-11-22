@@ -45,10 +45,62 @@ export const NREL_6MW_POWER_CURVE_KW: ReadonlyArray<readonly [number, number]> =
     [30, 0],
   ];
 
+export const WIND_TURBINE_REFERENCES = {
+  offshore: {
+    ratingKW: 6000,
+    model:
+      "nrel-6mw-reference-turbine-tabulated-power-curve-linear-interpolation",
+    source: "https://www.nrel.gov/docs/fy17osti/67414.pdf",
+    points: NREL_6MW_POWER_CURVE_KW,
+  },
+  onshore: {
+    ratingKW: 4000,
+    model:
+      "nrel-2020-atb-4mw-onshore-tabulated-power-curve-linear-interpolation",
+    source:
+      "https://api.github.com/repos/NatLabRockies/turbine-models/git/blobs/662d920de487f61e3806c044a893e334c07701fe",
+    // Collinear points on the rated and zero-output plateaus are omitted.
+    points: [
+      [3, 0],
+      [3.25, 94],
+      [3.5, 132],
+      [3.75, 175],
+      [4, 225],
+      [4.25, 281],
+      [4.5, 344],
+      [4.75, 415],
+      [5, 494],
+      [5.25, 581],
+      [5.5, 676],
+      [5.75, 781],
+      [6, 895],
+      [6.25, 1019],
+      [6.5, 1153],
+      [6.75, 1298],
+      [7, 1455],
+      [7.25, 1623],
+      [7.5, 1802],
+      [7.75, 1995],
+      [8, 2200],
+      [8.25, 2418],
+      [8.5, 2650],
+      [8.75, 2896],
+      [9, 3156],
+      [9.25, 3431],
+      [9.5, 3722],
+      [9.75, 4000],
+      [24.75, 4000],
+      [25, 0],
+      [30, 0],
+    ],
+  },
+} as const;
+
 export interface WindPerformanceInputs {
   windSpeedsMps: number[];
   intervalHours: number;
   turbineCount: number;
+  reference?: keyof typeof WIND_TURBINE_REFERENCES;
 }
 
 export interface WindIntervalResult {
@@ -80,6 +132,13 @@ export function validateWindPerformanceInputs(
   inputs: WindPerformanceInputs,
 ): string[] {
   const errors: string[] = [];
+  if (
+    inputs.reference !== undefined &&
+    inputs.reference !== "onshore" &&
+    inputs.reference !== "offshore"
+  ) {
+    errors.push("Select a supported reference turbine.");
+  }
   if (
     !Array.isArray(inputs.windSpeedsMps) ||
     inputs.windSpeedsMps.length < 1 ||
@@ -114,10 +173,16 @@ export function validateWindPerformanceInputs(
 
 /** Linear interpolation between adjacent published NREL reference-curve points. */
 export function nrel6MwPowerAtWindSpeedKW(windSpeedMps: number): number {
+  return powerAtWindSpeedKW(windSpeedMps, NREL_6MW_POWER_CURVE_KW);
+}
+
+function powerAtWindSpeedKW(
+  windSpeedMps: number,
+  points: ReadonlyArray<readonly [number, number]>,
+): number {
   if (!Number.isFinite(windSpeedMps) || windSpeedMps < 0 || windSpeedMps > 30) {
     throw new Error("Wind speed must be finite and from 0 to 30 m/s.");
   }
-  const points = NREL_6MW_POWER_CURVE_KW;
   if (windSpeedMps <= points[0][0]) return points[0][1];
   for (let i = 1; i < points.length; i++) {
     const [rightSpeed, rightPower] = points[i];
@@ -136,9 +201,13 @@ export function calculateWindPerformance(
 ): WindPerformanceResult {
   const errors = validateWindPerformanceInputs(inputs);
   if (errors.length) throw new Error(errors.join(" "));
-  const ratedFarmPowerKW = 6000 * inputs.turbineCount;
+  const reference = WIND_TURBINE_REFERENCES[inputs.reference ?? "offshore"];
+  const ratedFarmPowerKW = reference.ratingKW * inputs.turbineCount;
   const intervals = inputs.windSpeedsMps.map((windSpeedMps, index) => {
-    const powerPerTurbineKW = nrel6MwPowerAtWindSpeedKW(windSpeedMps);
+    const powerPerTurbineKW = powerAtWindSpeedKW(
+      windSpeedMps,
+      reference.points,
+    );
     const farmPowerKW = powerPerTurbineKW * inputs.turbineCount;
     return {
       interval: index + 1,

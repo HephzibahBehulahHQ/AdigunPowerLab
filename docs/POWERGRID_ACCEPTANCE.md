@@ -115,17 +115,19 @@ PR #104 merged as `6ef06254a990309834d64c278ccc9af643c3e779`. Candidate [4368838
 The backup is only a generic dispatchable capacity ceiling with a ramp-up constraint; it is not a diesel or other source-specific generator model. The AC-bus schedule excludes feeder/transformer losses, imports/exports, fuel, costs, emissions, outages and frequency response. This slice does not finish Milestone 3.
 
 
-## Milestone 4 — navigable hydro-to-consumer station model (candidate slice)
+## Milestone 4 — navigable hydro-to-consumer station model
 
 | Requirement | Evidence target | Status |
 | --- | --- | --- |
-| Navigable 3D teaching scene showing reservoir/dam, turbine, generator, transformer, switchyard, tower, receiving transformer, house and industry | WebGL geometry assembled from named equipment; azimuth/elevation/zoom controls | Candidate implementation; CI pending |
-| Equipment selection with names, function, terminal limits, phase/neutral/PE legend | Keyboard-selectable equipment buttons and localized inspection content in four locales | Candidate implementation; browser acceptance pending |
-| Accessible fallback when WebGL cannot be created | Scene reports unavailable and points to the labeled station schematic | Candidate implementation; browser acceptance pending |
+| Navigable 3D teaching scene showing reservoir/dam, turbine, generator, transformer, switchyard, tower, receiving transformer, house and industry | WebGL geometry assembled from named equipment; azimuth/elevation/zoom controls | Canvas rendered at all three sampled public viewport sizes |
+| Equipment selection with names, function, terminal limits, phase/neutral/PE legend | Keyboard-selectable equipment buttons and localized inspection content in four locales | Public keyboard check confirmed two-way selection with the upstream and downstream wiring schematics |
+| Accessible fallback when WebGL cannot be created | Scene reports unavailable and points to the labeled station schematic | Public phone-width check passed with WebGL disabled |
 
-The WebGL model is original schematic teaching geometry, not a photograph, surveyed site, installation drawing or 3D equipment design. The scene does not calculate generation, transformer behavior, protection, line sag, power flow or device ratings. It is an additional perspective view; the hydro SVG remains the detailed wiring/terminal view. Performance measurements and the full prompt's cross-view synchronization remain open, so this slice does not complete Milestone 4.
+The WebGL model uses original schematic teaching geometry. The hydro schematic carries the detailed wiring and terminal view. Direct checks sampled shared equipment selection, scene layout and response. Full coverage of every view and independent accessibility review remain open.
 
 ## Draft PR #116 qualification evidence
+
+Subsequent live Pages sampling verified that the navigable station fits 1440 px desktop, 768 px tablet and 390 px phone viewports with reduced motion and software WebGL. The measured two-frame input latencies and browser configuration are recorded in [TEST_EVIDENCE.md](TEST_EVIDENCE.md). Device testing and independent accessibility review remain open.
 
 The 12 initial lesson workflows are indexed in [POWERGRID_CURRICULUM.md](POWERGRID_CURRICULUM.md). This candidate also adds worker-backed contingency comparisons, dispatch BOT explanations, and transmission PDF baseline comparisons. Exact local and hosted verification belongs in [TEST_EVIDENCE.md](TEST_EVIDENCE.md). The curriculum index documents current workflows. Exact-candidate release gates and publication verification remain separate.
 

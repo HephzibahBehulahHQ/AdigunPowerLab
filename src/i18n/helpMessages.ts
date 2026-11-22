@@ -1725,6 +1725,18 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Mú ìṣirò epo backup ṣiṣẹ́, kí o tẹ ooru epo generator fún ìṣẹ̀dá. Tẹ òṣùwọ̀n CO₂ lórí ìpìlẹ̀ iye ooru epo kan náà fún CO₂ ìjóná taara.",
       "Turn on thermal backup fuel use and enter generator net heat rate. Enter direct CO₂ factor on the same fuel heat basis to include direct combustion CO₂.",
     ],
+  "To use a linear fuel curve, enter the fixed running fuel intercept in MJ/h and the incremental rate in MJ/kWh.":
+    [
+      "Für eine lineare Brennstoffkennlinie geben Sie den Grundverbrauch in MJ/h und den Zusatzverbrauch in MJ/kWh ein.",
+      "Fún ìṣírò epo tó tẹ̀lé ìlà, tẹ ìwọ̀n epo ìpìlẹ̀ ní MJ/h àti ìwọ̀n àfikún ní MJ/kWh.",
+      "For linear fuel curve, enter di base running fuel in MJ/h and extra fuel for each kWh in MJ/kWh.",
+    ],
+  "Set minimum stable backup output to keep the generator off when remaining demand, ramping or available fuel cannot support that output.":
+    [
+      "Stellen Sie die minimale stabile Reserveleistung ein. Der Generator bleibt aus, wenn Restbedarf, Leistungsanstieg oder Brennstoff nicht ausreichen.",
+      "Ṣètò agbára afẹ́yinti tó kéré jù. Generator kò ṣiṣẹ́ bí ìbéèrè tó kù, ìgòkè agbára tàbí epo kò bá tó.",
+      "Set di smallest steady backup output. Generator stay off if demand wey remain, ramp or fuel no fit support am.",
+    ],
   "Enter startup fuel per start and an optional initial fuel inventory. With a finite inventory, the generator needs enough fuel to start and can only deliver as much power as the remaining fuel allows.":
     [
       "Geben Sie den Anfahrbrennstoff je Start und optional einen Anfangsvorrat ein. Bei begrenztem Vorrat braucht das Aggregat genügend Brennstoff zum Starten. Der Restvorrat begrenzt die Leistung.",
@@ -1971,6 +1983,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú agbára ìgbì omi jinlẹ̀, yí gíga ìgbì tàbí àkókò agbára padà. Wé agbára fún mita pẹ̀lú agbára ẹrọ, dán gíga ìdádúró wò, kí o sì gba èsì.",
       "For deep-water wave energy, change wave height or energy period. Compare power for each metre with device output, try di shutdown height, then download di case.",
     ],
+  "Use combined cycle in dispatch to copy the net output limit, minimum load and running fuel requirements into the chronological worksheet.":
+    [
+      "Übernehmen Sie Nettoleistungsgrenze, Mindestlast und Brennstoffbedarf des Kombikraftwerks in das chronologische Arbeitsblatt.",
+      "Gbé ààlà agbára tó kù, ẹrù tó kéré jù àti epo ìṣiṣẹ́ gas àti òru omi lọ sí worksheet àkókò.",
+      "Use combined cycle for dispatch to copy di net power limit, minimum load and running fuel requirements.",
+    ],
   "In the gas and steam combined cycle worksheet, compare gas turbine power with steam generation from recovered heat. Change the requested gross output to explore the minimum stable load.":
     [
       "Vergleichen Sie im Kombikraftwerk die Gasturbinenleistung mit der Dampferzeugung aus Abwärme. Ändern Sie die angeforderte Bruttoleistung, um die stabile Mindestlast zu untersuchen.",
@@ -1988,6 +2006,60 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Ändern Sie beim Biogasmotor Methananteil und Wärmebedarf. Vergleichen Sie Nettostrom, rückgewinnbare Wärme und die tatsächlich gelieferte Wärme.",
       "Nínú ẹ́ńjìnnì biogas, yí ìpín methane àti ìbéèrè ooru padà. Wé agbára iná net, ooru tí a lè gba àti ooru tí a pèsè.",
       "For biogas engine, change methane fraction and heat demand. Compare net electricity, heat wey dem fit recover and heat wey reach demand.",
+    ],
+  "In solid biomass steam generation, vary wet-basis moisture and compare wet fuel heating value, heat to the steam cycle and net electrical output.":
+    [
+      "Ändern Sie im Biomasse-Dampfkraftwerk die Feuchte bezogen auf Nassmasse. Vergleichen Sie Heizwert, Wärme für den Dampfkreislauf und elektrische Nettoleistung.",
+      "Nínú solid biomass steam, yí ìpín omi nínú gbogbo mass padà. Wé iye ooru idana olómi, ooru sí steam cycle àti agbára iná net.",
+      "For solid biomass steam generation, change moisture for total wet mass. Compare wet fuel heating value, heat wey reach steam cycle and net electric power.",
+    ],
+  "In the nuclear steam worksheet, adjust the heat supplied to the steam cycle and compare gross generation with net power after plant electricity use.":
+    [
+      "Ändern Sie im Kernkraft-Arbeitsblatt die Wärmezufuhr und vergleichen Sie Bruttoerzeugung mit der Leistung nach Eigenbedarf.",
+      "Nínú worksheet òru omi nuclear, yí ooru tí a fi sí steam cycle padà kí o sì wé agbára àpapọ̀ pẹ̀lú agbára lẹ́yìn lílo ilé-iṣẹ́.",
+      "For nuclear steam worksheet, change heat wey reach steam cycle and compare gross power with power wey remain after plant use.",
+    ],
+  "Use fuel cell in dispatch to copy the net AC power limit, running fuel use and starting hydrogen inventory. The dispatch timeline determines when the inventory runs out.":
+    [
+      "Übernehmen Sie mit der Brennstoffzelle die AC-Nettoleistungsgrenze, den Kraftstoffverbrauch im Betrieb und den anfänglichen Wasserstoffvorrat in die Einsatzplanung. Der Zeitverlauf zeigt, wann der Vorrat aufgebraucht ist.",
+      "Lo sẹẹli epo nínú dispatch láti gbé ààlà agbára AC, lílo epo nígbà iṣẹ́ àti ìpamọ́ hydrogen ìbẹ̀rẹ̀. Àkókò dispatch fi hàn ìgbà tí hydrogen bá tán.",
+      "Use fuel cell for dispatch to copy the net AC power limit, fuel wey e dey use when e run, and hydrogen wey dey at the start. Dispatch timeline show when hydrogen go finish.",
+    ],
+  "Use biogas engine in dispatch to transfer the electrical limit and fuel requirements. Heat recovery remains in the biogas worksheet.":
+    [
+      "Übernehmen Sie Leistungsgrenze und Brennstoffbedarf des Biogasmotors. Die Wärmerückgewinnung bleibt im Biogas-Arbeitsblatt.",
+      "Gbé ààlà agbára iná àti epo biogas lọ sí dispatch. Ìmúpadà ooru wà nínú worksheet biogas.",
+      "Use biogas engine for dispatch to copy electrical limit and fuel use. Heat recovery stay for biogas worksheet.",
+    ],
+  "Use biomass in dispatch to transfer wet-feed-limited output and the fuel energy in the optional initial wet stock.":
+    [
+      "Übernehmen Sie die durch die feuchte Zufuhr begrenzte Leistung und den Energieinhalt des optionalen Anfangsvorrats in die Einsatzplanung.",
+      "Lo biomass nínú dispatch láti gbé agbára tí biomass olómi fi ààlà sí àti epo inú ìpamọ́ ìbẹ̀rẹ̀ lọ.",
+      "Use biomass for dispatch to copy power wey wet feed limit and di fuel energy for optional wet stock at start.",
+    ],
+  "Use coal inventory in dispatch to carry plant capacity, net heat rate and fuel stock into the chronological worksheet.":
+    [
+      "Übernehmen Sie Anlagenleistung, Netto-Wärmebedarf und Kohlevorrat in das chronologische Arbeitsblatt.",
+      "Gbé agbára ilé-iṣẹ́, ìwọ̀n ooru àti ìpamọ́ èédú lọ sí worksheet àkókò.",
+      "Use coal inventory for dispatch to copy plant capacity, net heat rate and coal wey dey into di chronological worksheet.",
+    ],
+  "In the coal steam worksheet, change coal inventory or net heat rate and compare net generation and remaining coal.":
+    [
+      "Ändern Sie im Kohledampf-Arbeitsblatt den Kohlevorrat oder den Netto-Wärmebedarf und vergleichen Sie Nettoerzeugung und Restvorrat.",
+      "Nínú worksheet òru omi láti èédú, yí iye èédú tàbí ìwọ̀n ooru padà, kí o sì wé iná tí a mú jáde àti èédú tó kù.",
+      "For coal steam worksheet, change coal wey dey or net heat rate, then compare electricity wey e make and coal wey remain.",
+    ],
+  "Use diesel curve in dispatch transfers the rating, minimum load and fuel curve to the chronological worksheet.":
+    [
+      "Übernehmen Sie Nennleistung, Mindestlast und Dieselkennlinie in das chronologische Arbeitsblatt.",
+      "Gbé agbára orúkọ, ẹrù tó kéré jù àti ìṣírò epo diesel lọ sí worksheet àkókò.",
+      "Use diesel curve for dispatch to copy rating, smallest load and fuel curve into di chronological worksheet.",
+    ],
+  "In the diesel generator worksheet, change the electrical request or fuel inventory. Compare the fuel curve, available output and remaining diesel.":
+    [
+      "Ändern Sie beim Dieselgenerator Leistungsanforderung oder Kraftstoffvorrat. Vergleichen Sie Kraftstoffkennlinie, verfügbare Leistung und verbleibenden Diesel.",
+      "Nínú worksheet generator diesel, yí ìbéèrè agbára tàbí ìpamọ́ idana padà. Wé ìṣírò idana, agbára tó wà àti diesel tó kù.",
+      "For diesel generator worksheet, change power request or fuel wey dey. Compare fuel curve, power wey dey available and diesel wey remain.",
     ],
   "POWERGRID LAB: compare transmission voltage": [
     "POWERGRID LAB: Übertragungsspannung vergleichen",
@@ -2197,6 +2269,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Geben Sie im Mikronetz-Dispatch gleich lange Intervalllisten für Windgeschwindigkeit, PV-Einstrahlung, Gesamtlast und kritischen Lastanteil ein. Stellen Sie PV- und Windleistung, Intervalllänge sowie Energie, Leistung, Wirkungsgrad und Reserve des Speichers ein. Legen Sie eine generische Reserveleistungsgrenze mit Hochfahrlimit fest. Prüfen Sie je Intervall erneuerbare Erzeugung, Laden/Entladen und Ladezustand, Reserveleistung, Abregelung, versorgte Last, nicht gedeckte kritische und übrige Last sowie den AC-Sammelschienen-Bilanzrest.",
       "Nínú Microgrid dispatch laboratory, tẹ́ list interval tó dọ́gba fún wind speed, PV irradiance, total demand àti critical part demand. Ṣètò PV/wind capacity, interval, battery energy/rating/efficiency/reserve àti generic backup ceiling pẹ̀lú ramp-up limit. Ṣàyẹ̀wò renewable output, battery charge/discharge àti state of charge, backup output, curtailment, load tí a pèsè, critical àti non-critical demand tí kò rí ìpèsè, àti balance residual AC-bus fún interval kọ̀ọ̀kan.",
       "For Microgrid dispatch laboratory, enter same-length interval lists for wind speed, PV irradiance, total demand and critical share. Set PV/wind capacity, interval time, battery energy/rating/efficiency/reserve, plus generic backup limit and ramp-up ceiling. Check renewable output, battery charge/discharge and state of charge, backup output, curtailment, supplied load, critical and other unmet demand, and AC-bus balance residual for each interval.",
+    ],
+  "In Wind resource and generation, use the same interval winds to compare the NREL 4 MW onshore and 6 MW offshore reference curves. Read power, energy and capacity factor, then save the selected turbine or export the case. The microgrid dispatch worksheet uses its own offshore curve.":
+    [
+      "Vergleichen Sie im Windexperiment die NREL-Referenzkurven für 4 MW an Land und 6 MW auf See bei gleichen Windgeschwindigkeiten. Prüfen Sie Leistung, Energie und Kapazitätsfaktor. Speichern Sie die Turbinenwahl oder exportieren Sie den Fall. Das Einsatzplanungsblatt verwendet seine eigene Offshore-Kurve.",
+      "Lo iyára afẹ́fẹ́ kan náà láti fi curve NREL 4 MW lórí ilẹ̀ wé 6 MW lórí òkun. Wo agbára, energy àti capacity factor, kí o fipamọ́ turbine tí o yàn tàbí gbé ìdánwò jáde. Dispatch microgrid ní curve òkun tirẹ̀.",
+      "Use di same wind speeds compare NREL 4 MW onshore and 6 MW offshore curves. Check power, energy and capacity factor, then save di turbine wey you choose or export di case. Microgrid dispatch use im own offshore curve.",
     ],
   "This chronological teaching dispatch uses the existing NREL 6 MW wind curve and PV source equations; renewable supply serves demand first, surplus charges storage, deficits use storage then generic backup, and critical demand is served before non-critical demand. Inputs are illustrative, not measured regional profiles. No source-specific backup generator, feeder/transformer losses, export, fuel, cost, emissions or frequency response is modeled. Save the isolated scenario in this browser or export its results as JSON/CSV.":
     [
