@@ -9,6 +9,7 @@ import {
   type ThermalDispatchSettings,
 } from "../engine/microgridDispatch";
 import type { PvPerformanceInputs } from "../engine/pvPerformance";
+import { WIND_TURBINE_REFERENCES } from "../engine/windPerformance";
 import {
   isRecurringProjectDemand,
   snapshotRecurringProjectDemand,
@@ -35,6 +36,26 @@ const LIMITS =
   "This is an illustrative AC-bus dispatch, not a site forecast or utility operation model. No feeder/transformer losses, costs, frequency response or unit-specific transient models are included. Entered profiles are assumptions. Generic backup capacity is dispatched after storage and grid imports with the entered ramp-up ceiling; ramp-down is instantaneous.";
 const pvDefaults = DEFAULT_MICROGRID_DISPATCH_INPUTS.pvByInterval[0];
 const copy: Record<string, [string, string, string]> = {
+  "Wind reference turbine": [
+    "Referenzwindturbine",
+    "Turbine àpẹẹrẹ",
+    "Wind reference turbine",
+  ],
+  "NREL 6 MW offshore": [
+    "NREL 6 MW auf See",
+    "NREL 6 MW lórí òkun",
+    "NREL 6 MW offshore",
+  ],
+  "NREL 4 MW onshore": [
+    "NREL 4 MW an Land",
+    "NREL 4 MW lórí ilẹ̀",
+    "NREL 4 MW onshore",
+  ],
+  "Wind curve source": [
+    "Quelle der Windkurve",
+    "Orísun curve afẹ́fẹ́",
+    "Wind curve source",
+  ],
   "Review active project demand day": [
     "Lasttag des aktiven Projekts prüfen",
     "Ṣàyẹ̀wò ọjọ́ ìbéèrè iṣẹ́ lọwọlọwọ",
@@ -655,6 +676,7 @@ interface Editable {
   historicalWinter: boolean;
   intervalHours: number;
   windSpeeds: number[];
+  windReference: keyof typeof WIND_TURBINE_REFERENCES;
   irradiance: number[];
   hydroFlows: string;
   hydroHead: number;
@@ -712,6 +734,7 @@ function defaults(): Editable {
     reservoirBypass: 0,
     reservoirHeadRise: 0,
     windSpeeds: DEFAULT_MICROGRID_DISPATCH_INPUTS.wind.windSpeedsMps,
+    windReference: "offshore",
     irradiance: DEFAULT_MICROGRID_DISPATCH_INPUTS.pvByInterval.map(
       (x) => x.planeOfArrayIrradianceWm2,
     ),
@@ -774,6 +797,8 @@ function readSaved(): Editable {
             : undefined,
           historicalGermany: value.historicalGermany === true,
           historicalWinter: value.historicalWinter === true,
+          windReference:
+            value.windReference === "onshore" ? "onshore" : "offshore",
           hydroFlows:
             typeof value.hydroFlows === "string" ? value.hydroFlows : "",
           reservoirInflows:
@@ -850,6 +875,7 @@ function buildDispatchInputs(
       windSpeedsMps: state.windSpeeds,
       intervalHours: state.intervalHours,
       turbineCount: state.turbines,
+      reference: state.historicalGermany ? undefined : state.windReference,
     },
     pvByInterval,
     reportedRenewables: state.historicalGermany
@@ -1131,6 +1157,9 @@ export function MicrogridDispatchExperiment({
             model:
               "chronological-ac-bus-dispatch-pv-wind-hydro-battery-critical-load",
             inputs,
+            windCurveSource: state.historicalGermany
+              ? undefined
+              : WIND_TURBINE_REFERENCES[state.windReference].source,
             historicalSource: state.historicalGermany
               ? {
                   ...historicalDay,
@@ -1482,6 +1511,30 @@ export function MicrogridDispatchExperiment({
             {field("pvDcKW", "PV array DC rating (kW)", state.pvDcKW)}
             {field("pvAcKW", "PV inverter AC rating (kW)", state.pvAcKW)}
             {field("turbines", "Wind turbines", state.turbines)}
+            <label className="pg-field">
+              <span>{label("Wind reference turbine")}</span>
+              <select
+                value={state.windReference}
+                onChange={(event) => {
+                  const windReference =
+                    event.currentTarget.value === "onshore"
+                      ? "onshore"
+                      : "offshore";
+                  setState((old) => ({ ...old, windReference }));
+                  setSaved(false);
+                }}
+              >
+                <option value="offshore">{label("NREL 6 MW offshore")}</option>
+                <option value="onshore">{label("NREL 4 MW onshore")}</option>
+              </select>
+            </label>
+            <a
+              href={WIND_TURBINE_REFERENCES[state.windReference].source}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {label("Wind curve source")}
+            </a>
             {field(
               "intervalHours",
               "Interval duration (h)",

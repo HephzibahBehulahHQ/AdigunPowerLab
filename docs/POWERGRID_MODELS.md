@@ -97,7 +97,7 @@ The fixed-voltage lesson compares a lossless transformer with a 1,000 kVA teachi
 | Pumped storage | Chronological pumping and generation with capacity, power limits and directional efficiencies. |
 | Solar PV | Irradiance, cell temperature, DC/AC conversion and clipping. |
 | Concentrated solar thermal | Steady-state direct solar power tower with receiver and cycle efficiencies, nameplate and minimum output. Storage and dispatch remain open. |
-| Onshore and offshore wind | Selectable NREL 2020 ATB 4 MW onshore and 6 MW offshore reference curves. Entered wind profiles are shared across the comparison. Chronological dispatch uses the offshore curve. |
+| Onshore and offshore wind | Selectable NREL 2020 ATB 4 MW onshore and 6 MW offshore reference curves in the wind worksheet and for entered winds in chronological dispatch. Historical dispatch uses reported generation. |
 | Coal steam | Net heat rate, plant rating and finite coal inventory over one interval. These settings can seed chronological dispatch. |
 | Gas turbines and combined cycle | Equipment study and steady-state gas/steam worksheet. Its net rating, minimum output and fuel curve can seed chronological dispatch. A standalone gas-turbine dispatch curve remains open. |
 | Nuclear steam | Educational steady steam-cycle energy balance with entered heat, conversion efficiency, gross rating and plant electricity use. |
