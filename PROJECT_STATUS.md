@@ -434,4 +434,6 @@ The meshed demand profile is live. Public Chromium verified the peak voltage cha
 
 Meshed profile saving is also live. Public Chromium restored both edited demand sliders and verified the resulting profile in the JSON export.
 
+A phone-width Chromium accessibility-tree sample found that hidden toolbar text left Save and Export project unnamed. The accessibility candidate explicitly names both controls using the existing four-language text.
+
 Public Pages sampling verified the reduced-motion station layout at desktop, tablet and phone widths. Chromium rendered WebGL at all three widths and recorded two-frame azimuth input timing in docs/TEST_EVIDENCE.md.
