@@ -2398,6 +2398,26 @@ test("PowerGrid entry is reachable at the right edge on desktop, tablet and phon
   }
 });
 
+test("PowerGrid launcher and language selector fit at 320 px in all locales", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 320, height: 780 });
+  const header = page.getByRole("banner");
+  const launcher = header.getByRole("button", {
+    name: "POWERGRID LAB",
+    exact: true,
+  });
+  const language = header.locator(".language-select");
+  for (const route of ["/#/overview", "/#POWERGRID"]) {
+    await page.goto(route);
+    for (const locale of ["en", "de", "yo", "pcm"]) {
+      await language.selectOption(locale);
+      await expect(launcher).toBeInViewport({ ratio: 1 });
+      await expect(language).toBeInViewport({ ratio: 1 });
+    }
+  }
+});
+
 test("PowerGrid controls and schematic stay usable on a narrow screen", async ({
   page,
 }) => {

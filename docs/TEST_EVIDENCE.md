@@ -633,6 +633,8 @@ The meshed save follow-up passed TypeScript, 20 Help tests and the focused Chrom
 
 A public phone-width Chromium accessibility-tree sample found two unnamed buttons among 384 sampled buttons, form controls and sliders on POWERGRID LAB. The workspace toolbar Save and Export project names were lost when the visible labels were hidden. The focused local mobile accessibility test passed with explicit localized names, along with TypeScript.
 
+At a 320 px viewport, public Chromium measured the launcher extending to x=334 on the lab route and x=341 on the overview. The compact-header candidate passed a focused Chromium test with the entire launcher and language selector in view on both routes in all four locales.
+
 ### POWERGRID LAB analytical AC and time-step sensitivity
 
 TypeScript and the full Windows unit suite passed: 445 tests in 34 files, using Vitest with four workers. The two-bus case verified receiving voltage, line current and sending P/Q with a closed-form high-voltage root. The frequency case verified that halving the step from 0.01 to 0.005 s changes the nadir by less than 0.00001 Hz, with nadir time within 0.01 s and ending frequency agreeing to seven decimal places.
