@@ -617,6 +617,8 @@ Onshore wind candidate: TypeScript, 20 Help tests, four wind engine tests and th
 
 The focused Chromium case also verified that the onshore interval at 12 m/s shows a 4,000 kW output meter at its 4,000 kW nameplate limit.
 
+Compared the onshore solver against every row of the pinned NREL source blob. All 90 wind-speed and electrical-power pairs matched within 1e-9 kW, including the compressed nameplate plateau and cut-out rows.
+
 ### POWERGRID LAB analytical AC and time-step sensitivity
 
 TypeScript and the full Windows unit suite passed: 445 tests in 34 files, using Vitest with four workers. The two-bus case verified receiving voltage, line current and sending P/Q with a closed-form high-voltage root. The frequency case verified that halving the step from 0.01 to 0.005 s changes the nadir by less than 0.00001 Hz, with nadir time within 0.01 s and ending frequency agreeing to seven decimal places.
