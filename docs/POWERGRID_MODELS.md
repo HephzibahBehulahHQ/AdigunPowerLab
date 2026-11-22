@@ -66,7 +66,7 @@ The editable default sequence 3, 5, 8, 12, 18, 26 m/s is an analytical lesson pr
 
 ## Milestone 3 slice: chronological PV/wind, storage and critical-load dispatch
 
-`src/engine/microgridDispatch.ts` connects the existing per-interval PV and NREL wind models to editable total-demand and critical-demand profiles. Profile arrays must have the same length (1–96 intervals); interval duration is shared. The PV inputs use the Sandia/NREL equations above. Wind uses the cited NREL 6 MW curve. This combines available generation at an illustrative AC bus; it does not convert source data into a regional forecast.
+`src/engine/microgridDispatch.ts` connects the existing per-interval PV and NREL wind models to editable total-demand and critical-demand profiles. Profile arrays must have the same length (1–96 intervals); interval duration is shared. The PV inputs use the Sandia/NREL equations above. Entered wind speeds use the selected reference curve and default to the 6 MW offshore curve. Historical cases use reported generation. This combines available generation at an illustrative AC bus; it does not convert source data into a regional forecast.
 
 Dispatch order is explicit: available PV/wind serve demand first; renewable surplus charges a battery within its power and SOC limits; deficit uses battery discharge above the entered reserve, then a generic dispatchable backup ceiling limited by its entered ramp-up increment. Ramp-down is immediate and there is no unit commitment, minimum output or physical generator type. Supply serves the entered critical-demand portion before non-critical demand. The model reports curtailment and critical/non-critical unmet demand separately.
 
