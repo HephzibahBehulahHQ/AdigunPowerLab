@@ -430,4 +430,6 @@ The meshed demand-profile candidate compares independent low, base and peak AC s
 
 A follow-up candidate stores both demand sliders with the saved meshed case, with safe defaults for earlier saves.
 
+The meshed demand profile is live. Public Chromium verified the peak voltage change, three islanded exports after disconnecting the slack bus, and convergence after reconnection.
+
 Public Pages sampling verified the reduced-motion station layout at desktop, tablet and phone widths. Chromium rendered WebGL at all three widths and recorded two-frame azimuth input timing in docs/TEST_EVIDENCE.md.

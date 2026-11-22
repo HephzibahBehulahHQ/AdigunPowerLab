@@ -2705,6 +2705,32 @@ test("meshed demand profile solves and exports each edited interval", async ({
   expect(intervals[2].result.buses[2].voltagePU).toBeLessThan(
     intervals[1].result.buses[2].voltagePU,
   );
+  const meshed = page.getByRole("region", { name: "Meshed AC power flow" });
+  await meshed.getByRole("checkbox", { name: "A–B", exact: true }).uncheck();
+  const branch = meshed.getByRole("checkbox", { name: "A–C", exact: true });
+  await branch.uncheck();
+  await expect(
+    profile.getByRole("cell", { name: "Island without slack bus" }),
+  ).toHaveCount(3);
+  const islandExport = page.waitForEvent("download");
+  await profile.getByRole("button", { name: "Export demand profile" }).click();
+  const island = JSON.parse(
+    await readFile(await (await islandExport).path(), "utf8"),
+  );
+  expect(
+    island.intervals.map((row: { result: unknown }) => row.result),
+  ).toEqual(
+    Array.from({ length: 3 }, () => ({
+      converged: false,
+      reason: "islanded",
+      iterations: 0,
+      residualPU: null,
+    })),
+  );
+  await branch.check();
+  await expect(
+    profile.getByRole("cell", { name: "Solved", exact: true }),
+  ).toHaveCount(3);
 });
 
 test("dispatch demand shift preserves energy and critical demand", async ({
