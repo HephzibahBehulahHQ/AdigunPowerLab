@@ -132,3 +132,14 @@ Subsequent live Pages sampling verified that the navigable station fits 1440 px 
 The 12 initial lesson workflows are indexed in [POWERGRID_CURRICULUM.md](POWERGRID_CURRICULUM.md). This candidate also adds worker-backed contingency comparisons, dispatch BOT explanations, and transmission PDF baseline comparisons. Exact local and hosted verification belongs in [TEST_EVIDENCE.md](TEST_EVIDENCE.md). The curriculum index documents current workflows. Exact-candidate release gates and publication verification remain separate.
 
 The earlier header checkpoint `63c464e34aabb4c44220bb615461718d0c92f1ad` passed [hosted run 44933422356](https://github.com/HephzibahBehulahHQ/AdigunPowerLab/actions/runs/44933422356), including lint, unit, build, both browser suites and root/base-path update and offline smoke. This receipt applies to that revision. Later catalogue and release boundaries are recorded in [POWERGRID_MODELS.md](POWERGRID_MODELS.md) and [TEST_EVIDENCE.md](TEST_EVIDENCE.md).
+
+## Regional and dispatch release acceptance
+
+| Requirement | Verified scope | Remaining evidence |
+| --- | --- | --- |
+| Regional and custom scenarios | Public Pacific Northwest and South Africa voltage application. Public custom-context validation, save/reload and export. Local Chromium covered the rural microgrid scenario separately. | Full review of every regional teaching caption and independent language review. |
+| Source-specific chronological dispatch | Public coal, diesel, biomass, combined-cycle, biogas and hydrogen handoffs. Public selectable onshore and offshore wind calculation and historical export provenance. | The model catalogue lists the remaining source-specific scope and limitations. |
+| Visual and accessible station | Public WebGL scene sampling at desktop, tablet and phone widths. Public keyboard and schematic fallback checks with WebGL disabled. | Physical-device performance and independent accessibility review. |
+| Advanced numerical evidence | Independent MATPOWER nine-bus solution, N−1 screening, two-bus AC fixture and frequency time-step refinement are recorded in test evidence. | These fixtures qualify their documented cases and tolerances. Broader solver and protection scope remains in the model catalogue. |
+
+Exact main and Pages receipts for the public checks are in [DEPLOYMENT.md](DEPLOYMENT.md). Numerical and browser methods are in [TEST_EVIDENCE.md](TEST_EVIDENCE.md).
