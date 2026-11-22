@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import {
   solveMeshedPowerFlow,
   type MeshedInputs,
@@ -85,12 +85,18 @@ const failureLabels = {
 export function PowerGridMeshedProfile({
   locale,
   input,
+  low,
+  peak,
+  onLowChange,
+  onPeakChange,
 }: {
   locale: Locale;
   input: MeshedInputs;
+  low: number;
+  peak: number;
+  onLowChange: (value: number) => void;
+  onPeakChange: (value: number) => void;
 }) {
-  const [low, setLow] = useState(60);
-  const [peak, setPeak] = useState(125);
   const localeIndex = { en: 0, de: 1, yo: 2, pcm: 3 }[locale];
   const [
     title,
@@ -145,7 +151,7 @@ export function PowerGridMeshedProfile({
             max={100}
             step={1}
             value={low}
-            onChange={(event) => setLow(event.currentTarget.valueAsNumber)}
+            onChange={(event) => onLowChange(event.currentTarget.valueAsNumber)}
           />
         </label>
         <label className="pg-field">
@@ -156,7 +162,9 @@ export function PowerGridMeshedProfile({
             max={200}
             step={1}
             value={peak}
-            onChange={(event) => setPeak(event.currentTarget.valueAsNumber)}
+            onChange={(event) =>
+              onPeakChange(event.currentTarget.valueAsNumber)
+            }
           />
         </label>
       </div>
