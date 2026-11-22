@@ -13,14 +13,43 @@ export const FUEL_CELL_FIELDS = {
 
 export type FuelCellInputs = Record<keyof typeof FUEL_CELL_FIELDS, number>;
 
+function validInputs(inputs: FuelCellInputs) {
+  return Object.entries(FUEL_CELL_FIELDS).every(([key, { min, max }]) => {
+    const value = inputs[key as keyof FuelCellInputs];
+    return Number.isFinite(value) && value >= min && value <= max;
+  });
+}
+
+function grossAcLimit(inputs: FuelCellInputs, potentialDcKW: number) {
+  const inverterEfficiency = inputs.inverterEfficiencyPercent / 100;
+  return Math.min(
+    potentialDcKW * inverterEfficiency,
+    inputs.dcRatingKW * inverterEfficiency,
+    inputs.acRatingKW,
+  );
+}
+
+export function getFuelCellDispatchSettings(inputs: FuelCellInputs) {
+  if (!validInputs(inputs)) return null;
+  const stackEfficiency = inputs.stackEfficiencyPercent / 100;
+  const potentialDcKW =
+    inputs.feedLimitKgH * HYDROGEN_LHV_KWH_PER_KG * stackEfficiency;
+  const ratingKW = grossAcLimit(inputs, potentialDcKW) - inputs.auxiliariesKW;
+  if (ratingKW <= 0) return null;
+
+  const incrementalMJPerKWh =
+    3.6 / (stackEfficiency * (inputs.inverterEfficiencyPercent / 100));
+  return {
+    ratingKW,
+    minimumStableKW: 0,
+    incrementalMJPerKWh,
+    runningInterceptMJPerHour: inputs.auxiliariesKW * incrementalMJPerKWh,
+    inventoryMJ: inputs.inventoryKg * HYDROGEN_LHV_KWH_PER_KG * 3.6,
+  };
+}
+
 export function calculateFuelCell(inputs: FuelCellInputs) {
-  if (
-    Object.entries(FUEL_CELL_FIELDS).some(([key, { min, max }]) => {
-      const value = inputs[key as keyof FuelCellInputs];
-      return !Number.isFinite(value) || value < min || value > max;
-    })
-  )
-    return null;
+  if (!validInputs(inputs)) return null;
 
   const feedKgH = Math.min(
     inputs.feedLimitKgH,
@@ -30,11 +59,7 @@ export function calculateFuelCell(inputs: FuelCellInputs) {
     (HYDROGEN_LHV_KWH_PER_KG * inputs.stackEfficiencyPercent) / 100;
   const inverterEfficiency = inputs.inverterEfficiencyPercent / 100;
   const potentialDcKW = feedKgH * dcPerKg;
-  const grossAcKW = Math.min(
-    potentialDcKW * inverterEfficiency,
-    inputs.dcRatingKW * inverterEfficiency,
-    inputs.acRatingKW,
-  );
+  const grossAcKW = grossAcLimit(inputs, potentialDcKW);
   const stackDcKW = grossAcKW / inverterEfficiency;
   const fuelUsedKg = (stackDcKW / dcPerKg) * inputs.durationHours;
   const remainingKg = Math.max(0, inputs.inventoryKg - fuelUsedKg);

@@ -34,6 +34,8 @@ The solar and wind images are custom teaching illustrations generated for this p
 
 The worksheet uses Appendix D's tabulated NREL 6 MW (2015) reference turbine curve from [NREL/TP-6A20-67414](https://www.nrel.gov/docs/fy17osti/67414.pdf) (2017 report). This is a research reference turbine, not a commercial machine selected for a site. The model linearly interpolates the supplied wind-speed/power points, including the published zero-output cut-out point.
 
+The onshore alternative uses wind speed and electrical power columns from the NREL 2020 ATB 4 MW, 150 m rotor reference table. The exact [source blob](https://api.github.com/repos/NatLabRockies/turbine-models/git/blobs/662d920de487f61e3806c044a893e334c07701fe) is included in onshore JSON exports. The model retains the interpolation through 4,000 kW at 24.75 m/s to the published zero point at 25 m/s. Collinear plateau rows are omitted without changing interpolation results.
+
 Wind speeds, interval duration and turbine count are user-entered teaching inputs. The example sequence exercises zero, partial-load, rated and cut-out regions; it is not measured weather or a regional profile. Air density, hub-height adjustment, turbulence, wakes, electrical conversion, availability, curtailment, control strategy and long-term energy yield are outside scope.
 
 The solar thermal worksheet uses the conversion chain from the [U.S. Department of Energy power tower reference](https://www.energy.gov/cmei/systems/power-tower-system-concentrating-solar-thermal-power-basics). The worksheet's efficiencies, aperture, irradiance, capacity and operating threshold are illustrative inputs.
@@ -49,3 +51,7 @@ The [DOE gas turbine power plant reference](https://www.energy.gov/hgeo/how-gas-
 The hydrogen fuel cell worksheet uses the lower heating value of 33.3 kWh/kg from the [DOE Alternative Fuels Data Center fuel properties comparison](https://afdc.energy.gov/fuels/properties). Its operating point and stack and inverter parameters are illustrative.
 
 The [EPA anaerobic digestion performance protocol](https://19january2021snapshot.epa.gov/sites/static/files/2014-12/documents/protocol.pdf) provides the methane lower heating value and standard reference conditions. The worksheet's flows, composition and efficiency are illustrative inputs.
+
+The [USDA Forest Products Laboratory fuel value guide](https://www.fpl.fs.usda.gov/documnts/techline/fuel-value-calculator.pdf) explains the effect of moisture and water vaporization on usable wood fuel energy. The worksheet illustrates this with a constant evaporation allowance and user-entered dry fuel LHV.
+
+The [HOMER fuel curve reference](https://homerenergy.com/products/pro/docs/latest/fuel_curve.html) provides the straight-line curve structure. The [DOE fuel properties table](https://afdc.energy.gov/fuels/properties) provides the approximate volumetric diesel LHV for rated-point validation. The worksheet's rates and limits are illustrative.

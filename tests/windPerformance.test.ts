@@ -68,3 +68,16 @@ describe("NREL 6 MW reference-turbine wind curve", () => {
     expect(() => nrel6MwPowerAtWindSpeedKW(Number.NaN)).toThrow(/finite/);
   });
 });
+
+it("reproduces the rated and cut-out points of the onshore NREL 4 MW curve", () => {
+  const result = calculateWindPerformance({
+    reference: "onshore",
+    windSpeedsMps: [3, 5, 9.75, 24.875, 25],
+    intervalHours: 1,
+    turbineCount: 1,
+  });
+  expect(result.ratedFarmPowerKW).toBe(4000);
+  expect(result.intervals.map((row) => row.powerPerTurbineKW)).toEqual([
+    0, 494, 4000, 2000, 0,
+  ]);
+});

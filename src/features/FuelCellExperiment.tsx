@@ -4,9 +4,11 @@ import { downloadFile } from "../import-export/files";
 import {
   calculateFuelCell,
   FUEL_CELL_FIELDS,
+  getFuelCellDispatchSettings,
   HYDROGEN_LHV_KWH_PER_KG,
   type FuelCellInputs,
 } from "../engine/fuelCell";
+import type { ThermalDispatchSettings } from "../engine/microgridDispatch";
 
 const source = "https://afdc.energy.gov/fuels/properties";
 const fields = Object.entries(FUEL_CELL_FIELDS) as [
@@ -149,13 +151,27 @@ const copy = {
   }
 >;
 
-export function FuelCellExperiment({ locale }: { locale: Locale }) {
+const dispatchLabel: Record<Locale, string> = {
+  en: "Use fuel cell in dispatch",
+  de: "Brennstoffzelle in Einsatzplanung übernehmen",
+  yo: "Lo sẹẹli epo nínú dispatch",
+  pcm: "Use fuel cell for dispatch",
+};
+
+export function FuelCellExperiment({
+  locale,
+  onDispatch,
+}: {
+  locale: Locale;
+  onDispatch: (settings: ThermalDispatchSettings) => void;
+}) {
   const [draft, setDraft] = useState(defaults);
   const text = copy[locale];
   const inputs = Object.fromEntries(
     fields.map(([key]) => [key, draft[key] === "" ? NaN : Number(draft[key])]),
   ) as FuelCellInputs;
   const result = calculateFuelCell(inputs);
+  const dispatch = getFuelCellDispatchSettings(inputs);
   const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 3 });
   return (
     <section
@@ -199,6 +215,14 @@ export function FuelCellExperiment({ locale }: { locale: Locale }) {
         <p role="status">{text.invalid}</p>
       )}
       <div className="pg-actions">
+        <button
+          className="button"
+          type="button"
+          disabled={!dispatch}
+          onClick={() => dispatch && onDispatch(dispatch)}
+        >
+          {dispatchLabel[locale]}
+        </button>
         <button
           className="button"
           type="button"

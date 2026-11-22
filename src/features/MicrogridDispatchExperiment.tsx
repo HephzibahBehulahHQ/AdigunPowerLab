@@ -1,4 +1,4 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { Download, RotateCcw, Save, SunMedium } from "lucide-react";
 import {
   calculateMicrogridDispatch,
@@ -6,6 +6,7 @@ import {
   validateMicrogridDispatchInputs,
   type MicrogridDispatchInputs,
   type MicrogridDispatchResult,
+  type ThermalDispatchSettings,
 } from "../engine/microgridDispatch";
 import type { PvPerformanceInputs } from "../engine/pvPerformance";
 import {
@@ -131,6 +132,32 @@ const copy: Record<string, [string, string, string]> = {
     "Agbára epo fún ìbẹ̀rẹ̀ kọ̀ọ̀kan (MJ)",
     "Startup fuel for each start (MJ)",
   ],
+  "Minimum stable backup output (kW)": [
+    "Minimale stabile Reserveleistung (kW)",
+    "Agbára afẹ́yinti tó kéré jù ní ìṣiṣẹ́ (kW)",
+    "Smallest steady backup output (kW)",
+  ],
+  "Running fuel intercept (MJ/h)": [
+    "Brennstoff-Grundverbrauch im Betrieb (MJ/h)",
+    "Ìwọ̀n epo ìpìlẹ̀ ní ìṣiṣẹ́ (MJ/h)",
+    "Base fuel rate when generator dey run (MJ/h)",
+  ],
+  "Incremental fuel rate (MJ/kWh)": [
+    "Zusätzlicher Brennstoffverbrauch (MJ/kWh)",
+    "Ìwọ̀n epo àfikún (MJ/kWh)",
+    "Extra fuel for each kWh (MJ/kWh)",
+  ],
+  "Enter a running fuel intercept from zero to 1,000,000,000 MJ/h.": [
+    "Geben Sie einen Brennstoff-Grundverbrauch von 0 bis 1.000.000.000 MJ/h ein.",
+    "Tẹ ìwọ̀n epo ìpìlẹ̀ láàárín òdo àti 1,000,000,000 MJ/h.",
+    "Enter base running fuel rate from zero to 1,000,000,000 MJ/h.",
+  ],
+  "Minimum stable backup output must be between zero and the generator rating.":
+    [
+      "Die minimale stabile Reserveleistung muss zwischen null und der Generatornennleistung liegen.",
+      "Agbára afẹ́yinti tó kéré jù gbọ́dọ̀ wà láàárín òdo àti agbára orúkọ generator.",
+      "Smallest steady backup output must dey between zero and di generator rating.",
+    ],
   "Initial fuel inventory (MJ), optional": [
     "Anfangsbrennstoffvorrat (MJ), optional",
     "Ìpamọ́ epo ìbẹ̀rẹ̀ (MJ), àṣàyàn",
@@ -193,12 +220,17 @@ const copy: Record<string, [string, string, string]> = {
     "CO₂ taara láti backup (kg)",
     "Backup direct CO₂ (kg)",
   ],
-  "Enter a heat rate of 3.6–1,000 MJ/kWh and an optional CO₂ factor of 0–1,000 kg/GJ.":
+  "Enter a positive fuel slope and at least 3.6 MJ/kWh total fuel at rated output.":
     [
-      "Geben Sie einen Nettowärmeverbrauch von 3,6–1.000 MJ/kWh und optional einen CO₂-Faktor von 0–1.000 kg/GJ ein.",
-      "Tẹ ooru epo láàárín 3.6–1,000 MJ/kWh àti òṣùwọ̀n CO₂ àṣàyàn láàárín 0–1,000 kg/GJ.",
-      "Enter heat rate from 3.6 to 1,000 MJ/kWh and optional CO₂ factor from 0 to 1,000 kg/GJ.",
+      "Geben Sie einen positiven Anstieg und bei Nennleistung mindestens 3,6 MJ/kWh Gesamtbrennstoff ein.",
+      "Tẹ ìwọ̀n epo àfikún tó ju òdo lọ àti epo lápapọ̀ tó kéré tán 3.6 MJ/kWh ní agbára orúkọ.",
+      "Enter positive extra fuel per kWh and at least 3.6 MJ/kWh total fuel at rated power.",
     ],
+  "Enter a direct CO₂ factor from zero to 1,000 kg/GJ.": [
+    "Geben Sie einen direkten CO₂-Faktor zwischen null und 1.000 kg/GJ ein.",
+    "Tẹ òṣùwọ̀n CO₂ tààrà láàárín òdo àti 1,000 kg/GJ.",
+    "Enter direct CO₂ factor from zero to 1,000 kg/GJ.",
+  ],
   "Fuel energy uses a constant net heat rate. Use the same heating-value basis for the heat rate and CO₂ factor. Part-load heat-rate changes are outside this model.":
     [
       "Die Brennstoffenergie verwendet einen konstanten Nettowärmeverbrauch. Verwenden Sie für Wärmeverbrauch und CO₂-Faktor dieselbe Heizwertbasis. Änderungen des Wärmeverbrauchs bei Teillast werden nicht modelliert.",
@@ -660,6 +692,8 @@ interface Editable {
   backupHeatRate: number;
   backupCO2Factor: string;
   backupStartupFuel: number;
+  backupMinimumStableKW: number;
+  backupRunningIntercept: number;
   backupInitialFuel: string;
 }
 
@@ -696,6 +730,8 @@ function defaults(): Editable {
     backupHeatRate: 10,
     backupCO2Factor: "",
     backupStartupFuel: 0,
+    backupMinimumStableKW: 0,
+    backupRunningIntercept: 0,
     backupInitialFuel: "",
     pumpedInitial: 0,
     pumpLimit: 25,
@@ -862,6 +898,14 @@ function buildDispatchInputs(
         ? {
             heatRateMJPerKWh: state.backupHeatRate,
             startupFuelMJ: state.backupStartupFuel,
+            minimumStableKW:
+              state.backupMinimumStableKW === 0
+                ? undefined
+                : state.backupMinimumStableKW,
+            runningInterceptMJPerHour:
+              state.backupRunningIntercept === 0
+                ? undefined
+                : state.backupRunningIntercept,
             initialFuelMJ: state.backupInitialFuel.trim()
               ? Number(state.backupInitialFuel)
               : undefined,
@@ -957,13 +1001,32 @@ const dispatchLessonReferences = {
 
 export function MicrogridDispatchExperiment({
   activeDemand,
+  fuelSettings,
 }: {
   activeDemand?: ActiveProjectDemand;
+  fuelSettings?: ThermalDispatchSettings;
 }) {
   const locale = useContext(LanguageContext);
   const label = (s: string) => tr(s, locale);
   const [state, setState] = useState<Editable>(readSaved);
   const [saved, setSaved] = useState(false);
+  useEffect(() => {
+    if (!fuelSettings) return;
+    setState((previous) => ({
+      ...previous,
+      thermalBackup: true,
+      backupKW: fuelSettings.ratingKW,
+      backupHeatRate: fuelSettings.incrementalMJPerKWh,
+      backupMinimumStableKW: fuelSettings.minimumStableKW,
+      backupRunningIntercept: fuelSettings.runningInterceptMJPerHour,
+      backupInitialFuel:
+        fuelSettings.inventoryMJ === undefined
+          ? ""
+          : String(fuelSettings.inventoryMJ),
+      backupCO2Factor: "",
+    }));
+    setSaved(false);
+  }, [fuelSettings]);
   const [capstoneNotes, setCapstoneNotes] = useState("");
   const [capstoneReference, setCapstoneReference] = useState<{
     inputs: MicrogridDispatchInputs;
@@ -1496,13 +1559,25 @@ export function MicrogridDispatchExperiment({
           <>
             {field(
               "backupHeatRate",
-              "Net heat rate (MJ/kWh)",
+              state.backupRunningIntercept > 0
+                ? "Incremental fuel rate (MJ/kWh)"
+                : "Net heat rate (MJ/kWh)",
               state.backupHeatRate,
             )}
             {field(
               "backupStartupFuel",
               "Startup fuel per start (MJ)",
               state.backupStartupFuel,
+            )}
+            {field(
+              "backupMinimumStableKW",
+              "Minimum stable backup output (kW)",
+              state.backupMinimumStableKW,
+            )}
+            {field(
+              "backupRunningIntercept",
+              "Running fuel intercept (MJ/h)",
+              state.backupRunningIntercept,
             )}
             <label className="pg-field">
               <span>{label("Initial fuel inventory (MJ), optional")}</span>
