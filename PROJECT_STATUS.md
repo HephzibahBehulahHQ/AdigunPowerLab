@@ -416,4 +416,6 @@ The next dispatch candidate adds onshore and offshore reference selection for en
 
 The onshore wind worksheet, Pacific Northwest preset with split-phase experiment, and South Africa preset are live. Public browser results and exact workflow receipts are recorded in docs/DEPLOYMENT.md.
 
+The gas turbine comparison candidate adds an open-cycle case alongside the combined-cycle result, with separate dispatch handoffs and both calculations in the worksheet JSON.
+
 Public Pages sampling verified the reduced-motion station layout at desktop, tablet and phone widths. Chromium rendered WebGL at all three widths and recorded two-frame azimuth input timing in docs/TEST_EVIDENCE.md.

@@ -165,6 +165,37 @@ const dispatchLabels = {
   pcm: "Use combined cycle for dispatch",
 } satisfies Record<Locale, string>;
 
+const comparisonLabels = {
+  en: [
+    "Heat recovery comparison",
+    "Both cases use the same entered fuel, gross rating, minimum load and auxiliaries. The open-cycle case bypasses steam recovery.",
+    "Open-cycle gas turbine",
+    "Combined cycle",
+    "Use open cycle in dispatch",
+  ],
+  de: [
+    "Wärmerückgewinnung vergleichen",
+    "Beide Fälle verwenden dieselbe Brennstoffzufuhr, Bruttonennleistung, Mindestlast und Eigenlast. Im offenen Betrieb entfällt die Dampferzeugung.",
+    "Offene Gasturbine",
+    "Kombikraftwerk",
+    "Offenen Betrieb in der Einsatzplanung verwenden",
+  ],
+  yo: [
+    "Fi ìmúpadà ooru wé",
+    "Àwọn ìdánwò méjèèjì lo epo, agbára àpapọ̀, minimum load àti auxiliaries kan náà. Open cycle kò lo ooru fún steam.",
+    "Turbine gaasi open cycle",
+    "Combined cycle",
+    "Lo open cycle nínú dispatch",
+  ],
+  pcm: [
+    "Compare heat recovery",
+    "Both cases use di same fuel, gross rating, minimum load and plant demand. Open cycle bypass steam recovery.",
+    "Open-cycle gas turbine",
+    "Combined cycle",
+    "Use open cycle for dispatch",
+  ],
+} satisfies Record<Locale, string[]>;
+
 export function CombinedCycleExperiment({
   locale,
   onDispatch,
@@ -179,6 +210,16 @@ export function CombinedCycleExperiment({
   ) as CombinedCycleInputs;
   const result = calculateCombinedCycle(inputs);
   const dispatch = getCombinedCycleDispatchFuelSettings(inputs);
+  const openInputs = { ...inputs, heatRecoveryPercent: 0 };
+  const openCycle = calculateCombinedCycle(openInputs);
+  const openDispatch = getCombinedCycleDispatchFuelSettings(openInputs);
+  const [
+    comparisonTitle,
+    comparisonScope,
+    openLabel,
+    combinedLabel,
+    useOpenLabel,
+  ] = comparisonLabels[locale];
   const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 3 });
   return (
     <section
@@ -219,7 +260,34 @@ export function CombinedCycleExperiment({
       ) : (
         <p role="status">{text.invalid}</p>
       )}
+      {result && openCycle && (
+        <section aria-labelledby="pg-gas-recovery-comparison">
+          <h4 id="pg-gas-recovery-comparison">{comparisonTitle}</h4>
+          <p>{comparisonScope}</p>
+          <dl className="pg-metrics">
+            {(
+              [
+                [openLabel, openCycle.netOutputMW],
+                [combinedLabel, result.netOutputMW],
+              ] as const
+            ).map(([label, powerMW]) => (
+              <div key={label}>
+                <dt>{label}</dt>
+                <dd>{format.format(powerMW)} MW</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
       <div className="pg-actions">
+        <button
+          className="button"
+          type="button"
+          disabled={!result || !openDispatch}
+          onClick={() => openDispatch && onDispatch(openDispatch)}
+        >
+          {useOpenLabel}
+        </button>
         <button
           className="button"
           type="button"
@@ -248,6 +316,7 @@ export function CombinedCycleExperiment({
                   model: "steady-state-combined-cycle",
                   inputs,
                   result,
+                  openCycle: { inputs: openInputs, result: openCycle },
                   source,
                 },
                 null,
