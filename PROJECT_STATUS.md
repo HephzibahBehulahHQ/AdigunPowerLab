@@ -410,4 +410,6 @@ Thermal minimum stable output also passed exact-main validation and Pages public
 
 The wind worksheet candidate adds the NREL 2020 ATB 4 MW onshore reference curve alongside the existing 6 MW offshore default. It saves the selected turbine and identifies the curve and its source in JSON exports.
 
+Biogas and hydrogen dispatch transfers are deployed and verified on public Pages. The biogas handoff disables at zero methane and supplies a running fuel curve. The hydrogen handoff preserves the initial fuel stock and instantaneous electrical limit as distinct dispatch inputs. See docs/DEPLOYMENT.md for the exact revisions and checks.
+
 Public Pages sampling verified the reduced-motion station layout at desktop, tablet and phone widths. Chromium rendered WebGL at all three widths and recorded two-frame azimuth input timing in docs/TEST_EVIDENCE.md.
