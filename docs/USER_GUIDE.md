@@ -225,6 +225,8 @@ At the top of the lab, choose **Nigeria-inspired** or **Germany-inspired · 50He
 
 Below the PV worksheet, open **Wind resource and generation experiment**. The editable lesson starts with six equal-duration wind-speed intervals. Enter comma-separated speeds from 0 to 30 m/s, an interval duration up to 24 hours and an integer count of identical reference turbines. The NREL 6 MW (2015) reference curve is linearly interpolated for each interval. Read per-turbine and farm output, interval energy, total energy, mean power and profile capacity factor. Save stores these lab inputs in this browser. JSON includes source-labelled inputs/results; CSV contains the calculated interval readings. Refresh reloads saved inputs; Reset returns to the lesson sequence.
 
+Switch **Reference turbine** to **NREL 4 MW onshore** and keep the entered wind profile to compare the two curves. Each interval meter shows per-turbine output against the selected nameplate. Saving remembers your chosen turbine. Microgrid dispatch uses its separate offshore reference curve.
+
 The curve is from Appendix D of [NREL/TP-6A20-67414](https://www.nrel.gov/docs/fy17osti/67414.pdf). It describes a research reference turbine, not commercial equipment or a site-specific forecast. The entered wind sequence is an analytical teaching profile, not measured local weather. Air-density and hub-height correction, wakes, availability, electrical losses, curtailment, storage and dispatch are not included.
 
 ## POWERGRID LAB classroom dispatch
@@ -252,6 +254,12 @@ Enter backup outage interval numbers independently of grid outages. The backup u
 Enable thermal backup to enter net heat rate in MJ of fuel per kWh of net electricity. Optionally enter a direct CO₂ factor in kg/GJ on the same heating-value basis. Fuel equals generated electrical energy times heat rate. Direct CO₂ equals fuel energy in GJ times the factor. See [EIA on heat rate](https://www.eia.gov/tools/faqs/faq.php?id=107).
 
 Enter startup fuel per start and optionally set initial fuel inventory in MJ. The model counts startup when generation rises from zero, includes it in total fuel and direct CO2, and consumes fuel only when the unit delivers power. An empty inventory field assumes unlimited fuel. A specified zero inventory supplies no power.
+
+Use **Minimum stable backup output** to keep the unit off when remaining load, ramp capability or available fuel cannot support that output. Skipped starts use no fuel.
+
+For a linear fuel curve, enter the fixed **Running fuel intercept** in MJ/h and use the heat rate field for the incremental fuel rate in MJ/kWh. The intercept is charged during intervals in which the generator produces power.
+
+Select **Use diesel curve in dispatch** to transfer the diesel worksheet's rating, minimum output, fuel curve and initial inventory. Review the dispatch ramp and startup fuel settings before running the scenario.
 
 In Microgrid dispatch, choose Load rural microgrid teaching scenario to replace the current form with six four-hour intervals for a fictional clinic and rural community. Edit the assumptions before saving or exporting. Loading the scenario leaves the previously saved dispatch inputs available until you save again.
 
@@ -387,6 +395,22 @@ In **Deep-water wave energy**, vary significant wave height and energy period. C
 
 In **Gas and steam combined cycle**, change heat recovery or the gross generation request. Compare gas turbine output, recovered heat and steam generation. Enter a request below the minimum stable load to see that standby auxiliaries still require power. Export the current case as JSON.
 
+Use **Use combined cycle in dispatch** to transfer the fuel-flow-limited net rating, net minimum load and running auxiliary fuel equivalent. The dispatch model accounts for these auxiliaries while generating. Add any standby electrical demand to the dispatch load profile if you want it included during offline intervals.
+
 In **Hydrogen fuel cell generation**, change starting inventory or interval duration and compare fuel-limited DC potential with available AC. Change the inverter rating and inspect how much hydrogen remains. Export the current case as JSON.
 
+Select **Use fuel cell in dispatch** to transfer the instantaneous net AC limit, the running fuel curve and starting hydrogen inventory. Dispatch depletes that inventory on its own timeline. The worksheet duration controls only the steady-interval comparison.
+
 In **Biogas engine and heat recovery**, vary methane fraction, available dry biogas flow and useful heat demand. Compare recoverable heat with heat supplied to demand, and gross electricity with net output after plant load. Export the case as JSON.
+
+Select **Use biogas engine in dispatch** to copy the net electrical limit and running fuel curve. Heat recovery stays in the biogas worksheet; dispatch calculates electrical supply and fuel use.
+
+In **Solid biomass steam generation**, hold wet feed and dry fuel heating value constant, then increase wet-basis moisture. Compare used fuel, steam heat and net electricity. Reset or download the JSON report.
+
+In **Diesel generator fuel curve**, adjust the requested power or initial inventory. Compare available power with actual output, running fuel rate and remaining diesel. A fuel-limited case below minimum stable load shuts down for the modelled interval.
+
+In **Coal steam generation**, adjust coal inventory, plant capacity, or net heat rate. Use the same heating-value basis for net heat rate and coal heat content. Compare net generation and coal remaining, then export the inputs and results as JSON.
+
+Choose **Use coal inventory in dispatch** to transfer plant capacity, heat rate and initial fuel energy to the chronological worksheet. The calculation converts coal tonnes to MJ using the entered heating value.
+
+In **Nuclear steam generation**, adjust the heat supplied to the steam cycle and compare gross generation with net grid power. A negative net reading indicates electricity imported to cover on-site use in the teaching case.

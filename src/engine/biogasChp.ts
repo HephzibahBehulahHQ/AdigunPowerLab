@@ -12,6 +12,17 @@ export const BIOGAS_FIELDS = {
 
 export type BiogasInputs = Record<keyof typeof BIOGAS_FIELDS, number>;
 
+export function getBiogasDispatchFuelSettings(inputs: BiogasInputs) {
+  const result = calculateBiogasChp(inputs);
+  if (!result || result.netElectricKW <= 0) return null;
+  const incrementalMJPerKWh = 360 / inputs.electricPercent;
+  return {
+    ratingKW: result.netElectricKW,
+    minimumStableKW: 0,
+    incrementalMJPerKWh,
+    runningInterceptMJPerHour: inputs.auxiliariesKW * incrementalMJPerKWh,
+  };
+}
 export function calculateBiogasChp(inputs: BiogasInputs) {
   if (
     Object.entries(BIOGAS_FIELDS).some(([key, { min, max }]) => {

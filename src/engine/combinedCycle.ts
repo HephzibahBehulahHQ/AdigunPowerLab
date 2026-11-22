@@ -14,6 +14,26 @@ export type CombinedCycleInputs = Record<
   number
 >;
 
+export function getCombinedCycleDispatchFuelSettings(
+  inputs: CombinedCycleInputs,
+) {
+  const result = calculateCombinedCycle(inputs);
+  if (!result || result.availableGrossMW <= inputs.auxiliariesMW) return null;
+  const grossEfficiency = result.grossPotentialMW / inputs.fuelAvailableMW;
+  const incrementalMJPerKWh = 3.6 / grossEfficiency;
+  if (!Number.isFinite(incrementalMJPerKWh) || incrementalMJPerKWh > 1e7)
+    return null;
+  const minimumGrossMW =
+    (inputs.grossRatingMW * inputs.minimumGrossPercent) / 100;
+  return {
+    ratingKW: (result.availableGrossMW - inputs.auxiliariesMW) * 1_000,
+    minimumStableKW: Math.max(0, minimumGrossMW - inputs.auxiliariesMW) * 1_000,
+    incrementalMJPerKWh,
+    runningInterceptMJPerHour:
+      inputs.auxiliariesMW * 1_000 * incrementalMJPerKWh,
+  };
+}
+
 export function calculateCombinedCycle(inputs: CombinedCycleInputs) {
   if (
     Object.entries(COMBINED_CYCLE_FIELDS).some(([key, { min, max }]) => {

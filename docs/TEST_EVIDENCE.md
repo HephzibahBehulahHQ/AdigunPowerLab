@@ -605,6 +605,20 @@ TypeScript and 26 Help and archive checks passed. Chromium verified that a valid
 
 TypeScript and 20 Help checks passed. Three Chromium cases verified no draw before the station canvas approached the viewport, reuse of scene buffers after camera input, no idle redraw across frames with reduced motion requested, and keyboard inspection with WebGL disabled. The synchronized station/BOT group selection passed.
 
+Public Pages Chromium sampling after the diesel deployment used reduced motion and headless software WebGL. At 1440 × 900, 768 × 1024 and 390 × 844, the scene canvas rendered and both the document and scene had matching client and scroll widths. Across 20 azimuth input events per viewport, the 95th-percentile elapsed time through two animation frames was 83, 183 and 83 ms respectively. The sample measures this browser and rendering configuration. It does not measure physical mobile-device latency or isolate the GPU draw time.
+
+At 390 × 844 with reduced motion, live Chromium selected the step-up transformer with Enter and adjusted the voltage slider from 330 kV to 329 kV with Arrow Left. The conductor-loss meter updated to 0.461932 MW. The existing foundations browser case now exercises those keyboard actions.
+
+The focused Chromium header test passed at 1440, 768 and 390 px. The POWERGRID launcher stayed at the same coordinates when command search opened and closed, and Enter navigated to the exact #POWERGRID route at every width.
+
+Public Chromium with a 390 × 844 viewport, reduced motion and WebGL disabled displayed the station fallback. Enter on the station tower control selected the upstream schematic tower. Enter on the downstream HV-to-MV transformer selected the matching receiving-substation station control.
+
+Onshore wind candidate: TypeScript, 20 Help tests, four wind engine tests and the focused Chromium save and export case passed. At 4, 5, 12 and 26 m/s in one-hour intervals, switching from offshore to onshore changed energy from 6,808 to 4,719 kWh. Save/reload restored the onshore choice and JSON carried the pinned source blob.
+
+The focused Chromium case also verified that the onshore interval at 12 m/s shows a 4,000 kW output meter at its 4,000 kW nameplate limit.
+
+Compared the onshore solver against every row of the pinned NREL source blob. All 90 wind-speed and electrical-power pairs matched within 1e-9 kW, including the compressed nameplate plateau and cut-out rows.
+
 ### POWERGRID LAB analytical AC and time-step sensitivity
 
 TypeScript and the full Windows unit suite passed: 445 tests in 34 files, using Vitest with four workers. The two-bus case verified receiving voltage, line current and sending P/Q with a closed-form high-voltage root. The frequency case verified that halving the step from 0.01 to 0.005 s changes the nadir by less than 0.00001 Hz, with nadir time within 0.01 s and ending frequency agreeing to seven decimal places.
@@ -645,11 +659,25 @@ TypeScript and 20 Help checks passed. Chromium verified 170.4 MW fuel-limited po
 
 ### POWERGRID LAB hydrogen fuel cell
 
+Focused Chromium test passed with 4 kg of hydrogen. The steady two-hour case became inventory-limited at 31.968 kW gross AC. The dispatch export retained the 190 kW net equipment limit, 479.52 MJ starting inventory, 7.5 MJ/kWh running slope and 75 MJ/h auxiliary intercept. TypeScript and 20 Help tests passed.
+
 TypeScript and 20 Help checks passed. Chromium confirmed the inverter caps gross output at 200 kW and the auxiliary demand reduces it to 190 kW net. At 4 kg over two hours, gross output was 31.968 kW, all 4 kg were consumed and remaining fuel was zero. Reset and JSON export passed. The local runner stalled during teardown.
 
 ### POWERGRID LAB biogas engine and heat recovery
 
 TypeScript and 20 Help checks passed. Chromium verified the 200 kW nameplate cap, 190 kW net electricity, 177.778 kW recoverable heat, 100 kW useful heat demand, and reduced gas use at the rating cap. Zero methane produced no power or heat and retained the entered auxiliary demand. JSON export and reset passed. The local runner stalled during teardown.
+
+### POWERGRID LAB solid biomass steam generation
+
+TypeScript and 20 Help checks passed. Chromium verified 2.85 MW net at the reference rating limit and, at 50% wet-basis moisture, 7.78 MJ/kg as-fired LHV, 6.613 MW heat to steam and 1.8339 MW net. JSON export and reset passed. The local runner stalled during teardown.
+
+### POWERGRID LAB diesel generator fuel curve
+
+TypeScript and 20 Help checks passed. Chromium verified 17.4 L/h and 25.2 L remaining in the reference, a 50 kW cap with 30 L available, and shutdown with 12 L below the modelled minimum load. JSON export and reset passed. The local runner stalled during teardown.
+
+### POWERGRID LAB coal steam generation
+
+TypeScript and 20 Help checks passed. The focused Chromium test verified the 640 t reference fuel use, the 200 MW and 800 MWh export with 320 t available, rejection of blank inventory, and reset. The local runner reported the test passed and stalled during teardown.
 
 ### Illustrated workspace and field guides
 
@@ -664,6 +692,12 @@ The expanded Chromium regression verified player activation and focus for Single
 Chromium verified the Engineering Toolbox exercise opens Single-phase AC current directly and the Engineering Reference exercise focuses the equations. Bundled report, backup, revision and Help recordings were independently verified by advancing playback time.
 
 The complete Overview navigation regression checked all four menu groups, the 19 real route links, the Help dialog tile, and successful decoding of all 20 tile images. All 20 Help search checks passed.
+
+Production Chromium verified playback of the report, workspace backup, revision comparison, and Help recordings on GitHub Pages after the recordings release. Each media element advanced its playback time and decoded a video frame.
+
+### POWERGRID LAB nuclear steam generation
+
+The nuclear steam browser case decoded the credited NRC illustration, verified 950 MW net at the reference generator rating, and exported 34 MW gross and −16 MW net at 100 MW of steam-cycle heat.
 
 ### Visual POWERGRID experiments
 

@@ -394,4 +394,22 @@ The combined-cycle increment adds a worksheet for fuel-limited potential, availa
 
 The fuel cell increment adds an inventory-limited hydrogen worksheet with adjustable DC and AC ratings, gross and net output, fuel used and fuel remaining. It includes JSON export, reset and Help in all four languages.
 
+The fuel-cell dispatch handoff transfers the net equipment limit and the finite hydrogen inventory. The worksheet and dispatch each use their own duration.
+
 The biogas increment adds a methane-fraction and flow-based engine CHP worksheet, with separate electrical output, recoverable heat, useful heat demand and JSON export. Solid biomass remains open.
+
+The solid biomass increment adds a wet-basis moisture and steam generation worksheet with gross and net output, used fuel and JSON export. It complements the separate biogas engine model.
+
+The diesel increment adds a steady-interval worksheet using entered no-load and rated fuel rates, minimum load, fuel inventory and output limits. The existing chronological thermal backup remains separate.
+
+The coal steam increment adds a one-interval worksheet for net heat rate, net generation, coal consumption and remaining inventory.
+
+Biomass, diesel and coal passed their main and Pages workflows and were checked in public Chromium. The exact revisions, workflow receipts and live checks are recorded in docs/DEPLOYMENT.md.
+
+Thermal minimum stable output also passed exact-main validation and Pages publication. Public dispatch exports confirmed startup and fuel depletion at the feasible minimum, and zero startup fuel when the minimum exceeded available output.
+
+The wind worksheet candidate adds the NREL 2020 ATB 4 MW onshore reference curve alongside the existing 6 MW offshore default. It saves the selected turbine and identifies the curve and its source in JSON exports.
+
+Biogas and hydrogen dispatch transfers are deployed and verified on public Pages. The biogas handoff disables at zero methane and supplies a running fuel curve. The hydrogen handoff preserves the initial fuel stock and instantaneous electrical limit as distinct dispatch inputs. See docs/DEPLOYMENT.md for the exact revisions and checks.
+
+Public Pages sampling verified the reduced-motion station layout at desktop, tablet and phone widths. Chromium rendered WebGL at all three widths and recorded two-frame azimuth input timing in docs/TEST_EVIDENCE.md.
