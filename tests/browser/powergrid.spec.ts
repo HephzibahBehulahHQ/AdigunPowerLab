@@ -315,6 +315,21 @@ test("combined cycle joins gas and steam output and respects stable minimum load
   expect(thermal.heatRateMJPerKWh).toBeCloseTo(3.6 / 0.568);
   expect(thermal.runningInterceptMJPerHour).toBeCloseTo((3000 * 3.6) / 0.568);
   expect(thermal.initialFuelMJ).toBeUndefined();
+  const comparison = plant.getByRole("region", {
+    name: "Heat recovery comparison",
+  });
+  await expect(comparison).toContainText("117 MW");
+  await expect(comparison).toContainText("147 MW");
+  await plant
+    .getByRole("button", { name: "Use open cycle in dispatch" })
+    .click();
+  const openExport = page.waitForEvent("download");
+  await dispatch.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const open = JSON.parse(
+    await readFile(await (await openExport).path(), "utf8"),
+  ).inputs.backupGenerator;
+  expect(open.ratedKW).toBe(117000);
+  expect(open.thermal.heatRateMJPerKWh).toBeCloseTo(9);
 });
 
 test("deep-water wave case caps output and shuts down at the configured height", async ({
