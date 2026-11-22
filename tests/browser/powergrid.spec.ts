@@ -2681,7 +2681,14 @@ test("meshed demand profile solves and exports each edited interval", async ({
 }) => {
   await page.goto("/#POWERGRID");
   const profile = page.getByRole("region", { name: "Meshed demand profile" });
-  await profile.getByRole("slider", { name: "Peak demand (%)" }).fill("150");
+  const peak = profile.getByRole("slider", { name: "Peak demand (%)" });
+  await peak.fill("150");
+  await page
+    .getByRole("region", { name: "Meshed AC power flow" })
+    .getByRole("button", { name: "Save case locally" })
+    .click();
+  await page.reload();
+  await expect(peak).toHaveValue("150");
   const pending = page.waitForEvent("download");
   await profile.getByRole("button", { name: "Export demand profile" }).click();
   const { intervals } = JSON.parse(

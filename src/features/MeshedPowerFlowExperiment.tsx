@@ -25,6 +25,8 @@ const defaults = {
   ab: true,
   ac: true,
   bc: true,
+  profileLow: 60,
+  profilePeak: 125,
 };
 const storageKey = "adigunpowerlab.powergrid.meshed.v1";
 
@@ -226,8 +228,22 @@ function readCase(): typeof defaults {
       saved &&
       numericFields.every(([key]) => Number.isFinite(saved[key])) &&
       switches.every(([key]) => typeof saved[key] === "boolean")
-    )
-      return saved;
+    ) {
+      const { profileLow, profilePeak } = saved;
+      return {
+        ...saved,
+        profileLow:
+          Number.isInteger(profileLow) && profileLow >= 0 && profileLow <= 100
+            ? profileLow
+            : defaults.profileLow,
+        profilePeak:
+          Number.isInteger(profilePeak) &&
+          profilePeak >= 100 &&
+          profilePeak <= 200
+            ? profilePeak
+            : defaults.profilePeak,
+      };
+    }
   } catch {
     // Fall back to the original teaching case if its saved copy is unusable.
   }
@@ -236,6 +252,8 @@ function readCase(): typeof defaults {
 
 export function MeshedPowerFlowExperiment({ locale }: { locale: Locale }) {
   const [state, setState] = useState(readCase);
+  const [profileLow, setProfileLow] = useState(state.profileLow);
+  const [profilePeak, setProfilePeak] = useState(state.profilePeak);
   const [saved, setSaved] = useState<boolean | null>(null);
   const [compare, setCompare] = useState(false);
   const [outcome, setOutcome] = useState<{
@@ -476,7 +494,20 @@ export function MeshedPowerFlowExperiment({ locale }: { locale: Locale }) {
           </div>
         </>
       )}
-      <PowerGridMeshedProfile locale={locale} input={input} />
+      <PowerGridMeshedProfile
+        locale={locale}
+        input={input}
+        low={profileLow}
+        peak={profilePeak}
+        onLowChange={(value) => {
+          setProfileLow(value);
+          setSaved(null);
+        }}
+        onPeakChange={(value) => {
+          setProfilePeak(value);
+          setSaved(null);
+        }}
+      />
       <div className="pg-actions">
         <button
           type="button"
@@ -496,7 +527,10 @@ export function MeshedPowerFlowExperiment({ locale }: { locale: Locale }) {
           disabled={!result.converged}
           onClick={() => {
             try {
-              localStorage.setItem(storageKey, JSON.stringify(state));
+              localStorage.setItem(
+                storageKey,
+                JSON.stringify({ ...state, profileLow, profilePeak }),
+              );
               setSaved(true);
             } catch {
               setSaved(false);

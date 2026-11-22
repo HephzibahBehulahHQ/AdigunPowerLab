@@ -1929,6 +1929,11 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú dispatch BOT, yan àkókò kan láti wé ààlà fífi agbára batiri jáde pẹ̀lú agbára tí a pèsè àti ẹrù pàtàkì àti mìíràn tí kò rí agbára.",
       "For dispatch BOT, choose interval to compare battery discharge limits with power wey e supply and critical and other loads wey no get supply.",
     ],
+  "Save case locally also remembers the low and peak demand slider values.": [
+    "Beim lokalen Speichern werden auch die Schiebereglerwerte für niedrige Last und Spitzenlast gespeichert.",
+    "Fí case pamọ́ sí browser láti rántí iye slider fún ìbéèrè kékeré àti tó ga.",
+    "Save case locally go remember di low and peak demand slider values too.",
+  ],
   "Use Meshed demand profile to compare three independent AC solves at low, normal and peak demand. Check minimum voltage, losses and convergence, then export the three cases.":
     [
       "Vergleichen Sie im Lastprofil drei unabhängige AC-Berechnungen bei niedriger, normaler und hoher Last. Prüfen Sie Mindestspannung, Verluste und Konvergenz und exportieren Sie die drei Fälle.",

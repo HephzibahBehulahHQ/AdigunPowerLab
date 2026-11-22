@@ -428,4 +428,6 @@ Demand shifting and saved intervention records are now live. Public Chromium ver
 
 The meshed demand-profile candidate compares independent low, base and peak AC solves. The lab exposes voltage, real losses, convergence and the actual per-interval inputs and results in JSON.
 
+A follow-up candidate stores both demand sliders with the saved meshed case, with safe defaults for earlier saves.
+
 Public Pages sampling verified the reduced-motion station layout at desktop, tablet and phone widths. Chromium rendered WebGL at all three widths and recorded two-frame azimuth input timing in docs/TEST_EVIDENCE.md.
