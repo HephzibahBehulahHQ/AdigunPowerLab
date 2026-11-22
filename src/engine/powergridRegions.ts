@@ -139,10 +139,55 @@ export const US_PACIFIC_NORTHWEST_PRESET: RegionalTeachingPreset = {
   ],
 };
 
+export const SOUTH_AFRICA_TEACHING_PRESET: RegionalTeachingPreset = {
+  id: "southern-africa-south-africa-inspired",
+  engineeringRegion: "Southern Africa-inspired · South Africa",
+  frequencyHz: 50,
+  currencyCode: "ZAR",
+  timeZone: "Africa/Johannesburg",
+  nominalVoltageStagesKV: [400, 275, 132],
+  stepUpInputs: {
+    baseVoltageKV: 275,
+    raisedVoltageKV: 400,
+    distributionVoltageKV: 132,
+  },
+  voltageConvention:
+    "A teaching comparison of 275 and 400 kV transmission with a 132 kV downstream stage. It does not represent a particular feeder or substation.",
+  resourceProfile:
+    "CSIR 2024 reported energy provides a dated comparison of coal and utility-scale renewables. The worksheet does not load a dispatch profile.",
+  demandProfile: "No South African demand series is loaded.",
+  simplifications:
+    "The 50 Hz value is context only. Long-line charging, voltage control, power transfers and demand profiles are outside this balanced comparison.",
+  sourceReferences: [
+    {
+      url: "https://www.eskom.co.za/wp-content/uploads/2023/01/Transmission_Development_Plan_2023%E2%80%932032_Rev1.pdf",
+      title: "Eskom · Transmission Development Plan 2023–2032",
+      date: "2023; accessed 21 November 2026",
+    },
+    {
+      url: "https://www.nersa.org.za/wp-content/uploads/2021/08/SAGC-Network-Version-10.pdf",
+      title: "NERSA · South African Grid Code, Network Code",
+      date: "Version 10; accessed 21 November 2026",
+    },
+    {
+      url: "https://www.csir.co.za/media-hub/media-room/csir-releases-statistics-on-power-generation-in-south-africa-for-2024",
+      title:
+        "CSIR · South African utility-scale generation statistics for 2024",
+      date: "Data year 2024; accessed 21 November 2026",
+    },
+  ],
+};
+
+export const SOUTH_AFRICA_2024_ENERGY_TWH = {
+  coal: 177.9,
+  renewable: 17.8,
+} as const;
+
 export const REGIONAL_TEACHING_PRESETS = [
   NIGERIA_TEACHING_PRESET,
   GERMANY_TEACHING_PRESET,
   US_PACIFIC_NORTHWEST_PRESET,
+  SOUTH_AFRICA_TEACHING_PRESET,
 ] as const;
 
 export function applyRegionalTeachingPreset(

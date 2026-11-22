@@ -587,6 +587,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "In POWERGRID LAB, use the controls beside the equipment images to change voltage, distance, power factor and transformer loading. In the dispatch lessons choose an interval, and in Feeder trip use the map to see which load groups disconnect.",
       "Choose United States-inspired in Engineering region to apply Pacific Northwest transmission stages. The residential 120/240 V example is separate from the balanced three-phase worksheet.",
       "In the split-phase experiment, balance the two 120 V loads and then add 240 V load. Compare the line and neutral currents.",
+      "Select the South African teaching preset to compare 275 and 400 kV and view dated coal and renewable generation totals.",
       "In Hydropower head and flow, edit net head, turbine flow, combined efficiency and installed rating. Compare hydraulic power with available generator power, then save locally or export JSON.",
       "In Microgrid dispatch, enter one optional hydro flow per demand interval, plus fixed net head, efficiency and rating. The available hydro output contributes to the shared power balance.",
       "To model reservoir hydro, enter an inflow and requested turbine flow for each interval. Set storage capacity, starting volume and bypass flow, then inspect storage, spill and bypass shortfall.",

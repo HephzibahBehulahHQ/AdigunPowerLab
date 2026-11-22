@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { MapPin } from "lucide-react";
 import {
   REGIONAL_TEACHING_PRESETS,
+  SOUTH_AFRICA_2024_ENERGY_TWH,
   type RegionalTeachingPreset,
 } from "../engine/powergridRegions";
 import { LanguageContext } from "../i18n";
@@ -158,6 +159,41 @@ const usCopy = {
   ],
 } satisfies Record<Locale, readonly string[]>;
 
+const southAfricaCopy = {
+  en: [
+    "Southern Africa-inspired · South Africa",
+    "South African teaching example",
+    "Apply 275 / 400 / 132 kV stages",
+    "Compare the 275 and 400 kV cases at the same power. Change line resistance separately to explore the effect of a longer route.",
+    "Coal in 2024",
+    "Utility-scale renewables in 2024",
+  ],
+  de: [
+    "Südliches Afrika · Beispiel Südafrika",
+    "Übungsfall Südafrika",
+    "275 / 400 / 132 kV übernehmen",
+    "Vergleichen Sie 275 und 400 kV bei gleicher Leistung. Ändern Sie den Leitungswiderstand, um eine längere Strecke zu untersuchen.",
+    "Kohle 2024",
+    "Erneuerbare Großanlagen 2024",
+  ],
+  yo: [
+    "Àpẹẹrẹ Gúúsù Afíríkà · South Africa",
+    "Àpẹẹrẹ ẹ̀kọ́ South Africa",
+    "Lo 275 / 400 / 132 kV",
+    "Wé 275 àti 400 kV ní agbára kan náà. Yí ìdènà okùn padà láti ṣàyẹ̀wò ọ̀nà tó gùn sí i.",
+    "Èédú ní 2024",
+    "Agbára àtúnlò ilé-iṣẹ́ ní 2024",
+  ],
+  pcm: [
+    "Southern Africa example · South Africa",
+    "South Africa teaching example",
+    "Apply 275 / 400 / 132 kV stages",
+    "Compare 275 and 400 kV for di same power. Change wire resistance separately to check wetin longer route go do.",
+    "Coal for 2024",
+    "Utility-scale renewables for 2024",
+  ],
+} satisfies Record<Locale, readonly string[]>;
+
 export function RegionalGridPreset({
   onApply,
 }: {
@@ -173,6 +209,17 @@ export function RegionalGridPreset({
   const isNigeria = preset.id === "nigeria-inspired";
   const isUS = preset.id === "us-pacific-northwest-inspired";
   const [usName, usLabel, usApply, usScope] = usCopy[locale];
+  const isSouthAfrica = preset.id === "southern-africa-south-africa-inspired";
+  const [saName, saLabel, saApply, saScope, coal, renewables] =
+    southAfricaCopy[locale];
+  const [scenarioLabel, applyLabel, scope] = isSouthAfrica
+    ? [saLabel, saApply, saScope]
+    : isUS
+      ? [usLabel, usApply, usScope]
+      : isNigeria
+        ? [text.label, text.apply, text.scope]
+        : [text.labelGermany, text.applyGermany, text.scopeGermany];
+  const format = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
 
   return (
     <section
@@ -182,7 +229,7 @@ export function RegionalGridPreset({
       <header>
         <span className="eyebrow">
           <MapPin size={14} aria-hidden="true" />
-          {isUS ? usLabel : isNigeria ? text.label : text.labelGermany}
+          {scenarioLabel}
         </span>
         <h3 id="pg-region-title">{text.title}</h3>
         <p>{text.intro}</p>
@@ -200,6 +247,9 @@ export function RegionalGridPreset({
           <option value="nigeria-inspired">{text.nigeria}</option>
           <option value="germany-inspired">{text.germany}</option>
           <option value="us-pacific-northwest-inspired">{usName}</option>
+          <option value="southern-africa-south-africa-inspired">
+            {saName}
+          </option>
         </select>
       </label>
       <dl className="pg-region-facts">
@@ -230,9 +280,30 @@ export function RegionalGridPreset({
           <dd>{preset.demandProfile}</dd>
         </div>
       </dl>
-      <p className="pg-region-scope">
-        {isUS ? usScope : isNigeria ? text.scope : text.scopeGermany}
-      </p>
+      <p className="pg-region-scope">{scope}</p>
+      {isSouthAfrica && (
+        <dl className="pg-foundation-readings">
+          {(
+            [
+              [coal, SOUTH_AFRICA_2024_ENERGY_TWH.coal],
+              [renewables, SOUTH_AFRICA_2024_ENERGY_TWH.renewable],
+            ] as const
+          ).map(([label, energy]) => (
+            <div key={label}>
+              <dt>{label}</dt>
+              <dd>{format.format(energy)} TWh</dd>
+              <dd>
+                <meter
+                  className="pg-voltage-meter"
+                  aria-label={label}
+                  value={energy}
+                  max={SOUTH_AFRICA_2024_ENERGY_TWH.coal}
+                />
+              </dd>
+            </div>
+          ))}
+        </dl>
+      )}
       <ul className="pg-region-sources">
         {preset.sourceReferences.map((source) => (
           <li key={source.url}>
@@ -252,7 +323,7 @@ export function RegionalGridPreset({
           setApplied(true);
         }}
       >
-        {isUS ? usApply : isNigeria ? text.apply : text.applyGermany}
+        {applyLabel}
       </button>
       {applied && (
         <p className="pg-saved" role="status">

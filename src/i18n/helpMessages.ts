@@ -2072,6 +2072,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú Agbára omi: gíga àti ìṣàn, ṣàtúnṣe gíga omi tó kù, ìṣàn turbine, ìmúṣẹ àpapọ̀ àti agbára orúkọ. Fi agbára omi wé agbára generator tó wà, kí o sì fi pamọ́ tàbí gbé JSON jáde.",
       "For Hydropower head and water flow, change net head, turbine flow, combined efficiency and installed rating. Compare water power with generator power wey dey available, then save for this device or export JSON.",
     ],
+  "Select the South African teaching preset to compare 275 and 400 kV and view dated coal and renewable generation totals.":
+    [
+      "Wählen Sie den südafrikanischen Übungsfall, um 275 und 400 kV sowie die historischen Erzeugungsmengen aus Kohle und erneuerbaren Energien zu vergleichen.",
+      "Yan àpẹẹrẹ South Africa láti fi 275 àti 400 kV wé ara wọn, kí o sì wo iye iná èédú àti agbára àtúnlò fún ọdún tí a sọ.",
+      "Choose South Africa teaching example to compare 275 and 400 kV and see coal and renewable power totals for di stated year.",
+    ],
   "In the split-phase experiment, balance the two 120 V loads and then add 240 V load. Compare the line and neutral currents.":
     [
       "Gleichen Sie im Einphasen-Dreileiterversuch die beiden 120-V-Lasten an und erhöhen Sie die 240-V-Last. Vergleichen Sie Leiter- und Neutralleiterströme.",

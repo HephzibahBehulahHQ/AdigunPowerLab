@@ -2036,6 +2036,32 @@ test("Pacific Northwest preset keeps split-phase service separate from the balan
   await expect(consumer).toHaveValue("0.43");
 });
 
+test("South African teaching preset applies sourced grid stages and shows dated energy", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  await page
+    .getByLabel("Engineering region")
+    .selectOption("southern-africa-south-africa-inspired");
+  const region = page.locator(".pg-region");
+  await expect(
+    region.getByRole("meter", { name: "Coal in 2024" }),
+  ).toHaveAttribute("value", "177.9");
+  await expect(
+    region.getByRole("meter", { name: "Utility-scale renewables in 2024" }),
+  ).toHaveAttribute("value", "17.8");
+  await region
+    .getByRole("button", { name: "Apply 275 / 400 / 132 kV stages" })
+    .click();
+  await expect(page.getByLabel("Base transmission voltage (kV)")).toHaveValue(
+    "275",
+  );
+  await expect(page.getByLabel("Raised transmission voltage (kV)")).toHaveValue(
+    "400",
+  );
+  await expect(page.getByLabel("Distribution voltage (kV)")).toHaveValue("132");
+});
+
 test("Germany-inspired scenario applies the 50Hertz-area voltage context", async ({
   page,
 }) => {
