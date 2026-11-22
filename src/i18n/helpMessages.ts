@@ -1983,6 +1983,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Nínú agbára ìgbì omi jinlẹ̀, yí gíga ìgbì tàbí àkókò agbára padà. Wé agbára fún mita pẹ̀lú agbára ẹrọ, dán gíga ìdádúró wò, kí o sì gba èsì.",
       "For deep-water wave energy, change wave height or energy period. Compare power for each metre with device output, try di shutdown height, then download di case.",
     ],
+  "Compare open-cycle and combined-cycle net output using equal fuel input and ratings. Use open cycle in dispatch to transfer the gas turbine case without steam recovery.":
+    [
+      "Vergleichen Sie die Nettoleistung des offenen Betriebs und des Kombikraftwerks bei gleicher Brennstoffzufuhr und Nennleistung. Übernehmen Sie bei Bedarf die Gasturbine ohne Dampfrückgewinnung in die Einsatzplanung.",
+      "Fi net output open cycle àti combined cycle wé pẹ̀lú epo àti rating kan náà. Lo open cycle nínú dispatch láti gbé àpẹẹrẹ turbine gaasi tí kò ní steam recovery lọ.",
+      "Compare open-cycle and combined-cycle net power with di same fuel input and rating. Use open cycle for dispatch to copy di gas turbine case without steam recovery.",
+    ],
   "Use combined cycle in dispatch to copy the net output limit, minimum load and running fuel requirements into the chronological worksheet.":
     [
       "Übernehmen Sie Nettoleistungsgrenze, Mindestlast und Brennstoffbedarf des Kombikraftwerks in das chronologische Arbeitsblatt.",

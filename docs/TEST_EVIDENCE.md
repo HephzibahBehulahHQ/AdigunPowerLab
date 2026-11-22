@@ -621,6 +621,8 @@ Compared the onshore solver against every row of the pinned NREL source blob. Al
 
 Dispatch wind selection passed TypeScript, 29 Help and microgrid engine tests, and two focused Chromium cases. The saved onshore reference exported 494 kW available wind at 5 m/s and the pinned curve source. The historical case continued to export its recorded and scaled wind generation.
 
+The gas-cycle comparison passed TypeScript, 20 Help cases and the focused Chromium workflow. At the same available fuel, the open and combined cases showed 117 MW and 147 MW net. The open-cycle handoff exported 117,000 kW and 9 MJ/kWh. The first Windows run stalled on the existing export button with single-process Chrome. The same case passed with Chrome's default multiprocess launch.
+
 ### POWERGRID LAB analytical AC and time-step sensitivity
 
 TypeScript and the full Windows unit suite passed: 445 tests in 34 files, using Vitest with four workers. The two-bus case verified receiving voltage, line current and sending P/Q with a closed-form high-voltage root. The frequency case verified that halving the step from 0.01 to 0.005 s changes the nadir by less than 0.00001 Hz, with nadir time within 0.01 s and ending frequency agreeing to seven decimal places.

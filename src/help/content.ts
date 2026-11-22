@@ -645,6 +645,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "In deep-water wave energy, vary wave height or energy period. Compare power per metre with device output, then try the shutdown height and export the case.",
       "In the gas and steam combined cycle worksheet, compare gas turbine power with steam generation from recovered heat. Change the requested gross output to explore the minimum stable load.",
       "Use combined cycle in dispatch to copy the net output limit, minimum load and running fuel requirements into the chronological worksheet.",
+      "Compare open-cycle and combined-cycle net output using equal fuel input and ratings. Use open cycle in dispatch to transfer the gas turbine case without steam recovery.",
       "In hydrogen fuel cell generation, vary starting inventory, interval duration or the AC rating. Compare gross and net AC output and check how much hydrogen remains.",
       "Use fuel cell in dispatch to copy the net AC power limit, running fuel use and starting hydrogen inventory. The dispatch timeline determines when the inventory runs out.",
       "In biogas engine and heat recovery, vary methane concentration and heat demand. Compare net electricity, recoverable heat and heat actually supplied.",

@@ -99,7 +99,7 @@ The fixed-voltage lesson compares a lossless transformer with a 1,000 kVA teachi
 | Concentrated solar thermal | Steady-state direct solar power tower with receiver and cycle efficiencies, nameplate and minimum output. Storage and dispatch remain open. |
 | Onshore and offshore wind | Selectable NREL 2020 ATB 4 MW onshore and 6 MW offshore reference curves in the wind worksheet and for entered winds in chronological dispatch. Historical dispatch uses reported generation. |
 | Coal steam | Net heat rate, plant rating and finite coal inventory over one interval. These settings can seed chronological dispatch. |
-| Gas turbines and combined cycle | Equipment study and steady-state gas/steam worksheet. Its net rating, minimum output and fuel curve can seed chronological dispatch. A standalone gas-turbine dispatch curve remains open. |
+| Gas turbines and combined cycle | Steady-state open-cycle and combined-cycle comparison under shared limits. Either case can seed chronological dispatch with its own constant-efficiency fuel curve and running auxiliary demand. |
 | Nuclear steam | Educational steady steam-cycle energy balance with entered heat, conversion efficiency, gross rating and plant electricity use. |
 | Diesel and other liquid fuel | Diesel generator worksheet with a linear fuel curve and finite inventory. The worksheet can seed chronological dispatch, where startup fuel is entered separately. Other liquid-fuel curves remain open. |
 | Biomass and biogas | Solid biomass steam and gaseous biogas CHP worksheets. Both can seed electrical dispatch. Heat recovery remains in the biogas worksheet. |
