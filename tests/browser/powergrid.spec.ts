@@ -1432,6 +1432,30 @@ test("POWERGRID retains equipment inspection when WebGL is unavailable", async (
   ).toHaveAttribute("aria-pressed", "true");
 });
 
+test("microgrid dispatch saves the onshore reference and exports the active source", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const dispatch = page.getByRole("region", {
+    name: "Microgrid dispatch laboratory",
+  });
+  const reference = dispatch.getByRole("combobox", {
+    name: /Wind reference turbine/,
+  });
+  await reference.selectOption("onshore");
+  await dispatch.getByRole("button", { name: "Save scenario locally" }).click();
+  await page.reload();
+  await expect(reference).toHaveValue("onshore");
+  const pending = page.waitForEvent("download");
+  await dispatch.getByRole("button", { name: "Export dispatch JSON" }).click();
+  const data = JSON.parse(await readFile(await (await pending).path(), "utf8"));
+  expect(data.inputs.wind.reference).toBe("onshore");
+  expect(data.windCurveSource).toContain(
+    "662d920de487f61e3806c044a893e334c07701fe",
+  );
+  expect(data.result.intervals[1].windAvailableKW).toBe(494);
+});
+
 test("microgrid dispatch persists scaled historical generation and keeps source data in JSON", async ({
   page,
 }) => {

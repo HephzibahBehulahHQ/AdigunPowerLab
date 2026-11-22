@@ -66,7 +66,7 @@ The editable default sequence 3, 5, 8, 12, 18, 26 m/s is an analytical lesson pr
 
 ## Milestone 3 slice: chronological PV/wind, storage and critical-load dispatch
 
-`src/engine/microgridDispatch.ts` connects the existing per-interval PV and NREL wind models to editable total-demand and critical-demand profiles. Profile arrays must have the same length (1–96 intervals); interval duration is shared. The PV inputs use the Sandia/NREL equations above. Wind uses the cited NREL 6 MW curve. This combines available generation at an illustrative AC bus; it does not convert source data into a regional forecast.
+`src/engine/microgridDispatch.ts` connects the existing per-interval PV and NREL wind models to editable total-demand and critical-demand profiles. Profile arrays must have the same length (1–96 intervals); interval duration is shared. The PV inputs use the Sandia/NREL equations above. Entered wind speeds use the selected reference curve and default to the 6 MW offshore curve. Historical cases use reported generation. This combines available generation at an illustrative AC bus; it does not convert source data into a regional forecast.
 
 Dispatch order is explicit: available PV/wind serve demand first; renewable surplus charges a battery within its power and SOC limits; deficit uses battery discharge above the entered reserve, then a generic dispatchable backup ceiling limited by its entered ramp-up increment. Ramp-down is immediate and there is no unit commitment, minimum output or physical generator type. Supply serves the entered critical-demand portion before non-critical demand. The model reports curtailment and critical/non-critical unmet demand separately.
 
@@ -97,7 +97,7 @@ The fixed-voltage lesson compares a lossless transformer with a 1,000 kVA teachi
 | Pumped storage | Chronological pumping and generation with capacity, power limits and directional efficiencies. |
 | Solar PV | Irradiance, cell temperature, DC/AC conversion and clipping. |
 | Concentrated solar thermal | Steady-state direct solar power tower with receiver and cycle efficiencies, nameplate and minimum output. Storage and dispatch remain open. |
-| Onshore and offshore wind | Selectable NREL 2020 ATB 4 MW onshore and 6 MW offshore reference curves. Entered wind profiles are shared across the comparison. Chronological dispatch uses the offshore curve. |
+| Onshore and offshore wind | Selectable NREL 2020 ATB 4 MW onshore and 6 MW offshore reference curves in the wind worksheet and for entered winds in chronological dispatch. Historical dispatch uses reported generation. |
 | Coal steam | Net heat rate, plant rating and finite coal inventory over one interval. These settings can seed chronological dispatch. |
 | Gas turbines and combined cycle | Equipment study and steady-state gas/steam worksheet. Its net rating, minimum output and fuel curve can seed chronological dispatch. A standalone gas-turbine dispatch curve remains open. |
 | Nuclear steam | Educational steady steam-cycle energy balance with entered heat, conversion efficiency, gross rating and plant electricity use. |

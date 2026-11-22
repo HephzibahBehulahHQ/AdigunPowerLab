@@ -412,4 +412,6 @@ The wind worksheet candidate adds the NREL 2020 ATB 4 MW onshore reference curve
 
 Biogas and hydrogen dispatch transfers are deployed and verified on public Pages. The biogas handoff disables at zero methane and supplies a running fuel curve. The hydrogen handoff preserves the initial fuel stock and instantaneous electrical limit as distinct dispatch inputs. See docs/DEPLOYMENT.md for the exact revisions and checks.
 
+The next dispatch candidate adds onshore and offshore reference selection for entered wind speeds. Older saves default to offshore, while historical profiles continue to use recorded generation.
+
 Public Pages sampling verified the reduced-motion station layout at desktop, tablet and phone widths. Chromium rendered WebGL at all three widths and recorded two-frame azimuth input timing in docs/TEST_EVIDENCE.md.
