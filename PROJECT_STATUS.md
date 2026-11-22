@@ -424,4 +424,6 @@ The demand-response candidate adds an interval transfer for entered flexible loa
 
 A follow-up candidate preserves the latest applied shift in saved dispatch scenarios and JSON exports, including original and revised load at both intervals.
 
+Demand shifting and saved intervention records are now live. Public Chromium verified conservation, the receiving interval limit, and save/reload with the before/after readings in the JSON export.
+
 Public Pages sampling verified the reduced-motion station layout at desktop, tablet and phone widths. Chromium rendered WebGL at all three widths and recorded two-frame azimuth input timing in docs/TEST_EVIDENCE.md.
