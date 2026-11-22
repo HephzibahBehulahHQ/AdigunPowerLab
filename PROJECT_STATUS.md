@@ -422,4 +422,6 @@ The gas turbine comparison is now published and verified. The equal-fuel exercis
 
 The demand-response candidate adds an interval transfer for entered flexible load. It preserves critical demand and total energy and recalculates dispatch from the revised demand profile.
 
+A follow-up candidate preserves the latest applied shift in saved dispatch scenarios and JSON exports, including original and revised load at both intervals.
+
 Public Pages sampling verified the reduced-motion station layout at desktop, tablet and phone widths. Chromium rendered WebGL at all three widths and recorded two-frame azimuth input timing in docs/TEST_EVIDENCE.md.

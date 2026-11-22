@@ -229,6 +229,8 @@ Switch **Reference turbine** to **NREL 4 MW onshore** and keep the entered wind 
 
 In microgrid dispatch, use **Shift flexible demand** to move part of the entered noncritical load between two intervals. The panel shows how much can move and reports the energy transferred. Compare the new backup and unmet-demand readings with your reference run. Saving or exporting the scenario includes the revised demand profile.
 
+The latest applied shift also appears in the panel and dispatch JSON. It records the two interval numbers, transferred power and energy, and the worksheet loads before and after the transfer.
+
 The curve is from Appendix D of [NREL/TP-6A20-67414](https://www.nrel.gov/docs/fy17osti/67414.pdf). It describes a research reference turbine, not commercial equipment or a site-specific forecast. The entered wind sequence is an analytical teaching profile, not measured local weather. Air-density and hub-height correction, wakes, availability, electrical losses, curtailment, storage and dispatch are not included.
 
 ## POWERGRID LAB classroom dispatch

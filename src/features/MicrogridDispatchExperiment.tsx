@@ -18,7 +18,11 @@ import {
 import type { ActiveProjectDemand } from "./RadialFeederExperiment";
 import { PowerGridCommunityCapstone } from "./PowerGridCommunityCapstone";
 import { PowerGridDispatchBot } from "./PowerGridDispatchBot";
-import { PowerGridDemandShift } from "./PowerGridDemandShift";
+import {
+  isDemandShiftRecord,
+  PowerGridDemandShift,
+  type DemandShiftRecord,
+} from "./PowerGridDemandShift";
 import {
   PowerGridDispatchLessons,
   PowerGridOperatingLesson,
@@ -673,6 +677,7 @@ function tr(message: string, locale: Locale) {
 
 interface Editable {
   projectDemand?: RecurringProjectDemand;
+  lastDemandShift?: DemandShiftRecord;
   historicalGermany: boolean;
   historicalWinter: boolean;
   intervalHours: number;
@@ -795,6 +800,9 @@ function readSaved(): Editable {
           ...value,
           projectDemand: isRecurringProjectDemand(value.projectDemand)
             ? value.projectDemand
+            : undefined,
+          lastDemandShift: isDemandShiftRecord(value.lastDemandShift)
+            ? value.lastDemandShift
             : undefined,
           historicalGermany: value.historicalGermany === true,
           historicalWinter: value.historicalWinter === true,
@@ -1169,6 +1177,7 @@ export function MicrogridDispatchExperiment({
                 }
               : undefined,
             projectDemandSource: state.projectDemand,
+            lastDemandShift: state.lastDemandShift,
             operatingReference:
               kind === "operation" ? ruralReference : undefined,
             capstone:
@@ -1431,8 +1440,9 @@ export function MicrogridDispatchExperiment({
           demand={state.demand}
           critical={state.critical}
           intervalHours={state.intervalHours}
-          onShift={(demand) => {
-            setState((previous) => ({ ...previous, demand }));
+          lastShift={state.lastDemandShift}
+          onShift={(demand, lastDemandShift) => {
+            setState((previous) => ({ ...previous, demand, lastDemandShift }));
             setSaved(false);
           }}
         />

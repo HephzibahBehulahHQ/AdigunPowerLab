@@ -625,6 +625,8 @@ The gas-cycle comparison passed TypeScript, 20 Help cases and the focused Chromi
 
 The flexible-demand exercise passed TypeScript, 20 Help tests and Chromium. The browser rejected an excessive move, transferred 5 kWh from the first interval to the second, and verified equal exported total energy and unchanged critical demand.
 
+The shift record follow-up passed the same targeted checks. Chromium saved and reloaded the event and verified the exported interval numbers, power, energy and before/after loads.
+
 ### POWERGRID LAB analytical AC and time-step sensitivity
 
 TypeScript and the full Windows unit suite passed: 445 tests in 34 files, using Vitest with four workers. The two-bus case verified receiving voltage, line current and sending P/Q with a closed-form high-voltage root. The frequency case verified that halving the step from 0.01 to 0.005 s changes the nadir by less than 0.00001 Hz, with nadir time within 0.01 s and ending frequency agreeing to seven decimal places.
