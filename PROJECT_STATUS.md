@@ -414,4 +414,6 @@ Biogas and hydrogen dispatch transfers are deployed and verified on public Pages
 
 The next dispatch candidate adds onshore and offshore reference selection for entered wind speeds. Older saves default to offshore, while historical profiles continue to use recorded generation.
 
+The onshore wind worksheet, Pacific Northwest preset with split-phase experiment, and South Africa preset are live. Public browser results and exact workflow receipts are recorded in docs/DEPLOYMENT.md.
+
 Public Pages sampling verified the reduced-motion station layout at desktop, tablet and phone widths. Chromium rendered WebGL at all three widths and recorded two-frame azimuth input timing in docs/TEST_EVIDENCE.md.
