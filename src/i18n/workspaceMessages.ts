@@ -1,5 +1,15 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "Commercial and industrial loads": [
+    "Gewerbliche und industrielle Lasten",
+    "Ẹrù iná ilé-iṣẹ́ àti òwò",
+    "Commercial and industrial loads",
+  ],
+  "Verified heater calculation mapping": [
+    "Geprüfte Zuordnung zur Heizungsberechnung",
+    "Ìbámu ìṣírò ohun ìgbóná tí a fìdí múlẹ̀",
+    "Verified heater calculation mapping",
+  ],
   "Motors and motor-driven equipment": [
     "Motoren und motorbetriebene Geräte",
     "Mọ́tò àti ohun èlò tí mọ́tò ń darí",

@@ -88,6 +88,7 @@ const categoryLabels = {
   "cables-and-conductors": "Cables and conductors",
   generators: "Generators",
   "lighting-equipment": "Lighting equipment",
+  "commercial-and-industrial-loads": "Commercial and industrial loads",
   "motors-and-motor-driven-equipment": "Motors and motor-driven equipment",
   "enclosures-and-installation-hardware":
     "Enclosures and installation hardware",
@@ -115,6 +116,7 @@ const missingFieldLabels: Record<string, string> = {
   "verified-lighting-model-mapping": "Verified lighting calculation mapping",
   "motor-terminal-diagram": "Documented motor terminal diagram",
   "verified-motor-model-mapping": "Verified motor calculation mapping",
+  "verified-heater-model-mapping": "Verified heater calculation mapping",
   "enclosure-bonding-points": "Documented enclosure bonding points",
   "enclosure-thermal-model": "Verified enclosure thermal model",
   "verified-ups-model-mapping": "Verified UPS calculation mapping",
@@ -444,6 +446,21 @@ export function ManufacturerEquipmentCatalogue({
                   {record.ratings.inputNominalV} V DC →{" "}
                   {record.ratings.outputNominalV} V AC
                 </dd>
+              </div>
+            </dl>
+          ) : record.function === "resistive-strip-heater" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>P</dt>
+                <dd>{format.format(record.ratings.powerW)} W</dd>
+              </div>
+              <div>
+                <dt>Ue</dt>
+                <dd>{record.ratings.ratedVoltageV} V</dd>
+              </div>
+              <div>
+                <dt>W/in²</dt>
+                <dd>{format.format(record.ratings.wattsPerSquareInch)}</dd>
               </div>
             </dl>
           ) : record.function === "three-phase-induction-motor" ? (

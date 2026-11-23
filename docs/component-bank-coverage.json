@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "distinctRecords": 1003,
+  "distinctRecords": 1037,
   "goalMinimum": 10000,
   "readiness": {
     "pv-worksheet-inputs-only": 14,
-    "inventory-and-diagram-only": 989
+    "inventory-and-diagram-only": 1023
   },
   "categories": [
     {
@@ -88,8 +88,8 @@
     {
       "category": "commercial-and-industrial-loads",
       "target": 500,
-      "records": 0,
-      "remaining": 500
+      "records": 34,
+      "remaining": 466
     },
     {
       "category": "lighting-equipment",
