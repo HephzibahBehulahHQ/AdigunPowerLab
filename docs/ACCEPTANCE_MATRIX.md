@@ -399,3 +399,5 @@ AC protection batch: 180 sourced Schneider iC60N records have catalogue lookup, 
 AC line-terminal wiring is available for indexed iC60N units. Connections preserve explicit phase and enforce breaker pole phase agreement. AC neutral/PE and protection calculations remain open.
 
 The catalogue navigation candidate supports category filtering, multi-term search, and pages of 50 models.
+
+The iID candidate adds 47 source-backed RCCBs with CSV/JSON, numbered line terminals, separate neutral terminals, and neutral-link validation.

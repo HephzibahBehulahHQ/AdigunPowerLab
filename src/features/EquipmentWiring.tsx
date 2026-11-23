@@ -27,7 +27,8 @@ export function EquipmentWiring({
   const [targetId, setTargetId] = useState(instance.id);
   const [error, setError] = useState(false);
   const instances = project.catalogueEquipment ?? [];
-  const domain = catalogueRecord(instance)?.connection;
+  const model = catalogueRecord(instance);
+  const domain = model?.connection;
   const equipment = instances.filter(
     (item) => catalogueRecord(item)?.connection === domain,
   );
@@ -88,6 +89,9 @@ export function EquipmentWiring({
                 <option>L1</option>
                 <option>L2</option>
                 <option>L3</option>
+                {model?.terminals.some(
+                  ({ interface: kind }) => kind === "ac-neutral",
+                ) && <option>N</option>}
               </select>
             </Field>
           )}

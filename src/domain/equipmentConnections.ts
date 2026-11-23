@@ -46,11 +46,10 @@ export function equipmentConnectionErrors(
       key: JSON.stringify([instanceId, unit, terminalId]),
       device: JSON.stringify([instanceId, unit]),
       domain:
-        terminal.interface === "ac-line"
-          ? "ac"
-          : terminal.interface === "protective-bond"
-            ? "bond"
-            : "dc",
+        terminal.interface === "dc-positive" ||
+        terminal.interface === "dc-negative"
+          ? "dc"
+          : terminal.interface,
       pole: JSON.stringify([
         instanceId,
         unit,
@@ -89,7 +88,7 @@ export function equipmentConnectionErrors(
       errors.push(`${label}: duplicate endpoint pair.`);
       continue;
     }
-    if (left.domain === "ac") {
+    if (left.domain === "ac-line") {
       if (phase !== "L1" && phase !== "L2" && phase !== "L3") {
         errors.push(`${label}: AC line links require L1, L2 or L3.`);
         continue;

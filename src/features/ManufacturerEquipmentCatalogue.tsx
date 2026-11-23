@@ -204,6 +204,30 @@ export function ManufacturerEquipmentCatalogue({
                 <dd>{format.format(record.ratings.impA)} A</dd>
               </div>
             </dl>
+          ) : record.function === "residual-current-circuit-breaker" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>Iₙ</dt>
+                <dd>
+                  {format.format(record.ratings.ratedCurrentA)} A ·{" "}
+                  {record.ratings.poles}P
+                </dd>
+              </div>
+              <div>
+                <dt>IΔn · AC</dt>
+                <dd>
+                  {format.format(record.ratings.tripSensitivityMA)} mA
+                  {record.ratings.selective ? " · S" : ""}
+                </dd>
+              </div>
+              <div>
+                <dt>Ue · IEC/EN 61008-1</dt>
+                <dd>
+                  {record.conditions.ratedVoltageMinV}–
+                  {record.conditions.ratedVoltageMaxV} V AC
+                </dd>
+              </div>
+            </dl>
           ) : (
             <dl className="pg-metrics">
               <div>
