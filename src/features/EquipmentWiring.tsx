@@ -6,6 +6,7 @@ import {
   isWireTerminal,
 } from "../domain/equipmentConnections";
 import { newId } from "../domain/project";
+import { cataloguePvStrings } from "../engine/cataloguePvStrings";
 import type {
   CatalogueEquipmentInstance,
   EquipmentTerminalConnection,
@@ -39,6 +40,13 @@ export function EquipmentWiring({
     ({ from, to }) =>
       from.instanceId === instance.id || to.instanceId === instance.id,
   );
+  const strings =
+    domain === "dc"
+      ? cataloguePvStrings(project).filter(({ units }) =>
+          units.some(({ instanceId }) => instanceId === instance.id),
+        )
+      : [];
+  const format = new Intl.NumberFormat(undefined, { maximumFractionDigits: 2 });
   const describe = ({
     instanceId,
     unit,
@@ -185,6 +193,29 @@ export function EquipmentWiring({
           </button>
         </p>
       ))}
+      {strings.length > 0 && (
+        <section>
+          <h4>{t("PV series string at STC")}</h4>
+          <p>
+            {t(
+              "Uses nameplate values for identical modules in an isolated series chain.",
+            )}
+          </p>
+          {strings.map(({ key, units, vocV, vmpV, impA }) => (
+            <p key={key}>
+              {units
+                .map(
+                  ({ instanceId, unit }) =>
+                    `${equipment.find(({ id }) => id === instanceId)?.name ?? instanceId} [${unit}]`,
+                )
+                .join(" → ")}
+              <br />
+              Voc {format.format(vocV)} V · Vmp {format.format(vmpV)} V · Imp{" "}
+              {format.format(impA)} A
+            </p>
+          ))}
+        </section>
+      )}
     </>
   );
 }

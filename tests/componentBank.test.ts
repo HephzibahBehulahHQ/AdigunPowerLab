@@ -12,6 +12,7 @@ import {
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
 import { equipmentConnectionErrors } from "../src/domain/equipmentConnections";
+import { cataloguePvStrings } from "../src/engine/cataloguePvStrings";
 import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
@@ -102,6 +103,38 @@ test("PV validation follows conductor nodes across multiple wires", () => {
   ).toEqual([
     "Equipment terminal network: PV terminals share a conductor node for PV panels [1].",
   ]);
+});
+
+test("catalogue PV series totals exclude branched and cyclic networks", () => {
+  const model = pvModules[0];
+  const project = createProject();
+  project.catalogueEquipment = [
+    {
+      id: "pv",
+      name: "Modules",
+      catalogueId: model.id,
+      manufacturer: model.manufacturer,
+      model: model.model,
+      sourceUrl: model.source.url,
+      sourceRevision: model.source.revision,
+      quantity: 3,
+    },
+  ];
+  const wire = (from: number, to: number) => ({
+    id: `${from}-${to}`,
+    from: { instanceId: "pv", unit: from, terminalId: "positive" },
+    to: { instanceId: "pv", unit: to, terminalId: "negative" },
+  });
+  project.equipmentTerminalConnections = [wire(1, 2), wire(2, 3)];
+  const [string] = cataloguePvStrings(project);
+  expect(string.units.map(({ unit }) => unit)).toEqual([1, 2, 3]);
+  expect(string.vocV).toBeCloseTo(106.2);
+  expect(string.vmpV).toBeCloseTo(90.6);
+  expect(string.impA).toBeCloseTo(14.58);
+  project.equipmentTerminalConnections.push(wire(3, 1));
+  expect(cataloguePvStrings(project)).toEqual([]);
+  project.equipmentTerminalConnections = [wire(1, 2), wire(1, 3)];
+  expect(cataloguePvStrings(project)).toEqual([]);
 });
 
 test("iSW switch records retain the documented terminal numbering and voltage", () => {
