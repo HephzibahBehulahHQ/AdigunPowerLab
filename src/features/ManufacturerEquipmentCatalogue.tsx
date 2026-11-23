@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { pvModules } from "../data/componentBank";
+import { componentBankCsv, pvModules } from "../data/componentBank";
 import { downloadFile } from "../import-export/files";
 import { LanguageContext } from "../i18n";
 
@@ -11,6 +11,7 @@ const copy = {
     "No matching equipment",
     "Open datasheet",
     "Export record JSON",
+    "Export record CSV",
   ],
   de: [
     "Herstellergeräte",
@@ -19,6 +20,7 @@ const copy = {
     "Keine passenden Geräte",
     "Datenblatt öffnen",
     "Datensatz als JSON exportieren",
+    "Datensatz als CSV exportieren",
   ],
   yo: [
     "Ohun èlò olupese",
@@ -27,6 +29,7 @@ const copy = {
     "Kò sí ohun èlò tó bá mu",
     "Ṣí datasheet",
     "Gbé àkọsílẹ̀ JSON jáde",
+    "Gbé àkọsílẹ̀ CSV jáde",
   ],
   pcm: [
     "Manufacturer equipment",
@@ -35,12 +38,14 @@ const copy = {
     "No equipment match",
     "Open datasheet",
     "Export record JSON",
+    "Export record CSV",
   ],
 } as const;
 
 export function ManufacturerEquipmentCatalogue() {
   const locale = useContext(LanguageContext);
-  const [title, search, inspect, empty, source, exportLabel] = copy[locale];
+  const [title, search, inspect, empty, source, exportLabel, exportCsvLabel] =
+    copy[locale];
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState("");
   const matches = pvModules.filter(({ manufacturer, model }) =>
@@ -109,6 +114,19 @@ export function ManufacturerEquipmentCatalogue() {
               }
             >
               {exportLabel}
+            </button>
+            <button
+              className="button"
+              type="button"
+              onClick={() =>
+                downloadFile(
+                  `component-bank-${record.model}.csv`,
+                  componentBankCsv([record]),
+                  "text/csv;charset=utf-8",
+                )
+              }
+            >
+              {exportCsvLabel}
             </button>
           </div>
         </>

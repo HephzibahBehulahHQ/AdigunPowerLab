@@ -92,3 +92,26 @@ export const pvModules = families.flatMap((family) =>
     }),
   ),
 );
+
+export function componentBankCsv(
+  records: readonly (typeof pvModules)[number][],
+) {
+  const columns = Object.keys(
+    pvModules[0],
+  ) as (keyof (typeof pvModules)[number])[];
+  const field = (value: unknown) => {
+    const serialized =
+      value !== null && typeof value === "object"
+        ? JSON.stringify(value)
+        : String(value ?? "");
+    return `"${serialized.replaceAll('"', '""')}"`;
+  };
+  return (
+    [
+      columns.join(","),
+      ...records.map((record) =>
+        columns.map((column) => field(record[column])).join(","),
+      ),
+    ].join("\r\n") + "\r\n"
+  );
+}
