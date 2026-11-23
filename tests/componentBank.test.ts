@@ -16,6 +16,7 @@ import {
   abl6Transformers,
   abt7pduTransformers,
   victronAgmSuperCycle,
+  apcSmvUps,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -28,6 +29,23 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("APC SMV variants retain inlet and outlet differences", () => {
+  expect(apcSmvUps).toHaveLength(5);
+  for (const entry of apcSmvUps) {
+    expect(
+      entry.terminals.filter(({ connector }) => connector === "IEC C13"),
+    ).toHaveLength(6);
+    expect(entry.terminals[0].connector).toBe(
+      entry.model === "SMV3000CAI" ? "IEC C20" : "IEC C14",
+    );
+  }
+  const json = readFileSync(
+    new URL("../docs/component-bank-apc-smv.json", import.meta.url),
+    "utf8",
+  );
+  expect(JSON.parse(json)).toEqual({ schemaVersion: 1, entries: apcSmvUps });
+});
 
 test("Victron AGM retains discharge-rate capacity and exact insert variants", () => {
   expect(victronAgmSuperCycle).toHaveLength(8);

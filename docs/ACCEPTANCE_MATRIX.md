@@ -453,3 +453,5 @@ AGM terminals support saved battery-to-battery links and common-node short check
 Saved battery series links map to nominal voltage, C20 capacity and nominal energy for identical isolated units.
 
 Frozen BOM includes sequence, nominal voltage, C20 capacity, nominal energy and source-based series cutoff for supported battery chains.
+
+The first UPS records include exact model, VA and W ratings, nominal output voltage, six IEC C13 outlets and model-specific mains inlet.

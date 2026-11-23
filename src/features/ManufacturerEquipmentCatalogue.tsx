@@ -82,6 +82,7 @@ const projectCopy = {
 const pageSize = 50;
 const categories = [...new Set(componentBank.map(({ category }) => category))];
 const categoryLabels = {
+  "ups-and-backup-systems": "UPS and backup systems",
   "batteries-and-storage-systems": "Batteries and storage systems",
   transformers: "Transformers",
   "solar-and-wind-equipment": "Solar and wind equipment",
@@ -94,6 +95,8 @@ const categoryLabels = {
 } as const;
 
 const missingFieldLabels: Record<string, string> = {
+  "verified-ups-model-mapping": "Verified UPS calculation mapping",
+  "battery-and-dry-contact-pinouts": "Battery and dry-contact pinouts",
   "verified-storage-model-mapping": "Verified storage calculation mapping",
   "verified-transformer-model-mapping":
     "Verified transformer calculation mapping",
@@ -384,6 +387,21 @@ export function ManufacturerEquipmentCatalogue({
               <div>
                 <dt>{t("Discharge cutoff")}</dt>
                 <dd>{format.format(record.conditions.dischargeCutoffV)} V</dd>
+              </div>
+            </dl>
+          ) : record.function === "line-interactive-ups" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>{t("Apparent power")}</dt>
+                <dd>{format.format(record.ratings.outputVA)} VA</dd>
+              </div>
+              <div>
+                <dt>{t("Rated output")}</dt>
+                <dd>{format.format(record.ratings.outputW)} W</dd>
+              </div>
+              <div>
+                <dt>U</dt>
+                <dd>{record.ratings.outputNominalV} V AC</dd>
               </div>
             </dl>
           ) : record.function !== "miniature-circuit-breaker" ? (

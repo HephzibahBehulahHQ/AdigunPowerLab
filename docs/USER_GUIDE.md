@@ -491,3 +491,5 @@ Select two battery units and their positive or negative terminals to record a ba
 For identical batteries wired as an isolated series chain, the inspector shows nominal voltage, C20 capacity and nominal energy. Energy uses nominal voltage multiplied by C20 capacity.
 
 Freeze a report with the model-derived bill of materials to include the battery sequence and nameplate estimates. The C20 cutoff is the published test condition for the connected units.
+
+Filter **UPS and backup systems** to compare Easy UPS VA and W ratings and inspect documented mains and output connectors.
