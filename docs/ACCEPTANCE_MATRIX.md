@@ -407,3 +407,5 @@ The iID expansion adds 34 Type A order codes with source page and separate volta
 The generated component-bank coverage artifact reports the owner target, current record totals, category gaps and readiness. A category count alone does not establish complete record or model acceptance.
 
 The switching category starts with 12 Schneider iSW order codes, documented power terminals, rated current/voltage, and CSV/JSON.
+
+Record inspection exposes exact source revision and page, documented terminals, reviewed PV coefficients and unverified fields.
