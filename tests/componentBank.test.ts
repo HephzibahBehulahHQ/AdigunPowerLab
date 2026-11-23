@@ -14,6 +14,7 @@ import {
   linergyDsBlocks,
   linergyEarthBars,
   abl6Transformers,
+  abt7pduTransformers,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -23,6 +24,35 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("ABT7PDU records retain two secondary windings and distinct jumper arrangements", () => {
+  expect(abt7pduTransformers).toHaveLength(23);
+  expect(abt7pduTransformers.some(({ model }) => model === "ABT7PDU002B")).toBe(
+    false,
+  );
+  const model = abt7pduTransformers.find(
+    ({ model }) => model === "ABT7PDU250B",
+  );
+  expect(model?.ratings).toMatchObject({
+    apparentVA: 2500,
+    secondaryV: 24,
+    secondaryWindings: 2,
+  });
+  expect(model?.conditions.jumperPlacement).toBe("external");
+  expect(
+    model?.terminals.filter(
+      ({ interface: kind }) => kind === "transformer-secondary",
+    ),
+  ).toHaveLength(4);
+  const json = readFileSync(
+    new URL("../docs/component-bank-abt7pdu.json", import.meta.url),
+    "utf8",
+  );
+  expect(JSON.parse(json)).toEqual({
+    schemaVersion: 1,
+    entries: abt7pduTransformers,
+  });
+});
 
 test("ABL6TS stock references preserve the selection-table gaps and winding terminals", () => {
   expect(abl6Transformers).toHaveLength(39);
