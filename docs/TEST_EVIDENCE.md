@@ -788,3 +788,5 @@ TypeScript, 15 component-bank checks and Chromium passed for RM17 lookup, includ
 TypeScript, 16 component-bank checks and Chromium passed. The browser verified the 4.2 kA/1 s rating. The model rejected conflicting phases assigned to two openings on the same distribution block.
 
 Linergy TB passed TypeScript, 37 focused checks and Chromium rating lookup for LVS04200.
+
+TypeScript, 18 component-bank checks and Chromium passed. Browser lookup matched ABL6TS25B to 250 VA and 24 V AC.
