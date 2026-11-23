@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "distinctRecords": 906,
+  "distinctRecords": 918,
   "goalMinimum": 10000,
   "readiness": {
     "pv-worksheet-inputs-only": 14,
-    "inventory-and-diagram-only": 892
+    "inventory-and-diagram-only": 904
   },
   "categories": [
     {
@@ -100,8 +100,8 @@
     {
       "category": "ev-charging-equipment",
       "target": 300,
-      "records": 0,
-      "remaining": 300
+      "records": 12,
+      "remaining": 288
     },
     {
       "category": "metering-and-power-quality",

@@ -19,6 +19,7 @@ import {
   apcSmvUps,
   victronVeDirect230,
   victronVeDirect120,
+  evlinkHomeStations,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -31,6 +32,49 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("EVlink order codes preserve phase terminals, outlet and published ratings", () => {
+  expect(
+    new Set(evlinkHomeStations.map(({ orderCode }) => orderCode)).size,
+  ).toBe(12);
+  const socket = evlinkHomeStations.find(({ model }) => model === "EVH4S07N2");
+  const cable = evlinkHomeStations.find(({ model }) => model === "EVH4A11NC");
+  expect(socket?.ratings).toEqual({
+    powerKW: 7.4,
+    ratedCurrentA: 32,
+    phases: 1,
+    rdcDdMilliamp: 6,
+  });
+  expect(socket?.terminals.map(({ group }) => group)).toEqual([
+    "L1",
+    "N",
+    "PE",
+    "Vehicle",
+  ]);
+  expect(cable?.ratings).toMatchObject({
+    powerKW: 11,
+    ratedCurrentA: 16,
+    phases: 3,
+  });
+  expect(cable?.terminals.map(({ group }) => group)).toEqual([
+    "L1",
+    "L2",
+    "L3",
+    "N",
+    "PE",
+    "Vehicle",
+  ]);
+  expect(cable?.terminals.at(-1)?.connector).toBe("Type 2 cable (5 m)");
+  expect(cable?.modelMapping).toBeNull();
+  const json = readFileSync(
+    new URL("../docs/component-bank-evlink-home.json", import.meta.url),
+    "utf8",
+  );
+  expect(JSON.parse(json)).toEqual({
+    schemaVersion: 1,
+    entries: evlinkHomeStations,
+  });
+});
 
 test("Victron 120 V versions retain their own power table and GFCI article codes", () => {
   expect(victronVeDirect120).toHaveLength(36);

@@ -1,0 +1,713 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "schneider-electric:evh4s03n2",
+      "manufacturer": "Schneider Electric",
+      "model": "EVH4S03N2",
+      "orderCode": "EVH4S03N2",
+      "category": "ev-charging-equipment",
+      "function": "ac-ev-charging-station",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l1",
+          "group": "L1",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "n",
+          "group": "N",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "evse-protective-earth",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "vehicle",
+          "group": "Vehicle",
+          "interface": "evse-type-2",
+          "connector": "Type 2 socket"
+        }
+      ],
+      "ratings": {
+        "powerKW": 3.7,
+        "ratedCurrentA": 16,
+        "phases": 1,
+        "rdcDdMilliamp": 6
+      },
+      "conditions": {
+        "series": "EVlink Home"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=GEX4292700_EN&p_File_Name=FBC_GEX4292700-01_EN_V9_HD.pdf&p_enDocType=Instruction+sheet",
+        "revision": "GEX4292700-03_EN (08/2023)",
+        "page": 5,
+        "pageLabel": "4–5, 8–9"
+      },
+      "missingFields": [
+        "verified-evse-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:evh4s03nc",
+      "manufacturer": "Schneider Electric",
+      "model": "EVH4S03NC",
+      "orderCode": "EVH4S03NC",
+      "category": "ev-charging-equipment",
+      "function": "ac-ev-charging-station",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l1",
+          "group": "L1",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "n",
+          "group": "N",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "evse-protective-earth",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "vehicle",
+          "group": "Vehicle",
+          "interface": "evse-type-2",
+          "connector": "Type 2 cable (5 m)"
+        }
+      ],
+      "ratings": {
+        "powerKW": 3.7,
+        "ratedCurrentA": 16,
+        "phases": 1,
+        "rdcDdMilliamp": 6
+      },
+      "conditions": {
+        "series": "EVlink Home"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=GEX4292700_EN&p_File_Name=FBC_GEX4292700-01_EN_V9_HD.pdf&p_enDocType=Instruction+sheet",
+        "revision": "GEX4292700-03_EN (08/2023)",
+        "page": 5,
+        "pageLabel": "4–5, 8–9"
+      },
+      "missingFields": [
+        "verified-evse-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:evh4s07n2",
+      "manufacturer": "Schneider Electric",
+      "model": "EVH4S07N2",
+      "orderCode": "EVH4S07N2",
+      "category": "ev-charging-equipment",
+      "function": "ac-ev-charging-station",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l1",
+          "group": "L1",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "n",
+          "group": "N",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "evse-protective-earth",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "vehicle",
+          "group": "Vehicle",
+          "interface": "evse-type-2",
+          "connector": "Type 2 socket"
+        }
+      ],
+      "ratings": {
+        "powerKW": 7.4,
+        "ratedCurrentA": 32,
+        "phases": 1,
+        "rdcDdMilliamp": 6
+      },
+      "conditions": {
+        "series": "EVlink Home"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=GEX4292700_EN&p_File_Name=FBC_GEX4292700-01_EN_V9_HD.pdf&p_enDocType=Instruction+sheet",
+        "revision": "GEX4292700-03_EN (08/2023)",
+        "page": 5,
+        "pageLabel": "4–5, 8–9"
+      },
+      "missingFields": [
+        "verified-evse-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:evh4s07nc",
+      "manufacturer": "Schneider Electric",
+      "model": "EVH4S07NC",
+      "orderCode": "EVH4S07NC",
+      "category": "ev-charging-equipment",
+      "function": "ac-ev-charging-station",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l1",
+          "group": "L1",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "n",
+          "group": "N",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "evse-protective-earth",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "vehicle",
+          "group": "Vehicle",
+          "interface": "evse-type-2",
+          "connector": "Type 2 cable (5 m)"
+        }
+      ],
+      "ratings": {
+        "powerKW": 7.4,
+        "ratedCurrentA": 32,
+        "phases": 1,
+        "rdcDdMilliamp": 6
+      },
+      "conditions": {
+        "series": "EVlink Home"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=GEX4292700_EN&p_File_Name=FBC_GEX4292700-01_EN_V9_HD.pdf&p_enDocType=Instruction+sheet",
+        "revision": "GEX4292700-03_EN (08/2023)",
+        "page": 5,
+        "pageLabel": "4–5, 8–9"
+      },
+      "missingFields": [
+        "verified-evse-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:evh4s11n2",
+      "manufacturer": "Schneider Electric",
+      "model": "EVH4S11N2",
+      "orderCode": "EVH4S11N2",
+      "category": "ev-charging-equipment",
+      "function": "ac-ev-charging-station",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l1",
+          "group": "L1",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "l2",
+          "group": "L2",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "l3",
+          "group": "L3",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "n",
+          "group": "N",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "evse-protective-earth",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "vehicle",
+          "group": "Vehicle",
+          "interface": "evse-type-2",
+          "connector": "Type 2 socket"
+        }
+      ],
+      "ratings": {
+        "powerKW": 11,
+        "ratedCurrentA": 16,
+        "phases": 3,
+        "rdcDdMilliamp": 6
+      },
+      "conditions": {
+        "series": "EVlink Home"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=GEX4292700_EN&p_File_Name=FBC_GEX4292700-01_EN_V9_HD.pdf&p_enDocType=Instruction+sheet",
+        "revision": "GEX4292700-03_EN (08/2023)",
+        "page": 5,
+        "pageLabel": "4–5, 8–9"
+      },
+      "missingFields": [
+        "verified-evse-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:evh4s11nc",
+      "manufacturer": "Schneider Electric",
+      "model": "EVH4S11NC",
+      "orderCode": "EVH4S11NC",
+      "category": "ev-charging-equipment",
+      "function": "ac-ev-charging-station",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l1",
+          "group": "L1",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "l2",
+          "group": "L2",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "l3",
+          "group": "L3",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "n",
+          "group": "N",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "evse-protective-earth",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "vehicle",
+          "group": "Vehicle",
+          "interface": "evse-type-2",
+          "connector": "Type 2 cable (5 m)"
+        }
+      ],
+      "ratings": {
+        "powerKW": 11,
+        "ratedCurrentA": 16,
+        "phases": 3,
+        "rdcDdMilliamp": 6
+      },
+      "conditions": {
+        "series": "EVlink Home"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=GEX4292700_EN&p_File_Name=FBC_GEX4292700-01_EN_V9_HD.pdf&p_enDocType=Instruction+sheet",
+        "revision": "GEX4292700-03_EN (08/2023)",
+        "page": 5,
+        "pageLabel": "4–5, 8–9"
+      },
+      "missingFields": [
+        "verified-evse-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:evh4a03n2",
+      "manufacturer": "Schneider Electric",
+      "model": "EVH4A03N2",
+      "orderCode": "EVH4A03N2",
+      "category": "ev-charging-equipment",
+      "function": "ac-ev-charging-station",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l1",
+          "group": "L1",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "n",
+          "group": "N",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "evse-protective-earth",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "vehicle",
+          "group": "Vehicle",
+          "interface": "evse-type-2",
+          "connector": "Type 2 socket"
+        }
+      ],
+      "ratings": {
+        "powerKW": 3.7,
+        "ratedCurrentA": 16,
+        "phases": 1,
+        "rdcDdMilliamp": 6
+      },
+      "conditions": {
+        "series": "EVlink Home Smart"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=GEX4292700_EN&p_File_Name=FBC_GEX4292700-01_EN_V9_HD.pdf&p_enDocType=Instruction+sheet",
+        "revision": "GEX4292700-03_EN (08/2023)",
+        "page": 5,
+        "pageLabel": "4–5, 8–9"
+      },
+      "missingFields": [
+        "verified-evse-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:evh4a03nc",
+      "manufacturer": "Schneider Electric",
+      "model": "EVH4A03NC",
+      "orderCode": "EVH4A03NC",
+      "category": "ev-charging-equipment",
+      "function": "ac-ev-charging-station",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l1",
+          "group": "L1",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "n",
+          "group": "N",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "evse-protective-earth",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "vehicle",
+          "group": "Vehicle",
+          "interface": "evse-type-2",
+          "connector": "Type 2 cable (5 m)"
+        }
+      ],
+      "ratings": {
+        "powerKW": 3.7,
+        "ratedCurrentA": 16,
+        "phases": 1,
+        "rdcDdMilliamp": 6
+      },
+      "conditions": {
+        "series": "EVlink Home Smart"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=GEX4292700_EN&p_File_Name=FBC_GEX4292700-01_EN_V9_HD.pdf&p_enDocType=Instruction+sheet",
+        "revision": "GEX4292700-03_EN (08/2023)",
+        "page": 5,
+        "pageLabel": "4–5, 8–9"
+      },
+      "missingFields": [
+        "verified-evse-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:evh4a07n2",
+      "manufacturer": "Schneider Electric",
+      "model": "EVH4A07N2",
+      "orderCode": "EVH4A07N2",
+      "category": "ev-charging-equipment",
+      "function": "ac-ev-charging-station",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l1",
+          "group": "L1",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "n",
+          "group": "N",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "evse-protective-earth",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "vehicle",
+          "group": "Vehicle",
+          "interface": "evse-type-2",
+          "connector": "Type 2 socket"
+        }
+      ],
+      "ratings": {
+        "powerKW": 7.4,
+        "ratedCurrentA": 32,
+        "phases": 1,
+        "rdcDdMilliamp": 6
+      },
+      "conditions": {
+        "series": "EVlink Home Smart"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=GEX4292700_EN&p_File_Name=FBC_GEX4292700-01_EN_V9_HD.pdf&p_enDocType=Instruction+sheet",
+        "revision": "GEX4292700-03_EN (08/2023)",
+        "page": 5,
+        "pageLabel": "4–5, 8–9"
+      },
+      "missingFields": [
+        "verified-evse-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:evh4a07nc",
+      "manufacturer": "Schneider Electric",
+      "model": "EVH4A07NC",
+      "orderCode": "EVH4A07NC",
+      "category": "ev-charging-equipment",
+      "function": "ac-ev-charging-station",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l1",
+          "group": "L1",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "n",
+          "group": "N",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "evse-protective-earth",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "vehicle",
+          "group": "Vehicle",
+          "interface": "evse-type-2",
+          "connector": "Type 2 cable (5 m)"
+        }
+      ],
+      "ratings": {
+        "powerKW": 7.4,
+        "ratedCurrentA": 32,
+        "phases": 1,
+        "rdcDdMilliamp": 6
+      },
+      "conditions": {
+        "series": "EVlink Home Smart"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=GEX4292700_EN&p_File_Name=FBC_GEX4292700-01_EN_V9_HD.pdf&p_enDocType=Instruction+sheet",
+        "revision": "GEX4292700-03_EN (08/2023)",
+        "page": 5,
+        "pageLabel": "4–5, 8–9"
+      },
+      "missingFields": [
+        "verified-evse-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:evh4a11n2",
+      "manufacturer": "Schneider Electric",
+      "model": "EVH4A11N2",
+      "orderCode": "EVH4A11N2",
+      "category": "ev-charging-equipment",
+      "function": "ac-ev-charging-station",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l1",
+          "group": "L1",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "l2",
+          "group": "L2",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "l3",
+          "group": "L3",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "n",
+          "group": "N",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "evse-protective-earth",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "vehicle",
+          "group": "Vehicle",
+          "interface": "evse-type-2",
+          "connector": "Type 2 socket"
+        }
+      ],
+      "ratings": {
+        "powerKW": 11,
+        "ratedCurrentA": 16,
+        "phases": 3,
+        "rdcDdMilliamp": 6
+      },
+      "conditions": {
+        "series": "EVlink Home Smart"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=GEX4292700_EN&p_File_Name=FBC_GEX4292700-01_EN_V9_HD.pdf&p_enDocType=Instruction+sheet",
+        "revision": "GEX4292700-03_EN (08/2023)",
+        "page": 5,
+        "pageLabel": "4–5, 8–9"
+      },
+      "missingFields": [
+        "verified-evse-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:evh4a11nc",
+      "manufacturer": "Schneider Electric",
+      "model": "EVH4A11NC",
+      "orderCode": "EVH4A11NC",
+      "category": "ev-charging-equipment",
+      "function": "ac-ev-charging-station",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l1",
+          "group": "L1",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "l2",
+          "group": "L2",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "l3",
+          "group": "L3",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "n",
+          "group": "N",
+          "interface": "evse-ac-input",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "evse-protective-earth",
+          "connector": "ring terminal"
+        },
+        {
+          "id": "vehicle",
+          "group": "Vehicle",
+          "interface": "evse-type-2",
+          "connector": "Type 2 cable (5 m)"
+        }
+      ],
+      "ratings": {
+        "powerKW": 11,
+        "ratedCurrentA": 16,
+        "phases": 3,
+        "rdcDdMilliamp": 6
+      },
+      "conditions": {
+        "series": "EVlink Home Smart"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=GEX4292700_EN&p_File_Name=FBC_GEX4292700-01_EN_V9_HD.pdf&p_enDocType=Instruction+sheet",
+        "revision": "GEX4292700-03_EN (08/2023)",
+        "page": 5,
+        "pageLabel": "4–5, 8–9"
+      },
+      "missingFields": [
+        "verified-evse-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}

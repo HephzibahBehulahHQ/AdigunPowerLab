@@ -804,3 +804,6 @@ TypeScript, 22 component-bank checks and Chromium verified the APC batch, includ
 TypeScript, 23 component-bank checks and Chromium passed. The browser verified 380 W at 40 °C for PIN241501210.
 
 TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
+
+- EVlink Home candidate: TypeScript check passed. Component-bank suite passed all 25 tests, including source-based phase and connector checks and JSON parity. Browser and release verification pending.
+- EVlink Home candidate: Chromium passed the manufacturer catalogue scenario, covering EV category selection, exact order-code lookup, the 11 kW / 16 A three-phase display and the exported Type 2 cable record.
