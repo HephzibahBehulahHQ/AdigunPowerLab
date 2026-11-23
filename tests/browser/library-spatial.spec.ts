@@ -288,3 +288,26 @@ test("diagram settings follow global detail mode without changing project data",
   await expect(settings).toHaveJSProperty("open", false);
   expect(await exported(page)).toEqual(before);
 });
+test("manufacturer catalogue searches and exports the exact model", async ({
+  page,
+}) => {
+  await page.goto("/#/library");
+  const catalogue = page.getByRole("region", {
+    name: "Manufacturer equipment",
+  });
+  const search = catalogue.getByRole("searchbox");
+  await search.fill("no matching product");
+  await expect(catalogue.getByRole("status")).toHaveText(
+    "No matching equipment",
+  );
+  await search.fill("455h");
+  await expect(catalogue.getByRole("combobox")).toHaveValue(
+    "canadian-solar:cs6.2-48tm-455h",
+  );
+  await expect(catalogue.getByText("455 W", { exact: true })).toBeVisible();
+  const pending = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  expect((await pending).suggestedFilename()).toBe(
+    "component-bank-CS6.2-48TM-455H.json",
+  );
+});
