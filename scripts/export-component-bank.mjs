@@ -1,4 +1,5 @@
 import { writeFileSync } from "node:fs";
+import { coverage } from "./component-bank-coverage.mjs";
 import {
   componentBankCsv,
   pvModules,
@@ -28,4 +29,8 @@ writeFileSync(
 writeFileSync(
   new URL("../docs/component-bank-iid.csv", import.meta.url),
   componentBankCsv(iidRccbs),
+);
+writeFileSync(
+  new URL("../docs/component-bank-coverage.json", import.meta.url),
+  JSON.stringify(coverage, null, 2) + "\n",
 );
