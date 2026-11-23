@@ -1,5 +1,67 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "Source, terminals and model readiness": [
+    "Quelle, Anschlüsse und Modellstatus",
+    "Orísun, ebute àti ìmúrasílẹ̀ model",
+    "Source, terminals and model readiness",
+  ],
+  "Model readiness": ["Modellstatus", "Ìmúrasílẹ̀ model", "Model readiness"],
+  Page: ["Seite", "Ojú ewé", "Page"],
+  "PV worksheet inputs reviewed": [
+    "PV-Arbeitsblatteingaben geprüft",
+    "A ti ṣàyẹ̀wò input worksheet PV",
+    "PV worksheet inputs don pass review",
+  ],
+  "Inventory and diagram only": [
+    "Nur Inventar und Diagramm",
+    "Àkójọ ohun èlò àti àwòrán nìkan",
+    "Inventory and diagram only",
+  ],
+  "DC nameplate power": [
+    "DC-Nennleistung",
+    "Agbára DC lórí nameplate",
+    "DC nameplate power",
+  ],
+  "Power temperature coefficient": [
+    "Temperaturkoeffizient der Leistung",
+    "Coefficient ìwọ̀n otutu fún agbára",
+    "Power temperature coefficient",
+  ],
+  "Documented terminals": [
+    "Dokumentierte Anschlüsse",
+    "Àwọn ebute tí a kọ sílẹ̀",
+    "Documented terminals",
+  ],
+  "Missing or unverified fields": [
+    "Fehlende oder ungeprüfte Angaben",
+    "Àlàyé tó kù tàbí tí a kò tíì ṣàyẹ̀wò",
+    "Fields wey miss or still need verification",
+  ],
+  "Separate order code": [
+    "Separater Bestellcode",
+    "Kóòdù àṣẹ lọ́tọ̀",
+    "Separate order code",
+  ],
+  "Connector on the delivered module": [
+    "Steckverbinder am gelieferten Modul",
+    "Asopọ̀ lórí module tí a fi ránṣẹ́",
+    "Connector for di supplied module",
+  ],
+  "Regional availability": [
+    "Regionale Verfügbarkeit",
+    "Wíwà ní ẹkùn",
+    "Regional availability",
+  ],
+  "Verified protection calculation mapping": [
+    "Geprüfte Zuordnung zur Schutzberechnung",
+    "Ìbámu tí a fìdí múlẹ̀ fún ìṣírò ààbò",
+    "Verified protection calculation mapping",
+  ],
+  "Verified switching calculation mapping": [
+    "Geprüfte Zuordnung zur Schaltberechnung",
+    "Ìbámu tí a fìdí múlẹ̀ fún ìṣírò yíyí",
+    "Verified switching calculation mapping",
+  ],
   "All categories": ["Alle Kategorien", "Gbogbo ẹ̀ka", "All categories"],
   "Solar and wind equipment": [
     "Solar- und Windtechnik",

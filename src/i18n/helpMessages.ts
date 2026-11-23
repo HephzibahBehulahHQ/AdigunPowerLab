@@ -2030,6 +2030,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fi model kún ohun èlò iṣẹ́ akanṣe. Ṣàtúnṣe orúkọ tàbí iye rẹ̀ láti ṣe àtúnṣe àtòjọ ohun èlò.",
       "Add di model to project equipment. Change di name or quantity to update di bill of materials.",
     ],
+  "Open Source, terminals and model readiness to review source revision, documented terminal groups, calculation inputs and missing fields.":
+    [
+      "Öffnen Sie Quelle, Anschlüsse und Modellstatus, um Quellenrevision, Anschlussgruppen, Berechnungseingaben und fehlende Angaben zu prüfen.",
+      "Ṣí Orísun, ebute àti ìmúrasílẹ̀ model láti ṣàyẹ̀wò àtúnṣe orísun, ẹgbẹ́ ebute, input ìṣírò àti àlàyé tó kù.",
+      "Open Source, terminals and model readiness to check di source revision, terminal groups, calculation inputs and missing fields.",
+    ],
   "Filter manufacturer equipment by category and use Previous records or Next records to browse large result sets.":
     [
       "Filtern Sie Herstellergeräte nach Kategorie und blättern Sie mit Vorherige Datensätze oder Nächste Datensätze durch umfangreiche Ergebnisse.",

@@ -317,6 +317,11 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   await search.fill("CS6.2-48TM-455H");
   await expect(model).toHaveValue("canadian-solar:cs6.2-48tm-455h");
   await expect(catalogue.getByText("455 W", { exact: true })).toBeVisible();
+  await catalogue.getByText("Source, terminals and model readiness").click();
+  await expect(
+    catalogue.getByText("PV worksheet inputs reviewed"),
+  ).toBeVisible();
+  await expect(catalogue.getByText("Separate order code")).toBeVisible();
   const pending = page.waitForEvent("download");
   await catalogue.getByRole("button", { name: "Export record JSON" }).click();
   expect((await pending).suggestedFilename()).toBe(
