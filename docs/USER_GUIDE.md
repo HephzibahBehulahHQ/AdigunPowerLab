@@ -467,3 +467,5 @@ Find iCT contactors in **Switching and transfer equipment**. Compare AC-7a, AC-7
 Connect identical PV modules in an isolated series chain to see their standard-test-condition Voc, Vmp and Imp in the diagram inspector.
 
 The frozen BOM report lists module order, Voc, Vmp and Imp for supported PV strings at standard test conditions.
+
+PV string Pmax uses the wired module count multiplied by the published module nameplate power. Isc uses the published module current under standard test conditions.

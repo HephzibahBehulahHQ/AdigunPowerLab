@@ -83,6 +83,8 @@ export function cataloguePvStrings(project: Project) {
       vocV: model.ratings.vocV * units.length,
       vmpV: model.ratings.vmpV * units.length,
       impA: model.ratings.impA,
+      iscA: model.ratings.iscA,
+      dcNameplateKW: model.modelMapping.dcNameplateKW * units.length,
     });
   }
   return strings;
