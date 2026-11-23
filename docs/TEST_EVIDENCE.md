@@ -790,3 +790,5 @@ TypeScript, 16 component-bank checks and Chromium passed. The browser verified t
 Linergy TB passed TypeScript, 37 focused checks and Chromium rating lookup for LVS04200.
 
 TypeScript, 18 component-bank checks and Chromium passed. Browser lookup matched ABL6TS25B to 250 VA and 24 V AC.
+
+TypeScript, 19 component-bank checks and Chromium passed for ABT7PDU. Browser lookup displayed 2 × 24 V AC for ABT7PDU004B.

@@ -767,6 +767,19 @@ const abl6Ratings = [
   [1600, "160"],
   [2500, "250"],
 ] as const;
+const phaseoCatalogue = {
+  url: "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+  revision: "Phaseo ABT7/ABL6 transformer catalogue",
+};
+const phaseoPrimary = ["400", "230", "-15", "0", "+15"].map(
+  (marking, index) => ({
+    id: `primary-${index + 1}`,
+    group: `primary ${marking} V`,
+    interface: "transformer-primary",
+    connector: "screw terminal",
+  }),
+);
+
 export const abl6Transformers = (
   [
     ["J", 12],
@@ -788,12 +801,7 @@ export const abl6Transformers = (
         function: "single-phase-control-transformer" as const,
         connection: "ac" as const,
         terminals: [
-          ...["400", "230", "-15", "0", "+15"].map((marking, index) => ({
-            id: `primary-${index + 1}`,
-            group: `primary ${marking} V`,
-            interface: "transformer-primary",
-            connector: "screw terminal",
-          })),
+          ...phaseoPrimary,
           ...[String(secondaryV), "0"].map((marking, index) => ({
             id: `secondary-${index + 1}`,
             group: `secondary ${marking} V`,
@@ -809,9 +817,8 @@ export const abl6Transformers = (
         },
         modelMapping: null,
         source: {
-          url: "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
-          revision: "Phaseo ABT7/ABL6 transformer catalogue",
-          page: 4,
+          ...phaseoCatalogue,
+          page: 10,
         },
         missingFields: [
           "regional-availability",
@@ -821,6 +828,60 @@ export const abl6Transformers = (
         readiness: "inventory-and-diagram-only",
       };
     }),
+);
+
+export const abt7pduTransformers = (
+  [
+    ["B", 24],
+    ["G", 115],
+  ] as const
+).flatMap(([suffix, secondaryV]) =>
+  [
+    ...abl6Ratings.slice(suffix === "B" ? 1 : 0, 6),
+    [320, "32"] as const,
+    ...abl6Ratings.slice(6),
+  ].map(([apparentVA, code]) => {
+    const model = `ABT7PDU${code.padStart(3, "0")}${suffix}`;
+    return {
+      id: `schneider-electric:${model.toLowerCase()}`,
+      manufacturer: "Schneider Electric",
+      model,
+      orderCode: model,
+      category: "transformers" as const,
+      function: "single-phase-control-transformer" as const,
+      connection: "ac" as const,
+      terminals: [
+        ...phaseoPrimary,
+        ...[1, 2].flatMap((winding) =>
+          ["start", "end"].map((end) => ({
+            id: `secondary-${winding}-${end}`,
+            group: `secondary ${winding} ${end}`,
+            interface: "transformer-secondary",
+            connector: "secondary winding connection",
+          })),
+        ),
+      ],
+      ratings: {
+        apparentVA,
+        primaryV: [230, 400],
+        secondaryV,
+        secondaryWindings: 2,
+      },
+      conditions: {
+        frequencyHz: [50, 60],
+        primaryTapAdjustmentV: 15,
+        jumperPlacement: apparentVA <= 320 ? "internal" : "external",
+      },
+      modelMapping: null,
+      source: { ...phaseoCatalogue, page: 11 },
+      missingFields: [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review",
+      ],
+      readiness: "inventory-and-diagram-only",
+    };
+  }),
 );
 
 export const componentBank = [
@@ -836,6 +897,7 @@ export const componentBank = [
   ...linergyDsBlocks,
   ...linergyEarthBars,
   ...abl6Transformers,
+  ...abt7pduTransformers,
 ];
 
 export function componentBankCsv(

@@ -481,3 +481,5 @@ Filter **Busbars and distribution systems** for Linergy DS. Select the terminal 
 Filter **Earthing and bonding equipment** for Linergy TB bars. Select the protective bonding terminal at each end to record a PV frame connection.
 
 Filter **Transformers** to inspect Phaseo winding voltages, primary taps and nameplate VA by exact order code.
+
+ABT7PDU catalogue records show the two secondary windings separately and retain internal versus external jumper placement in their export.
