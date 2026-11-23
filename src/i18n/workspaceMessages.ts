@@ -1,5 +1,15 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "Earthing and bonding equipment": [
+    "Erdungs- und Potentialausgleichsgeräte",
+    "Ohun èlò ilẹ̀ àti bonding",
+    "Earthing and bonding equipment",
+  ],
+  "Verified bonding calculation mapping": [
+    "Geprüfte Zuordnung zur Potentialausgleichsberechnung",
+    "Ìbámu ìṣírò bonding tí a fìdí múlẹ̀",
+    "Verified bonding calculation mapping",
+  ],
   "Busbars and distribution systems": [
     "Sammelschienen und Verteilung",
     "Busbar àti ètò pínpín",

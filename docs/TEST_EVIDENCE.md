@@ -786,3 +786,5 @@ TypeScript, 14 component-bank checks and Chromium passed. The browser found A9F9
 TypeScript, 15 component-bank checks and Chromium passed for RM17 lookup, including the 208–440 V AC range and two 5 A changeover outputs.
 
 TypeScript, 16 component-bank checks and Chromium passed. The browser verified the 4.2 kA/1 s rating. The model rejected conflicting phases assigned to two openings on the same distribution block.
+
+Linergy TB passed TypeScript, 37 focused checks and Chromium rating lookup for LVS04200.

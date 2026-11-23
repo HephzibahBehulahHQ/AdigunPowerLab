@@ -1120,6 +1120,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Olootu kọ waya PV tí yóò so ebute rere àti odi module kan pọ̀ nípasẹ̀ àwọn waya tí a ti fipamọ́.",
       "Di editor rejects PV wire if di saved wires go join positive and negative terminals for one module.",
     ],
+  "Choose protective bonding terminals at both ends to link a catalogue earth bar to a PV frame.":
+    [
+      "Wählen Sie an beiden Enden Schutzpotentialausgleichsanschlüsse, um eine Katalog-Erdungsschiene mit einem PV-Rahmen zu verbinden.",
+      "Yan ebute bonding ààbò ní ìpẹ̀kun méjèèjì láti so earth bar inú katalogi pọ̀ mọ́ fireemu PV.",
+      "Choose protective bonding terminals for both ends to link catalogue earth bar to PV frame.",
+    ],
   "For an iID neutral link, select N and choose a neutral terminal at both ends.":
     [
       "Wählen Sie für eine iID-Neutralleiterverbindung N und an beiden Enden einen Neutralleiteranschluss.",

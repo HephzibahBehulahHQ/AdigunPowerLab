@@ -1,0 +1,476 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "schneider-electric:lvs04200",
+      "manufacturer": "Schneider Electric",
+      "model": "LVS04200",
+      "orderCode": "LVS04200",
+      "category": "earthing-and-bonding-equipment",
+      "function": "protective-earth-bar",
+      "connection": "bond",
+      "terminals": [
+        {
+          "id": "main",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "16–35 mm² terminal"
+        },
+        {
+          "id": "jumper-1",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-2",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-3",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-4",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-5",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-6",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-7",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-8",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-9",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-10",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-11",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-12",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-13",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-14",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-15",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-16",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-17",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-18",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-19",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-20",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-21",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-22",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-23",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-24",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-25",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-26",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-27",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-28",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-29",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-30",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-31",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-32",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-33",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-34",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-35",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-36",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-37",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-38",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-39",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-40",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        }
+      ],
+      "ratings": {
+        "lengthMm": 450,
+        "jumpers": 40,
+        "icwKA": 9
+      },
+      "conditions": {
+        "icwDurationSeconds": 0.5,
+        "icwBasis": "rms"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=DESW025EN&p_File_name=DESW025EN_V19_PrismaSeT+G_Catalog.pdf",
+        "revision": "150E5300, Version 21.0, 29/09/2026",
+        "page": 22,
+        "pageLabel": "D-22"
+      },
+      "missingFields": [
+        "verified-bonding-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:lvs04201",
+      "manufacturer": "Schneider Electric",
+      "model": "LVS04201",
+      "orderCode": "LVS04201",
+      "category": "earthing-and-bonding-equipment",
+      "function": "protective-earth-bar",
+      "connection": "bond",
+      "terminals": [
+        {
+          "id": "main",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "16–35 mm² terminal"
+        }
+      ],
+      "ratings": {
+        "lengthMm": 450,
+        "jumpers": 0,
+        "icwKA": 9
+      },
+      "conditions": {
+        "icwDurationSeconds": 0.5,
+        "icwBasis": "rms"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=DESW025EN&p_File_name=DESW025EN_V19_PrismaSeT+G_Catalog.pdf",
+        "revision": "150E5300, Version 21.0, 29/09/2026",
+        "page": 22,
+        "pageLabel": "D-22"
+      },
+      "missingFields": [
+        "verified-bonding-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:lvs04202",
+      "manufacturer": "Schneider Electric",
+      "model": "LVS04202",
+      "orderCode": "LVS04202",
+      "category": "earthing-and-bonding-equipment",
+      "function": "protective-earth-bar",
+      "connection": "bond",
+      "terminals": [
+        {
+          "id": "main",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "16–35 mm² terminal"
+        },
+        {
+          "id": "jumper-1",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-2",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-3",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-4",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-5",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-6",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-7",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-8",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-9",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-10",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-11",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-12",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-13",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-14",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-15",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-16",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-17",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-18",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-19",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        },
+        {
+          "id": "jumper-20",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "2.5–16 mm² jumper"
+        }
+      ],
+      "ratings": {
+        "lengthMm": 200,
+        "jumpers": 20,
+        "icwKA": 9
+      },
+      "conditions": {
+        "icwDurationSeconds": 0.5,
+        "icwBasis": "rms"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=DESW025EN&p_File_name=DESW025EN_V19_PrismaSeT+G_Catalog.pdf",
+        "revision": "150E5300, Version 21.0, 29/09/2026",
+        "page": 22,
+        "pageLabel": "D-22"
+      },
+      "missingFields": [
+        "verified-bonding-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}

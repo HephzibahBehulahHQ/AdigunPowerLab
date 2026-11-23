@@ -34,7 +34,13 @@ export function EquipmentWiring({
   const equipment = instances.filter((item) => {
     const candidate = catalogueRecord(item);
     return (
-      candidate?.connection === domain &&
+      (candidate?.connection === domain ||
+        (model?.terminals.some(
+          ({ interface: kind }) => kind === "protective-bond",
+        ) &&
+          candidate?.terminals.some(
+            ({ interface: kind }) => kind === "protective-bond",
+          ))) &&
       candidate?.terminals.some(isWireTerminal)
     );
   });
@@ -122,7 +128,8 @@ export function EquipmentWiring({
             <select name="fromTerminal">
               {model?.terminals.filter(isWireTerminal).map((terminal) => (
                 <option key={terminal.id} value={terminal.id}>
-                  {model?.function === "single-pole-distribution-block"
+                  {terminal.group === "pe" ||
+                  model?.function === "single-pole-distribution-block"
                     ? terminal.id
                     : terminal.group}
                 </option>
@@ -161,8 +168,9 @@ export function EquipmentWiring({
                 ?.terminals.filter(isWireTerminal)
                 .map((terminal) => (
                   <option key={terminal.id} value={terminal.id}>
-                    {catalogueRecord(target)?.function ===
-                    "single-pole-distribution-block"
+                    {terminal.group === "pe" ||
+                    catalogueRecord(target)?.function ===
+                      "single-pole-distribution-block"
                       ? terminal.id
                       : terminal.group}
                   </option>

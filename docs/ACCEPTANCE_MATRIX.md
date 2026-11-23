@@ -439,3 +439,5 @@ The iC60L tranche includes 232 variants with exact pole counts, terminal labels,
 Harmony RM17 monitoring entries include exact order codes, sensing terminals, numbered changeover contacts and CSV/JSON.
 
 Linergy DS entries include the common node, separately addressable terminal openings, rated withstand current and printed source page.
+
+Linergy TB records represent common PE nodes, documented clamp counts, source page and 0.5 s withstand rating.
