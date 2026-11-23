@@ -453,3 +453,5 @@ The diagram candidate displays saved equipment as disconnected symbols with sour
 Native project validation now supports indexed equipment terminal connections and rejects missing endpoints, direct self-connections, mixed DC and bonding endpoints, and duplicate pairs. Local TypeScript and three component-bank tests passed. Interactive wiring, AC phase support and network analysis remain open.
 
 The PV wiring candidate adds and removes indexed terminal links from the single-line inspector and renders saved wires. Local Chromium verified creating, saving, reopening and disconnecting a PV series link. AC equipment and calculation integration remain open.
+
+The iC60N batch adds 180 order codes from Schneider Electric Acti9 Catalogue Version 2.0, May 2017, printed pages 8–10. The candidate contains 194 sourced records. Breakers support CSV/JSON, installation inventory, and diagram inspection. Regional availability, AC phase wiring, and protection calculation mapping remain open.

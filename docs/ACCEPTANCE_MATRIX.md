@@ -393,3 +393,5 @@ The diagram candidate adds placement as standalone symbols and terminal inspecti
 Native project import supports source-resolved PV terminal links with unit indices and basic endpoint validation. Interactive editing and AC phase-aware topology remain open.
 
 The PV wiring candidate adds interactive terminal links, single-line rendering and native save/reload. The links remain outside power flow calculations.
+
+AC protection batch: 180 sourced Schneider iC60N records have catalogue lookup, exact order code, rated current, pole-specific terminal groups, conditional breaking capacity, and CSV/JSON; AC wiring and protection analysis remain open.

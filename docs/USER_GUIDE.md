@@ -434,3 +434,5 @@ Select **Add to project equipment** to keep a sourced model with the saved proje
 In the single-line diagram, select a catalogue equipment symbol to inspect its terminal groups and datasheet. Equipment awaiting connection is drawn as a separate symbol.
 
 Select two installed unit numbers and their documented terminals, then choose **Connect**. Saved wires appear in the diagram and can be removed with **Disconnect**. These links document layout and do not enter the power flow calculations.
+
+Find Schneider Electric iC60N breakers by order code. The library displays rated current, poles, trip curve, and the IEC/EN 60898-1 breaking capacity at its stated voltage. These records support inventories and terminal inspection.

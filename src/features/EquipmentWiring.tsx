@@ -25,7 +25,9 @@ export function EquipmentWiring({
   const t = useT();
   const [targetId, setTargetId] = useState(instance.id);
   const [error, setError] = useState(false);
-  const equipment = (project.catalogueEquipment ?? []).filter(catalogueRecord);
+  const equipment = (project.catalogueEquipment ?? []).filter(
+    (item) => catalogueRecord(item)?.connection === "dc",
+  );
   const target = equipment.find((item) => item.id === targetId) ?? instance;
   const wires = project.equipmentTerminalConnections ?? [];
   const attached = wires.filter(

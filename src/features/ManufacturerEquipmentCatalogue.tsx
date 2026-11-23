@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { componentBankCsv, pvModules } from "../data/componentBank";
+import { componentBankCsv, componentBank } from "../data/componentBank";
 import { downloadFile } from "../import-export/files";
 import { LanguageContext } from "../i18n";
 import { newId } from "../domain/project";
@@ -91,7 +91,7 @@ export function ManufacturerEquipmentCatalogue({
     copy[locale];
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState("");
-  const matches = pvModules.filter(({ manufacturer, model }) =>
+  const matches = componentBank.filter(({ manufacturer, model }) =>
     `${manufacturer} ${model}`
       .toLowerCase()
       .includes(query.trim().toLowerCase()),
@@ -129,20 +129,42 @@ export function ManufacturerEquipmentCatalogue({
               ))}
             </select>
           </label>
-          <dl className="pg-metrics">
-            <div>
-              <dt>Pmax · STC</dt>
-              <dd>{format.format(record.ratings.powerW)} W</dd>
-            </div>
-            <div>
-              <dt>Vmp · STC</dt>
-              <dd>{format.format(record.ratings.vmpV)} V</dd>
-            </div>
-            <div>
-              <dt>Imp · STC</dt>
-              <dd>{format.format(record.ratings.impA)} A</dd>
-            </div>
-          </dl>
+          {record.connection === "dc" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>Pmax · STC</dt>
+                <dd>{format.format(record.ratings.powerW)} W</dd>
+              </div>
+              <div>
+                <dt>Vmp · STC</dt>
+                <dd>{format.format(record.ratings.vmpV)} V</dd>
+              </div>
+              <div>
+                <dt>Imp · STC</dt>
+                <dd>{format.format(record.ratings.impA)} A</dd>
+              </div>
+            </dl>
+          ) : (
+            <dl className="pg-metrics">
+              <div>
+                <dt>Iₙ</dt>
+                <dd>{format.format(record.ratings.ratedCurrentA)} A</dd>
+              </div>
+              <div>
+                <dt>iC60N</dt>
+                <dd>
+                  {record.ratings.poles}P · {record.ratings.curve}
+                </dd>
+              </div>
+              <div>
+                <dt>Icn · IEC/EN 60898-1</dt>
+                <dd>
+                  {record.ratings.icnKA} kA · {record.conditions.icnVoltageV} V
+                  AC
+                </dd>
+              </div>
+            </dl>
+          )}
           <div className="button-row">
             <button
               type="button"
