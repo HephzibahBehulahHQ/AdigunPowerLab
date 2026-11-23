@@ -1660,6 +1660,63 @@ export const chromaloxStripHeaters = chromaloxStripHeaterRows.flatMap(
     })),
 );
 
+export const stamfordAs480Regulators = [
+  {
+    id: "stamford:as480",
+    manufacturer: "STAMFORD",
+    model: "AS480",
+    orderCode: null,
+    category: "prime-movers-and-generation-auxiliaries" as const,
+    function: "alternator-voltage-regulator" as const,
+    connection: "ac-dc" as const,
+    terminals: [
+      ...["7", "8"].map((group) => ({
+        id: group,
+        group,
+        interface: "avr-ac-sensing-and-power",
+        connector: "board terminal",
+      })),
+      ...["F1", "F2"].map((group) => ({
+        id: group.toLowerCase(),
+        group,
+        interface: "avr-exciter-field-output",
+        connector: "board terminal",
+      })),
+    ],
+    ratings: {
+      inputMinVAc: 100,
+      inputMaxVAc: 264,
+      continuousOutputA: 5,
+      transientOutputA: 7.5,
+      transientDurationS: 10,
+      minimumFieldResistanceOhm: 15,
+      outputVoltagePoints: [
+        { inputVAc: 110, outputVDc: 45 },
+        { inputVAc: 200, outputVDc: 82 },
+      ],
+    },
+    conditions: {
+      supplyFrequencyHz: [50, 60],
+      phases: 1,
+      externalMountingCurrentDeratePercent: 20,
+      currentDeratePercentPerCAbove60C: 5,
+    },
+    modelMapping: null,
+    source: {
+      url: "https://www.stamford-avk.com/sites/stamfordavk/files/AS480datasheet.pdf",
+      revision: "TD_AS480 AVR_04.08_02_GB",
+      page: 1,
+      pageLabel: "1–2",
+    },
+    missingFields: [
+      "separate-order-code",
+      "avr-auxiliary-terminals",
+      "verified-avr-model-mapping",
+    ],
+    readiness: "inventory-and-diagram-only",
+  },
+];
+
 export const componentBank = [
   ...pvModules,
   ...ic60nBreakers,
@@ -1686,6 +1743,7 @@ export const componentBank = [
   ...philipsDn145bDownlights,
   ...wegW22Motors,
   ...chromaloxStripHeaters,
+  ...stamfordAs480Regulators,
 ];
 
 export function componentBankCsv(

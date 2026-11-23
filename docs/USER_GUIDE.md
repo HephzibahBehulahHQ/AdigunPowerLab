@@ -508,3 +508,4 @@ VE.Direct 120 V records show their own temperature-conditioned power ratings and
 - Select **Lighting equipment** to inspect the Philips DN145B wattage, luminous flux, colour temperature and documented driver terminals.
 - Select **Motors and motor-driven equipment** to compare WEG nameplate operating points. The JSON and CSV also retain the documented full-load power factor and efficiency.
 - Select **Commercial and industrial loads** to find Chromalox strip heaters by manufacturer PCN and compare wattage and connection style.
+- Select **Prime movers and generation auxiliaries** to inspect the AS480 regulator input and excitation ratings and see the supported terminal documentation.
