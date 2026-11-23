@@ -1234,6 +1234,97 @@ export const altivar320CompactDrives = altivar320Rows.map(
   },
 );
 
+// LAPP's listed article codes, limited to variants with up to 25 cores in this batch.
+const olflexClassic110Rows = [
+  ["1119003", "3G0,5", 3, true, 0.5, 0.201, 6],
+  ["1119004", "4G0,5", 4, true, 0.5, 0.224, 6],
+  ["1119005", "5G0,5", 5, true, 0.5, 0.244, 6],
+  ["1119007", "7G0,5", 7, true, 0.5, 0.264, 6],
+  ["1119010", "10G0,5", 10, true, 0.5, 0.339, 6],
+  ["1119012", "12G0,5", 12, true, 0.5, 0.35, 6],
+  ["1119014", "14G0,5", 14, true, 0.5, 0.374, 6],
+  ["1119018", "18G0,5", 18, true, 0.5, 0.413, 6],
+  ["1119021", "21G0,5", 21, true, 0.5, 0.461, 6],
+  ["1119025", "25G0,5", 25, true, 0.5, 0.488, 6],
+  ["1119103", "3G0,75", 3, true, 0.75, 0.224, 6],
+  ["1119104", "4G0,75", 4, true, 0.75, 0.244, 6],
+  ["1119105", "5G0,75", 5, true, 0.75, 0.264, 6],
+  ["1119107", "7G0,75", 7, true, 0.75, 0.287, 6],
+  ["1119109", "9G0,75", 9, true, 0.75, 0.37, 6],
+  ["1119110", "10G0,75", 10, true, 0.75, 0.378, 6],
+  ["1119112", "12G0,75", 12, true, 0.75, 0.39, 6],
+  ["1119115", "15G0,75", 15, true, 0.75, 0.429, 6],
+  ["1119116", "16G0,75", 16, true, 0.75, 0.437, 6],
+  ["1119117", "15X0,75", 15, false, 0.75, 0.429, 6],
+  ["1119118", "18G0,75", 18, true, 0.75, 0.461, 6],
+  ["1119121", "21G0,75", 21, true, 0.75, 0.512, 6],
+  ["1119125", "25G0,75", 25, true, 0.75, 0.543, 7],
+  ["1119203", "3G1", 3, true, 1, 0.236, 7],
+  ["1119204", "4G1", 4, true, 1, 0.256, 7],
+  ["1119205", "5G1", 5, true, 1, 0.28, 7],
+  ["1119206", "6G1", 6, true, 1, 0.315, 7],
+  ["1119207", "7G1", 7, true, 1, 0.315, 7],
+  ["1119208", "8G1", 8, true, 1, 0.374, 7],
+  ["1119209", "9G1", 9, true, 1, 0.394, 7],
+  ["1119210", "10G1", 10, true, 1, 0.402, 7],
+  ["1119212", "12G1", 12, true, 1, 0.413, 7],
+  ["1119214", "14G1", 14, true, 1, 0.441, 7],
+  ["1119216", "16G1", 16, true, 1, 0.465, 7],
+  ["1119218", "18G1", 18, true, 1, 0.5, 7],
+  ["1119220", "20G1", 20, true, 1, 0.528, 7],
+  ["1119225", "25G1", 25, true, 1, 0.579, 7],
+] as const;
+
+export const olflexClassic110Cables = olflexClassic110Rows.map(
+  ([
+    orderCode,
+    designation,
+    coreCount,
+    hasPe,
+    crossSectionMm2,
+    outerDiameterIn,
+    page,
+  ]) => {
+    // Each physical core has two ends in the same conductive node group.
+    const conductors = [
+      ...Array.from({ length: coreCount - Number(hasPe) }, (_, index) =>
+        String(index + 1),
+      ),
+      ...(hasPe ? ["PE"] : []),
+    ];
+    return {
+      id: `lapp:${orderCode}`,
+      manufacturer: "LAPP",
+      model: `ÖLFLEX CLASSIC 110 ${designation}`,
+      orderCode,
+      category: "cables-and-conductors" as const,
+      function: "multicore-control-cable" as const,
+      connection: "passive" as const,
+      terminals: conductors.flatMap((group) =>
+        ["a", "b"].map((end) => ({
+          id: `${end}-${group.toLowerCase()}`,
+          group,
+          interface: group === "PE" ? "cable-pe-core" : "cable-numbered-core",
+          connector: "conductor end",
+        })),
+      ),
+      ratings: { coreCount, crossSectionMm2, outerDiameterIn, hasPe },
+      conditions: {},
+      modelMapping: null,
+      source: {
+        url: "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        revision: "LAPP article information (2026-11-09)",
+        page,
+      },
+      missingFields: [
+        "cable-electrical-ratings",
+        "verified-cable-model-mapping",
+      ],
+      readiness: "inventory-and-diagram-only",
+    };
+  },
+);
+
 export const componentBank = [
   ...pvModules,
   ...ic60nBreakers,
@@ -1254,6 +1345,7 @@ export const componentBank = [
   ...victronVeDirect120,
   ...evlinkHomeStations,
   ...altivar320CompactDrives,
+  ...olflexClassic110Cables,
 ];
 
 export function componentBankCsv(
