@@ -56,7 +56,7 @@ export function deriveBOM(project: Project): BOMSnapshot {
           : `${equipment.name} · ${model}`,
       quantity: equipment.quantity,
       unit: "piece",
-      evidence: `${equipment.sourceRevision}${equipment.sourcePage ? ` · p. ${equipment.sourcePage}` : ""} · ${equipment.sourceUrl}`,
+      evidence: `${equipment.sourceRevision}${equipment.sourcePage ? ` · p. ${equipment.sourcePageLabel ?? equipment.sourcePage}` : ""} · ${equipment.sourceUrl}`,
     });
   }
   const cable = (id: string, name: string, value: Cable | undefined) => {

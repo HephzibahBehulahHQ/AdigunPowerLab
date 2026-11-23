@@ -11,6 +11,7 @@ import {
   iemMeters,
   ictContactors,
   rm17Relays,
+  linergyDsBlocks,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -20,6 +21,47 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("Linergy terminal openings share a pole and reject conflicting phases", () => {
+  expect(linergyDsBlocks.map(({ terminals }) => terminals.length)).toEqual([
+    10, 13, 14,
+  ]);
+  const model = linergyDsBlocks[0];
+  const instances = [
+    {
+      id: "block",
+      name: "Distribution blocks",
+      catalogueId: model.id,
+      manufacturer: model.manufacturer,
+      model: model.model,
+      sourceUrl: model.source.url,
+      sourceRevision: model.source.revision,
+      quantity: 3,
+    },
+  ];
+  const endpoint = (unit: number, terminalId: string) => ({
+    instanceId: "block",
+    unit,
+    terminalId,
+  });
+  const wires = [
+    {
+      id: "one",
+      from: endpoint(1, "hole-1-1"),
+      to: endpoint(2, "hole-1-1"),
+      phase: "L1",
+    },
+    {
+      id: "two",
+      from: endpoint(1, "hole-2-1"),
+      to: endpoint(3, "hole-1-1"),
+      phase: "L2",
+    },
+  ];
+  expect(equipmentConnectionErrors(wires, instances)[0]).toContain(
+    "conflicting phases",
+  );
+});
 
 test("RM17 reference variants preserve voltage ranges and output contact groups", () => {
   expect(rm17Relays).toHaveLength(6);

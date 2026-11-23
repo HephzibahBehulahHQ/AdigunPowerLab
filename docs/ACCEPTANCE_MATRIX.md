@@ -437,3 +437,5 @@ The iC60H tranche adds 180 B/C/D variants across 1P–4P, voltage-qualified IEC/
 The iC60L tranche includes 232 variants with exact pole counts, terminal labels, order codes and voltage-scoped Icn metadata.
 
 Harmony RM17 monitoring entries include exact order codes, sensing terminals, numbered changeover contacts and CSV/JSON.
+
+Linergy DS entries include the common node, separately addressable terminal openings, rated withstand current and printed source page.
