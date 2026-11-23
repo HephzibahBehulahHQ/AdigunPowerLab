@@ -428,3 +428,5 @@ Choose **Use coal inventory in dispatch** to transfer plant capacity, heat rate 
 In **Nuclear steam generation**, adjust the heat supplied to the steam cycle and compare gross generation with net grid power. A negative net reading indicates electricity imported to cover on-site use in the teaching case.
 
 The Equipment Library's **Manufacturer equipment** panel lets you search by maker or model, view the published electrical ratings, open the datasheet and export the individual record as CSV or JSON. Use the PV worksheet to apply a supported module to a study.
+
+Select **Add to project equipment** to keep a sourced model with the saved project. Edit its name and installed quantity in **Project equipment**, then save. Reports include these quantities in the model-derived bill of materials. The PV worksheet uses its own reviewed study inputs.

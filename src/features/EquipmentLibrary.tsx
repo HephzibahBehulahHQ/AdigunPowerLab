@@ -220,7 +220,7 @@ export function EquipmentLibrary({
         <span className="tag cyan">{templates.length}</span>
       </div>
       {error && <Notice tone="error">{t(error)}</Notice>}
-      <ManufacturerEquipmentCatalogue />
+      <ManufacturerEquipmentCatalogue project={project} change={change} />
       <div className="button-row">
         <button
           className="button primary"

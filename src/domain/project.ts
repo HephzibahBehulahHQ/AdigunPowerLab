@@ -1240,6 +1240,44 @@ export function validateProjectImport(input: unknown): {
         );
     }
   }
+  if (candidate.catalogueEquipment !== undefined) {
+    const rows = candidate.catalogueEquipment;
+    if (!Array.isArray(rows) || rows.length > 10000) {
+      errors.push(
+        "Catalogue equipment must contain at most 10,000 project instances.",
+      );
+    } else {
+      uniqueIds(rows, "Catalogue equipment", errors);
+      for (const row of rows) {
+        if (
+          !record(row) ||
+          ![
+            row.id,
+            row.catalogueId,
+            row.manufacturer,
+            row.model,
+            row.sourceRevision,
+            row.name,
+          ].every(
+            (value) =>
+              typeof value === "string" &&
+              value.trim().length > 0 &&
+              value.length <= 256,
+          ) ||
+          typeof row.sourceUrl !== "string" ||
+          row.sourceUrl.length > 2048 ||
+          !URL.canParse(row.sourceUrl) ||
+          new URL(row.sourceUrl).protocol !== "https:" ||
+          typeof row.quantity !== "number" ||
+          !Number.isInteger(row.quantity) ||
+          row.quantity < 1 ||
+          row.quantity > 10000
+        ) {
+          errors.push("Invalid catalogue equipment instance.");
+        }
+      }
+    }
+  }
   if (candidate.equipmentLibrary !== undefined) {
     if (
       !Array.isArray(candidate.equipmentLibrary) ||

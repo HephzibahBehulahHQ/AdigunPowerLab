@@ -2006,6 +2006,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Wá olupese tàbí model nínú Ohun èlò olupese, kí o ṣàyẹ̀wò tàbí gbé àkọsílẹ̀ jáde. O lè lo module PV nínú worksheet PV.",
       "Search manufacturer equipment by maker or model to check or export di sourced record. You fit use PV modules for di PV worksheet.",
     ],
+  "Use Add to project equipment to save a model in the project. Edit its name or quantity to update the bill of materials.":
+    [
+      "Fügen Sie das Modell zu den Projektgeräten hinzu. Ändern Sie den Namen oder die Menge, um die Stückliste zu aktualisieren.",
+      "Fi model kún ohun èlò iṣẹ́ akanṣe. Ṣàtúnṣe orúkọ tàbí iye rẹ̀ láti ṣe àtúnṣe àtòjọ ohun èlò.",
+      "Add di model to project equipment. Change di name or quantity to update di bill of materials.",
+    ],
   "Choose Manufacturer PV module and review the datasheet before applying its DC rating and power temperature coefficient. The PV case export includes the applied equipment record.":
     [
       "Wählen Sie das Hersteller-PV-Modul und prüfen Sie das Datenblatt vor der Übernahme der DC-Nennleistung und des Temperaturkoeffizienten. Der PV-Export enthält den verwendeten Gerätedatensatz.",

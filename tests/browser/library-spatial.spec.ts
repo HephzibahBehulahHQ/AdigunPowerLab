@@ -316,3 +316,37 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   expect(contents.trimEnd().split(/\r?\n/)).toHaveLength(2);
   expect(contents).toContain('"canadian-solar:cs6.2-48tm-455h"');
 });
+
+test("sourced equipment keeps its edited quantity in the saved project BOM", async ({
+  page,
+}) => {
+  await page.goto("/#/library");
+  const catalogue = page.getByRole("region", {
+    name: "Manufacturer equipment",
+  });
+  await catalogue.getByRole("searchbox").fill("CS6.2-48TM-455H");
+  await catalogue
+    .getByRole("button", { name: "Add to project equipment" })
+    .click();
+  const equipment = page.getByRole("region", { name: "Project equipment" });
+  await equipment.getByRole("textbox").fill("Roof array");
+  await equipment.getByRole("textbox").press("Tab");
+  await equipment.getByRole("spinbutton").fill("24");
+  await equipment.getByRole("spinbutton").press("Tab");
+  await page
+    .locator(".workspace-toolbar")
+    .getByRole("button", { name: "Save", exact: true })
+    .click();
+  await expect(page.locator(".save-badge")).toContainText("Saved locally");
+  await page.reload();
+  await expect(equipment.getByRole("textbox")).toHaveValue("Roof array");
+  await expect(equipment.getByRole("spinbutton")).toHaveValue("24");
+  await page.goto("/#/reports");
+  await page
+    .getByRole("checkbox", { name: "Model-derived bill of materials" })
+    .check();
+  await page.getByRole("button", { name: "Freeze report preview" }).click();
+  await expect(page.locator("#engineering-report-preview")).toContainText(
+    "Roof array",
+  );
+});

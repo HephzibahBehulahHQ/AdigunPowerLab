@@ -5,7 +5,7 @@ import { decimalInteger, type BillLine } from "./reports";
 export interface BOMRow {
   id: string;
   sourceIds: string[];
-  kind: "load" | "board" | "protection" | "cable";
+  kind: "load" | "board" | "protection" | "cable" | "equipment";
   description: string;
   quantity: number;
   unit: "piece" | "m";
@@ -40,6 +40,20 @@ export function deriveBOM(project: Project): BOMSnapshot {
       unit: "piece",
       evidence: load.source.reference,
     });
+  for (const equipment of project.catalogueEquipment ?? []) {
+    rows.push({
+      id: `equipment:${equipment.id}`,
+      sourceIds: [equipment.id, equipment.catalogueId],
+      kind: "equipment",
+      description:
+        equipment.name === equipment.model
+          ? `${equipment.manufacturer} ${equipment.model}`
+          : `${equipment.name} · ${equipment.manufacturer} ${equipment.model}`,
+      quantity: equipment.quantity,
+      unit: "piece",
+      evidence: `${equipment.sourceRevision} · ${equipment.sourceUrl}`,
+    });
+  }
   const cable = (id: string, name: string, value: Cable | undefined) => {
     if (!value) return;
     if (!Number.isFinite(value.lengthM) || value.lengthM < 0)
