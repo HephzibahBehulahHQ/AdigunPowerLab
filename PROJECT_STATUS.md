@@ -509,3 +509,5 @@ The Phaseo ABT7PDU batch adds 23 dual-secondary order codes from catalogue p. 11
 Interactive wiring fbcb46a published in Pages run 45283935804; the live root returned HTTP 200. iC60N merged as 2b49aee. The candidate catalogue adds eight Victron AGM batteries, reaching 793 records across nine categories.
 
 iC60N main validation is run 45284128940. The battery wiring candidate supports catalogue AGM terminal links while rejecting indirect shorts and links to PV power terminals. Battery bank analysis remains open.
+
+Battery series candidate shows nominal voltage, C20 capacity and nominal energy for identical batteries linked in an isolated chain. The calculation shares the PV series topology traversal, and battery dispatch remains open.

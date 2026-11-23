@@ -1120,6 +1120,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Olootu kọ waya PV tí yóò so ebute rere àti odi module kan pọ̀ nípasẹ̀ àwọn waya tí a ti fipamọ́.",
       "Di editor rejects PV wire if di saved wires go join positive and negative terminals for one module.",
     ],
+  "An isolated series chain of identical batteries shows nominal voltage, C20 capacity and nominal energy in the inspector.":
+    [
+      "Bei einer separaten Reihenschaltung identischer Batterien zeigt der Inspektor Nennspannung, C20-Kapazität und Nennenergie.",
+      "Bátìrì kan náà tí a so lẹ́sẹẹsẹ lọ́tọ̀ fi voltage nominal, capacity C20 àti agbára nominal hàn nínú inspector.",
+      "For identical batteries wired for one isolated series chain, di inspector shows nominal voltage, C20 capacity and nominal energy.",
+    ],
   "Battery links use the catalogue battery terminals. The editor rejects a wire that would put both terminals of one battery on the same conductor node.":
     [
       "Batterieverbindungen verwenden die Kataloganschlüsse. Der Editor lehnt eine Leitung ab, die beide Anschlüsse einer Batterie auf denselben Leiterknoten legen würde.",

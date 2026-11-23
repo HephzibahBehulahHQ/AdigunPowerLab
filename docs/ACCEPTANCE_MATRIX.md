@@ -449,3 +449,5 @@ ABT7PDU includes 23 exact order codes, separate secondary windings, rating varia
 The first battery tranche preserves exact order codes, positive/negative terminal insert types, three capacity ratings at the published cutoff and CSV/JSON.
 
 AGM terminals support saved battery-to-battery links and common-node short checks. Battery and PV power wiring use separate terminal interfaces.
+
+Saved battery series links map to nominal voltage, C20 capacity and nominal energy for identical isolated units.

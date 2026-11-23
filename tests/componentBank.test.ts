@@ -20,7 +20,10 @@ import {
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
 import { equipmentConnectionErrors } from "../src/domain/equipmentConnections";
-import { cataloguePvStrings } from "../src/engine/cataloguePvStrings";
+import {
+  catalogueBatteryStrings,
+  cataloguePvStrings,
+} from "../src/engine/catalogueSeries";
 import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
@@ -70,6 +73,16 @@ test("AGM links allow series connection but reject indirect battery shorts", () 
   const to = { instanceId: "battery", unit: 2, terminalId: "negative" };
   const series = { id: "series", from, to };
   expect(equipmentConnectionErrors([series], instances)).toEqual([]);
+  const project = createProject();
+  project.catalogueEquipment = instances;
+  project.equipmentTerminalConnections = [series];
+  expect(catalogueBatteryStrings(project)[0]).toMatchObject({
+    nominalV: 24,
+    c20Ah: 15,
+    nominalKWhC20: 0.36,
+    dischargeCutoffV: 21.6,
+  });
+  expect(cataloguePvStrings(project)).toEqual([]);
   const short = { id: "short", from: { ...from, terminalId: "negative" }, to };
   expect(equipmentConnectionErrors([series, short], instances)).toEqual([
     "Equipment terminal network: Battery terminals share a conductor node for Bank [1].",
