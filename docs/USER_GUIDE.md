@@ -501,3 +501,4 @@ VE.Direct 120 V records show their own temperature-conditioned power ratings and
 - In the manufacturer catalogue, select **EV charging equipment** or search for an EVlink order code. Check the rated power, supply phases and Type 2 connector. EVlink entries support inventory and diagrams.
 - Select **Drives and starting equipment** in the manufacturer catalogue to compare compact Altivar drives by supply phase, motor power and continuous output current. Use the manufacturer documents for derating and auxiliary connections.
 - Expand **Source, terminals and model readiness** to open supplemental manufacturer documents when the catalogue includes separate terminal or installation evidence.
+- Select **Cables and conductors** to compare LAPP cable articles by cross-section, core count and PE. Each core has two documented ends. These records are available for inventory and diagrams.
