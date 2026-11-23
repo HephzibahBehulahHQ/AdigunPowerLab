@@ -95,49 +95,67 @@ export const pvModules = families.flatMap((family) =>
 
 // Schneider Acti9 2017, printed pp. 8–10, iC60N catalogue tables.
 // The 0.5 A suffix is 70; all other suffixes match the printed ampere code.
-export const ic60nBreakers = [1, 2, 3, 4].flatMap((poles) =>
-  (["B", "C", "D"] as const).flatMap((curve, curveIndex) =>
-    [0.5, 1, 2, 3, 4, 6, 10, 13, 16, 20, 25, 32, 40, 50, 63].map((currentA) => {
-      const suffix =
-        currentA === 0.5 ? "70" : String(currentA).padStart(2, "0");
-      const model = `A9F${73 + curveIndex}${poles}${suffix}`;
-      return {
-        id: `schneider-electric:${model.toLowerCase()}`,
-        manufacturer: "Schneider Electric",
-        model,
-        orderCode: model,
-        category: "protection-devices" as const,
-        function: "miniature-circuit-breaker" as const,
-        connection: "ac" as const,
-        terminals: Array.from({ length: poles }, (_, index) =>
-          ["top", "bottom"].map((side) => ({
-            id: `pole-${index + 1}-${side}`,
-            group: `pole-${index + 1}-${side}`,
-            interface: "ac-line",
-            connector: "screw terminal",
-          })),
-        ).flat(),
-        ratings: { ratedCurrentA: currentA, poles, curve, icnKA: 6 },
-        conditions: {
-          frequencyHz: [50, 60],
-          icnVoltageV: poles === 1 ? 230 : 400,
-          icnStandard: "IEC/EN 60898-1",
+function acti9Breakers(family: "iC60N" | "iC60H") {
+  const highCapacity = family === "iC60H";
+  return [1, 2, 3, 4].flatMap((poles) =>
+    (["B", "C", "D"] as const).flatMap((curve, curveIndex) =>
+      [0.5, 1, 2, 3, 4, 6, 10, 13, 16, 20, 25, 32, 40, 50, 63].map(
+        (currentA) => {
+          const suffix =
+            currentA === 0.5 ? "70" : String(currentA).padStart(2, "0");
+          const model = `A9F${(highCapacity ? 83 : 73) + curveIndex}${poles}${suffix}`;
+          return {
+            id: `schneider-electric:${model.toLowerCase()}`,
+            manufacturer: "Schneider Electric",
+            model,
+            orderCode: model,
+            category: "protection-devices" as const,
+            function: "miniature-circuit-breaker" as const,
+            connection: "ac" as const,
+            terminals: Array.from({ length: poles }, (_, index) =>
+              ["top", "bottom"].map((side, terminal) => ({
+                id: `pole-${index + 1}-${side}`,
+                group: highCapacity
+                  ? String(index * 2 + terminal + 1)
+                  : `pole-${index + 1}-${side}`,
+                interface: "ac-line",
+                connector: "screw terminal",
+              })),
+            ).flat(),
+            ratings: {
+              ratedCurrentA: currentA,
+              poles,
+              curve,
+              icnKA: highCapacity ? 10 : 6,
+              ...(highCapacity ? { family } : {}),
+            },
+            conditions: {
+              frequencyHz: [50, 60],
+              icnVoltageV: poles === 1 ? 230 : 400,
+              icnStandard: "IEC/EN 60898-1",
+              ...(highCapacity ? { icnSourcePage: 11 } : {}),
+            },
+            modelMapping: null,
+            source: {
+              url: "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+              revision: "Version 2.0, May 2017",
+              page: highCapacity ? 12 : poles <= 2 ? 8 : 9,
+            },
+            missingFields: [
+              "regional-availability",
+              "verified-protection-model-mapping",
+            ],
+            readiness: "inventory-and-diagram-only",
+          };
         },
-        modelMapping: null,
-        source: {
-          url: "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
-          revision: "Version 2.0, May 2017",
-          page: poles <= 2 ? 8 : 9,
-        },
-        missingFields: [
-          "regional-availability",
-          "verified-protection-model-mapping",
-        ],
-        readiness: "inventory-and-diagram-only",
-      };
-    }),
-  ),
-);
+      ),
+    ),
+  );
+}
+
+export const ic60nBreakers = acti9Breakers("iC60N");
+// The iC60H order and terminal table is on p. 12; Icn is on p. 11.
+export const ic60hBreakers = acti9Breakers("iC60H");
 
 // Acti9 2017, printed p. 52. Null cells are unavailable in this table.
 const iidAcTable = [
@@ -484,6 +502,7 @@ export const componentBank = [
   ...iswSwitches,
   ...iemMeters,
   ...ictContactors,
+  ...ic60hBreakers,
 ];
 
 export function componentBankCsv(

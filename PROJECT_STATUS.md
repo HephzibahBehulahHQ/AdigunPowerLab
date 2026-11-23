@@ -491,3 +491,5 @@ PV string candidate calculates Voc, Vmp and Imp from the actual terminal links o
 Frozen equipment reports now include STC PV series values and module order for supported strings derived from the saved topology.
 
 Terminal storage merged as f7a647d; main validation is run 45281111317. The PV string candidate now calculates published STC nameplate power and Isc in the inspector and frozen report.
+
+The iC60H tranche adds 180 exact order codes from Acti9 2017 pp. 11–13, bringing the candidate to 479 records across four categories. It documents 10 kA Icn at the published voltage and numbered terminals.
