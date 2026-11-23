@@ -507,3 +507,5 @@ Transformer coverage starts with 39 Phaseo ABL6TS single-secondary order codes. 
 The Phaseo ABT7PDU batch adds 23 dual-secondary order codes from catalogue p. 11. The candidate now contains 785 records. Nominal winding data, four secondary connection points and jumper-placement distinctions are exported.
 
 Interactive wiring fbcb46a published in Pages run 45283935804; the live root returned HTTP 200. iC60N merged as 2b49aee. The candidate catalogue adds eight Victron AGM batteries, reaching 793 records across nine categories.
+
+iC60N main validation is run 45284128940. The battery wiring candidate supports catalogue AGM terminal links while rejecting indirect shorts and links to PV power terminals. Battery bank analysis remains open.

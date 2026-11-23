@@ -13,6 +13,8 @@ export const isWireTerminal = (terminal: { interface: string }) =>
     "ac-neutral",
     "dc-positive",
     "dc-negative",
+    "battery-positive",
+    "battery-negative",
     "protective-bond",
   ].includes(terminal.interface);
 
@@ -42,7 +44,7 @@ export function equipmentConnectionErrors(
   const dcWires = new Map<string, Set<string>>();
   const dcTerminals = new Map<
     string,
-    { device: string; polarity: string; label: string }
+    { device: string; polarity: string; label: string; domain: string }
   >();
   const errors: string[] = [];
   function resolve(input: unknown) {
@@ -66,10 +68,10 @@ export function equipmentConnectionErrors(
       device: JSON.stringify([instanceId, unit]),
       label: `${instance.name} [${unit}]`,
       polarity: terminal.interface,
-      domain:
-        terminal.interface === "dc-positive" ||
-        terminal.interface === "dc-negative"
-          ? "dc"
+      domain: terminal.interface.startsWith("dc-")
+        ? "dc"
+        : terminal.interface.startsWith("battery-")
+          ? "dc-storage"
           : terminal.interface,
       pole: JSON.stringify([
         instanceId,
@@ -131,7 +133,7 @@ export function equipmentConnectionErrors(
       continue;
     }
     pairs.add(pair);
-    if (left.domain === "dc") {
+    if (left.domain === "dc" || left.domain === "dc-storage") {
       for (const [end, other] of [
         [left, right],
         [right, left],
@@ -144,7 +146,7 @@ export function equipmentConnectionErrors(
     }
   }
 
-  // Walk conductor nodes only. A PV module itself never joins its two terminals.
+  // Walk conductor nodes only. A source does not join its own terminals.
   const visited = new Set<string>();
   const shortedDevices = new Set<string>();
   for (const key of dcWires.keys()) {
@@ -163,7 +165,7 @@ export function equipmentConnectionErrors(
       ) {
         shortedDevices.add(terminal.device);
         errors.push(
-          `Equipment terminal network: PV terminals share a conductor node for ${terminal.label}.`,
+          `Equipment terminal network: ${terminal.domain === "dc" ? "PV" : "Battery"} terminals share a conductor node for ${terminal.label}.`,
         );
       }
       polarities.set(terminal.device, terminal.polarity);

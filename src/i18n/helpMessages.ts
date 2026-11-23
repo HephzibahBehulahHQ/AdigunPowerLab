@@ -1120,6 +1120,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Olootu kọ waya PV tí yóò so ebute rere àti odi module kan pọ̀ nípasẹ̀ àwọn waya tí a ti fipamọ́.",
       "Di editor rejects PV wire if di saved wires go join positive and negative terminals for one module.",
     ],
+  "Battery links use the catalogue battery terminals. The editor rejects a wire that would put both terminals of one battery on the same conductor node.":
+    [
+      "Batterieverbindungen verwenden die Kataloganschlüsse. Der Editor lehnt eine Leitung ab, die beide Anschlüsse einer Batterie auf denselben Leiterknoten legen würde.",
+      "Ìsopọ̀ bátìrì lo ebute inú katalogi. Olootu kọ waya tí yóò fi ebute méjèèjì bátìrì kan sí node kan náà.",
+      "Battery links use catalogue battery terminals. Di editor rejects wire wey go put both terminals for one battery on di same conductor node.",
+    ],
   "Choose protective bonding terminals at both ends to link a catalogue earth bar to a PV frame.":
     [
       "Wählen Sie an beiden Enden Schutzpotentialausgleichsanschlüsse, um eine Katalog-Erdungsschiene mit einem PV-Rahmen zu verbinden.",
