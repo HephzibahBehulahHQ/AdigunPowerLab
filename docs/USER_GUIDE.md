@@ -223,6 +223,8 @@ At the top of the lab, choose **Nigeria-inspired** or **Germany-inspired · 50He
 
 ## POWERGRID LAB — wind resource and generation
 
+In the PV worksheet, select a **Manufacturer PV module**, review its published values, and choose **Apply one module**. The action copies the module's DC rating and power temperature coefficient. The inverter and environmental settings are entered separately. Save and export preserve the applied equipment reference while those two mapped inputs match.
+
 Below the PV worksheet, open **Wind resource and generation experiment**. The editable lesson starts with six equal-duration wind-speed intervals. Enter comma-separated speeds from 0 to 30 m/s, an interval duration up to 24 hours and an integer count of identical reference turbines. The NREL 6 MW (2015) reference curve is linearly interpolated for each interval. Read per-turbine and farm output, interval energy, total energy, mean power and profile capacity factor. Save stores these lab inputs in this browser. JSON includes source-labelled inputs/results; CSV contains the calculated interval readings. Refresh reloads saved inputs; Reset returns to the lesson sequence.
 
 Switch **Reference turbine** to **NREL 4 MW onshore** and keep the entered wind profile to compare the two curves. Each interval meter shows per-turbine output against the selected nameplate. In microgrid dispatch, **Wind reference turbine** selects the curve for entered wind speeds. Historical generation uses its recorded output. Saving remembers your choice and the dispatch JSON includes the active source.

@@ -437,3 +437,7 @@ Meshed profile saving is also live. Public Chromium restored both edited demand 
 A phone-width Chromium accessibility-tree sample found that hidden toolbar text left Save and Export project unnamed. The accessibility candidate explicitly names both controls using the existing four-language text.
 
 Public Pages sampling verified the reduced-motion station layout at desktop, tablet and phone widths. Chromium rendered WebGL at all three widths and recorded two-frame azimuth input timing in docs/TEST_EVIDENCE.md.
+
+## Component-bank priority
+
+The baseline exports in docs identify 51 tools and six equipment/model families separately from manufacturer records. The first candidate adds seven sourced Canadian Solar PV modules and maps only their DC nameplate rating and power temperature coefficient to the PV worksheet after review. The case saves the reference and exports the applied record. TypeScript, 24 focused PV and Help checks, and Chromium save/reload/export passed. Equipment placement, connection editing and BOM integration remain open.

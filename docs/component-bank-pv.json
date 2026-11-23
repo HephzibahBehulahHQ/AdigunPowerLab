@@ -1,0 +1,404 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "canadian-solar:cs6.2-48tm-440h",
+      "manufacturer": "Canadian Solar",
+      "model": "CS6.2-48TM-440H",
+      "orderCode": null,
+      "category": "solar-and-wind-equipment",
+      "function": "photovoltaic-module",
+      "connection": "dc",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "dc-positive",
+          "connector": "MC4"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "dc-negative",
+          "connector": "MC4"
+        },
+        {
+          "id": "frame",
+          "group": "frame-bond",
+          "interface": "protective-bond",
+          "connector": "grounding-holes"
+        }
+      ],
+      "ratings": {
+        "powerW": 440,
+        "vmpV": 30.2,
+        "impA": 14.58,
+        "vocV": 35.4,
+        "iscA": 15.88,
+        "efficiencyPercent": 22,
+        "maxSystemV": 1500,
+        "maxSeriesFuseA": 30
+      },
+      "conditions": {
+        "irradianceWm2": 1000,
+        "cellTemperatureC": 25,
+        "airMass": 1.5
+      },
+      "modelMapping": {
+        "dcNameplateKW": 0.44,
+        "powerTemperatureCoefficientPerC": -0.0029
+      },
+      "source": {
+        "url": "https://www.canadiansolar.com/wp-content/uploads/sites/3/2026/01/CS-Datasheet-TOPHiKu6_All-Black_CS6.2-48TM-H_v1.0C25_F23_D1_NA-1.pdf",
+        "revision": "V1.0C25_F23_D1_NA",
+        "page": 2
+      },
+      "missingFields": [
+        "separate-order-code"
+      ],
+      "readiness": "pv-worksheet-inputs-only"
+    },
+    {
+      "id": "canadian-solar:cs6.2-48tm-445h",
+      "manufacturer": "Canadian Solar",
+      "model": "CS6.2-48TM-445H",
+      "orderCode": null,
+      "category": "solar-and-wind-equipment",
+      "function": "photovoltaic-module",
+      "connection": "dc",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "dc-positive",
+          "connector": "MC4"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "dc-negative",
+          "connector": "MC4"
+        },
+        {
+          "id": "frame",
+          "group": "frame-bond",
+          "interface": "protective-bond",
+          "connector": "grounding-holes"
+        }
+      ],
+      "ratings": {
+        "powerW": 445,
+        "vmpV": 30.4,
+        "impA": 14.64,
+        "vocV": 35.6,
+        "iscA": 15.95,
+        "efficiencyPercent": 22.3,
+        "maxSystemV": 1500,
+        "maxSeriesFuseA": 30
+      },
+      "conditions": {
+        "irradianceWm2": 1000,
+        "cellTemperatureC": 25,
+        "airMass": 1.5
+      },
+      "modelMapping": {
+        "dcNameplateKW": 0.445,
+        "powerTemperatureCoefficientPerC": -0.0029
+      },
+      "source": {
+        "url": "https://www.canadiansolar.com/wp-content/uploads/sites/3/2026/01/CS-Datasheet-TOPHiKu6_All-Black_CS6.2-48TM-H_v1.0C25_F23_D1_NA-1.pdf",
+        "revision": "V1.0C25_F23_D1_NA",
+        "page": 2
+      },
+      "missingFields": [
+        "separate-order-code"
+      ],
+      "readiness": "pv-worksheet-inputs-only"
+    },
+    {
+      "id": "canadian-solar:cs6.2-48tm-450h",
+      "manufacturer": "Canadian Solar",
+      "model": "CS6.2-48TM-450H",
+      "orderCode": null,
+      "category": "solar-and-wind-equipment",
+      "function": "photovoltaic-module",
+      "connection": "dc",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "dc-positive",
+          "connector": "MC4"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "dc-negative",
+          "connector": "MC4"
+        },
+        {
+          "id": "frame",
+          "group": "frame-bond",
+          "interface": "protective-bond",
+          "connector": "grounding-holes"
+        }
+      ],
+      "ratings": {
+        "powerW": 450,
+        "vmpV": 30.6,
+        "impA": 14.71,
+        "vocV": 35.8,
+        "iscA": 16.02,
+        "efficiencyPercent": 22.5,
+        "maxSystemV": 1500,
+        "maxSeriesFuseA": 30
+      },
+      "conditions": {
+        "irradianceWm2": 1000,
+        "cellTemperatureC": 25,
+        "airMass": 1.5
+      },
+      "modelMapping": {
+        "dcNameplateKW": 0.45,
+        "powerTemperatureCoefficientPerC": -0.0029
+      },
+      "source": {
+        "url": "https://www.canadiansolar.com/wp-content/uploads/sites/3/2026/01/CS-Datasheet-TOPHiKu6_All-Black_CS6.2-48TM-H_v1.0C25_F23_D1_NA-1.pdf",
+        "revision": "V1.0C25_F23_D1_NA",
+        "page": 2
+      },
+      "missingFields": [
+        "separate-order-code"
+      ],
+      "readiness": "pv-worksheet-inputs-only"
+    },
+    {
+      "id": "canadian-solar:cs6.2-48tm-455h",
+      "manufacturer": "Canadian Solar",
+      "model": "CS6.2-48TM-455H",
+      "orderCode": null,
+      "category": "solar-and-wind-equipment",
+      "function": "photovoltaic-module",
+      "connection": "dc",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "dc-positive",
+          "connector": "MC4"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "dc-negative",
+          "connector": "MC4"
+        },
+        {
+          "id": "frame",
+          "group": "frame-bond",
+          "interface": "protective-bond",
+          "connector": "grounding-holes"
+        }
+      ],
+      "ratings": {
+        "powerW": 455,
+        "vmpV": 30.8,
+        "impA": 14.78,
+        "vocV": 36,
+        "iscA": 16.09,
+        "efficiencyPercent": 22.8,
+        "maxSystemV": 1500,
+        "maxSeriesFuseA": 30
+      },
+      "conditions": {
+        "irradianceWm2": 1000,
+        "cellTemperatureC": 25,
+        "airMass": 1.5
+      },
+      "modelMapping": {
+        "dcNameplateKW": 0.455,
+        "powerTemperatureCoefficientPerC": -0.0029
+      },
+      "source": {
+        "url": "https://www.canadiansolar.com/wp-content/uploads/sites/3/2026/01/CS-Datasheet-TOPHiKu6_All-Black_CS6.2-48TM-H_v1.0C25_F23_D1_NA-1.pdf",
+        "revision": "V1.0C25_F23_D1_NA",
+        "page": 2
+      },
+      "missingFields": [
+        "separate-order-code"
+      ],
+      "readiness": "pv-worksheet-inputs-only"
+    },
+    {
+      "id": "canadian-solar:cs6.2-48tm-460h",
+      "manufacturer": "Canadian Solar",
+      "model": "CS6.2-48TM-460H",
+      "orderCode": null,
+      "category": "solar-and-wind-equipment",
+      "function": "photovoltaic-module",
+      "connection": "dc",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "dc-positive",
+          "connector": "MC4"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "dc-negative",
+          "connector": "MC4"
+        },
+        {
+          "id": "frame",
+          "group": "frame-bond",
+          "interface": "protective-bond",
+          "connector": "grounding-holes"
+        }
+      ],
+      "ratings": {
+        "powerW": 460,
+        "vmpV": 31,
+        "impA": 14.84,
+        "vocV": 36.2,
+        "iscA": 16.16,
+        "efficiencyPercent": 23,
+        "maxSystemV": 1500,
+        "maxSeriesFuseA": 30
+      },
+      "conditions": {
+        "irradianceWm2": 1000,
+        "cellTemperatureC": 25,
+        "airMass": 1.5
+      },
+      "modelMapping": {
+        "dcNameplateKW": 0.46,
+        "powerTemperatureCoefficientPerC": -0.0029
+      },
+      "source": {
+        "url": "https://www.canadiansolar.com/wp-content/uploads/sites/3/2026/01/CS-Datasheet-TOPHiKu6_All-Black_CS6.2-48TM-H_v1.0C25_F23_D1_NA-1.pdf",
+        "revision": "V1.0C25_F23_D1_NA",
+        "page": 2
+      },
+      "missingFields": [
+        "separate-order-code"
+      ],
+      "readiness": "pv-worksheet-inputs-only"
+    },
+    {
+      "id": "canadian-solar:cs6.2-48tm-465h",
+      "manufacturer": "Canadian Solar",
+      "model": "CS6.2-48TM-465H",
+      "orderCode": null,
+      "category": "solar-and-wind-equipment",
+      "function": "photovoltaic-module",
+      "connection": "dc",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "dc-positive",
+          "connector": "MC4"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "dc-negative",
+          "connector": "MC4"
+        },
+        {
+          "id": "frame",
+          "group": "frame-bond",
+          "interface": "protective-bond",
+          "connector": "grounding-holes"
+        }
+      ],
+      "ratings": {
+        "powerW": 465,
+        "vmpV": 31.2,
+        "impA": 14.91,
+        "vocV": 36.4,
+        "iscA": 16.23,
+        "efficiencyPercent": 23.3,
+        "maxSystemV": 1500,
+        "maxSeriesFuseA": 30
+      },
+      "conditions": {
+        "irradianceWm2": 1000,
+        "cellTemperatureC": 25,
+        "airMass": 1.5
+      },
+      "modelMapping": {
+        "dcNameplateKW": 0.465,
+        "powerTemperatureCoefficientPerC": -0.0029
+      },
+      "source": {
+        "url": "https://www.canadiansolar.com/wp-content/uploads/sites/3/2026/01/CS-Datasheet-TOPHiKu6_All-Black_CS6.2-48TM-H_v1.0C25_F23_D1_NA-1.pdf",
+        "revision": "V1.0C25_F23_D1_NA",
+        "page": 2
+      },
+      "missingFields": [
+        "separate-order-code"
+      ],
+      "readiness": "pv-worksheet-inputs-only"
+    },
+    {
+      "id": "canadian-solar:cs6.2-48tm-470h",
+      "manufacturer": "Canadian Solar",
+      "model": "CS6.2-48TM-470H",
+      "orderCode": null,
+      "category": "solar-and-wind-equipment",
+      "function": "photovoltaic-module",
+      "connection": "dc",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "dc-positive",
+          "connector": "MC4"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "dc-negative",
+          "connector": "MC4"
+        },
+        {
+          "id": "frame",
+          "group": "frame-bond",
+          "interface": "protective-bond",
+          "connector": "grounding-holes"
+        }
+      ],
+      "ratings": {
+        "powerW": 470,
+        "vmpV": 31.4,
+        "impA": 14.98,
+        "vocV": 36.6,
+        "iscA": 16.3,
+        "efficiencyPercent": 23.5,
+        "maxSystemV": 1500,
+        "maxSeriesFuseA": 30
+      },
+      "conditions": {
+        "irradianceWm2": 1000,
+        "cellTemperatureC": 25,
+        "airMass": 1.5
+      },
+      "modelMapping": {
+        "dcNameplateKW": 0.47,
+        "powerTemperatureCoefficientPerC": -0.0029
+      },
+      "source": {
+        "url": "https://www.canadiansolar.com/wp-content/uploads/sites/3/2026/01/CS-Datasheet-TOPHiKu6_All-Black_CS6.2-48TM-H_v1.0C25_F23_D1_NA-1.pdf",
+        "revision": "V1.0C25_F23_D1_NA",
+        "page": 2
+      },
+      "missingFields": [
+        "separate-order-code"
+      ],
+      "readiness": "pv-worksheet-inputs-only"
+    }
+  ]
+}

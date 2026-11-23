@@ -8,6 +8,7 @@ import {
 } from "../engine/pvPerformance";
 import { LanguageContext } from "../i18n";
 import type { Locale } from "../i18n";
+import { pvDatasheet, pvModules } from "../data/componentBank";
 
 const INPUT_KEY = "adigunpowerlab.powergrid.pv-performance.v1";
 const REFERENCE_KEY = "adigunpowerlab.powergrid.pv-reference.v1";
@@ -16,6 +17,23 @@ const sandiaReference =
   "https://pvpmc.sandia.gov/modeling-guide/2-dc-module-iv/cell-temperature/sandia-cell-temperature-model/";
 
 const pvText: Record<string, [string, string, string]> = {
+  "Manufacturer PV module": [
+    "PV-Modul des Herstellers",
+    "Module PV olupese",
+    "Manufacturer PV module",
+  ],
+  "Choose a module": ["Modul auswählen", "Yan module", "Choose module"],
+  "Apply one module": [
+    "Ein Modul übernehmen",
+    "Lo module kan",
+    "Apply one module",
+  ],
+  "This copies the STC DC rating and power temperature coefficient. Inverter and site inputs are entered separately.":
+    [
+      "Übernimmt DC-Nennleistung bei STC und Temperaturkoeffizient der Leistung. Wechselrichter- und Standortwerte werden separat eingegeben.",
+      "Èyí da agbára DC STC àti iye ìyípadà agbára pẹ̀lú ooru. Tẹ iye inverter àti ibi sílẹ̀ lọ́tọ̀.",
+      "This copies di STC DC rating and power temperature coefficient. Enter inverter and site values separately.",
+    ],
   "PV source performance experiment": [
     "PV-Erzeugungsmodell",
     "Ìdánwò iṣẹ́ PV",
@@ -214,7 +232,9 @@ function pvTranslate(message: string, locale: Locale): string {
   return pvText[message]?.[index] ?? message;
 }
 
-function readInputs(value: string | null): PvPerformanceInputs | null {
+type PvCase = PvPerformanceInputs & { equipmentId?: string };
+
+function readInputs(value: string | null): PvCase | null {
   if (!value) return null;
   try {
     const parsed: unknown = JSON.parse(value);
@@ -227,7 +247,7 @@ function readInputs(value: string | null): PvPerformanceInputs | null {
         .length > 0
     )
       return null;
-    return record as unknown as PvPerformanceInputs;
+    return record as unknown as PvCase;
   } catch {
     return null;
   }
@@ -309,10 +329,21 @@ function saveFile(name: string, type: string, content: string) {
 export function PvPerformanceExperiment() {
   const locale = useContext(LanguageContext);
   const copy = (message: string) => pvTranslate(message, locale);
-  const [inputs, setInputs] = useState<PvPerformanceInputs>(
+  const [inputs, setInputs] = useState<PvCase>(
     () =>
       readInputs(localStorage.getItem(INPUT_KEY)) ??
       DEFAULT_PV_PERFORMANCE_INPUTS,
+  );
+  const [selectedModuleId, setSelectedModuleId] = useState(
+    inputs.equipmentId ?? "",
+  );
+  const selectedModule = pvModules.find(({ id }) => id === selectedModuleId);
+  const appliedModule = pvModules.find(
+    ({ id, modelMapping }) =>
+      id === inputs.equipmentId &&
+      modelMapping.dcNameplateKW === inputs.dcNameplateKW &&
+      modelMapping.powerTemperatureCoefficientPerC ===
+        inputs.powerTemperatureCoefficientPerC,
   );
   const [reference, setReference] = useState<PvPerformanceInputs | null>(() =>
     readInputs(localStorage.getItem(REFERENCE_KEY)),
@@ -333,7 +364,14 @@ export function PvPerformanceExperiment() {
 
   const update = (key: keyof PvPerformanceInputs, value: string) => {
     const numeric = value.trim() === "" ? Number.NaN : Number(value);
-    setInputs((current) => ({ ...current, [key]: numeric }));
+    setInputs((current) => ({
+      ...current,
+      [key]: numeric,
+      equipmentId:
+        key === "dcNameplateKW" || key === "powerTemperatureCoefficientPerC"
+          ? undefined
+          : current.equipmentId,
+    }));
     setSaved(false);
   };
   const exportResult = (format: "json" | "csv") => {
@@ -345,7 +383,8 @@ export function PvPerformanceExperiment() {
         JSON.stringify(
           {
             model: "steady-state-pvwatts-style-instantaneous",
-            inputs,
+            inputs: { ...inputs, equipmentId: appliedModule?.id },
+            equipment: appliedModule,
             result,
             comparison: referenceResult,
             comparisonReferenceInputs: reference,
@@ -401,6 +440,53 @@ export function PvPerformanceExperiment() {
             )}
           </p>
         </div>
+      </div>
+      <div className="pg-fields">
+        <label className="pg-field">
+          <span>{copy("Manufacturer PV module")}</span>
+          <select
+            value={selectedModuleId}
+            onChange={(event) => setSelectedModuleId(event.currentTarget.value)}
+          >
+            <option value="">{copy("Choose a module")}</option>
+            {pvModules.map(({ id, model }) => (
+              <option key={id} value={id}>
+                Canadian Solar {model}
+              </option>
+            ))}
+          </select>
+        </label>
+        {selectedModule && (
+          <div>
+            <p>
+              {selectedModule.ratings.powerW} W ·{" "}
+              {number(selectedModule.ratings.vmpV, locale)} V ·{" "}
+              {number(selectedModule.ratings.impA, locale)} A
+            </p>
+            <p>
+              {copy(
+                "This copies the STC DC rating and power temperature coefficient. Inverter and site inputs are entered separately.",
+              )}
+            </p>
+            <a href={pvDatasheet} target="_blank" rel="noreferrer">
+              Canadian Solar · V1.0C25_F23_D1_NA
+            </a>
+            <button
+              className="button"
+              type="button"
+              onClick={() => {
+                setInputs((previous) => ({
+                  ...previous,
+                  ...selectedModule.modelMapping,
+                  equipmentId: selectedModule.id,
+                }));
+                setSaved(false);
+              }}
+            >
+              {copy("Apply one module")}
+            </button>
+          </div>
+        )}
       </div>
       <div className="pg-pv-grid">
         <div className="pg-pv-inputs">
@@ -539,6 +625,7 @@ export function PvPerformanceExperiment() {
           className="button"
           onClick={() => {
             setInputs(DEFAULT_PV_PERFORMANCE_INPUTS);
+            setSelectedModuleId("");
             setSaved(false);
           }}
         >
