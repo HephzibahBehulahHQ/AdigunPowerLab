@@ -463,3 +463,5 @@ PR #160 merged as 6ab0d29 after candidate validation. The catalogue navigation c
 The iID batch adds 47 type-AC RCCB order codes from Acti9 Catalogue Version 2.0, May 2017, p. 52. The candidate catalogue contains 241 records. It preserves selective variants and supports neutral links, with fault and protection analyses still open.
 
 Type A expansion adds 34 iID codes from the printed page 53 tables and brings the candidate to 275 sourced records. The exports distinguish residual-current type and both voltage tables.
+
+The generated component-bank coverage manifest measures all 20 owner allocations and checks duplicate identities, source metadata, and terminal IDs. The current candidate contains 275 records in two categories, with 14 PV worksheet mappings and 261 inventory/diagram entries.
