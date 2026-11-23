@@ -1096,6 +1096,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Yan ohun èlò inú katalogi láti wo datasheet àti ẹgbẹ́ ebute. Yan nọ́ńbà ẹyọ àti ebute láti so waya PV pọ̀ tàbí yọ ọ́ nínú àwòrán. Ìṣírò ìṣàn agbára kò lo àwọn waya wọ̀nyí.",
       "Select catalogue equipment to see di datasheet and terminal groups. Choose unit numbers and terminals to connect or disconnect PV wire for di diagram. Power flow calculation no use these wires.",
     ],
+  "Dashed wires show saved catalogue terminal links in the diagram and its exports.":
+    [
+      "Gestrichelte Leitungen zeigen gespeicherte Kataloganschlüsse im Diagramm und in seinen Exporten.",
+      "Waya tó já sí wẹ́wẹ́ fi ìsopọ̀ ebute katalogi tí a fipamọ́ hàn nínú àwòrán àti export rẹ̀.",
+      "Dashed wires show saved catalogue terminal links for di diagram and exports.",
+    ],
   "The editor rejects a PV wire when it would join one module’s positive and negative terminals through the saved wires.":
     [
       "Der Editor lehnt eine PV-Leitung ab, wenn sie Plus- und Minusanschluss eines Moduls über die gespeicherten Leitungen verbinden würde.",

@@ -417,6 +417,11 @@ test("sourced equipment keeps its edited quantity in the saved project BOM", asy
   await expect(
     inspector.getByRole("button", { name: "Disconnect" }),
   ).toBeVisible();
+  const svgDownload = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export SVG", exact: true }).click();
+  const svg = await readFile(await (await svgDownload).path(), "utf8");
+  expect(svg).toContain('stroke-dasharray="5 3"');
+  expect(svg).toContain("1 · positive ↔ 2 · negative");
   await inspector.getByLabel("From terminal").selectOption("negative");
   await inspector.getByLabel("To unit").fill("2");
   await inspector.getByLabel("To terminal").selectOption("negative");
