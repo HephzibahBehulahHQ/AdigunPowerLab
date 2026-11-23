@@ -32,6 +32,7 @@ import {
   olflexClassic110Cables,
   stamfordWinding311Alternators,
   spacialS3hdEnclosures,
+  philipsDn145bDownlights,
 } from "../src/data/componentBank.ts";
 import { join } from "node:path";
 
@@ -66,6 +67,7 @@ const batches = {
   "lapp-olflex-110": olflexClassic110Cables,
   "stamford-winding-311": stamfordWinding311Alternators,
   "spacial-s3hd": spacialS3hdEnclosures,
+  "philips-dn145b": philipsDn145bDownlights,
 };
 for (const [batch, entries] of Object.entries(batches)) {
   writeCatalogueDocument(

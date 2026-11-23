@@ -505,3 +505,4 @@ VE.Direct 120 V records show their own temperature-conditioned power ratings and
 - LAPP cable cards show nominal U₀/U. The record export includes core-to-core test voltage, and the source panel links the manufacturer family datasheet.
 - Select **Generators** in the manufacturer catalogue to compare STAMFORD alternator continuous kVA by published temperature class. The source panel links the winding reference.
 - Select **Enclosures and installation hardware** to compare Schneider S3HD wall enclosures by external dimensions, ingress protection and impact protection.
+- Select **Lighting equipment** to inspect the Philips DN145B wattage, luminous flux, colour temperature and documented driver terminals.

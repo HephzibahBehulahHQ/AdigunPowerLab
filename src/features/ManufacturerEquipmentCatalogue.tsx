@@ -87,6 +87,7 @@ const categoryLabels = {
   "drives-and-starting-equipment": "Drives and starting equipment",
   "cables-and-conductors": "Cables and conductors",
   generators: "Generators",
+  "lighting-equipment": "Lighting equipment",
   "enclosures-and-installation-hardware":
     "Enclosures and installation hardware",
   "ups-and-backup-systems": "UPS and backup systems",
@@ -110,6 +111,7 @@ const missingFieldLabels: Record<string, string> = {
   "verified-alternator-model-mapping":
     "Verified alternator calculation mapping",
   "verified-cable-model-mapping": "Verified cable calculation mapping",
+  "verified-lighting-model-mapping": "Verified lighting calculation mapping",
   "enclosure-bonding-points": "Documented enclosure bonding points",
   "enclosure-thermal-model": "Verified enclosure thermal model",
   "verified-ups-model-mapping": "Verified UPS calculation mapping",
@@ -439,6 +441,21 @@ export function ManufacturerEquipmentCatalogue({
                   {record.ratings.inputNominalV} V DC →{" "}
                   {record.ratings.outputNominalV} V AC
                 </dd>
+              </div>
+            </dl>
+          ) : record.function === "recessed-led-downlight" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>P</dt>
+                <dd>{format.format(record.ratings.powerW)} W</dd>
+              </div>
+              <div>
+                <dt>Φ</dt>
+                <dd>{format.format(record.ratings.luminousFluxLm)} lm</dd>
+              </div>
+              <div>
+                <dt>CCT</dt>
+                <dd>{format.format(record.ratings.colorTemperatureK)} K</dd>
               </div>
             </dl>
           ) : record.function === "wall-mounted-enclosure" ? (

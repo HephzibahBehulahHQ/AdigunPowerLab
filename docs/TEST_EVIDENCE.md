@@ -820,3 +820,4 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - S3HD candidate: export generation, TypeScript and the 27 component-bank tests passed. Enclosure browser coverage and release verification are pending.
 - Chromium verified S3HD category filtering, exact order-code lookup, dimensions, IP66/IK10 and JSON provenance and bonding gap.
 - Repeat catalogue export preserved the unchanged S3HD JSON timestamp. Export comparison ignores CRLF differences in existing catalogue documents.
+- Philips DN145B candidate: export generation, TypeScript and 27 component-bank tests passed. Browser and release verification pending.
