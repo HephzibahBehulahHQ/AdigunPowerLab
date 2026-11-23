@@ -166,6 +166,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "For an AC line link, choose L1, L2 or L3. Both terminals of a breaker pole must use the same phase.",
       "For an iID neutral link, select N and choose a neutral terminal at both ends.",
       "The editor rejects a PV wire when it would join one module’s positive and negative terminals through the saved wires.",
+      "Dashed wires show saved catalogue terminal links in the diagram and its exports.",
       "Use zoom, fit, labels, notes, manual positions or auto-layout to make the diagram readable. Export SVG or PDF for a copy of the displayed diagram.",
       "Open Analytical spatial view for orbit, elevation, zoom, board isolation and the hourly cursor. Selecting an object there highlights the same object in the single-line diagram and inspector. Pause flow animation when needed. Chart tables provide the underlying values.",
     ],
