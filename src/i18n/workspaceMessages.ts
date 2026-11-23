@@ -6,10 +6,10 @@ export const workspaceMessages: Record<string, [string, string, string]> = {
     "Cables and conductors",
   ],
   "Cable cores": ["Kabeladern", "Àwọn okùn inú kéébù", "Cable cores"],
-  "Article electrical ratings": [
-    "Elektrische Nenndaten des Artikels",
-    "Àwọn ìwọ̀n iná ti ọja",
-    "Article electrical ratings",
+  "Cable ampacity and impedance": [
+    "Strombelastbarkeit und Impedanz des Kabels",
+    "Agbára ìṣàn àti ìdènà iná inú kéébù",
+    "Cable ampacity and impedance",
   ],
   "Verified cable calculation mapping": [
     "Geprüfte Zuordnung zur Kabelberechnung",

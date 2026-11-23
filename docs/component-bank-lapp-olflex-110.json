@@ -51,17 +51,29 @@
         "coreCount": 3,
         "crossSectionMm2": 0.5,
         "outerDiameterIn": 0.201,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -128,17 +140,29 @@
         "coreCount": 4,
         "crossSectionMm2": 0.5,
         "outerDiameterIn": 0.224,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -217,17 +241,29 @@
         "coreCount": 5,
         "crossSectionMm2": 0.5,
         "outerDiameterIn": 0.244,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -330,17 +366,29 @@
         "coreCount": 7,
         "crossSectionMm2": 0.5,
         "outerDiameterIn": 0.264,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -479,17 +527,29 @@
         "coreCount": 10,
         "crossSectionMm2": 0.5,
         "outerDiameterIn": 0.339,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -652,17 +712,29 @@
         "coreCount": 12,
         "crossSectionMm2": 0.5,
         "outerDiameterIn": 0.35,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -849,17 +921,29 @@
         "coreCount": 14,
         "crossSectionMm2": 0.5,
         "outerDiameterIn": 0.374,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -1094,17 +1178,29 @@
         "coreCount": 18,
         "crossSectionMm2": 0.5,
         "outerDiameterIn": 0.413,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -1375,17 +1471,29 @@
         "coreCount": 21,
         "crossSectionMm2": 0.5,
         "outerDiameterIn": 0.461,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -1704,17 +1812,29 @@
         "coreCount": 25,
         "crossSectionMm2": 0.5,
         "outerDiameterIn": 0.488,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -1769,17 +1889,29 @@
         "coreCount": 3,
         "crossSectionMm2": 0.75,
         "outerDiameterIn": 0.224,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -1846,17 +1978,29 @@
         "coreCount": 4,
         "crossSectionMm2": 0.75,
         "outerDiameterIn": 0.244,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -1935,17 +2079,29 @@
         "coreCount": 5,
         "crossSectionMm2": 0.75,
         "outerDiameterIn": 0.264,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -2048,17 +2204,29 @@
         "coreCount": 7,
         "crossSectionMm2": 0.75,
         "outerDiameterIn": 0.287,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -2185,17 +2353,29 @@
         "coreCount": 9,
         "crossSectionMm2": 0.75,
         "outerDiameterIn": 0.37,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -2334,17 +2514,29 @@
         "coreCount": 10,
         "crossSectionMm2": 0.75,
         "outerDiameterIn": 0.378,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -2507,17 +2699,29 @@
         "coreCount": 12,
         "crossSectionMm2": 0.75,
         "outerDiameterIn": 0.39,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -2716,17 +2920,29 @@
         "coreCount": 15,
         "crossSectionMm2": 0.75,
         "outerDiameterIn": 0.429,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -2937,17 +3153,29 @@
         "coreCount": 16,
         "crossSectionMm2": 0.75,
         "outerDiameterIn": 0.437,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -3146,17 +3374,29 @@
         "coreCount": 15,
         "crossSectionMm2": 0.75,
         "outerDiameterIn": 0.429,
-        "hasPe": false
+        "hasPe": false,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -3391,17 +3631,29 @@
         "coreCount": 18,
         "crossSectionMm2": 0.75,
         "outerDiameterIn": 0.461,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -3672,17 +3924,29 @@
         "coreCount": 21,
         "crossSectionMm2": 0.75,
         "outerDiameterIn": 0.512,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 6
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -4001,17 +4265,29 @@
         "coreCount": 25,
         "crossSectionMm2": 0.75,
         "outerDiameterIn": 0.543,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 7
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -4066,17 +4342,29 @@
         "coreCount": 3,
         "crossSectionMm2": 1,
         "outerDiameterIn": 0.236,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 7
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -4143,17 +4431,29 @@
         "coreCount": 4,
         "crossSectionMm2": 1,
         "outerDiameterIn": 0.256,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 7
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -4232,17 +4532,29 @@
         "coreCount": 5,
         "crossSectionMm2": 1,
         "outerDiameterIn": 0.28,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 7
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -4333,17 +4645,29 @@
         "coreCount": 6,
         "crossSectionMm2": 1,
         "outerDiameterIn": 0.315,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 7
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -4446,17 +4770,29 @@
         "coreCount": 7,
         "crossSectionMm2": 1,
         "outerDiameterIn": 0.315,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 7
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -4571,17 +4907,29 @@
         "coreCount": 8,
         "crossSectionMm2": 1,
         "outerDiameterIn": 0.374,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 7
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -4708,17 +5056,29 @@
         "coreCount": 9,
         "crossSectionMm2": 1,
         "outerDiameterIn": 0.394,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 7
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -4857,17 +5217,29 @@
         "coreCount": 10,
         "crossSectionMm2": 1,
         "outerDiameterIn": 0.402,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 7
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -5030,17 +5402,29 @@
         "coreCount": 12,
         "crossSectionMm2": 1,
         "outerDiameterIn": 0.413,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 7
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -5227,17 +5611,29 @@
         "coreCount": 14,
         "crossSectionMm2": 1,
         "outerDiameterIn": 0.441,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 7
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -5448,17 +5844,29 @@
         "coreCount": 16,
         "crossSectionMm2": 1,
         "outerDiameterIn": 0.465,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 7
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -5693,17 +6101,29 @@
         "coreCount": 18,
         "crossSectionMm2": 1,
         "outerDiameterIn": 0.5,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 7
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -5962,17 +6382,29 @@
         "coreCount": 20,
         "crossSectionMm2": 1,
         "outerDiameterIn": 0.528,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 7
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
@@ -6291,17 +6723,29 @@
         "coreCount": 25,
         "crossSectionMm2": 1,
         "outerDiameterIn": 0.579,
-        "hasPe": true
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
       },
-      "conditions": {},
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
       "modelMapping": null,
       "source": {
         "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
         "revision": "LAPP article information (2026-11-09)",
-        "page": 7
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
-        "cable-electrical-ratings",
+        "cable-ampacity-and-impedance",
         "verified-cable-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
