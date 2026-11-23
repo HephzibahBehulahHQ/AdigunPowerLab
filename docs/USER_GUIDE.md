@@ -440,3 +440,5 @@ Find Schneider Electric iC60N breakers by order code. The library displays rated
 For an AC line wire select L1, L2 or L3. The editor checks that incoming and outgoing links at a breaker pole use the same phase.
 
 Filter **Manufacturer equipment** by category. Use **Previous records** and **Next records** for more results, or combine maker and model terms to find an exact order code.
+
+Search for the Schneider iID order code to view rated current, residual sensitivity, and rated voltage. Select N and two documented neutral terminals to save a neutral link.

@@ -3,6 +3,7 @@ import {
   componentBankCsv,
   pvModules,
   ic60nBreakers,
+  iidRccbs,
 } from "../src/data/componentBank.ts";
 writeFileSync(
   new URL("../docs/component-bank-pv.json", import.meta.url),
@@ -19,4 +20,12 @@ writeFileSync(
 writeFileSync(
   new URL("../docs/component-bank-ic60n.csv", import.meta.url),
   componentBankCsv(ic60nBreakers),
+);
+writeFileSync(
+  new URL("../docs/component-bank-iid.json", import.meta.url),
+  JSON.stringify({ schemaVersion: 1, entries: iidRccbs }, null, 2) + "\n",
+);
+writeFileSync(
+  new URL("../docs/component-bank-iid.csv", import.meta.url),
+  componentBankCsv(iidRccbs),
 );
