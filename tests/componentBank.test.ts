@@ -5,6 +5,7 @@ import {
   componentBankCsv,
   ic60nBreakers,
   ic60hBreakers,
+  ic60lBreakers,
   iidRccbs,
   iswSwitches,
   iemMeters,
@@ -18,6 +19,28 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("iC60L preserves K/Z-only order codes and the Icn scope limit", () => {
+  expect(ic60lBreakers).toHaveLength(232);
+  const record = ic60lBreakers.find(({ model }) => model === "A9F95472");
+  expect(record?.ratings).toMatchObject({
+    ratedCurrentA: 1.6,
+    curve: "K",
+    poles: 4,
+    icnKA: 15,
+  });
+  const unrated = ic60lBreakers.find(({ model }) => model === "A9F95163");
+  expect(unrated?.ratings.icnKA).toBeNull();
+  expect(unrated?.conditions.catalogueApprovalNote).toContain("footnote 3");
+  const json = readFileSync(
+    new URL("../docs/component-bank-ic60l.json", import.meta.url),
+    "utf8",
+  );
+  expect(JSON.parse(json)).toEqual({
+    schemaVersion: 1,
+    entries: ic60lBreakers,
+  });
+});
 
 test("iC60H adds 180 exact catalogue variants with independently rated breaking capacity", () => {
   expect(ic60hBreakers).toHaveLength(180);
