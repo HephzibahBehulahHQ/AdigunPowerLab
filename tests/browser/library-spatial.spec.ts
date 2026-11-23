@@ -486,3 +486,49 @@ test("sourced equipment keeps its edited quantity in the saved project BOM", asy
     inspector.getByRole("button", { name: "Disconnect" }),
   ).toHaveCount(0);
 });
+
+test("battery wiring persists a series link and rejects a shared terminal node", async ({
+  page,
+}) => {
+  await page.goto("/#/library");
+  const catalogue = page.getByRole("region", {
+    name: "Manufacturer equipment",
+  });
+  await catalogue.getByRole("searchbox").fill("BAT412060082");
+  await catalogue
+    .getByRole("button", { name: "Add to project equipment" })
+    .click();
+  const quantity = page
+    .getByRole("region", { name: "Project equipment" })
+    .getByRole("spinbutton");
+  await quantity.fill("2");
+  await quantity.press("Tab");
+  const save = page
+    .locator(".workspace-toolbar")
+    .getByRole("button", { name: "Save", exact: true });
+  await save.click();
+  await expect(page.locator(".save-badge")).toContainText("Saved locally");
+  await page.goto("/#/diagram");
+  await page.getByRole("button", { name: /equipment: .*BAT412060082/ }).click();
+  const inspector = page.getByRole("complementary", {
+    name: "Topology object inspector",
+  });
+  await inspector.getByLabel("To unit").fill("2");
+  await inspector.getByLabel("To terminal").selectOption("negative");
+  await inspector.getByRole("button", { name: "Connect", exact: true }).click();
+  await expect(
+    inspector.getByRole("button", { name: "Disconnect" }),
+  ).toHaveCount(1);
+  await save.click();
+  await expect(page.locator(".save-badge")).toContainText("Saved locally");
+  await page.reload();
+  await page.getByRole("button", { name: /equipment: .*BAT412060082/ }).click();
+  await inspector.getByLabel("From terminal").selectOption("negative");
+  await inspector.getByLabel("To unit").fill("2");
+  await inspector.getByLabel("To terminal").selectOption("negative");
+  await inspector.getByRole("button", { name: "Connect", exact: true }).click();
+  await expect(inspector.getByRole("alert")).toBeVisible();
+  await expect(
+    inspector.getByRole("button", { name: "Disconnect" }),
+  ).toHaveCount(1);
+});
