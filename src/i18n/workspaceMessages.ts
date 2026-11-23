@@ -1,5 +1,20 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "Batteries and storage systems": [
+    "Batterien und Speichersysteme",
+    "Bátìrì àti ètò ìpamọ́",
+    "Batteries and storage systems",
+  ],
+  "Verified storage calculation mapping": [
+    "Geprüfte Zuordnung zur Speicherberechnung",
+    "Ìbámu ìṣírò ìpamọ́ tí a fìdí múlẹ̀",
+    "Verified storage calculation mapping",
+  ],
+  "Discharge cutoff": [
+    "Entladeschlussspannung",
+    "Voltage tí ìtújáde fi dúró",
+    "Discharge cutoff",
+  ],
   Transformers: ["Transformatoren", "Transformer", "Transformers"],
   "Verified transformer calculation mapping": [
     "Geprüfte Zuordnung zur Transformatorberechnung",

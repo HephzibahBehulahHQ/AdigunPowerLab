@@ -15,6 +15,7 @@ import {
   linergyEarthBars,
   abl6Transformers,
   abt7pduTransformers,
+  victronAgmSuperCycle,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -24,6 +25,32 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("Victron AGM retains discharge-rate capacity and exact insert variants", () => {
+  expect(victronAgmSuperCycle).toHaveLength(8);
+  const record = victronAgmSuperCycle.find(
+    ({ model }) => model === "BAT412060082",
+  );
+  expect(record?.ratings).toEqual({
+    nominalV: 12,
+    c5Ah: 52,
+    c10Ah: 56,
+    c20Ah: 60,
+  });
+  expect(record?.terminals.map(({ connector }) => connector)).toEqual([
+    "M6 insert",
+    "M6 insert",
+  ]);
+  expect(record?.conditions.dischargeCutoffV).toBe(10.8);
+  const json = readFileSync(
+    new URL("../docs/component-bank-victron-agm.json", import.meta.url),
+    "utf8",
+  );
+  expect(JSON.parse(json)).toEqual({
+    schemaVersion: 1,
+    entries: victronAgmSuperCycle,
+  });
+});
 
 test("ABT7PDU records retain two secondary windings and distinct jumper arrangements", () => {
   expect(abt7pduTransformers).toHaveLength(23);

@@ -1,0 +1,349 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "victron-energy:bat412015081",
+      "manufacturer": "Victron Energy",
+      "model": "BAT412015081",
+      "orderCode": "BAT412015081",
+      "category": "batteries-and-storage-systems",
+      "function": "agm-storage-battery",
+      "connection": "dc-storage",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "battery-positive",
+          "connector": "M5 insert"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "battery-negative",
+          "connector": "M5 insert"
+        }
+      ],
+      "ratings": {
+        "nominalV": 12,
+        "c5Ah": 13,
+        "c10Ah": 14,
+        "c20Ah": 15
+      },
+      "conditions": {
+        "dischargeCutoffV": 10.8,
+        "chemistry": "AGM lead-acid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-AGM-Super-Cycle-battery-EN.pdf",
+        "revision": "AGM Super Cycle specifications, BAT412060082 table variant",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-storage-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:bat412025081",
+      "manufacturer": "Victron Energy",
+      "model": "BAT412025081",
+      "orderCode": "BAT412025081",
+      "category": "batteries-and-storage-systems",
+      "function": "agm-storage-battery",
+      "connection": "dc-storage",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "battery-positive",
+          "connector": "M5 insert"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "battery-negative",
+          "connector": "M5 insert"
+        }
+      ],
+      "ratings": {
+        "nominalV": 12,
+        "c5Ah": 22,
+        "c10Ah": 24,
+        "c20Ah": 25
+      },
+      "conditions": {
+        "dischargeCutoffV": 10.8,
+        "chemistry": "AGM lead-acid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-AGM-Super-Cycle-battery-EN.pdf",
+        "revision": "AGM Super Cycle specifications, BAT412060082 table variant",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-storage-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:bat412038081",
+      "manufacturer": "Victron Energy",
+      "model": "BAT412038081",
+      "orderCode": "BAT412038081",
+      "category": "batteries-and-storage-systems",
+      "function": "agm-storage-battery",
+      "connection": "dc-storage",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "battery-positive",
+          "connector": "M5 insert"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "battery-negative",
+          "connector": "M5 insert"
+        }
+      ],
+      "ratings": {
+        "nominalV": 12,
+        "c5Ah": 34,
+        "c10Ah": 36,
+        "c20Ah": 38
+      },
+      "conditions": {
+        "dischargeCutoffV": 10.8,
+        "chemistry": "AGM lead-acid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-AGM-Super-Cycle-battery-EN.pdf",
+        "revision": "AGM Super Cycle specifications, BAT412060082 table variant",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-storage-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:bat412060082",
+      "manufacturer": "Victron Energy",
+      "model": "BAT412060082",
+      "orderCode": "BAT412060082",
+      "category": "batteries-and-storage-systems",
+      "function": "agm-storage-battery",
+      "connection": "dc-storage",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "battery-positive",
+          "connector": "M6 insert"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "battery-negative",
+          "connector": "M6 insert"
+        }
+      ],
+      "ratings": {
+        "nominalV": 12,
+        "c5Ah": 52,
+        "c10Ah": 56,
+        "c20Ah": 60
+      },
+      "conditions": {
+        "dischargeCutoffV": 10.8,
+        "chemistry": "AGM lead-acid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-AGM-Super-Cycle-battery-EN.pdf",
+        "revision": "AGM Super Cycle specifications, BAT412060082 table variant",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-storage-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:bat412110081",
+      "manufacturer": "Victron Energy",
+      "model": "BAT412110081",
+      "orderCode": "BAT412110081",
+      "category": "batteries-and-storage-systems",
+      "function": "agm-storage-battery",
+      "connection": "dc-storage",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "battery-positive",
+          "connector": "M6 insert"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "battery-negative",
+          "connector": "M6 insert"
+        }
+      ],
+      "ratings": {
+        "nominalV": 12,
+        "c5Ah": 82,
+        "c10Ah": 90,
+        "c20Ah": 100
+      },
+      "conditions": {
+        "dischargeCutoffV": 10.8,
+        "chemistry": "AGM lead-acid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-AGM-Super-Cycle-battery-EN.pdf",
+        "revision": "AGM Super Cycle specifications, BAT412060082 table variant",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-storage-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:bat412112081",
+      "manufacturer": "Victron Energy",
+      "model": "BAT412112081",
+      "orderCode": "BAT412112081",
+      "category": "batteries-and-storage-systems",
+      "function": "agm-storage-battery",
+      "connection": "dc-storage",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "battery-positive",
+          "connector": "M8 insert"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "battery-negative",
+          "connector": "M8 insert"
+        }
+      ],
+      "ratings": {
+        "nominalV": 12,
+        "c5Ah": 105,
+        "c10Ah": 114,
+        "c20Ah": 125
+      },
+      "conditions": {
+        "dischargeCutoffV": 10.8,
+        "chemistry": "AGM lead-acid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-AGM-Super-Cycle-battery-EN.pdf",
+        "revision": "AGM Super Cycle specifications, BAT412060082 table variant",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-storage-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:bat412117081",
+      "manufacturer": "Victron Energy",
+      "model": "BAT412117081",
+      "orderCode": "BAT412117081",
+      "category": "batteries-and-storage-systems",
+      "function": "agm-storage-battery",
+      "connection": "dc-storage",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "battery-positive",
+          "connector": "M8 insert"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "battery-negative",
+          "connector": "M8 insert"
+        }
+      ],
+      "ratings": {
+        "nominalV": 12,
+        "c5Ah": 145,
+        "c10Ah": 153,
+        "c20Ah": 170
+      },
+      "conditions": {
+        "dischargeCutoffV": 10.8,
+        "chemistry": "AGM lead-acid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-AGM-Super-Cycle-battery-EN.pdf",
+        "revision": "AGM Super Cycle specifications, BAT412060082 table variant",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-storage-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:bat412123081",
+      "manufacturer": "Victron Energy",
+      "model": "BAT412123081",
+      "orderCode": "BAT412123081",
+      "category": "batteries-and-storage-systems",
+      "function": "agm-storage-battery",
+      "connection": "dc-storage",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "battery-positive",
+          "connector": "M8 insert"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "battery-negative",
+          "connector": "M8 insert"
+        }
+      ],
+      "ratings": {
+        "nominalV": 12,
+        "c5Ah": 200,
+        "c10Ah": 210,
+        "c20Ah": 230
+      },
+      "conditions": {
+        "dischargeCutoffV": 10.8,
+        "chemistry": "AGM lead-acid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-AGM-Super-Cycle-battery-EN.pdf",
+        "revision": "AGM Super Cycle specifications, BAT412060082 table variant",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-storage-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}

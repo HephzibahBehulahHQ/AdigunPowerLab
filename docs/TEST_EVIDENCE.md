@@ -790,3 +790,5 @@ Linergy TB passed TypeScript, 37 focused checks and Chromium rating lookup for L
 TypeScript, 18 component-bank checks and Chromium passed. Browser lookup matched ABL6TS25B to 250 VA and 24 V AC.
 
 TypeScript, 19 component-bank checks and Chromium passed for ABT7PDU. Browser lookup displayed 2 × 24 V AC for ABT7PDU004B.
+
+Victron AGM passed TypeScript, 20 focused checks and Chromium verification of 52/56/60 Ah by discharge period.
