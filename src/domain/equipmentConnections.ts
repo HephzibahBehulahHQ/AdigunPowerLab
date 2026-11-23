@@ -5,13 +5,15 @@ import type {
   EquipmentTerminalEndpoint,
 } from "./types";
 
+const recordsById = new Map(componentBank.map((entry) => [entry.id, entry]));
+
 export function catalogueRecord(instance: CatalogueEquipmentInstance) {
-  return componentBank.find(
-    (entry) =>
-      entry.id === instance.catalogueId &&
-      entry.source.url === instance.sourceUrl &&
-      entry.source.revision === instance.sourceRevision,
-  );
+  const entry = recordsById.get(instance.catalogueId);
+  if (
+    entry?.source.url === instance.sourceUrl &&
+    entry?.source.revision === instance.sourceRevision
+  )
+    return entry;
 }
 
 export function equipmentConnectionErrors(
@@ -25,6 +27,11 @@ export function equipmentConnectionErrors(
   const ids = new Set<string>();
   const pairs = new Set<string>();
   const polePhases = new Map<string, string>();
+  const dcWires = new Map<string, Set<string>>();
+  const dcTerminals = new Map<
+    string,
+    { device: string; polarity: string; label: string }
+  >();
   const errors: string[] = [];
   function resolve(input: unknown) {
     if (typeof input !== "object" || input === null) return;
@@ -45,6 +52,8 @@ export function equipmentConnectionErrors(
     return {
       key: JSON.stringify([instanceId, unit, terminalId]),
       device: JSON.stringify([instanceId, unit]),
+      label: `${instance.name} [${unit}]`,
+      polarity: terminal.interface,
       domain:
         terminal.interface === "dc-positive" ||
         terminal.interface === "dc-negative"
@@ -108,6 +117,49 @@ export function equipmentConnectionErrors(
       continue;
     }
     pairs.add(pair);
+    if (left.domain === "dc") {
+      for (const [end, other] of [
+        [left, right],
+        [right, left],
+      ]) {
+        const neighbours = dcWires.get(end.key) ?? new Set<string>();
+        neighbours.add(other.key);
+        dcWires.set(end.key, neighbours);
+        dcTerminals.set(end.key, end);
+      }
+    }
+  }
+
+  // Walk conductor nodes only. A PV module itself never joins its two terminals.
+  const visited = new Set<string>();
+  const shortedDevices = new Set<string>();
+  for (const key of dcWires.keys()) {
+    if (visited.has(key)) continue;
+    const pending = [key];
+    visited.add(key);
+    const polarities = new Map<string, string>();
+    while (pending.length) {
+      const current = pending.pop()!;
+      const terminal = dcTerminals.get(current)!;
+      const existing = polarities.get(terminal.device);
+      if (
+        existing &&
+        existing !== terminal.polarity &&
+        !shortedDevices.has(terminal.device)
+      ) {
+        shortedDevices.add(terminal.device);
+        errors.push(
+          `Equipment terminal network: PV terminals share a conductor node for ${terminal.label}.`,
+        );
+      }
+      polarities.set(terminal.device, terminal.polarity);
+      for (const neighbour of dcWires.get(current)!) {
+        if (!visited.has(neighbour)) {
+          visited.add(neighbour);
+          pending.push(neighbour);
+        }
+      }
+    }
   }
   return errors;
 }

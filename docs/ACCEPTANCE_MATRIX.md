@@ -409,3 +409,5 @@ The generated component-bank coverage artifact reports the owner target, current
 The switching category starts with 12 Schneider iSW order codes, documented power terminals, rated current/voltage, and CSV/JSON.
 
 Record inspection exposes exact source revision and page, documented terminals, reviewed PV coefficients and unverified fields.
+
+PV wiring validation checks indirect shorts across the persisted conductor graph.

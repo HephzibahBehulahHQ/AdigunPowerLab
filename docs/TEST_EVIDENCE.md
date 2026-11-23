@@ -754,3 +754,5 @@ Coverage generation, TypeScript, and seven component-bank tests passed. The cove
 The iSW tranche passed TypeScript and eight component-bank checks, including rated current and voltage, terminal numbering, export parity and all-category coverage.
 
 Readiness inspection passed TypeScript, 28 focused tests and Chromium verification of visible worksheet readiness and the missing order-code field.
+
+PV topology passed TypeScript, 29 focused tests and Chromium rejection of an indirect short after saving and reopening the project.

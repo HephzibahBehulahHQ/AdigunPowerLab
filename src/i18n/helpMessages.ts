@@ -1096,6 +1096,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Yan ohun èlò inú katalogi láti wo datasheet àti ẹgbẹ́ ebute. Yan nọ́ńbà ẹyọ àti ebute láti so waya PV pọ̀ tàbí yọ ọ́ nínú àwòrán. Ìṣírò ìṣàn agbára kò lo àwọn waya wọ̀nyí.",
       "Select catalogue equipment to see di datasheet and terminal groups. Choose unit numbers and terminals to connect or disconnect PV wire for di diagram. Power flow calculation no use these wires.",
     ],
+  "The editor rejects a PV wire when it would join one module’s positive and negative terminals through the saved wires.":
+    [
+      "Der Editor lehnt eine PV-Leitung ab, wenn sie Plus- und Minusanschluss eines Moduls über die gespeicherten Leitungen verbinden würde.",
+      "Olootu kọ waya PV tí yóò so ebute rere àti odi module kan pọ̀ nípasẹ̀ àwọn waya tí a ti fipamọ́.",
+      "Di editor rejects PV wire if di saved wires go join positive and negative terminals for one module.",
+    ],
   "For an iID neutral link, select N and choose a neutral terminal at both ends.":
     [
       "Wählen Sie für eine iID-Neutralleiterverbindung N und an beiden Enden einen Neutralleiteranschluss.",

@@ -469,3 +469,5 @@ The generated component-bank coverage manifest measures all 20 owner allocations
 Second PV batch published via Pages run 45277253989 for 6ab0d29. The public site returned HTTP 200. The iSW candidate adds 12 sourced control switches and disconnectors and takes the candidate to 287 models across three categories.
 
 Saved equipment merged as 761a601; main validation is run 45277538772. The readiness candidate exposes the source revision, page, terminal groups, applicable worksheet mapping and unverified fields before export.
+
+PV terminal validation now rejects a closed conductor path joining the positive and negative terminals of the same installed module. This is a topology check; system voltage and fault-current calculations remain separate.

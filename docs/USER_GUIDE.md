@@ -448,3 +448,5 @@ The iID record lists Type A or AC sensitivity and the catalogue voltage for that
 Choose **Switching and transfer equipment** to inspect iSW current, voltage and terminal numbering. These records remain available for inventories and diagram wiring.
 
 Open **Source, terminals and model readiness** before applying or exporting a model. The panel shows the source revision and page, terminal groups, model inputs where available and the fields still missing or unverified.
+
+The diagram rejects a wire that joins one PV module's positive and negative terminals through the existing wires.
