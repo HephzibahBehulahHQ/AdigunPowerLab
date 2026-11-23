@@ -50,7 +50,7 @@ export const pvModules = families.flatMap((family) =>
       orderCode: null,
       category: "solar-and-wind-equipment",
       function: "photovoltaic-module",
-      connection: "dc",
+      connection: "dc" as const,
       terminals: [
         {
           id: "positive",
@@ -93,12 +93,60 @@ export const pvModules = families.flatMap((family) =>
   ),
 );
 
+// Schneider Acti9 2017, printed pp. 8–10, iC60N catalogue tables.
+// The 0.5 A suffix is 70; all other suffixes match the printed ampere code.
+export const ic60nBreakers = [1, 2, 3, 4].flatMap((poles) =>
+  (["B", "C", "D"] as const).flatMap((curve, curveIndex) =>
+    [0.5, 1, 2, 3, 4, 6, 10, 13, 16, 20, 25, 32, 40, 50, 63].map((currentA) => {
+      const suffix =
+        currentA === 0.5 ? "70" : String(currentA).padStart(2, "0");
+      const model = `A9F${73 + curveIndex}${poles}${suffix}`;
+      return {
+        id: `schneider-electric:${model.toLowerCase()}`,
+        manufacturer: "Schneider Electric",
+        model,
+        orderCode: model,
+        category: "protection-devices",
+        function: "miniature-circuit-breaker",
+        connection: "ac" as const,
+        terminals: Array.from({ length: poles }, (_, index) =>
+          ["top", "bottom"].map((side) => ({
+            id: `pole-${index + 1}-${side}`,
+            group: `pole-${index + 1}-${side}`,
+            interface: "ac-line",
+            connector: "screw terminal",
+          })),
+        ).flat(),
+        ratings: { ratedCurrentA: currentA, poles, curve, icnKA: 6 },
+        conditions: {
+          frequencyHz: [50, 60],
+          icnVoltageV: poles === 1 ? 230 : 400,
+          icnStandard: "IEC/EN 60898-1",
+        },
+        modelMapping: null,
+        source: {
+          url: "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+          revision: "Version 2.0, May 2017",
+          page: poles <= 2 ? 8 : 9,
+        },
+        missingFields: [
+          "regional-availability",
+          "verified-protection-model-mapping",
+        ],
+        readiness: "inventory-and-diagram-only",
+      };
+    }),
+  ),
+);
+
+export const componentBank = [...pvModules, ...ic60nBreakers];
+
 export function componentBankCsv(
-  records: readonly (typeof pvModules)[number][],
+  records: readonly (typeof componentBank)[number][],
 ) {
   const columns = Object.keys(
     pvModules[0],
-  ) as (keyof (typeof pvModules)[number])[];
+  ) as (keyof (typeof componentBank)[number])[];
   const field = (value: unknown) => {
     const serialized =
       value !== null && typeof value === "object"

@@ -1,6 +1,11 @@
 import { readFileSync } from "node:fs";
 import { expect, test } from "vitest";
-import { pvModules } from "../src/data/componentBank";
+import {
+  componentBank,
+  componentBankCsv,
+  ic60nBreakers,
+  pvModules,
+} from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
 import {
   calculatePvPerformance,
@@ -91,5 +96,34 @@ test("native project import validates indexed and compatible equipment terminals
   ];
   expect(validateProjectImport(project).errors).toContain(
     "Equipment terminal connection 2: duplicate endpoint pair.",
+  );
+});
+
+test("iC60N exports retain exact catalogue identities and pole terminals", () => {
+  expect(new Set(componentBank.map(({ id }) => id)).size).toBe(194);
+  expect(ic60nBreakers).toHaveLength(180);
+  expect(
+    ic60nBreakers.find(({ model }) => model === "A9F73170")?.ratings,
+  ).toMatchObject({ ratedCurrentA: 0.5, curve: "B", poles: 1 });
+  expect(
+    ic60nBreakers.find(({ model }) => model === "A9F75463")?.ratings,
+  ).toMatchObject({ ratedCurrentA: 63, curve: "D", poles: 4 });
+  for (const record of ic60nBreakers) {
+    expect(new Set(record.terminals.map(({ group }) => group)).size).toBe(
+      record.ratings.poles * 2,
+    );
+    expect(record.modelMapping).toBeNull();
+  }
+  const read = (extension: string) =>
+    readFileSync(
+      new URL(`../docs/component-bank-ic60n.${extension}`, import.meta.url),
+      "utf8",
+    );
+  expect(JSON.parse(read("json"))).toEqual({
+    schemaVersion: 1,
+    entries: ic60nBreakers,
+  });
+  expect(read("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(ic60nBreakers).replaceAll("\r\n", "\n"),
   );
 });

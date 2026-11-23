@@ -1,4 +1,4 @@
-import { pvModules } from "../data/componentBank";
+import { componentBank } from "../data/componentBank";
 import type {
   CatalogueEquipmentInstance,
   EquipmentTerminalConnection,
@@ -6,7 +6,7 @@ import type {
 } from "./types";
 
 export function catalogueRecord(instance: CatalogueEquipmentInstance) {
-  return pvModules.find(
+  return componentBank.find(
     (entry) =>
       entry.id === instance.catalogueId &&
       entry.source.url === instance.sourceUrl &&
@@ -38,9 +38,9 @@ export function equipmentConnectionErrors(
       unit > instance.quantity
     )
       return;
-    const terminal = catalogueRecord(instance)?.terminals.find(
-      (entry) => entry.id === terminalId,
-    );
+    const model = catalogueRecord(instance);
+    if (model?.connection !== "dc") return;
+    const terminal = model.terminals.find((entry) => entry.id === terminalId);
     if (!terminal) return;
     return {
       key: JSON.stringify([instanceId, unit, terminalId]),

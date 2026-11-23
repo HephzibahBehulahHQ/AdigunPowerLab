@@ -2018,6 +2018,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fi model kún ohun èlò iṣẹ́ akanṣe. Ṣàtúnṣe orúkọ tàbí iye rẹ̀ láti ṣe àtúnṣe àtòjọ ohun èlò.",
       "Add di model to project equipment. Change di name or quantity to update di bill of materials.",
     ],
+  "Search for an iC60N order code to inspect the breaker ratings and terminal groups. Breaker records are available for inventories and diagrams.":
+    [
+      "Suchen Sie nach einem iC60N-Bestellcode, um Bemessungsdaten und Anschlussgruppen zu prüfen. Die Leistungsschalter stehen für Inventare und Diagramme zur Verfügung.",
+      "Wá kóòdù iC60N láti ṣàyẹ̀wò ìwọ̀n breaker àti ẹgbẹ́ ebute rẹ̀. Àkọsílẹ̀ breaker wà fún àkójọ ohun èlò àti àwòrán.",
+      "Search iC60N order code to check breaker ratings and terminal groups. Breaker records dey available for inventory and diagram.",
+    ],
   "Choose Manufacturer PV module and review the datasheet before applying its DC rating and power temperature coefficient. The PV case export includes the applied equipment record.":
     [
       "Wählen Sie das Hersteller-PV-Modul und prüfen Sie das Datenblatt vor der Übernahme der DC-Nennleistung und des Temperaturkoeffizienten. Der PV-Export enthält den verwendeten Gerätedatensatz.",

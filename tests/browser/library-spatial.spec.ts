@@ -315,6 +315,12 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   const contents = await readFile(await (await csv).path(), "utf8");
   expect(contents.trimEnd().split(/\r?\n/)).toHaveLength(2);
   expect(contents).toContain('"canadian-solar:cs6.2-48tm-455h"');
+  await search.fill("A9F74106");
+  await expect(catalogue.getByRole("combobox")).toHaveValue(
+    "schneider-electric:a9f74106",
+  );
+  await expect(catalogue.getByText("6 A", { exact: true })).toBeVisible();
+  await expect(catalogue.getByText("6 kA · 230 V AC")).toBeVisible();
 });
 
 test("sourced equipment keeps its edited quantity in the saved project BOM", async ({
