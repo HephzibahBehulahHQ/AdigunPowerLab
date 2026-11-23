@@ -438,6 +438,13 @@ test("sourced equipment keeps its edited quantity in the saved project BOM", asy
   await expect(preview).toContainText("Catalogue equipment wiring schedule");
   await expect(preview).toContainText("Roof array [1] · positive");
   await expect(preview).toContainText("Roof array [2] · negative");
+  await expect(preview).toContainText("PV series string at STC");
+  const stringRow = preview
+    .getByRole("row")
+    .filter({ hasText: "Roof array [1] → Roof array [2]" });
+  await expect(stringRow.getByRole("cell").nth(1)).toHaveText("72");
+  await expect(stringRow.getByRole("cell").nth(2)).toHaveText("61.6");
+  await expect(stringRow.getByRole("cell").nth(3)).toHaveText("14.78");
   await expect(preview).toContainText("· p. 2 ·");
   const download = page.waitForEvent("download");
   await page.getByRole("button", { name: "Export frozen report data" }).click();

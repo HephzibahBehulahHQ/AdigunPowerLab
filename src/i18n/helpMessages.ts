@@ -1433,6 +1433,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Yan Di àwòrán ṣáájú ìròyìn mú. Ṣàyẹ̀wò àtúnṣe iṣẹ́, ẹ̀rí dátà ìwọlé, àfojúsùn àti ìṣòro tí kò tíì yanjú, kí o sì gbé PDF, ìtẹ̀jáde, JSON àwòrán ìgbà náà tàbí CSV ìròyìn jáde.",
       "Choose Freeze report preview. Review project revision, input evidence, assumptions and unresolved issues, then export PDF, print, snapshot JSON or report CSV.",
     ],
+  "For supported PV series strings, the frozen bill-of-materials report also lists the module order and standard-test-condition values.":
+    [
+      "Bei unterstützten PV-Reihenstrings listet der eingefrorene Stücklistenbericht auch die Modulfolge und Werte unter Standardtestbedingungen auf.",
+      "Fún okùn PV tí a ṣe àtìlẹ́yìn fún, ìròyìn àtòjọ ohun èlò fi ìtòlẹ́sẹẹsẹ module àti iye ní ipo ìdánwò boṣewa hàn.",
+      "For supported PV series strings, di frozen bill-of-materials report lists module order and values under standard test conditions.",
+    ],
   "Include the model-derived bill of materials to report the saved catalogue equipment and its terminal links.":
     [
       "Nehmen Sie die modellbasierte Stückliste auf, um gespeicherte Kataloggeräte und ihre Anschlüsse zu dokumentieren.",

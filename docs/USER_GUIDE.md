@@ -465,3 +465,5 @@ ode scripts/export-component-bank.mjs --individual to generate one CSV and one J
 Find iCT contactors in **Switching and transfer equipment**. Compare AC-7a, AC-7b and coil-voltage ratings and inspect A1 and A2 in the terminal details.
 
 Connect identical PV modules in an isolated series chain to see their standard-test-condition Voc, Vmp and Imp in the diagram inspector.
+
+The frozen BOM report lists module order, Voc, Vmp and Imp for supported PV strings at standard test conditions.
