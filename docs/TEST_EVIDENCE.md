@@ -812,3 +812,4 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - Chromium also verified the Altivar installation guide is linked at the documented revision and page in the source panel.
 - Catalogue export validation checks supplemental source URL, revision and page. Export generation passed and a supplemental page of zero was rejected in an isolated process.
 - LAPP cable candidate: export generation, TypeScript and 27 component-bank tests passed, including paired core and PE checks and JSON export parity. Browser and release verification pending.
+- Cable Chromium scenario found that order codes differing from model names were omitted from search. After adding order-code matching, the test passed exact lookup, 15-core PE and cross-section display, and JSON export of both PE ends.
