@@ -377,6 +377,34 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     ]),
   );
   expect(cable.entry.ratings.coreToCoreTestVAc).toBe(4000);
+  await catalogue.getByLabel("Equipment category").selectOption("generators");
+  await search.fill("STAMFORD S1L2-Y1");
+  await expect(model).toHaveValue("stamford:s1l2-y1-311");
+  await expect(catalogue.getByText("62.5 kVA", { exact: true })).toBeVisible();
+  await expect(catalogue.getByText("56.9 kVA", { exact: true })).toBeVisible();
+  await expect(catalogue.getByText("400/415 V AC · 50 Hz")).toBeVisible();
+  const alternatorDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const alternator = JSON.parse(
+    await readFile(await (await alternatorDownload).path(), "utf8"),
+  );
+  expect(
+    alternator.entry.terminals.map(({ group }: { group: string }) => group),
+  ).toEqual([
+    "U1",
+    "U2",
+    "U5",
+    "U6",
+    "V1",
+    "V2",
+    "V5",
+    "V6",
+    "W1",
+    "W2",
+    "W5",
+    "W6",
+  ]);
+  expect(alternator.entry.source.page).toBe(6);
   await catalogue.getByLabel("Equipment category").selectOption("");
   await search.fill("PIN242122530");
   await expect(catalogue.getByText("24 V DC → 120 V AC")).toBeVisible();
