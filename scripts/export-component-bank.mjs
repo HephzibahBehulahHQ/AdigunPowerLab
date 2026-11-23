@@ -25,6 +25,7 @@ import {
   altivar320CompactDrives,
   olflexClassic110Cables,
   stamfordWinding311Alternators,
+  spacialS3hdEnclosures,
 } from "../src/data/componentBank.ts";
 import { join } from "node:path";
 
@@ -51,6 +52,7 @@ const batches = {
   "altivar-320-compact": altivar320CompactDrives,
   "lapp-olflex-110": olflexClassic110Cables,
   "stamford-winding-311": stamfordWinding311Alternators,
+  "spacial-s3hd": spacialS3hdEnclosures,
 };
 for (const [batch, entries] of Object.entries(batches)) {
   writeFileSync(

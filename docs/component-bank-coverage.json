@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "distinctRecords": 988,
+  "distinctRecords": 998,
   "goalMinimum": 10000,
   "readiness": {
     "pv-worksheet-inputs-only": 14,
-    "inventory-and-diagram-only": 974
+    "inventory-and-diagram-only": 984
   },
   "categories": [
     {
@@ -124,8 +124,8 @@
     {
       "category": "enclosures-and-installation-hardware",
       "target": 200,
-      "records": 0,
-      "remaining": 200
+      "records": 10,
+      "remaining": 190
     }
   ]
 }

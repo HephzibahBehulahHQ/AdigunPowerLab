@@ -1,0 +1,345 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "schneider-electric:nsys3hd3215",
+      "manufacturer": "Schneider Electric",
+      "model": "NSYS3HD3215",
+      "orderCode": "NSYS3HD3215",
+      "category": "enclosures-and-installation-hardware",
+      "function": "wall-mounted-enclosure",
+      "connection": "mechanical",
+      "terminals": [],
+      "ratings": {
+        "heightMm": 343,
+        "widthMm": 200,
+        "depthMm": 180,
+        "ingressProtection": "IP66",
+        "impactProtection": "IK10"
+      },
+      "conditions": {
+        "family": "Spacial S3HD",
+        "material": "anti-corrosion coated steel",
+        "mounting": "wall"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=UE14MK01EN&p_File_Name=UE14MK01EN+%28web%29.pdf&p_enDocType=Catalog",
+        "revision": "UE14MK01EN",
+        "page": 16,
+        "pageLabel": "4, 16"
+      },
+      "missingFields": [
+        "enclosure-bonding-points",
+        "enclosure-thermal-model"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:nsys3hd4320",
+      "manufacturer": "Schneider Electric",
+      "model": "NSYS3HD4320",
+      "orderCode": "NSYS3HD4320",
+      "category": "enclosures-and-installation-hardware",
+      "function": "wall-mounted-enclosure",
+      "connection": "mechanical",
+      "terminals": [],
+      "ratings": {
+        "heightMm": 448,
+        "widthMm": 300,
+        "depthMm": 230,
+        "ingressProtection": "IP66",
+        "impactProtection": "IK10"
+      },
+      "conditions": {
+        "family": "Spacial S3HD",
+        "material": "anti-corrosion coated steel",
+        "mounting": "wall"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=UE14MK01EN&p_File_Name=UE14MK01EN+%28web%29.pdf&p_enDocType=Catalog",
+        "revision": "UE14MK01EN",
+        "page": 16,
+        "pageLabel": "4, 16"
+      },
+      "missingFields": [
+        "enclosure-bonding-points",
+        "enclosure-thermal-model"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:nsys3hd5420",
+      "manufacturer": "Schneider Electric",
+      "model": "NSYS3HD5420",
+      "orderCode": "NSYS3HD5420",
+      "category": "enclosures-and-installation-hardware",
+      "function": "wall-mounted-enclosure",
+      "connection": "mechanical",
+      "terminals": [],
+      "ratings": {
+        "heightMm": 548,
+        "widthMm": 400,
+        "depthMm": 230,
+        "ingressProtection": "IP66",
+        "impactProtection": "IK10"
+      },
+      "conditions": {
+        "family": "Spacial S3HD",
+        "material": "anti-corrosion coated steel",
+        "mounting": "wall"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=UE14MK01EN&p_File_Name=UE14MK01EN+%28web%29.pdf&p_enDocType=Catalog",
+        "revision": "UE14MK01EN",
+        "page": 16,
+        "pageLabel": "4, 16"
+      },
+      "missingFields": [
+        "enclosure-bonding-points",
+        "enclosure-thermal-model"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:nsys3hd6425",
+      "manufacturer": "Schneider Electric",
+      "model": "NSYS3HD6425",
+      "orderCode": "NSYS3HD6425",
+      "category": "enclosures-and-installation-hardware",
+      "function": "wall-mounted-enclosure",
+      "connection": "mechanical",
+      "terminals": [],
+      "ratings": {
+        "heightMm": 653,
+        "widthMm": 400,
+        "depthMm": 280,
+        "ingressProtection": "IP66",
+        "impactProtection": "IK10"
+      },
+      "conditions": {
+        "family": "Spacial S3HD",
+        "material": "anti-corrosion coated steel",
+        "mounting": "wall"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=UE14MK01EN&p_File_Name=UE14MK01EN+%28web%29.pdf&p_enDocType=Catalog",
+        "revision": "UE14MK01EN",
+        "page": 16,
+        "pageLabel": "4, 16"
+      },
+      "missingFields": [
+        "enclosure-bonding-points",
+        "enclosure-thermal-model"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:nsys3hd6630",
+      "manufacturer": "Schneider Electric",
+      "model": "NSYS3HD6630",
+      "orderCode": "NSYS3HD6630",
+      "category": "enclosures-and-installation-hardware",
+      "function": "wall-mounted-enclosure",
+      "connection": "mechanical",
+      "terminals": [],
+      "ratings": {
+        "heightMm": 658,
+        "widthMm": 600,
+        "depthMm": 330,
+        "ingressProtection": "IP66",
+        "impactProtection": "IK10"
+      },
+      "conditions": {
+        "family": "Spacial S3HD",
+        "material": "anti-corrosion coated steel",
+        "mounting": "wall"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=UE14MK01EN&p_File_Name=UE14MK01EN+%28web%29.pdf&p_enDocType=Catalog",
+        "revision": "UE14MK01EN",
+        "page": 16,
+        "pageLabel": "4, 16"
+      },
+      "missingFields": [
+        "enclosure-bonding-points",
+        "enclosure-thermal-model"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:nsys3hd7525",
+      "manufacturer": "Schneider Electric",
+      "model": "NSYS3HD7525",
+      "orderCode": "NSYS3HD7525",
+      "category": "enclosures-and-installation-hardware",
+      "function": "wall-mounted-enclosure",
+      "connection": "mechanical",
+      "terminals": [],
+      "ratings": {
+        "heightMm": 753,
+        "widthMm": 500,
+        "depthMm": 280,
+        "ingressProtection": "IP66",
+        "impactProtection": "IK10"
+      },
+      "conditions": {
+        "family": "Spacial S3HD",
+        "material": "anti-corrosion coated steel",
+        "mounting": "wall"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=UE14MK01EN&p_File_Name=UE14MK01EN+%28web%29.pdf&p_enDocType=Catalog",
+        "revision": "UE14MK01EN",
+        "page": 16,
+        "pageLabel": "4, 16"
+      },
+      "missingFields": [
+        "enclosure-bonding-points",
+        "enclosure-thermal-model"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:nsys3hd8630",
+      "manufacturer": "Schneider Electric",
+      "model": "NSYS3HD8630",
+      "orderCode": "NSYS3HD8630",
+      "category": "enclosures-and-installation-hardware",
+      "function": "wall-mounted-enclosure",
+      "connection": "mechanical",
+      "terminals": [],
+      "ratings": {
+        "heightMm": 858,
+        "widthMm": 600,
+        "depthMm": 330,
+        "ingressProtection": "IP66",
+        "impactProtection": "IK10"
+      },
+      "conditions": {
+        "family": "Spacial S3HD",
+        "material": "anti-corrosion coated steel",
+        "mounting": "wall"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=UE14MK01EN&p_File_Name=UE14MK01EN+%28web%29.pdf&p_enDocType=Catalog",
+        "revision": "UE14MK01EN",
+        "page": 16,
+        "pageLabel": "4, 16"
+      },
+      "missingFields": [
+        "enclosure-bonding-points",
+        "enclosure-thermal-model"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:nsys3hd8840",
+      "manufacturer": "Schneider Electric",
+      "model": "NSYS3HD8840",
+      "orderCode": "NSYS3HD8840",
+      "category": "enclosures-and-installation-hardware",
+      "function": "wall-mounted-enclosure",
+      "connection": "mechanical",
+      "terminals": [],
+      "ratings": {
+        "heightMm": 862,
+        "widthMm": 800,
+        "depthMm": 430,
+        "ingressProtection": "IP66",
+        "impactProtection": "IK10"
+      },
+      "conditions": {
+        "family": "Spacial S3HD",
+        "material": "anti-corrosion coated steel",
+        "mounting": "wall"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=UE14MK01EN&p_File_Name=UE14MK01EN+%28web%29.pdf&p_enDocType=Catalog",
+        "revision": "UE14MK01EN",
+        "page": 16,
+        "pageLabel": "4, 16"
+      },
+      "missingFields": [
+        "enclosure-bonding-points",
+        "enclosure-thermal-model"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:nsys3hd10640",
+      "manufacturer": "Schneider Electric",
+      "model": "NSYS3HD10640",
+      "orderCode": "NSYS3HD10640",
+      "category": "enclosures-and-installation-hardware",
+      "function": "wall-mounted-enclosure",
+      "connection": "mechanical",
+      "terminals": [],
+      "ratings": {
+        "heightMm": 1062,
+        "widthMm": 600,
+        "depthMm": 430,
+        "ingressProtection": "IP66",
+        "impactProtection": "IK10"
+      },
+      "conditions": {
+        "family": "Spacial S3HD",
+        "material": "anti-corrosion coated steel",
+        "mounting": "wall"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=UE14MK01EN&p_File_Name=UE14MK01EN+%28web%29.pdf&p_enDocType=Catalog",
+        "revision": "UE14MK01EN",
+        "page": 16,
+        "pageLabel": "4, 16"
+      },
+      "missingFields": [
+        "enclosure-bonding-points",
+        "enclosure-thermal-model"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:nsys3hd10840",
+      "manufacturer": "Schneider Electric",
+      "model": "NSYS3HD10840",
+      "orderCode": "NSYS3HD10840",
+      "category": "enclosures-and-installation-hardware",
+      "function": "wall-mounted-enclosure",
+      "connection": "mechanical",
+      "terminals": [],
+      "ratings": {
+        "heightMm": 1062,
+        "widthMm": 800,
+        "depthMm": 430,
+        "ingressProtection": "IP66",
+        "impactProtection": "IK10"
+      },
+      "conditions": {
+        "family": "Spacial S3HD",
+        "material": "anti-corrosion coated steel",
+        "mounting": "wall"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=UE14MK01EN&p_File_Name=UE14MK01EN+%28web%29.pdf&p_enDocType=Catalog",
+        "revision": "UE14MK01EN",
+        "page": 16,
+        "pageLabel": "4, 16"
+      },
+      "missingFields": [
+        "enclosure-bonding-points",
+        "enclosure-thermal-model"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}
