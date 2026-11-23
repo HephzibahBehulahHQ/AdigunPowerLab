@@ -219,3 +219,29 @@ test("AC links require a consistent phase across the two terminals of each insta
     equipmentConnectionErrors([live, { ...second, phase: "L1" }], instances)[0],
   ).toContain("conflicting phases");
 });
+test("coverage artifact accounts for every record and all 20 target categories", () => {
+  const coverage = JSON.parse(
+    readFileSync(
+      new URL("../docs/component-bank-coverage.json", import.meta.url),
+      "utf8",
+    ),
+  );
+  expect(coverage.distinctRecords).toBe(componentBank.length);
+  expect(coverage.goalMinimum).toBe(10000);
+  expect(coverage.categories).toHaveLength(20);
+  expect(
+    new Set(
+      coverage.categories.map(({ category }: { category: string }) => category),
+    ).size,
+  ).toBe(20);
+  for (const row of coverage.categories) {
+    expect(row.records).toBe(
+      componentBank.filter(({ category }) => category === row.category).length,
+    );
+    expect(row.remaining).toBe(Math.max(0, row.target - row.records));
+  }
+  const readinessCounts = new Map<string, number>();
+  for (const { readiness } of componentBank)
+    readinessCounts.set(readiness, (readinessCounts.get(readiness) ?? 0) + 1);
+  expect(coverage.readiness).toEqual(Object.fromEntries(readinessCounts));
+});
