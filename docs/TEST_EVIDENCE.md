@@ -778,3 +778,5 @@ PV report passed TypeScript, 25 report/Help tests and Chromium verification of t
 PV power and current: TypeScript, 32 focused unit checks and Chromium passed. The frozen report displayed 0.91 kW and 16.09 A Isc for two wired 455 W modules.
 
 TypeScript, 13 component-bank checks and Chromium verified the iC60H batch, including 10 kA at 400 V AC for A9F85463.
+
+TypeScript, 14 component-bank checks and Chromium passed. The browser found A9F95472 and displayed 15 kA at 400 V AC.

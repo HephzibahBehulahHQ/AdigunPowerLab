@@ -493,3 +493,5 @@ Frozen equipment reports now include STC PV series values and module order for s
 Terminal storage merged as f7a647d; main validation is run 45281111317. The PV string candidate now calculates published STC nameplate power and Isc in the inspector and frozen report.
 
 The iC60H tranche adds 180 exact order codes from Acti9 2017 pp. 11–13, bringing the candidate to 479 records across four categories. It documents 10 kA Icn at the published voltage and numbered terminals.
+
+The iC60L tranche adds 232 exact order codes from Acti9 2017 pp. 14–15. Candidate total is 711 models. The catalogue distinguishes K/Z-only 1.6 A variants and the published Icn range through 40 A.
