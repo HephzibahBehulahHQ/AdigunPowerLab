@@ -312,6 +312,8 @@ export interface CatalogueEquipmentInstance {
   model: string;
   sourceUrl: string;
   sourceRevision: string;
+  sourcePage?: number;
+  orderCode?: string;
   name: string;
   quantity: number;
 }

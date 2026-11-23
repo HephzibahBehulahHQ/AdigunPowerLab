@@ -415,3 +415,5 @@ PV wiring validation checks indirect shorts across the persisted conductor graph
 The metering category includes four documented iEM2000/iEM2010 order codes, line/neutral terminals, exact pulse-output variants, regional restrictions and exports.
 
 Frozen BOM report sections include a wiring schedule for saved catalogue equipment links. Cable quantities continue to use entered lengths.
+
+New catalogue instances retain the source page and known separate order code. Project import also accepts earlier instances without those fields.
