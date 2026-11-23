@@ -5,6 +5,7 @@ import {
   componentBankCsv,
   ic60nBreakers,
   iidRccbs,
+  iswSwitches,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -13,6 +14,32 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("iSW switch records retain the documented terminal numbering and voltage", () => {
+  expect(iswSwitches).toHaveLength(12);
+  const switchRecord = iswSwitches.find(({ model }) => model === "A9S65363");
+  expect(switchRecord?.ratings).toEqual({
+    poles: 3,
+    ratedCurrentA: 63,
+    voltageV: 415,
+  });
+  expect(switchRecord?.terminals.map(({ group }) => group)).toEqual([
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+  ]);
+  const exported = readFileSync(
+    new URL("../docs/component-bank-isw.json", import.meta.url),
+    "utf8",
+  );
+  expect(JSON.parse(exported)).toEqual({
+    schemaVersion: 1,
+    entries: iswSwitches,
+  });
+});
 
 test("the PV batch has stable distinct identities and traceable worksheet inputs", () => {
   expect(new Set(pvModules.map(({ id }) => id)).size).toBe(pvModules.length);

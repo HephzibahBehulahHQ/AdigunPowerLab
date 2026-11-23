@@ -444,3 +444,5 @@ Filter **Manufacturer equipment** by category. Use **Previous records** and **Ne
 Search for the Schneider iID order code to view rated current, residual sensitivity, and rated voltage. Select N and two documented neutral terminals to save a neutral link.
 
 The iID record lists Type A or AC sensitivity and the catalogue voltage for that exact order code.
+
+Choose **Switching and transfer equipment** to inspect iSW current, voltage and terminal numbering. These records remain available for inventories and diagram wiring.
