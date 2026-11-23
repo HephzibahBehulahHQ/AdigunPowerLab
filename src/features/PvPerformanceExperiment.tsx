@@ -8,7 +8,7 @@ import {
 } from "../engine/pvPerformance";
 import { LanguageContext } from "../i18n";
 import type { Locale } from "../i18n";
-import { pvDatasheet, pvModules } from "../data/componentBank";
+import { pvModules } from "../data/componentBank";
 
 const INPUT_KEY = "adigunpowerlab.powergrid.pv-performance.v1";
 const REFERENCE_KEY = "adigunpowerlab.powergrid.pv-reference.v1";
@@ -468,8 +468,12 @@ export function PvPerformanceExperiment() {
                 "This copies the STC DC rating and power temperature coefficient. Inverter and site inputs are entered separately.",
               )}
             </p>
-            <a href={pvDatasheet} target="_blank" rel="noreferrer">
-              Canadian Solar · V1.0C25_F23_D1_NA
+            <a
+              href={selectedModule.source.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {selectedModule.manufacturer} · {selectedModule.source.revision}
             </a>
             <button
               className="button"

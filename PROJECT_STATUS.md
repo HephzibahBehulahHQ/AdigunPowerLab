@@ -443,3 +443,5 @@ Public Pages sampling verified the reduced-motion station layout at desktop, tab
 The baseline exports in docs identify 51 tools and six equipment/model families separately from manufacturer records. The first candidate adds seven sourced Canadian Solar PV modules and maps only their DC nameplate rating and power temperature coefficient to the PV worksheet after review. The case saves the reference and exports the applied record. TypeScript, 24 focused PV and Help checks, and Chromium save/reload/export passed. Equipment placement, connection editing and BOM integration remain open.
 
 The catalogue follow-up makes the seven sourced records searchable in the Equipment Library and supports individual JSON export. TypeScript, 20 Help tests and the focused Chromium catalogue test passed.
+
+The second PV batch adds seven CS6.1-54TM-H variants, taking the candidate total to 14 sourced entries. The records retain the family-specific system voltage, fuse rating and documented connector alternatives. The worksheet links to the selected model family's datasheet. Regenerate the batch exports with node scripts/export-component-bank.mjs.
