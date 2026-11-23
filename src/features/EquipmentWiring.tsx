@@ -122,7 +122,9 @@ export function EquipmentWiring({
             <select name="fromTerminal">
               {model?.terminals.filter(isWireTerminal).map((terminal) => (
                 <option key={terminal.id} value={terminal.id}>
-                  {terminal.group}
+                  {model?.function === "single-pole-distribution-block"
+                    ? terminal.id
+                    : terminal.group}
                 </option>
               ))}
             </select>
@@ -159,7 +161,10 @@ export function EquipmentWiring({
                 ?.terminals.filter(isWireTerminal)
                 .map((terminal) => (
                   <option key={terminal.id} value={terminal.id}>
-                    {terminal.group}
+                    {catalogueRecord(target)?.function ===
+                    "single-pole-distribution-block"
+                      ? terminal.id
+                      : terminal.group}
                   </option>
                 ))}
             </select>

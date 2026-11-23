@@ -74,7 +74,9 @@ export function equipmentConnectionErrors(
       pole: JSON.stringify([
         instanceId,
         unit,
-        terminal.id.replace(/-(top|bottom)$/, ""),
+        model?.function === "single-pole-distribution-block"
+          ? terminal.group
+          : terminal.id.replace(/-(top|bottom)$/, ""),
       ]),
     };
   }

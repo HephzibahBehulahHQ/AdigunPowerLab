@@ -1273,6 +1273,10 @@ export function validateProjectImport(input: unknown): {
             (typeof row.sourcePage !== "number" ||
               !Number.isSafeInteger(row.sourcePage) ||
               row.sourcePage < 1)) ||
+          (row.sourcePageLabel !== undefined &&
+            (typeof row.sourcePageLabel !== "string" ||
+              !row.sourcePageLabel.trim() ||
+              row.sourcePageLabel.length > 32)) ||
           (row.orderCode !== undefined &&
             (typeof row.orderCode !== "string" ||
               !row.orderCode.trim() ||

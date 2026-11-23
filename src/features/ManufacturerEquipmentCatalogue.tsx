@@ -87,6 +87,7 @@ const categoryLabels = {
   "switching-and-transfer-equipment": "Switching and transfer equipment",
   "metering-and-power-quality": "Metering and power quality",
   "monitoring-and-sensors": "Monitoring and sensors",
+  "busbars-and-distribution-systems": "Busbars and distribution systems",
 } as const;
 
 const missingFieldLabels: Record<string, string> = {
@@ -100,6 +101,8 @@ const missingFieldLabels: Record<string, string> = {
   "verified-monitoring-model-mapping":
     "Verified monitoring calculation mapping",
   "contact-current-by-load-category": "Contact current by load category",
+  "verified-distribution-model-mapping":
+    "Verified distribution calculation mapping",
 };
 
 export function ManufacturerEquipmentCatalogue({
@@ -303,6 +306,21 @@ export function ManufacturerEquipmentCatalogue({
                 </dd>
               </div>
             </dl>
+          ) : record.function === "single-pole-distribution-block" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>Iₙ</dt>
+                <dd>{format.format(record.ratings.ratedCurrentA)} A</dd>
+              </div>
+              <div>
+                <dt>Ipk</dt>
+                <dd>{format.format(record.ratings.ipkKA)} kA</dd>
+              </div>
+              <div>
+                <dt>Icw</dt>
+                <dd>{format.format(record.ratings.icwKA)} kA · 1 s</dd>
+              </div>
+            </dl>
           ) : record.function !== "miniature-circuit-breaker" ? (
             <dl className="pg-metrics">
               <div>
@@ -344,7 +362,10 @@ export function ManufacturerEquipmentCatalogue({
             <dl className="detail-list">
               <dt>{t("Source revision")}</dt>
               <dd>
-                {record.source.revision} · {t("Page")} {record.source.page}
+                {record.source.revision} · {t("Page")}{" "}
+                {"pageLabel" in record.source
+                  ? record.source.pageLabel
+                  : record.source.page}
               </dd>
               <dt>{t("Model readiness")}</dt>
               <dd>
@@ -397,6 +418,9 @@ export function ManufacturerEquipmentCatalogue({
                   sourceUrl: record.source.url,
                   sourceRevision: record.source.revision,
                   sourcePage: record.source.page,
+                  ...("pageLabel" in record.source
+                    ? { sourcePageLabel: record.source.pageLabel }
+                    : {}),
                   ...(record.orderCode ? { orderCode: record.orderCode } : {}),
                   name: record.model,
                   quantity: 1,
