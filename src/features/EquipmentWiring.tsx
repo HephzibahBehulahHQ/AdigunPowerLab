@@ -201,19 +201,22 @@ export function EquipmentWiring({
               "Uses nameplate values for identical modules in an isolated series chain.",
             )}
           </p>
-          {strings.map(({ key, units, vocV, vmpV, impA }) => (
-            <p key={key}>
-              {units
-                .map(
-                  ({ instanceId, unit }) =>
-                    `${equipment.find(({ id }) => id === instanceId)?.name ?? instanceId} [${unit}]`,
-                )
-                .join(" → ")}
-              <br />
-              Voc {format.format(vocV)} V · Vmp {format.format(vmpV)} V · Imp{" "}
-              {format.format(impA)} A
-            </p>
-          ))}
+          {strings.map(
+            ({ key, units, vocV, vmpV, impA, iscA, dcNameplateKW }) => (
+              <p key={key}>
+                {units
+                  .map(
+                    ({ instanceId, unit }) =>
+                      `${equipment.find(({ id }) => id === instanceId)?.name ?? instanceId} [${unit}]`,
+                  )
+                  .join(" → ")}
+                <br />
+                Voc {format.format(vocV)} V · Vmp {format.format(vmpV)} V · Imp{" "}
+                {format.format(impA)} A · Isc {format.format(iscA)} A · Pmax{" "}
+                {format.format(dcNameplateKW)} kW
+              </p>
+            ),
+          )}
         </section>
       )}
     </>
