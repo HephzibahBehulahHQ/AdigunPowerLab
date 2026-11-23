@@ -85,6 +85,7 @@ const categoryLabels = {
   "solar-and-wind-equipment": "Solar and wind equipment",
   "protection-devices": "Protection devices",
   "switching-and-transfer-equipment": "Switching and transfer equipment",
+  "metering-and-power-quality": "Metering and power quality",
 } as const;
 
 const missingFieldLabels: Record<string, string> = {
@@ -94,6 +95,7 @@ const missingFieldLabels: Record<string, string> = {
   "verified-protection-model-mapping":
     "Verified protection calculation mapping",
   "verified-switching-model-mapping": "Verified switching calculation mapping",
+  "verified-metering-model-mapping": "Verified metering calculation mapping",
 };
 
 export function ManufacturerEquipmentCatalogue({
@@ -240,6 +242,29 @@ export function ManufacturerEquipmentCatalogue({
                   V AC
                 </dd>
               </div>
+            </dl>
+          ) : record.function === "direct-energy-meter" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>Imax</dt>
+                <dd>{format.format(record.ratings.maxCurrentA)} A</dd>
+              </div>
+              <div>
+                <dt>U</dt>
+                <dd>{record.ratings.voltageV} V AC</dd>
+              </div>
+              {record.ratings.pulsesPerKWh && (
+                <div>
+                  <dt>S0</dt>
+                  <dd>{record.ratings.pulsesPerKWh} imp/kWh</dd>
+                </div>
+              )}
+              {record.conditions.marketRestriction && (
+                <div>
+                  <dt>{t("Regional availability")}</dt>
+                  <dd>{t(record.conditions.marketRestriction)}</dd>
+                </div>
+              )}
             </dl>
           ) : record.function !== "miniature-circuit-breaker" ? (
             <dl className="pg-metrics">
