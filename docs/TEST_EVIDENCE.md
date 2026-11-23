@@ -766,3 +766,5 @@ Provenance persistence passed TypeScript, ten component-bank tests and Chromium 
 Wire export passed TypeScript, existing report/PDF checks, Help checks and Chromium SVG download inspection. Physical plotting and PDF loop visuals were not independently inspected.
 
 Archive verification: TypeScript, six archive unit tests and Chromium copy restore passed. The restored project retained the catalogue snapshot and indexed wire exactly and passed native project validation.
+
+Generated and compared all 291 per-model CSV/JSON pairs and the ID index against the complete runtime catalogue. Diff check passed.

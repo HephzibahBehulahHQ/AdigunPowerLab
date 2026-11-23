@@ -421,3 +421,5 @@ New catalogue instances retain the source page and known separate order code. Pr
 Diagram SVG and PDF distinguish terminal links and include wiring evidence. Browser verification covers the SVG wire and endpoint label.
 
 Catalogue instances, source-page evidence and indexed terminal connections survive workspace backup and copy restore.
+
+Individual file generation emits per-record CSV and JSON for all runtime entries, with a machine-readable ID index.

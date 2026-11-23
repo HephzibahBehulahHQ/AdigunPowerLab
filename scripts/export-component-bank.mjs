@@ -1,54 +1,61 @@
-import { writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import { coverage } from "./component-bank-coverage.mjs";
 import {
   componentBankCsv,
+  componentBank,
   pvModules,
   ic60nBreakers,
   iidRccbs,
   iswSwitches,
   iemMeters,
 } from "../src/data/componentBank.ts";
-writeFileSync(
-  new URL("../docs/component-bank-pv.json", import.meta.url),
-  JSON.stringify({ schemaVersion: 1, entries: pvModules }, null, 2) + "\n",
-);
-writeFileSync(
-  new URL("../docs/component-bank-pv.csv", import.meta.url),
-  componentBankCsv(pvModules),
-);
-writeFileSync(
-  new URL("../docs/component-bank-ic60n.json", import.meta.url),
-  JSON.stringify({ schemaVersion: 1, entries: ic60nBreakers }, null, 2) + "\n",
-);
-writeFileSync(
-  new URL("../docs/component-bank-ic60n.csv", import.meta.url),
-  componentBankCsv(ic60nBreakers),
-);
-writeFileSync(
-  new URL("../docs/component-bank-iid.json", import.meta.url),
-  JSON.stringify({ schemaVersion: 1, entries: iidRccbs }, null, 2) + "\n",
-);
-writeFileSync(
-  new URL("../docs/component-bank-iid.csv", import.meta.url),
-  componentBankCsv(iidRccbs),
-);
-writeFileSync(
-  new URL("../docs/component-bank-isw.json", import.meta.url),
-  JSON.stringify({ schemaVersion: 1, entries: iswSwitches }, null, 2) + "\n",
-);
-writeFileSync(
-  new URL("../docs/component-bank-isw.csv", import.meta.url),
-  componentBankCsv(iswSwitches),
-);
-writeFileSync(
-  new URL("../docs/component-bank-iem.json", import.meta.url),
-  JSON.stringify({ schemaVersion: 1, entries: iemMeters }, null, 2) + "\n",
-);
-writeFileSync(
-  new URL("../docs/component-bank-iem.csv", import.meta.url),
-  componentBankCsv(iemMeters),
-);
+import { join } from "node:path";
+
+const serialize = (data) => JSON.stringify(data, null, 2) + "\n";
+const batches = {
+  pv: pvModules,
+  ic60n: ic60nBreakers,
+  iid: iidRccbs,
+  isw: iswSwitches,
+  iem: iemMeters,
+};
+for (const [batch, entries] of Object.entries(batches)) {
+  writeFileSync(
+    new URL(`../docs/component-bank-${batch}.json`, import.meta.url),
+    serialize({ schemaVersion: 1, entries }),
+  );
+  writeFileSync(
+    new URL(`../docs/component-bank-${batch}.csv`, import.meta.url),
+    componentBankCsv(entries),
+  );
+}
 writeFileSync(
   new URL("../docs/component-bank-coverage.json", import.meta.url),
-  JSON.stringify(coverage, null, 2) + "\n",
+  serialize(coverage),
 );
+
+if (process.argv.includes("--individual")) {
+  const destination = fileURLToPath(
+    new URL("../output/component-bank/", import.meta.url),
+  );
+  mkdirSync(destination, { recursive: true });
+  const directory = mkdtempSync(join(destination, "entries-"));
+  const files = componentBank.map((entry, index) => {
+    // Numbered filenames avoid platform restrictions and path collisions.
+    const name = String(index + 1).padStart(5, "0");
+    const json = `${name}.json`;
+    const csv = `${name}.csv`;
+    writeFileSync(
+      join(directory, json),
+      serialize({ schemaVersion: 1, entry }),
+    );
+    writeFileSync(join(directory, csv), componentBankCsv([entry]));
+    return { id: entry.id, json, csv };
+  });
+  writeFileSync(
+    join(directory, "index.json"),
+    serialize({ schemaVersion: 1, files }),
+  );
+  console.log(directory);
+}
