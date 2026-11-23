@@ -83,6 +83,7 @@ const pageSize = 50;
 const categories = [...new Set(componentBank.map(({ category }) => category))];
 const categoryLabels = {
   "inverters-and-conversion-equipment": "Inverters and conversion equipment",
+  "ev-charging-equipment": "EV charging equipment",
   "ups-and-backup-systems": "UPS and backup systems",
   "batteries-and-storage-systems": "Batteries and storage systems",
   transformers: "Transformers",
@@ -97,6 +98,7 @@ const categoryLabels = {
 
 const missingFieldLabels: Record<string, string> = {
   "verified-inverter-model-mapping": "Verified inverter calculation mapping",
+  "verified-evse-model-mapping": "Verified EV charger calculation mapping",
   "verified-ups-model-mapping": "Verified UPS calculation mapping",
   "battery-and-dry-contact-pinouts": "Battery and dry-contact pinouts",
   "verified-storage-model-mapping": "Verified storage calculation mapping",
@@ -422,6 +424,23 @@ export function ManufacturerEquipmentCatalogue({
                   {record.ratings.inputNominalV} V DC →{" "}
                   {record.ratings.outputNominalV} V AC
                 </dd>
+              </div>
+            </dl>
+          ) : record.function === "ac-ev-charging-station" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>{t("Rated output")}</dt>
+                <dd>{format.format(record.ratings.powerKW)} kW</dd>
+              </div>
+              <div>
+                <dt>Iₙ</dt>
+                <dd>
+                  {record.ratings.ratedCurrentA} A · {record.ratings.phases}P
+                </dd>
+              </div>
+              <div>
+                <dt>RDC-DD</dt>
+                <dd>{record.ratings.rdcDdMilliamp} mA</dd>
               </div>
             </dl>
           ) : record.function !== "miniature-circuit-breaker" ? (

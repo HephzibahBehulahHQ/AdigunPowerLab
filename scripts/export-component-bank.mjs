@@ -21,6 +21,7 @@ import {
   apcSmvUps,
   victronVeDirect230,
   victronVeDirect120,
+  evlinkHomeStations,
 } from "../src/data/componentBank.ts";
 import { join } from "node:path";
 
@@ -43,6 +44,7 @@ const batches = {
   "apc-smv": apcSmvUps,
   "victron-vedirect-230": victronVeDirect230,
   "victron-vedirect-120": victronVeDirect120,
+  "evlink-home": evlinkHomeStations,
 };
 for (const [batch, entries] of Object.entries(batches)) {
   writeFileSync(
