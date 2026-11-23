@@ -24,6 +24,7 @@ import {
   evlinkHomeStations,
   altivar320CompactDrives,
   olflexClassic110Cables,
+  stamfordWinding311Alternators,
 } from "../src/data/componentBank.ts";
 import { join } from "node:path";
 
@@ -49,6 +50,7 @@ const batches = {
   "evlink-home": evlinkHomeStations,
   "altivar-320-compact": altivar320CompactDrives,
   "lapp-olflex-110": olflexClassic110Cables,
+  "stamford-winding-311": stamfordWinding311Alternators,
 };
 for (const [batch, entries] of Object.entries(batches)) {
   writeFileSync(

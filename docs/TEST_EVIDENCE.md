@@ -815,3 +815,5 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - Cable Chromium scenario found that order codes differing from model names were omitted from search. After adding order-code matching, the test passed exact lookup, 15-core PE and cross-section display, and JSON export of both PE ends.
 - LAPP voltage follow-up: export generation, TypeScript and all 27 catalogue tests passed with published voltage ratings in CSV/JSON and supplemental provenance.
 - Chromium passed the LAPP voltage follow-up, including the 300/500 V catalogue display, the DB1119752EN datasheet link and the 4 kV core-to-core test voltage in the JSON download.
+- STAMFORD candidate: export generation, TypeScript and 27 component-bank tests passed. Browser verification and release pending.
+- Chromium passed the STAMFORD generator category, exact S1L2-Y1 lookup, both continuous kVA classes, voltage and frequency, and JSON export of all twelve leads with the source page.

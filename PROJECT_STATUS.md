@@ -524,3 +524,4 @@ iC60N 2b49aee published in Pages run 45285905960 and the public root returned HT
 - Altivar candidate: 20 compact ATV320 drive order codes bring the stacked catalogue to 938 records across 13 categories. Published ratings and power terminals are included. Auxiliary terminals and calculation mapping are pending.
 - LAPP candidate: 37 listed cable articles bring the stacked catalogue to 975 records across 14 categories. Paired core ends, protective earth variants and physical dimensions are included. Article electrical ratings and model mappings remain pending.
 - LAPP follow-up: manufacturer family datasheet supplies 300/500 V nominal and 4 kV core-to-core test voltage. Ampacity, impedance and calculation mapping remain pending.
+- STAMFORD candidate: 13 winding 311 alternators bring the stacked catalogue to 988 records across 15 categories. Published continuous ratings and 12 stator leads are documented. Order codes and calculation mappings remain open.

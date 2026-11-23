@@ -86,6 +86,7 @@ const categoryLabels = {
   "ev-charging-equipment": "EV charging equipment",
   "drives-and-starting-equipment": "Drives and starting equipment",
   "cables-and-conductors": "Cables and conductors",
+  generators: "Generators",
   "ups-and-backup-systems": "UPS and backup systems",
   "batteries-and-storage-systems": "Batteries and storage systems",
   transformers: "Transformers",
@@ -104,6 +105,8 @@ const missingFieldLabels: Record<string, string> = {
   "verified-drive-model-mapping": "Verified drive calculation mapping",
   "drive-auxiliary-terminals": "Drive auxiliary terminals",
   "cable-ampacity-and-impedance": "Cable ampacity and impedance",
+  "verified-alternator-model-mapping":
+    "Verified alternator calculation mapping",
   "verified-cable-model-mapping": "Verified cable calculation mapping",
   "verified-ups-model-mapping": "Verified UPS calculation mapping",
   "battery-and-dry-contact-pinouts": "Battery and dry-contact pinouts",
@@ -431,6 +434,28 @@ export function ManufacturerEquipmentCatalogue({
                 <dd>
                   {record.ratings.inputNominalV} V DC →{" "}
                   {record.ratings.outputNominalV} V AC
+                </dd>
+              </div>
+            </dl>
+          ) : record.function === "synchronous-alternator" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>125/40</dt>
+                <dd>
+                  {format.format(record.ratings.continuousKva125Over40)} kVA
+                </dd>
+              </div>
+              <div>
+                <dt>105/40</dt>
+                <dd>
+                  {format.format(record.ratings.continuousKva105Over40)} kVA
+                </dd>
+              </div>
+              <div>
+                <dt>Ue</dt>
+                <dd>
+                  {record.ratings.ratedLineV.join("/")} V AC ·{" "}
+                  {record.conditions.frequencyHz} Hz
                 </dd>
               </div>
             </dl>

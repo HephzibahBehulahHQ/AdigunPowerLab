@@ -503,3 +503,4 @@ VE.Direct 120 V records show their own temperature-conditioned power ratings and
 - Expand **Source, terminals and model readiness** to open supplemental manufacturer documents when the catalogue includes separate terminal or installation evidence.
 - Select **Cables and conductors** to compare LAPP cable articles by cross-section, core count and PE. Each core has two documented ends. These records are available for inventory and diagrams.
 - LAPP cable cards show nominal U₀/U. The record export includes core-to-core test voltage, and the source panel links the manufacturer family datasheet.
+- Select **Generators** in the manufacturer catalogue to compare STAMFORD alternator continuous kVA by published temperature class. The source panel links the winding reference.
