@@ -302,7 +302,9 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     .selectOption("protection-devices");
   await expect(model.getByRole("option")).toHaveCount(50);
   await catalogue.getByRole("button", { name: "Next records" }).click();
-  await expect(catalogue.getByText("51–100 / 180")).toBeVisible();
+  await expect(catalogue.getByText("51–100 / 227")).toBeVisible();
+  await search.fill("A9R17440");
+  await expect(catalogue.getByText("500 mA · S")).toBeVisible();
   await search.fill("Schneider A9F74106");
   await expect(model).toHaveValue("schneider-electric:a9f74106");
   await catalogue.getByLabel("Equipment category").selectOption("");

@@ -4,6 +4,7 @@ import {
   componentBank,
   componentBankCsv,
   ic60nBreakers,
+  iidRccbs,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -101,7 +102,9 @@ test("native project import validates indexed and compatible equipment terminals
 });
 
 test("iC60N exports retain exact catalogue identities and pole terminals", () => {
-  expect(new Set(componentBank.map(({ id }) => id)).size).toBe(194);
+  expect(new Set(componentBank.map(({ id }) => id)).size).toBe(
+    componentBank.length,
+  );
   expect(ic60nBreakers).toHaveLength(180);
   expect(
     ic60nBreakers.find(({ model }) => model === "A9F73170")?.ratings,
@@ -127,6 +130,46 @@ test("iC60N exports retain exact catalogue identities and pole terminals", () =>
   expect(read("csv").replaceAll("\r\n", "\n")).toBe(
     componentBankCsv(ic60nBreakers).replaceAll("\r\n", "\n"),
   );
+});
+
+test("iID records preserve the selective variants and support neutral-to-neutral links", () => {
+  expect(iidRccbs).toHaveLength(47);
+  const model = iidRccbs.find(({ model }) => model === "A9R17440")!;
+  expect(model.ratings).toEqual({
+    ratedCurrentA: 40,
+    poles: 4,
+    tripSensitivityMA: 500,
+    selective: true,
+  });
+  expect(model.terminals).toHaveLength(8);
+  const instances = [
+    {
+      id: "rcd",
+      name: "RCDs",
+      catalogueId: model.id,
+      manufacturer: model.manufacturer,
+      model: model.model,
+      quantity: 2,
+      sourceUrl: model.source.url,
+      sourceRevision: model.source.revision,
+    },
+  ];
+  const from = { instanceId: "rcd", unit: 1, terminalId: "neutral-bottom" };
+  const to = { instanceId: "rcd", unit: 2, terminalId: "neutral-top" };
+  expect(
+    equipmentConnectionErrors([{ id: "neutral", from, to }], instances),
+  ).toEqual([]);
+  expect(
+    equipmentConnectionErrors(
+      [{ id: "mixed", from, to: { ...to, terminalId: "pole-1-top" } }],
+      instances,
+    )[0],
+  ).toContain("incompatible");
+  const json = readFileSync(
+    new URL("../docs/component-bank-iid.json", import.meta.url),
+    "utf8",
+  );
+  expect(JSON.parse(json)).toEqual({ schemaVersion: 1, entries: iidRccbs });
 });
 
 test("AC links require a consistent phase across the two terminals of each installed pole", () => {
