@@ -455,3 +455,5 @@ Saved battery series links map to nominal voltage, C20 capacity and nominal ener
 Frozen BOM includes sequence, nominal voltage, C20 capacity, nominal energy and source-based series cutoff for supported battery chains.
 
 The first UPS records include exact model, VA and W ratings, nominal output voltage, six IEC C13 outlets and model-specific mains inlet.
+
+VE.Direct 230 V includes the 72 documented article-code combinations, outlet interface, battery terminal pair and continuous power at 25 and 40 °C.

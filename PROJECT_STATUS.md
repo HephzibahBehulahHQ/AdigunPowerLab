@@ -515,3 +515,5 @@ Battery series candidate shows nominal voltage, C20 capacity and nominal energy 
 Frozen reports now include battery series sequence and nominal ratings derived from the saved terminal network.
 
 UPS coverage starts with five APC Easy UPS SMV CAI models. The candidate contains 798 models in ten categories. AC inlet and outlet connectors are documented; battery and dry-contact pinouts remain open.
+
+Inverter coverage starts with 72 Victron VE.Direct 230 V article variants from the manufacturer's voltage and outlet code table. Candidate total is 870 records across 11 categories. Regional availability and calculation mapping remain open.

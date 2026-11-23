@@ -800,3 +800,5 @@ TypeScript, 41 focused tests and two Chromium cases passed. The restored two-bat
 TypeScript, 25 report/Help checks and two Chromium cases passed. Battery report preview verified 24 V, 60 Ah C20, 1.44 kWh and 21.6 V C20 test cutoff.
 
 TypeScript, 22 component-bank checks and Chromium verified the APC batch, including the 2,100 W SMV3000CAI and its IEC C20 inlet in the record.
+
+TypeScript, 23 component-bank checks and Chromium passed. The browser verified 380 W at 40 °C for PIN241501210.
