@@ -483,3 +483,5 @@ Diagram export candidate distinguishes saved terminal links with dashed strokes 
 Workspace backup copy restore was verified with saved catalogue provenance, two indexed PV units and a series link. Both endpoint IDs remain valid in the restored project.
 
 The catalogue generator can export a CSV and JSON file for every model plus an ID index. All 291 candidate records were verified against runtime data in both formats.
+
+The iCT tranche adds eight exact 50 Hz catalogue contactor entries from CA909006E page 74, including manual-selector variants. The candidate contains 299 models. Coil terminals are documented for inspection; control circuit editing remains open.
