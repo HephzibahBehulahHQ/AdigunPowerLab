@@ -1406,6 +1406,53 @@ export const stamfordWinding311Alternators = stamfordWinding311Rows.map(
   }),
 );
 
+const spacialS3hdRows = [
+  ["NSYS3HD3215", 343, 200, 180],
+  ["NSYS3HD4320", 448, 300, 230],
+  ["NSYS3HD5420", 548, 400, 230],
+  ["NSYS3HD6425", 653, 400, 280],
+  ["NSYS3HD6630", 658, 600, 330],
+  ["NSYS3HD7525", 753, 500, 280],
+  ["NSYS3HD8630", 858, 600, 330],
+  ["NSYS3HD8840", 862, 800, 430],
+  ["NSYS3HD10640", 1062, 600, 430],
+  ["NSYS3HD10840", 1062, 800, 430],
+] as const;
+
+export const spacialS3hdEnclosures = spacialS3hdRows.map(
+  ([model, heightMm, widthMm, depthMm]) => ({
+    id: `schneider-electric:${model.toLowerCase()}`,
+    manufacturer: "Schneider Electric",
+    model,
+    orderCode: model,
+    category: "enclosures-and-installation-hardware" as const,
+    function: "wall-mounted-enclosure" as const,
+    connection: "mechanical" as const,
+    terminals: [],
+    ratings: {
+      heightMm,
+      widthMm,
+      depthMm,
+      ingressProtection: "IP66",
+      impactProtection: "IK10",
+    },
+    conditions: {
+      family: "Spacial S3HD",
+      material: "anti-corrosion coated steel",
+      mounting: "wall",
+    },
+    modelMapping: null,
+    source: {
+      url: "https://download.se.com/files?p_Doc_Ref=UE14MK01EN&p_File_Name=UE14MK01EN+%28web%29.pdf&p_enDocType=Catalog",
+      revision: "UE14MK01EN",
+      page: 16,
+      pageLabel: "4, 16",
+    },
+    missingFields: ["enclosure-bonding-points", "enclosure-thermal-model"],
+    readiness: "inventory-and-diagram-only",
+  }),
+);
+
 export const componentBank = [
   ...pvModules,
   ...ic60nBreakers,
@@ -1428,6 +1475,7 @@ export const componentBank = [
   ...altivar320CompactDrives,
   ...olflexClassic110Cables,
   ...stamfordWinding311Alternators,
+  ...spacialS3hdEnclosures,
 ];
 
 export function componentBankCsv(

@@ -1,4 +1,10 @@
-import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  writeFileSync,
+} from "node:fs";
 import { fileURLToPath } from "node:url";
 import { coverage } from "./component-bank-coverage.mjs";
 import {
@@ -25,10 +31,18 @@ import {
   altivar320CompactDrives,
   olflexClassic110Cables,
   stamfordWinding311Alternators,
+  spacialS3hdEnclosures,
 } from "../src/data/componentBank.ts";
 import { join } from "node:path";
 
 const serialize = (data) => JSON.stringify(data, null, 2) + "\n";
+function writeCatalogueDocument(path, contents) {
+  const existing = existsSync(path) ? readFileSync(path, "utf8") : "";
+  const normalizeNewlines = (value) => value.replaceAll("\r\n", "\n");
+  if (normalizeNewlines(existing) !== normalizeNewlines(contents)) {
+    writeFileSync(path, contents);
+  }
+}
 const batches = {
   pv: pvModules,
   ic60n: ic60nBreakers,
@@ -51,18 +65,19 @@ const batches = {
   "altivar-320-compact": altivar320CompactDrives,
   "lapp-olflex-110": olflexClassic110Cables,
   "stamford-winding-311": stamfordWinding311Alternators,
+  "spacial-s3hd": spacialS3hdEnclosures,
 };
 for (const [batch, entries] of Object.entries(batches)) {
-  writeFileSync(
+  writeCatalogueDocument(
     new URL(`../docs/component-bank-${batch}.json`, import.meta.url),
     serialize({ schemaVersion: 1, entries }),
   );
-  writeFileSync(
+  writeCatalogueDocument(
     new URL(`../docs/component-bank-${batch}.csv`, import.meta.url),
     componentBankCsv(entries),
   );
 }
-writeFileSync(
+writeCatalogueDocument(
   new URL("../docs/component-bank-coverage.json", import.meta.url),
   serialize(coverage),
 );
