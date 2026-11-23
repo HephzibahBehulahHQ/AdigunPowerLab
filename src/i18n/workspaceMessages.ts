@@ -1,5 +1,15 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "From unit": ["Von Einheit", "Láti ẹyọ", "From unit"],
+  "To unit": ["Zu Einheit", "Sí ẹyọ", "To unit"],
+  "From terminal": ["Von Anschluss", "Láti ebute", "From terminal"],
+  "To terminal": ["Zu Anschluss", "Sí ebute", "To terminal"],
+  "Target equipment": ["Zielgerät", "Ohun èlò àfojúsùn", "Target equipment"],
+  "Choose different units and compatible, unused endpoint pairs.": [
+    "Wählen Sie verschiedene Einheiten und ein kompatibles, noch nicht verbundenes Anschlusspaar.",
+    "Yan ẹyọ ọ̀tọ̀ọ̀tọ̀ àti àwọn ebute tó bá ara wọn mu tí a kò tíì so pọ̀.",
+    "Choose different units and compatible terminals wey never connect to each other.",
+  ],
   Unavailable: ["Nicht verfügbar", "Kò sí", "No dey available"],
   "Methods, assumptions and unresolved checks": [
     "Methoden, Annahmen und ungeklärte Prüfungen",

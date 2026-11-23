@@ -27,6 +27,7 @@ import {
 import { downloadFile, safeName } from "../import-export/files";
 import { Field, Modal, Notice } from "./ui";
 import { CommandReview } from "./CommandReview";
+import { EquipmentWiring } from "./EquipmentWiring";
 import type { DetailMode } from "./DetailViews";
 import { useT } from "../i18n";
 import "./topology.css";
@@ -407,14 +408,15 @@ export function TopologyEditor({
               {snapshot.edges.map((edge) => {
                 const to = snapshot.nodes.find((item) => item.id === edge.to)!;
                 return (
-                  <g key={`${edge.from}-${edge.to}`}>
+                  <g key={edge.wireId ?? `${edge.from}-${edge.to}`}>
+                    <title>{edge.label}</title>
                     <path
                       d={diagramEdgePath(snapshot, edge)}
                       stroke="#44657b"
                       strokeWidth="2"
                       fill="none"
                     />
-                    {flow && (
+                    {flow && !edge.wireId && (
                       <path
                         className="energy-flow"
                         d={diagramEdgePath(snapshot, edge)}
@@ -424,7 +426,7 @@ export function TopologyEditor({
                         fill="none"
                       />
                     )}
-                    {settings.showLabels && (
+                    {settings.showLabels && !edge.wireId && (
                       <text
                         x={to.x - 8}
                         y={to.y - 9}
@@ -670,6 +672,7 @@ export function TopologyEditor({
             node={node}
             review={review}
             saveView={saveView}
+            change={change}
           />
         )}
       </div>
@@ -737,11 +740,13 @@ function ObjectEditor({
   node,
   review,
   saveView,
+  change,
 }: {
   project: Project;
   node: DiagramNode;
   review: (command: ProjectCommand) => void;
   saveView: (settings: DiagramSettings) => void;
+  change: ProjectChange;
 }) {
   const t = useT();
   const board = project.boards.find((item) => item.id === node.objectId),
@@ -800,7 +805,6 @@ function ObjectEditor({
       >
         <h3>{node.name}</h3>
         <p>{node.detail}</p>
-        <Notice>{t("Unassigned")}</Notice>
         {record && (
           <dl className="detail-list">
             {record.terminals.map((terminal) => (
@@ -815,6 +819,13 @@ function ObjectEditor({
           <a href={instance.sourceUrl} target="_blank" rel="noreferrer">
             {t("Source reference")}
           </a>
+        )}
+        {instance && record && (
+          <EquipmentWiring
+            project={project}
+            instance={instance}
+            change={change}
+          />
         )}
       </aside>
     );

@@ -162,7 +162,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
     summary: "Inspect the diagram made from your actual project connections.",
     steps: [
       "Select an object to inspect it. Use Connect/Disconnect and the topology controls to change supported connections; check issues after every change.",
-      "Select a catalogue equipment symbol to see its documented terminals and datasheet. The symbol appears without a wire when the equipment is unassigned.",
+      "Select catalogue equipment to see its datasheet and terminal groups. Choose the unit numbers and terminals to connect or disconnect a PV wire in the diagram. These wires do not contribute to power flow calculations.",
       "Use zoom, fit, labels, notes, manual positions or auto-layout to make the diagram readable. Export SVG or PDF for a copy of the displayed diagram.",
       "Open Analytical spatial view for orbit, elevation, zoom, board isolation and the hourly cursor. Selecting an object there highlights the same object in the single-line diagram and inspector. Pause flow animation when needed. Chart tables provide the underlying values.",
     ],

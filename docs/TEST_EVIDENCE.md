@@ -736,3 +736,5 @@ Local TypeScript and two component-bank tests passed. The focused Chromium case 
 Diagram candidate: TypeScript and 20 Help checks passed. Local Chromium opened a saved PV instance in the single-line diagram and verified its three documented terminal groups.
 
 Terminal connection import: accepted an indexed PV series link, rejected missing terminals and units, same-unit links, DC-to-bond links and reversed duplicates.
+
+PV wiring candidate: TypeScript and 23 focused unit checks passed. Chromium verified adding, saving, reloading and removing an indexed PV terminal link.

@@ -349,6 +349,26 @@ test("sourced equipment keeps its edited quantity in the saved project BOM", asy
   await expect(inspector).toContainText("dc-positive");
   await expect(inspector).toContainText("dc-negative");
   await expect(inspector).toContainText("frame-bond");
+  await inspector.getByLabel("To unit").fill("2");
+  await inspector.getByLabel("To terminal").selectOption("negative");
+  await inspector.getByRole("button", { name: "Connect", exact: true }).click();
+  await expect(inspector).toContainText(
+    "Roof array [1] · positive ↔ Roof array [2] · negative",
+  );
+  await page
+    .locator(".workspace-toolbar")
+    .getByRole("button", { name: "Save", exact: true })
+    .click();
+  await expect(page.locator(".save-badge")).toContainText("Saved locally");
+  await page.reload();
+  await page.getByRole("button", { name: "equipment: Roof array" }).click();
+  await expect(
+    inspector.getByRole("button", { name: "Disconnect" }),
+  ).toBeVisible();
+  await inspector.getByRole("button", { name: "Disconnect" }).click();
+  await expect(
+    inspector.getByRole("button", { name: "Disconnect" }),
+  ).toHaveCount(0);
   await page.goto("/#/reports");
   await page
     .getByRole("checkbox", { name: "Model-derived bill of materials" })
