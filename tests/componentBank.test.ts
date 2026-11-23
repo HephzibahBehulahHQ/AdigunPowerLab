@@ -52,6 +52,30 @@ test("Victron AGM retains discharge-rate capacity and exact insert variants", ()
   });
 });
 
+test("AGM links allow series connection but reject indirect battery shorts", () => {
+  const model = victronAgmSuperCycle[0];
+  const instances = [
+    {
+      id: "battery",
+      name: "Bank",
+      catalogueId: model.id,
+      manufacturer: model.manufacturer,
+      model: model.model,
+      sourceUrl: model.source.url,
+      sourceRevision: model.source.revision,
+      quantity: 2,
+    },
+  ];
+  const from = { instanceId: "battery", unit: 1, terminalId: "positive" };
+  const to = { instanceId: "battery", unit: 2, terminalId: "negative" };
+  const series = { id: "series", from, to };
+  expect(equipmentConnectionErrors([series], instances)).toEqual([]);
+  const short = { id: "short", from: { ...from, terminalId: "negative" }, to };
+  expect(equipmentConnectionErrors([series, short], instances)).toEqual([
+    "Equipment terminal network: Battery terminals share a conductor node for Bank [1].",
+  ]);
+});
+
 test("ABT7PDU records retain two secondary windings and distinct jumper arrangements", () => {
   expect(abt7pduTransformers).toHaveLength(23);
   expect(abt7pduTransformers.some(({ model }) => model === "ABT7PDU002B")).toBe(

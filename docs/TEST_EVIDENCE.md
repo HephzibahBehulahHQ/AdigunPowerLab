@@ -792,3 +792,5 @@ TypeScript, 18 component-bank checks and Chromium passed. Browser lookup matched
 TypeScript, 19 component-bank checks and Chromium passed for ABT7PDU. Browser lookup displayed 2 × 24 V AC for ABT7PDU004B.
 
 Victron AGM passed TypeScript, 20 focused checks and Chromium verification of 52/56/60 Ah by discharge period.
+
+Battery wiring passed TypeScript, 41 focused checks and Chromium verification of saved series wiring and rejection of an indirect short after reload.
