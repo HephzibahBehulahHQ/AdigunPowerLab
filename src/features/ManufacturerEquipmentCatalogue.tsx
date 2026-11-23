@@ -82,6 +82,7 @@ const projectCopy = {
 const pageSize = 50;
 const categories = [...new Set(componentBank.map(({ category }) => category))];
 const categoryLabels = {
+  "inverters-and-conversion-equipment": "Inverters and conversion equipment",
   "ups-and-backup-systems": "UPS and backup systems",
   "batteries-and-storage-systems": "Batteries and storage systems",
   transformers: "Transformers",
@@ -95,6 +96,7 @@ const categoryLabels = {
 } as const;
 
 const missingFieldLabels: Record<string, string> = {
+  "verified-inverter-model-mapping": "Verified inverter calculation mapping",
   "verified-ups-model-mapping": "Verified UPS calculation mapping",
   "battery-and-dry-contact-pinouts": "Battery and dry-contact pinouts",
   "verified-storage-model-mapping": "Verified storage calculation mapping",
@@ -402,6 +404,24 @@ export function ManufacturerEquipmentCatalogue({
               <div>
                 <dt>U</dt>
                 <dd>{record.ratings.outputNominalV} V AC</dd>
+              </div>
+            </dl>
+          ) : record.function === "standalone-dc-ac-inverter" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>25 °C</dt>
+                <dd>{format.format(record.ratings.continuousW25C)} W</dd>
+              </div>
+              <div>
+                <dt>40 °C</dt>
+                <dd>{format.format(record.ratings.continuousW40C)} W</dd>
+              </div>
+              <div>
+                <dt>DC → AC</dt>
+                <dd>
+                  {record.ratings.inputNominalV} V DC →{" "}
+                  {record.ratings.outputNominalV} V AC
+                </dd>
               </div>
             </dl>
           ) : record.function !== "miniature-circuit-breaker" ? (

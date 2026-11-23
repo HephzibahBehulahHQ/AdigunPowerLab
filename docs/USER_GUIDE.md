@@ -493,3 +493,5 @@ For identical batteries wired as an isolated series chain, the inspector shows n
 Freeze a report with the model-derived bill of materials to include the battery sequence and nameplate estimates. The C20 cutoff is the published test condition for the connected units.
 
 Filter **UPS and backup systems** to compare Easy UPS VA and W ratings and inspect documented mains and output connectors.
+
+Filter **Inverters and conversion equipment** to compare VE.Direct power at 25 and 40 °C, DC voltage and the AC outlet type.
