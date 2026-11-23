@@ -41,17 +41,22 @@ export function deriveBOM(project: Project): BOMSnapshot {
       evidence: load.source.reference,
     });
   for (const equipment of project.catalogueEquipment ?? []) {
+    const model = `${equipment.manufacturer} ${equipment.model}${
+      equipment.orderCode && equipment.orderCode !== equipment.model
+        ? ` (${equipment.orderCode})`
+        : ""
+    }`;
     rows.push({
       id: `equipment:${equipment.id}`,
       sourceIds: [equipment.id, equipment.catalogueId],
       kind: "equipment",
       description:
         equipment.name === equipment.model
-          ? `${equipment.manufacturer} ${equipment.model}`
-          : `${equipment.name} · ${equipment.manufacturer} ${equipment.model}`,
+          ? model
+          : `${equipment.name} · ${model}`,
       quantity: equipment.quantity,
       unit: "piece",
-      evidence: `${equipment.sourceRevision} · ${equipment.sourceUrl}`,
+      evidence: `${equipment.sourceRevision}${equipment.sourcePage ? ` · p. ${equipment.sourcePage}` : ""} · ${equipment.sourceUrl}`,
     });
   }
   const cable = (id: string, name: string, value: Cable | undefined) => {

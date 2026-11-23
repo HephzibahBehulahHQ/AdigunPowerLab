@@ -11,7 +11,10 @@ export function catalogueRecord(instance: CatalogueEquipmentInstance) {
   const entry = recordsById.get(instance.catalogueId);
   if (
     entry?.source.url === instance.sourceUrl &&
-    entry?.source.revision === instance.sourceRevision
+    entry?.source.revision === instance.sourceRevision &&
+    (instance.sourcePage === undefined ||
+      instance.sourcePage === entry.source.page) &&
+    (instance.orderCode === undefined || instance.orderCode === entry.orderCode)
   )
     return entry;
 }

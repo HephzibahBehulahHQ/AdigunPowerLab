@@ -358,6 +358,8 @@ export function ManufacturerEquipmentCatalogue({
                   model: record.model,
                   sourceUrl: record.source.url,
                   sourceRevision: record.source.revision,
+                  sourcePage: record.source.page,
+                  ...(record.orderCode ? { orderCode: record.orderCode } : {}),
                   name: record.model,
                   quantity: 1,
                 };

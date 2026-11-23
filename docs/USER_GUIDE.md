@@ -454,3 +454,5 @@ The diagram rejects a wire that joins one PV module's positive and negative term
 Use the **Metering and power quality** category to find iEM meters. Inspect the source and terminal details for S0 pulse outputs and regional restrictions.
 
 Select **Model-derived bill of materials** and freeze the report to include the catalogue equipment wiring schedule when the project has saved terminal links.
+
+Newly added catalogue equipment keeps its source page and any documented order code in project and report exports.
