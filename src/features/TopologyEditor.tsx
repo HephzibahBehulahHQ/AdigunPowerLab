@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
 import { createBoard, createCircuit, newId } from "../domain/project";
-import { pvModules } from "../data/componentBank";
+import { catalogueRecord } from "../domain/equipmentConnections";
 import type {
   CalculationResult,
   Cable,
@@ -792,11 +792,7 @@ function ObjectEditor({
     const instance = project.catalogueEquipment?.find(
       (item) => item.id === node.objectId,
     );
-    const record = pvModules.find(
-      (item) =>
-        item.id === instance?.catalogueId &&
-        item.source.revision === instance?.sourceRevision,
-    );
+    const record = instance && catalogueRecord(instance);
     return (
       <aside
         className="panel panel-pad topology-inspector"

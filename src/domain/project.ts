@@ -5,6 +5,7 @@ import {
   type Load,
   type Project,
 } from "./types";
+import { equipmentConnectionErrors } from "./equipmentConnections";
 import {
   explicitInstant,
   validCalendarDate,
@@ -1277,6 +1278,16 @@ export function validateProjectImport(input: unknown): {
         }
       }
     }
+  }
+  if (candidate.equipmentTerminalConnections !== undefined && !errors.length) {
+    errors.push(
+      ...equipmentConnectionErrors(
+        candidate.equipmentTerminalConnections,
+        (candidate.catalogueEquipment ?? []) as NonNullable<
+          Project["catalogueEquipment"]
+        >,
+      ),
+    );
   }
   if (candidate.equipmentLibrary !== undefined) {
     if (
