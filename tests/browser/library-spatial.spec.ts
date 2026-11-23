@@ -300,7 +300,7 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   await expect(catalogue.getByRole("status")).toHaveText(
     "No matching equipment",
   );
-  await search.fill("455h");
+  await search.fill("CS6.2-48TM-455H");
   await expect(catalogue.getByRole("combobox")).toHaveValue(
     "canadian-solar:cs6.2-48tm-455h",
   );
@@ -310,4 +310,9 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   expect((await pending).suggestedFilename()).toBe(
     "component-bank-CS6.2-48TM-455H.json",
   );
+  const csv = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record CSV" }).click();
+  const contents = await readFile(await (await csv).path(), "utf8");
+  expect(contents.trimEnd().split(/\r?\n/)).toHaveLength(2);
+  expect(contents).toContain('"canadian-solar:cs6.2-48tm-455h"');
 });
