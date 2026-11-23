@@ -402,6 +402,7 @@ export const reportMessages: Record<string, [string, string, string]> = {
     "Entered priced line",
   ],
   "Source revision": ["Quellenrevision", "Àtúnṣe orísun", "Source revision"],
+  "Module sequence": ["Modulfolge", "Ìtòlẹ́sẹẹsẹ module", "Module sequence"],
   "Catalogue equipment wiring schedule": [
     "Anschlussliste der Kataloggeräte",
     "Àtòjọ waya ohun èlò inú katalogi",

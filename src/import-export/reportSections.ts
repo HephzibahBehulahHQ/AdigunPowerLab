@@ -5,6 +5,7 @@ import { simulateStartEvents } from "../engine/start-events";
 import { assessSourceEquipment } from "../engine/sources";
 import { validateMeasurementPayload } from "../storage/measurements";
 import { deriveBOM } from "./bom";
+import { cataloguePvStrings } from "../engine/cataloguePvStrings";
 import type { EquipmentTerminalEndpoint } from "../domain/types";
 import type { ReportSnapshot } from "./reportSnapshot";
 import type { EngineeringReportSection } from "./reports";
@@ -498,6 +499,28 @@ export function reportBlocks(
       paragraph(
         "The wiring schedule lists saved terminal links. Cable quantities still use entered route lengths.",
       );
+      const strings = cataloguePvStrings(p);
+      if (strings.length) {
+        heading("PV series string at STC");
+        table(
+          ["Module sequence", "Voc (V)", "Vmp (V)", "Imp (A)"],
+          strings.map(({ units, vocV, vmpV, impA }) => [
+            units
+              .map(
+                ({ instanceId, unit }) =>
+                  `${equipment.get(instanceId)?.name ?? instanceId} [${n(unit, 0)}]`,
+              )
+              .join(" → "),
+            n(vocV, 2),
+            n(vmpV, 2),
+            n(impA, 2),
+          ]),
+          [104, 26, 26, 26],
+        );
+        paragraph(
+          "Uses nameplate values for identical modules in an isolated series chain.",
+        );
+      }
     }
     if (c.bill) {
       paragraph(
