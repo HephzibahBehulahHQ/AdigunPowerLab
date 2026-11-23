@@ -163,6 +163,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
     steps: [
       "Select an object to inspect it. Use Connect/Disconnect and the topology controls to change supported connections; check issues after every change.",
       "Select catalogue equipment to see its datasheet and terminal groups. Choose the unit numbers and terminals to connect or disconnect a PV wire in the diagram. These wires do not contribute to power flow calculations.",
+      "For an AC line link, choose L1, L2 or L3. Both terminals of a breaker pole must use the same phase.",
       "Use zoom, fit, labels, notes, manual positions or auto-layout to make the diagram readable. Export SVG or PDF for a copy of the displayed diagram.",
       "Open Analytical spatial view for orbit, elevation, zoom, board isolation and the hourly cursor. Selecting an object there highlights the same object in the single-line diagram and inspector. Pause flow animation when needed. Chart tables provide the underlying values.",
     ],

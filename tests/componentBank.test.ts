@@ -7,6 +7,7 @@ import {
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
+import { equipmentConnectionErrors } from "../src/domain/equipmentConnections";
 import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
@@ -126,4 +127,45 @@ test("iC60N exports retain exact catalogue identities and pole terminals", () =>
   expect(read("csv").replaceAll("\r\n", "\n")).toBe(
     componentBankCsv(ic60nBreakers).replaceAll("\r\n", "\n"),
   );
+});
+
+test("AC links require a consistent phase across the two terminals of each installed pole", () => {
+  const model = ic60nBreakers[0];
+  const instances = [
+    {
+      id: "breaker",
+      name: "Breakers",
+      catalogueId: model.id,
+      manufacturer: model.manufacturer,
+      model: model.model,
+      sourceUrl: model.source.url,
+      sourceRevision: model.source.revision,
+      quantity: 3,
+    },
+  ];
+  const terminal = (unit: number, side: string) => ({
+    instanceId: "breaker",
+    unit,
+    terminalId: `pole-1-${side}`,
+  });
+  const first = {
+    id: "first",
+    from: terminal(1, "bottom"),
+    to: terminal(2, "top"),
+  };
+  const second = {
+    id: "second",
+    from: terminal(2, "bottom"),
+    to: terminal(3, "top"),
+  };
+  expect(equipmentConnectionErrors([first], instances)[0]).toContain(
+    "require L1",
+  );
+  const live = { ...first, phase: "L2" };
+  expect(
+    equipmentConnectionErrors([live, { ...second, phase: "L2" }], instances),
+  ).toEqual([]);
+  expect(
+    equipmentConnectionErrors([live, { ...second, phase: "L1" }], instances)[0],
+  ).toContain("conflicting phases");
 });

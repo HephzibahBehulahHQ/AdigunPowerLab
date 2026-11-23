@@ -7,6 +7,7 @@ import {
 import { newId } from "../domain/project";
 import type {
   CatalogueEquipmentInstance,
+  EquipmentTerminalConnection,
   EquipmentTerminalEndpoint,
   Project,
 } from "../domain/types";
@@ -25,8 +26,10 @@ export function EquipmentWiring({
   const t = useT();
   const [targetId, setTargetId] = useState(instance.id);
   const [error, setError] = useState(false);
-  const equipment = (project.catalogueEquipment ?? []).filter(
-    (item) => catalogueRecord(item)?.connection === "dc",
+  const instances = project.catalogueEquipment ?? [];
+  const domain = catalogueRecord(instance)?.connection;
+  const equipment = instances.filter(
+    (item) => catalogueRecord(item)?.connection === domain,
   );
   const target = equipment.find((item) => item.id === targetId) ?? instance;
   const wires = project.equipmentTerminalConnections ?? [];
@@ -47,7 +50,8 @@ export function EquipmentWiring({
         onSubmit={(event) => {
           event.preventDefault();
           const data = new FormData(event.currentTarget);
-          const wire = {
+          const phase = data.get("phase");
+          const wire: EquipmentTerminalConnection = {
             id: newId("wire"),
             from: {
               instanceId: instance.id,
@@ -59,9 +63,12 @@ export function EquipmentWiring({
               unit: Number(data.get("toUnit")),
               terminalId: String(data.get("toTerminal")),
             },
+            ...(phase === "L1" || phase === "L2" || phase === "L3"
+              ? { phase }
+              : {}),
           };
           const next = [...wires, wire];
-          if (equipmentConnectionErrors(next, equipment).length) {
+          if (equipmentConnectionErrors(next, instances).length) {
             setError(true);
             return;
           }
@@ -72,6 +79,18 @@ export function EquipmentWiring({
         }}
       >
         <div className="form-grid">
+          {domain === "ac" && (
+            <Field label={t("Phase")}>
+              <select name="phase" defaultValue="" required>
+                <option value="" disabled>
+                  {t("Select phase")}
+                </option>
+                <option>L1</option>
+                <option>L2</option>
+                <option>L3</option>
+              </select>
+            </Field>
+          )}
           <Field label={t("From unit")}>
             <input
               name="fromUnit"
@@ -132,12 +151,15 @@ export function EquipmentWiring({
         </button>
         {error && (
           <p role="alert">
-            {t("Choose different units and compatible, unused endpoint pairs.")}
+            {t(
+              "Check unit numbers, terminal compatibility, duplicates and phase assignments.",
+            )}
           </p>
         )}
       </form>
       {attached.map((wire) => (
         <p key={wire.id}>
+          {wire.phase && `${wire.phase} · `}
           {describe(wire.from)} ↔ {describe(wire.to)}{" "}
           <button
             type="button"

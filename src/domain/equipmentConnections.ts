@@ -24,6 +24,7 @@ export function equipmentConnectionErrors(
   const equipment = new Map(instances.map((item) => [item.id, item]));
   const ids = new Set<string>();
   const pairs = new Set<string>();
+  const polePhases = new Map<string, string>();
   const errors: string[] = [];
   function resolve(input: unknown) {
     if (typeof input !== "object" || input === null) return;
@@ -39,19 +40,28 @@ export function equipmentConnectionErrors(
     )
       return;
     const model = catalogueRecord(instance);
-    if (model?.connection !== "dc") return;
-    const terminal = model.terminals.find((entry) => entry.id === terminalId);
+    const terminal = model?.terminals.find((entry) => entry.id === terminalId);
     if (!terminal) return;
     return {
       key: JSON.stringify([instanceId, unit, terminalId]),
       device: JSON.stringify([instanceId, unit]),
-      domain: terminal.interface === "protective-bond" ? "bond" : "dc",
+      domain:
+        terminal.interface === "ac-line"
+          ? "ac"
+          : terminal.interface === "protective-bond"
+            ? "bond"
+            : "dc",
+      pole: JSON.stringify([
+        instanceId,
+        unit,
+        terminal.id.replace(/-(top|bottom)$/, ""),
+      ]),
     };
   }
 
   for (const [index, row] of input.entries()) {
     const label = `Equipment terminal connection ${index + 1}`;
-    const { id, from, to } = (row ??
+    const { id, from, to, phase } = (row ??
       {}) as Partial<EquipmentTerminalConnection>;
     if (
       typeof id !== "string" ||
@@ -77,6 +87,25 @@ export function equipmentConnectionErrors(
     const pair = JSON.stringify([left.key, right.key].sort());
     if (pairs.has(pair)) {
       errors.push(`${label}: duplicate endpoint pair.`);
+      continue;
+    }
+    if (left.domain === "ac") {
+      if (phase !== "L1" && phase !== "L2" && phase !== "L3") {
+        errors.push(`${label}: AC line links require L1, L2 or L3.`);
+        continue;
+      }
+      if (
+        [left.pole, right.pole].some(
+          (pole) => polePhases.has(pole) && polePhases.get(pole) !== phase,
+        )
+      ) {
+        errors.push(`${label}: conflicting phases on the same pole.`);
+        continue;
+      }
+      polePhases.set(left.pole, phase);
+      polePhases.set(right.pole, phase);
+    } else if (phase !== undefined) {
+      errors.push(`${label}: phase is only valid for AC line links.`);
       continue;
     }
     pairs.add(pair);

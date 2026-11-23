@@ -321,6 +321,32 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   );
   await expect(catalogue.getByText("6 A", { exact: true })).toBeVisible();
   await expect(catalogue.getByText("6 kA · 230 V AC")).toBeVisible();
+  await catalogue
+    .getByRole("button", { name: "Add to project equipment" })
+    .click();
+  const equipment = page.getByRole("region", { name: "Project equipment" });
+  await equipment.getByRole("spinbutton").fill("2");
+  await equipment.getByRole("spinbutton").press("Tab");
+  await page
+    .locator(".workspace-toolbar")
+    .getByRole("button", { name: "Save", exact: true })
+    .click();
+  await expect(page.locator(".save-badge")).toContainText("Saved locally");
+  await page.goto("/#/diagram");
+  await page.getByRole("button", { name: /equipment: .*A9F74106/ }).click();
+  const inspector = page.getByRole("complementary", {
+    name: "Topology object inspector",
+  });
+  await inspector.getByLabel("Phase", { exact: true }).selectOption("L2");
+  await inspector.getByLabel("To unit").fill("2");
+  await inspector.getByLabel("To terminal").selectOption("pole-1-bottom");
+  await inspector.getByRole("button", { name: "Connect", exact: true }).click();
+  await expect(inspector).toContainText("L2 ·");
+  await expect(
+    page
+      .locator("svg title")
+      .filter({ hasText: "L2 · 1 · pole-1-top ↔ 2 · pole-1-bottom" }),
+  ).toHaveCount(1);
 });
 
 test("sourced equipment keeps its edited quantity in the saved project BOM", async ({

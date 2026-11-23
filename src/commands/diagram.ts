@@ -277,10 +277,10 @@ export function buildDiagramSnapshot(
     edges: [
       ...edges,
       ...(project.equipmentTerminalConnections ?? []).map(
-        ({ id, from, to }) => ({
+        ({ id, from, to, phase }) => ({
           from: `equipment:${from.instanceId}`,
           to: `equipment:${to.instanceId}`,
-          label: `${from.unit} · ${from.terminalId} ↔ ${to.unit} · ${to.terminalId}`,
+          label: `${phase ? `${phase} · ` : ""}${from.unit} · ${from.terminalId} ↔ ${to.unit} · ${to.terminalId}`,
           wireId: id,
         }),
       ),
