@@ -442,3 +442,5 @@ For an AC line wire select L1, L2 or L3. The editor checks that incoming and out
 Filter **Manufacturer equipment** by category. Use **Previous records** and **Next records** for more results, or combine maker and model terms to find an exact order code.
 
 Search for the Schneider iID order code to view rated current, residual sensitivity, and rated voltage. Select N and two documented neutral terminals to save a neutral link.
+
+The iID record lists Type A or AC sensitivity and the catalogue voltage for that exact order code.
