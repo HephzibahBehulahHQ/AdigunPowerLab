@@ -449,3 +449,5 @@ The second PV batch adds seven CS6.1-54TM-H variants, taking the candidate total
 Project equipment candidate adds editable names and installed quantities to saved projects and the report bill of materials. Local Chromium verified save, reload and report inclusion. Phase-aware connections and diagram placement are still open.
 
 The diagram candidate displays saved equipment as disconnected symbols with source-backed terminal groups in the inspector. Connections remain open. Local Chromium verified the positive, negative and frame-bond groups on a saved PV instance.
+
+Native project validation now supports indexed equipment terminal connections and rejects missing endpoints, direct self-connections, mixed DC and bonding endpoints, and duplicate pairs. Local TypeScript and three component-bank tests passed. Interactive wiring, AC phase support and network analysis remain open.

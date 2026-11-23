@@ -316,6 +316,18 @@ export interface CatalogueEquipmentInstance {
   quantity: number;
 }
 
+export interface EquipmentTerminalEndpoint {
+  instanceId: string;
+  unit: number;
+  terminalId: string;
+}
+
+export interface EquipmentTerminalConnection {
+  id: string;
+  from: EquipmentTerminalEndpoint;
+  to: EquipmentTerminalEndpoint;
+}
+
 export interface Project {
   schemaVersion: typeof SCHEMA_VERSION;
   id: string;
@@ -355,6 +367,7 @@ export interface Project {
   };
   equipmentLibrary?: Load[];
   catalogueEquipment?: CatalogueEquipmentInstance[];
+  equipmentTerminalConnections?: EquipmentTerminalConnection[];
   equipmentFavorites?: string[];
   equipmentVersions?: {
     templateId: string;

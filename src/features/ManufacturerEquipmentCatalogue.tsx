@@ -255,6 +255,13 @@ export function ManufacturerEquipmentCatalogue({
                         ({ id }) => id === instance.id,
                       );
                       if (row) row.quantity = value;
+                      draft.equipmentTerminalConnections =
+                        draft.equipmentTerminalConnections?.filter(
+                          ({ from, to }) =>
+                            (from.instanceId !== instance.id ||
+                              from.unit <= value) &&
+                            (to.instanceId !== instance.id || to.unit <= value),
+                        );
                     });
                   }}
                 />
@@ -267,6 +274,12 @@ export function ManufacturerEquipmentCatalogue({
                     draft.catalogueEquipment = draft.catalogueEquipment?.filter(
                       ({ id }) => id !== instance.id,
                     );
+                    draft.equipmentTerminalConnections =
+                      draft.equipmentTerminalConnections?.filter(
+                        ({ from, to }) =>
+                          from.instanceId !== instance.id &&
+                          to.instanceId !== instance.id,
+                      );
                   })
                 }
               >

@@ -389,3 +389,5 @@ The coal steam worksheet converts net heat rate and coal heat content into fuel 
 Candidate supports adding a sourced model, editing its name and quantity, saving and reloading, and including it in the report BOM. Phase-aware connections, topology and diagram placement remain open.
 
 The diagram candidate adds placement as standalone symbols and terminal inspection in the single-line diagram. Terminal-to-terminal wiring remains open.
+
+Native project import supports source-resolved PV terminal links with unit indices and basic endpoint validation. Interactive editing and AC phase-aware topology remain open.
