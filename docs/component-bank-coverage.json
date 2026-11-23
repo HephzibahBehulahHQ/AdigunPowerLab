@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "distinctRecords": 723,
+  "distinctRecords": 762,
   "goalMinimum": 10000,
   "readiness": {
     "pv-worksheet-inputs-only": 14,
-    "inventory-and-diagram-only": 709
+    "inventory-and-diagram-only": 748
   },
   "categories": [
     {
       "category": "transformers",
       "target": 700,
-      "records": 0,
-      "remaining": 700
+      "records": 39,
+      "remaining": 661
     },
     {
       "category": "generators",
