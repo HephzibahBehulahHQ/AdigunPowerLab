@@ -712,6 +712,47 @@ export const linergyDsBlocks = (
   readiness: "inventory-and-diagram-only",
 }));
 
+export const linergyEarthBars = (
+  [
+    ["LVS04200", 450, 40],
+    ["LVS04201", 450, 0],
+    ["LVS04202", 200, 20],
+  ] as const
+).map(([model, lengthMm, jumpers]) => ({
+  id: `schneider-electric:${model.toLowerCase()}`,
+  manufacturer: "Schneider Electric",
+  model,
+  orderCode: model,
+  category: "earthing-and-bonding-equipment" as const,
+  function: "protective-earth-bar" as const,
+  connection: "bond" as const,
+  terminals: [
+    {
+      id: "main",
+      group: "pe",
+      interface: "protective-bond",
+      connector: "16–35 mm² terminal",
+    },
+    ...Array.from({ length: jumpers }, (_, index) => ({
+      id: `jumper-${index + 1}`,
+      group: "pe",
+      interface: "protective-bond",
+      connector: "2.5–16 mm² jumper",
+    })),
+  ],
+  ratings: { lengthMm, jumpers, icwKA: 9 },
+  conditions: { icwDurationSeconds: 0.5, icwBasis: "rms" },
+  modelMapping: null,
+  source: {
+    url: "https://download.se.com/files?p_Doc_Ref=DESW025EN&p_File_name=DESW025EN_V19_PrismaSeT+G_Catalog.pdf",
+    revision: "150E5300, Version 21.0, 29/09/2026",
+    page: 22,
+    pageLabel: "D-22",
+  },
+  missingFields: ["verified-bonding-model-mapping"],
+  readiness: "inventory-and-diagram-only",
+}));
+
 export const componentBank = [
   ...pvModules,
   ...ic60nBreakers,
@@ -723,6 +764,7 @@ export const componentBank = [
   ...ic60lBreakers,
   ...rm17Relays,
   ...linergyDsBlocks,
+  ...linergyEarthBars,
 ];
 
 export function componentBankCsv(

@@ -12,6 +12,7 @@ import {
   ictContactors,
   rm17Relays,
   linergyDsBlocks,
+  linergyEarthBars,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -21,6 +22,28 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("Linergy earth bars preserve the shared PE node and documented connection counts", () => {
+  expect(linergyEarthBars.map(({ terminals }) => terminals.length)).toEqual([
+    41, 1, 21,
+  ]);
+  for (const record of linergyEarthBars) {
+    expect(
+      record.terminals.every(
+        ({ group, interface: kind }) =>
+          group === "pe" && kind === "protective-bond",
+      ),
+    ).toBe(true);
+  }
+  const json = readFileSync(
+    new URL("../docs/component-bank-linergy-tb.json", import.meta.url),
+    "utf8",
+  );
+  expect(JSON.parse(json)).toEqual({
+    schemaVersion: 1,
+    entries: linergyEarthBars,
+  });
+});
 
 test("Linergy terminal openings share a pole and reject conflicting phases", () => {
   expect(linergyDsBlocks.map(({ terminals }) => terminals.length)).toEqual([

@@ -88,9 +88,11 @@ const categoryLabels = {
   "metering-and-power-quality": "Metering and power quality",
   "monitoring-and-sensors": "Monitoring and sensors",
   "busbars-and-distribution-systems": "Busbars and distribution systems",
+  "earthing-and-bonding-equipment": "Earthing and bonding equipment",
 } as const;
 
 const missingFieldLabels: Record<string, string> = {
+  "verified-bonding-model-mapping": "Verified bonding calculation mapping",
   "separate-order-code": "Separate order code",
   "specific-connector-on-delivered-module": "Connector on the delivered module",
   "regional-availability": "Regional availability",
@@ -319,6 +321,24 @@ export function ManufacturerEquipmentCatalogue({
               <div>
                 <dt>Icw</dt>
                 <dd>{format.format(record.ratings.icwKA)} kA · 1 s</dd>
+              </div>
+            </dl>
+          ) : record.function === "protective-earth-bar" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>Icw</dt>
+                <dd>
+                  {record.ratings.icwKA} kA rms ·{" "}
+                  {format.format(record.conditions.icwDurationSeconds)} s
+                </dd>
+              </div>
+              <div>
+                <dt>L</dt>
+                <dd>{record.ratings.lengthMm} mm</dd>
+              </div>
+              <div>
+                <dt>{t("Documented terminals")}</dt>
+                <dd>{record.terminals.length}</dd>
               </div>
             </dl>
           ) : record.function !== "miniature-circuit-breaker" ? (

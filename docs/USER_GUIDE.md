@@ -477,3 +477,5 @@ Look up iC60L models by order code. The Icn entry is available within the manufa
 Filter **Monitoring and sensors** to find RM17 phase-monitoring relays and inspect terminal markings, voltage ranges and relay outputs.
 
 Filter **Busbars and distribution systems** for Linergy DS. Select the terminal opening when wiring. All openings on one single-pole block share a node and must use the same phase.
+
+Filter **Earthing and bonding equipment** for Linergy TB bars. Select the protective bonding terminal at each end to record a PV frame connection.

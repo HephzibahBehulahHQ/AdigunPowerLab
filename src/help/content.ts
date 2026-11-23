@@ -165,6 +165,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "Select catalogue equipment to see its datasheet and terminal groups. Choose the unit numbers and terminals to connect or disconnect a PV wire in the diagram. These wires do not contribute to power flow calculations.",
       "For an AC line link, choose L1, L2 or L3. Both terminals of a breaker pole must use the same phase.",
       "For an iID neutral link, select N and choose a neutral terminal at both ends.",
+      "Choose protective bonding terminals at both ends to link a catalogue earth bar to a PV frame.",
       "The editor rejects a PV wire when it would join one module’s positive and negative terminals through the saved wires.",
       "Dashed wires show saved catalogue terminal links in the diagram and its exports.",
       "An isolated chain of identical PV modules shows its string voltage and current at standard test conditions in the inspector.",
