@@ -1457,6 +1457,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Yan Di àwòrán ṣáájú ìròyìn mú. Ṣàyẹ̀wò àtúnṣe iṣẹ́, ẹ̀rí dátà ìwọlé, àfojúsùn àti ìṣòro tí kò tíì yanjú, kí o sì gbé PDF, ìtẹ̀jáde, JSON àwòrán ìgbà náà tàbí CSV ìròyìn jáde.",
       "Choose Freeze report preview. Review project revision, input evidence, assumptions and unresolved issues, then export PDF, print, snapshot JSON or report CSV.",
     ],
+  "Supported battery series chains appear with their nominal voltage, C20 capacity and nameplate energy in the frozen bill-of-materials report.":
+    [
+      "Unterstützte Batteriereihenschaltungen erscheinen mit Nennspannung, C20-Kapazität und Nennenergie im eingefrorenen Stücklistenbericht.",
+      "Ìsopọ̀ bátìrì lẹ́sẹẹsẹ tí a ṣe àtìlẹ́yìn fún fi voltage nominal, capacity C20 àti agbára nameplate hàn nínú ìròyìn àtòjọ ohun èlò.",
+      "Di frozen bill-of-materials report shows nominal voltage, C20 capacity and nameplate energy for supported battery series chains.",
+    ],
   "For supported PV series strings, the frozen bill-of-materials report also lists the module order and standard-test-condition values.":
     [
       "Bei unterstützten PV-Reihenstrings listet der eingefrorene Stücklistenbericht auch die Modulfolge und Werte unter Standardtestbedingungen auf.",
