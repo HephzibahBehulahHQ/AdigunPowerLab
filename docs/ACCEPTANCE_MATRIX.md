@@ -405,3 +405,5 @@ The iID candidate adds 47 source-backed RCCBs with CSV/JSON, numbered line termi
 The iID expansion adds 34 Type A order codes with source page and separate voltage ratings for the 230/400 V and 110/230 V groups.
 
 The generated component-bank coverage artifact reports the owner target, current record totals, category gaps and readiness. A category count alone does not establish complete record or model acceptance.
+
+The switching category starts with 12 Schneider iSW order codes, documented power terminals, rated current/voltage, and CSV/JSON.

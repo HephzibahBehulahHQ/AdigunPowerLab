@@ -84,6 +84,7 @@ const categories = [...new Set(componentBank.map(({ category }) => category))];
 const categoryLabels = {
   "solar-and-wind-equipment": "Solar and wind equipment",
   "protection-devices": "Protection devices",
+  "switching-and-transfer-equipment": "Switching and transfer equipment",
 } as const;
 
 export function ManufacturerEquipmentCatalogue({
@@ -229,6 +230,20 @@ export function ManufacturerEquipmentCatalogue({
                     `–${record.conditions.ratedVoltageMaxV}`}{" "}
                   V AC
                 </dd>
+              </div>
+            </dl>
+          ) : record.function !== "miniature-circuit-breaker" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>Iₙ</dt>
+                <dd>
+                  {format.format(record.ratings.ratedCurrentA)} A ·{" "}
+                  {record.ratings.poles}P
+                </dd>
+              </div>
+              <div>
+                <dt>Ue</dt>
+                <dd>{record.ratings.voltageV} V AC</dd>
               </div>
             </dl>
           ) : (

@@ -7,6 +7,11 @@ export const workspaceMessages: Record<string, [string, string, string]> = {
     "Solar and wind equipment",
   ],
   "Protection devices": ["Schutzgeräte", "Ohun èlò ààbò", "Protection devices"],
+  "Switching and transfer equipment": [
+    "Schalt- und Umschaltgeräte",
+    "Ohun èlò yíyí àti gbigbe",
+    "Switching and transfer equipment",
+  ],
   "Previous records": [
     "Vorherige Datensätze",
     "Àkọsílẹ̀ tó ṣáájú",
