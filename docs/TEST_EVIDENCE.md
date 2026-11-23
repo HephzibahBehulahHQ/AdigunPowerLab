@@ -802,3 +802,5 @@ TypeScript, 25 report/Help checks and two Chromium cases passed. Battery report 
 TypeScript, 22 component-bank checks and Chromium verified the APC batch, including the 2,100 W SMV3000CAI and its IEC C20 inlet in the record.
 
 TypeScript, 23 component-bank checks and Chromium passed. The browser verified 380 W at 40 °C for PIN241501210.
+
+TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
