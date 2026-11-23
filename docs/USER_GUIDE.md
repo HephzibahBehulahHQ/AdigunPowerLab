@@ -452,3 +452,5 @@ Open **Source, terminals and model readiness** before applying or exporting a mo
 The diagram rejects a wire that joins one PV module's positive and negative terminals through the existing wires.
 
 Use the **Metering and power quality** category to find iEM meters. Inspect the source and terminal details for S0 pulse outputs and regional restrictions.
+
+Select **Model-derived bill of materials** and freeze the report to include the catalogue equipment wiring schedule when the project has saved terminal links.
