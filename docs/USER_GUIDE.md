@@ -463,3 +463,5 @@ Repository maintainers can run
 ode scripts/export-component-bank.mjs --individual to generate one CSV and one JSON file per model. Open the printed output folder and use its index.json to find each model ID.
 
 Find iCT contactors in **Switching and transfer equipment**. Compare AC-7a, AC-7b and coil-voltage ratings and inspect A1 and A2 in the terminal details.
+
+Connect identical PV modules in an isolated series chain to see their standard-test-condition Voc, Vmp and Imp in the diagram inspector.

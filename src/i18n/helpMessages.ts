@@ -1096,6 +1096,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Yan ohun èlò inú katalogi láti wo datasheet àti ẹgbẹ́ ebute. Yan nọ́ńbà ẹyọ àti ebute láti so waya PV pọ̀ tàbí yọ ọ́ nínú àwòrán. Ìṣírò ìṣàn agbára kò lo àwọn waya wọ̀nyí.",
       "Select catalogue equipment to see di datasheet and terminal groups. Choose unit numbers and terminals to connect or disconnect PV wire for di diagram. Power flow calculation no use these wires.",
     ],
+  "An isolated chain of identical PV modules shows its string voltage and current at standard test conditions in the inspector.":
+    [
+      "Bei einem separaten Reihenstring mit identischen PV-Modulen zeigt der Inspektor Stringspannung und Strom unter Standardtestbedingungen.",
+      "Fún module PV kan náà tí a so lẹ́sẹẹsẹ lọ́tọ̀, inspector fi voltage àti current rẹ̀ hàn ní ipo ìdánwò boṣewa.",
+      "For an isolated chain of identical PV modules, di inspector shows string voltage and current at standard test conditions.",
+    ],
   "Dashed wires show saved catalogue terminal links in the diagram and its exports.":
     [
       "Gestrichelte Leitungen zeigen gespeicherte Kataloganschlüsse im Diagramm und in seinen Exporten.",

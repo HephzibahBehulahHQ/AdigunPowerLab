@@ -485,3 +485,5 @@ Workspace backup copy restore was verified with saved catalogue provenance, two 
 The catalogue generator can export a CSV and JSON file for every model plus an ID index. All 291 candidate records were verified against runtime data in both formats.
 
 The iCT tranche adds eight exact 50 Hz catalogue contactor entries from CA909006E page 74, including manual-selector variants. The candidate contains 299 models. Coil terminals are documented for inspection; control circuit editing remains open.
+
+PV string candidate calculates Voc, Vmp and Imp from the actual terminal links of an isolated identical-module series string at STC. It excludes branches and cycles. This tranche does not calculate cold-weather voltage or inverter compatibility.
