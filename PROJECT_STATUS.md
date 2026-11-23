@@ -436,4 +436,6 @@ Meshed profile saving is also live. Public Chromium restored both edited demand 
 
 A phone-width Chromium accessibility-tree sample found that hidden toolbar text left Save and Export project unnamed. The accessibility candidate explicitly names both controls using the existing four-language text.
 
+A 320 px public viewport check also found the POWERGRID launcher clipped on both the overview and lab routes. The responsive candidate compacts the header and keeps the launcher and language selector in the viewport.
+
 Public Pages sampling verified the reduced-motion station layout at desktop, tablet and phone widths. Chromium rendered WebGL at all three widths and recorded two-frame azimuth input timing in docs/TEST_EVIDENCE.md.

@@ -4521,6 +4521,49 @@ details p {
   }
 }
 
+@media (max-width: 360px) {
+  .topbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 0 5px;
+    padding-inline: 8px;
+  }
+  .topbar > .spacer {
+    display: none;
+  }
+  .topbar .brand {
+    gap: 6px;
+  }
+  .topbar .brand h1 {
+    font-size: 13px;
+  }
+  .topbar .corporate-logo,
+  .topbar .corporate-logo img {
+    width: 26px;
+  }
+  .topbar .corporate-logo img {
+    height: 26px;
+  }
+  .topbar > .project-switch {
+    grid-area: 1 / 2;
+    justify-self: end;
+  }
+  .topbar > .language-select {
+    grid-area: 2 / 1;
+    width: 64px !important;
+  }
+  .topbar .powergrid-entry {
+    grid-area: 2 / 2;
+    justify-self: end;
+    padding-block: 3px;
+  }
+  .topbar .powergrid-entry > svg,
+  .topbar .powergrid-entry > [aria-hidden="true"] {
+    display: none;
+  }
+}
+
 .pg-field-photo-section {
   margin: 22px 0 26px;
   padding: 18px;
