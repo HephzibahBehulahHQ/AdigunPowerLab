@@ -32,15 +32,18 @@ for (const entry of componentBank) {
   const identity = [entry.manufacturer, entry.orderCode ?? entry.model]
     .map((part) => part.trim().toLowerCase())
     .join(":");
-  const source = entry.source;
+  const sources = [entry.source, ...(entry.source.supplemental ?? [])];
   if (
     ids.has(entry.id) ||
     identities.has(identity) ||
     !counts.has(entry.category) ||
-    new URL(source.url).protocol !== "https:" ||
-    !source.revision.trim() ||
-    !Number.isInteger(source.page) ||
-    source.page < 1 ||
+    sources.some(
+      (source) =>
+        new URL(source.url).protocol !== "https:" ||
+        !source.revision.trim() ||
+        !Number.isInteger(source.page) ||
+        source.page < 1,
+    ) ||
     new Set(entry.terminals.map(({ id }) => id)).size !== entry.terminals.length
   ) {
     throw new Error(`Invalid catalogue entry: ${entry.id}`);
