@@ -1340,6 +1340,72 @@ export const olflexClassic110Cables = olflexClassic110Rows.map(
   },
 );
 
+const stamfordWinding311Rows = [
+  ["S0L1-D1", 7.5, 6.8],
+  ["S0L1-H1", 10, 9.1],
+  ["S0L1-L1", 12.5, 11.4],
+  ["S0L1-P1", 15, 13.7],
+  ["S0L2-F1", 17.5, 15.9],
+  ["S0L2-G1", 20, 18.2],
+  ["S0L2-M1", 25, 22.8],
+  ["S0L2-P1", 30, 27.3],
+  ["S1L2-J1", 35, 31.9],
+  ["S1L2-K1", 40, 36.4],
+  ["S1L2-N1", 45, 41],
+  ["S1L2-R1", 50, 45.5],
+  ["S1L2-Y1", 62.5, 56.9],
+] as const;
+
+export const stamfordWinding311Alternators = stamfordWinding311Rows.map(
+  ([model, continuousKva125Over40, continuousKva105Over40]) => ({
+    id: `stamford:${model.toLowerCase()}-311`,
+    manufacturer: "STAMFORD",
+    model,
+    orderCode: null,
+    category: "generators" as const,
+    function: "synchronous-alternator" as const,
+    connection: "ac" as const,
+    terminals: ["U", "V", "W"].flatMap((phase) =>
+      [1, 2, 5, 6].map((lead) => ({
+        id: `${phase.toLowerCase()}${lead}`,
+        group: `${phase}${lead}`,
+        interface: "alternator-stator-lead",
+        connector: "winding lead",
+      })),
+    ),
+    ratings: {
+      continuousKva125Over40,
+      continuousKva105Over40,
+      ratedLineV: [400, 415],
+      ratedPowerFactor: 0.8,
+      ratedSpeedRpm: 1500,
+      poles: 4,
+    },
+    conditions: {
+      winding: "311",
+      frequencyHz: 50,
+      phases: 3,
+      outputConnection: "series star",
+    },
+    modelMapping: null,
+    source: {
+      url: "https://www.stamford-avk.com/sites/stamfordavk/files/Brochures/S-Range/STAMFORD-S0-S1-Brochure.pdf",
+      revision: "STAMFORD S0 & S1 brochure, winding 311 ratings table",
+      page: 6,
+      supplemental: [
+        {
+          url: "https://www.stamford-avk.com/sites/stamfordavk/files/2025-07/STAMFORD-AvK-Marine-Ratings-Book.pdf",
+          revision:
+            "STAMFORD and AvK Marine Ratings Book (2025-07), winding 311",
+          page: 4,
+        },
+      ],
+    },
+    missingFields: ["separate-order-code", "verified-alternator-model-mapping"],
+    readiness: "inventory-and-diagram-only",
+  }),
+);
+
 export const componentBank = [
   ...pvModules,
   ...ic60nBreakers,
@@ -1361,6 +1427,7 @@ export const componentBank = [
   ...evlinkHomeStations,
   ...altivar320CompactDrives,
   ...olflexClassic110Cables,
+  ...stamfordWinding311Alternators,
 ];
 
 export function componentBankCsv(

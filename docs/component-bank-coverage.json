@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "distinctRecords": 975,
+  "distinctRecords": 988,
   "goalMinimum": 10000,
   "readiness": {
     "pv-worksheet-inputs-only": 14,
-    "inventory-and-diagram-only": 961
+    "inventory-and-diagram-only": 974
   },
   "categories": [
     {
@@ -16,8 +16,8 @@
     {
       "category": "generators",
       "target": 500,
-      "records": 0,
-      "remaining": 500
+      "records": 13,
+      "remaining": 487
     },
     {
       "category": "prime-movers-and-generation-auxiliaries",

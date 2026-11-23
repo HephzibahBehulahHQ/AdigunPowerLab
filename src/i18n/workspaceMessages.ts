@@ -1,5 +1,11 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  Generators: ["Generatoren", "Ẹ̀rọ amúnáwá", "Generators"],
+  "Verified alternator calculation mapping": [
+    "Geprüfte Zuordnung zur Generatorberechnung",
+    "Ìbámu ìṣírò ẹ̀rọ amúnáwá tí a fìdí múlẹ̀",
+    "Verified alternator calculation mapping",
+  ],
   "Cables and conductors": [
     "Kabel und Leiter",
     "Kéébù àti adarí iná",

@@ -464,3 +464,4 @@ VE.Direct 120 V preserves exact NEMA and GFCI article-code generations and tempe
 - Drives and starting equipment: 20 compact ATV320 models cover single- and three-phase 200–240 V supplies, continuous motor output at 4 kHz, documented power terminals, and CSV/JSON exports.
 - Cables and conductors: 37 manufacturer-listed ÖLFLEX CLASSIC 110 variants export article identity, core count, cross-section, diameter and paired core ends. Electrical ratings and calculation readiness remain open.
 - LAPP cable electrical provenance now includes nominal and test voltage at the published reference temperature. Ampacity and impedance are still required for calculation readiness.
+- Generators: 13 S0/S1 winding 311 alternators have published 400/415 V, 50 Hz continuous ratings in both temperature classes, 12 stator leads and catalog exports.
