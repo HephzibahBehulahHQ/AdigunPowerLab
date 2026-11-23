@@ -302,7 +302,9 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     .selectOption("protection-devices");
   await expect(model.getByRole("option")).toHaveCount(50);
   await catalogue.getByRole("button", { name: "Next records" }).click();
-  await expect(catalogue.getByText("51–100 / 261")).toBeVisible();
+  await expect(catalogue.getByText("51–100 / 441")).toBeVisible();
+  await search.fill("A9F85463");
+  await expect(catalogue.getByText("10 kA · 400 V AC")).toBeVisible();
   await search.fill("A9R08263");
   await expect(catalogue.getByText("110 V AC")).toBeVisible();
   await search.fill("A9R17440");

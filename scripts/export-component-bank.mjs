@@ -6,6 +6,7 @@ import {
   componentBank,
   pvModules,
   ic60nBreakers,
+  ic60hBreakers,
   iidRccbs,
   iswSwitches,
   iemMeters,
@@ -17,6 +18,7 @@ const serialize = (data) => JSON.stringify(data, null, 2) + "\n";
 const batches = {
   pv: pvModules,
   ic60n: ic60nBreakers,
+  ic60h: ic60hBreakers,
   iid: iidRccbs,
   isw: iswSwitches,
   iem: iemMeters,

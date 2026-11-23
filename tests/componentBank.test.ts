@@ -4,6 +4,7 @@ import {
   componentBank,
   componentBankCsv,
   ic60nBreakers,
+  ic60hBreakers,
   iidRccbs,
   iswSwitches,
   iemMeters,
@@ -17,6 +18,36 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("iC60H adds 180 exact catalogue variants with independently rated breaking capacity", () => {
+  expect(ic60hBreakers).toHaveLength(180);
+  const record = ic60hBreakers.find(({ model }) => model === "A9F85463");
+  expect(record?.ratings).toMatchObject({
+    ratedCurrentA: 63,
+    curve: "D",
+    poles: 4,
+    icnKA: 10,
+  });
+  expect(record?.conditions.icnVoltageV).toBe(400);
+  expect(record?.terminals.map(({ group }) => group)).toEqual([
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+  ]);
+  const json = readFileSync(
+    new URL("../docs/component-bank-ic60h.json", import.meta.url),
+    "utf8",
+  );
+  expect(JSON.parse(json)).toEqual({
+    schemaVersion: 1,
+    entries: ic60hBreakers,
+  });
+});
 
 test("iCT retains utilization-category ratings and distinct coil terminals", () => {
   expect(ictContactors).toHaveLength(8);

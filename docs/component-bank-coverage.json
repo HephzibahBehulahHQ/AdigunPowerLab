@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "distinctRecords": 299,
+  "distinctRecords": 479,
   "goalMinimum": 10000,
   "readiness": {
     "pv-worksheet-inputs-only": 14,
-    "inventory-and-diagram-only": 285
+    "inventory-and-diagram-only": 465
   },
   "categories": [
     {
@@ -52,8 +52,8 @@
     {
       "category": "protection-devices",
       "target": 800,
-      "records": 261,
-      "remaining": 539
+      "records": 441,
+      "remaining": 359
     },
     {
       "category": "switching-and-transfer-equipment",
