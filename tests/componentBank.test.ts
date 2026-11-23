@@ -22,6 +22,7 @@ import {
   evlinkHomeStations,
   altivar320CompactDrives,
   olflexClassic110Cables,
+  philipsDn145bDownlights,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -34,6 +35,38 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("Philips fact sheets retain variant-specific ratings and dates in both exports", () => {
+  expect(
+    philipsDn145bDownlights.map(({ orderCode, ratings, source }) => [
+      orderCode,
+      ratings.powerW,
+      ratings.luminousFluxLm,
+      ratings.colorTemperatureK,
+      source.revision,
+    ]),
+  ).toEqual([
+    ["910500465901", 13, 1000, 3000, "Philips fact sheet (2026-10-30)"],
+    ["910500465902", 13, 1000, 4000, "Philips fact sheet (2026-10-30)"],
+    ["910500465903", 22.5, 2000, 3000, "Philips fact sheet (2026-10-30)"],
+    ["910500465904", 22.5, 2000, 4000, "Philips fact sheet (2026-11-20)"],
+  ]);
+  const json = readFileSync(
+    new URL("../docs/component-bank-philips-dn145b.json", import.meta.url),
+    "utf8",
+  );
+  const csv = readFileSync(
+    new URL("../docs/component-bank-philips-dn145b.csv", import.meta.url),
+    "utf8",
+  );
+  expect(JSON.parse(json)).toEqual({
+    schemaVersion: 1,
+    entries: philipsDn145bDownlights,
+  });
+  expect(csv.replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(philipsDn145bDownlights).replaceAll("\r\n", "\n"),
+  );
+});
 
 test("LAPP cable records pair both ends of every core and preserve PE variants", () => {
   expect(olflexClassic110Cables).toHaveLength(37);

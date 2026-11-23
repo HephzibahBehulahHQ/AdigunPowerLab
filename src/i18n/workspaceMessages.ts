@@ -1,5 +1,15 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "Lighting equipment": [
+    "Beleuchtungstechnik",
+    "Ohun èlò ìmọ́lẹ̀",
+    "Lighting equipment",
+  ],
+  "Verified lighting calculation mapping": [
+    "Geprüfte Zuordnung zur Beleuchtungsberechnung",
+    "Ìbámu ìṣírò ìmọ́lẹ̀ tí a fìdí múlẹ̀",
+    "Verified lighting calculation mapping",
+  ],
   "Enclosures and installation hardware": [
     "Gehäuse und Installationsmaterial",
     "Àpótí àti ohun èlò ìfìsórí",
