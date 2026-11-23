@@ -489,3 +489,5 @@ The iCT tranche adds eight exact 50 Hz catalogue contactor entries from CA909006
 PV string candidate calculates Voc, Vmp and Imp from the actual terminal links of an isolated identical-module series string at STC. It excludes branches and cycles. This tranche does not calculate cold-weather voltage or inverter compatibility.
 
 Frozen equipment reports now include STC PV series values and module order for supported strings derived from the saved topology.
+
+Terminal storage merged as f7a647d; main validation is run 45281111317. The PV string candidate now calculates published STC nameplate power and Isc in the inspector and frozen report.

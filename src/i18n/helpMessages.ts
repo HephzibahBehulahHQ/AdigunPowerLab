@@ -1096,6 +1096,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Yan ohun èlò inú katalogi láti wo datasheet àti ẹgbẹ́ ebute. Yan nọ́ńbà ẹyọ àti ebute láti so waya PV pọ̀ tàbí yọ ọ́ nínú àwòrán. Ìṣírò ìṣàn agbára kò lo àwọn waya wọ̀nyí.",
       "Select catalogue equipment to see di datasheet and terminal groups. Choose unit numbers and terminals to connect or disconnect PV wire for di diagram. Power flow calculation no use these wires.",
     ],
+  "String nameplate power is the number of wired modules times the published power per module.":
+    [
+      "Die String-Nennleistung ergibt sich aus der Anzahl verkabelter Module mal der veröffentlichten Nennleistung je Modul.",
+      "Agbára nameplate okùn jẹ́ iye module tí a so pọ̀ tí a sọ di púpọ̀ pẹ̀lú agbára tí olupese sọ fún module kan.",
+      "String nameplate power na di number of wired modules times di published power for one module.",
+    ],
   "An isolated chain of identical PV modules shows its string voltage and current at standard test conditions in the inspector.":
     [
       "Bei einem separaten Reihenstring mit identischen PV-Modulen zeigt der Inspektor Stringspannung und Strom unter Standardtestbedingungen.",

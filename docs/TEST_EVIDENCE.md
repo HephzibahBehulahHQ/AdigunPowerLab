@@ -776,3 +776,5 @@ The iCT tranche passed TypeScript and 11 component-bank checks. Coverage include
 PV series analysis passed TypeScript, 32 focused tests and Chromium verification of 72 V Voc, 61.6 V Vmp and 14.78 A Imp after native project reload.
 
 PV report passed TypeScript, 25 report/Help tests and Chromium verification of the frozen module sequence and three exact STC values.
+
+PV power and current: TypeScript, 32 focused unit checks and Chromium passed. The frozen report displayed 0.91 kW and 16.09 A Isc for two wired 455 W modules.
