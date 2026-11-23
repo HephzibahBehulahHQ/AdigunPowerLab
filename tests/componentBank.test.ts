@@ -6,6 +6,7 @@ import {
   ic60nBreakers,
   iidRccbs,
   iswSwitches,
+  iemMeters,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -14,6 +15,27 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("iEM records distinguish pulse outputs and the China-only orders", () => {
+  expect(iemMeters).toHaveLength(4);
+  const general = iemMeters.find(({ model }) => model === "A9MEM2000");
+  const china = iemMeters.find(({ model }) => model === "A9MEM2010C");
+  expect(general?.ratings.pulsesPerKWh).toBeNull();
+  expect(china?.conditions.marketRestriction).toBe("China only");
+  expect(
+    china?.terminals
+      .filter(({ interface: kind }) => kind === "pulse-output")
+      .map(({ group }) => group),
+  ).toEqual(["S0+", "S0−"]);
+  const exported = readFileSync(
+    new URL("../docs/component-bank-iem.json", import.meta.url),
+    "utf8",
+  );
+  expect(JSON.parse(exported)).toEqual({
+    schemaVersion: 1,
+    entries: iemMeters,
+  });
+});
 
 test("PV validation follows conductor nodes across multiple wires", () => {
   const model = pvModules[0];

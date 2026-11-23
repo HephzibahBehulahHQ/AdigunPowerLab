@@ -450,3 +450,5 @@ Choose **Switching and transfer equipment** to inspect iSW current, voltage and 
 Open **Source, terminals and model readiness** before applying or exporting a model. The panel shows the source revision and page, terminal groups, model inputs where available and the fields still missing or unverified.
 
 The diagram rejects a wire that joins one PV module's positive and negative terminals through the existing wires.
+
+Use the **Metering and power quality** category to find iEM meters. Inspect the source and terminal details for S0 pulse outputs and regional restrictions.
