@@ -2000,6 +2000,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fi net output open cycle àti combined cycle wé pẹ̀lú epo àti rating kan náà. Lo open cycle nínú dispatch láti gbé àpẹẹrẹ turbine gaasi tí kò ní steam recovery lọ.",
       "Compare open-cycle and combined-cycle net power with di same fuel input and rating. Use open cycle for dispatch to copy di gas turbine case without steam recovery.",
     ],
+  "In Manufacturer equipment, search by maker or model and review or export the sourced record. PV modules can be applied in the PV worksheet.":
+    [
+      "Suchen Sie unter Herstellergeräte nach Hersteller oder Modell, um den Quelldatensatz zu prüfen oder zu exportieren. PV-Module lassen sich im PV-Arbeitsblatt übernehmen.",
+      "Wá olupese tàbí model nínú Ohun èlò olupese, kí o ṣàyẹ̀wò tàbí gbé àkọsílẹ̀ jáde. O lè lo module PV nínú worksheet PV.",
+      "Search manufacturer equipment by maker or model to check or export di sourced record. You fit use PV modules for di PV worksheet.",
+    ],
   "Choose Manufacturer PV module and review the datasheet before applying its DC rating and power temperature coefficient. The PV case export includes the applied equipment record.":
     [
       "Wählen Sie das Hersteller-PV-Modul und prüfen Sie das Datenblatt vor der Übernahme der DC-Nennleistung und des Temperaturkoeffizienten. Der PV-Export enthält den verwendeten Gerätedatensatz.",

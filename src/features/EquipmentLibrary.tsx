@@ -20,6 +20,7 @@ import {
   previewProjectCommand,
 } from "../commands/projectCommands";
 import { useT } from "../i18n";
+import { ManufacturerEquipmentCatalogue } from "./ManufacturerEquipmentCatalogue";
 
 export function EquipmentLibrary({
   project,
@@ -219,6 +220,7 @@ export function EquipmentLibrary({
         <span className="tag cyan">{templates.length}</span>
       </div>
       {error && <Notice tone="error">{t(error)}</Notice>}
+      <ManufacturerEquipmentCatalogue />
       <div className="button-row">
         <button
           className="button primary"
