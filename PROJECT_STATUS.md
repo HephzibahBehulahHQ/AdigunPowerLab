@@ -471,3 +471,5 @@ Second PV batch published via Pages run 45277253989 for 6ab0d29. The public site
 Saved equipment merged as 761a601; main validation is run 45277538772. The readiness candidate exposes the source revision, page, terminal groups, applicable worksheet mapping and unverified fields before export.
 
 PV terminal validation now rejects a closed conductor path joining the positive and negative terminals of the same installed module. This is a topology check; system voltage and fault-current calculations remain separate.
+
+Metering starts with four Schneider iEM order codes from S1B45381-03/1, bringing the candidate to 291 sourced records across four categories. S0 terminals are recorded for inspection; pulse circuit editing remains open.

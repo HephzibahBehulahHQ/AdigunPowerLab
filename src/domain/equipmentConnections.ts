@@ -48,7 +48,7 @@ export function equipmentConnectionErrors(
       return;
     const model = catalogueRecord(instance);
     const terminal = model?.terminals.find((entry) => entry.id === terminalId);
-    if (!terminal) return;
+    if (!terminal || terminal.interface === "pulse-output") return;
     return {
       key: JSON.stringify([instanceId, unit, terminalId]),
       device: JSON.stringify([instanceId, unit]),

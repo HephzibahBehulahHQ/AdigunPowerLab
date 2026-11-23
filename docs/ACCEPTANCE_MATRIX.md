@@ -411,3 +411,5 @@ The switching category starts with 12 Schneider iSW order codes, documented powe
 Record inspection exposes exact source revision and page, documented terminals, reviewed PV coefficients and unverified fields.
 
 PV wiring validation checks indirect shorts across the persisted conductor graph.
+
+The metering category includes four documented iEM2000/iEM2010 order codes, line/neutral terminals, exact pulse-output variants, regional restrictions and exports.
