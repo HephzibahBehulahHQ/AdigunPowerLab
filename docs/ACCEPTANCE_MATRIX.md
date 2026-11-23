@@ -383,3 +383,7 @@ The solid biomass worksheet distinguishes dry and as-fired heating value, availa
 The diesel worksheet exposes the fuel curve's no-load intercept, rating and inventory limits, minimum load cutoff, fuel used and remaining fuel.
 
 The coal steam worksheet converts net heat rate and coal heat content into fuel consumption, caps output to plant capacity and interval fuel stock, and exports the resulting energy and inventory balance.
+
+## Component-bank project equipment
+
+Candidate supports adding a sourced model, editing its name and quantity, saving and reloading, and including it in the report BOM. Phase-aware connections, topology and diagram placement remain open.

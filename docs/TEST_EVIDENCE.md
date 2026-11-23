@@ -728,3 +728,7 @@ The South African regional browser case verified the dated coal and renewable en
 The custom system browser case rejected an invalid time zone, saved and restored 55 Hz, CAD and America/Toronto, and exported the context while preserving the transmission readings and input voltages.
 
 The first component-bank batch passed two Vitest checks covering exact CSV/JSON parity, distinct record and terminal identities, source references, and reproduction of all seven DC nameplate values at documented standard test conditions.
+
+## Project equipment candidate
+
+Local TypeScript and two component-bank tests passed. The focused Chromium case edited a sourced module name and quantity, saved and reloaded the project, and verified inclusion in the frozen model-derived BOM.

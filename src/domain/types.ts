@@ -305,6 +305,17 @@ export interface BillingSettings {
   lines: EstimateLine[];
   notes: string;
 }
+export interface CatalogueEquipmentInstance {
+  id: string;
+  catalogueId: string;
+  manufacturer: string;
+  model: string;
+  sourceUrl: string;
+  sourceRevision: string;
+  name: string;
+  quantity: number;
+}
+
 export interface Project {
   schemaVersion: typeof SCHEMA_VERSION;
   id: string;
@@ -343,6 +354,7 @@ export interface Project {
     project: Omit<Project, "scenarioBaseline">;
   };
   equipmentLibrary?: Load[];
+  catalogueEquipment?: CatalogueEquipmentInstance[];
   equipmentFavorites?: string[];
   equipmentVersions?: {
     templateId: string;

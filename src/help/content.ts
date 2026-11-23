@@ -409,6 +409,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
     steps: [
       "Search or filter the library, mark favorites, create a sourced record or save an existing load as a template. Check generic starting assumptions before use.",
       "In Manufacturer equipment, search by maker or model and review or export the sourced record. PV modules can be applied in the PV worksheet.",
+      "Use Add to project equipment to save a model in the project. Edit its name or quantity to update the bill of materials.",
       "Adding a template creates an independent load. When updating a template, review which linked loads receive new nameplate fields and evidence; schedules, names and assignments remain as entered.",
       "Worked reference projects are labelled learning examples. Equipment JSON and Workspace backup preserve saved version history.",
     ],
