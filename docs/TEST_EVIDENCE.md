@@ -768,3 +768,5 @@ Wire export passed TypeScript, existing report/PDF checks, Help checks and Chrom
 Archive verification: TypeScript, six archive unit tests and Chromium copy restore passed. The restored project retained the catalogue snapshot and indexed wire exactly and passed native project validation.
 
 Generated and compared all 291 per-model CSV/JSON pairs and the ID index against the complete runtime catalogue. Diff check passed.
+
+The iCT tranche passed TypeScript and 11 component-bank checks. Coverage includes exact AC-7a/AC-7b values, contact and coil markings, and JSON parity.

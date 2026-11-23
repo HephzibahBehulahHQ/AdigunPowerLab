@@ -1,0 +1,632 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "schneider-electric:a9c20731",
+      "manufacturer": "Schneider Electric",
+      "model": "A9C20731",
+      "orderCode": "A9C20731",
+      "category": "switching-and-transfer-equipment",
+      "function": "modular-contactor",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "a1",
+          "group": "A1",
+          "interface": "ac-coil",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "a2",
+          "group": "A2",
+          "interface": "ac-coil",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "poles": 1,
+        "ac7aA": 25,
+        "ac7bA": 8.5,
+        "coilMinV": 230,
+        "coilMaxV": 240,
+        "manualSelector": false
+      },
+      "conditions": {
+        "contactState": "normally open",
+        "coilFrequencyHz": [
+          50
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=CA909006NL&p_File_Ext=.PDF",
+        "revision": "CA909006E, Version 1.0, 02/08/2017",
+        "page": 74
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9c22712",
+      "manufacturer": "Schneider Electric",
+      "model": "A9C22712",
+      "orderCode": "A9C22712",
+      "category": "switching-and-transfer-equipment",
+      "function": "modular-contactor",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "a1",
+          "group": "A1",
+          "interface": "ac-coil",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "a2",
+          "group": "A2",
+          "interface": "ac-coil",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "poles": 2,
+        "ac7aA": 16,
+        "ac7bA": 6,
+        "coilMinV": 230,
+        "coilMaxV": 240,
+        "manualSelector": false
+      },
+      "conditions": {
+        "contactState": "normally open",
+        "coilFrequencyHz": [
+          50
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=CA909006NL&p_File_Ext=.PDF",
+        "revision": "CA909006E, Version 1.0, 02/08/2017",
+        "page": 74
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9c20732",
+      "manufacturer": "Schneider Electric",
+      "model": "A9C20732",
+      "orderCode": "A9C20732",
+      "category": "switching-and-transfer-equipment",
+      "function": "modular-contactor",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "a1",
+          "group": "A1",
+          "interface": "ac-coil",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "a2",
+          "group": "A2",
+          "interface": "ac-coil",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "poles": 2,
+        "ac7aA": 25,
+        "ac7bA": 8.5,
+        "coilMinV": 230,
+        "coilMaxV": 240,
+        "manualSelector": false
+      },
+      "conditions": {
+        "contactState": "normally open",
+        "coilFrequencyHz": [
+          50
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=CA909006NL&p_File_Ext=.PDF",
+        "revision": "CA909006E, Version 1.0, 02/08/2017",
+        "page": 74
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9c20842",
+      "manufacturer": "Schneider Electric",
+      "model": "A9C20842",
+      "orderCode": "A9C20842",
+      "category": "switching-and-transfer-equipment",
+      "function": "modular-contactor",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "a1",
+          "group": "A1",
+          "interface": "ac-coil",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "a2",
+          "group": "A2",
+          "interface": "ac-coil",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "poles": 2,
+        "ac7aA": 40,
+        "ac7bA": 15,
+        "coilMinV": 220,
+        "coilMaxV": 240,
+        "manualSelector": false
+      },
+      "conditions": {
+        "contactState": "normally open",
+        "coilFrequencyHz": [
+          50
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=CA909006NL&p_File_Ext=.PDF",
+        "revision": "CA909006E, Version 1.0, 02/08/2017",
+        "page": 74
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9c20834",
+      "manufacturer": "Schneider Electric",
+      "model": "A9C20834",
+      "orderCode": "A9C20834",
+      "category": "switching-and-transfer-equipment",
+      "function": "modular-contactor",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-4-top",
+          "group": "7",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-4-bottom",
+          "group": "8",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "a1",
+          "group": "A1",
+          "interface": "ac-coil",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "a2",
+          "group": "A2",
+          "interface": "ac-coil",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "poles": 4,
+        "ac7aA": 25,
+        "ac7bA": 8.5,
+        "coilMinV": 220,
+        "coilMaxV": 240,
+        "manualSelector": false
+      },
+      "conditions": {
+        "contactState": "normally open",
+        "coilFrequencyHz": [
+          50
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=CA909006NL&p_File_Ext=.PDF",
+        "revision": "CA909006E, Version 1.0, 02/08/2017",
+        "page": 74
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9c21732",
+      "manufacturer": "Schneider Electric",
+      "model": "A9C21732",
+      "orderCode": "A9C21732",
+      "category": "switching-and-transfer-equipment",
+      "function": "modular-contactor",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "a1",
+          "group": "A1",
+          "interface": "ac-coil",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "a2",
+          "group": "A2",
+          "interface": "ac-coil",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "poles": 2,
+        "ac7aA": 25,
+        "ac7bA": 8.5,
+        "coilMinV": 230,
+        "coilMaxV": 240,
+        "manualSelector": true
+      },
+      "conditions": {
+        "contactState": "normally open",
+        "coilFrequencyHz": [
+          50,
+          60
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=CA909006NL&p_File_Ext=.PDF",
+        "revision": "CA909006E, Version 1.0, 02/08/2017",
+        "page": 74
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9c21833",
+      "manufacturer": "Schneider Electric",
+      "model": "A9C21833",
+      "orderCode": "A9C21833",
+      "category": "switching-and-transfer-equipment",
+      "function": "modular-contactor",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "a1",
+          "group": "A1",
+          "interface": "ac-coil",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "a2",
+          "group": "A2",
+          "interface": "ac-coil",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "poles": 3,
+        "ac7aA": 25,
+        "ac7bA": 8.5,
+        "coilMinV": 220,
+        "coilMaxV": 240,
+        "manualSelector": true
+      },
+      "conditions": {
+        "contactState": "normally open",
+        "coilFrequencyHz": [
+          50,
+          60
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=CA909006NL&p_File_Ext=.PDF",
+        "revision": "CA909006E, Version 1.0, 02/08/2017",
+        "page": 74
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9c21834",
+      "manufacturer": "Schneider Electric",
+      "model": "A9C21834",
+      "orderCode": "A9C21834",
+      "category": "switching-and-transfer-equipment",
+      "function": "modular-contactor",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-4-top",
+          "group": "7",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-4-bottom",
+          "group": "8",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "a1",
+          "group": "A1",
+          "interface": "ac-coil",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "a2",
+          "group": "A2",
+          "interface": "ac-coil",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "poles": 4,
+        "ac7aA": 25,
+        "ac7bA": 8.5,
+        "coilMinV": 220,
+        "coilMaxV": 240,
+        "manualSelector": true
+      },
+      "conditions": {
+        "contactState": "normally open",
+        "coilFrequencyHz": [
+          50,
+          60
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=CA909006NL&p_File_Ext=.PDF",
+        "revision": "CA909006E, Version 1.0, 02/08/2017",
+        "page": 74
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}

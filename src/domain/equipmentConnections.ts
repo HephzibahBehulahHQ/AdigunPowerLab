@@ -7,6 +7,15 @@ import type {
 
 const recordsById = new Map(componentBank.map((entry) => [entry.id, entry]));
 
+export const isWireTerminal = (terminal: { interface: string }) =>
+  [
+    "ac-line",
+    "ac-neutral",
+    "dc-positive",
+    "dc-negative",
+    "protective-bond",
+  ].includes(terminal.interface);
+
 export function catalogueRecord(instance: CatalogueEquipmentInstance) {
   const entry = recordsById.get(instance.catalogueId);
   if (
@@ -51,7 +60,7 @@ export function equipmentConnectionErrors(
       return;
     const model = catalogueRecord(instance);
     const terminal = model?.terminals.find((entry) => entry.id === terminalId);
-    if (!terminal || terminal.interface === "pulse-output") return;
+    if (!terminal || !isWireTerminal(terminal)) return;
     return {
       key: JSON.stringify([instanceId, unit, terminalId]),
       device: JSON.stringify([instanceId, unit]),

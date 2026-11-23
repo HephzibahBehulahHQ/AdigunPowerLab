@@ -423,3 +423,5 @@ Diagram SVG and PDF distinguish terminal links and include wiring evidence. Brow
 Catalogue instances, source-page evidence and indexed terminal connections survive workspace backup and copy restore.
 
 Individual file generation emits per-record CSV and JSON for all runtime entries, with a machine-readable ID index.
+
+Eight iCT contactors include contact topology, coil terminals, conditional AC-7a/AC-7b ratings and CSV/JSON.
