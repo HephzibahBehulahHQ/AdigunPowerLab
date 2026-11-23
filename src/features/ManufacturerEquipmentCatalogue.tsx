@@ -82,6 +82,7 @@ const projectCopy = {
 const pageSize = 50;
 const categories = [...new Set(componentBank.map(({ category }) => category))];
 const categoryLabels = {
+  "batteries-and-storage-systems": "Batteries and storage systems",
   transformers: "Transformers",
   "solar-and-wind-equipment": "Solar and wind equipment",
   "protection-devices": "Protection devices",
@@ -93,6 +94,7 @@ const categoryLabels = {
 } as const;
 
 const missingFieldLabels: Record<string, string> = {
+  "verified-storage-model-mapping": "Verified storage calculation mapping",
   "verified-transformer-model-mapping":
     "Verified transformer calculation mapping",
   "model-specific-bonding-terminal-review":
@@ -364,6 +366,24 @@ export function ManufacturerEquipmentCatalogue({
                     : ""}
                   {record.ratings.secondaryV} V AC
                 </dd>
+              </div>
+            </dl>
+          ) : record.function === "agm-storage-battery" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>U</dt>
+                <dd>{record.ratings.nominalV} V DC</dd>
+              </div>
+              <div>
+                <dt>C5 / C10 / C20</dt>
+                <dd>
+                  {record.ratings.c5Ah} / {record.ratings.c10Ah} /{" "}
+                  {record.ratings.c20Ah} Ah
+                </dd>
+              </div>
+              <div>
+                <dt>{t("Discharge cutoff")}</dt>
+                <dd>{format.format(record.conditions.dischargeCutoffV)} V</dd>
               </div>
             </dl>
           ) : record.function !== "miniature-circuit-breaker" ? (

@@ -17,6 +17,7 @@ import {
   linergyEarthBars,
   abl6Transformers,
   abt7pduTransformers,
+  victronAgmSuperCycle,
 } from "../src/data/componentBank.ts";
 import { join } from "node:path";
 
@@ -35,6 +36,7 @@ const batches = {
   "linergy-tb": linergyEarthBars,
   abl6: abl6Transformers,
   abt7pdu: abt7pduTransformers,
+  "victron-agm": victronAgmSuperCycle,
 };
 for (const [batch, entries] of Object.entries(batches)) {
   writeFileSync(
