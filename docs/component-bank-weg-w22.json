@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "weg:15833976",
+      "manufacturer": "WEG",
+      "model": "W22 IE3 0.75 kW 4P 80 B3T",
+      "orderCode": "15833976",
+      "category": "motors-and-motor-driven-equipment",
+      "function": "three-phase-induction-motor",
+      "connection": "ac",
+      "terminals": [],
+      "ratings": {
+        "shaftOutputKW": 0.75,
+        "poles": 4,
+        "ingressProtection": "IP55",
+        "operatingPoints": [
+          {
+            "frequencyHz": 50,
+            "lineVoltageV": [
+              220,
+              380
+            ],
+            "lineCurrentA": [
+              2.9,
+              1.68
+            ],
+            "speedRpm": 1430,
+            "powerFactor": 0.82,
+            "efficiencyPercent": 82.5
+          },
+          {
+            "frequencyHz": 50,
+            "lineVoltageV": [
+              230,
+              400
+            ],
+            "lineCurrentA": [
+              2.92,
+              1.68
+            ],
+            "speedRpm": 1435,
+            "powerFactor": 0.78,
+            "efficiencyPercent": 82.5
+          },
+          {
+            "frequencyHz": 50,
+            "lineVoltageV": [
+              240,
+              415
+            ],
+            "lineCurrentA": [
+              2.87,
+              1.66
+            ],
+            "speedRpm": 1440,
+            "powerFactor": 0.76,
+            "efficiencyPercent": 82.5
+          },
+          {
+            "frequencyHz": 60,
+            "lineVoltageV": [
+              460
+            ],
+            "lineCurrentA": [
+              1.47
+            ],
+            "speedRpm": 1745,
+            "powerFactor": 0.76,
+            "efficiencyPercent": 84
+          }
+        ]
+      },
+      "conditions": {
+        "duty": "S1",
+        "phases": 3,
+        "loadingPercent": 100,
+        "supplyWaveform": "sinusoidal"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.quantum-controls.co.uk/wp-content/uploads/2025/09/DS15833976.pdf",
+        "revision": "WEG DS15833976 (2025-09-17)",
+        "page": 1
+      },
+      "missingFields": [
+        "motor-terminal-diagram",
+        "verified-motor-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}

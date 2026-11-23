@@ -88,6 +88,7 @@ const categoryLabels = {
   "cables-and-conductors": "Cables and conductors",
   generators: "Generators",
   "lighting-equipment": "Lighting equipment",
+  "motors-and-motor-driven-equipment": "Motors and motor-driven equipment",
   "enclosures-and-installation-hardware":
     "Enclosures and installation hardware",
   "ups-and-backup-systems": "UPS and backup systems",
@@ -112,6 +113,8 @@ const missingFieldLabels: Record<string, string> = {
     "Verified alternator calculation mapping",
   "verified-cable-model-mapping": "Verified cable calculation mapping",
   "verified-lighting-model-mapping": "Verified lighting calculation mapping",
+  "motor-terminal-diagram": "Documented motor terminal diagram",
+  "verified-motor-model-mapping": "Verified motor calculation mapping",
   "enclosure-bonding-points": "Documented enclosure bonding points",
   "enclosure-thermal-model": "Verified enclosure thermal model",
   "verified-ups-model-mapping": "Verified UPS calculation mapping",
@@ -442,6 +445,29 @@ export function ManufacturerEquipmentCatalogue({
                   {record.ratings.outputNominalV} V AC
                 </dd>
               </div>
+            </dl>
+          ) : record.function === "three-phase-induction-motor" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>{t("Rated output")}</dt>
+                <dd>
+                  {format.format(record.ratings.shaftOutputKW)} kW ·{" "}
+                  {record.ratings.ingressProtection}
+                </dd>
+              </div>
+              {record.ratings.operatingPoints.map((point) => (
+                <div key={point.lineVoltageV.join("/")}>
+                  <dt>
+                    {point.lineVoltageV.join("/")} V · {point.frequencyHz} Hz
+                  </dt>
+                  <dd>
+                    {point.lineCurrentA
+                      .map((current) => format.format(current))
+                      .join("/")}{" "}
+                    A · {format.format(point.speedRpm)} rpm
+                  </dd>
+                </div>
+              ))}
             </dl>
           ) : record.function === "recessed-led-downlight" ? (
             <dl className="pg-metrics">
