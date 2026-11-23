@@ -133,7 +133,14 @@ test("iC60N exports retain exact catalogue identities and pole terminals", () =>
 });
 
 test("iID records preserve the selective variants and support neutral-to-neutral links", () => {
-  expect(iidRccbs).toHaveLength(47);
+  expect(iidRccbs).toHaveLength(81);
+  expect(
+    iidRccbs.find(({ model }) => model === "A9R08463")?.conditions,
+  ).toMatchObject({
+    ratedVoltageMinV: 230,
+    ratedVoltageMaxV: 230,
+    residualCurrentType: "A",
+  });
   const model = iidRccbs.find(({ model }) => model === "A9R17440")!;
   expect(model.ratings).toEqual({
     ratedCurrentA: 40,

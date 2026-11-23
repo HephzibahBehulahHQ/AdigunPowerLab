@@ -401,3 +401,5 @@ AC line-terminal wiring is available for indexed iC60N units. Connections preser
 The catalogue navigation candidate supports category filtering, multi-term search, and pages of 50 models.
 
 The iID candidate adds 47 source-backed RCCBs with CSV/JSON, numbered line terminals, separate neutral terminals, and neutral-link validation.
+
+The iID expansion adds 34 Type A order codes with source page and separate voltage ratings for the 230/400 V and 110/230 V groups.
