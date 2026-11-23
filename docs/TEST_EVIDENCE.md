@@ -822,3 +822,4 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - Repeat catalogue export preserved the unchanged S3HD JSON timestamp. Export comparison ignores CRLF differences in existing catalogue documents.
 - Philips DN145B candidate: export generation, TypeScript and 27 component-bank tests passed. Browser and release verification pending.
 - Chromium verified Philips lighting category and exact order code, 1000 lm at 3000 K, and JSON export of all four documented terminals with fact-sheet provenance.
+- All three additional Philips PDFs were read directly. Export generation, TypeScript and 27 component-bank tests passed.

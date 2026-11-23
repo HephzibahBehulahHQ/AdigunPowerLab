@@ -527,3 +527,4 @@ iC60N 2b49aee published in Pages run 45285905960 and the public root returned HT
 - STAMFORD candidate: 13 winding 311 alternators bring the stacked catalogue to 988 records across 15 categories. Published continuous ratings and 12 stator leads are documented. Order codes and calculation mappings remain open.
 - S3HD candidate: 10 Schneider enclosures bring the stacked catalogue to 998 records across 16 categories. Bonding point evidence and thermal mapping remain open.
 - Philips lighting candidate: one fully verified DN145B order code brings the stacked catalogue to 999 records across 17 categories. Other DN145B leaflets and calculation mapping remain pending.
+- Verified the three remaining Philips DN145B fact sheets. Candidate: 1002 records across 17 categories.

@@ -1453,12 +1453,26 @@ export const spacialS3hdEnclosures = spacialS3hdRows.map(
   }),
 );
 
-export const philipsDn145bDownlights = [
-  {
-    id: "philips:910500465901",
+const philipsDn145bRows = [
+  ["910500465901", "LED10S/830", 13, 1000, 3000, "2026-10-30"],
+  ["910500465902", "LED10S/840", 13, 1000, 4000, "2026-10-30"],
+  ["910500465903", "LED20S/830", 22.5, 2000, 3000, "2026-10-30"],
+  ["910500465904", "LED20S/840", 22.5, 2000, 4000, "2026-11-20"],
+] as const;
+
+export const philipsDn145bDownlights = philipsDn145bRows.map(
+  ([
+    orderCode,
+    designation,
+    powerW,
+    luminousFluxLm,
+    colorTemperatureK,
+    revision,
+  ]) => ({
+    id: `philips:${orderCode}`,
     manufacturer: "Philips",
-    model: "DN145B LED10S/830 PSD-E II WH",
-    orderCode: "910500465901",
+    model: `DN145B ${designation} PSD-E II WH`,
+    orderCode,
     category: "lighting-equipment" as const,
     function: "recessed-led-downlight" as const,
     connection: "ac" as const,
@@ -1491,9 +1505,9 @@ export const philipsDn145bDownlights = [
     ratings: {
       inputMinV: 220,
       inputMaxV: 240,
-      powerW: 13,
-      luminousFluxLm: 1000,
-      colorTemperatureK: 3000,
+      powerW,
+      luminousFluxLm,
+      colorTemperatureK,
       powerFactor: 0.9,
     },
     conditions: {
@@ -1503,8 +1517,8 @@ export const philipsDn145bDownlights = [
     },
     modelMapping: null,
     source: {
-      url: "https://www.docs.signify.com/assets/Leaflet/Philips_PROF/FP/en_AA/910500465901_EU.en_AA.PROF.FP.pdf",
-      revision: "Philips fact sheet (2026-10-30)",
+      url: `https://www.docs.signify.com/assets/Leaflet/Philips_PROF/FP/en_AA/${orderCode}_EU.en_AA.PROF.FP.pdf`,
+      revision: `Philips fact sheet (${revision})`,
       page: 2,
       supplemental: [
         {
@@ -1516,8 +1530,8 @@ export const philipsDn145bDownlights = [
     },
     missingFields: ["verified-lighting-model-mapping"],
     readiness: "inventory-and-diagram-only",
-  },
-];
+  }),
+);
 
 export const componentBank = [
   ...pvModules,
