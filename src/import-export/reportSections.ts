@@ -5,6 +5,7 @@ import { simulateStartEvents } from "../engine/start-events";
 import { assessSourceEquipment } from "../engine/sources";
 import { validateMeasurementPayload } from "../storage/measurements";
 import { deriveBOM } from "./bom";
+import type { EquipmentTerminalEndpoint } from "../domain/types";
 import type { ReportSnapshot } from "./reportSnapshot";
 import type { EngineeringReportSection } from "./reports";
 
@@ -472,6 +473,32 @@ export function reportBlocks(
       [55, 17, 15, 40, 55],
     );
     for (const note of bom.notes) paragraph(note);
+    if (p.equipmentTerminalConnections?.length) {
+      const equipment = new Map(
+        (p.catalogueEquipment ?? []).map((item) => [item.id, item]),
+      );
+      const endpoint = ({
+        instanceId,
+        unit,
+        terminalId,
+      }: EquipmentTerminalEndpoint) => {
+        const item = equipment.get(instanceId);
+        return `${item?.name ?? instanceId} [${n(unit, 0)}] · ${terminalId}`;
+      };
+      heading("Catalogue equipment wiring schedule");
+      table(
+        ["From terminal", "To terminal", "Phase"],
+        p.equipmentTerminalConnections.map(({ from, to, phase }) => [
+          endpoint(from),
+          endpoint(to),
+          phase ?? "",
+        ]),
+        [78, 78, 26],
+      );
+      paragraph(
+        "The wiring schedule lists saved terminal links. Cable quantities still use entered route lengths.",
+      );
+    }
     if (c.bill) {
       paragraph(
         "Entered customer-bill prices are separate from engineering quantities. Review any overridden quantities and source revision before procurement.",

@@ -758,3 +758,5 @@ Readiness inspection passed TypeScript, 28 focused tests and Chromium verificati
 PV topology passed TypeScript, 29 focused tests and Chromium rejection of an indirect short after saving and reopening the project.
 
 The iEM catalogue tranche passed TypeScript, ten focused tests and Chromium verification of the 100 imp/kWh and China-only entries.
+
+Wiring report: TypeScript, 30 focused tests and Chromium verified both terminal endpoints in the frozen preview and the saved link in downloaded snapshot JSON.

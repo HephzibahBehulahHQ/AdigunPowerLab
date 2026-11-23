@@ -423,16 +423,25 @@ test("sourced equipment keeps its edited quantity in the saved project BOM", asy
   await expect(
     inspector.getByRole("button", { name: "Disconnect" }),
   ).toHaveCount(1);
-  await inspector.getByRole("button", { name: "Disconnect" }).click();
-  await expect(
-    inspector.getByRole("button", { name: "Disconnect" }),
-  ).toHaveCount(0);
   await page.goto("/#/reports");
   await page
     .getByRole("checkbox", { name: "Model-derived bill of materials" })
     .check();
   await page.getByRole("button", { name: "Freeze report preview" }).click();
-  await expect(page.locator("#engineering-report-preview")).toContainText(
-    "Roof array",
+  const preview = page.locator("#engineering-report-preview");
+  await expect(preview).toContainText("Catalogue equipment wiring schedule");
+  await expect(preview).toContainText("Roof array [1] · positive");
+  await expect(preview).toContainText("Roof array [2] · negative");
+  const download = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export frozen report data" }).click();
+  const exported = JSON.parse(
+    await readFile(await (await download).path(), "utf8"),
   );
+  expect(exported.project.equipmentTerminalConnections).toHaveLength(1);
+  await page.goto("/#/diagram");
+  await page.getByRole("button", { name: "equipment: Roof array" }).click();
+  await inspector.getByRole("button", { name: "Disconnect" }).click();
+  await expect(
+    inspector.getByRole("button", { name: "Disconnect" }),
+  ).toHaveCount(0);
 });

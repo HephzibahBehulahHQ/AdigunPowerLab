@@ -402,6 +402,17 @@ export const reportMessages: Record<string, [string, string, string]> = {
     "Entered priced line",
   ],
   "Source revision": ["Quellenrevision", "Àtúnṣe orísun", "Source revision"],
+  "Catalogue equipment wiring schedule": [
+    "Anschlussliste der Kataloggeräte",
+    "Àtòjọ waya ohun èlò inú katalogi",
+    "Catalogue equipment wiring schedule",
+  ],
+  "The wiring schedule lists saved terminal links. Cable quantities still use entered route lengths.":
+    [
+      "Die Anschlussliste zeigt gespeicherte Verbindungen. Kabelmengen beruhen weiterhin auf den eingegebenen Leitungslängen.",
+      "Àtòjọ waya fi ìsopọ̀ ebute tí a fipamọ́ hàn. Iye cable ṣì dá lórí gígùn ọ̀nà tí a tẹ̀ sílẹ̀.",
+      "Di wiring schedule lists saved terminal links. Cable quantities still use route lengths wey you enter.",
+    ],
   "Local time": ["Ortszeit", "Àkókò agbègbè", "Local time"],
   "Average kW": ["Mittlere kW", "kW àárín", "Average kW"],
   "Interval kWh": ["Intervall-kWh", "kWh àárín àkókò", "Interval kWh"],
