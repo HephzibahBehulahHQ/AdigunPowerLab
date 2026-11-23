@@ -18,6 +18,7 @@ import {
   abl6Transformers,
   abt7pduTransformers,
   victronAgmSuperCycle,
+  apcSmvUps,
 } from "../src/data/componentBank.ts";
 import { join } from "node:path";
 
@@ -37,6 +38,7 @@ const batches = {
   abl6: abl6Transformers,
   abt7pdu: abt7pduTransformers,
   "victron-agm": victronAgmSuperCycle,
+  "apc-smv": apcSmvUps,
 };
 for (const [batch, entries] of Object.entries(batches)) {
   writeFileSync(
