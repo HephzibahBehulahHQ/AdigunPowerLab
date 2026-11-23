@@ -403,6 +403,20 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     "W6",
   ]);
   expect(alternator.entry.source.page).toBe(6);
+  await catalogue
+    .getByLabel("Equipment category")
+    .selectOption("enclosures-and-installation-hardware");
+  await search.fill("NSYS3HD3215");
+  await expect(model).toHaveValue("schneider-electric:nsys3hd3215");
+  await expect(catalogue.getByText("343 × 200 × 180 mm")).toBeVisible();
+  await expect(catalogue.getByText("IP66 · IK10")).toBeVisible();
+  const enclosureDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const enclosure = JSON.parse(
+    await readFile(await (await enclosureDownload).path(), "utf8"),
+  );
+  expect(enclosure.entry.source.pageLabel).toBe("4, 16");
+  expect(enclosure.entry.missingFields).toContain("enclosure-bonding-points");
   await catalogue.getByLabel("Equipment category").selectOption("");
   await search.fill("PIN242122530");
   await expect(catalogue.getByText("24 V DC → 120 V AC")).toBeVisible();
