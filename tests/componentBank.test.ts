@@ -15,6 +15,50 @@ import {
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
 
+test("PV validation follows conductor nodes across multiple wires", () => {
+  const model = pvModules[0];
+  const instances = [
+    {
+      id: "panels",
+      name: "PV panels",
+      catalogueId: model.id,
+      manufacturer: model.manufacturer,
+      model: model.model,
+      quantity: 3,
+      sourceUrl: model.source.url,
+      sourceRevision: model.source.revision,
+    },
+  ];
+  const terminal = (unit: number, terminalId: string) => ({
+    instanceId: "panels",
+    unit,
+    terminalId,
+  });
+  const series = {
+    id: "series",
+    from: terminal(1, "positive"),
+    to: terminal(2, "negative"),
+  };
+  const parallelBranch = {
+    id: "branch",
+    from: terminal(2, "negative"),
+    to: terminal(3, "negative"),
+  };
+  expect(
+    equipmentConnectionErrors([series, parallelBranch], instances),
+  ).toEqual([]);
+  const short = {
+    id: "short",
+    from: terminal(3, "negative"),
+    to: terminal(1, "negative"),
+  };
+  expect(
+    equipmentConnectionErrors([series, parallelBranch, short], instances),
+  ).toEqual([
+    "Equipment terminal network: PV terminals share a conductor node for PV panels [1].",
+  ]);
+});
+
 test("iSW switch records retain the documented terminal numbering and voltage", () => {
   expect(iswSwitches).toHaveLength(12);
   const switchRecord = iswSwitches.find(({ model }) => model === "A9S65363");
