@@ -530,4 +530,18 @@ test("battery wiring persists a series link and rejects a shared terminal node",
   await expect(
     inspector.getByRole("button", { name: "Disconnect" }),
   ).toHaveCount(1);
+  await page.goto("/#/reports");
+  await page
+    .getByRole("checkbox", { name: "Model-derived bill of materials" })
+    .check();
+  await page.getByRole("button", { name: "Freeze report preview" }).click();
+  const preview = page.locator("#engineering-report-preview");
+  await expect(preview).toContainText("Battery series nameplate estimate");
+  const row = preview
+    .getByRole("row")
+    .filter({ hasText: /BAT412060082 \[1\].*→.*BAT412060082 \[2\]/ });
+  await expect(row.getByRole("cell").nth(1)).toHaveText("24");
+  await expect(row.getByRole("cell").nth(2)).toHaveText("60");
+  await expect(row.getByRole("cell").nth(3)).toHaveText("1.44");
+  await expect(row.getByRole("cell").nth(4)).toHaveText("21.6");
 });

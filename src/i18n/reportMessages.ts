@@ -403,6 +403,26 @@ export const reportMessages: Record<string, [string, string, string]> = {
   ],
   "Source revision": ["Quellenrevision", "Àtúnṣe orísun", "Source revision"],
   "Module sequence": ["Modulfolge", "Ìtòlẹ́sẹẹsẹ module", "Module sequence"],
+  "Battery sequence": [
+    "Batteriefolge",
+    "Ìtòlẹ́sẹẹsẹ bátìrì",
+    "Battery sequence",
+  ],
+  "Nominal voltage (V)": [
+    "Nennspannung (V)",
+    "Voltage nominal (V)",
+    "Nominal voltage (V)",
+  ],
+  "Nominal energy (kWh)": [
+    "Nennenergie (kWh)",
+    "Agbára nominal (kWh)",
+    "Nominal energy (kWh)",
+  ],
+  "C20 test cutoff (V)": [
+    "C20-Entladeschlussspannung (V)",
+    "Voltage ìparí ìdánwò C20 (V)",
+    "C20 test cutoff (V)",
+  ],
   "Catalogue equipment wiring schedule": [
     "Anschlussliste der Kataloggeräte",
     "Àtòjọ waya ohun èlò inú katalogi",
