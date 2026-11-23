@@ -1599,6 +1599,67 @@ export const wegW22Motors = [
   },
 ];
 
+// Chromalox NS/NSL catalog, 240 V PCN columns.
+const chromaloxStripHeaterRows = [
+  ["1205", 500, 32, "42199", "165470"],
+  ["1405", 500, 28, "29269", "165497"],
+  ["1505", 500, 24, "42228", "165518"],
+  ["1807", 750, 30, "42244", "144928"],
+  ["1801", 1000, 38, "42260", "165542"],
+  ["1901", 1000, 36, "29277", "165577"],
+  ["2001", 1100, 35, "42316", "165606"],
+  ["2401", 1200, 34, "42340", "144936"],
+  ["2501", 1300, 34, "42375", "165657"],
+  ["2601", 1400, 34, "29285", "144944"],
+  ["3015", 1500, 32, "42420", "165702"],
+  ["3301", 1500, 28, "42455", "144952"],
+  ["3601", 1850, 32, "42480", "144960"],
+  ["3802", 2000, 32, "42519", "165770"],
+  ["4302", 2100, 32, "42543", "165809"],
+  ["4827", 2700, 32, "42578", "165833"],
+  ["5403", 3000, 34, "42594", "165850"],
+] as const;
+
+export const chromaloxStripHeaters = chromaloxStripHeaterRows.flatMap(
+  ([suffix, powerW, wattsPerSquareInch, blockCode, leadCode]) =>
+    (
+      [
+        ["NS", blockCode, "terminal block"],
+        ["NSL", leadCode, "wire lead"],
+      ] as const
+    ).map(([series, orderCode, connector]) => ({
+      id: `chromalox:${orderCode}`,
+      manufacturer: "Chromalox",
+      model: `${series}-${suffix}`,
+      orderCode,
+      category: "commercial-and-industrial-loads" as const,
+      function: "resistive-strip-heater" as const,
+      connection: "ac" as const,
+      terminals: ["1", "2"].map((group) => ({
+        id: `terminal-${group}`,
+        group,
+        interface: "heater-element-end",
+        connector,
+      })),
+      ratings: {
+        powerW,
+        ratedVoltageV: 240,
+        wattsPerSquareInch,
+        maxSheathTemperatureF: 1500,
+      },
+      conditions: { sheath: "INCOLOY", connectorPosition: "one end" },
+      modelMapping: null,
+      source: {
+        url: "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        revision:
+          "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        page: 1,
+      },
+      missingFields: ["verified-heater-model-mapping"],
+      readiness: "inventory-and-diagram-only",
+    })),
+);
+
 export const componentBank = [
   ...pvModules,
   ...ic60nBreakers,
@@ -1624,6 +1685,7 @@ export const componentBank = [
   ...spacialS3hdEnclosures,
   ...philipsDn145bDownlights,
   ...wegW22Motors,
+  ...chromaloxStripHeaters,
 ];
 
 export function componentBankCsv(

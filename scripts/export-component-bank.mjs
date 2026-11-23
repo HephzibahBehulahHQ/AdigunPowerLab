@@ -34,6 +34,7 @@ import {
   spacialS3hdEnclosures,
   philipsDn145bDownlights,
   wegW22Motors,
+  chromaloxStripHeaters,
 } from "../src/data/componentBank.ts";
 import { join } from "node:path";
 
@@ -70,6 +71,7 @@ const batches = {
   "spacial-s3hd": spacialS3hdEnclosures,
   "philips-dn145b": philipsDn145bDownlights,
   "weg-w22": wegW22Motors,
+  "chromalox-ns-nsl": chromaloxStripHeaters,
 };
 for (const [batch, entries] of Object.entries(batches)) {
   writeCatalogueDocument(
