@@ -97,7 +97,10 @@ export default function SpatialView({
     nodes.map((node) => {
       const x = ((node.x - centre.x) * 380) / extent,
         y = ((node.y - centre.y) * 380) / extent,
-        z = { source: 140, board: 90, circuit: 40, load: 0 }[node.kind] - 60;
+        z =
+          { source: 140, board: 90, circuit: 40, load: 0, equipment: 0 }[
+            node.kind
+          ] - 60;
       const horizontal = x * Math.cos(azimuth) - y * Math.sin(azimuth),
         rotatedY = x * Math.sin(azimuth) + y * Math.cos(azimuth);
       const vertical = rotatedY * Math.cos(pitch) - z * Math.sin(pitch),

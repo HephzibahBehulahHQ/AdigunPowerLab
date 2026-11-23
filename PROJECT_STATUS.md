@@ -447,3 +447,5 @@ The catalogue follow-up makes the seven sourced records searchable in the Equipm
 The second PV batch adds seven CS6.1-54TM-H variants, taking the candidate total to 14 sourced entries. The records retain the family-specific system voltage, fuse rating and documented connector alternatives. The worksheet links to the selected model family's datasheet. Regenerate the batch exports with node scripts/export-component-bank.mjs.
 
 Project equipment candidate adds editable names and installed quantities to saved projects and the report bill of materials. Local Chromium verified save, reload and report inclusion. Phase-aware connections and diagram placement are still open.
+
+The diagram candidate displays saved equipment as disconnected symbols with source-backed terminal groups in the inspector. Connections remain open. Local Chromium verified the positive, negative and frame-bond groups on a saved PV instance.

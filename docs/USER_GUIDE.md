@@ -430,3 +430,5 @@ In **Nuclear steam generation**, adjust the heat supplied to the steam cycle and
 The Equipment Library's **Manufacturer equipment** panel lets you search by maker or model, view the published electrical ratings, open the datasheet and export the individual record as CSV or JSON. Use the PV worksheet to apply a supported module to a study.
 
 Select **Add to project equipment** to keep a sourced model with the saved project. Edit its name and installed quantity in **Project equipment**, then save. Reports include these quantities in the model-derived bill of materials. The PV worksheet uses its own reviewed study inputs.
+
+In the single-line diagram, select a catalogue equipment symbol to inspect its terminal groups and datasheet. Equipment awaiting connection is drawn as a separate symbol.

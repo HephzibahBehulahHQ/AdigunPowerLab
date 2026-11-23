@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
 import { createBoard, createCircuit, newId } from "../domain/project";
+import { pvModules } from "../data/componentBank";
 import type {
   CalculationResult,
   Cable,
@@ -787,6 +788,41 @@ function ObjectEditor({
     correctionFactors: circuit?.cable?.correctionFactors?.join(", ") ?? "",
     source: circuit?.cable?.source ?? "",
   });
+  if (node.kind === "equipment") {
+    const instance = project.catalogueEquipment?.find(
+      (item) => item.id === node.objectId,
+    );
+    const record = pvModules.find(
+      (item) =>
+        item.id === instance?.catalogueId &&
+        item.source.revision === instance?.sourceRevision,
+    );
+    return (
+      <aside
+        className="panel panel-pad topology-inspector"
+        aria-label={t("Topology object inspector")}
+      >
+        <h3>{node.name}</h3>
+        <p>{node.detail}</p>
+        <Notice>{t("Unassigned")}</Notice>
+        {record && (
+          <dl className="detail-list">
+            {record.terminals.map((terminal) => (
+              <div key={terminal.id}>
+                <dt>{terminal.group}</dt>
+                <dd>{terminal.connector}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+        {instance && (
+          <a href={instance.sourceUrl} target="_blank" rel="noreferrer">
+            {t("Source reference")}
+          </a>
+        )}
+      </aside>
+    );
+  }
   if (node.planning) {
     const equipment = project.sources?.find(
       (item) => item.id === node.objectId,

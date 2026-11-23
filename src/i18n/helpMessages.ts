@@ -1090,6 +1090,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Yan ohun kan láti ṣàyẹ̀wò rẹ̀. Lo So pọ̀/Yọ àsopọ̀ àti àwọn ìdarí ètò àsopọ̀ láti yí àsopọ̀ tí a ṣe àtìlẹ́yìn fún padà; ṣàyẹ̀wò ìṣòro lẹ́yìn àtúnṣe kọ̀ọ̀kan.",
       "Select object to inspect am. Use Connect/Disconnect and topology controls to change supported connections; check issues after every change.",
     ],
+  "Select a catalogue equipment symbol to see its documented terminals and datasheet. The symbol appears without a wire when the equipment is unassigned.":
+    [
+      "Wählen Sie ein Kataloggerätesymbol aus, um die dokumentierten Anschlüsse und das Datenblatt zu sehen. Bei nicht zugeordneten Geräten erscheint das Symbol ohne Leitung.",
+      "Yan àmì ohun èlò inú katalogi láti wo àwọn ebute tí a kọ sílẹ̀ àti datasheet rẹ̀. Àmì náà kò ní waya tí a kò bá so ohun èlò náà pọ̀.",
+      "Select catalogue equipment symbol to see di documented terminals and datasheet. Di symbol dey without wire when you never assign di equipment.",
+    ],
   "Use zoom, fit, labels, notes, manual positions or auto-layout to make the diagram readable. Export SVG or PDF for a copy of the displayed diagram.":
     [
       "Nutzen Sie Zoom, Einpassen, Beschriftungen, Notizen, manuelle Positionen oder automatisches Layout für ein lesbares Diagramm. Exportieren Sie SVG oder PDF als Kopie der angezeigten Darstellung.",

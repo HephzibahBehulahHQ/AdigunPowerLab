@@ -732,3 +732,5 @@ The first component-bank batch passed two Vitest checks covering exact CSV/JSON 
 ## Project equipment candidate
 
 Local TypeScript and two component-bank tests passed. The focused Chromium case edited a sourced module name and quantity, saved and reloaded the project, and verified inclusion in the frozen model-derived BOM.
+
+Diagram candidate: TypeScript and 20 Help checks passed. Local Chromium opened a saved PV instance in the single-line diagram and verified its three documented terminal groups.
