@@ -1,5 +1,10 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "Supplemental manufacturer document": [
+    "Ergänzendes Herstellerdokument",
+    "Ìwé àfikún láti ọ̀dọ̀ olùṣe ẹ̀rọ",
+    "Supplemental manufacturer document",
+  ],
   "Drives and starting equipment": [
     "Antriebs- und Anlaufgeräte",
     "Ohun èlò ìdarí àti ìbẹ̀rẹ̀ mọ́tò",

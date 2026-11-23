@@ -340,6 +340,11 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     await readFile(await (await driveDownload).path(), "utf8"),
   );
   expect(drive.entry.source.supplemental[0].page).toBe(144);
+  await catalogue.getByText("Source, terminals and model readiness").click();
+  await expect(
+    catalogue.getByRole("link", { name: "NVE41289.09 (04/2025) · Page 144" }),
+  ).toHaveAttribute("href", /p_Doc_Ref=NVE41289/);
+  await catalogue.getByText("Source, terminals and model readiness").click();
   expect(
     drive.entry.terminals.map(({ group }: { group: string }) => group),
   ).toContain("T/L3");
