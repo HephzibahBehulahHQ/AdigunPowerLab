@@ -828,3 +828,4 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - Chromium passed the WEG category, exact order-code lookup, 230/400 V operating-point display and JSON export of all four points with the terminal-diagram gap.
 - Chromalox candidate: export generation, TypeScript and 28 component-bank tests passed. Browser verification pending.
 - Chromium verified Chromalox category filtering, exact PCN lookup, 3,000 W at 240 V and the exported pair of wire leads.
+- AS480 candidate: export generation, TypeScript and 28 component-bank tests passed. Browser and release verification pending.

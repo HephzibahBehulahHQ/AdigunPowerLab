@@ -35,6 +35,7 @@ import {
   philipsDn145bDownlights,
   wegW22Motors,
   chromaloxStripHeaters,
+  stamfordAs480Regulators,
 } from "../src/data/componentBank.ts";
 import { join } from "node:path";
 
@@ -72,6 +73,7 @@ const batches = {
   "philips-dn145b": philipsDn145bDownlights,
   "weg-w22": wegW22Motors,
   "chromalox-ns-nsl": chromaloxStripHeaters,
+  "stamford-as480": stamfordAs480Regulators,
 };
 for (const [batch, entries] of Object.entries(batches)) {
   writeCatalogueDocument(

@@ -530,3 +530,4 @@ iC60N 2b49aee published in Pages run 45285905960 and the public root returned HT
 - Verified the three remaining Philips DN145B fact sheets. Candidate: 1002 records across 17 categories.
 - WEG candidate: one W22 motor order code with four manufacturer operating points brings the stacked catalogue to 1003 records across 18 categories. Exact terminal diagram and model mapping remain open.
 - Chromalox candidate: 34 industrial strip heater PCNs bring the stacked catalogue to 1037 records across 19 categories. Calculation mapping remains open.
+- AS480 candidate brings the stacked catalogue to 1038 records and at least one entry in all 20 categories. Auxiliary terminal details, order code and calculation mapping remain open.
