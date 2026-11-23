@@ -750,3 +750,5 @@ The iID batch passed TypeScript and 26 focused tests. Chromium verified the A9R1
 Type A expansion: TypeScript and six component-bank tests passed. Chromium showed 110 V AC for A9R08263 and preserved the existing iC60N wiring case.
 
 Coverage generation, TypeScript, and seven component-bank tests passed. The coverage test reconciles all 20 category rows and readiness counts to runtime records.
+
+The iSW tranche passed TypeScript and eight component-bank checks, including rated current and voltage, terminal numbering, export parity and all-category coverage.

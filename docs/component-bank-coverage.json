@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "distinctRecords": 275,
+  "distinctRecords": 287,
   "goalMinimum": 10000,
   "readiness": {
     "pv-worksheet-inputs-only": 14,
-    "inventory-and-diagram-only": 261
+    "inventory-and-diagram-only": 273
   },
   "categories": [
     {
@@ -58,8 +58,8 @@
     {
       "category": "switching-and-transfer-equipment",
       "target": 600,
-      "records": 0,
-      "remaining": 600
+      "records": 12,
+      "remaining": 588
     },
     {
       "category": "cables-and-conductors",
