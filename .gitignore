@@ -2,6 +2,7 @@ node_modules/
 dist/
 playwright-report/
 test-results/
+/output/component-bank/
 *.local
 .env*
 !.env.example
