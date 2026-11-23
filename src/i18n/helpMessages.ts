@@ -2000,6 +2000,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fi net output open cycle àti combined cycle wé pẹ̀lú epo àti rating kan náà. Lo open cycle nínú dispatch láti gbé àpẹẹrẹ turbine gaasi tí kò ní steam recovery lọ.",
       "Compare open-cycle and combined-cycle net power with di same fuel input and rating. Use open cycle for dispatch to copy di gas turbine case without steam recovery.",
     ],
+  "Choose Manufacturer PV module and review the datasheet before applying its DC rating and power temperature coefficient. The PV case export includes the applied equipment record.":
+    [
+      "Wählen Sie das Hersteller-PV-Modul und prüfen Sie das Datenblatt vor der Übernahme der DC-Nennleistung und des Temperaturkoeffizienten. Der PV-Export enthält den verwendeten Gerätedatensatz.",
+      "Yan module PV olupese kí o ka datasheet kí o tó lo rating DC àti coefficient ooru. Export PV ní àkọsílẹ̀ module tí o lò.",
+      "Choose manufacturer PV module and check di datasheet before you apply di DC rating and temperature coefficient. Di PV export carry di equipment record wey you use.",
+    ],
   "Use combined cycle in dispatch to copy the net output limit, minimum load and running fuel requirements into the chronological worksheet.":
     [
       "Übernehmen Sie Nettoleistungsgrenze, Mindestlast und Brennstoffbedarf des Kombikraftwerks in das chronologische Arbeitsblatt.",

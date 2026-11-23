@@ -2604,6 +2604,31 @@ test("PV source model responds to inputs, saves a reference and exports results"
   ).toBeVisible();
 });
 
+test("a sourced PV module requires review and survives save and export", async ({
+  page,
+}) => {
+  await page.goto("/#POWERGRID");
+  const pv = page.getByRole("region", {
+    name: "PV source performance experiment",
+  });
+  const module = pv.getByRole("combobox", { name: /Manufacturer PV module/ });
+  await module.selectOption("canadian-solar:cs6.2-48tm-455h");
+  const rating = pv.getByLabel("DC nameplate capacity (kW)");
+  await expect(rating).toHaveValue("100");
+  await pv.getByRole("button", { name: "Apply one module" }).click();
+  await expect(rating).toHaveValue("0.455");
+  await pv.getByRole("button", { name: "Save inputs locally" }).click();
+  await page.reload();
+  await expect(rating).toHaveValue("0.455");
+  const pending = page.waitForEvent("download");
+  await pv.getByRole("button", { name: "Export PV case JSON" }).click();
+  const downloaded = JSON.parse(
+    await readFile(await (await pending).path(), "utf8"),
+  );
+  expect(downloaded.equipment.model).toBe("CS6.2-48TM-455H");
+  expect(downloaded.inputs.powerTemperatureCoefficientPerC).toBe(-0.0029);
+});
+
 test("NREL reference wind curve calculates, saves and exports entered intervals", async ({
   page,
 }) => {

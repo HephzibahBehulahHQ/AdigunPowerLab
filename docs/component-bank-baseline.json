@@ -1,0 +1,1694 @@
+{
+  "schemaVersion": 1,
+  "revision": "c65a4394b4e6e719ab94866d242c295f78bb45b6",
+  "scope": "Repository-delivered baseline; excludes user projects and browser storage",
+  "engineeringTools": 51,
+  "verifiedManufacturerRecords": 0,
+  "entries": [
+    {
+      "id": "T01",
+      "name": "Ohm’s law",
+      "category": "Electrical fundamentals",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "voltage",
+          "unit": "V"
+        },
+        {
+          "key": "current",
+          "unit": "A"
+        },
+        {
+          "key": "resistance",
+          "unit": "Ω"
+        },
+        {
+          "key": "power",
+          "unit": "W"
+        }
+      ]
+    },
+    {
+      "id": "T02",
+      "name": "DC load power & energy",
+      "category": "Electrical fundamentals",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "voltage",
+          "unit": "V"
+        },
+        {
+          "key": "current",
+          "unit": "A"
+        },
+        {
+          "key": "quantity"
+        },
+        {
+          "key": "hours",
+          "unit": "h"
+        }
+      ]
+    },
+    {
+      "id": "T03",
+      "name": "Single-phase AC current",
+      "category": "Electrical fundamentals",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "power",
+          "unit": "kW"
+        },
+        {
+          "key": "voltage",
+          "unit": "V"
+        },
+        {
+          "key": "pf"
+        },
+        {
+          "key": "reactive"
+        }
+      ]
+    },
+    {
+      "id": "T04",
+      "name": "Three-phase AC current",
+      "category": "Electrical fundamentals",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "power",
+          "unit": "kW"
+        },
+        {
+          "key": "voltage",
+          "unit": "V"
+        },
+        {
+          "key": "pf"
+        },
+        {
+          "key": "reactive"
+        }
+      ]
+    },
+    {
+      "id": "T05",
+      "name": "Signed power triangle",
+      "category": "Electrical fundamentals",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "real",
+          "unit": "kW"
+        },
+        {
+          "key": "reactive",
+          "unit": "kvar"
+        }
+      ]
+    },
+    {
+      "id": "T06",
+      "name": "Series & parallel resistance",
+      "category": "Electrical fundamentals",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "topology"
+        },
+        {
+          "key": "resistors"
+        }
+      ]
+    },
+    {
+      "id": "T07",
+      "name": "Series RLC impedance",
+      "category": "Electrical fundamentals",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "resistance",
+          "unit": "Ω"
+        },
+        {
+          "key": "inductance",
+          "unit": "mH"
+        },
+        {
+          "key": "capacitance",
+          "unit": "µF"
+        },
+        {
+          "key": "frequency",
+          "unit": "Hz"
+        },
+        {
+          "key": "voltage",
+          "unit": "V"
+        }
+      ]
+    },
+    {
+      "id": "T08",
+      "name": "Engineering unit converter",
+      "category": "Electrical fundamentals",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "conversion"
+        },
+        {
+          "key": "value"
+        },
+        {
+          "key": "voltage",
+          "unit": "V"
+        }
+      ]
+    },
+    {
+      "id": "T09",
+      "name": "Useful output → electrical input",
+      "category": "Electrical fundamentals",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "mode"
+        },
+        {
+          "key": "output",
+          "unit": "kW"
+        },
+        {
+          "key": "ratio"
+        }
+      ]
+    },
+    {
+      "id": "T10",
+      "name": "Motor input & full-load current",
+      "category": "Motors & starting",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "shaft",
+          "unit": "kW"
+        },
+        {
+          "key": "efficiency"
+        },
+        {
+          "key": "pf"
+        },
+        {
+          "key": "voltage",
+          "unit": "V"
+        },
+        {
+          "key": "connection"
+        }
+      ]
+    },
+    {
+      "id": "T11",
+      "name": "Torque, speed & shaft power",
+      "category": "Motors & starting",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "solve"
+        },
+        {
+          "key": "value"
+        },
+        {
+          "key": "speed",
+          "unit": "rpm"
+        }
+      ]
+    },
+    {
+      "id": "T12",
+      "name": "Synchronous speed & slip",
+      "category": "Motors & starting",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "frequency",
+          "unit": "Hz"
+        },
+        {
+          "key": "poles"
+        },
+        {
+          "key": "speed",
+          "unit": "rpm"
+        }
+      ]
+    },
+    {
+      "id": "T13",
+      "name": "Star / delta winding relations",
+      "category": "Motors & starting",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "voltage",
+          "unit": "V"
+        },
+        {
+          "key": "impedance",
+          "unit": "Ω"
+        },
+        {
+          "key": "windingRating",
+          "unit": "V"
+        },
+        {
+          "key": "connection"
+        },
+        {
+          "key": "source"
+        }
+      ]
+    },
+    {
+      "id": "T14",
+      "name": "Motor start sequence",
+      "category": "Motors & starting",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "connection"
+        },
+        {
+          "key": "voltage",
+          "unit": "V"
+        },
+        {
+          "key": "background",
+          "unit": "kW"
+        },
+        {
+          "key": "backgroundPf"
+        },
+        {
+          "key": "motors"
+        },
+        {
+          "key": "runCurrent",
+          "unit": "A"
+        },
+        {
+          "key": "runPf"
+        },
+        {
+          "key": "startCurrent",
+          "unit": "A"
+        },
+        {
+          "key": "startPf"
+        },
+        {
+          "key": "duration",
+          "unit": "s"
+        },
+        {
+          "key": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "T15",
+      "name": "Conductor resistance & temperature",
+      "category": "Cables & protection",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "resistivity",
+          "unit": "Ω·mm²/m"
+        },
+        {
+          "key": "length",
+          "unit": "m"
+        },
+        {
+          "key": "section",
+          "unit": "mm²"
+        },
+        {
+          "key": "parallel"
+        },
+        {
+          "key": "alpha",
+          "unit": "1/K"
+        },
+        {
+          "key": "referenceTemperature",
+          "unit": "°C"
+        },
+        {
+          "key": "temperature",
+          "unit": "°C"
+        },
+        {
+          "key": "source"
+        }
+      ]
+    },
+    {
+      "id": "T16",
+      "name": "DC complete-loop voltage drop",
+      "category": "Cables & protection",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "voltage",
+          "unit": "V"
+        },
+        {
+          "key": "current",
+          "unit": "A"
+        },
+        {
+          "key": "outgoing",
+          "unit": "Ω"
+        },
+        {
+          "key": "return",
+          "unit": "Ω"
+        }
+      ]
+    },
+    {
+      "id": "T17",
+      "name": "AC voltage drop / rise",
+      "category": "Cables & protection",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "connection"
+        },
+        {
+          "key": "voltage",
+          "unit": "V"
+        },
+        {
+          "key": "current",
+          "unit": "A"
+        },
+        {
+          "key": "length",
+          "unit": "m"
+        },
+        {
+          "key": "resistance",
+          "unit": "Ω/km"
+        },
+        {
+          "key": "reactance",
+          "unit": "Ω/km"
+        },
+        {
+          "key": "pf"
+        },
+        {
+          "key": "reactive"
+        }
+      ]
+    },
+    {
+      "id": "T18",
+      "name": "Route length / cross-section by drop",
+      "category": "Cables & protection",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "solve"
+        },
+        {
+          "key": "connection"
+        },
+        {
+          "key": "voltage",
+          "unit": "V"
+        },
+        {
+          "key": "current",
+          "unit": "A"
+        },
+        {
+          "key": "limit",
+          "unit": "%"
+        },
+        {
+          "key": "resistivity",
+          "unit": "Ω·mm²/m"
+        },
+        {
+          "key": "section",
+          "unit": "mm²"
+        },
+        {
+          "key": "length",
+          "unit": "m"
+        }
+      ]
+    },
+    {
+      "id": "T19",
+      "name": "Conductor loss & loss energy",
+      "category": "Cables & protection",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "current",
+          "unit": "A"
+        },
+        {
+          "key": "resistance",
+          "unit": "Ω"
+        },
+        {
+          "key": "conductors"
+        },
+        {
+          "key": "hours",
+          "unit": "h"
+        },
+        {
+          "key": "duty"
+        }
+      ]
+    },
+    {
+      "id": "T20",
+      "name": "Cable ampacity correction worksheet",
+      "category": "Cables & protection",
+      "kind": "engineering-tool",
+      "status": "incomplete",
+      "inputs": [
+        {
+          "key": "base",
+          "unit": "A"
+        },
+        {
+          "key": "temperatureFactor"
+        },
+        {
+          "key": "groupingFactor"
+        },
+        {
+          "key": "otherFactor"
+        },
+        {
+          "key": "designCurrent",
+          "unit": "A"
+        },
+        {
+          "key": "source"
+        },
+        {
+          "key": "installation"
+        }
+      ]
+    },
+    {
+      "id": "T21",
+      "name": "Device, load & cable checks",
+      "category": "Cables & protection",
+      "kind": "engineering-tool",
+      "status": "incomplete",
+      "inputs": [
+        {
+          "key": "designCurrent",
+          "unit": "A"
+        },
+        {
+          "key": "deviceRating",
+          "unit": "A"
+        },
+        {
+          "key": "capacity",
+          "unit": "A"
+        },
+        {
+          "key": "operatingCurrent",
+          "unit": "A"
+        },
+        {
+          "key": "thermalMultiplier"
+        },
+        {
+          "key": "fault",
+          "unit": "kA"
+        },
+        {
+          "key": "breaking",
+          "unit": "kA"
+        },
+        {
+          "key": "ruleSource"
+        },
+        {
+          "key": "deviceSource"
+        },
+        {
+          "key": "cableSource"
+        }
+      ]
+    },
+    {
+      "id": "T22",
+      "name": "Simplified prospective fault current",
+      "category": "Cables & protection",
+      "kind": "engineering-tool",
+      "status": "incomplete",
+      "inputs": [
+        {
+          "key": "connection"
+        },
+        {
+          "key": "voltage",
+          "unit": "V"
+        },
+        {
+          "key": "sourceR",
+          "unit": "Ω"
+        },
+        {
+          "key": "sourceX",
+          "unit": "Ω"
+        },
+        {
+          "key": "pathR",
+          "unit": "Ω"
+        },
+        {
+          "key": "pathX",
+          "unit": "Ω"
+        },
+        {
+          "key": "minimumFactor"
+        },
+        {
+          "key": "maximumFactor"
+        },
+        {
+          "key": "source"
+        }
+      ]
+    },
+    {
+      "id": "T23",
+      "name": "Loop impedance & disconnection",
+      "category": "Cables & protection",
+      "kind": "engineering-tool",
+      "status": "incomplete",
+      "inputs": [
+        {
+          "key": "earthing"
+        },
+        {
+          "key": "voltage",
+          "unit": "V"
+        },
+        {
+          "key": "factor"
+        },
+        {
+          "key": "impedance",
+          "unit": "Ω"
+        },
+        {
+          "key": "operatingCurrent",
+          "unit": "A"
+        },
+        {
+          "key": "requiredTime",
+          "unit": "s"
+        },
+        {
+          "key": "actualTime",
+          "unit": "s"
+        },
+        {
+          "key": "ruleSource"
+        },
+        {
+          "key": "deviceSource"
+        }
+      ]
+    },
+    {
+      "id": "T24",
+      "name": "Cable adiabatic withstand",
+      "category": "Cables & protection",
+      "kind": "engineering-tool",
+      "status": "incomplete",
+      "inputs": [
+        {
+          "key": "section",
+          "unit": "mm²"
+        },
+        {
+          "key": "coefficient",
+          "unit": "A√s/mm²"
+        },
+        {
+          "key": "faultEnergy",
+          "unit": "A²s"
+        },
+        {
+          "key": "duration",
+          "unit": "s"
+        },
+        {
+          "key": "initialTemperature",
+          "unit": "°C"
+        },
+        {
+          "key": "finalTemperature",
+          "unit": "°C"
+        },
+        {
+          "key": "coefficientSource"
+        },
+        {
+          "key": "energySource"
+        }
+      ]
+    },
+    {
+      "id": "T25",
+      "name": "Protective conductor / bonding worksheet",
+      "category": "Cables & protection",
+      "kind": "engineering-tool",
+      "status": "incomplete",
+      "inputs": [
+        {
+          "key": "method"
+        },
+        {
+          "key": "section",
+          "unit": "mm²"
+        },
+        {
+          "key": "minimum",
+          "unit": "mm²"
+        },
+        {
+          "key": "faultEnergy",
+          "unit": "A²s"
+        },
+        {
+          "key": "coefficient",
+          "unit": "A√s/mm²"
+        },
+        {
+          "key": "duration",
+          "unit": "s"
+        },
+        {
+          "key": "source"
+        }
+      ]
+    },
+    {
+      "id": "T26",
+      "name": "Connected & coincident demand",
+      "category": "Distribution & supply",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "powers"
+        },
+        {
+          "key": "coincidence"
+        },
+        {
+          "key": "growth",
+          "unit": "%"
+        },
+        {
+          "key": "reserve",
+          "unit": "%"
+        }
+      ]
+    },
+    {
+      "id": "T27",
+      "name": "Phase-current imbalance",
+      "category": "Distribution & supply",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "l1",
+          "unit": "A"
+        },
+        {
+          "key": "l2",
+          "unit": "A"
+        },
+        {
+          "key": "l3",
+          "unit": "A"
+        }
+      ]
+    },
+    {
+      "id": "T28",
+      "name": "Fundamental neutral current",
+      "category": "Distribution & supply",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "l1",
+          "unit": "A"
+        },
+        {
+          "key": "angle1",
+          "unit": "°"
+        },
+        {
+          "key": "l2",
+          "unit": "A"
+        },
+        {
+          "key": "angle2",
+          "unit": "°"
+        },
+        {
+          "key": "l3",
+          "unit": "A"
+        },
+        {
+          "key": "angle3",
+          "unit": "°"
+        }
+      ]
+    },
+    {
+      "id": "T29",
+      "name": "Transformer current, loading & losses",
+      "category": "Distribution & supply",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "rating",
+          "unit": "kVA"
+        },
+        {
+          "key": "primaryVoltage",
+          "unit": "V"
+        },
+        {
+          "key": "secondaryVoltage",
+          "unit": "V"
+        },
+        {
+          "key": "load",
+          "unit": "kW"
+        },
+        {
+          "key": "pf"
+        },
+        {
+          "key": "noLoadLoss",
+          "unit": "W"
+        },
+        {
+          "key": "ratedLoadLoss",
+          "unit": "W"
+        },
+        {
+          "key": "hours",
+          "unit": "h"
+        }
+      ]
+    },
+    {
+      "id": "T30",
+      "name": "Generator capacity worksheet",
+      "category": "Distribution & supply",
+      "kind": "engineering-tool",
+      "status": "incomplete",
+      "inputs": [
+        {
+          "key": "ratedKW",
+          "unit": "kW"
+        },
+        {
+          "key": "ratedKVA",
+          "unit": "kVA"
+        },
+        {
+          "key": "derating"
+        },
+        {
+          "key": "loadKW",
+          "unit": "kW"
+        },
+        {
+          "key": "loadPF"
+        },
+        {
+          "key": "startKVA",
+          "unit": "kVA"
+        },
+        {
+          "key": "allowedStartKVA",
+          "unit": "kVA"
+        },
+        {
+          "key": "startDuration",
+          "unit": "s"
+        },
+        {
+          "key": "allowedDuration",
+          "unit": "s"
+        },
+        {
+          "key": "source"
+        }
+      ]
+    },
+    {
+      "id": "T31",
+      "name": "Inverter & overload envelope",
+      "category": "Distribution & supply",
+      "kind": "engineering-tool",
+      "status": "incomplete",
+      "inputs": [
+        {
+          "key": "ratedKW",
+          "unit": "kW"
+        },
+        {
+          "key": "ratedKVA",
+          "unit": "kVA"
+        },
+        {
+          "key": "loadKW",
+          "unit": "kW"
+        },
+        {
+          "key": "loadPF"
+        },
+        {
+          "key": "peakKW",
+          "unit": "kW"
+        },
+        {
+          "key": "peakKVA",
+          "unit": "kVA"
+        },
+        {
+          "key": "limitKW",
+          "unit": "kW"
+        },
+        {
+          "key": "limitKVA",
+          "unit": "kVA"
+        },
+        {
+          "key": "duration",
+          "unit": "s"
+        },
+        {
+          "key": "permittedDuration",
+          "unit": "s"
+        },
+        {
+          "key": "phases"
+        },
+        {
+          "key": "source"
+        }
+      ]
+    },
+    {
+      "id": "T32",
+      "name": "UPS energy-based runtime",
+      "category": "Distribution & supply",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "ratedKW",
+          "unit": "kW"
+        },
+        {
+          "key": "ratedKVA",
+          "unit": "kVA"
+        },
+        {
+          "key": "loadKW",
+          "unit": "kW"
+        },
+        {
+          "key": "loadPF"
+        },
+        {
+          "key": "usableEnergy",
+          "unit": "kWh"
+        },
+        {
+          "key": "efficiency"
+        },
+        {
+          "key": "auxiliary",
+          "unit": "W"
+        }
+      ]
+    },
+    {
+      "id": "T33",
+      "name": "Power-factor correction",
+      "category": "Power quality",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "power",
+          "unit": "kW"
+        },
+        {
+          "key": "initialPF"
+        },
+        {
+          "key": "targetPF"
+        },
+        {
+          "key": "voltage",
+          "unit": "V"
+        },
+        {
+          "key": "connection"
+        }
+      ]
+    },
+    {
+      "id": "T34",
+      "name": "Capacitor element sizing",
+      "category": "Power quality",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "compensation",
+          "unit": "kvar"
+        },
+        {
+          "key": "voltage",
+          "unit": "V"
+        },
+        {
+          "key": "frequency",
+          "unit": "Hz"
+        },
+        {
+          "key": "connection"
+        }
+      ]
+    },
+    {
+      "id": "T35",
+      "name": "Harmonic RMS & THD",
+      "category": "Power quality",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "quantity"
+        },
+        {
+          "key": "fundamental"
+        },
+        {
+          "key": "harmonics"
+        }
+      ]
+    },
+    {
+      "id": "T36",
+      "name": "Battery capacity & usable energy",
+      "category": "Renewables & storage",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "voltage",
+          "unit": "V"
+        },
+        {
+          "key": "capacityAh",
+          "unit": "Ah"
+        },
+        {
+          "key": "initialSOC",
+          "unit": "%"
+        },
+        {
+          "key": "minimumSOC",
+          "unit": "%"
+        },
+        {
+          "key": "maximumSOC",
+          "unit": "%"
+        },
+        {
+          "key": "efficiency"
+        }
+      ]
+    },
+    {
+      "id": "T37",
+      "name": "Battery rates & constrained runtime",
+      "category": "Renewables & storage",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "capacity",
+          "unit": "kWh"
+        },
+        {
+          "key": "initialSOC",
+          "unit": "%"
+        },
+        {
+          "key": "minimumSOC",
+          "unit": "%"
+        },
+        {
+          "key": "targetSOC",
+          "unit": "%"
+        },
+        {
+          "key": "chargePower",
+          "unit": "kW"
+        },
+        {
+          "key": "chargeLimit",
+          "unit": "kW"
+        },
+        {
+          "key": "dischargePower",
+          "unit": "kW"
+        },
+        {
+          "key": "dischargeLimit",
+          "unit": "kW"
+        },
+        {
+          "key": "chargeEfficiency"
+        },
+        {
+          "key": "dischargeEfficiency"
+        }
+      ]
+    },
+    {
+      "id": "T38",
+      "name": "Chronological battery dispatch",
+      "category": "Renewables & storage",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "loads"
+        },
+        {
+          "key": "generation"
+        },
+        {
+          "key": "hours",
+          "unit": "h"
+        },
+        {
+          "key": "capacity",
+          "unit": "kWh"
+        },
+        {
+          "key": "initial",
+          "unit": "kWh"
+        },
+        {
+          "key": "reserve",
+          "unit": "kWh"
+        },
+        {
+          "key": "chargeLimit",
+          "unit": "kW"
+        },
+        {
+          "key": "dischargeLimit",
+          "unit": "kW"
+        },
+        {
+          "key": "chargeEfficiency"
+        },
+        {
+          "key": "dischargeEfficiency"
+        },
+        {
+          "key": "grid"
+        },
+        {
+          "key": "island"
+        }
+      ]
+    },
+    {
+      "id": "T39",
+      "name": "PV yield / inverter clipping",
+      "category": "Renewables & storage",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "mode"
+        },
+        {
+          "key": "capacity",
+          "unit": "kWp"
+        },
+        {
+          "key": "loss"
+        },
+        {
+          "key": "efficiency"
+        },
+        {
+          "key": "sunHours",
+          "unit": "h"
+        },
+        {
+          "key": "profile"
+        },
+        {
+          "key": "interval",
+          "unit": "h"
+        },
+        {
+          "key": "inverterLimit",
+          "unit": "kW"
+        },
+        {
+          "key": "source"
+        }
+      ]
+    },
+    {
+      "id": "T40",
+      "name": "PV string voltage & current",
+      "category": "Renewables & storage",
+      "kind": "engineering-tool",
+      "status": "incomplete",
+      "inputs": [
+        {
+          "key": "voc",
+          "unit": "V"
+        },
+        {
+          "key": "vmp",
+          "unit": "V"
+        },
+        {
+          "key": "vocCoefficient",
+          "unit": "%/°C"
+        },
+        {
+          "key": "vmpCoefficient",
+          "unit": "%/°C"
+        },
+        {
+          "key": "referenceTemperature",
+          "unit": "°C"
+        },
+        {
+          "key": "coldTemperature",
+          "unit": "°C"
+        },
+        {
+          "key": "hotTemperature",
+          "unit": "°C"
+        },
+        {
+          "key": "series"
+        },
+        {
+          "key": "parallel"
+        },
+        {
+          "key": "isc",
+          "unit": "A"
+        },
+        {
+          "key": "imp",
+          "unit": "A"
+        },
+        {
+          "key": "currentFactor"
+        },
+        {
+          "key": "maximumVoltage",
+          "unit": "V"
+        },
+        {
+          "key": "mpptMinimum",
+          "unit": "V"
+        },
+        {
+          "key": "mpptMaximum",
+          "unit": "V"
+        },
+        {
+          "key": "maximumCurrent",
+          "unit": "A"
+        },
+        {
+          "key": "maximumShortCircuit",
+          "unit": "A"
+        },
+        {
+          "key": "moduleSource"
+        },
+        {
+          "key": "inverterSource"
+        }
+      ]
+    },
+    {
+      "id": "T41",
+      "name": "Wind supplied-profile energy",
+      "category": "Renewables & storage",
+      "kind": "engineering-tool",
+      "status": "incomplete",
+      "inputs": [
+        {
+          "key": "mode"
+        },
+        {
+          "key": "profile"
+        },
+        {
+          "key": "curve"
+        },
+        {
+          "key": "hours",
+          "unit": "h"
+        },
+        {
+          "key": "loss"
+        },
+        {
+          "key": "source"
+        }
+      ]
+    },
+    {
+      "id": "T42",
+      "name": "EV charging & deadline feasibility",
+      "category": "EV, energy & economics",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "capacity",
+          "unit": "kWh"
+        },
+        {
+          "key": "initialSOC",
+          "unit": "%"
+        },
+        {
+          "key": "targetSOC",
+          "unit": "%"
+        },
+        {
+          "key": "efficiency"
+        },
+        {
+          "key": "chargerLimit",
+          "unit": "kW"
+        },
+        {
+          "key": "vehicleLimit",
+          "unit": "kW"
+        },
+        {
+          "key": "siteLimit",
+          "unit": "kW"
+        },
+        {
+          "key": "window",
+          "unit": "h"
+        }
+      ]
+    },
+    {
+      "id": "T43",
+      "name": "Managed charging allocation",
+      "category": "EV, energy & economics",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "required"
+        },
+        {
+          "key": "chargers"
+        },
+        {
+          "key": "phases"
+        },
+        {
+          "key": "voltage",
+          "unit": "V"
+        },
+        {
+          "key": "background"
+        },
+        {
+          "key": "limits"
+        },
+        {
+          "key": "siteHeadroom",
+          "unit": "kW"
+        },
+        {
+          "key": "window",
+          "unit": "h"
+        },
+        {
+          "key": "efficiency"
+        }
+      ]
+    },
+    {
+      "id": "T44",
+      "name": "Power-profile integration",
+      "category": "EV, energy & economics",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "powers"
+        },
+        {
+          "key": "minutes"
+        }
+      ]
+    },
+    {
+      "id": "T45",
+      "name": "Load factor & duration curve",
+      "category": "EV, energy & economics",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "profile"
+        },
+        {
+          "key": "hours",
+          "unit": "h"
+        }
+      ]
+    },
+    {
+      "id": "T46",
+      "name": "Demand-factor definitions",
+      "category": "EV, energy & economics",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "connected",
+          "unit": "kW"
+        },
+        {
+          "key": "individualMaxima",
+          "unit": "kW"
+        },
+        {
+          "key": "coincidentMaximum",
+          "unit": "kW"
+        },
+        {
+          "key": "operating",
+          "unit": "kW"
+        }
+      ]
+    },
+    {
+      "id": "T47",
+      "name": "Interval tariff & demand bill",
+      "category": "EV, energy & economics",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "imports"
+        },
+        {
+          "key": "exports"
+        },
+        {
+          "key": "importRates"
+        },
+        {
+          "key": "exportRates"
+        },
+        {
+          "key": "minutes",
+          "unit": "min"
+        },
+        {
+          "key": "demandRate",
+          "unit": "currency/kW"
+        },
+        {
+          "key": "standing",
+          "unit": "currency/day"
+        },
+        {
+          "key": "days",
+          "unit": "days"
+        },
+        {
+          "key": "tax",
+          "unit": "%"
+        },
+        {
+          "key": "taxBasis"
+        },
+        {
+          "key": "currency"
+        }
+      ]
+    },
+    {
+      "id": "T48",
+      "name": "Standby & replacement savings",
+      "category": "EV, energy & economics",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "oldPower",
+          "unit": "W"
+        },
+        {
+          "key": "newPower",
+          "unit": "W"
+        },
+        {
+          "key": "oldStandby",
+          "unit": "W"
+        },
+        {
+          "key": "newStandby",
+          "unit": "W"
+        },
+        {
+          "key": "hours",
+          "unit": "h/day"
+        },
+        {
+          "key": "days",
+          "unit": "days"
+        },
+        {
+          "key": "price",
+          "unit": "currency/kWh"
+        }
+      ]
+    },
+    {
+      "id": "T49",
+      "name": "Operational electricity carbon",
+      "category": "EV, energy & economics",
+      "kind": "engineering-tool",
+      "status": "incomplete",
+      "inputs": [
+        {
+          "key": "energy",
+          "unit": "kWh"
+        },
+        {
+          "key": "factor",
+          "unit": "kg CO₂e/kWh"
+        },
+        {
+          "key": "source"
+        },
+        {
+          "key": "geography"
+        },
+        {
+          "key": "period"
+        }
+      ]
+    },
+    {
+      "id": "T50",
+      "name": "Simple payback & break-even",
+      "category": "EV, energy & economics",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "investment",
+          "unit": "currency"
+        },
+        {
+          "key": "saving",
+          "unit": "currency/year"
+        },
+        {
+          "key": "maintenance",
+          "unit": "currency/year"
+        },
+        {
+          "key": "horizon",
+          "unit": "years"
+        }
+      ]
+    },
+    {
+      "id": "T51",
+      "name": "NPV & discount-rate sensitivity",
+      "category": "EV, energy & economics",
+      "kind": "engineering-tool",
+      "status": "calculated",
+      "inputs": [
+        {
+          "key": "investment",
+          "unit": "currency"
+        },
+        {
+          "key": "saving",
+          "unit": "currency"
+        },
+        {
+          "key": "maintenance",
+          "unit": "currency"
+        },
+        {
+          "key": "escalation",
+          "unit": "%"
+        },
+        {
+          "key": "discount",
+          "unit": "%"
+        },
+        {
+          "key": "horizon",
+          "unit": "years"
+        },
+        {
+          "key": "residual",
+          "unit": "currency"
+        },
+        {
+          "key": "sensitivity",
+          "unit": "percentage points"
+        }
+      ]
+    },
+    {
+      "id": "load",
+      "name": "single, line-line, three, dc",
+      "note": "Project load with entered electrical properties",
+      "kind": "model",
+      "status": "implemented"
+    },
+    {
+      "id": "source",
+      "name": "grid, transformer, generator, inverter, ups",
+      "note": "Project equipment with entered ratings and source evidence",
+      "kind": "model",
+      "status": "implemented"
+    },
+    {
+      "id": "equipment-template",
+      "name": "Load-derived template",
+      "note": "User-created and versioned; project instances receive separate identities",
+      "kind": "model",
+      "status": "implemented"
+    },
+    {
+      "id": "feeder",
+      "name": "Board, circuit, cable",
+      "note": "Entered circuit and cable properties with scoped assessments",
+      "kind": "model",
+      "status": "implemented"
+    },
+    {
+      "id": "meshed-ac",
+      "name": "Slack, PV and PQ buses",
+      "note": "Balanced AC load flow with per-unit branch impedance, taps and phase shifts",
+      "kind": "model",
+      "status": "implemented"
+    },
+    {
+      "id": "microgrid",
+      "name": "Chronological AC bus dispatch",
+      "note": "Generation, storage, demand and thermal fuel inventory",
+      "kind": "model",
+      "status": "implemented"
+    }
+  ]
+}
