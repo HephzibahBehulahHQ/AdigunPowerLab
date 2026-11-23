@@ -48,7 +48,7 @@ export const pvModules = families.flatMap((family) =>
       manufacturer: "Canadian Solar",
       model: `${family.prefix}-${powerW}H`,
       orderCode: null,
-      category: "solar-and-wind-equipment",
+      category: "solar-and-wind-equipment" as const,
       function: "photovoltaic-module",
       connection: "dc" as const,
       terminals: [
@@ -106,7 +106,7 @@ export const ic60nBreakers = [1, 2, 3, 4].flatMap((poles) =>
         manufacturer: "Schneider Electric",
         model,
         orderCode: model,
-        category: "protection-devices",
+        category: "protection-devices" as const,
         function: "miniature-circuit-breaker",
         connection: "ac" as const,
         terminals: Array.from({ length: poles }, (_, index) =>

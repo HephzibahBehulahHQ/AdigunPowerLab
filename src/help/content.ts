@@ -411,6 +411,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
     steps: [
       "Search or filter the library, mark favorites, create a sourced record or save an existing load as a template. Check generic starting assumptions before use.",
       "In Manufacturer equipment, search by maker or model and review or export the sourced record. PV modules can be applied in the PV worksheet.",
+      "Filter manufacturer equipment by category and use Previous records or Next records to browse large result sets.",
       "Search for an iC60N order code to inspect the breaker ratings and terminal groups. Breaker records are available for inventories and diagrams.",
       "Use Add to project equipment to save a model in the project. Edit its name or quantity to update the bill of materials.",
       "Adding a template creates an independent load. When updating a template, review which linked loads receive new nameplate fields and evidence; schedules, names and assignments remain as entered.",

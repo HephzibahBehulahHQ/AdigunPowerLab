@@ -457,3 +457,5 @@ The PV wiring candidate adds and removes indexed terminal links from the single-
 The iC60N batch adds 180 order codes from Schneider Electric Acti9 Catalogue Version 2.0, May 2017, printed pages 8–10. The candidate contains 194 sourced records. Breakers support CSV/JSON, installation inventory, and diagram inspection. Regional availability, AC phase wiring, and protection calculation mapping remain open.
 
 The phase-aware wiring candidate supports L1/L2/L3 links between documented breaker line terminals. Native validation rejects mixed electrical domains and phase conflicts on a pole. Local Chromium verified an L2 link and its diagram label. Neutral, protective earth for AC, and protection simulation remain open.
+
+PR #160 merged as 6ab0d29 after candidate validation. The catalogue navigation candidate filters by category and keeps the model selector to 50 results per page.

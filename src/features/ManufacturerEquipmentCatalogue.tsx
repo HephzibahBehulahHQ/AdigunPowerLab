@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { componentBankCsv, componentBank } from "../data/componentBank";
 import { downloadFile } from "../import-export/files";
-import { LanguageContext } from "../i18n";
+import { LanguageContext, useT } from "../i18n";
 import { newId } from "../domain/project";
 import type { Project } from "../domain/types";
 
@@ -79,6 +79,13 @@ const projectCopy = {
   ],
 } as const;
 
+const pageSize = 50;
+const categories = [...new Set(componentBank.map(({ category }) => category))];
+const categoryLabels = {
+  "solar-and-wind-equipment": "Solar and wind equipment",
+  "protection-devices": "Protection devices",
+} as const;
+
 export function ManufacturerEquipmentCatalogue({
   project,
   change,
@@ -87,16 +94,24 @@ export function ManufacturerEquipmentCatalogue({
   change: (mutator: (draft: Project) => void) => boolean | void;
 }) {
   const locale = useContext(LanguageContext);
+  const t = useT();
   const [title, search, inspect, empty, source, exportLabel, exportCsvLabel] =
     copy[locale];
   const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("");
+  const [page, setPage] = useState(0);
   const [selectedId, setSelectedId] = useState("");
-  const matches = componentBank.filter(({ manufacturer, model }) =>
-    `${manufacturer} ${model}`
-      .toLowerCase()
-      .includes(query.trim().toLowerCase()),
+  const terms = query.trim().toLowerCase().split(/\s+/);
+  const matches = componentBank.filter(
+    ({ manufacturer, model, category: key }) =>
+      (!category || category === key) &&
+      terms.every((term) =>
+        `${manufacturer} ${model}`.toLowerCase().includes(term),
+      ),
   );
-  const record = matches.find(({ id }) => id === selectedId) ?? matches[0];
+  const start = page * pageSize;
+  const visible = matches.slice(start, start + pageSize);
+  const record = visible.find(({ id }) => id === selectedId) ?? visible[0];
   const format = new Intl.NumberFormat(locale);
   const [add, projectTitle, name, quantity, remove, scope] =
     projectCopy[locale];
@@ -111,18 +126,63 @@ export function ManufacturerEquipmentCatalogue({
         <input
           type="search"
           value={query}
-          onChange={(event) => setQuery(event.currentTarget.value)}
+          onChange={(event) => {
+            setQuery(event.currentTarget.value);
+            setPage(0);
+          }}
         />
+      </label>
+      <label className="pg-field">
+        <span>{t("Equipment category")}</span>
+        <select
+          value={category}
+          onChange={(event) => {
+            setCategory(event.currentTarget.value);
+            setPage(0);
+          }}
+        >
+          <option value="">{t("All categories")}</option>
+          {categories.map((key) => (
+            <option key={key} value={key}>
+              {t(categoryLabels[key])}
+            </option>
+          ))}
+        </select>
       </label>
       {record ? (
         <>
+          {matches.length > pageSize && (
+            <div className="button-row">
+              <button
+                type="button"
+                className="button"
+                disabled={page === 0}
+                onClick={() => setPage(page - 1)}
+              >
+                {t("Previous records")}
+              </button>
+              <span aria-live="polite">
+                {format.format(start + 1)}–
+                {format.format(Math.min(start + pageSize, matches.length))} /{" "}
+                {format.format(matches.length)}
+              </span>
+              <button
+                type="button"
+                className="button"
+                disabled={start + pageSize >= matches.length}
+                onClick={() => setPage(page + 1)}
+              >
+                {t("Next records")}
+              </button>
+            </div>
+          )}
           <label className="pg-field">
             <span>{inspect}</span>
             <select
               value={record.id}
               onChange={(event) => setSelectedId(event.currentTarget.value)}
             >
-              {matches.map(({ id, manufacturer, model }) => (
+              {visible.map(({ id, manufacturer, model }) => (
                 <option key={id} value={id}>
                   {manufacturer} {model}
                 </option>
