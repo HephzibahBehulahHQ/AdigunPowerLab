@@ -1,5 +1,15 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "Inverters and conversion equipment": [
+    "Wechselrichter und Umrichter",
+    "Inverter àti ohun èlò ìyípadà",
+    "Inverters and conversion equipment",
+  ],
+  "Verified inverter calculation mapping": [
+    "Geprüfte Zuordnung zur Wechselrichterberechnung",
+    "Ìbámu ìṣírò inverter tí a fìdí múlẹ̀",
+    "Verified inverter calculation mapping",
+  ],
   "Rated output": [
     "Nennausgangsleistung",
     "Agbára àbájáde tí a sọ",

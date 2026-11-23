@@ -970,6 +970,84 @@ export const apcSmvUps = (
   readiness: "inventory-and-diagram-only",
 }));
 
+// The manufacturer's article-number key defines the DC voltage and outlet suffix.
+export const victronVeDirect230 = (
+  [
+    [250, "1251", 250, 200, "10"],
+    [375, "1371", 375, 300, "10"],
+    [500, "1501", 450, 380, "10"],
+    [800, "1801", 800, 650, "10"],
+    [1200, "2121", 1150, 1000, "10"],
+    [1600, "2161", 1450, 1300, "00"],
+  ] as const
+).flatMap(([size, code, continuousW25C, continuousW40C, revisionCode]) =>
+  ([1, 2, 3, 4] as const).flatMap((outletCode) =>
+    ([12, 24, 48] as const).map((inputNominalV) => {
+      const model = `PIN${inputNominalV}${code}${outletCode}${revisionCode}`;
+      const outlet = [
+        "IEC-320",
+        "Schuko (CEE 7/4)",
+        "AU/NZ (AS/NZS 3112)",
+        "UK (BS 1363)",
+      ][outletCode - 1];
+      return {
+        id: `victron-energy:${model.toLowerCase()}`,
+        manufacturer: "Victron Energy",
+        model,
+        orderCode: model,
+        category: "inverters-and-conversion-equipment" as const,
+        function: "standalone-dc-ac-inverter" as const,
+        connection: "dc-ac" as const,
+        terminals: [
+          {
+            id: "dc-positive",
+            group: "DC +",
+            interface: "inverter-dc-input",
+            connector: "screw terminal",
+          },
+          {
+            id: "dc-negative",
+            group: "DC −",
+            interface: "inverter-dc-input",
+            connector: "screw terminal",
+          },
+          {
+            id: "ac-outlet",
+            group: "AC output",
+            interface: "inverter-ac-output",
+            connector: outlet,
+          },
+        ],
+        ratings: {
+          size,
+          inputNominalV,
+          outputNominalV: 230,
+          continuousW25C,
+          continuousW40C,
+        },
+        conditions: {
+          outputFrequencyHz: [50, 60],
+          inputRangeV: { 12: [9.2, 17], 24: [18.4, 34], 48: [36.8, 62] }[
+            inputNominalV
+          ],
+        },
+        modelMapping: null,
+        source: {
+          url: "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+          revision:
+            "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+          page: 2,
+        },
+        missingFields: [
+          "regional-availability",
+          "verified-inverter-model-mapping",
+        ],
+        readiness: "inventory-and-diagram-only",
+      };
+    }),
+  ),
+);
+
 export const componentBank = [
   ...pvModules,
   ...ic60nBreakers,
@@ -986,6 +1064,7 @@ export const componentBank = [
   ...abt7pduTransformers,
   ...victronAgmSuperCycle,
   ...apcSmvUps,
+  ...victronVeDirect230,
 ];
 
 export function componentBankCsv(
