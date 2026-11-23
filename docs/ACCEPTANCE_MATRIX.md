@@ -397,3 +397,5 @@ The PV wiring candidate adds interactive terminal links, single-line rendering a
 AC protection batch: 180 sourced Schneider iC60N records have catalogue lookup, exact order code, rated current, pole-specific terminal groups, conditional breaking capacity, and CSV/JSON; AC wiring and protection analysis remain open.
 
 AC line-terminal wiring is available for indexed iC60N units. Connections preserve explicit phase and enforce breaker pole phase agreement. AC neutral/PE and protection calculations remain open.
+
+The catalogue navigation candidate supports category filtering, multi-term search, and pages of 50 models.

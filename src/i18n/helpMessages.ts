@@ -2024,6 +2024,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fi model kún ohun èlò iṣẹ́ akanṣe. Ṣàtúnṣe orúkọ tàbí iye rẹ̀ láti ṣe àtúnṣe àtòjọ ohun èlò.",
       "Add di model to project equipment. Change di name or quantity to update di bill of materials.",
     ],
+  "Filter manufacturer equipment by category and use Previous records or Next records to browse large result sets.":
+    [
+      "Filtern Sie Herstellergeräte nach Kategorie und blättern Sie mit Vorherige Datensätze oder Nächste Datensätze durch umfangreiche Ergebnisse.",
+      "Ṣe àlẹ̀mọ́ ohun èlò olupese pẹ̀lú ẹ̀ka, kí o lo àkọsílẹ̀ tó ṣáájú tàbí tó tẹ̀lé láti wo èsì púpọ̀.",
+      "Filter manufacturer equipment by category and use Previous records or Next records to browse plenty results.",
+    ],
   "Search for an iC60N order code to inspect the breaker ratings and terminal groups. Breaker records are available for inventories and diagrams.":
     [
       "Suchen Sie nach einem iC60N-Bestellcode, um Bemessungsdaten und Anschlussgruppen zu prüfen. Die Leistungsschalter stehen für Inventare und Diagramme zur Verfügung.",
