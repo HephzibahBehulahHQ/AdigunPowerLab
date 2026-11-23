@@ -458,3 +458,6 @@ Select **Model-derived bill of materials** and freeze the report to include the 
 Newly added catalogue equipment keeps its source page and any documented order code in project and report exports.
 
 Dashed wires identify saved catalogue terminal links in the single-line diagram and its SVG and PDF exports.
+
+Repository maintainers can run 
+ode scripts/export-component-bank.mjs --individual to generate one CSV and one JSON file per model. Open the printed output folder and use its index.json to find each model ID.

@@ -481,3 +481,5 @@ Saved equipment 761a601 published in Pages run 45278922033; the public site resp
 Diagram export candidate distinguishes saved terminal links with dashed strokes and renders same-instance wire loops outside the equipment symbol in PDF. Chromium verified the dashed wire and endpoint text in the downloaded SVG.
 
 Workspace backup copy restore was verified with saved catalogue provenance, two indexed PV units and a series link. Both endpoint IDs remain valid in the restored project.
+
+The catalogue generator can export a CSV and JSON file for every model plus an ID index. All 291 candidate records were verified against runtime data in both formats.
