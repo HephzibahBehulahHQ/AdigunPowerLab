@@ -506,3 +506,4 @@ VE.Direct 120 V records show their own temperature-conditioned power ratings and
 - Select **Generators** in the manufacturer catalogue to compare STAMFORD alternator continuous kVA by published temperature class. The source panel links the winding reference.
 - Select **Enclosures and installation hardware** to compare Schneider S3HD wall enclosures by external dimensions, ingress protection and impact protection.
 - Select **Lighting equipment** to inspect the Philips DN145B wattage, luminous flux, colour temperature and documented driver terminals.
+- Select **Motors and motor-driven equipment** to compare WEG nameplate operating points. The JSON and CSV also retain the documented full-load power factor and efficiency.
