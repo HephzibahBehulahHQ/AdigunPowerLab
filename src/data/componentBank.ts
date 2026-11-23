@@ -49,7 +49,7 @@ export const pvModules = families.flatMap((family) =>
       model: `${family.prefix}-${powerW}H`,
       orderCode: null,
       category: "solar-and-wind-equipment" as const,
-      function: "photovoltaic-module",
+      function: "photovoltaic-module" as const,
       connection: "dc" as const,
       terminals: [
         {
@@ -107,7 +107,7 @@ export const ic60nBreakers = [1, 2, 3, 4].flatMap((poles) =>
         model,
         orderCode: model,
         category: "protection-devices" as const,
-        function: "miniature-circuit-breaker",
+        function: "miniature-circuit-breaker" as const,
         connection: "ac" as const,
         terminals: Array.from({ length: poles }, (_, index) =>
           ["top", "bottom"].map((side) => ({
@@ -139,7 +139,119 @@ export const ic60nBreakers = [1, 2, 3, 4].flatMap((poles) =>
   ),
 );
 
-export const componentBank = [...pvModules, ...ic60nBreakers];
+// Acti9 2017, printed p. 52. Null cells are unavailable in this table.
+const iidAcTable = [
+  [2, 16, "A9R10216", null, null, null, null, null, null],
+  [2, 25, "A9R10225", "A9R71225", null, "A9R74225", "A9R16225", null, null],
+  [2, 40, null, "A9R71240", "A9R12240", "A9R74240", "A9R16240", null, null],
+  [
+    2,
+    63,
+    null,
+    "A9R71263",
+    "A9R12263",
+    "A9R74263",
+    "A9R16263",
+    "A9R15263",
+    null,
+  ],
+  [2, 80, null, "A9R11280", "A9R12280", "A9R14280", null, "A9R15280", null],
+  [2, 100, null, "A9R11291", "A9R12291", "A9R14291", null, "A9R15291", null],
+  [4, 25, null, "A9R71425", null, "A9R74425", "A9R16425", null, null],
+  [
+    4,
+    40,
+    null,
+    "A9R71440",
+    "A9R12440",
+    "A9R74440",
+    "A9R16440",
+    "A9R15440",
+    "A9R17440",
+  ],
+  [
+    4,
+    63,
+    null,
+    "A9R71463",
+    "A9R12463",
+    "A9R74463",
+    "A9R16463",
+    "A9R15463",
+    "A9R17463",
+  ],
+  [
+    4,
+    80,
+    null,
+    "A9R11480",
+    "A9R12480",
+    "A9R14480",
+    "A9R16480",
+    "A9R15480",
+    "A9R17480",
+  ],
+  [4, 100, null, "A9R11491", "A9R12491", "A9R14491", null, "A9R15491", null],
+] as const;
+
+export const iidRccbs = iidAcTable.flatMap(([poles, ratedCurrentA, ...codes]) =>
+  codes.flatMap((model, column) => {
+    if (!model) return [];
+    return [
+      {
+        id: `schneider-electric:${model.toLowerCase()}`,
+        manufacturer: "Schneider Electric",
+        model,
+        orderCode: model,
+        category: "protection-devices" as const,
+        function: "residual-current-circuit-breaker" as const,
+        connection: "ac" as const,
+        terminals: [
+          ...Array.from({ length: poles - 1 }, (_, pole) =>
+            ["top", "bottom"].map((side, index) => ({
+              id: `pole-${pole + 1}-${side}`,
+              group: String(pole * 2 + index + 1),
+              interface: "ac-line",
+              connector: "screw terminal",
+            })),
+          ).flat(),
+          ...["top", "bottom"].map((side) => ({
+            id: `neutral-${side}`,
+            group: `N (${side})`,
+            interface: "ac-neutral",
+            connector: "screw terminal",
+          })),
+        ],
+        ratings: {
+          ratedCurrentA,
+          poles,
+          tripSensitivityMA: [10, 30, 100, 300, 500, 300, 500][column],
+          selective: column >= 5,
+        },
+        conditions: {
+          frequencyHz: [50, 60],
+          ratedVoltageMinV: poles === 2 ? 230 : 400,
+          ratedVoltageMaxV: poles === 2 ? 240 : 415,
+          standard: "IEC/EN 61008-1",
+          residualCurrentType: "AC",
+        },
+        modelMapping: null,
+        source: {
+          url: "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+          revision: "Version 2.0, May 2017",
+          page: 52,
+        },
+        missingFields: [
+          "regional-availability",
+          "verified-protection-model-mapping",
+        ],
+        readiness: "inventory-and-diagram-only",
+      },
+    ];
+  }),
+);
+
+export const componentBank = [...pvModules, ...ic60nBreakers, ...iidRccbs];
 
 export function componentBankCsv(
   records: readonly (typeof componentBank)[number][],

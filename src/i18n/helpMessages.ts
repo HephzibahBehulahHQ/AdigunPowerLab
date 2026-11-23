@@ -1096,6 +1096,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Yan ohun èlò inú katalogi láti wo datasheet àti ẹgbẹ́ ebute. Yan nọ́ńbà ẹyọ àti ebute láti so waya PV pọ̀ tàbí yọ ọ́ nínú àwòrán. Ìṣírò ìṣàn agbára kò lo àwọn waya wọ̀nyí.",
       "Select catalogue equipment to see di datasheet and terminal groups. Choose unit numbers and terminals to connect or disconnect PV wire for di diagram. Power flow calculation no use these wires.",
     ],
+  "For an iID neutral link, select N and choose a neutral terminal at both ends.":
+    [
+      "Wählen Sie für eine iID-Neutralleiterverbindung N und an beiden Enden einen Neutralleiteranschluss.",
+      "Fún ìsopọ̀ neutral iID, yan N àti ebute neutral ní ìpẹ̀kun méjèèjì.",
+      "For iID neutral wire, choose N and select neutral terminal for both ends.",
+    ],
   "For an AC line link, choose L1, L2 or L3. Both terminals of a breaker pole must use the same phase.":
     [
       "Wählen Sie für eine AC-Leitung L1, L2 oder L3. Beide Anschlüsse eines Schalterpols müssen dieselbe Phase verwenden.",

@@ -459,3 +459,5 @@ The iC60N batch adds 180 order codes from Schneider Electric Acti9 Catalogue Ver
 The phase-aware wiring candidate supports L1/L2/L3 links between documented breaker line terminals. Native validation rejects mixed electrical domains and phase conflicts on a pole. Local Chromium verified an L2 link and its diagram label. Neutral, protective earth for AC, and protection simulation remain open.
 
 PR #160 merged as 6ab0d29 after candidate validation. The catalogue navigation candidate filters by category and keeps the model selector to 50 results per page.
+
+The iID batch adds 47 type-AC RCCB order codes from Acti9 Catalogue Version 2.0, May 2017, p. 52. The candidate catalogue contains 241 records. It preserves selective variants and supports neutral links, with fault and protection analyses still open.
