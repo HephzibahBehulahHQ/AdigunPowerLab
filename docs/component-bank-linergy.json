@@ -1,0 +1,323 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "schneider-electric:lgy112510",
+      "manufacturer": "Schneider Electric",
+      "model": "LGY112510",
+      "orderCode": "LGY112510",
+      "category": "busbars-and-distribution-systems",
+      "function": "single-pole-distribution-block",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "hole-1-1",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 9.5 mm screw terminal"
+        },
+        {
+          "id": "hole-1-2",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 9.5 mm screw terminal"
+        },
+        {
+          "id": "hole-2-1",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "hole-2-2",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "hole-3-1",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 5.8 mm screw terminal"
+        },
+        {
+          "id": "hole-3-2",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 5.8 mm screw terminal"
+        },
+        {
+          "id": "hole-3-3",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 5.8 mm screw terminal"
+        },
+        {
+          "id": "hole-3-4",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 5.8 mm screw terminal"
+        },
+        {
+          "id": "hole-3-5",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 5.8 mm screw terminal"
+        },
+        {
+          "id": "hole-3-6",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 5.8 mm screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 125,
+        "poles": 1,
+        "ipkKA": 25,
+        "icwKA": 4.2
+      },
+      "conditions": {
+        "icwDurationSeconds": 1,
+        "icwStandard": "IEC/EN 60947-7-1"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=LVYED213001EN&p_File_name=LVYED213001EN_V7.0_Linergy_Catalog.pdf",
+        "revision": "LIN2100, Version 9.0, 25/09/2026",
+        "page": 2,
+        "pageLabel": "B-2"
+      },
+      "missingFields": [
+        "verified-distribution-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:lgy116013",
+      "manufacturer": "Schneider Electric",
+      "model": "LGY116013",
+      "orderCode": "LGY116013",
+      "category": "busbars-and-distribution-systems",
+      "function": "single-pole-distribution-block",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "hole-1-1",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 12 mm screw terminal"
+        },
+        {
+          "id": "hole-1-2",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 12 mm screw terminal"
+        },
+        {
+          "id": "hole-2-1",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "hole-2-2",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "hole-2-3",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "hole-3-1",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 5.8 mm screw terminal"
+        },
+        {
+          "id": "hole-3-2",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 5.8 mm screw terminal"
+        },
+        {
+          "id": "hole-3-3",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 5.8 mm screw terminal"
+        },
+        {
+          "id": "hole-3-4",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 5.8 mm screw terminal"
+        },
+        {
+          "id": "hole-3-5",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 5.8 mm screw terminal"
+        },
+        {
+          "id": "hole-3-6",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 5.8 mm screw terminal"
+        },
+        {
+          "id": "hole-3-7",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 5.8 mm screw terminal"
+        },
+        {
+          "id": "hole-3-8",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 5.8 mm screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 160,
+        "poles": 1,
+        "ipkKA": 36,
+        "icwKA": 8.4
+      },
+      "conditions": {
+        "icwDurationSeconds": 1,
+        "icwStandard": "IEC/EN 60947-7-1"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=LVYED213001EN&p_File_name=LVYED213001EN_V7.0_Linergy_Catalog.pdf",
+        "revision": "LIN2100, Version 9.0, 25/09/2026",
+        "page": 2,
+        "pageLabel": "B-2"
+      },
+      "missingFields": [
+        "verified-distribution-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:lgy125014",
+      "manufacturer": "Schneider Electric",
+      "model": "LGY125014",
+      "orderCode": "LGY125014",
+      "category": "busbars-and-distribution-systems",
+      "function": "single-pole-distribution-block",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "hole-1-1",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 15.3 mm screw terminal"
+        },
+        {
+          "id": "hole-2-1",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 10 mm screw terminal"
+        },
+        {
+          "id": "hole-3-1",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 6 mm screw terminal"
+        },
+        {
+          "id": "hole-3-2",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 6 mm screw terminal"
+        },
+        {
+          "id": "hole-3-3",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 6 mm screw terminal"
+        },
+        {
+          "id": "hole-3-4",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 6 mm screw terminal"
+        },
+        {
+          "id": "hole-4-1",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "hole-4-2",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "hole-4-3",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "hole-4-4",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "hole-4-5",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "hole-4-6",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "hole-4-7",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "hole-4-8",
+          "group": "pole-1",
+          "interface": "ac-line",
+          "connector": "Ø 7.5 mm screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 250,
+        "poles": 1,
+        "ipkKA": 60,
+        "icwKA": 14.4
+      },
+      "conditions": {
+        "icwDurationSeconds": 1,
+        "icwStandard": "IEC/EN 60947-7-1"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=LVYED213001EN&p_File_name=LVYED213001EN_V7.0_Linergy_Catalog.pdf",
+        "revision": "LIN2100, Version 9.0, 25/09/2026",
+        "page": 2,
+        "pageLabel": "B-2"
+      },
+      "missingFields": [
+        "verified-distribution-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}

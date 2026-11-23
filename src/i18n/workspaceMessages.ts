@@ -1,5 +1,15 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "Busbars and distribution systems": [
+    "Sammelschienen und Verteilung",
+    "Busbar àti ètò pínpín",
+    "Busbars and distribution systems",
+  ],
+  "Verified distribution calculation mapping": [
+    "Geprüfte Zuordnung zur Verteilungsberechnung",
+    "Ìbámu ìṣírò pínpín tí a fìdí múlẹ̀",
+    "Verified distribution calculation mapping",
+  ],
   "Monitoring and sensors": [
     "Überwachung und Sensoren",
     "Àbójútó àti sensor",

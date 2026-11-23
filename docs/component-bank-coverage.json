@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "distinctRecords": 717,
+  "distinctRecords": 720,
   "goalMinimum": 10000,
   "readiness": {
     "pv-worksheet-inputs-only": 14,
-    "inventory-and-diagram-only": 703
+    "inventory-and-diagram-only": 706
   },
   "categories": [
     {
@@ -70,8 +70,8 @@
     {
       "category": "busbars-and-distribution-systems",
       "target": 400,
-      "records": 0,
-      "remaining": 400
+      "records": 3,
+      "remaining": 397
     },
     {
       "category": "motors-and-motor-driven-equipment",

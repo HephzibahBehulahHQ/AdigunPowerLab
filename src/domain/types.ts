@@ -313,6 +313,7 @@ export interface CatalogueEquipmentInstance {
   sourceUrl: string;
   sourceRevision: string;
   sourcePage?: number;
+  sourcePageLabel?: string;
   orderCode?: string;
   name: string;
   quantity: number;

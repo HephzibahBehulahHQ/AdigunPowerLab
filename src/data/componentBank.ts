@@ -645,6 +645,73 @@ export const rm17Relays = (
   }),
 );
 
+// LIN2100, section B, p. B-2. Each single-pole block has one common node.
+export const linergyDsBlocks = (
+  [
+    [
+      "LGY112510",
+      125,
+      25,
+      4.2,
+      [
+        [2, 9.5],
+        [2, 7.5],
+        [6, 5.8],
+      ],
+    ],
+    [
+      "LGY116013",
+      160,
+      36,
+      8.4,
+      [
+        [2, 12],
+        [3, 7.5],
+        [8, 5.8],
+      ],
+    ],
+    [
+      "LGY125014",
+      250,
+      60,
+      14.4,
+      [
+        [1, 15.3],
+        [1, 10],
+        [4, 6],
+        [8, 7.5],
+      ],
+    ],
+  ] as const
+).map(([model, ratedCurrentA, ipkKA, icwKA, holes]) => ({
+  id: `schneider-electric:${model.toLowerCase()}`,
+  manufacturer: "Schneider Electric",
+  model,
+  orderCode: model,
+  category: "busbars-and-distribution-systems" as const,
+  function: "single-pole-distribution-block" as const,
+  connection: "ac" as const,
+  terminals: holes.flatMap(([count, diameterMm], row) =>
+    Array.from({ length: count }, (_, index) => ({
+      id: `hole-${row + 1}-${index + 1}`,
+      group: "pole-1",
+      interface: "ac-line",
+      connector: `Ø ${diameterMm} mm screw terminal`,
+    })),
+  ),
+  ratings: { ratedCurrentA, poles: 1, ipkKA, icwKA },
+  conditions: { icwDurationSeconds: 1, icwStandard: "IEC/EN 60947-7-1" },
+  modelMapping: null,
+  source: {
+    url: "https://download.se.com/files?p_Doc_Ref=LVYED213001EN&p_File_name=LVYED213001EN_V7.0_Linergy_Catalog.pdf",
+    revision: "LIN2100, Version 9.0, 25/09/2026",
+    page: 2,
+    pageLabel: "B-2",
+  },
+  missingFields: ["verified-distribution-model-mapping"],
+  readiness: "inventory-and-diagram-only",
+}));
+
 export const componentBank = [
   ...pvModules,
   ...ic60nBreakers,
@@ -655,6 +722,7 @@ export const componentBank = [
   ...ic60hBreakers,
   ...ic60lBreakers,
   ...rm17Relays,
+  ...linergyDsBlocks,
 ];
 
 export function componentBankCsv(
