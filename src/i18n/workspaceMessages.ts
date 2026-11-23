@@ -1,5 +1,20 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "Drives and starting equipment": [
+    "Antriebs- und Anlaufgeräte",
+    "Ohun èlò ìdarí àti ìbẹ̀rẹ̀ mọ́tò",
+    "Drives and starting equipment",
+  ],
+  "Verified drive calculation mapping": [
+    "Geprüfte Zuordnung zur Antriebsberechnung",
+    "Ìbámu ìṣírò ìdarí mọ́tò tí a fìdí múlẹ̀",
+    "Verified drive calculation mapping",
+  ],
+  "Drive auxiliary terminals": [
+    "Hilfsanschlüsse des Antriebs",
+    "Àwọn ebute àfikún ìdarí mọ́tò",
+    "Drive auxiliary terminals",
+  ],
   "EV charging equipment": [
     "Ladeeinrichtungen für Elektrofahrzeuge",
     "Ohun èlò ìgbàgbára ọkọ̀ ayọ́kẹ́lẹ́ oníná",

@@ -1,0 +1,1683 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "schneider-electric:atv320u02m2c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320U02M2C",
+      "orderCode": "ATV320U02M2C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2-n",
+          "group": "S/L2/N",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 0.18,
+        "continuousOutputA": 1.5,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 1
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": true
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320u04m2c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320U04M2C",
+      "orderCode": "ATV320U04M2C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2-n",
+          "group": "S/L2/N",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 0.37,
+        "continuousOutputA": 3.3,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 1
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": true
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320u06m2c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320U06M2C",
+      "orderCode": "ATV320U06M2C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2-n",
+          "group": "S/L2/N",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 0.55,
+        "continuousOutputA": 3.7,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 1
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": true
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320u07m2c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320U07M2C",
+      "orderCode": "ATV320U07M2C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2-n",
+          "group": "S/L2/N",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 0.75,
+        "continuousOutputA": 4.8,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 1
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": true
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320u11m2c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320U11M2C",
+      "orderCode": "ATV320U11M2C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2-n",
+          "group": "S/L2/N",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 1.1,
+        "continuousOutputA": 6.9,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 1
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": true
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320u15m2c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320U15M2C",
+      "orderCode": "ATV320U15M2C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2-n",
+          "group": "S/L2/N",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 1.5,
+        "continuousOutputA": 8,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 1
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": true
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320u22m2c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320U22M2C",
+      "orderCode": "ATV320U22M2C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2-n",
+          "group": "S/L2/N",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 2.2,
+        "continuousOutputA": 11,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 1
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": true
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320u02m3c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320U02M3C",
+      "orderCode": "ATV320U02M3C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2",
+          "group": "S/L2",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "t-l3",
+          "group": "T/L3",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 0.18,
+        "continuousOutputA": 1.5,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 3
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": false
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320u04m3c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320U04M3C",
+      "orderCode": "ATV320U04M3C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2",
+          "group": "S/L2",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "t-l3",
+          "group": "T/L3",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 0.37,
+        "continuousOutputA": 3.3,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 3
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": false
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320u06m3c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320U06M3C",
+      "orderCode": "ATV320U06M3C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2",
+          "group": "S/L2",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "t-l3",
+          "group": "T/L3",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 0.55,
+        "continuousOutputA": 3.7,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 3
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": false
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320u07m3c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320U07M3C",
+      "orderCode": "ATV320U07M3C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2",
+          "group": "S/L2",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "t-l3",
+          "group": "T/L3",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 0.75,
+        "continuousOutputA": 4.8,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 3
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": false
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320u11m3c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320U11M3C",
+      "orderCode": "ATV320U11M3C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2",
+          "group": "S/L2",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "t-l3",
+          "group": "T/L3",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 1.1,
+        "continuousOutputA": 6.9,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 3
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": false
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320u15m3c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320U15M3C",
+      "orderCode": "ATV320U15M3C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2",
+          "group": "S/L2",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "t-l3",
+          "group": "T/L3",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 1.5,
+        "continuousOutputA": 8,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 3
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": false
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320u22m3c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320U22M3C",
+      "orderCode": "ATV320U22M3C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2",
+          "group": "S/L2",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "t-l3",
+          "group": "T/L3",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 2.2,
+        "continuousOutputA": 11,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 3
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": false
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320u30m3c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320U30M3C",
+      "orderCode": "ATV320U30M3C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2",
+          "group": "S/L2",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "t-l3",
+          "group": "T/L3",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 3,
+        "continuousOutputA": 13.7,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 3
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": false
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320u40m3c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320U40M3C",
+      "orderCode": "ATV320U40M3C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2",
+          "group": "S/L2",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "t-l3",
+          "group": "T/L3",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 4,
+        "continuousOutputA": 17.5,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 3
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": false
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320u55m3c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320U55M3C",
+      "orderCode": "ATV320U55M3C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2",
+          "group": "S/L2",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "t-l3",
+          "group": "T/L3",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 5.5,
+        "continuousOutputA": 27.5,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 3
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": false
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320u75m3c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320U75M3C",
+      "orderCode": "ATV320U75M3C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2",
+          "group": "S/L2",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "t-l3",
+          "group": "T/L3",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 7.5,
+        "continuousOutputA": 33,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 3
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": false
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320d11m3c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320D11M3C",
+      "orderCode": "ATV320D11M3C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2",
+          "group": "S/L2",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "t-l3",
+          "group": "T/L3",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 11,
+        "continuousOutputA": 54,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 3
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": false
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:atv320d15m3c",
+      "manufacturer": "Schneider Electric",
+      "model": "ATV320D15M3C",
+      "orderCode": "ATV320D15M3C",
+      "category": "drives-and-starting-equipment",
+      "function": "variable-speed-drive",
+      "connection": "ac-ac",
+      "terminals": [
+        {
+          "id": "r-l1",
+          "group": "R/L1",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "s-l2",
+          "group": "S/L2",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "t-l3",
+          "group": "T/L3",
+          "interface": "drive-ac-input",
+          "connector": "power terminal"
+        },
+        {
+          "id": "u-t1",
+          "group": "U/T1",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "v-t2",
+          "group": "V/T2",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "w-t3",
+          "group": "W/T3",
+          "interface": "drive-motor-output",
+          "connector": "power terminal"
+        },
+        {
+          "id": "pe",
+          "group": "PE",
+          "interface": "drive-protective-earth",
+          "connector": "power terminal"
+        }
+      ],
+      "ratings": {
+        "motorKW": 15,
+        "continuousOutputA": 66,
+        "supplyMinV": 200,
+        "supplyMaxV": 240,
+        "supplyPhases": 3
+      },
+      "conditions": {
+        "supplyFrequencyHz": [
+          50,
+          60
+        ],
+        "nominalSwitchingFrequencyKHz": 4,
+        "integratedEmcFilter": false
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        "revision": "DIA2ED2160311EN",
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            "revision": "NVE41289.09 (04/2025)",
+            "page": 144
+          }
+        ]
+      },
+      "missingFields": [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}

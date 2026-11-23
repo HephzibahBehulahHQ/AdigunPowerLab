@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "distinctRecords": 918,
+  "distinctRecords": 938,
   "goalMinimum": 10000,
   "readiness": {
     "pv-worksheet-inputs-only": 14,
-    "inventory-and-diagram-only": 904
+    "inventory-and-diagram-only": 924
   },
   "categories": [
     {
@@ -82,8 +82,8 @@
     {
       "category": "drives-and-starting-equipment",
       "target": 500,
-      "records": 0,
-      "remaining": 500
+      "records": 20,
+      "remaining": 480
     },
     {
       "category": "commercial-and-industrial-loads",

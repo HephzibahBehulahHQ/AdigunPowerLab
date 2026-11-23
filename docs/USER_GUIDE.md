@@ -499,3 +499,4 @@ Filter **Inverters and conversion equipment** to compare VE.Direct power at 25 a
 VE.Direct 120 V records show their own temperature-conditioned power ratings and NEMA or GFCI outlet variant.
 
 - In the manufacturer catalogue, select **EV charging equipment** or search for an EVlink order code. Check the rated power, supply phases and Type 2 connector. EVlink entries support inventory and diagrams.
+- Select **Drives and starting equipment** in the manufacturer catalogue to compare compact Altivar drives by supply phase, motor power and continuous output current. Use the manufacturer documents for derating and auxiliary connections.
