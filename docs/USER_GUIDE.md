@@ -432,3 +432,5 @@ The Equipment Library's **Manufacturer equipment** panel lets you search by make
 Select **Add to project equipment** to keep a sourced model with the saved project. Edit its name and installed quantity in **Project equipment**, then save. Reports include these quantities in the model-derived bill of materials. The PV worksheet uses its own reviewed study inputs.
 
 In the single-line diagram, select a catalogue equipment symbol to inspect its terminal groups and datasheet. Equipment awaiting connection is drawn as a separate symbol.
+
+Select two installed unit numbers and their documented terminals, then choose **Connect**. Saved wires appear in the diagram and can be removed with **Disconnect**. These links document layout and do not enter the power flow calculations.

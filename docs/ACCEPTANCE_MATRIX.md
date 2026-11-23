@@ -391,3 +391,5 @@ Candidate supports adding a sourced model, editing its name and quantity, saving
 The diagram candidate adds placement as standalone symbols and terminal inspection in the single-line diagram. Terminal-to-terminal wiring remains open.
 
 Native project import supports source-resolved PV terminal links with unit indices and basic endpoint validation. Interactive editing and AC phase-aware topology remain open.
+
+The PV wiring candidate adds interactive terminal links, single-line rendering and native save/reload. The links remain outside power flow calculations.

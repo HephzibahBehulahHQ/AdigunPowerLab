@@ -40,7 +40,8 @@ export default function SpatialView({
   const children = useMemo(() => {
     const map = new Map<string, string[]>();
     for (const edge of snapshot.edges)
-      map.set(edge.from, [...(map.get(edge.from) ?? []), edge.to]);
+      if (!edge.wireId)
+        map.set(edge.from, [...(map.get(edge.from) ?? []), edge.to]);
     return map;
   }, [snapshot]);
   const profiles = useMemo(
@@ -242,7 +243,10 @@ export default function SpatialView({
           </marker>
         </defs>
         {snapshot.edges
-          .filter((edge) => scoped.has(edge.from) && scoped.has(edge.to))
+          .filter(
+            (edge) =>
+              !edge.wireId && scoped.has(edge.from) && scoped.has(edge.to),
+          )
           .map((edge) => {
             const from = positions.get(edge.from)!,
               to = positions.get(edge.to)!,

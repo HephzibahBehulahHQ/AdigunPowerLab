@@ -25,7 +25,7 @@ export interface DiagramSnapshot {
   width: number;
   height: number;
   nodes: DiagramNode[];
-  edges: Array<{ from: string; to: string; label: string }>;
+  edges: Array<{ from: string; to: string; label: string; wireId?: string }>;
   notes: Array<{ text: string; x: number; y: number }>;
   offsetX: number;
   offsetY: number;
@@ -274,9 +274,17 @@ export function buildDiagramSnapshot(
       ...notes.map((note) => note.y + 120),
     ),
     nodes: located,
-    edges: edges.filter(
-      (edge) => included.has(edge.from) && included.has(edge.to),
-    ),
+    edges: [
+      ...edges,
+      ...(project.equipmentTerminalConnections ?? []).map(
+        ({ id, from, to }) => ({
+          from: `equipment:${from.instanceId}`,
+          to: `equipment:${to.instanceId}`,
+          label: `${from.unit} · ${from.terminalId} ↔ ${to.unit} · ${to.terminalId}`,
+          wireId: id,
+        }),
+      ),
+    ].filter((edge) => included.has(edge.from) && included.has(edge.to)),
     notes,
     offsetX,
     offsetY,
@@ -292,6 +300,11 @@ export function diagramEdgePath(
   const from = snapshot.nodes.find((node) => node.id === edge.from),
     to = snapshot.nodes.find((node) => node.id === edge.to);
   if (!from || !to) return "";
+  if (from.id === to.id && edge.wireId) {
+    const x = from.x + from.width;
+    const y = from.y + from.height / 2;
+    return `M${x} ${y - 15}h32v30h-32`;
+  }
   const x1 = from.x + from.width,
     y1 = from.y + from.height / 2,
     x2 = to.x,
