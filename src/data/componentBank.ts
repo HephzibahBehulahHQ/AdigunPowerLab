@@ -1453,6 +1453,72 @@ export const spacialS3hdEnclosures = spacialS3hdRows.map(
   }),
 );
 
+export const philipsDn145bDownlights = [
+  {
+    id: "philips:910500465901",
+    manufacturer: "Philips",
+    model: "DN145B LED10S/830 PSD-E II WH",
+    orderCode: "910500465901",
+    category: "lighting-equipment" as const,
+    function: "recessed-led-downlight" as const,
+    connection: "ac" as const,
+    terminals: [
+      {
+        id: "l",
+        group: "L",
+        interface: "luminaire-ac-input",
+        connector: "driver terminal",
+      },
+      {
+        id: "n",
+        group: "N",
+        interface: "luminaire-ac-input",
+        connector: "driver terminal",
+      },
+      {
+        id: "da-n",
+        group: "DA/N",
+        interface: "luminaire-control",
+        connector: "driver terminal",
+      },
+      {
+        id: "da-ls",
+        group: "DA/Ls",
+        interface: "luminaire-control",
+        connector: "driver terminal",
+      },
+    ],
+    ratings: {
+      inputMinV: 220,
+      inputMaxV: 240,
+      powerW: 13,
+      luminousFluxLm: 1000,
+      colorTemperatureK: 3000,
+      powerFactor: 0.9,
+    },
+    conditions: {
+      frequencyHz: [50, 60],
+      control: "DALI-2",
+      protectionClass: "II",
+    },
+    modelMapping: null,
+    source: {
+      url: "https://www.docs.signify.com/assets/Leaflet/Philips_PROF/FP/en_AA/910500465901_EU.en_AA.PROF.FP.pdf",
+      revision: "Philips fact sheet (2026-10-30)",
+      page: 2,
+      supplemental: [
+        {
+          url: "https://www.signify.com/api/assets/v1/file/Signify/content/444316022141%20MI%20DN145B%20IA1%20PSD-E/DN145B_IA1_PSD_E_installation_instruction.pdf",
+          revision: "444316022141 (2019)",
+          page: 2,
+        },
+      ],
+    },
+    missingFields: ["verified-lighting-model-mapping"],
+    readiness: "inventory-and-diagram-only",
+  },
+];
+
 export const componentBank = [
   ...pvModules,
   ...ic60nBreakers,
@@ -1476,6 +1542,7 @@ export const componentBank = [
   ...olflexClassic110Cables,
   ...stamfordWinding311Alternators,
   ...spacialS3hdEnclosures,
+  ...philipsDn145bDownlights,
 ];
 
 export function componentBankCsv(
