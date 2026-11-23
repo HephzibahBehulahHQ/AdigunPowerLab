@@ -119,9 +119,16 @@ test("product registration and every sign-in require email OTP before releasing 
     });
     const sessionCookie = signedIn.headers.getSetCookie()[1].split(";")[0];
     assert.match(sessionCookie, /^__Host-adigunpowerlab-session=/);
-    assert.equal((await (await post({ step: "guest" }, sessionCookie)).json()).step, "signed-in");
-    assert.match((await post({ step: "sign-out" }, sessionCookie)).headers.get("Set-Cookie"),
-      /^__Host-adigunpowerlab-session=;.*Max-Age=0/);
+    assert.equal(
+      (await (await post({ step: "guest" }, sessionCookie)).json()).step,
+      "signed-in",
+    );
+    assert.match(
+      (await post({ step: "sign-out" }, sessionCookie)).headers.get(
+        "Set-Cookie",
+      ),
+      /^__Host-adigunpowerlab-session=;.*Max-Age=0/,
+    );
     const replacement = "New product password 222";
     const recovery = await begin("reset-password", replacement);
     assert.deepEqual(await recovery.json(), { step: "verify" });
@@ -153,7 +160,11 @@ test("guest cookies retain one immutable four-minute deadline without Supabase",
     const saved = cookieFrom(opened);
     now += 239999;
     const resumed = await post({ step: "guest", allowStart: true }, saved);
-    assert.deepEqual(await resumed.json(), { step: "guest", remainingMs: 1, trialAvailable: false });
+    assert.deepEqual(await resumed.json(), {
+      step: "guest",
+      remainingMs: 1,
+      trialAvailable: false,
+    });
     assert.equal(resumed.headers.get("Set-Cookie"), null);
     now++;
     assert.deepEqual(

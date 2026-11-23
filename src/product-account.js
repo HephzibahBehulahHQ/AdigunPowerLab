@@ -15,7 +15,8 @@ const errors = {
   "invalid-product-credentials": "Check your PowerLab email and password.",
   "invalid-or-expired-email-code": "That code is incorrect or expired.",
   "email-code-request-required": "Request a new email code to continue.",
-  "product-account-not-authorized": "Try signing in or resetting your PowerLab password.",
+  "product-account-not-authorized":
+    "Try signing in or resetting your PowerLab password.",
   "wait-and-retry": "Too many requests. Wait a minute and try again.",
 };
 
@@ -97,7 +98,8 @@ export function mountProductAccount() {
   function updateAccess(result) {
     clearTimeout(timer);
     signedIn = result.step === "signed-in";
-    if (typeof result.trialAvailable === "boolean") trialAvailable = result.trialAvailable;
+    if (typeof result.trialAvailable === "boolean")
+      trialAvailable = result.trialAvailable;
     const remaining = Number(result.remainingMs) || 0;
     workspace.inert = !signedIn && remaining <= 0;
     if (workspace.inert) {
@@ -121,7 +123,8 @@ export function mountProductAccount() {
     try {
       await operation();
     } catch (error) {
-      message.textContent = errors[error.message] || "Account service unavailable. Try again.";
+      message.textContent =
+        errors[error.message] || "Account service unavailable. Try again.";
     } finally {
       button.disabled = false;
     }
@@ -129,7 +132,8 @@ export function mountProductAccount() {
 
   workspace.inert = true;
   mode.addEventListener("change", () => {
-    password.autocomplete = mode.value === "sign-in" ? "current-password" : "new-password";
+    password.autocomplete =
+      mode.value === "sign-in" ? "current-password" : "new-password";
   });
   accountButton.addEventListener("click", showAccount);
   close.addEventListener("click", () => dialog.close());
@@ -141,21 +145,31 @@ export function mountProductAccount() {
     message.textContent = "";
     email.focus();
   });
-  guest.addEventListener("click", () => run(guest, async () => {
-    const result = await accountRequest({ step: "guest", allowStart: true });
-    trialAvailable = false;
-    if (!result.remainingMs) message.textContent = "Your guest trial ended. Sign in to continue.";
-    updateAccess(result);
-  }));
-  signout.addEventListener("click", () => run(signout, async () => {
-    await accountRequest({ step: "sign-out" });
-    updateAccess(await accountRequest({ step: "guest" }));
-  }));
+  guest.addEventListener("click", () =>
+    run(guest, async () => {
+      const result = await accountRequest({ step: "guest", allowStart: true });
+      trialAvailable = false;
+      if (!result.remainingMs)
+        message.textContent = "Your guest trial ended. Sign in to continue.";
+      updateAccess(result);
+    }),
+  );
+  signout.addEventListener("click", () =>
+    run(signout, async () => {
+      await accountRequest({ step: "sign-out" });
+      updateAccess(await accountRequest({ step: "guest" }));
+    }),
+  );
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     void run(submit, async () => {
       if (!verifying) {
-        await accountRequest({ step: "begin", mode: mode.value, email: email.value, password: password.value });
+        await accountRequest({
+          step: "begin",
+          mode: mode.value,
+          email: email.value,
+          password: password.value,
+        });
         setVerification(true);
         message.textContent = "Enter the code sent to your email.";
         return;
@@ -168,9 +182,10 @@ export function mountProductAccount() {
         message.textContent = "";
         updateAccess(result);
       } else {
-        message.textContent = result.step === "registered"
-          ? "Account verified. Sign in with your password and a new email code."
-          : "Password updated. Sign in with your new password and email code.";
+        message.textContent =
+          result.step === "registered"
+            ? "Account verified. Sign in with your password and a new email code."
+            : "Password updated. Sign in with your new password and email code.";
       }
     });
   });
