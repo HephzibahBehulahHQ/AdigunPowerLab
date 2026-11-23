@@ -9,6 +9,7 @@ import {
   iidRccbs,
   iswSwitches,
   iemMeters,
+  ictContactors,
 } from "../src/data/componentBank.ts";
 import { join } from "node:path";
 
@@ -19,6 +20,7 @@ const batches = {
   iid: iidRccbs,
   isw: iswSwitches,
   iem: iemMeters,
+  ict: ictContactors,
 };
 for (const [batch, entries] of Object.entries(batches)) {
   writeFileSync(

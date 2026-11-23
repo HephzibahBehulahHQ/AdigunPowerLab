@@ -426,12 +426,64 @@ export const iemMeters = [
   };
 });
 
+// CA909006E p. 74: normally open contactors with documented terminal diagrams.
+export const ictContactors = (
+  [
+    ["A9C20731", 1, 25, 8.5, 230, false],
+    ["A9C22712", 2, 16, 6, 230, false],
+    ["A9C20732", 2, 25, 8.5, 230, false],
+    ["A9C20842", 2, 40, 15, 220, false],
+    ["A9C20834", 4, 25, 8.5, 220, false],
+    ["A9C21732", 2, 25, 8.5, 230, true],
+    ["A9C21833", 3, 25, 8.5, 220, true],
+    ["A9C21834", 4, 25, 8.5, 220, true],
+  ] as const
+).map(([model, poles, ac7aA, ac7bA, coilMinV, manualSelector]) => ({
+  id: `schneider-electric:${model.toLowerCase()}`,
+  manufacturer: "Schneider Electric",
+  model,
+  orderCode: model,
+  category: "switching-and-transfer-equipment" as const,
+  function: "modular-contactor" as const,
+  connection: "ac" as const,
+  terminals: [
+    ...Array.from({ length: poles }, (_, pole) =>
+      ["top", "bottom"].map((side, index) => ({
+        id: `pole-${pole + 1}-${side}`,
+        group: String(pole * 2 + index + 1),
+        interface: "ac-line",
+        connector: "screw terminal",
+      })),
+    ).flat(),
+    ...["A1", "A2"].map((group) => ({
+      id: group.toLowerCase(),
+      group,
+      interface: "ac-coil",
+      connector: "screw terminal",
+    })),
+  ],
+  ratings: { poles, ac7aA, ac7bA, coilMinV, coilMaxV: 240, manualSelector },
+  conditions: {
+    contactState: "normally open",
+    coilFrequencyHz: manualSelector ? [50, 60] : [50],
+  },
+  modelMapping: null,
+  source: {
+    url: "https://download.se.com/files?p_Doc_Ref=CA909006NL&p_File_Ext=.PDF",
+    revision: "CA909006E, Version 1.0, 02/08/2017",
+    page: 74,
+  },
+  missingFields: ["regional-availability", "verified-switching-model-mapping"],
+  readiness: "inventory-and-diagram-only",
+}));
+
 export const componentBank = [
   ...pvModules,
   ...ic60nBreakers,
   ...iidRccbs,
   ...iswSwitches,
   ...iemMeters,
+  ...ictContactors,
 ];
 
 export function componentBankCsv(
