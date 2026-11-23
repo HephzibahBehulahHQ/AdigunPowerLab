@@ -86,6 +86,7 @@ const categoryLabels = {
   "protection-devices": "Protection devices",
   "switching-and-transfer-equipment": "Switching and transfer equipment",
   "metering-and-power-quality": "Metering and power quality",
+  "monitoring-and-sensors": "Monitoring and sensors",
 } as const;
 
 const missingFieldLabels: Record<string, string> = {
@@ -96,6 +97,9 @@ const missingFieldLabels: Record<string, string> = {
     "Verified protection calculation mapping",
   "verified-switching-model-mapping": "Verified switching calculation mapping",
   "verified-metering-model-mapping": "Verified metering calculation mapping",
+  "verified-monitoring-model-mapping":
+    "Verified monitoring calculation mapping",
+  "contact-current-by-load-category": "Contact current by load category",
 };
 
 export function ManufacturerEquipmentCatalogue({
@@ -280,6 +284,22 @@ export function ManufacturerEquipmentCatalogue({
                 <dt>Uc</dt>
                 <dd>
                   {record.ratings.coilMinV}–{record.ratings.coilMaxV} V AC
+                </dd>
+              </div>
+            </dl>
+          ) : record.function === "phase-monitoring-relay" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>U</dt>
+                <dd>
+                  {record.ratings.voltageMinV}–{record.ratings.voltageMaxV} V AC
+                </dd>
+              </div>
+              <div>
+                <dt>{t("Relay output")}</dt>
+                <dd>
+                  {record.ratings.changeoverContacts} CO ·{" "}
+                  {record.ratings.catalogueContactCurrentA} A
                 </dd>
               </div>
             </dl>

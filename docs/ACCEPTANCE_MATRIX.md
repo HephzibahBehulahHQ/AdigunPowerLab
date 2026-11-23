@@ -435,3 +435,5 @@ Identical-module PV string calculations include nameplate Pmax and Isc at STC.
 The iC60H tranche adds 180 B/C/D variants across 1P–4P, voltage-qualified IEC/EN 60898-1 breaking capacity and numbered terminals.
 
 The iC60L tranche includes 232 variants with exact pole counts, terminal labels, order codes and voltage-scoped Icn metadata.
+
+Harmony RM17 monitoring entries include exact order codes, sensing terminals, numbered changeover contacts and CSV/JSON.

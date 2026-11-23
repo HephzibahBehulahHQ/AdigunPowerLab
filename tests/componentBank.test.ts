@@ -10,6 +10,7 @@ import {
   iswSwitches,
   iemMeters,
   ictContactors,
+  rm17Relays,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -19,6 +20,31 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("RM17 reference variants preserve voltage ranges and output contact groups", () => {
+  expect(rm17Relays).toHaveLength(6);
+  const model = rm17Relays.find(({ model }) => model === "RM17TG20");
+  expect(model?.ratings).toMatchObject({
+    voltageMaxV: 440,
+    changeoverContacts: 2,
+  });
+  expect(model?.terminals.map(({ group }) => group)).toEqual([
+    "L1",
+    "L2",
+    "L3",
+    "11",
+    "12",
+    "14",
+    "21",
+    "22",
+    "24",
+  ]);
+  const json = readFileSync(
+    new URL("../docs/component-bank-rm17.json", import.meta.url),
+    "utf8",
+  );
+  expect(JSON.parse(json)).toEqual({ schemaVersion: 1, entries: rm17Relays });
+});
 
 test("iC60L preserves K/Z-only order codes and the Icn scope limit", () => {
   expect(ic60lBreakers).toHaveLength(232);

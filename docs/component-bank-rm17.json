@@ -1,0 +1,460 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "schneider-electric:rm17tg00",
+      "manufacturer": "Schneider Electric",
+      "model": "RM17TG00",
+      "orderCode": "RM17TG00",
+      "category": "monitoring-and-sensors",
+      "function": "phase-monitoring-relay",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l1",
+          "group": "L1",
+          "interface": "ac-sense",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "l2",
+          "group": "L2",
+          "interface": "ac-sense",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "l3",
+          "group": "L3",
+          "interface": "ac-sense",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "11",
+          "group": "11",
+          "interface": "relay-common",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "12",
+          "group": "12",
+          "interface": "relay-normally-closed",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "14",
+          "group": "14",
+          "interface": "relay-normally-open",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "voltageMinV": 208,
+        "voltageMaxV": 480,
+        "changeoverContacts": 1,
+        "catalogueContactCurrentA": 5
+      },
+      "conditions": {
+        "measurement": "three-phase AC",
+        "functions": [
+          "phase sequence",
+          "phase loss"
+        ],
+        "terminalSourcePage": 13
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=DIA5ED2160501EN&p_File_name=DIA5ED2160501EN.pdf",
+        "revision": "DIA5ED2160501EN",
+        "page": 13
+      },
+      "missingFields": [
+        "verified-monitoring-model-mapping",
+        "contact-current-by-load-category"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:rm17tg20",
+      "manufacturer": "Schneider Electric",
+      "model": "RM17TG20",
+      "orderCode": "RM17TG20",
+      "category": "monitoring-and-sensors",
+      "function": "phase-monitoring-relay",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l1",
+          "group": "L1",
+          "interface": "ac-sense",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "l2",
+          "group": "L2",
+          "interface": "ac-sense",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "l3",
+          "group": "L3",
+          "interface": "ac-sense",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "11",
+          "group": "11",
+          "interface": "relay-common",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "12",
+          "group": "12",
+          "interface": "relay-normally-closed",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "14",
+          "group": "14",
+          "interface": "relay-normally-open",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "21",
+          "group": "21",
+          "interface": "relay-common",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "22",
+          "group": "22",
+          "interface": "relay-normally-closed",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "24",
+          "group": "24",
+          "interface": "relay-normally-open",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "voltageMinV": 208,
+        "voltageMaxV": 440,
+        "changeoverContacts": 2,
+        "catalogueContactCurrentA": 5
+      },
+      "conditions": {
+        "measurement": "three-phase AC",
+        "functions": [
+          "phase sequence",
+          "phase loss"
+        ],
+        "terminalSourcePage": 13
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=DIA5ED2160501EN&p_File_name=DIA5ED2160501EN.pdf",
+        "revision": "DIA5ED2160501EN",
+        "page": 13
+      },
+      "missingFields": [
+        "verified-monitoring-model-mapping",
+        "contact-current-by-load-category"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:rm17tt00",
+      "manufacturer": "Schneider Electric",
+      "model": "RM17TT00",
+      "orderCode": "RM17TT00",
+      "category": "monitoring-and-sensors",
+      "function": "phase-monitoring-relay",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l1",
+          "group": "L1",
+          "interface": "ac-sense",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "l2",
+          "group": "L2",
+          "interface": "ac-sense",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "l3",
+          "group": "L3",
+          "interface": "ac-sense",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "11",
+          "group": "11",
+          "interface": "relay-common",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "12",
+          "group": "12",
+          "interface": "relay-normally-closed",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "14",
+          "group": "14",
+          "interface": "relay-normally-open",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "voltageMinV": 208,
+        "voltageMaxV": 480,
+        "changeoverContacts": 1,
+        "catalogueContactCurrentA": 5
+      },
+      "conditions": {
+        "measurement": "three-phase AC",
+        "functions": [
+          "phase sequence",
+          "phase loss",
+          "phase loss with voltage regeneration"
+        ],
+        "terminalSourcePage": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=DIA5ED2160501EN&p_File_name=DIA5ED2160501EN.pdf",
+        "revision": "DIA5ED2160501EN",
+        "page": 23
+      },
+      "missingFields": [
+        "verified-monitoring-model-mapping",
+        "contact-current-by-load-category"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:rm17ta00",
+      "manufacturer": "Schneider Electric",
+      "model": "RM17TA00",
+      "orderCode": "RM17TA00",
+      "category": "monitoring-and-sensors",
+      "function": "phase-monitoring-relay",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l1",
+          "group": "L1",
+          "interface": "ac-sense",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "l2",
+          "group": "L2",
+          "interface": "ac-sense",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "l3",
+          "group": "L3",
+          "interface": "ac-sense",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "11",
+          "group": "11",
+          "interface": "relay-common",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "12",
+          "group": "12",
+          "interface": "relay-normally-closed",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "14",
+          "group": "14",
+          "interface": "relay-normally-open",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "voltageMinV": 208,
+        "voltageMaxV": 480,
+        "changeoverContacts": 1,
+        "catalogueContactCurrentA": 5
+      },
+      "conditions": {
+        "measurement": "three-phase AC",
+        "functions": [
+          "phase sequence",
+          "phase loss",
+          "asymmetry"
+        ],
+        "terminalSourcePage": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=DIA5ED2160501EN&p_File_name=DIA5ED2160501EN.pdf",
+        "revision": "DIA5ED2160501EN",
+        "page": 23
+      },
+      "missingFields": [
+        "verified-monitoring-model-mapping",
+        "contact-current-by-load-category"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:rm17tu00",
+      "manufacturer": "Schneider Electric",
+      "model": "RM17TU00",
+      "orderCode": "RM17TU00",
+      "category": "monitoring-and-sensors",
+      "function": "phase-monitoring-relay",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l1",
+          "group": "L1",
+          "interface": "ac-sense",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "l2",
+          "group": "L2",
+          "interface": "ac-sense",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "l3",
+          "group": "L3",
+          "interface": "ac-sense",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "11",
+          "group": "11",
+          "interface": "relay-common",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "12",
+          "group": "12",
+          "interface": "relay-normally-closed",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "14",
+          "group": "14",
+          "interface": "relay-normally-open",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "voltageMinV": 208,
+        "voltageMaxV": 480,
+        "changeoverContacts": 1,
+        "catalogueContactCurrentA": 5
+      },
+      "conditions": {
+        "measurement": "three-phase AC",
+        "functions": [
+          "phase sequence",
+          "phase loss",
+          "undervoltage"
+        ],
+        "terminalSourcePage": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=DIA5ED2160501EN&p_File_name=DIA5ED2160501EN.pdf",
+        "revision": "DIA5ED2160501EN",
+        "page": 23
+      },
+      "missingFields": [
+        "verified-monitoring-model-mapping",
+        "contact-current-by-load-category"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:rm17te00",
+      "manufacturer": "Schneider Electric",
+      "model": "RM17TE00",
+      "orderCode": "RM17TE00",
+      "category": "monitoring-and-sensors",
+      "function": "phase-monitoring-relay",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l1",
+          "group": "L1",
+          "interface": "ac-sense",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "l2",
+          "group": "L2",
+          "interface": "ac-sense",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "l3",
+          "group": "L3",
+          "interface": "ac-sense",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "11",
+          "group": "11",
+          "interface": "relay-common",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "12",
+          "group": "12",
+          "interface": "relay-normally-closed",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "14",
+          "group": "14",
+          "interface": "relay-normally-open",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "voltageMinV": 208,
+        "voltageMaxV": 480,
+        "changeoverContacts": 1,
+        "catalogueContactCurrentA": 5
+      },
+      "conditions": {
+        "measurement": "three-phase AC",
+        "functions": [
+          "phase sequence",
+          "phase loss",
+          "asymmetry",
+          "under/overvoltage window"
+        ],
+        "terminalSourcePage": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=DIA5ED2160501EN&p_File_name=DIA5ED2160501EN.pdf",
+        "revision": "DIA5ED2160501EN",
+        "page": 23
+      },
+      "missingFields": [
+        "verified-monitoring-model-mapping",
+        "contact-current-by-load-category"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}

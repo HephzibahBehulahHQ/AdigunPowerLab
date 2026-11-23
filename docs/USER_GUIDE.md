@@ -473,3 +473,5 @@ PV string Pmax uses the wired module count multiplied by the published module na
 Find iC60H breakers by order code and check the Icn voltage shown for that model before using the rating.
 
 Look up iC60L models by order code. The Icn entry is available within the manufacturer's documented current range.
+
+Filter **Monitoring and sensors** to find RM17 phase-monitoring relays and inspect terminal markings, voltage ranges and relay outputs.

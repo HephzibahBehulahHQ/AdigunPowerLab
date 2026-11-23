@@ -579,6 +579,72 @@ export const ictContactors = (
   readiness: "inventory-and-diagram-only",
 }));
 
+export const rm17Relays = (
+  [
+    ["RM17TG00", 480, 1, 13, []],
+    ["RM17TG20", 440, 2, 13, []],
+    ["RM17TT00", 480, 1, 23, ["phase loss with voltage regeneration"]],
+    ["RM17TA00", 480, 1, 23, ["asymmetry"]],
+    ["RM17TU00", 480, 1, 23, ["undervoltage"]],
+    ["RM17TE00", 480, 1, 23, ["asymmetry", "under/overvoltage window"]],
+  ] as const
+).map(
+  ([model, voltageMaxV, changeoverContacts, page, additionalFunctions]) => ({
+    id: `schneider-electric:${model.toLowerCase()}`,
+    manufacturer: "Schneider Electric",
+    model,
+    orderCode: model,
+    category: "monitoring-and-sensors" as const,
+    function: "phase-monitoring-relay" as const,
+    connection: "ac" as const,
+    terminals: [
+      ...["L1", "L2", "L3"].map((group) => ({
+        id: group.toLowerCase(),
+        group,
+        interface: "ac-sense",
+        connector: "screw terminal",
+      })),
+      ...Array.from({ length: changeoverContacts }, (_, contact) =>
+        [
+          [1, "common"],
+          [2, "normally-closed"],
+          [4, "normally-open"],
+        ].map(([offset, kind]) => {
+          const group = `${contact + 1}${offset}`;
+          return {
+            id: group,
+            group,
+            interface: `relay-${kind}`,
+            connector: "screw terminal",
+          };
+        }),
+      ).flat(),
+    ],
+    ratings: {
+      voltageMinV: 208,
+      voltageMaxV,
+      changeoverContacts,
+      catalogueContactCurrentA: 5,
+    },
+    conditions: {
+      measurement: "three-phase AC",
+      functions: ["phase sequence", "phase loss", ...additionalFunctions],
+      terminalSourcePage: page === 23 ? 20 : 13,
+    },
+    modelMapping: null,
+    source: {
+      url: "https://download.se.com/files?p_Doc_Ref=DIA5ED2160501EN&p_File_name=DIA5ED2160501EN.pdf",
+      revision: "DIA5ED2160501EN",
+      page,
+    },
+    missingFields: [
+      "verified-monitoring-model-mapping",
+      "contact-current-by-load-category",
+    ],
+    readiness: "inventory-and-diagram-only",
+  }),
+);
+
 export const componentBank = [
   ...pvModules,
   ...ic60nBreakers,
@@ -588,6 +654,7 @@ export const componentBank = [
   ...ictContactors,
   ...ic60hBreakers,
   ...ic60lBreakers,
+  ...rm17Relays,
 ];
 
 export function componentBankCsv(

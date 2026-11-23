@@ -782,3 +782,5 @@ PV power and current: TypeScript, 32 focused unit checks and Chromium passed. Th
 TypeScript, 13 component-bank checks and Chromium verified the iC60H batch, including 10 kA at 400 V AC for A9F85463.
 
 TypeScript, 14 component-bank checks and Chromium passed. The browser found A9F95472 and displayed 15 kA at 400 V AC.
+
+TypeScript, 15 component-bank checks and Chromium passed for RM17 lookup, including the 208–440 V AC range and two 5 A changeover outputs.

@@ -316,6 +316,9 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   await search.fill("Schneider A9F74106");
   await expect(model).toHaveValue("schneider-electric:a9f74106");
   await catalogue.getByLabel("Equipment category").selectOption("");
+  await search.fill("RM17TG20");
+  await expect(catalogue.getByText("208–440 V AC")).toBeVisible();
+  await expect(catalogue.getByText("2 CO · 5 A")).toBeVisible();
   await search.fill("A9MEM2010C");
   await expect(catalogue.getByText("100 imp/kWh")).toBeVisible();
   await expect(catalogue.getByText("China only")).toBeVisible();
