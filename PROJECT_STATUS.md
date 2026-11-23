@@ -513,3 +513,5 @@ iC60N main validation is run 45284128940. The battery wiring candidate supports 
 Battery series candidate shows nominal voltage, C20 capacity and nominal energy for identical batteries linked in an isolated chain. The calculation shares the PV series topology traversal, and battery dispatch remains open.
 
 Frozen reports now include battery series sequence and nominal ratings derived from the saved terminal network.
+
+UPS coverage starts with five APC Easy UPS SMV CAI models. The candidate contains 798 models in ten categories. AC inlet and outlet connectors are documented; battery and dry-contact pinouts remain open.

@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "distinctRecords": 793,
+  "distinctRecords": 798,
   "goalMinimum": 10000,
   "readiness": {
     "pv-worksheet-inputs-only": 14,
-    "inventory-and-diagram-only": 779
+    "inventory-and-diagram-only": 784
   },
   "categories": [
     {
@@ -46,8 +46,8 @@
     {
       "category": "ups-and-backup-systems",
       "target": 400,
-      "records": 0,
-      "remaining": 400
+      "records": 5,
+      "remaining": 395
     },
     {
       "category": "protection-devices",

@@ -798,3 +798,5 @@ Battery wiring passed TypeScript, 41 focused checks and Chromium verification of
 TypeScript, 41 focused tests and two Chromium cases passed. The restored two-battery chain showed 24 V, 60 Ah C20 and 1.44 kWh. The PV report and short rejection checks continued to pass.
 
 TypeScript, 25 report/Help checks and two Chromium cases passed. Battery report preview verified 24 V, 60 Ah C20, 1.44 kWh and 21.6 V C20 test cutoff.
+
+TypeScript, 22 component-bank checks and Chromium verified the APC batch, including the 2,100 W SMV3000CAI and its IEC C20 inlet in the record.

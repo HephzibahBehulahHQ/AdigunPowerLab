@@ -1,0 +1,410 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "apc:smv750cai",
+      "manufacturer": "APC by Schneider Electric",
+      "model": "SMV750CAI",
+      "orderCode": "SMV750CAI",
+      "category": "ups-and-backup-systems",
+      "function": "line-interactive-ups",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "ac-input",
+          "group": "mains input",
+          "interface": "ups-ac-input",
+          "connector": "IEC C14"
+        },
+        {
+          "id": "outlet-1",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-2",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-3",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-4",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-5",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-6",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        }
+      ],
+      "ratings": {
+        "outputVA": 750,
+        "outputW": 525,
+        "inputNominalV": 230,
+        "outputNominalV": 230
+      },
+      "conditions": {
+        "inputFrequencyHz": [
+          50,
+          60
+        ],
+        "typicalTransferTimeMs": [
+          2,
+          6
+        ],
+        "batteryModeWaveform": "sine wave"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=SPD_JVAN-BCEQ6P_EN",
+        "revision": "SPD_JVAN-BCEQ6P_EN, August 2024",
+        "page": 3
+      },
+      "missingFields": [
+        "verified-ups-model-mapping",
+        "battery-and-dry-contact-pinouts"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "apc:smv1000cai",
+      "manufacturer": "APC by Schneider Electric",
+      "model": "SMV1000CAI",
+      "orderCode": "SMV1000CAI",
+      "category": "ups-and-backup-systems",
+      "function": "line-interactive-ups",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "ac-input",
+          "group": "mains input",
+          "interface": "ups-ac-input",
+          "connector": "IEC C14"
+        },
+        {
+          "id": "outlet-1",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-2",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-3",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-4",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-5",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-6",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        }
+      ],
+      "ratings": {
+        "outputVA": 1000,
+        "outputW": 700,
+        "inputNominalV": 230,
+        "outputNominalV": 230
+      },
+      "conditions": {
+        "inputFrequencyHz": [
+          50,
+          60
+        ],
+        "typicalTransferTimeMs": [
+          2,
+          6
+        ],
+        "batteryModeWaveform": "sine wave"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=SPD_JVAN-BCEQ6P_EN",
+        "revision": "SPD_JVAN-BCEQ6P_EN, August 2024",
+        "page": 3
+      },
+      "missingFields": [
+        "verified-ups-model-mapping",
+        "battery-and-dry-contact-pinouts"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "apc:smv1500cai",
+      "manufacturer": "APC by Schneider Electric",
+      "model": "SMV1500CAI",
+      "orderCode": "SMV1500CAI",
+      "category": "ups-and-backup-systems",
+      "function": "line-interactive-ups",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "ac-input",
+          "group": "mains input",
+          "interface": "ups-ac-input",
+          "connector": "IEC C14"
+        },
+        {
+          "id": "outlet-1",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-2",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-3",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-4",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-5",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-6",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        }
+      ],
+      "ratings": {
+        "outputVA": 1500,
+        "outputW": 1050,
+        "inputNominalV": 230,
+        "outputNominalV": 230
+      },
+      "conditions": {
+        "inputFrequencyHz": [
+          50,
+          60
+        ],
+        "typicalTransferTimeMs": [
+          2,
+          6
+        ],
+        "batteryModeWaveform": "sine wave"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=SPD_JVAN-BCEQ6P_EN",
+        "revision": "SPD_JVAN-BCEQ6P_EN, August 2024",
+        "page": 3
+      },
+      "missingFields": [
+        "verified-ups-model-mapping",
+        "battery-and-dry-contact-pinouts"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "apc:smv2000cai",
+      "manufacturer": "APC by Schneider Electric",
+      "model": "SMV2000CAI",
+      "orderCode": "SMV2000CAI",
+      "category": "ups-and-backup-systems",
+      "function": "line-interactive-ups",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "ac-input",
+          "group": "mains input",
+          "interface": "ups-ac-input",
+          "connector": "IEC C14"
+        },
+        {
+          "id": "outlet-1",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-2",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-3",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-4",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-5",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-6",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        }
+      ],
+      "ratings": {
+        "outputVA": 2000,
+        "outputW": 1400,
+        "inputNominalV": 230,
+        "outputNominalV": 230
+      },
+      "conditions": {
+        "inputFrequencyHz": [
+          50,
+          60
+        ],
+        "typicalTransferTimeMs": [
+          2,
+          6
+        ],
+        "batteryModeWaveform": "sine wave"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=SPD_JVAN-BCEQ6P_EN",
+        "revision": "SPD_JVAN-BCEQ6P_EN, August 2024",
+        "page": 4
+      },
+      "missingFields": [
+        "verified-ups-model-mapping",
+        "battery-and-dry-contact-pinouts"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "apc:smv3000cai",
+      "manufacturer": "APC by Schneider Electric",
+      "model": "SMV3000CAI",
+      "orderCode": "SMV3000CAI",
+      "category": "ups-and-backup-systems",
+      "function": "line-interactive-ups",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "ac-input",
+          "group": "mains input",
+          "interface": "ups-ac-input",
+          "connector": "IEC C20"
+        },
+        {
+          "id": "outlet-1",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-2",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-3",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-4",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-5",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        },
+        {
+          "id": "outlet-6",
+          "group": "battery-backed AC output",
+          "interface": "ups-ac-output",
+          "connector": "IEC C13"
+        }
+      ],
+      "ratings": {
+        "outputVA": 3000,
+        "outputW": 2100,
+        "inputNominalV": 230,
+        "outputNominalV": 230
+      },
+      "conditions": {
+        "inputFrequencyHz": [
+          50,
+          60
+        ],
+        "typicalTransferTimeMs": [
+          2,
+          6
+        ],
+        "batteryModeWaveform": "sine wave"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=SPD_JVAN-BCEQ6P_EN",
+        "revision": "SPD_JVAN-BCEQ6P_EN, August 2024",
+        "page": 4
+      },
+      "missingFields": [
+        "verified-ups-model-mapping",
+        "battery-and-dry-contact-pinouts"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}

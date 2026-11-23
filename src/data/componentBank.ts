@@ -921,6 +921,55 @@ export const victronAgmSuperCycle = (
   readiness: "inventory-and-diagram-only",
 }));
 
+export const apcSmvUps = (
+  [
+    ["SMV750CAI", 750, 525, "IEC C14", 3],
+    ["SMV1000CAI", 1000, 700, "IEC C14", 3],
+    ["SMV1500CAI", 1500, 1050, "IEC C14", 3],
+    ["SMV2000CAI", 2000, 1400, "IEC C14", 4],
+    ["SMV3000CAI", 3000, 2100, "IEC C20", 4],
+  ] as const
+).map(([model, outputVA, outputW, inlet, page]) => ({
+  id: `apc:${model.toLowerCase()}`,
+  manufacturer: "APC by Schneider Electric",
+  model,
+  orderCode: model,
+  category: "ups-and-backup-systems" as const,
+  function: "line-interactive-ups" as const,
+  connection: "ac" as const,
+  terminals: [
+    {
+      id: "ac-input",
+      group: "mains input",
+      interface: "ups-ac-input",
+      connector: inlet,
+    },
+    ...Array.from({ length: 6 }, (_, i) => ({
+      id: `outlet-${i + 1}`,
+      group: "battery-backed AC output",
+      interface: "ups-ac-output",
+      connector: "IEC C13",
+    })),
+  ],
+  ratings: { outputVA, outputW, inputNominalV: 230, outputNominalV: 230 },
+  conditions: {
+    inputFrequencyHz: [50, 60],
+    typicalTransferTimeMs: [2, 6],
+    batteryModeWaveform: "sine wave",
+  },
+  modelMapping: null,
+  source: {
+    url: "https://download.se.com/files?p_Doc_Ref=SPD_JVAN-BCEQ6P_EN",
+    revision: "SPD_JVAN-BCEQ6P_EN, August 2024",
+    page,
+  },
+  missingFields: [
+    "verified-ups-model-mapping",
+    "battery-and-dry-contact-pinouts",
+  ],
+  readiness: "inventory-and-diagram-only",
+}));
+
 export const componentBank = [
   ...pvModules,
   ...ic60nBreakers,
@@ -936,6 +985,7 @@ export const componentBank = [
   ...abl6Transformers,
   ...abt7pduTransformers,
   ...victronAgmSuperCycle,
+  ...apcSmvUps,
 ];
 
 export function componentBankCsv(
