@@ -495,3 +495,5 @@ Terminal storage merged as f7a647d; main validation is run 45281111317. The PV s
 The iC60H tranche adds 180 exact order codes from Acti9 2017 pp. 11–13, bringing the candidate to 479 records across four categories. It documents 10 kA Icn at the published voltage and numbered terminals.
 
 The iC60L tranche adds 232 exact order codes from Acti9 2017 pp. 14–15. Candidate total is 711 models. The catalogue distinguishes K/Z-only 1.6 A variants and the published Icn range through 40 A.
+
+Monitoring starts with six Harmony RM17 references covering terminal markings and variant-specific voltage and contact ratings. Candidate total is 717 models across five categories. Sensing and relay terminals are documented for inspection.
