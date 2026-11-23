@@ -1092,6 +1092,63 @@ function veDirectRecords(
 export const victronVeDirect230 = veDirectRecords(veDirect230Rows, 230);
 export const victronVeDirect120 = veDirectRecords(veDirect120Rows, 120);
 
+export const evlinkHomeStations = ["S", "A"].flatMap((series) =>
+  (
+    [
+      ["03", 3.7, 16, 1],
+      ["07", 7.4, 32, 1],
+      ["11", 11, 16, 3],
+    ] as const
+  ).flatMap(([code, powerKW, ratedCurrentA, phases]) =>
+    ["N2", "NC"].map((outlet) => {
+      const model = `EVH4${series}${code}${outlet}`;
+      const supply = phases === 3 ? ["L1", "L2", "L3", "N"] : ["L1", "N"];
+      return {
+        id: `schneider-electric:${model.toLowerCase()}`,
+        manufacturer: "Schneider Electric",
+        model,
+        orderCode: model,
+        category: "ev-charging-equipment" as const,
+        function: "ac-ev-charging-station" as const,
+        connection: "ac" as const,
+        terminals: [
+          ...supply.map((group) => ({
+            id: group.toLowerCase(),
+            group,
+            interface: "evse-ac-input",
+            connector: "ring terminal",
+          })),
+          {
+            id: "pe",
+            group: "PE",
+            interface: "evse-protective-earth",
+            connector: "ring terminal",
+          },
+          {
+            id: "vehicle",
+            group: "Vehicle",
+            interface: "evse-type-2",
+            connector: outlet === "N2" ? "Type 2 socket" : "Type 2 cable (5 m)",
+          },
+        ],
+        ratings: { powerKW, ratedCurrentA, phases, rdcDdMilliamp: 6 },
+        conditions: {
+          series: series === "S" ? "EVlink Home" : "EVlink Home Smart",
+        },
+        modelMapping: null,
+        source: {
+          url: "https://download.se.com/files?p_Doc_Ref=GEX4292700_EN&p_File_Name=FBC_GEX4292700-01_EN_V9_HD.pdf&p_enDocType=Instruction+sheet",
+          revision: "GEX4292700-03_EN (08/2023)",
+          page: 5,
+          pageLabel: "4–5, 8–9",
+        },
+        missingFields: ["verified-evse-model-mapping"],
+        readiness: "inventory-and-diagram-only",
+      };
+    }),
+  ),
+);
+
 export const componentBank = [
   ...pvModules,
   ...ic60nBreakers,
@@ -1110,6 +1167,7 @@ export const componentBank = [
   ...apcSmvUps,
   ...victronVeDirect230,
   ...victronVeDirect120,
+  ...evlinkHomeStations,
 ];
 
 export function componentBankCsv(
