@@ -167,6 +167,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "For an iID neutral link, select N and choose a neutral terminal at both ends.",
       "Choose protective bonding terminals at both ends to link a catalogue earth bar to a PV frame.",
       "Battery links use the catalogue battery terminals. The editor rejects a wire that would put both terminals of one battery on the same conductor node.",
+      "An isolated series chain of identical batteries shows nominal voltage, C20 capacity and nominal energy in the inspector.",
       "The editor rejects a PV wire when it would join one module’s positive and negative terminals through the saved wires.",
       "Dashed wires show saved catalogue terminal links in the diagram and its exports.",
       "An isolated chain of identical PV modules shows its string voltage and current at standard test conditions in the inspector.",

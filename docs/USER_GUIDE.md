@@ -487,3 +487,5 @@ ABT7PDU catalogue records show the two secondary windings separately and retain 
 Filter **Batteries and storage systems** to compare Victron AGM capacity at the three documented discharge periods and inspect the terminal insert type. These records currently support inventory and diagram inspection.
 
 Select two battery units and their positive or negative terminals to record a battery wire. A wire that puts both terminals of one battery on the same conductor node is rejected.
+
+For identical batteries wired as an isolated series chain, the inspector shows nominal voltage, C20 capacity and nominal energy. Energy uses nominal voltage multiplied by C20 capacity.
