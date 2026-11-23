@@ -820,7 +820,7 @@ function ObjectEditor({
             {t("Source reference")}
           </a>
         )}
-        {instance && record?.connection === "dc" && (
+        {instance && record && (
           <EquipmentWiring
             project={project}
             instance={instance}

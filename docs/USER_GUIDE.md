@@ -436,3 +436,5 @@ In the single-line diagram, select a catalogue equipment symbol to inspect its t
 Select two installed unit numbers and their documented terminals, then choose **Connect**. Saved wires appear in the diagram and can be removed with **Disconnect**. These links document layout and do not enter the power flow calculations.
 
 Find Schneider Electric iC60N breakers by order code. The library displays rated current, poles, trip curve, and the IEC/EN 60898-1 breaking capacity at its stated voltage. These records support inventories and terminal inspection.
+
+For an AC line wire select L1, L2 or L3. The editor checks that incoming and outgoing links at a breaker pole use the same phase.

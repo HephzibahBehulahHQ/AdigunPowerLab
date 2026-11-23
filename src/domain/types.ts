@@ -326,6 +326,7 @@ export interface EquipmentTerminalConnection {
   id: string;
   from: EquipmentTerminalEndpoint;
   to: EquipmentTerminalEndpoint;
+  phase?: Phase;
 }
 
 export interface Project {

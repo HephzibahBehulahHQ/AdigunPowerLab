@@ -1096,6 +1096,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Yan ohun èlò inú katalogi láti wo datasheet àti ẹgbẹ́ ebute. Yan nọ́ńbà ẹyọ àti ebute láti so waya PV pọ̀ tàbí yọ ọ́ nínú àwòrán. Ìṣírò ìṣàn agbára kò lo àwọn waya wọ̀nyí.",
       "Select catalogue equipment to see di datasheet and terminal groups. Choose unit numbers and terminals to connect or disconnect PV wire for di diagram. Power flow calculation no use these wires.",
     ],
+  "For an AC line link, choose L1, L2 or L3. Both terminals of a breaker pole must use the same phase.":
+    [
+      "Wählen Sie für eine AC-Leitung L1, L2 oder L3. Beide Anschlüsse eines Schalterpols müssen dieselbe Phase verwenden.",
+      "Yan L1, L2 tàbí L3 fún waya AC. Ebute méjèèjì lórí pole breaker kan gbọdọ̀ lo phase kan náà.",
+      "Choose L1, L2 or L3 for AC line wire. Both terminals for one breaker pole must use di same phase.",
+    ],
   "Use zoom, fit, labels, notes, manual positions or auto-layout to make the diagram readable. Export SVG or PDF for a copy of the displayed diagram.":
     [
       "Nutzen Sie Zoom, Einpassen, Beschriftungen, Notizen, manuelle Positionen oder automatisches Layout für ein lesbares Diagramm. Exportieren Sie SVG oder PDF als Kopie der angezeigten Darstellung.",

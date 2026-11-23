@@ -740,3 +740,5 @@ Terminal connection import: accepted an indexed PV series link, rejected missing
 PV wiring candidate: TypeScript and 23 focused unit checks passed. Chromium verified adding, saving, reloading and removing an indexed PV terminal link.
 
 The iC60N batch passed TypeScript and 24 focused tests. Chromium found A9F74106 in the manufacturer catalogue and displayed 6 A and 6 kA at 230 V AC. Export checks cover 180 unique breaker IDs and terminal counts.
+
+Phase-aware wiring passed TypeScript, 25 focused unit checks, and two Chromium cases covering L2 diagram wiring and the existing PV save/reload and report workflow.
