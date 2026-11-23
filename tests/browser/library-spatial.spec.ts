@@ -355,6 +355,14 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   await expect(model).toHaveValue("lapp:1119115");
   await expect(catalogue.getByText("15 · PE", { exact: true })).toBeVisible();
   await expect(catalogue.getByText("0.75 mm²", { exact: true })).toBeVisible();
+  await expect(catalogue.getByText("300/500 V", { exact: true })).toBeVisible();
+  await catalogue.getByText("Source, terminals and model readiness").click();
+  await expect(
+    catalogue.getByRole("link", {
+      name: "DB1119752EN v12 (2023-03-03) · Page 1",
+    }),
+  ).toHaveAttribute("href", /dam-media\.lapp\.com/);
+  await catalogue.getByText("Source, terminals and model readiness").click();
   const cableDownload = page.waitForEvent("download");
   await catalogue.getByRole("button", { name: "Export record JSON" }).click();
   const cable = JSON.parse(
@@ -366,6 +374,7 @@ test("manufacturer catalogue searches and exports the exact model", async ({
       expect.objectContaining({ id: "b-pe", group: "PE" }),
     ]),
   );
+  expect(cable.entry.ratings.coreToCoreTestVAc).toBe(4000);
   await catalogue.getByLabel("Equipment category").selectOption("");
   await search.fill("PIN242122530");
   await expect(catalogue.getByText("24 V DC → 120 V AC")).toBeVisible();
