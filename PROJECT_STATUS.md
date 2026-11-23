@@ -511,3 +511,5 @@ Interactive wiring fbcb46a published in Pages run 45283935804; the live root ret
 iC60N main validation is run 45284128940. The battery wiring candidate supports catalogue AGM terminal links while rejecting indirect shorts and links to PV power terminals. Battery bank analysis remains open.
 
 Battery series candidate shows nominal voltage, C20 capacity and nominal energy for identical batteries linked in an isolated chain. The calculation shares the PV series topology traversal, and battery dispatch remains open.
+
+Frozen reports now include battery series sequence and nominal ratings derived from the saved terminal network.

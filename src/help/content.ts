@@ -451,6 +451,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "The model-derived BOM leaves unknown prices blank. Enter prices, labour, waste and contingency, review proposed bill changes and apply them explicitly; manual bill lines are preserved.",
       "Include the model-derived bill of materials to report the saved catalogue equipment and its terminal links.",
       "For supported PV series strings, the frozen bill-of-materials report also lists the module order and standard-test-condition values.",
+      "Supported battery series chains appear with their nominal voltage, C20 capacity and nameplate energy in the frozen bill-of-materials report.",
     ],
     example:
       "If you edit a load after a simulation, rerun that analysis before including it in a new report. An older run is not evidence for changed inputs.",

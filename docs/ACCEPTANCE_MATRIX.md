@@ -451,3 +451,5 @@ The first battery tranche preserves exact order codes, positive/negative termina
 AGM terminals support saved battery-to-battery links and common-node short checks. Battery and PV power wiring use separate terminal interfaces.
 
 Saved battery series links map to nominal voltage, C20 capacity and nominal energy for identical isolated units.
+
+Frozen BOM includes sequence, nominal voltage, C20 capacity, nominal energy and source-based series cutoff for supported battery chains.
