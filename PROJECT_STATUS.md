@@ -503,3 +503,5 @@ Distribution starts with three Linergy DS single-pole blocks with 10, 13 and 14 
 Earthing starts with three Linergy TB bars from PrismaSeT G D-22, raising the candidate to 723 records across seven categories. The wiring editor supports shared protective bonding terminals between a PV frame and an earth bar.
 
 Transformer coverage starts with 39 Phaseo ABL6TS single-secondary order codes. The candidate contains 762 models across eight categories. Winding terminal inspection is available; model-specific bonding review and simulation mapping remain open.
+
+The Phaseo ABT7PDU batch adds 23 dual-secondary order codes from catalogue p. 11. The candidate now contains 785 records. Nominal winding data, four secondary connection points and jumper-placement distinctions are exported.
