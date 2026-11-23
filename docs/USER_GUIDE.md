@@ -483,3 +483,5 @@ Filter **Earthing and bonding equipment** for Linergy TB bars. Select the protec
 Filter **Transformers** to inspect Phaseo winding voltages, primary taps and nameplate VA by exact order code.
 
 ABT7PDU catalogue records show the two secondary windings separately and retain internal versus external jumper placement in their export.
+
+Filter **Batteries and storage systems** to compare Victron AGM capacity at the three documented discharge periods and inspect the terminal insert type. These records currently support inventory and diagram inspection.

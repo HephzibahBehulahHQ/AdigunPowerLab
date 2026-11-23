@@ -505,3 +505,5 @@ Earthing starts with three Linergy TB bars from PrismaSeT G D-22, raising the ca
 Transformer coverage starts with 39 Phaseo ABL6TS single-secondary order codes. The candidate contains 762 models across eight categories. Winding terminal inspection is available; model-specific bonding review and simulation mapping remain open.
 
 The Phaseo ABT7PDU batch adds 23 dual-secondary order codes from catalogue p. 11. The candidate now contains 785 records. Nominal winding data, four secondary connection points and jumper-placement distinctions are exported.
+
+Interactive wiring fbcb46a published in Pages run 45283935804; the live root returned HTTP 200. iC60N merged as 2b49aee. The candidate catalogue adds eight Victron AGM batteries, reaching 793 records across nine categories.

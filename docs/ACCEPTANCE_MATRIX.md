@@ -445,3 +445,5 @@ Linergy TB records represent common PE nodes, documented clamp counts, source pa
 Phaseo ABL6TS adds 39 exact order codes, nameplate VA, primary taps, distinct secondary windings and CSV/JSON.
 
 ABT7PDU includes 23 exact order codes, separate secondary windings, rating variants, jumper-placement metadata and CSV/JSON.
+
+The first battery tranche preserves exact order codes, positive/negative terminal insert types, three capacity ratings at the published cutoff and CSV/JSON.
