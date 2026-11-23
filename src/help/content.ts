@@ -167,6 +167,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "For an iID neutral link, select N and choose a neutral terminal at both ends.",
       "The editor rejects a PV wire when it would join one module’s positive and negative terminals through the saved wires.",
       "Dashed wires show saved catalogue terminal links in the diagram and its exports.",
+      "An isolated chain of identical PV modules shows its string voltage and current at standard test conditions in the inspector.",
       "Use zoom, fit, labels, notes, manual positions or auto-layout to make the diagram readable. Export SVG or PDF for a copy of the displayed diagram.",
       "Open Analytical spatial view for orbit, elevation, zoom, board isolation and the hourly cursor. Selecting an object there highlights the same object in the single-line diagram and inspector. Pause flow animation when needed. Chart tables provide the underlying values.",
     ],

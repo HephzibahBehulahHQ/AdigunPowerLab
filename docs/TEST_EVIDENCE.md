@@ -772,3 +772,5 @@ Generated and compared all 291 per-model CSV/JSON pairs and the ID index against
 - Export promotion ead01df: generated and compared all 291 per-model CSV/JSON pairs and their index against the catalogue. All matched.
 
 The iCT tranche passed TypeScript and 11 component-bank checks. Coverage includes exact AC-7a/AC-7b values, contact and coil markings, and JSON parity.
+
+PV series analysis passed TypeScript, 32 focused tests and Chromium verification of 72 V Voc, 61.6 V Vmp and 14.78 A Imp after native project reload.

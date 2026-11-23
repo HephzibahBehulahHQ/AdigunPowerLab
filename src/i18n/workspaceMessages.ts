@@ -1,5 +1,15 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "PV series string at STC": [
+    "PV-Reihenstring bei STC",
+    "Okùn PV ní STC",
+    "PV series string at STC",
+  ],
+  "Uses nameplate values for identical modules in an isolated series chain.": [
+    "Verwendet Nennwerte identischer Module in einem separaten Reihenstring.",
+    "Ó lo ìwọ̀n nameplate fún module kan náà tí a so lẹ́sẹẹsẹ lọ́tọ̀.",
+    "Uses nameplate values for identical modules connected in an isolated series chain.",
+  ],
   "China only": ["Nur China", "China nìkan", "China only"],
   "Metering and power quality": [
     "Messtechnik und Netzqualität",
