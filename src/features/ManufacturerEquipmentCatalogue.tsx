@@ -87,6 +87,8 @@ const categoryLabels = {
   "drives-and-starting-equipment": "Drives and starting equipment",
   "cables-and-conductors": "Cables and conductors",
   generators: "Generators",
+  "enclosures-and-installation-hardware":
+    "Enclosures and installation hardware",
   "ups-and-backup-systems": "UPS and backup systems",
   "batteries-and-storage-systems": "Batteries and storage systems",
   transformers: "Transformers",
@@ -108,6 +110,8 @@ const missingFieldLabels: Record<string, string> = {
   "verified-alternator-model-mapping":
     "Verified alternator calculation mapping",
   "verified-cable-model-mapping": "Verified cable calculation mapping",
+  "enclosure-bonding-points": "Documented enclosure bonding points",
+  "enclosure-thermal-model": "Verified enclosure thermal model",
   "verified-ups-model-mapping": "Verified UPS calculation mapping",
   "battery-and-dry-contact-pinouts": "Battery and dry-contact pinouts",
   "verified-storage-model-mapping": "Verified storage calculation mapping",
@@ -434,6 +438,23 @@ export function ManufacturerEquipmentCatalogue({
                 <dd>
                   {record.ratings.inputNominalV} V DC →{" "}
                   {record.ratings.outputNominalV} V AC
+                </dd>
+              </div>
+            </dl>
+          ) : record.function === "wall-mounted-enclosure" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>H × W × D</dt>
+                <dd>
+                  {record.ratings.heightMm} × {record.ratings.widthMm} ×{" "}
+                  {record.ratings.depthMm} mm
+                </dd>
+              </div>
+              <div>
+                <dt>IP · IK</dt>
+                <dd>
+                  {record.ratings.ingressProtection} ·{" "}
+                  {record.ratings.impactProtection}
                 </dd>
               </div>
             </dl>

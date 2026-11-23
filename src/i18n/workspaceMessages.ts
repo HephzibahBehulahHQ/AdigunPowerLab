@@ -1,5 +1,20 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "Enclosures and installation hardware": [
+    "Gehäuse und Installationsmaterial",
+    "Àpótí àti ohun èlò ìfìsórí",
+    "Enclosures and installation hardware",
+  ],
+  "Documented enclosure bonding points": [
+    "Dokumentierte Potentialausgleichspunkte des Gehäuses",
+    "Àwọn ibi ìsopọ̀ ààbò àpótí tí a kọ sílẹ̀",
+    "Documented enclosure bonding points",
+  ],
+  "Verified enclosure thermal model": [
+    "Geprüftes thermisches Gehäusemodell",
+    "Àwòṣe ooru àpótí tí a fìdí múlẹ̀",
+    "Verified enclosure thermal model",
+  ],
   Generators: ["Generatoren", "Ẹ̀rọ amúnáwá", "Generators"],
   "Verified alternator calculation mapping": [
     "Geprüfte Zuordnung zur Generatorberechnung",
