@@ -413,3 +413,5 @@ Record inspection exposes exact source revision and page, documented terminals, 
 PV wiring validation checks indirect shorts across the persisted conductor graph.
 
 The metering category includes four documented iEM2000/iEM2010 order codes, line/neutral terminals, exact pulse-output variants, regional restrictions and exports.
+
+Frozen BOM report sections include a wiring schedule for saved catalogue equipment links. Cable quantities continue to use entered lengths.
