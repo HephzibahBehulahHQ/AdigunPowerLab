@@ -796,3 +796,5 @@ TypeScript, 19 component-bank checks and Chromium passed for ABT7PDU. Browser lo
 Victron AGM passed TypeScript, 20 focused checks and Chromium verification of 52/56/60 Ah by discharge period.
 
 Battery wiring passed TypeScript, 41 focused checks and Chromium verification of saved series wiring and rejection of an indirect short after reload.
+
+TypeScript, 41 focused tests and two Chromium cases passed. The restored two-battery chain showed 24 V, 60 Ah C20 and 1.44 kWh. The PV report and short rejection checks continued to pass.

@@ -5,7 +5,7 @@ import { simulateStartEvents } from "../engine/start-events";
 import { assessSourceEquipment } from "../engine/sources";
 import { validateMeasurementPayload } from "../storage/measurements";
 import { deriveBOM } from "./bom";
-import { cataloguePvStrings } from "../engine/cataloguePvStrings";
+import { cataloguePvStrings } from "../engine/catalogueSeries";
 import type { EquipmentTerminalEndpoint } from "../domain/types";
 import type { ReportSnapshot } from "./reportSnapshot";
 import type { EngineeringReportSection } from "./reports";
