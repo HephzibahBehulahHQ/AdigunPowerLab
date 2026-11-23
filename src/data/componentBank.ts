@@ -194,61 +194,106 @@ const iidAcTable = [
   [4, 100, null, "A9R11491", "A9R12491", "A9R14491", null, "A9R15491", null],
 ] as const;
 
-export const iidRccbs = iidAcTable.flatMap(([poles, ratedCurrentA, ...codes]) =>
-  codes.flatMap((model, column) => {
-    if (!model) return [];
-    return [
-      {
-        id: `schneider-electric:${model.toLowerCase()}`,
-        manufacturer: "Schneider Electric",
-        model,
-        orderCode: model,
-        category: "protection-devices" as const,
-        function: "residual-current-circuit-breaker" as const,
-        connection: "ac" as const,
-        terminals: [
-          ...Array.from({ length: poles - 1 }, (_, pole) =>
-            ["top", "bottom"].map((side, index) => ({
-              id: `pole-${pole + 1}-${side}`,
-              group: String(pole * 2 + index + 1),
-              interface: "ac-line",
+// Printed p. 53: separate 230/400 V and 110/230 V tables.
+const iidTypeATable = [
+  [2, 16, "A9R20216"],
+  [2, 25, "A9R20225", "A9R51225", null, "A9R54225"],
+  [2, 40, null, "A9R51240", null, "A9R54240", null, "A9R25240"],
+  [2, 63, null, "A9R51263", null, "A9R54263", null, "A9R25263"],
+  [2, 100, null, "A9R21291", null, "A9R24291", null, "A9R25291"],
+  [4, 25, null, "A9R51425", null, "A9R54425"],
+  [4, 40, null, "A9R51440", "A9R22440", "A9R54440", "A9R26440", "A9R25440"],
+  [4, 63, null, "A9R51463", "A9R22463", "A9R54463", "A9R26463", "A9R25463"],
+  [4, 80, null, "A9R21480", null, "A9R24480", null, "A9R25480"],
+  [4, 100, null, "A9R21491", null, "A9R24491", "A9R26491", "A9R25491"],
+] as const;
+
+const iidLowerVoltageTypeATable = [
+  [2, 63, null, "A9R08263"],
+  [4, 63, null, "A9R08463"],
+] as const;
+
+export const iidRccbs = [
+  {
+    table: iidAcTable,
+    type: "AC",
+    page: 52,
+    voltage2P: [230, 240],
+    voltage4P: [400, 415],
+  },
+  {
+    table: iidTypeATable,
+    type: "A",
+    page: 53,
+    voltage2P: [230, 240],
+    voltage4P: [400, 415],
+  },
+  {
+    table: iidLowerVoltageTypeATable,
+    type: "A",
+    page: 53,
+    voltage2P: [110, 110],
+    voltage4P: [230, 230],
+  },
+].flatMap(({ table, type, page, voltage2P, voltage4P }) =>
+  table.flatMap(([poles, ratedCurrentA, ...codes]) =>
+    codes.flatMap((model, column) => {
+      if (!model) return [];
+      const [ratedVoltageMinV, ratedVoltageMaxV] =
+        poles === 2 ? voltage2P : voltage4P;
+      return [
+        {
+          id: `schneider-electric:${model.toLowerCase()}`,
+          manufacturer: "Schneider Electric",
+          model,
+          orderCode: model,
+          category: "protection-devices" as const,
+          function: "residual-current-circuit-breaker" as const,
+          connection: "ac" as const,
+          terminals: [
+            ...Array.from({ length: poles - 1 }, (_, pole) =>
+              ["top", "bottom"].map((side, index) => ({
+                id: `pole-${pole + 1}-${side}`,
+                group: String(pole * 2 + index + 1),
+                interface: "ac-line",
+                connector: "screw terminal",
+              })),
+            ).flat(),
+            ...["top", "bottom"].map((side) => ({
+              id: `neutral-${side}`,
+              group: `N (${side})`,
+              interface: "ac-neutral",
               connector: "screw terminal",
             })),
-          ).flat(),
-          ...["top", "bottom"].map((side) => ({
-            id: `neutral-${side}`,
-            group: `N (${side})`,
-            interface: "ac-neutral",
-            connector: "screw terminal",
-          })),
-        ],
-        ratings: {
-          ratedCurrentA,
-          poles,
-          tripSensitivityMA: [10, 30, 100, 300, 500, 300, 500][column],
-          selective: column >= 5,
+          ],
+          ratings: {
+            ratedCurrentA,
+            poles,
+            tripSensitivityMA: [10, 30, 100, 300, 500, 300, 500][column],
+            selective: column >= 5,
+          },
+          conditions: {
+            frequencyHz: [50, 60],
+            ratedVoltageMinV,
+            ratedVoltageMaxV,
+            standard: "IEC/EN 61008-1",
+            residualCurrentType: type,
+          },
+          modelMapping: null,
+          source: {
+            url: "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+            revision: "Version 2.0, May 2017",
+            page,
+          },
+          missingFields: [
+            "regional-availability",
+            "verified-protection-model-mapping",
+          ],
+          readiness: "inventory-and-diagram-only",
         },
-        conditions: {
-          frequencyHz: [50, 60],
-          ratedVoltageMinV: poles === 2 ? 230 : 400,
-          ratedVoltageMaxV: poles === 2 ? 240 : 415,
-          standard: "IEC/EN 61008-1",
-          residualCurrentType: "AC",
-        },
-        modelMapping: null,
-        source: {
-          url: "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
-          revision: "Version 2.0, May 2017",
-          page: 52,
-        },
-        missingFields: [
-          "regional-availability",
-          "verified-protection-model-mapping",
-        ],
-        readiness: "inventory-and-diagram-only",
-      },
-    ];
-  }),
+      ];
+    }),
+  ),
 );
 
 export const componentBank = [...pvModules, ...ic60nBreakers, ...iidRccbs];

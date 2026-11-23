@@ -746,3 +746,5 @@ Phase-aware wiring passed TypeScript, 25 focused unit checks, and two Chromium c
 Catalogue navigation passed TypeScript, 25 focused unit checks and Chromium category, pagination, multi-term search, exports and AC wiring assertions.
 
 The iID batch passed TypeScript and 26 focused tests. Chromium verified the A9R17440 selective 500 mA record. Unit tests covered neutral links and line-to-neutral rejection.
+
+Type A expansion: TypeScript and six component-bank tests passed. Chromium showed 110 V AC for A9R08263 and preserved the existing iC60N wiring case.

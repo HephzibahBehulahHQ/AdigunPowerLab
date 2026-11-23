@@ -214,7 +214,7 @@ export function ManufacturerEquipmentCatalogue({
                 </dd>
               </div>
               <div>
-                <dt>IΔn · AC</dt>
+                <dt>IΔn · {record.conditions.residualCurrentType}</dt>
                 <dd>
                   {format.format(record.ratings.tripSensitivityMA)} mA
                   {record.ratings.selective ? " · S" : ""}
@@ -223,8 +223,11 @@ export function ManufacturerEquipmentCatalogue({
               <div>
                 <dt>Ue · IEC/EN 61008-1</dt>
                 <dd>
-                  {record.conditions.ratedVoltageMinV}–
-                  {record.conditions.ratedVoltageMaxV} V AC
+                  {record.conditions.ratedVoltageMinV}
+                  {record.conditions.ratedVoltageMinV !==
+                    record.conditions.ratedVoltageMaxV &&
+                    `–${record.conditions.ratedVoltageMaxV}`}{" "}
+                  V AC
                 </dd>
               </div>
             </dl>
