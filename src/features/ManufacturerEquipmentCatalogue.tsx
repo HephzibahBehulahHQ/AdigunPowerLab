@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { Fragment, useContext, useState } from "react";
 import { componentBankCsv, componentBank } from "../data/componentBank";
 import { downloadFile } from "../import-export/files";
 import { LanguageContext, useT } from "../i18n";
@@ -510,6 +510,17 @@ export function ManufacturerEquipmentCatalogue({
                   ? record.source.pageLabel
                   : record.source.page}
               </dd>
+              {"supplemental" in record.source &&
+                record.source.supplemental.map((document) => (
+                  <Fragment key={document.url}>
+                    <dt>{t("Supplemental manufacturer document")}</dt>
+                    <dd>
+                      <a href={document.url} target="_blank" rel="noreferrer">
+                        {document.revision} · {t("Page")} {document.page}
+                      </a>
+                    </dd>
+                  </Fragment>
+                ))}
               <dt>{t("Model readiness")}</dt>
               <dd>
                 {t(
