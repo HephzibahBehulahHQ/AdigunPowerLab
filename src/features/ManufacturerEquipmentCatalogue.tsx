@@ -144,10 +144,12 @@ export function ManufacturerEquipmentCatalogue({
   const [selectedId, setSelectedId] = useState("");
   const terms = query.trim().toLowerCase().split(/\s+/);
   const matches = componentBank.filter(
-    ({ manufacturer, model, category: key }) =>
+    ({ manufacturer, model, orderCode, category: key }) =>
       (!category || category === key) &&
       terms.every((term) =>
-        `${manufacturer} ${model}`.toLowerCase().includes(term),
+        `${manufacturer} ${model} ${orderCode ?? ""}`
+          .toLowerCase()
+          .includes(term),
       ),
   );
   const start = page * pageSize;
