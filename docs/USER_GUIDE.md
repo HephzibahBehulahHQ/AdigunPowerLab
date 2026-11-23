@@ -479,3 +479,5 @@ Filter **Monitoring and sensors** to find RM17 phase-monitoring relays and inspe
 Filter **Busbars and distribution systems** for Linergy DS. Select the terminal opening when wiring. All openings on one single-pole block share a node and must use the same phase.
 
 Filter **Earthing and bonding equipment** for Linergy TB bars. Select the protective bonding terminal at each end to record a PV frame connection.
+
+Filter **Transformers** to inspect Phaseo winding voltages, primary taps and nameplate VA by exact order code.

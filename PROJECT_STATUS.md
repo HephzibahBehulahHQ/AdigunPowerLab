@@ -501,3 +501,5 @@ Monitoring starts with six Harmony RM17 references covering terminal markings an
 Distribution starts with three Linergy DS single-pole blocks with 10, 13 and 14 common-node openings. The candidate contains 720 records across six categories. Phase validation covers the full conductor group.
 
 Earthing starts with three Linergy TB bars from PrismaSeT G D-22, raising the candidate to 723 records across seven categories. The wiring editor supports shared protective bonding terminals between a PV frame and an earth bar.
+
+Transformer coverage starts with 39 Phaseo ABL6TS single-secondary order codes. The candidate contains 762 models across eight categories. Winding terminal inspection is available; model-specific bonding review and simulation mapping remain open.

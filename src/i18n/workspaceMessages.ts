@@ -1,5 +1,16 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  Transformers: ["Transformatoren", "Transformer", "Transformers"],
+  "Verified transformer calculation mapping": [
+    "Geprüfte Zuordnung zur Transformatorberechnung",
+    "Ìbámu ìṣírò transformer tí a fìdí múlẹ̀",
+    "Verified transformer calculation mapping",
+  ],
+  "Model-specific bonding terminal review": [
+    "Modellbezogene Prüfung des Erdungsanschlusses",
+    "Àyẹ̀wò ebute bonding fún model",
+    "Model-specific bonding terminal review",
+  ],
   "Earthing and bonding equipment": [
     "Erdungs- und Potentialausgleichsgeräte",
     "Ohun èlò ilẹ̀ àti bonding",

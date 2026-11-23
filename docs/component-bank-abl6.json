@@ -1,0 +1,3164 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "schneider-electric:abl6ts02j",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS02J",
+      "orderCode": "ABL6TS02J",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 12 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 25,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 12
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts04j",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS04J",
+      "orderCode": "ABL6TS04J",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 12 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 40,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 12
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts06j",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS06J",
+      "orderCode": "ABL6TS06J",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 12 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 63,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 12
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts10j",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS10J",
+      "orderCode": "ABL6TS10J",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 12 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 100,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 12
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts16j",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS16J",
+      "orderCode": "ABL6TS16J",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 12 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 160,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 12
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts25j",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS25J",
+      "orderCode": "ABL6TS25J",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 12 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 250,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 12
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts02b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS02B",
+      "orderCode": "ABL6TS02B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 24 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 25,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts04b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS04B",
+      "orderCode": "ABL6TS04B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 24 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 40,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts06b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS06B",
+      "orderCode": "ABL6TS06B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 24 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 63,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts10b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS10B",
+      "orderCode": "ABL6TS10B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 24 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 100,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts16b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS16B",
+      "orderCode": "ABL6TS16B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 24 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 160,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts25b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS25B",
+      "orderCode": "ABL6TS25B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 24 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 250,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts40b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS40B",
+      "orderCode": "ABL6TS40B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 24 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 400,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts63b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS63B",
+      "orderCode": "ABL6TS63B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 24 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 630,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts100b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS100B",
+      "orderCode": "ABL6TS100B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 24 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 1000,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts160b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS160B",
+      "orderCode": "ABL6TS160B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 24 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 1600,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts250b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS250B",
+      "orderCode": "ABL6TS250B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 24 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 2500,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts02g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS02G",
+      "orderCode": "ABL6TS02G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 115 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 25,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts04g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS04G",
+      "orderCode": "ABL6TS04G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 115 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 40,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts06g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS06G",
+      "orderCode": "ABL6TS06G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 115 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 63,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts10g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS10G",
+      "orderCode": "ABL6TS10G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 115 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 100,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts16g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS16G",
+      "orderCode": "ABL6TS16G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 115 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 160,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts25g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS25G",
+      "orderCode": "ABL6TS25G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 115 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 250,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts40g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS40G",
+      "orderCode": "ABL6TS40G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 115 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 400,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts63g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS63G",
+      "orderCode": "ABL6TS63G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 115 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 630,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts100g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS100G",
+      "orderCode": "ABL6TS100G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 115 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 1000,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts160g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS160G",
+      "orderCode": "ABL6TS160G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 115 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 1600,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts250g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS250G",
+      "orderCode": "ABL6TS250G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 115 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 2500,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts02u",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS02U",
+      "orderCode": "ABL6TS02U",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 230 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 25,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 230
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts04u",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS04U",
+      "orderCode": "ABL6TS04U",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 230 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 40,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 230
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts06u",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS06U",
+      "orderCode": "ABL6TS06U",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 230 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 63,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 230
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts10u",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS10U",
+      "orderCode": "ABL6TS10U",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 230 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 100,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 230
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts16u",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS16U",
+      "orderCode": "ABL6TS16U",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 230 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 160,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 230
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts25u",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS25U",
+      "orderCode": "ABL6TS25U",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 230 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 250,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 230
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts40u",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS40U",
+      "orderCode": "ABL6TS40U",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 230 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 400,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 230
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts63u",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS63U",
+      "orderCode": "ABL6TS63U",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 230 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 630,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 230
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts100u",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS100U",
+      "orderCode": "ABL6TS100U",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 230 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 1000,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 230
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts160u",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS160U",
+      "orderCode": "ABL6TS160U",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 230 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 1600,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 230
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abl6ts250u",
+      "manufacturer": "Schneider Electric",
+      "model": "ABL6TS250U",
+      "orderCode": "ABL6TS250U",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1",
+          "group": "secondary 230 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-2",
+          "group": "secondary 0 V",
+          "interface": "transformer-secondary",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 2500,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 230
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ambientRatingC": 50,
+        "primaryTapAdjustmentV": 15
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 4
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}

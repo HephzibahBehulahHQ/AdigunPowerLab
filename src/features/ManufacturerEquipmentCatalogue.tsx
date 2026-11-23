@@ -82,6 +82,7 @@ const projectCopy = {
 const pageSize = 50;
 const categories = [...new Set(componentBank.map(({ category }) => category))];
 const categoryLabels = {
+  transformers: "Transformers",
   "solar-and-wind-equipment": "Solar and wind equipment",
   "protection-devices": "Protection devices",
   "switching-and-transfer-equipment": "Switching and transfer equipment",
@@ -92,6 +93,10 @@ const categoryLabels = {
 } as const;
 
 const missingFieldLabels: Record<string, string> = {
+  "verified-transformer-model-mapping":
+    "Verified transformer calculation mapping",
+  "model-specific-bonding-terminal-review":
+    "Model-specific bonding terminal review",
   "verified-bonding-model-mapping": "Verified bonding calculation mapping",
   "separate-order-code": "Separate order code",
   "specific-connector-on-delivered-module": "Connector on the delivered module",
@@ -339,6 +344,21 @@ export function ManufacturerEquipmentCatalogue({
               <div>
                 <dt>{t("Documented terminals")}</dt>
                 <dd>{record.terminals.length}</dd>
+              </div>
+            </dl>
+          ) : record.function === "single-phase-control-transformer" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>{t("Apparent power")}</dt>
+                <dd>{format.format(record.ratings.apparentVA)} VA</dd>
+              </div>
+              <div>
+                <dt>{t("Primary voltage")}</dt>
+                <dd>{record.ratings.primaryV.join(" / ")} V AC</dd>
+              </div>
+              <div>
+                <dt>{t("Secondary voltage")}</dt>
+                <dd>{record.ratings.secondaryV} V AC</dd>
               </div>
             </dl>
           ) : record.function !== "miniature-circuit-breaker" ? (

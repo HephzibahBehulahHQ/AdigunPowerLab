@@ -13,6 +13,7 @@ import {
   rm17Relays,
   linergyDsBlocks,
   linergyEarthBars,
+  abl6Transformers,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -22,6 +23,31 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("ABL6TS stock references preserve the selection-table gaps and winding terminals", () => {
+  expect(abl6Transformers).toHaveLength(39);
+  expect(abl6Transformers.some(({ model }) => model === "ABL6TS40J")).toBe(
+    false,
+  );
+  const record = abl6Transformers.find(({ model }) => model === "ABL6TS250U");
+  expect(record?.ratings).toEqual({
+    apparentVA: 2500,
+    primaryV: [230, 400],
+    secondaryV: 230,
+  });
+  expect(record?.terminals.map(({ interface: kind }) => kind)).toEqual([
+    ...Array(5).fill("transformer-primary"),
+    ...Array(2).fill("transformer-secondary"),
+  ]);
+  const json = readFileSync(
+    new URL("../docs/component-bank-abl6.json", import.meta.url),
+    "utf8",
+  );
+  expect(JSON.parse(json)).toEqual({
+    schemaVersion: 1,
+    entries: abl6Transformers,
+  });
+});
 
 test("Linergy earth bars preserve the shared PE node and documented connection counts", () => {
   expect(linergyEarthBars.map(({ terminals }) => terminals.length)).toEqual([
