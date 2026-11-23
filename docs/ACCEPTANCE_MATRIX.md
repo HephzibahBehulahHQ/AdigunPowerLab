@@ -417,3 +417,5 @@ The metering category includes four documented iEM2000/iEM2010 order codes, line
 Frozen BOM report sections include a wiring schedule for saved catalogue equipment links. Cable quantities continue to use entered lengths.
 
 New catalogue instances retain the source page and known separate order code. Project import also accepts earlier instances without those fields.
+
+Diagram SVG and PDF distinguish terminal links and include wiring evidence. Browser verification covers the SVG wire and endpoint label.

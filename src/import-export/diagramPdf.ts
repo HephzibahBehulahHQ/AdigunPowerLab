@@ -93,12 +93,26 @@ export function appendDiagramPages(
           to = byId.get(edge.to);
         if (!from || !to)
           throw new Error("Diagram edge refers to a missing node.");
+        if (edge.wireId && edge.from === edge.to) {
+          const side = x(from.x + from.width);
+          const loop = x(from.x + from.width + 32);
+          const topOfLoop = y(from.y + from.height / 2 - 15);
+          const bottomOfLoop = y(from.y + from.height / 2 + 15);
+          doc.setLineDashPattern([1.5, 1], 0);
+          doc.line(side, topOfLoop, loop, topOfLoop);
+          doc.line(loop, topOfLoop, loop, bottomOfLoop);
+          doc.line(loop, bottomOfLoop, side, bottomOfLoop);
+          doc.setLineDashPattern([], 0);
+          continue;
+        }
         const a = { x: x(from.x + from.width / 2), y: y(from.y + from.height) },
           b = { x: x(to.x + to.width / 2), y: y(to.y) },
           middle = (a.y + b.y) / 2;
+        if (edge.wireId) doc.setLineDashPattern([1.5, 1], 0);
         doc.line(a.x, a.y, a.x, middle);
         doc.line(a.x, middle, b.x, middle);
         doc.line(b.x, middle, b.x, b.y);
+        if (edge.wireId) doc.setLineDashPattern([], 0);
         if (edge.label && snapshot.showLabels) {
           doc.setFontSize(6.5);
           doc.setTextColor(65, 85, 105);

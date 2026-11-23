@@ -312,6 +312,15 @@ export function diagramEdgePath(
   return `M${x1} ${y1}H${(x1 + x2) / 2}V${y2}H${x2}`;
 }
 
+export function diagramEdgeLabelPosition(
+  node: DiagramNode,
+  edge: DiagramSnapshot["edges"][number],
+) {
+  if (edge.wireId && edge.from === edge.to)
+    return { x: node.x + node.width, y: node.y - 8, anchor: "end" as const };
+  return { x: node.x - 6, y: node.y - 8, anchor: "end" as const };
+}
+
 const escape = (value: string) =>
   value.replace(
     /[&<>"']/g,
@@ -332,12 +341,13 @@ export function diagramSVG(snapshot: DiagramSnapshot): string {
   ];
   for (const edge of snapshot.edges) {
     lines.push(
-      `<path d="${diagramEdgePath(snapshot, edge)}" fill="none" stroke="#526579" stroke-width="2"/>`,
+      `<path d="${diagramEdgePath(snapshot, edge)}" fill="none" stroke="#526579" stroke-width="2"${edge.wireId ? ' stroke-dasharray="5 3"' : ""}><title>${escape(edge.label)}</title></path>`,
     );
     if (snapshot.showLabels) {
       const to = snapshot.nodes.find((node) => node.id === edge.to)!;
+      const label = diagramEdgeLabelPosition(to, edge);
       lines.push(
-        `<text x="${to.x - 6}" y="${to.y - 8}" text-anchor="end" font-size="10">${escape(edge.label)}</text>`,
+        `<text x="${label.x}" y="${label.y}" text-anchor="${label.anchor}" font-size="10">${escape(edge.label)}</text>`,
       );
     }
   }
