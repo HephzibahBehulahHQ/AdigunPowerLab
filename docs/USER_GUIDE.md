@@ -495,3 +495,5 @@ Freeze a report with the model-derived bill of materials to include the battery 
 Filter **UPS and backup systems** to compare Easy UPS VA and W ratings and inspect documented mains and output connectors.
 
 Filter **Inverters and conversion equipment** to compare VE.Direct power at 25 and 40 °C, DC voltage and the AC outlet type.
+
+VE.Direct 120 V records show their own temperature-conditioned power ratings and NEMA or GFCI outlet variant.

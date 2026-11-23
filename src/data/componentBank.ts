@@ -971,7 +971,7 @@ export const apcSmvUps = (
 }));
 
 // The manufacturer's article-number key defines the DC voltage and outlet suffix.
-export const victronVeDirect230 = (
+const veDirect230Rows = (
   [
     [250, "1251", 250, 200, "10"],
     [375, "1371", 375, 300, "10"],
@@ -980,73 +980,117 @@ export const victronVeDirect230 = (
     [1200, "2121", 1150, 1000, "10"],
     [1600, "2161", 1450, 1300, "00"],
   ] as const
-).flatMap(([size, code, continuousW25C, continuousW40C, revisionCode]) =>
-  ([1, 2, 3, 4] as const).flatMap((outletCode) =>
-    ([12, 24, 48] as const).map((inputNominalV) => {
-      const model = `PIN${inputNominalV}${code}${outletCode}${revisionCode}`;
-      const outlet = [
-        "IEC-320",
-        "Schuko (CEE 7/4)",
-        "AU/NZ (AS/NZS 3112)",
-        "UK (BS 1363)",
-      ][outletCode - 1];
-      return {
-        id: `victron-energy:${model.toLowerCase()}`,
-        manufacturer: "Victron Energy",
-        model,
-        orderCode: model,
-        category: "inverters-and-conversion-equipment" as const,
-        function: "standalone-dc-ac-inverter" as const,
-        connection: "dc-ac" as const,
-        terminals: [
-          {
-            id: "dc-positive",
-            group: "DC +",
-            interface: "inverter-dc-input",
-            connector: "screw terminal",
-          },
-          {
-            id: "dc-negative",
-            group: "DC −",
-            interface: "inverter-dc-input",
-            connector: "screw terminal",
-          },
-          {
-            id: "ac-outlet",
-            group: "AC output",
-            interface: "inverter-ac-output",
-            connector: outlet,
-          },
-        ],
-        ratings: {
-          size,
-          inputNominalV,
-          outputNominalV: 230,
-          continuousW25C,
-          continuousW40C,
-        },
-        conditions: {
-          outputFrequencyHz: [50, 60],
-          inputRangeV: { 12: [9.2, 17], 24: [18.4, 34], 48: [36.8, 62] }[
-            inputNominalV
+).map(([size, code, continuousW25C, continuousW40C, revisionCode]) => ({
+  size,
+  continuousW25C,
+  continuousW40C,
+  variants: [
+    "IEC-320",
+    "Schuko (CEE 7/4)",
+    "AU/NZ (AS/NZS 3112)",
+    "UK (BS 1363)",
+  ].map((outlet, index) => ({
+    outlet,
+    code: `${code}${index + 1}${revisionCode}`,
+  })),
+}));
+
+const veDirect120Rows = (
+  [
+    [250, 250, 200, "1250500", "1250510"],
+    [375, 375, 300, "1370500", "1370510"],
+    [500, 460, 380, "1500500", "1500510"],
+    [800, 800, 650, "1800520", "1800530"],
+    [1200, 1200, 1100, "2122520", "2122530"],
+    [1600, 1500, 1350, "2161500", "2161510"],
+  ] as const
+).map(([size, continuousW25C, continuousW40C, nema, gfci]) => ({
+  size,
+  continuousW25C,
+  continuousW40C,
+  variants: [
+    { outlet: "NEMA 5-15R", code: nema },
+    { outlet: "GFCI", code: gfci },
+  ],
+}));
+
+function veDirectRecords(
+  rows: typeof veDirect230Rows | typeof veDirect120Rows,
+  outputNominalV: 120 | 230,
+) {
+  return rows.flatMap(({ size, continuousW25C, continuousW40C, variants }) =>
+    variants.flatMap(({ outlet, code }) =>
+      ([12, 24, 48] as const).map((inputNominalV) => {
+        const model = `PIN${inputNominalV}${code}`;
+        return {
+          id: `victron-energy:${model.toLowerCase()}`,
+          manufacturer: "Victron Energy",
+          model,
+          orderCode: model,
+          category: "inverters-and-conversion-equipment" as const,
+          function: "standalone-dc-ac-inverter" as const,
+          connection: "dc-ac" as const,
+          terminals: [
+            {
+              id: "dc-positive",
+              group: "DC +",
+              interface: "inverter-dc-input",
+              connector: "screw terminal",
+            },
+            {
+              id: "dc-negative",
+              group: "DC −",
+              interface: "inverter-dc-input",
+              connector: "screw terminal",
+            },
+            {
+              id: "ac-outlet",
+              group: "AC output",
+              interface: "inverter-ac-output",
+              connector: outlet,
+            },
           ],
-        },
-        modelMapping: null,
-        source: {
-          url: "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
-          revision:
-            "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
-          page: 2,
-        },
-        missingFields: [
-          "regional-availability",
-          "verified-inverter-model-mapping",
-        ],
-        readiness: "inventory-and-diagram-only",
-      };
-    }),
-  ),
-);
+          ratings: {
+            size,
+            inputNominalV,
+            outputNominalV,
+            continuousW25C,
+            continuousW40C,
+          },
+          conditions: {
+            outputFrequencyHz: outputNominalV === 120 ? [60] : [50, 60],
+            inputRangeV: { 12: [9.2, 17], 24: [18.4, 34], 48: [36.8, 62] }[
+              inputNominalV
+            ],
+          },
+          modelMapping: null,
+          source:
+            outputNominalV === 120
+              ? {
+                  url: "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-120V-EN-.pdf",
+                  revision:
+                    "VE.Direct 120 V datasheet, PINxx1250500 article generation",
+                  page: 2,
+                }
+              : {
+                  url: "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+                  revision:
+                    "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+                  page: 2,
+                },
+          missingFields: [
+            "regional-availability",
+            "verified-inverter-model-mapping",
+          ],
+          readiness: "inventory-and-diagram-only",
+        };
+      }),
+    ),
+  );
+}
+
+export const victronVeDirect230 = veDirectRecords(veDirect230Rows, 230);
+export const victronVeDirect120 = veDirectRecords(veDirect120Rows, 120);
 
 export const componentBank = [
   ...pvModules,
@@ -1065,6 +1109,7 @@ export const componentBank = [
   ...victronAgmSuperCycle,
   ...apcSmvUps,
   ...victronVeDirect230,
+  ...victronVeDirect120,
 ];
 
 export function componentBankCsv(

@@ -517,3 +517,5 @@ Frozen reports now include battery series sequence and nominal ratings derived f
 UPS coverage starts with five APC Easy UPS SMV CAI models. The candidate contains 798 models in ten categories. AC inlet and outlet connectors are documented; battery and dry-contact pinouts remain open.
 
 Inverter coverage starts with 72 Victron VE.Direct 230 V article variants from the manufacturer's voltage and outlet code table. Candidate total is 870 records across 11 categories. Regional availability and calculation mapping remain open.
+
+iC60N 2b49aee published in Pages run 45285905960 and the public root returned HTTP 200. Phase-aware AC wiring merged as 52e1145. The candidate adds 36 VE.Direct 120 V catalogue codes, bringing the total to 906.

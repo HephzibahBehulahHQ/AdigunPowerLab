@@ -20,6 +20,7 @@ import {
   victronAgmSuperCycle,
   apcSmvUps,
   victronVeDirect230,
+  victronVeDirect120,
 } from "../src/data/componentBank.ts";
 import { join } from "node:path";
 
@@ -41,6 +42,7 @@ const batches = {
   "victron-agm": victronAgmSuperCycle,
   "apc-smv": apcSmvUps,
   "victron-vedirect-230": victronVeDirect230,
+  "victron-vedirect-120": victronVeDirect120,
 };
 for (const [batch, entries] of Object.entries(batches)) {
   writeFileSync(
