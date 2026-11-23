@@ -521,3 +521,4 @@ Inverter coverage starts with 72 Victron VE.Direct 230 V article variants from t
 iC60N 2b49aee published in Pages run 45285905960 and the public root returned HTTP 200. Phase-aware AC wiring merged as 52e1145. The candidate adds 36 VE.Direct 120 V catalogue codes, bringing the total to 906.
 
 - EVlink candidate: 12 Schneider EVlink Home and Home Smart records add EV charging as the twelfth represented category. Candidate total is 918. Catalog and diagram readiness only. Release verification is pending.
+- Altivar candidate: 20 compact ATV320 drive order codes bring the stacked catalogue to 938 records across 13 categories. Published ratings and power terminals are included. Auxiliary terminals and calculation mapping are pending.
