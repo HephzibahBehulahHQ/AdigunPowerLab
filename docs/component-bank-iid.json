@@ -3514,6 +3514,2594 @@
         "verified-protection-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r20216",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R20216",
+      "orderCode": "A9R20216",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 16,
+        "poles": 2,
+        "tripSensitivityMA": 10,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 230,
+        "ratedVoltageMaxV": 240,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r20225",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R20225",
+      "orderCode": "A9R20225",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 25,
+        "poles": 2,
+        "tripSensitivityMA": 10,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 230,
+        "ratedVoltageMaxV": 240,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r51225",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R51225",
+      "orderCode": "A9R51225",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 25,
+        "poles": 2,
+        "tripSensitivityMA": 30,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 230,
+        "ratedVoltageMaxV": 240,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r54225",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R54225",
+      "orderCode": "A9R54225",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 25,
+        "poles": 2,
+        "tripSensitivityMA": 300,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 230,
+        "ratedVoltageMaxV": 240,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r51240",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R51240",
+      "orderCode": "A9R51240",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 40,
+        "poles": 2,
+        "tripSensitivityMA": 30,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 230,
+        "ratedVoltageMaxV": 240,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r54240",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R54240",
+      "orderCode": "A9R54240",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 40,
+        "poles": 2,
+        "tripSensitivityMA": 300,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 230,
+        "ratedVoltageMaxV": 240,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r25240",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R25240",
+      "orderCode": "A9R25240",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 40,
+        "poles": 2,
+        "tripSensitivityMA": 300,
+        "selective": true
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 230,
+        "ratedVoltageMaxV": 240,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r51263",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R51263",
+      "orderCode": "A9R51263",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 63,
+        "poles": 2,
+        "tripSensitivityMA": 30,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 230,
+        "ratedVoltageMaxV": 240,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r54263",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R54263",
+      "orderCode": "A9R54263",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 63,
+        "poles": 2,
+        "tripSensitivityMA": 300,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 230,
+        "ratedVoltageMaxV": 240,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r25263",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R25263",
+      "orderCode": "A9R25263",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 63,
+        "poles": 2,
+        "tripSensitivityMA": 300,
+        "selective": true
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 230,
+        "ratedVoltageMaxV": 240,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r21291",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R21291",
+      "orderCode": "A9R21291",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 100,
+        "poles": 2,
+        "tripSensitivityMA": 30,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 230,
+        "ratedVoltageMaxV": 240,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r24291",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R24291",
+      "orderCode": "A9R24291",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 100,
+        "poles": 2,
+        "tripSensitivityMA": 300,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 230,
+        "ratedVoltageMaxV": 240,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r25291",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R25291",
+      "orderCode": "A9R25291",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 100,
+        "poles": 2,
+        "tripSensitivityMA": 300,
+        "selective": true
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 230,
+        "ratedVoltageMaxV": 240,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r51425",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R51425",
+      "orderCode": "A9R51425",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 25,
+        "poles": 4,
+        "tripSensitivityMA": 30,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r54425",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R54425",
+      "orderCode": "A9R54425",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 25,
+        "poles": 4,
+        "tripSensitivityMA": 300,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r51440",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R51440",
+      "orderCode": "A9R51440",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 40,
+        "poles": 4,
+        "tripSensitivityMA": 30,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r22440",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R22440",
+      "orderCode": "A9R22440",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 40,
+        "poles": 4,
+        "tripSensitivityMA": 100,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r54440",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R54440",
+      "orderCode": "A9R54440",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 40,
+        "poles": 4,
+        "tripSensitivityMA": 300,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r26440",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R26440",
+      "orderCode": "A9R26440",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 40,
+        "poles": 4,
+        "tripSensitivityMA": 500,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r25440",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R25440",
+      "orderCode": "A9R25440",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 40,
+        "poles": 4,
+        "tripSensitivityMA": 300,
+        "selective": true
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r51463",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R51463",
+      "orderCode": "A9R51463",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 63,
+        "poles": 4,
+        "tripSensitivityMA": 30,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r22463",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R22463",
+      "orderCode": "A9R22463",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 63,
+        "poles": 4,
+        "tripSensitivityMA": 100,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r54463",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R54463",
+      "orderCode": "A9R54463",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 63,
+        "poles": 4,
+        "tripSensitivityMA": 300,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r26463",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R26463",
+      "orderCode": "A9R26463",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 63,
+        "poles": 4,
+        "tripSensitivityMA": 500,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r25463",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R25463",
+      "orderCode": "A9R25463",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 63,
+        "poles": 4,
+        "tripSensitivityMA": 300,
+        "selective": true
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r21480",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R21480",
+      "orderCode": "A9R21480",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 80,
+        "poles": 4,
+        "tripSensitivityMA": 30,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r24480",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R24480",
+      "orderCode": "A9R24480",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 80,
+        "poles": 4,
+        "tripSensitivityMA": 300,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r25480",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R25480",
+      "orderCode": "A9R25480",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 80,
+        "poles": 4,
+        "tripSensitivityMA": 300,
+        "selective": true
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r21491",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R21491",
+      "orderCode": "A9R21491",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 100,
+        "poles": 4,
+        "tripSensitivityMA": 30,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r24491",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R24491",
+      "orderCode": "A9R24491",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 100,
+        "poles": 4,
+        "tripSensitivityMA": 300,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r26491",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R26491",
+      "orderCode": "A9R26491",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 100,
+        "poles": 4,
+        "tripSensitivityMA": 500,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r25491",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R25491",
+      "orderCode": "A9R25491",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 100,
+        "poles": 4,
+        "tripSensitivityMA": 300,
+        "selective": true
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 400,
+        "ratedVoltageMaxV": 415,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r08263",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R08263",
+      "orderCode": "A9R08263",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 63,
+        "poles": 2,
+        "tripSensitivityMA": 30,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 110,
+        "ratedVoltageMaxV": 110,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9r08463",
+      "manufacturer": "Schneider Electric",
+      "model": "A9R08463",
+      "orderCode": "A9R08463",
+      "category": "protection-devices",
+      "function": "residual-current-circuit-breaker",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N (top)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N (bottom)",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 63,
+        "poles": 4,
+        "tripSensitivityMA": 30,
+        "selective": false
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "ratedVoltageMinV": 230,
+        "ratedVoltageMaxV": 230,
+        "standard": "IEC/EN 61008-1",
+        "residualCurrentType": "A"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+        "revision": "Version 2.0, May 2017",
+        "page": 53
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-protection-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
     }
   ]
 }

@@ -461,3 +461,5 @@ The phase-aware wiring candidate supports L1/L2/L3 links between documented brea
 PR #160 merged as 6ab0d29 after candidate validation. The catalogue navigation candidate filters by category and keeps the model selector to 50 results per page.
 
 The iID batch adds 47 type-AC RCCB order codes from Acti9 Catalogue Version 2.0, May 2017, p. 52. The candidate catalogue contains 241 records. It preserves selective variants and supports neutral links, with fault and protection analyses still open.
+
+Type A expansion adds 34 iID codes from the printed page 53 tables and brings the candidate to 275 sourced records. The exports distinguish residual-current type and both voltage tables.
