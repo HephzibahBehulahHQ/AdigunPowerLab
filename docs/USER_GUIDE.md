@@ -438,3 +438,5 @@ Select two installed unit numbers and their documented terminals, then choose **
 Find Schneider Electric iC60N breakers by order code. The library displays rated current, poles, trip curve, and the IEC/EN 60898-1 breaking capacity at its stated voltage. These records support inventories and terminal inspection.
 
 For an AC line wire select L1, L2 or L3. The editor checks that incoming and outgoing links at a breaker pole use the same phase.
+
+Filter **Manufacturer equipment** by category. Use **Previous records** and **Next records** for more results, or combine maker and model terms to find an exact order code.

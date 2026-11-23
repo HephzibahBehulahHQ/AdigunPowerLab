@@ -1,5 +1,18 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "All categories": ["Alle Kategorien", "Gbogbo ẹ̀ka", "All categories"],
+  "Solar and wind equipment": [
+    "Solar- und Windtechnik",
+    "Ohun èlò oòrùn àti afẹ́fẹ́",
+    "Solar and wind equipment",
+  ],
+  "Protection devices": ["Schutzgeräte", "Ohun èlò ààbò", "Protection devices"],
+  "Previous records": [
+    "Vorherige Datensätze",
+    "Àkọsílẹ̀ tó ṣáájú",
+    "Previous records",
+  ],
+  "Next records": ["Nächste Datensätze", "Àkọsílẹ̀ tó tẹ̀lé", "Next records"],
   "From unit": ["Von Einheit", "Láti ẹyọ", "From unit"],
   "To unit": ["Zu Einheit", "Sí ẹyọ", "To unit"],
   "From terminal": ["Von Anschluss", "Láti ebute", "From terminal"],

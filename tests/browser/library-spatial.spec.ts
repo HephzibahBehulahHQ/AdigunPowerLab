@@ -296,14 +296,22 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     name: "Manufacturer equipment",
   });
   const search = catalogue.getByRole("searchbox");
+  const model = catalogue.getByRole("combobox", { name: "Inspect model" });
+  await catalogue
+    .getByLabel("Equipment category")
+    .selectOption("protection-devices");
+  await expect(model.getByRole("option")).toHaveCount(50);
+  await catalogue.getByRole("button", { name: "Next records" }).click();
+  await expect(catalogue.getByText("51–100 / 180")).toBeVisible();
+  await search.fill("Schneider A9F74106");
+  await expect(model).toHaveValue("schneider-electric:a9f74106");
+  await catalogue.getByLabel("Equipment category").selectOption("");
   await search.fill("no matching product");
   await expect(catalogue.getByRole("status")).toHaveText(
     "No matching equipment",
   );
   await search.fill("CS6.2-48TM-455H");
-  await expect(catalogue.getByRole("combobox")).toHaveValue(
-    "canadian-solar:cs6.2-48tm-455h",
-  );
+  await expect(model).toHaveValue("canadian-solar:cs6.2-48tm-455h");
   await expect(catalogue.getByText("455 W", { exact: true })).toBeVisible();
   const pending = page.waitForEvent("download");
   await catalogue.getByRole("button", { name: "Export record JSON" }).click();
@@ -316,9 +324,7 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   expect(contents.trimEnd().split(/\r?\n/)).toHaveLength(2);
   expect(contents).toContain('"canadian-solar:cs6.2-48tm-455h"');
   await search.fill("A9F74106");
-  await expect(catalogue.getByRole("combobox")).toHaveValue(
-    "schneider-electric:a9f74106",
-  );
+  await expect(model).toHaveValue("schneider-electric:a9f74106");
   await expect(catalogue.getByText("6 A", { exact: true })).toBeVisible();
   await expect(catalogue.getByText("6 kA · 230 V AC")).toBeVisible();
   await catalogue
