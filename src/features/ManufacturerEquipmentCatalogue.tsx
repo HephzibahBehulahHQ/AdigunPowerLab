@@ -103,7 +103,7 @@ const missingFieldLabels: Record<string, string> = {
   "verified-evse-model-mapping": "Verified EV charger calculation mapping",
   "verified-drive-model-mapping": "Verified drive calculation mapping",
   "drive-auxiliary-terminals": "Drive auxiliary terminals",
-  "cable-electrical-ratings": "Article electrical ratings",
+  "cable-ampacity-and-impedance": "Cable ampacity and impedance",
   "verified-cable-model-mapping": "Verified cable calculation mapping",
   "verified-ups-model-mapping": "Verified UPS calculation mapping",
   "battery-and-dry-contact-pinouts": "Battery and dry-contact pinouts",
@@ -450,6 +450,12 @@ export function ManufacturerEquipmentCatalogue({
               <div>
                 <dt>Ø</dt>
                 <dd>{format.format(record.ratings.outerDiameterIn)} in</dd>
+              </div>
+              <div>
+                <dt>U₀/U</dt>
+                <dd>
+                  {record.ratings.nominalU0V}/{record.ratings.nominalUV} V
+                </dd>
               </div>
             </dl>
           ) : record.function === "variable-speed-drive" ? (

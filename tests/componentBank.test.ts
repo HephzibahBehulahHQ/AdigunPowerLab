@@ -50,6 +50,12 @@ test("LAPP cable records pair both ends of every core and preserve PE variants",
   ).toEqual(["a-pe", "b-pe"]);
   expect(ungrounded?.terminals.some(({ group }) => group === "PE")).toBe(false);
   for (const cable of olflexClassic110Cables) {
+    expect(cable.ratings).toMatchObject({
+      nominalU0V: 300,
+      nominalUV: 500,
+      coreToCoreTestVAc: 4000,
+    });
+    expect(cable.conditions.electricalReferenceTemperatureC).toBe(20);
     expect(cable.terminals).toHaveLength(cable.ratings.coreCount * 2);
     expect(new Set(cable.terminals.map(({ group }) => group)).size).toBe(
       cable.ratings.coreCount,
