@@ -341,6 +341,14 @@ test("sourced equipment keeps its edited quantity in the saved project BOM", asy
   await page.reload();
   await expect(equipment.getByRole("textbox")).toHaveValue("Roof array");
   await expect(equipment.getByRole("spinbutton")).toHaveValue("24");
+  await page.goto("/#/diagram");
+  await page.getByRole("button", { name: "equipment: Roof array" }).click();
+  const inspector = page.getByRole("complementary", {
+    name: "Topology object inspector",
+  });
+  await expect(inspector).toContainText("dc-positive");
+  await expect(inspector).toContainText("dc-negative");
+  await expect(inspector).toContainText("frame-bond");
   await page.goto("/#/reports");
   await page
     .getByRole("checkbox", { name: "Model-derived bill of materials" })

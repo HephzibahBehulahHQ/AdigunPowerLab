@@ -7,7 +7,7 @@ import type {
 export interface DiagramNode {
   id: string;
   objectId: string;
-  kind: "source" | "board" | "circuit" | "load";
+  kind: "source" | "board" | "circuit" | "load" | "equipment";
   name: string;
   detail: string;
   x: number;
@@ -143,6 +143,15 @@ function graph(project: Project, result?: CalculationResult) {
           ? "Connected load"
           : "Board-only assignment",
     );
+  }
+  for (const equipment of project.catalogueEquipment ?? []) {
+    const node = add(
+      "equipment",
+      equipment.id,
+      equipment.name,
+      `${equipment.quantity} × ${equipment.manufacturer} ${equipment.model}`,
+    );
+    node.symbol = "E";
   }
   return { nodes, edges, sourceId };
 }
@@ -321,7 +330,7 @@ export function diagramSVG(snapshot: DiagramSnapshot): string {
   }
   for (const node of snapshot.nodes) {
     lines.push(
-      `<g><title>${escape(`${node.kind}: ${node.name}; ${node.detail}`)}</title><rect x="${node.x}" y="${node.y}" width="${node.width}" height="${node.height}" rx="5" fill="#f3f7fb" stroke="#466379"/><circle cx="${node.x + 22}" cy="${node.y + 24}" r="12" fill="#e0f3f8" stroke="#466379"/><text x="${node.x + 22}" y="${node.y + 28}" text-anchor="middle" font-size="12">${node.symbol ?? { source: "~", board: "B", circuit: "S", load: "L" }[node.kind]}</text>`,
+      `<g><title>${escape(`${node.kind}: ${node.name}; ${node.detail}`)}</title><rect x="${node.x}" y="${node.y}" width="${node.width}" height="${node.height}" rx="5" fill="#f3f7fb" stroke="#466379"/><circle cx="${node.x + 22}" cy="${node.y + 24}" r="12" fill="#e0f3f8" stroke="#466379"/><text x="${node.x + 22}" y="${node.y + 28}" text-anchor="middle" font-size="12">${node.symbol ?? { source: "~", board: "B", circuit: "S", load: "L", equipment: "E" }[node.kind]}</text>`,
     );
     const name = snapshot.showLabels ? node.name : node.kind;
     lines.push(
