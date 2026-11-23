@@ -812,3 +812,4 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - Altivar compact candidate: TypeScript and 26 component-bank tests passed, including export parity and phase-specific terminals. Browser and release verification pending.
 - Altivar candidate: Chromium passed category filtering and exact model lookup for ATV320D15M3C, including the 15 kW, 66 A, 200–240 V three-phase display and JSON export of power terminal and supplemental source data.
 - Chromium also verified the Altivar installation guide is linked at the documented revision and page in the source panel.
+- Catalogue export validation checks supplemental source URL, revision and page. Export generation passed and a supplemental page of zero was rejected in an isolated process.
