@@ -33,6 +33,7 @@ import {
   stamfordWinding311Alternators,
   spacialS3hdEnclosures,
   philipsDn145bDownlights,
+  wegW22Motors,
 } from "../src/data/componentBank.ts";
 import { join } from "node:path";
 
@@ -68,6 +69,7 @@ const batches = {
   "stamford-winding-311": stamfordWinding311Alternators,
   "spacial-s3hd": spacialS3hdEnclosures,
   "philips-dn145b": philipsDn145bDownlights,
+  "weg-w22": wegW22Motors,
 };
 for (const [batch, entries] of Object.entries(batches)) {
   writeCatalogueDocument(
