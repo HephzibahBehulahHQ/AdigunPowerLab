@@ -13,6 +13,7 @@ import {
   iemMeters,
   ictContactors,
   rm17Relays,
+  linergyDsBlocks,
 } from "../src/data/componentBank.ts";
 import { join } from "node:path";
 
@@ -27,6 +28,7 @@ const batches = {
   iem: iemMeters,
   ict: ictContactors,
   rm17: rm17Relays,
+  linergy: linergyDsBlocks,
 };
 for (const [batch, entries] of Object.entries(batches)) {
   writeFileSync(
