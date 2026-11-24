@@ -242,6 +242,8 @@ test("Phoenix Contact PE exports preserve both clamps and the conductive rail fo
     ]),
   ).toEqual([
     ["3208139", 1.5, 6],
+    ["3209536", 2.5, 6],
+    ["3211766", 4, 8],
     ["3211822", 6, 8],
     ["3212131", 10, 8],
   ]);

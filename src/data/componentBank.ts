@@ -764,6 +764,22 @@ export const phoenixPtPeTerminals = (
       "en-de/products/ground-terminal-pt-15-s-pe-3208139",
     ],
     [
+      "PT 2,5-PE",
+      "3209536",
+      2.5,
+      6,
+      "2026-06-04",
+      "en-us/products/ground-terminal-block-pt-25-pe-3209536",
+    ],
+    [
+      "PT 4-PE",
+      "3211766",
+      4,
+      8,
+      "2026-11-10",
+      "en-de/products/ground-terminal-pt-4-pe-3211766",
+    ],
+    [
       "PT 6-PE",
       "3211822",
       6,
