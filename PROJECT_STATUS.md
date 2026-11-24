@@ -499,3 +499,5 @@ The iC60L tranche adds 232 exact order codes from Acti9 2017 pp. 14–15. Candid
 Monitoring starts with six Harmony RM17 references covering terminal markings and variant-specific voltage and contact ratings. Candidate total is 717 models across five categories. Sensing and relay terminals are documented for inspection.
 
 Distribution starts with three Linergy DS single-pole blocks with 10, 13 and 14 common-node openings. The candidate contains 720 records across six categories. Phase validation covers the full conductor group.
+
+Earthing starts with three Linergy TB bars from PrismaSeT G D-22, raising the candidate to 723 records across seven categories. The wiring editor supports shared protective bonding terminals between a PV frame and an earth bar.
