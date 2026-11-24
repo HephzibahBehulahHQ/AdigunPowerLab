@@ -599,6 +599,63 @@ export const iem205xMeters = ["A9MEM2050", "A9MEM2055"].map((model) => ({
   readiness: "inventory-and-diagram-only",
 }));
 
+export const iem24xxMeters = (
+  [
+    ["A9MEM2435", "M-Bus", "m-bus"],
+    ["A9MEM2455", "RS-485 Modbus", "rs485"],
+  ] as const
+).map(([model, communication, communicationInterface]) => ({
+  id: `schneider-electric:${model.toLowerCase()}`,
+  manufacturer: "Schneider Electric",
+  model,
+  orderCode: model,
+  category: "metering-and-power-quality" as const,
+  function: "direct-energy-meter" as const,
+  connection: "ac" as const,
+  terminals: (
+    [
+      ["1", "L in", "ac-line"],
+      ["3", "L out", "ac-line"],
+      ["4", "N in", "ac-neutral"],
+      ["6", "N out", "ac-neutral"],
+      ["10", "A", communicationInterface],
+      ["11", "B", communicationInterface],
+      ["18", "S0 forward +", "pulse-output"],
+      ["19", "S0 forward −", "pulse-output"],
+      ["20", "S0 reverse +", "pulse-output"],
+      ["21", "S0 reverse −", "pulse-output"],
+    ] as const
+  ).map(([id, group, kind]) => ({
+    id,
+    group,
+    interface: kind,
+    connector: "screw terminal",
+  })),
+  ratings: {
+    maxCurrentA: 100,
+    voltageV: 230,
+    accuracyClass: 1,
+    pulsesPerKWh: null,
+    pulseOutput: null,
+  },
+  conditions: { communication, tariffs: 2, marketRestriction: null },
+  modelMapping: null,
+  source: {
+    url: "https://download.se.com/files?p_Doc_Ref=PLSED309005EN_Web",
+    revision: "PLSED309005EN_03 (2025-11-06)",
+    page: 49,
+    supplemental: [
+      {
+        url: "https://www.productinfo.schneider-electric.com/iem2435_iem2455/iem2435-iem2455-user-manual/iEM2435%20/%20iEM2455%20User%20Manual/English/7EN02-0468-00.pdf",
+        revision: "7EN02-0468-00",
+        page: 10,
+      },
+    ],
+  },
+  missingFields: ["verified-metering-model-mapping"],
+  readiness: "inventory-and-diagram-only",
+}));
+
 // CA909006E p. 74: normally open contactors with documented terminal diagrams.
 export const ictContactors = (
   [
@@ -2864,6 +2921,7 @@ export const componentBank = [
   ...iswSwitches,
   ...iemMeters,
   ...iem205xMeters,
+  ...iem24xxMeters,
   ...ictContactors,
   ...ic60hBreakers,
   ...ic60lBreakers,

@@ -547,3 +547,4 @@ iC60N 2b49aee published in Pages run 45285905960 and the public root returned HT
 - The Philips DN145B PSU batch also includes the two 6.5 W / 650 lm colour variants. The stacked candidate contains 1,620 records.
 - Verified the four existing Schneider iEM2000/iEM2010 order codes. Added the published S0 voltage, current and pulse duration to the two pulse-output articles, plus the order-code source page for all four.
 - The Schneider iEM2050 and iEM2055 batch adds two 230 V, 45 A meters with eight documented mains, pulse and Modbus terminals per model. The stacked catalogue contains 1,622 records.
+- Schneider iEM2435 and iEM2455 add two 230 V, 100 A meters with model-specific M-Bus or RS-485 terminals, separate forward/reverse pulse pairs and linked wiring diagrams. The stacked catalogue has 1,624 records.
