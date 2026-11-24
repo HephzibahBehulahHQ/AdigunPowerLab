@@ -862,4 +862,5 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - Chromium against the production build found Philips 911401806080, displayed 1,100 lm and 4,000 K, and downloaded its on/off control and L/N terminals.
 - The 6.5 W Philips additions passed TypeScript and the 38-test component-bank suite, including all four PSU variants' article ratings and CSV/JSON parity.
 - Chromium on the production build found Philips 911401805880 and verified the 6.5 W and 650 lm displays.
+- Candidate `47ab076` passed all 489 local Vitest tests across 37 files with two workers. Its catalogue manifest contains 1,620 records.
 - Candidate d6e148e: generated individual exports for all 1,200 records and compared every CSV and JSON to its source record. All 2,400 files and the 1,200-ID index matched.
