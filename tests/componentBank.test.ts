@@ -20,6 +20,7 @@ import {
   victronVeDirect230,
   victronVeDirect120,
   evlinkHomeStations,
+  altivar320CompactDrives,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -32,6 +33,43 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("Altivar compact records distinguish supply phases and continuous motor output", () => {
+  expect(altivar320CompactDrives).toHaveLength(20);
+  const single = altivar320CompactDrives.find(
+    ({ model }) => model === "ATV320U07M2C",
+  );
+  const three = altivar320CompactDrives.find(
+    ({ model }) => model === "ATV320D15M3C",
+  );
+  expect(single?.ratings).toMatchObject({
+    supplyPhases: 1,
+    continuousOutputA: 4.8,
+  });
+  expect(single?.terminals.map(({ group }) => group)).toEqual([
+    "R/L1",
+    "S/L2/N",
+    "U/T1",
+    "V/T2",
+    "W/T3",
+    "PE",
+  ]);
+  expect(three?.ratings).toMatchObject({
+    supplyPhases: 3,
+    continuousOutputA: 66,
+    motorKW: 15,
+  });
+  expect(three?.terminals[2].group).toBe("T/L3");
+  expect(three?.conditions.nominalSwitchingFrequencyKHz).toBe(4);
+  const json = readFileSync(
+    new URL("../docs/component-bank-altivar-320-compact.json", import.meta.url),
+    "utf8",
+  );
+  expect(JSON.parse(json)).toEqual({
+    schemaVersion: 1,
+    entries: altivar320CompactDrives,
+  });
+});
 
 test("EVlink order codes preserve phase terminals, outlet and published ratings", () => {
   expect(

@@ -328,6 +328,28 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     await readFile(await (await evlinkDownload).path(), "utf8"),
   );
   expect(JSON.stringify(evlink)).toContain("Type 2 cable (5 m)");
+  await catalogue
+    .getByLabel("Equipment category")
+    .selectOption("drives-and-starting-equipment");
+  await search.fill("ATV320D15M3C");
+  await expect(model).toHaveValue("schneider-electric:atv320d15m3c");
+  await expect(catalogue.getByText("15 kW", { exact: true })).toBeVisible();
+  await expect(catalogue.getByText("66 A", { exact: true })).toBeVisible();
+  await expect(catalogue.getByText("200–240 V AC · 3P")).toBeVisible();
+  const driveDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const drive = JSON.parse(
+    await readFile(await (await driveDownload).path(), "utf8"),
+  );
+  expect(drive.entry.source.supplemental[0].page).toBe(144);
+  await catalogue.getByText("Source, terminals and model readiness").click();
+  await expect(
+    catalogue.getByRole("link", { name: "NVE41289.09 (04/2025) · Page 144" }),
+  ).toHaveAttribute("href", /p_Doc_Ref=NVE41289/);
+  await catalogue.getByText("Source, terminals and model readiness").click();
+  expect(
+    drive.entry.terminals.map(({ group }: { group: string }) => group),
+  ).toContain("T/L3");
   await catalogue.getByLabel("Equipment category").selectOption("");
   await search.fill("PIN242122530");
   await expect(catalogue.getByText("24 V DC → 120 V AC")).toBeVisible();

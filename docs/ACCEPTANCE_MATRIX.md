@@ -461,3 +461,4 @@ VE.Direct 230 V includes the 72 documented article-code combinations, outlet int
 VE.Direct 120 V preserves exact NEMA and GFCI article-code generations and temperature-specific output ratings.
 
 - EV charging: 12 EVlink Home and Home Smart references, published ratings, distinct supply and vehicle interfaces, and CSV/JSON exports. EV charger calculation mapping remains pending.
+- Drives and starting equipment: 20 compact ATV320 models cover single- and three-phase 200–240 V supplies, continuous motor output at 4 kHz, documented power terminals, and CSV/JSON exports.

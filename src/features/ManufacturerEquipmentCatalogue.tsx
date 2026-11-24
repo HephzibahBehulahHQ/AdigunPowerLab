@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { Fragment, useContext, useState } from "react";
 import { componentBankCsv, componentBank } from "../data/componentBank";
 import { downloadFile } from "../import-export/files";
 import { LanguageContext, useT } from "../i18n";
@@ -84,6 +84,7 @@ const categories = [...new Set(componentBank.map(({ category }) => category))];
 const categoryLabels = {
   "inverters-and-conversion-equipment": "Inverters and conversion equipment",
   "ev-charging-equipment": "EV charging equipment",
+  "drives-and-starting-equipment": "Drives and starting equipment",
   "ups-and-backup-systems": "UPS and backup systems",
   "batteries-and-storage-systems": "Batteries and storage systems",
   transformers: "Transformers",
@@ -99,6 +100,8 @@ const categoryLabels = {
 const missingFieldLabels: Record<string, string> = {
   "verified-inverter-model-mapping": "Verified inverter calculation mapping",
   "verified-evse-model-mapping": "Verified EV charger calculation mapping",
+  "verified-drive-model-mapping": "Verified drive calculation mapping",
+  "drive-auxiliary-terminals": "Drive auxiliary terminals",
   "verified-ups-model-mapping": "Verified UPS calculation mapping",
   "battery-and-dry-contact-pinouts": "Battery and dry-contact pinouts",
   "verified-storage-model-mapping": "Verified storage calculation mapping",
@@ -426,6 +429,24 @@ export function ManufacturerEquipmentCatalogue({
                 </dd>
               </div>
             </dl>
+          ) : record.function === "variable-speed-drive" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>{t("Rated output")}</dt>
+                <dd>{format.format(record.ratings.motorKW)} kW</dd>
+              </div>
+              <div>
+                <dt>Iₙ</dt>
+                <dd>{format.format(record.ratings.continuousOutputA)} A</dd>
+              </div>
+              <div>
+                <dt>Ue</dt>
+                <dd>
+                  {record.ratings.supplyMinV}–{record.ratings.supplyMaxV} V AC ·{" "}
+                  {record.ratings.supplyPhases}P
+                </dd>
+              </div>
+            </dl>
           ) : record.function === "ac-ev-charging-station" ? (
             <dl className="pg-metrics">
               <div>
@@ -489,6 +510,17 @@ export function ManufacturerEquipmentCatalogue({
                   ? record.source.pageLabel
                   : record.source.page}
               </dd>
+              {"supplemental" in record.source &&
+                record.source.supplemental.map((document) => (
+                  <Fragment key={document.url}>
+                    <dt>{t("Supplemental manufacturer document")}</dt>
+                    <dd>
+                      <a href={document.url} target="_blank" rel="noreferrer">
+                        {document.revision} · {t("Page")} {document.page}
+                      </a>
+                    </dd>
+                  </Fragment>
+                ))}
               <dt>{t("Model readiness")}</dt>
               <dd>
                 {t(

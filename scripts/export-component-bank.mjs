@@ -22,6 +22,7 @@ import {
   victronVeDirect230,
   victronVeDirect120,
   evlinkHomeStations,
+  altivar320CompactDrives,
 } from "../src/data/componentBank.ts";
 import { join } from "node:path";
 
@@ -45,6 +46,7 @@ const batches = {
   "victron-vedirect-230": victronVeDirect230,
   "victron-vedirect-120": victronVeDirect120,
   "evlink-home": evlinkHomeStations,
+  "altivar-320-compact": altivar320CompactDrives,
 };
 for (const [batch, entries] of Object.entries(batches)) {
   writeFileSync(

@@ -809,3 +809,7 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 
 - EVlink Home candidate: TypeScript check passed. Component-bank suite passed all 25 tests, including source-based phase and connector checks and JSON parity. Browser and release verification pending.
 - EVlink Home candidate: Chromium passed the manufacturer catalogue scenario, covering EV category selection, exact order-code lookup, the 11 kW / 16 A three-phase display and the exported Type 2 cable record.
+- Altivar compact candidate: TypeScript and 26 component-bank tests passed, including export parity and phase-specific terminals. Browser and release verification pending.
+- Altivar candidate: Chromium passed category filtering and exact model lookup for ATV320D15M3C, including the 15 kW, 66 A, 200–240 V three-phase display and JSON export of power terminal and supplemental source data.
+- Chromium also verified the Altivar installation guide is linked at the documented revision and page in the source panel.
+- Catalogue export validation checks supplemental source URL, revision and page. Export generation passed and a supplemental page of zero was rejected in an isolated process.

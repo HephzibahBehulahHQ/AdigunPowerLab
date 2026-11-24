@@ -1149,6 +1149,91 @@ export const evlinkHomeStations = ["S", "A"].flatMap((series) =>
   ),
 );
 
+// Schneider DIA2ED2160311EN compact drive selection table, 200–240 V.
+const altivar320Rows = [
+  ["U02M2C", 0.18, 1.5],
+  ["U04M2C", 0.37, 3.3],
+  ["U06M2C", 0.55, 3.7],
+  ["U07M2C", 0.75, 4.8],
+  ["U11M2C", 1.1, 6.9],
+  ["U15M2C", 1.5, 8],
+  ["U22M2C", 2.2, 11],
+  ["U02M3C", 0.18, 1.5],
+  ["U04M3C", 0.37, 3.3],
+  ["U06M3C", 0.55, 3.7],
+  ["U07M3C", 0.75, 4.8],
+  ["U11M3C", 1.1, 6.9],
+  ["U15M3C", 1.5, 8],
+  ["U22M3C", 2.2, 11],
+  ["U30M3C", 3, 13.7],
+  ["U40M3C", 4, 17.5],
+  ["U55M3C", 5.5, 27.5],
+  ["U75M3C", 7.5, 33],
+  ["D11M3C", 11, 54],
+  ["D15M3C", 15, 66],
+] as const;
+
+export const altivar320CompactDrives = altivar320Rows.map(
+  ([suffix, motorKW, continuousOutputA]) => {
+    const model = `ATV320${suffix}`;
+    const singlePhase = suffix.endsWith("M2C");
+    const supply = singlePhase ? ["R/L1", "S/L2/N"] : ["R/L1", "S/L2", "T/L3"];
+    const terminals = [
+      ...supply.map((group) => ({ group, interface: "drive-ac-input" })),
+      ...["U/T1", "V/T2", "W/T3"].map((group) => ({
+        group,
+        interface: "drive-motor-output",
+      })),
+      { group: "PE", interface: "drive-protective-earth" },
+    ].map(({ group, interface: terminalInterface }) => ({
+      id: group.toLowerCase().replaceAll("/", "-"),
+      group,
+      interface: terminalInterface,
+      connector: "power terminal",
+    }));
+    return {
+      id: `schneider-electric:${model.toLowerCase()}`,
+      manufacturer: "Schneider Electric",
+      model,
+      orderCode: model,
+      category: "drives-and-starting-equipment" as const,
+      function: "variable-speed-drive" as const,
+      connection: "ac-ac" as const,
+      terminals,
+      ratings: {
+        motorKW,
+        continuousOutputA,
+        supplyMinV: 200,
+        supplyMaxV: 240,
+        supplyPhases: singlePhase ? 1 : 3,
+      },
+      conditions: {
+        supplyFrequencyHz: [50, 60],
+        nominalSwitchingFrequencyKHz: 4,
+        integratedEmcFilter: singlePhase,
+      },
+      modelMapping: null,
+      source: {
+        url: "https://download.se.com/files?filename=Catalog&p_Doc_Ref=DIA2ED2160311EN",
+        revision: "DIA2ED2160311EN",
+        page: 16,
+        supplemental: [
+          {
+            url: "https://download.se.com/files?p_Doc_Ref=NVE41289&p_File_Name=ATV320_Installation_manual_EN_NVE41289_09.pdf&p_enDocType=User+guide",
+            revision: "NVE41289.09 (04/2025)",
+            page: 144,
+          },
+        ],
+      },
+      missingFields: [
+        "drive-auxiliary-terminals",
+        "verified-drive-model-mapping",
+      ],
+      readiness: "inventory-and-diagram-only",
+    };
+  },
+);
+
 export const componentBank = [
   ...pvModules,
   ...ic60nBreakers,
@@ -1168,6 +1253,7 @@ export const componentBank = [
   ...victronVeDirect230,
   ...victronVeDirect120,
   ...evlinkHomeStations,
+  ...altivar320CompactDrives,
 ];
 
 export function componentBankCsv(
