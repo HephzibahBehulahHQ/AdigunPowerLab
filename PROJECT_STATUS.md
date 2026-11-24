@@ -519,3 +519,5 @@ UPS coverage starts with five APC Easy UPS SMV CAI models. The candidate contain
 Inverter coverage starts with 72 Victron VE.Direct 230 V article variants from the manufacturer's voltage and outlet code table. Candidate total is 870 records across 11 categories. Regional availability and calculation mapping remain open.
 
 iC60N 2b49aee published in Pages run 45285905960 and the public root returned HTTP 200. Phase-aware AC wiring merged as 52e1145. The candidate adds 36 VE.Direct 120 V catalogue codes, bringing the total to 906.
+
+- EVlink candidate: 12 Schneider EVlink Home and Home Smart records add EV charging as the twelfth represented category. Candidate total is 918. Catalog and diagram readiness only. Release verification is pending.

@@ -459,3 +459,5 @@ The first UPS records include exact model, VA and W ratings, nominal output volt
 VE.Direct 230 V includes the 72 documented article-code combinations, outlet interface, battery terminal pair and continuous power at 25 and 40 °C.
 
 VE.Direct 120 V preserves exact NEMA and GFCI article-code generations and temperature-specific output ratings.
+
+- EV charging: 12 EVlink Home and Home Smart references, published ratings, distinct supply and vehicle interfaces, and CSV/JSON exports. EV charger calculation mapping remains pending.

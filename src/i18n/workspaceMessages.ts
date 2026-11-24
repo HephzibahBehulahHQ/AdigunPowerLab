@@ -1,5 +1,15 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "EV charging equipment": [
+    "Ladeeinrichtungen für Elektrofahrzeuge",
+    "Ohun èlò ìgbàgbára ọkọ̀ ayọ́kẹ́lẹ́ oníná",
+    "EV charging equipment",
+  ],
+  "Verified EV charger calculation mapping": [
+    "Geprüfte Zuordnung zur Berechnung der Ladestation",
+    "Ìbámu ìṣírò ṣaja ọkọ̀ oníná tí a fìdí múlẹ̀",
+    "Verified EV charger calculation mapping",
+  ],
   "Inverters and conversion equipment": [
     "Wechselrichter und Umrichter",
     "Inverter àti ohun èlò ìyípadà",

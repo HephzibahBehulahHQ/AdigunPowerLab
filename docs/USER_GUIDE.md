@@ -497,3 +497,5 @@ Filter **UPS and backup systems** to compare Easy UPS VA and W ratings and inspe
 Filter **Inverters and conversion equipment** to compare VE.Direct power at 25 and 40 °C, DC voltage and the AC outlet type.
 
 VE.Direct 120 V records show their own temperature-conditioned power ratings and NEMA or GFCI outlet variant.
+
+- In the manufacturer catalogue, select **EV charging equipment** or search for an EVlink order code. Check the rated power, supply phases and Type 2 connector. EVlink entries support inventory and diagrams.

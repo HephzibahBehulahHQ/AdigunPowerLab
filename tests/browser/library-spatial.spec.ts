@@ -315,6 +315,19 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   await expect(catalogue.getByText("500 mA · S")).toBeVisible();
   await search.fill("Schneider A9F74106");
   await expect(model).toHaveValue("schneider-electric:a9f74106");
+  await catalogue
+    .getByLabel("Equipment category")
+    .selectOption("ev-charging-equipment");
+  await search.fill("EVH4A11NC");
+  await expect(model).toHaveValue("schneider-electric:evh4a11nc");
+  await expect(catalogue.getByText("11 kW", { exact: true })).toBeVisible();
+  await expect(catalogue.getByText("16 A · 3P")).toBeVisible();
+  const evlinkDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const evlink = JSON.parse(
+    await readFile(await (await evlinkDownload).path(), "utf8"),
+  );
+  expect(JSON.stringify(evlink)).toContain("Type 2 cable (5 m)");
   await catalogue.getByLabel("Equipment category").selectOption("");
   await search.fill("PIN242122530");
   await expect(catalogue.getByText("24 V DC → 120 V AC")).toBeVisible();
