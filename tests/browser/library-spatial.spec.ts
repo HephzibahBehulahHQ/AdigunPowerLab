@@ -522,6 +522,19 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     page: 2,
     revision: "Philips fact sheet (2026-10-30)",
   });
+  await search.fill("911401806080");
+  await expect(model).toHaveValue("philips:911401806080");
+  await expect(catalogue.getByText("1,100 lm", { exact: true })).toBeVisible();
+  await expect(catalogue.getByText("4,000 K", { exact: true })).toBeVisible();
+  const psuDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const psu = JSON.parse(
+    await readFile(await (await psuDownload).path(), "utf8"),
+  );
+  expect(psu.entry.conditions.control).toBe("On/Off");
+  expect(
+    psu.entry.terminals.map(({ group }: { group: string }) => group),
+  ).toEqual(["L", "N"]);
   await catalogue.getByLabel("Equipment category").selectOption("");
   await catalogue
     .getByLabel("Equipment category")
