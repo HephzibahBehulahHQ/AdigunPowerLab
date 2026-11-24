@@ -147,6 +147,30 @@ test("workspace restore preserves linked IDs as copies and rolls back every stor
       );
     const baseline = domain.createProject("Baseline"),
       scenario = domain.createProject("Scenario");
+    const catalogue = await import(
+      /* @vite-ignore */ "/src/data/componentBank.ts" as string
+    );
+    const model = catalogue.pvModules[0];
+    scenario.catalogueEquipment = [
+      {
+        id: "rooftop-pv",
+        name: "Rooftop PV",
+        catalogueId: model.id,
+        manufacturer: model.manufacturer,
+        model: model.model,
+        sourceUrl: model.source.url,
+        sourceRevision: model.source.revision,
+        sourcePage: model.source.page,
+        quantity: 2,
+      },
+    ];
+    scenario.equipmentTerminalConnections = [
+      {
+        id: "series-link",
+        from: { instanceId: "rooftop-pv", unit: 1, terminalId: "positive" },
+        to: { instanceId: "rooftop-pv", unit: 2, terminalId: "negative" },
+      },
+    ];
     scenario.scenarioOf = baseline.id;
     scenario.baselineRevision = baseline.revision;
     await projects.saveProject(baseline);
@@ -203,6 +227,13 @@ test("workspace restore preserves linked IDs as copies and rolls back every stor
     return {
       copies: copies.restoredIds.length,
       linked: copied.project.scenarioOf === copies.idMap[baseline.id],
+      equipmentCopied:
+        JSON.stringify(copied.project.catalogueEquipment) ===
+        JSON.stringify(scenario.catalogueEquipment),
+      wiringCopied:
+        JSON.stringify(copied.project.equipmentTerminalConnections) ===
+        JSON.stringify(scenario.equipmentTerminalConnections),
+      copiedProjectValid: domain.validateProjectImport(copied.project).valid,
       measured: copiedMeasurements.parsed.importKWh,
       failure,
       partialPresent: after.some((p: { id: string }) => p.id === fresh.id),
@@ -212,6 +243,9 @@ test("workspace restore preserves linked IDs as copies and rolls back every stor
   });
   expect(result.copies).toBe(2);
   expect(result.linked).toBe(true);
+  expect(result.equipmentCopied).toBe(true);
+  expect(result.wiringCopied).toBe(true);
+  expect(result.copiedProjectValid).toBe(true);
   expect(result.measured).toBe(0.5);
   expect(result.failure).toMatch(/rolled back/);
   expect(result.partialPresent).toBe(false);

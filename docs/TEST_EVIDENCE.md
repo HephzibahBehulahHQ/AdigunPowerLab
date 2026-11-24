@@ -765,3 +765,5 @@ Wiring report: TypeScript, 30 focused tests and Chromium verified both terminal 
 Provenance persistence passed TypeScript, ten component-bank tests and Chromium verification of the source page in the frozen BOM and downloaded JSON.
 
 Wire export passed TypeScript, existing report/PDF checks, Help checks and Chromium SVG download inspection. Physical plotting and PDF loop visuals were not independently inspected.
+
+Archive verification: TypeScript, six archive unit tests and Chromium copy restore passed. The restored project retained the catalogue snapshot and indexed wire exactly and passed native project validation.
