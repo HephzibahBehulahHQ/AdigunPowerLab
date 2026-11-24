@@ -405,6 +405,17 @@ test("manufacturer catalogue searches and exports the exact model", async ({
       expect.objectContaining({ id: "b-pe", group: "PE" }),
     ]),
   );
+  await search.fill("00100933");
+  await expect(model).toHaveValue("lapp:00100933");
+  await expect(catalogue.getByText("450/750 V", { exact: true })).toBeVisible();
+  const classic100Download = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const classic100 = JSON.parse(
+    await readFile(await (await classic100Download).path(), "utf8"),
+  );
+  expect(classic100.entry.orderCode).toBe("00100933");
+  expect(classic100.entry.terminals).toHaveLength(6);
+  expect(classic100.entry.ratings.hasPe).toBe(false);
   await catalogue.getByLabel("Equipment category").selectOption("generators");
   await search.fill("STAMFORD S1L2-Y1");
   await expect(model).toHaveValue("stamford:s1l2-y1-311");
