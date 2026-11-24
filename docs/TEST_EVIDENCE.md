@@ -871,5 +871,6 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - Chromium located METSEEM2214 and verified its 100 A rating and JSON export of the four mains terminals and four numbered pulse terminals. Its record specifies one tariff and no communications bus.
 - Candidate `29c2132` passed all 491 local Vitest tests across 37 files with two workers. Its catalogue contains 1,625 records.
 - LAPP CLASSIC 115 CY: TypeScript and all 41 component-bank tests passed. CSV and JSON preserve both shield ends, optional protective-earth ends, voltage ratings and the exact manufacturer pages for all 71 articles.
+- Chromium verified article 1136003, its 6.1 mm outer diameter and separate PE and shield pairs in the JSON download.
 - `node scripts/export-component-bank.mjs` verified each of the 1,624 catalogue records belongs to exactly one export batch. Regeneration produced no differences in the tracked exports.
 - Candidate d6e148e: generated individual exports for all 1,200 records and compared every CSV and JSON to its source record. All 2,400 files and the 1,200-ID index matched.
