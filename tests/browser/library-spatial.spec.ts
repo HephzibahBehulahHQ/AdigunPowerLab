@@ -416,6 +416,20 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   expect(classic100.entry.orderCode).toBe("00100933");
   expect(classic100.entry.terminals).toHaveLength(6);
   expect(classic100.entry.ratings.hasPe).toBe(false);
+  await search.fill("00100424");
+  await expect(model).toHaveValue("lapp:00100424");
+  await expect(catalogue.getByText("300/500 V", { exact: true })).toBeVisible();
+  await expect(catalogue.getByText("6 mm", { exact: true })).toBeVisible();
+  const classic100LowVoltageDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const classic100LowVoltage = JSON.parse(
+    await readFile(await (await classic100LowVoltageDownload).path(), "utf8"),
+  );
+  expect(classic100LowVoltage.entry).toMatchObject({
+    orderCode: "00100424",
+    ratings: { crossSectionMm2: 1, outerDiameterMm: 6, hasPe: true },
+    source: { page: 4 },
+  });
   await catalogue.getByLabel("Equipment category").selectOption("generators");
   await search.fill("STAMFORD S1L2-Y1");
   await expect(model).toHaveValue("stamford:s1l2-y1-311");
