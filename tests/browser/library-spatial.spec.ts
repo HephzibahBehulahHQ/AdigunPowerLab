@@ -564,6 +564,25 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   await expect(catalogue.getByText("24 V AC", { exact: true })).toBeVisible();
   await search.fill("LVS04200");
   await expect(catalogue.getByText("9 kA rms · 0.5 s")).toBeVisible();
+  await search.fill("3212131");
+  await expect(model).toHaveValue("phoenix-contact:3212131");
+  await expect(catalogue.getByText("10 mm²", { exact: true })).toBeVisible();
+  await expect(catalogue.getByText("8 kV", { exact: true })).toBeVisible();
+  const peDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const pe = JSON.parse(
+    await readFile(await (await peDownload).path(), "utf8"),
+  );
+  expect(
+    pe.entry.terminals.map(({ id, group }: { id: string; group: string }) => [
+      id,
+      group,
+    ]),
+  ).toEqual([
+    ["clamp-1", "pe"],
+    ["clamp-2", "pe"],
+    ["rail-foot", "pe"],
+  ]);
   await search.fill("LGY112510");
   await expect(catalogue.getByText("4.2 kA · 1 s")).toBeVisible();
   await search.fill("RM17TG20");
