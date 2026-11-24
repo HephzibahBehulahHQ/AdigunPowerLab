@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "schneider-electric:a9mem2050",
+      "manufacturer": "Schneider Electric",
+      "model": "A9MEM2050",
+      "orderCode": "A9MEM2050",
+      "category": "metering-and-power-quality",
+      "function": "direct-energy-meter",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "1",
+          "group": "L in",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "3",
+          "group": "L out",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "4",
+          "group": "N in",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "6",
+          "group": "N out",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "20",
+          "group": "S0+",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "21",
+          "group": "S0−",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "23",
+          "group": "D1/+",
+          "interface": "rs485",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "24",
+          "group": "D0/−",
+          "interface": "rs485",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "maxCurrentA": 45,
+        "voltageV": 230,
+        "accuracyClass": 1,
+        "pulsesPerKWh": null,
+        "pulseOutput": null
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "communication": "RS-485 Modbus",
+        "tariffs": 2,
+        "marketRestriction": null
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=PLSED309005EN_Web",
+        "revision": "PLSED309005EN_03 (2025-11-06)",
+        "page": 49,
+        "supplemental": [
+          {
+            "url": "https://productinfo.se.com/iem2050_iem2055/iem2050_iem2055-user-manual/iEM2050_iEM2055%20User%20Manual/English/PHA6516400-06.pdf",
+            "revision": "PHA6516400-06",
+            "page": 10
+          }
+        ]
+      },
+      "missingFields": [
+        "verified-metering-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9mem2055",
+      "manufacturer": "Schneider Electric",
+      "model": "A9MEM2055",
+      "orderCode": "A9MEM2055",
+      "category": "metering-and-power-quality",
+      "function": "direct-energy-meter",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "1",
+          "group": "L in",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "3",
+          "group": "L out",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "4",
+          "group": "N in",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "6",
+          "group": "N out",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "20",
+          "group": "S0+",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "21",
+          "group": "S0−",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "23",
+          "group": "D1/+",
+          "interface": "rs485",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "24",
+          "group": "D0/−",
+          "interface": "rs485",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "maxCurrentA": 45,
+        "voltageV": 230,
+        "accuracyClass": 1,
+        "pulsesPerKWh": null,
+        "pulseOutput": null
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "communication": "RS-485 Modbus",
+        "tariffs": 2,
+        "marketRestriction": null
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=PLSED309005EN_Web",
+        "revision": "PLSED309005EN_03 (2025-11-06)",
+        "page": 49,
+        "supplemental": [
+          {
+            "url": "https://productinfo.se.com/iem2050_iem2055/iem2050_iem2055-user-manual/iEM2050_iEM2055%20User%20Manual/English/PHA6516400-06.pdf",
+            "revision": "PHA6516400-06",
+            "page": 10
+          }
+        ]
+      },
+      "missingFields": [
+        "verified-metering-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}

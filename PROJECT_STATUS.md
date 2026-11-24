@@ -546,3 +546,4 @@ iC60N 2b49aee published in Pages run 45285905960 and the public root returned HT
 - The Philips DN145B PSU batch adds two 11 W on/off downlights with distinct 3000 K and 4000 K order codes. The stacked candidate contains 1,618 records. Lighting calculation mapping remains open.
 - The Philips DN145B PSU batch also includes the two 6.5 W / 650 lm colour variants. The stacked candidate contains 1,620 records.
 - Verified the four existing Schneider iEM2000/iEM2010 order codes. Added the published S0 voltage, current and pulse duration to the two pulse-output articles, plus the order-code source page for all four.
+- The Schneider iEM2050 and iEM2055 batch adds two 230 V, 45 A meters with eight documented mains, pulse and Modbus terminals per model. The stacked catalogue contains 1,622 records.
