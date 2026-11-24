@@ -753,6 +753,76 @@ export const linergyEarthBars = (
   readiness: "inventory-and-diagram-only",
 }));
 
+// Phaseo selection table, single-secondary ABL6TS columns B–E.
+const abl6Ratings = [
+  [25, "02"],
+  [40, "04"],
+  [63, "06"],
+  [100, "10"],
+  [160, "16"],
+  [250, "25"],
+  [400, "40"],
+  [630, "63"],
+  [1000, "100"],
+  [1600, "160"],
+  [2500, "250"],
+] as const;
+export const abl6Transformers = (
+  [
+    ["J", 12],
+    ["B", 24],
+    ["G", 115],
+    ["U", 230],
+  ] as const
+).flatMap(([suffix, secondaryV]) =>
+  abl6Ratings
+    .slice(0, suffix === "J" ? 6 : abl6Ratings.length)
+    .map(([apparentVA, code]) => {
+      const model = `ABL6TS${code}${suffix}`;
+      return {
+        id: `schneider-electric:${model.toLowerCase()}`,
+        manufacturer: "Schneider Electric",
+        model,
+        orderCode: model,
+        category: "transformers" as const,
+        function: "single-phase-control-transformer" as const,
+        connection: "ac" as const,
+        terminals: [
+          ...["400", "230", "-15", "0", "+15"].map((marking, index) => ({
+            id: `primary-${index + 1}`,
+            group: `primary ${marking} V`,
+            interface: "transformer-primary",
+            connector: "screw terminal",
+          })),
+          ...[String(secondaryV), "0"].map((marking, index) => ({
+            id: `secondary-${index + 1}`,
+            group: `secondary ${marking} V`,
+            interface: "transformer-secondary",
+            connector: "screw terminal",
+          })),
+        ],
+        ratings: { apparentVA, primaryV: [230, 400], secondaryV },
+        conditions: {
+          frequencyHz: [50, 60],
+          ambientRatingC: 50,
+          primaryTapAdjustmentV: 15,
+        },
+        modelMapping: null,
+        source: {
+          url: "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+          revision: "Phaseo ABT7/ABL6 transformer catalogue",
+          page: 4,
+        },
+        missingFields: [
+          "regional-availability",
+          "verified-transformer-model-mapping",
+          "model-specific-bonding-terminal-review",
+        ],
+        readiness: "inventory-and-diagram-only",
+      };
+    }),
+);
+
 export const componentBank = [
   ...pvModules,
   ...ic60nBreakers,
@@ -765,6 +835,7 @@ export const componentBank = [
   ...rm17Relays,
   ...linergyDsBlocks,
   ...linergyEarthBars,
+  ...abl6Transformers,
 ];
 
 export function componentBankCsv(
