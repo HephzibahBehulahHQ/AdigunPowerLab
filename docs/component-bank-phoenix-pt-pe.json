@@ -288,6 +288,64 @@
         "verified-bonding-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "phoenix-contact:3209594",
+      "manufacturer": "Phoenix Contact",
+      "model": "PT 2,5-QUATTRO-PE",
+      "orderCode": "3209594",
+      "category": "earthing-and-bonding-equipment",
+      "function": "protective-earth-terminal-block",
+      "connection": "bond",
+      "terminals": [
+        {
+          "id": "clamp-1",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "push-in clamp"
+        },
+        {
+          "id": "clamp-2",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "push-in clamp"
+        },
+        {
+          "id": "clamp-3",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "push-in clamp"
+        },
+        {
+          "id": "clamp-4",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "push-in clamp"
+        },
+        {
+          "id": "rail-foot",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "conductive DIN-rail foot"
+        }
+      ],
+      "ratings": {
+        "crossSectionMm2": 2.5,
+        "ratedSurgeKV": 8
+      },
+      "conditions": {
+        "connectionStandard": "IEC 60947-7-2"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.phoenixcontact.com/en-de/products/ground-terminal-pt-25-quattro-pe-3209594?type=pdf",
+        "revision": "Phoenix Contact article data sheet (2026-10-13)",
+        "page": 2
+      },
+      "missingFields": [
+        "verified-bonding-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
     }
   ]
 }

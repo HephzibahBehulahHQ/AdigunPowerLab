@@ -247,6 +247,7 @@ test("Phoenix Contact PE exports preserve each clamp and the conductive rail foo
     ["3211822", 6, 8],
     ["3212131", 10, 8],
     ["3211025", 2.5, 6],
+    ["3209594", 2.5, 8],
   ]);
   for (const entry of phoenixPtPeTerminals) {
     expect(entry.source.url).toContain(entry.orderCode);
@@ -254,7 +255,9 @@ test("Phoenix Contact PE exports preserve each clamp and the conductive rail foo
     expect(entry.terminals.map(({ id }) => id)).toEqual([
       "clamp-1",
       "clamp-2",
-      ...(entry.orderCode === "3211025" ? ["clamp-3", "clamp-4"] : []),
+      ...(["3211025", "3209594"].includes(entry.orderCode)
+        ? ["clamp-3", "clamp-4"]
+        : []),
       "rail-foot",
     ]);
     expect(

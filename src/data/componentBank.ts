@@ -804,6 +804,15 @@ export const phoenixPtPeTerminals = (
       "en-us/products/ground-terminal-block-pt-25s-quattro-pe-3211025",
       4,
     ],
+    [
+      "PT 2,5-QUATTRO-PE",
+      "3209594",
+      2.5,
+      8,
+      "2026-10-13",
+      "en-de/products/ground-terminal-pt-25-quattro-pe-3209594",
+      4,
+    ],
   ] as const
 ).map(
   ([

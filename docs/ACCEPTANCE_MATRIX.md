@@ -424,7 +424,7 @@ Catalogue instances, source-page evidence and indexed terminal connections survi
 
 The 86 LAPP CLASSIC 110 CY entries retain their manufacturer article pages. CSV and JSON preserve both ends of the shield in a separate node group from any PE core. Chromium verified the diameter and JSON export for article 1135628. Calculation mapping remains pending.
 
-The six Phoenix Contact PT-PE articles retain their individual data-sheet pages and documented surge ratings. CSV and JSON preserve each clamp and the rail foot in one PE group. Chromium verified selection, ratings and export for article 3212131. Bonding calculation mapping remains pending.
+The seven Phoenix Contact PT-PE articles retain their individual data-sheet pages and documented surge ratings. CSV and JSON preserve each clamp and the rail foot in one PE group. Chromium verified selection, ratings and export for articles 3212131 and 3211025. Bonding calculation mapping remains pending.
 
 Individual file generation emits per-record CSV and JSON for all runtime entries, with a machine-readable ID index.
 

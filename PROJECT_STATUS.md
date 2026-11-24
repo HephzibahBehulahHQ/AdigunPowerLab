@@ -537,3 +537,4 @@ iC60N 2b49aee published in Pages run 45285905960 and the public root returned HT
 - LAPP ÖLFLEX CLASSIC 100 450/750 V adds 42 colour-coded articles, taking the stacked candidate to 1,328 records. The terminal groups use positional identifiers and retain the G/X distinction. Article-specific colours and cable calculation mapping remain open.
 - Phoenix Contact PT-PE adds five order codes with two push-in clamps and a conductive DIN-rail foot per record. The stacked catalogue has 1,333 records. Earthing calculation mapping remains open.
 - Phoenix Contact QUATTRO-PE adds a four-clamp order code with an independent DIN-rail contact in the same PE group. The stacked catalogue has 1,334 records.
+- The 8 kV QUATTRO-PE article 3209594 brings the stacked catalogue to 1,335 records. Its order code, surge rating and source remain distinct from the 6 kV compact article.
