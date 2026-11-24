@@ -523,6 +523,7 @@ test("battery wiring persists a series link and rejects a shared terminal node",
   await expect(page.locator(".save-badge")).toContainText("Saved locally");
   await page.reload();
   await page.getByRole("button", { name: /equipment: .*BAT412060082/ }).click();
+  await expect(inspector).toContainText("24 V · 60 Ah C20 · 1.44 kWh");
   await inspector.getByLabel("From terminal").selectOption("negative");
   await inspector.getByLabel("To unit").fill("2");
   await inspector.getByLabel("To terminal").selectOption("negative");

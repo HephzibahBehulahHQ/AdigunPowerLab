@@ -1,5 +1,15 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "Battery series nameplate estimate": [
+    "Nennwerte der Batteriereihenschaltung",
+    "Ìṣírò nameplate fún bátìrì lẹ́sẹẹsẹ",
+    "Battery series nameplate estimate",
+  ],
+  "Nominal energy uses rated voltage and C20 capacity.": [
+    "Die Nennenergie basiert auf Nennspannung und C20-Kapazität.",
+    "Agbára nominal lo voltage tí a sọ àti capacity C20.",
+    "Nominal energy uses rated voltage and C20 capacity.",
+  ],
   "Batteries and storage systems": [
     "Batterien und Speichersysteme",
     "Bátìrì àti ètò ìpamọ́",

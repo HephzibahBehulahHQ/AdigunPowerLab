@@ -1,8 +1,8 @@
 import { catalogueRecord } from "../domain/equipmentConnections";
 import type { EquipmentTerminalEndpoint, Project } from "../domain/types";
 
-/** Isolated, same-model series chains only. Values are published STC nameplates. */
-export function cataloguePvStrings(project: Project) {
+/** Follow isolated series chains of units with the same catalogue identity. */
+function catalogueSeries(project: Project, domain: "dc" | "dc-storage") {
   const equipment = new Map(
     (project.catalogueEquipment ?? []).map((item) => [item.id, item]),
   );
@@ -17,11 +17,17 @@ export function cataloguePvStrings(project: Project) {
   for (const { from, to } of project.equipmentTerminalConnections ?? []) {
     const a = equipment.get(from.instanceId);
     const b = equipment.get(to.instanceId);
-    if (!a || !b || from.terminalId === "frame" || to.terminalId === "frame")
+    if (
+      !a ||
+      !b ||
+      ![from.terminalId, to.terminalId].every(
+        (id) => id === "positive" || id === "negative",
+      )
+    )
       continue;
     if (
-      catalogueRecord(a)?.connection !== "dc" ||
-      catalogueRecord(b)?.connection !== "dc"
+      catalogueRecord(a)?.connection !== domain ||
+      catalogueRecord(b)?.connection !== domain
     )
       continue;
     const left = endpointKey(from);
@@ -76,16 +82,46 @@ export function cataloguePvStrings(project: Project) {
     if (ordered.length !== members.length) continue;
     const units = ordered.map((member) => ends.get(member)!);
     const model = catalogueRecord(equipment.get(units[0].instanceId)!);
-    if (model?.connection !== "dc") continue;
-    strings.push({
-      key: starts[0],
-      units,
-      vocV: model.ratings.vocV * units.length,
-      vmpV: model.ratings.vmpV * units.length,
-      impA: model.ratings.impA,
-      iscA: model.ratings.iscA,
-      dcNameplateKW: model.modelMapping.dcNameplateKW * units.length,
-    });
+    if (model) strings.push({ key: starts[0], units, model });
   }
   return strings;
+}
+
+export function cataloguePvStrings(project: Project) {
+  return catalogueSeries(project, "dc").flatMap(({ key, units, model }) =>
+    model.connection === "dc"
+      ? [
+          {
+            key,
+            units,
+            vocV: model.ratings.vocV * units.length,
+            vmpV: model.ratings.vmpV * units.length,
+            impA: model.ratings.impA,
+            iscA: model.ratings.iscA,
+            dcNameplateKW: model.modelMapping.dcNameplateKW * units.length,
+          },
+        ]
+      : [],
+  );
+}
+
+export function catalogueBatteryStrings(project: Project) {
+  return catalogueSeries(project, "dc-storage").flatMap(
+    ({ key, units, model }) =>
+      model.function === "agm-storage-battery"
+        ? [
+            {
+              key,
+              units,
+              nominalV: model.ratings.nominalV * units.length,
+              c20Ah: model.ratings.c20Ah,
+              nominalKWhC20:
+                (model.ratings.nominalV * units.length * model.ratings.c20Ah) /
+                1000,
+              dischargeCutoffV:
+                model.conditions.dischargeCutoffV * units.length,
+            },
+          ]
+        : [],
+  );
 }

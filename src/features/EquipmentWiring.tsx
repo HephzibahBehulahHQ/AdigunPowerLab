@@ -6,7 +6,10 @@ import {
   isWireTerminal,
 } from "../domain/equipmentConnections";
 import { newId } from "../domain/project";
-import { cataloguePvStrings } from "../engine/cataloguePvStrings";
+import {
+  catalogueBatteryStrings,
+  cataloguePvStrings,
+} from "../engine/catalogueSeries";
 import type {
   CatalogueEquipmentInstance,
   EquipmentTerminalConnection,
@@ -57,6 +60,12 @@ export function EquipmentWiring({
         )
       : [];
   const format = new Intl.NumberFormat(undefined, { maximumFractionDigits: 2 });
+  const batteryStrings =
+    domain === "dc-storage"
+      ? catalogueBatteryStrings(project).filter(({ units }) =>
+          units.some(({ instanceId }) => instanceId === instance.id),
+        )
+      : [];
   const describe = ({
     instanceId,
     unit,
@@ -231,6 +240,27 @@ export function EquipmentWiring({
                 Voc {format.format(vocV)} V · Vmp {format.format(vmpV)} V · Imp{" "}
                 {format.format(impA)} A · Isc {format.format(iscA)} A · Pmax{" "}
                 {format.format(dcNameplateKW)} kW
+              </p>
+            ),
+          )}
+        </section>
+      )}
+      {batteryStrings.length > 0 && (
+        <section>
+          <h4>{t("Battery series nameplate estimate")}</h4>
+          <p>{t("Nominal energy uses rated voltage and C20 capacity.")}</p>
+          {batteryStrings.map(
+            ({ key, units, nominalV, c20Ah, nominalKWhC20 }) => (
+              <p key={key}>
+                {units
+                  .map(
+                    ({ instanceId, unit }) =>
+                      `${equipment.find(({ id }) => id === instanceId)?.name ?? instanceId} [${unit}]`,
+                  )
+                  .join(" → ")}
+                <br />
+                {format.format(nominalV)} V · {format.format(c20Ah)} Ah C20 ·{" "}
+                {format.format(nominalKWhC20)} kWh
               </p>
             ),
           )}
