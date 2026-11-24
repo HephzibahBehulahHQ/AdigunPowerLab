@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "distinctRecords": 275,
+  "goalMinimum": 10000,
+  "readiness": {
+    "pv-worksheet-inputs-only": 14,
+    "inventory-and-diagram-only": 261
+  },
+  "categories": [
+    {
+      "category": "transformers",
+      "target": 700,
+      "records": 0,
+      "remaining": 700
+    },
+    {
+      "category": "generators",
+      "target": 500,
+      "records": 0,
+      "remaining": 500
+    },
+    {
+      "category": "prime-movers-and-generation-auxiliaries",
+      "target": 200,
+      "records": 0,
+      "remaining": 200
+    },
+    {
+      "category": "solar-and-wind-equipment",
+      "target": 800,
+      "records": 14,
+      "remaining": 786
+    },
+    {
+      "category": "inverters-and-conversion-equipment",
+      "target": 800,
+      "records": 0,
+      "remaining": 800
+    },
+    {
+      "category": "batteries-and-storage-systems",
+      "target": 600,
+      "records": 0,
+      "remaining": 600
+    },
+    {
+      "category": "ups-and-backup-systems",
+      "target": 400,
+      "records": 0,
+      "remaining": 400
+    },
+    {
+      "category": "protection-devices",
+      "target": 800,
+      "records": 261,
+      "remaining": 539
+    },
+    {
+      "category": "switching-and-transfer-equipment",
+      "target": 600,
+      "records": 0,
+      "remaining": 600
+    },
+    {
+      "category": "cables-and-conductors",
+      "target": 1000,
+      "records": 0,
+      "remaining": 1000
+    },
+    {
+      "category": "busbars-and-distribution-systems",
+      "target": 400,
+      "records": 0,
+      "remaining": 400
+    },
+    {
+      "category": "motors-and-motor-driven-equipment",
+      "target": 700,
+      "records": 0,
+      "remaining": 700
+    },
+    {
+      "category": "drives-and-starting-equipment",
+      "target": 500,
+      "records": 0,
+      "remaining": 500
+    },
+    {
+      "category": "commercial-and-industrial-loads",
+      "target": 500,
+      "records": 0,
+      "remaining": 500
+    },
+    {
+      "category": "lighting-equipment",
+      "target": 300,
+      "records": 0,
+      "remaining": 300
+    },
+    {
+      "category": "ev-charging-equipment",
+      "target": 300,
+      "records": 0,
+      "remaining": 300
+    },
+    {
+      "category": "metering-and-power-quality",
+      "target": 400,
+      "records": 0,
+      "remaining": 400
+    },
+    {
+      "category": "monitoring-and-sensors",
+      "target": 200,
+      "records": 0,
+      "remaining": 200
+    },
+    {
+      "category": "earthing-and-bonding-equipment",
+      "target": 100,
+      "records": 0,
+      "remaining": 100
+    },
+    {
+      "category": "enclosures-and-installation-hardware",
+      "target": 200,
+      "records": 0,
+      "remaining": 200
+    }
+  ]
+}
