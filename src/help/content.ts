@@ -432,6 +432,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "Compare iEM2435 and iEM2455 to identify which bus uses terminals 10 and 11 and where the forward and reverse pulse pairs sit.",
       "Select EM2214 to inspect both pulse pairs on the single-tariff model.",
       "Compare LAPP CLASSIC 115 CY articles 1136003 and 1136753 to find the shared braid and the protective-earth core on the G article.",
+      "Compare CLASSIC 130 H articles 1123114 and 1123115 in the terminal list to see how the protective-earth core changes the seven-core cable.",
       "For Phoenix Contact PT-PE blocks, the terminal list shows the wire clamps and the DIN-rail foot in one protective-earth group.",
       "Filter manufacturer equipment by category and use Previous records or Next records to browse large result sets.",
       "Search for an iC60N order code to inspect the breaker ratings and terminal groups. Breaker records are available for inventories and diagrams.",

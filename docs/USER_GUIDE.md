@@ -518,6 +518,7 @@ VE.Direct 120 V records show their own temperature-conditioned power ratings and
 - Compare **A9MEM2435** and **A9MEM2455**. Terminals **10/11** serve M-Bus on the former and RS-485 Modbus on the latter. In each record, find the forward pulse pair **18/19** and the reverse pair **20/21**.
 - Select **METSEEM2214** to inspect the single-tariff model. It has the same two pulse pairs and no communications terminals.
 - In **Cables and conductors**, compare LAPP CLASSIC 115 CY **1136003** and **1136753**. Both have a 6.1 mm outer diameter and two shield ends. Article 1136003 also has two ends for its PE core. Check the terminal list and record export.
+- Compare CLASSIC 130 H **1123114** and **1123115**. Both have seven 1.5 mm² cores and a 9 mm outer diameter. Open the two terminal lists to find the PE pair on 1123114 and the seventh numbered core on 1123115.
 - Select **Generators** in the manufacturer catalogue to compare STAMFORD alternator continuous kVA by published temperature class. The source panel links the winding reference.
 - Select **Enclosures and installation hardware** to compare Schneider S3HD wall enclosures by external dimensions, ingress protection and impact protection.
 - Select **Lighting equipment** to inspect the Philips DN145B wattage, luminous flux, colour temperature and documented driver terminals.

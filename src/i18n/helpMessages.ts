@@ -2102,6 +2102,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fún àwọn bulọọki PT-PE ti Phoenix Contact, àtòjọ ìsopọ̀ fi àwọn ibi tí a ti di okun àti ẹsẹ̀ DIN rail hàn nínú ẹgbẹ́ PE kan náà.",
       "For Phoenix Contact PT-PE blocks, di terminal list show di wire clamps and di DIN-rail foot for di same protective-earth group.",
     ],
+  "Compare CLASSIC 130 H articles 1123114 and 1123115 in the terminal list to see how the protective-earth core changes the seven-core cable.":
+    [
+      "Vergleichen Sie die Anschlusslisten der CLASSIC 130 H Artikel 1123114 und 1123115, um den Unterschied beim Schutzleiter des siebenadrigen Kabels zu sehen.",
+      "Fi CLASSIC 130 H 1123114 àti 1123115 wé ara wọn nínú àtòjọ ojú ìsopọ̀ láti rí bí okùn PE ṣe yàtọ̀ nínú kéébù olókùn méje.",
+      "Compare CLASSIC 130 H articles 1123114 and 1123115 for di terminal list to see how di PE core change di seven-core cable.",
+    ],
   "Compare LAPP CLASSIC 115 CY articles 1136003 and 1136753 to find the shared braid and the protective-earth core on the G article.":
     [
       "Vergleichen Sie die LAPP CLASSIC 115 CY Artikel 1136003 und 1136753. Beide haben ein Schirmgeflecht, und der G-Artikel hat einen Schutzleiter.",
