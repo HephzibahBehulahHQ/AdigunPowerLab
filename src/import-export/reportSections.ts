@@ -5,7 +5,10 @@ import { simulateStartEvents } from "../engine/start-events";
 import { assessSourceEquipment } from "../engine/sources";
 import { validateMeasurementPayload } from "../storage/measurements";
 import { deriveBOM } from "./bom";
-import { cataloguePvStrings } from "../engine/catalogueSeries";
+import {
+  catalogueBatteryStrings,
+  cataloguePvStrings,
+} from "../engine/catalogueSeries";
 import type { EquipmentTerminalEndpoint } from "../domain/types";
 import type { ReportSnapshot } from "./reportSnapshot";
 import type { EngineeringReportSection } from "./reports";
@@ -478,14 +481,10 @@ export function reportBlocks(
       const equipment = new Map(
         (p.catalogueEquipment ?? []).map((item) => [item.id, item]),
       );
-      const endpoint = ({
-        instanceId,
-        unit,
-        terminalId,
-      }: EquipmentTerminalEndpoint) => {
-        const item = equipment.get(instanceId);
-        return `${item?.name ?? instanceId} [${n(unit, 0)}] · ${terminalId}`;
-      };
+      const unitName = ({ instanceId, unit }: EquipmentTerminalEndpoint) =>
+        `${equipment.get(instanceId)?.name ?? instanceId} [${n(unit, 0)}]`;
+      const endpoint = (end: EquipmentTerminalEndpoint) =>
+        `${unitName(end)} · ${end.terminalId}`;
       heading("Catalogue equipment wiring schedule");
       table(
         ["From terminal", "To terminal", "Phase"],
@@ -512,12 +511,7 @@ export function reportBlocks(
             "Pmax (kW)",
           ],
           strings.map(({ units, vocV, vmpV, impA, iscA, dcNameplateKW }) => [
-            units
-              .map(
-                ({ instanceId, unit }) =>
-                  `${equipment.get(instanceId)?.name ?? instanceId} [${n(unit, 0)}]`,
-              )
-              .join(" → "),
+            units.map(unitName).join(" → "),
             n(vocV, 2),
             n(vmpV, 2),
             n(impA, 2),
@@ -529,6 +523,30 @@ export function reportBlocks(
         paragraph(
           "Uses nameplate values for identical modules in an isolated series chain.",
         );
+      }
+      const batteryStrings = catalogueBatteryStrings(p);
+      if (batteryStrings.length) {
+        heading("Battery series nameplate estimate");
+        table(
+          [
+            "Battery sequence",
+            "Nominal voltage (V)",
+            "C20 (Ah)",
+            "Nominal energy (kWh)",
+            "C20 test cutoff (V)",
+          ],
+          batteryStrings.map(
+            ({ units, nominalV, c20Ah, nominalKWhC20, dischargeCutoffV }) => [
+              units.map(unitName).join(" → "),
+              n(nominalV, 2),
+              n(c20Ah, 2),
+              n(nominalKWhC20, 3),
+              n(dischargeCutoffV, 2),
+            ],
+          ),
+          [70, 28, 22, 34, 28],
+        );
+        paragraph("Nominal energy uses rated voltage and C20 capacity.");
       }
     }
     if (c.bill) {
