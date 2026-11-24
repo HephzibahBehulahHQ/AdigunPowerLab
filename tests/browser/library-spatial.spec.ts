@@ -716,6 +716,21 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     { id: "20", group: "S0 reverse +" },
     { id: "21", group: "S0 reverse −" },
   ]);
+  await search.fill("METSEEM2214");
+  await expect(model).toHaveValue("schneider-electric:metseem2214");
+  await expect(catalogue.getByText("100 A", { exact: true })).toBeVisible();
+  const pulseOnlyDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const pulseOnly = JSON.parse(
+    await readFile(await (await pulseOnlyDownload).path(), "utf8"),
+  );
+  expect(pulseOnly.entry.conditions).toMatchObject({
+    communication: null,
+    tariffs: 1,
+  });
+  expect(pulseOnly.entry.terminals.map(({ id }: { id: string }) => id)).toEqual(
+    ["1", "3", "4", "6", "18", "19", "20", "21"],
+  );
   await search.fill("no matching product");
   await expect(catalogue.getByRole("status")).toHaveText(
     "No matching equipment",
