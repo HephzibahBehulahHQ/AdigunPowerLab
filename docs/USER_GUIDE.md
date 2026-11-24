@@ -516,6 +516,7 @@ VE.Direct 120 V records show their own temperature-conditioned power ratings and
 - In **Metering and power quality**, compare **A9MEM2000** with **A9MEM2010**. The iEM2010 card shows 100 imp/kWh and the S0 ratings of 5–35 V DC, 1–20 mA and 120 ms. The terminal list identifies S0+ and S0− separately from the mains terminals.
 - Select **A9MEM2055** to compare S0 terminals **20/21** with Modbus RS-485 terminals **23/24**. Open the wiring source and download the JSON record to check the terminal numbers against the diagram.
 - Compare **A9MEM2435** and **A9MEM2455**. Terminals **10/11** serve M-Bus on the former and RS-485 Modbus on the latter. In each record, find the forward pulse pair **18/19** and the reverse pair **20/21**.
+- Select **METSEEM2214** to inspect the single-tariff model. It has the same two pulse pairs and no communications terminals.
 - Select **Generators** in the manufacturer catalogue to compare STAMFORD alternator continuous kVA by published temperature class. The source panel links the winding reference.
 - Select **Enclosures and installation hardware** to compare Schneider S3HD wall enclosures by external dimensions, ingress protection and impact protection.
 - Select **Lighting equipment** to inspect the Philips DN145B wattage, luminous flux, colour temperature and documented driver terminals.

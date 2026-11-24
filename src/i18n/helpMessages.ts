@@ -2102,6 +2102,11 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fún àwọn bulọọki PT-PE ti Phoenix Contact, àtòjọ ìsopọ̀ fi àwọn ibi tí a ti di okun àti ẹsẹ̀ DIN rail hàn nínú ẹgbẹ́ PE kan náà.",
       "For Phoenix Contact PT-PE blocks, di terminal list show di wire clamps and di DIN-rail foot for di same protective-earth group.",
     ],
+  "Select EM2214 to inspect both pulse pairs on the single-tariff model.": [
+    "Wählen Sie EM2214, um beide Impulsklemmenpaare des Eintarifzählers zu prüfen.",
+    "Yan EM2214 láti ṣàyẹ̀wò tọkọtaya ìlù méjèèjì lórí àwòṣe alátaríìfù kan.",
+    "Select EM2214 to check both pulse pairs for di single-tariff model.",
+  ],
   "Compare iEM2435 and iEM2455 to identify which bus uses terminals 10 and 11 and where the forward and reverse pulse pairs sit.":
     [
       "Vergleichen Sie iEM2435 und iEM2455, um den Bus an den Klemmen 10 und 11 sowie die Impulsklemmenpaare für beide Energierichtungen zu erkennen.",
