@@ -867,4 +867,5 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - Schneider iEM2050/iEM2055: all 39 component-bank tests passed. The regression verifies all eight physical terminal numbers and interfaces, the wiring source page, and CSV/JSON parity for both articles.
 - Chromium on the production build found A9MEM2055, displayed 45 A, and exported S0 terminals 20/21 and RS-485 terminals 23/24.
 - Schneider iEM2435/iEM2455: TypeScript and all 40 component-bank tests passed. Both CSV and JSON exports preserve the 100 A ratings, model-specific communications interface, two S0 pairs and numbered wiring reference.
+- Chromium against the production build located A9MEM2455, displayed 100 A and verified RS-485 terminals 10/11 and the forward and reverse S0 pairs in its JSON download.
 - Candidate d6e148e: generated individual exports for all 1,200 records and compared every CSV and JSON to its source record. All 2,400 files and the 1,200-ID index matched.
