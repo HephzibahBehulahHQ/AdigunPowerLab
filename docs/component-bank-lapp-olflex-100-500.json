@@ -6826,6 +6826,166 @@
       "readiness": "inventory-and-diagram-only"
     },
     {
+      "id": "lapp:00100424",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 100 300/500 V 3G1",
+      "orderCode": "00100424",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 3,
+        "hasPe": true,
+        "crossSectionMm2": 1,
+        "outerDiameterMm": 6,
+        "copperKgPerKm": 28.8,
+        "weightKgPerKm": 65,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "coreIdentification": "colour-coded"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/pvc-outer-sheath-and-coloured-cores/oelflex-classic-100-300500-v.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-25)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/pvc-outer-sheath-and-coloured-cores/oelflex-classic-100-300500-v.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-25)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping",
+        "article-core-colours"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:00102034",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 100 300/500 V 3X1",
+      "orderCode": "00102034",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 3,
+        "hasPe": false,
+        "crossSectionMm2": 1,
+        "outerDiameterMm": 6,
+        "copperKgPerKm": 28.8,
+        "weightKgPerKm": 65,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "coreIdentification": "colour-coded"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/pvc-outer-sheath-and-coloured-cores/oelflex-classic-100-300500-v.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-25)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/pvc-outer-sheath-and-coloured-cores/oelflex-classic-100-300500-v.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-25)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping",
+        "article-core-colours"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
       "id": "lapp:00100434",
       "manufacturer": "LAPP",
       "model": "ÖLFLEX CLASSIC 100 300/500 V 4G1",
@@ -7190,6 +7350,250 @@
         "outerDiameterMm": 7.1,
         "copperKgPerKm": 48,
         "weightKgPerKm": 94,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "coreIdentification": "colour-coded"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/pvc-outer-sheath-and-coloured-cores/oelflex-classic-100-300500-v.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-25)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/pvc-outer-sheath-and-coloured-cores/oelflex-classic-100-300500-v.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-25)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping",
+        "article-core-colours"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:0010045",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 100 300/500 V 6G1",
+      "orderCode": "0010045",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 6,
+        "hasPe": true,
+        "crossSectionMm2": 1,
+        "outerDiameterMm": 8,
+        "copperKgPerKm": 58,
+        "weightKgPerKm": 124,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "coreIdentification": "colour-coded"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/pvc-outer-sheath-and-coloured-cores/oelflex-classic-100-300500-v.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-25)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/pvc-outer-sheath-and-coloured-cores/oelflex-classic-100-300500-v.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-25)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping",
+        "article-core-colours"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:0010046",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 100 300/500 V 7G1",
+      "orderCode": "0010046",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 7,
+        "hasPe": true,
+        "crossSectionMm2": 1,
+        "outerDiameterMm": 8,
+        "copperKgPerKm": 67,
+        "weightKgPerKm": 131,
         "nominalU0V": 300,
         "nominalUV": 500,
         "testVoltageV": 4000
