@@ -64,7 +64,9 @@ test("library favorites, linked replacement review, version history and undo", a
   const initial = await exported(page);
   await route(page, "Equipment Library");
   const library = page.locator(".equipment-workspace");
-  const history = library.locator("details").first();
+  const history = library.locator("details").filter({
+    has: page.getByText("Equipment version history", { exact: true }),
+  });
   const detailLevel = page.getByRole("combobox", { name: "Detail level" });
   await expect(history).toHaveAttribute("open", "");
   await detailLevel.selectOption("simple");
@@ -375,6 +377,18 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     ]),
   );
   expect(cable.entry.ratings.coreToCoreTestVAc).toBe(4000);
+  await search.fill("1119100");
+  await expect(model).toHaveValue("lapp:1119100");
+  await expect(catalogue.getByText("100 · PE", { exact: true })).toBeVisible();
+  const highCoreDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const highCore = JSON.parse(
+    await readFile(await (await highCoreDownload).path(), "utf8"),
+  );
+  expect(highCore.entry.terminals).toHaveLength(200);
+  expect(
+    highCore.entry.terminals.slice(-4).map(({ id }: { id: string }) => id),
+  ).toEqual(["a-99", "b-99", "a-pe", "b-pe"]);
   await catalogue.getByLabel("Equipment category").selectOption("generators");
   await search.fill("STAMFORD S1L2-Y1");
   await expect(model).toHaveValue("stamford:s1l2-y1-311");
