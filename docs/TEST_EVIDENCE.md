@@ -856,4 +856,5 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - LAPP CLASSIC 110 CH: TypeScript and all 36 component-bank tests passed. The regression verifies both braid ends, G/X differences and CSV/JSON parity for all 57 articles.
 - Chromium on the production build found exact article 10035069 and downloaded both shield ends while retaining the article's no-PE rating.
 - WEG W22 NEMA: TypeScript and all 37 component-bank tests passed, including CSV/JSON parity for both records, the nine- and twelve-lead inventories, and separation of the 60 HP nameplate ratings from supplemental terminal provenance.
+- Chromium on the production build found WEG article 11166654, displayed 230/460 V at 60 Hz, and downloaded all 12 leads with the supplemental drawing page.
 - Candidate d6e148e: generated individual exports for all 1,200 records and compared every CSV and JSON to its source record. All 2,400 files and the 1,200-ID index matched.
