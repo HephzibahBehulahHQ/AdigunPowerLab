@@ -704,6 +704,24 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   ]);
   await search.fill("LGY112510");
   await expect(catalogue.getByText("4.2 kA · 1 s")).toBeVisible();
+  await search.fill("LGY410028");
+  await expect(model).toHaveValue("schneider-electric:lgy410028");
+  await expect(
+    catalogue.getByText("3 kA · 1 s", { exact: true }),
+  ).toBeVisible();
+  const fourPoleDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const fourPole = JSON.parse(
+    await readFile(await (await fourPoleDownload).path(), "utf8"),
+  );
+  expect(fourPole.entry.terminals).toHaveLength(28);
+  expect(fourPole.entry.terminals.at(-1)).toMatchObject({
+    id: "pole-4-hole-7",
+    group: "pole-4",
+  });
+  expect(fourPole.entry.missingFields).toContain(
+    "distribution-pole-phase-assignment",
+  );
   await search.fill("RM17TG20");
   await expect(catalogue.getByText("208–440 V AC")).toBeVisible();
   await expect(catalogue.getByText("2 CO · 5 A")).toBeVisible();
