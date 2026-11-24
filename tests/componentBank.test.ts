@@ -973,6 +973,13 @@ test("iEM records distinguish pulse outputs and the China-only orders", () => {
     schemaVersion: 1,
     entries: iemMeters,
   });
+  const csv = readFileSync(
+    new URL("../docs/component-bank-iem.csv", import.meta.url),
+    "utf8",
+  );
+  expect(csv.replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(iemMeters).replaceAll("\r\n", "\n"),
+  );
 });
 
 test("PV validation follows conductor nodes across multiple wires", () => {
