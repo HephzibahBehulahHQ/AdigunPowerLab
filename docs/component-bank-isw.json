@@ -1,0 +1,773 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "schneider-electric:a9s60120",
+      "manufacturer": "Schneider Electric",
+      "model": "A9S60120",
+      "orderCode": "A9S60120",
+      "category": "switching-and-transfer-equipment",
+      "function": "control-switch",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 20,
+        "poles": 1,
+        "voltageV": 250
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=SE8863_Acti9_RTI&p_File_Ext=.PDF",
+        "revision": "SE8863 Acti9 Ready to Install",
+        "page": 7
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9s60132",
+      "manufacturer": "Schneider Electric",
+      "model": "A9S60132",
+      "orderCode": "A9S60132",
+      "category": "switching-and-transfer-equipment",
+      "function": "control-switch",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 32,
+        "poles": 1,
+        "voltageV": 250
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=SE8863_Acti9_RTI&p_File_Ext=.PDF",
+        "revision": "SE8863 Acti9 Ready to Install",
+        "page": 7
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9s60220",
+      "manufacturer": "Schneider Electric",
+      "model": "A9S60220",
+      "orderCode": "A9S60220",
+      "category": "switching-and-transfer-equipment",
+      "function": "control-switch",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 20,
+        "poles": 2,
+        "voltageV": 415
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=SE8863_Acti9_RTI&p_File_Ext=.PDF",
+        "revision": "SE8863 Acti9 Ready to Install",
+        "page": 7
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9s60232",
+      "manufacturer": "Schneider Electric",
+      "model": "A9S60232",
+      "orderCode": "A9S60232",
+      "category": "switching-and-transfer-equipment",
+      "function": "control-switch",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 32,
+        "poles": 2,
+        "voltageV": 415
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=SE8863_Acti9_RTI&p_File_Ext=.PDF",
+        "revision": "SE8863 Acti9 Ready to Install",
+        "page": 7
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9s60320",
+      "manufacturer": "Schneider Electric",
+      "model": "A9S60320",
+      "orderCode": "A9S60320",
+      "category": "switching-and-transfer-equipment",
+      "function": "control-switch",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 20,
+        "poles": 3,
+        "voltageV": 415
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=SE8863_Acti9_RTI&p_File_Ext=.PDF",
+        "revision": "SE8863 Acti9 Ready to Install",
+        "page": 7
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9s60332",
+      "manufacturer": "Schneider Electric",
+      "model": "A9S60332",
+      "orderCode": "A9S60332",
+      "category": "switching-and-transfer-equipment",
+      "function": "control-switch",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 32,
+        "poles": 3,
+        "voltageV": 415
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=SE8863_Acti9_RTI&p_File_Ext=.PDF",
+        "revision": "SE8863 Acti9 Ready to Install",
+        "page": 7
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9s60420",
+      "manufacturer": "Schneider Electric",
+      "model": "A9S60420",
+      "orderCode": "A9S60420",
+      "category": "switching-and-transfer-equipment",
+      "function": "control-switch",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-4-top",
+          "group": "7",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-4-bottom",
+          "group": "8",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 20,
+        "poles": 4,
+        "voltageV": 415
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=SE8863_Acti9_RTI&p_File_Ext=.PDF",
+        "revision": "SE8863 Acti9 Ready to Install",
+        "page": 7
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9s60432",
+      "manufacturer": "Schneider Electric",
+      "model": "A9S60432",
+      "orderCode": "A9S60432",
+      "category": "switching-and-transfer-equipment",
+      "function": "control-switch",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-4-top",
+          "group": "7",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-4-bottom",
+          "group": "8",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 32,
+        "poles": 4,
+        "voltageV": 415
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=SE8863_Acti9_RTI&p_File_Ext=.PDF",
+        "revision": "SE8863 Acti9 Ready to Install",
+        "page": 7
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9s65140",
+      "manufacturer": "Schneider Electric",
+      "model": "A9S65140",
+      "orderCode": "A9S65140",
+      "category": "switching-and-transfer-equipment",
+      "function": "switch-disconnector",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 40,
+        "poles": 1,
+        "voltageV": 240
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=CA909006NL&p_File_Ext=.PDF",
+        "revision": "CA909006E, Version 1.0, 02/08/2017",
+        "page": 59
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9s65340",
+      "manufacturer": "Schneider Electric",
+      "model": "A9S65340",
+      "orderCode": "A9S65340",
+      "category": "switching-and-transfer-equipment",
+      "function": "switch-disconnector",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 40,
+        "poles": 3,
+        "voltageV": 415
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=CA909006NL&p_File_Ext=.PDF",
+        "revision": "CA909006E, Version 1.0, 02/08/2017",
+        "page": 59
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9s65363",
+      "manufacturer": "Schneider Electric",
+      "model": "A9S65363",
+      "orderCode": "A9S65363",
+      "category": "switching-and-transfer-equipment",
+      "function": "switch-disconnector",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 63,
+        "poles": 3,
+        "voltageV": 415
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=CA909006NL&p_File_Ext=.PDF",
+        "revision": "CA909006E, Version 1.0, 02/08/2017",
+        "page": 59
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9s65440",
+      "manufacturer": "Schneider Electric",
+      "model": "A9S65440",
+      "orderCode": "A9S65440",
+      "category": "switching-and-transfer-equipment",
+      "function": "switch-disconnector",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "1",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "2",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-top",
+          "group": "3",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-2-bottom",
+          "group": "4",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-top",
+          "group": "5",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-3-bottom",
+          "group": "6",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-4-top",
+          "group": "7",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-4-bottom",
+          "group": "8",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 40,
+        "poles": 4,
+        "voltageV": 415
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=CA909006NL&p_File_Ext=.PDF",
+        "revision": "CA909006E, Version 1.0, 02/08/2017",
+        "page": 59
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-switching-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}

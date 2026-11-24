@@ -296,7 +296,71 @@ export const iidRccbs = [
   ),
 );
 
-export const componentBank = [...pvModules, ...ic60nBreakers, ...iidRccbs];
+const iswTable = [
+  ["A9S60120", 1, 20, 250],
+  ["A9S60132", 1, 32, 250],
+  ["A9S60220", 2, 20, 415],
+  ["A9S60232", 2, 32, 415],
+  ["A9S60320", 3, 20, 415],
+  ["A9S60332", 3, 32, 415],
+  ["A9S60420", 4, 20, 415],
+  ["A9S60432", 4, 32, 415],
+  ["A9S65140", 1, 40, 240],
+  ["A9S65340", 3, 40, 415],
+  ["A9S65363", 3, 63, 415],
+  ["A9S65440", 4, 40, 415],
+] as const;
+
+export const iswSwitches = iswTable.map(
+  ([model, poles, ratedCurrentA, voltageV]) => {
+    const disconnector = ratedCurrentA >= 40;
+    return {
+      id: `schneider-electric:${model.toLowerCase()}`,
+      manufacturer: "Schneider Electric",
+      model,
+      orderCode: model,
+      category: "switching-and-transfer-equipment" as const,
+      function: disconnector
+        ? ("switch-disconnector" as const)
+        : ("control-switch" as const),
+      connection: "ac" as const,
+      terminals: Array.from({ length: poles }, (_, pole) =>
+        ["top", "bottom"].map((side, index) => ({
+          id: `pole-${pole + 1}-${side}`,
+          group: String(pole * 2 + index + 1),
+          interface: "ac-line",
+          connector: "screw terminal",
+        })),
+      ).flat(),
+      ratings: { ratedCurrentA, poles, voltageV },
+      conditions: { frequencyHz: [50, 60] },
+      modelMapping: null,
+      source: disconnector
+        ? {
+            url: "https://download.se.com/files?p_Doc_Ref=CA909006NL&p_File_Ext=.PDF",
+            revision: "CA909006E, Version 1.0, 02/08/2017",
+            page: 59,
+          }
+        : {
+            url: "https://download.se.com/files?p_Doc_Ref=SE8863_Acti9_RTI&p_File_Ext=.PDF",
+            revision: "SE8863 Acti9 Ready to Install",
+            page: 7,
+          },
+      missingFields: [
+        "regional-availability",
+        "verified-switching-model-mapping",
+      ],
+      readiness: "inventory-and-diagram-only",
+    };
+  },
+);
+
+export const componentBank = [
+  ...pvModules,
+  ...ic60nBreakers,
+  ...iidRccbs,
+  ...iswSwitches,
+];
 
 export function componentBankCsv(
   records: readonly (typeof componentBank)[number][],
