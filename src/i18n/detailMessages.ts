@@ -1,5 +1,15 @@
 /** Detail-view copy uses the shared catalogue; professional language review is pending. */
 export const detailMessages: Record<string, [string, string, string]> = {
+  "Primary voltage": [
+    "Primärspannung",
+    "Fóltéèjì ẹ̀gbẹ́ àkọ́kọ́",
+    "Voltage for primary side",
+  ],
+  "Secondary voltage": [
+    "Sekundärspannung",
+    "Fóltéèjì ẹ̀gbẹ́ kejì",
+    "Voltage for secondary side",
+  ],
   "Power factor basis": [
     "Grundlage des Leistungsfaktors",
     "Ìpìlẹ̀ ìwọ̀n agbára",
