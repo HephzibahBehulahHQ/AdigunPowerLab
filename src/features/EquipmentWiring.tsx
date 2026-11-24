@@ -31,9 +31,13 @@ export function EquipmentWiring({
   const instances = project.catalogueEquipment ?? [];
   const model = catalogueRecord(instance);
   const domain = model?.connection;
-  const equipment = instances.filter(
-    (item) => catalogueRecord(item)?.connection === domain,
-  );
+  const equipment = instances.filter((item) => {
+    const candidate = catalogueRecord(item);
+    return (
+      candidate?.connection === domain &&
+      candidate?.terminals.some(isWireTerminal)
+    );
+  });
   const target = equipment.find((item) => item.id === targetId) ?? instance;
   const wires = project.equipmentTerminalConnections ?? [];
   const attached = wires.filter(

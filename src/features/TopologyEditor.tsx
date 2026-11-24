@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
 import { createBoard, createCircuit, newId } from "../domain/project";
-import { catalogueRecord } from "../domain/equipmentConnections";
+import {
+  catalogueRecord,
+  isWireTerminal,
+} from "../domain/equipmentConnections";
 import type {
   CalculationResult,
   Cable,
@@ -823,7 +826,7 @@ function ObjectEditor({
             {t("Source reference")}
           </a>
         )}
-        {instance && record && (
+        {instance && record?.terminals.some(isWireTerminal) && (
           <EquipmentWiring
             project={project}
             instance={instance}

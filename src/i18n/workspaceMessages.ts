@@ -1,5 +1,21 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "Monitoring and sensors": [
+    "Überwachung und Sensoren",
+    "Àbójútó àti sensor",
+    "Monitoring and sensors",
+  ],
+  "Relay output": ["Relaisausgang", "Àbájáde relay", "Relay output"],
+  "Verified monitoring calculation mapping": [
+    "Geprüfte Zuordnung zur Überwachungsberechnung",
+    "Ìbámu ìṣírò àbójútó tí a fìdí múlẹ̀",
+    "Verified monitoring calculation mapping",
+  ],
+  "Contact current by load category": [
+    "Kontaktstrom nach Lastkategorie",
+    "Current contact gẹ́gẹ́ bí ẹ̀ka load",
+    "Contact current by load category",
+  ],
   "PV series string at STC": [
     "PV-Reihenstring bei STC",
     "Okùn PV ní STC",
