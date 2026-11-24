@@ -1157,6 +1157,39 @@ test("iEM2400 exports preserve the model-specific bus and both pulse pairs", () 
   );
 });
 
+test.each([
+  ["LGY412548", 125, 4.2, { 9: 1, 7.5: 7, 6.5: 4 }],
+  ["LGY412560", 125, 4.2, { 9.5: 1, 8.5: 3, 6.5: 11 }],
+  ["LGY416048", 160, 8.4, { 12: 1, 9: 3, 7.5: 8 }],
+] as const)(
+  "%s preserves the documented screw holes per pole",
+  (model, ratedCurrentA, icwKA, sizes) => {
+    const block = linergyDsFourPoleBlocks.find(
+      (entry) => entry.model === model,
+    )!;
+    expect(block.ratings).toMatchObject({ ratedCurrentA, icwKA, poles: 4 });
+    expect(block.source.pageLabel).toBe("B-3");
+    expect(new Set(block.terminals.map(({ id }) => id)).size).toBe(
+      block.terminals.length,
+    );
+    for (const pole of [1, 2, 3, 4]) {
+      const terminals = block.terminals.filter(
+        ({ group }) => group === `pole-${pole}`,
+      );
+      expect(terminals).toHaveLength(
+        Object.values(sizes).reduce((sum: number, count) => sum + count, 0),
+      );
+      for (const [diameter, count] of Object.entries(sizes)) {
+        expect(
+          terminals.filter(
+            ({ connector }) => connector === `Ø ${diameter} mm screw terminal`,
+          ),
+        ).toHaveLength(count);
+      }
+    }
+  },
+);
+
 test("Linergy LGY410028 exports four isolated groups of seven connections", () => {
   const [block] = linergyDsFourPoleBlocks;
   expect(block).toMatchObject({

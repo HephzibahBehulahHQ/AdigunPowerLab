@@ -201,6 +201,1041 @@
         "distribution-pole-phase-assignment"
       ],
       "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:lgy412548",
+      "manufacturer": "Schneider Electric",
+      "model": "LGY412548",
+      "orderCode": "LGY412548",
+      "category": "busbars-and-distribution-systems",
+      "function": "four-pole-distribution-block",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-hole-1",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 9 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-2",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-3",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-4",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-5",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-6",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-7",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-8",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-9",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-10",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-11",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-12",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-1",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 9 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-2",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-3",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-4",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-5",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-6",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-7",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-8",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-9",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-10",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-11",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-12",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-1",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 9 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-2",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-3",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-4",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-5",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-6",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-7",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-8",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-9",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-10",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-11",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-12",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-1",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 9 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-2",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-3",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-4",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-5",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-6",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-7",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-8",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-9",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-10",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-11",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-12",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 125,
+        "poles": 4,
+        "ipkKA": 26,
+        "icwKA": 4.2
+      },
+      "conditions": {
+        "icwDurationSeconds": 1,
+        "icwStandard": "IEC/EN 60947-7-1"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=LVYED213001EN&p_File_name=LVYED213001EN_V7.0_Linergy_Catalog.pdf",
+        "revision": "LIN2100, Version 9.0, 25/09/2026",
+        "page": 3,
+        "pageLabel": "B-3"
+      },
+      "missingFields": [
+        "verified-distribution-model-mapping",
+        "distribution-pole-phase-assignment"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:lgy412560",
+      "manufacturer": "Schneider Electric",
+      "model": "LGY412560",
+      "orderCode": "LGY412560",
+      "category": "busbars-and-distribution-systems",
+      "function": "four-pole-distribution-block",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-hole-1",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 9.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-2",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 8.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-3",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 8.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-4",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 8.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-5",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-6",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-7",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-8",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-9",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-10",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-11",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-12",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-13",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-14",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-15",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-1",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 9.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-2",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 8.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-3",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 8.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-4",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 8.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-5",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-6",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-7",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-8",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-9",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-10",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-11",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-12",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-13",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-14",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-15",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-1",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 9.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-2",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 8.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-3",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 8.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-4",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 8.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-5",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-6",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-7",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-8",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-9",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-10",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-11",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-12",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-13",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-14",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-15",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-1",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 9.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-2",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 8.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-3",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 8.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-4",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 8.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-5",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-6",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-7",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-8",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-9",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-10",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-11",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-12",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-13",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-14",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-15",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 6.5 mm screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 125,
+        "poles": 4,
+        "ipkKA": 28,
+        "icwKA": 4.2
+      },
+      "conditions": {
+        "icwDurationSeconds": 1,
+        "icwStandard": "IEC/EN 60947-7-1"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=LVYED213001EN&p_File_name=LVYED213001EN_V7.0_Linergy_Catalog.pdf",
+        "revision": "LIN2100, Version 9.0, 25/09/2026",
+        "page": 3,
+        "pageLabel": "B-3"
+      },
+      "missingFields": [
+        "verified-distribution-model-mapping",
+        "distribution-pole-phase-assignment"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:lgy416048",
+      "manufacturer": "Schneider Electric",
+      "model": "LGY416048",
+      "orderCode": "LGY416048",
+      "category": "busbars-and-distribution-systems",
+      "function": "four-pole-distribution-block",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-hole-1",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 12 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-2",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 9 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-3",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 9 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-4",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 9 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-5",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-6",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-7",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-8",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-9",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-10",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-11",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-1-hole-12",
+          "group": "pole-1",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-1",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 12 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-2",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 9 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-3",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 9 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-4",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 9 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-5",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-6",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-7",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-8",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-9",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-10",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-11",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-2-hole-12",
+          "group": "pole-2",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-1",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 12 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-2",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 9 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-3",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 9 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-4",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 9 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-5",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-6",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-7",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-8",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-9",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-10",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-11",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-3-hole-12",
+          "group": "pole-3",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-1",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 12 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-2",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 9 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-3",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 9 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-4",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 9 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-5",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-6",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-7",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-8",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-9",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-10",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-11",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "pole-4-hole-12",
+          "group": "pole-4",
+          "interface": "distribution-pole",
+          "connector": "Ø 7.5 mm screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 160,
+        "poles": 4,
+        "ipkKA": 36,
+        "icwKA": 8.4
+      },
+      "conditions": {
+        "icwDurationSeconds": 1,
+        "icwStandard": "IEC/EN 60947-7-1"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=LVYED213001EN&p_File_name=LVYED213001EN_V7.0_Linergy_Catalog.pdf",
+        "revision": "LIN2100, Version 9.0, 25/09/2026",
+        "page": 3,
+        "pageLabel": "B-3"
+      },
+      "missingFields": [
+        "verified-distribution-model-mapping",
+        "distribution-pole-phase-assignment"
+      ],
+      "readiness": "inventory-and-diagram-only"
     }
   ]
 }

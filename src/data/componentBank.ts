@@ -884,6 +884,73 @@ export const linergyDsFourPoleBlocks = [
     ],
     readiness: "inventory-and-diagram-only",
   },
+  ...(
+    [
+      [
+        "LGY412548",
+        26,
+        125,
+        4.2,
+        [
+          [9, 1],
+          [7.5, 7],
+          [6.5, 4],
+        ],
+      ],
+      [
+        "LGY412560",
+        28,
+        125,
+        4.2,
+        [
+          [9.5, 1],
+          [8.5, 3],
+          [6.5, 11],
+        ],
+      ],
+      [
+        "LGY416048",
+        36,
+        160,
+        8.4,
+        [
+          [12, 1],
+          [9, 3],
+          [7.5, 8],
+        ],
+      ],
+    ] as const
+  ).map(([model, ipkKA, ratedCurrentA, icwKA, holeSizes]) => {
+    const diameters = holeSizes.flatMap(([diameter, count]) =>
+      Array.from({ length: count }, () => diameter),
+    );
+    return {
+      id: `schneider-electric:${model.toLowerCase()}`,
+      manufacturer: "Schneider Electric",
+      model,
+      orderCode: model,
+      category: "busbars-and-distribution-systems" as const,
+      function: "four-pole-distribution-block" as const,
+      connection: "ac" as const,
+      terminals: Array.from({ length: 4 }, (_, index) =>
+        diameters.map((diameter, hole) => ({
+          id: `pole-${index + 1}-hole-${hole + 1}`,
+          group: `pole-${index + 1}`,
+          interface: "distribution-pole",
+          connector: `Ø ${diameter} mm screw terminal`,
+        })),
+      ).flat(),
+      ratings: { ratedCurrentA, poles: 4, ipkKA, icwKA },
+      conditions: { icwDurationSeconds: 1, icwStandard: "IEC/EN 60947-7-1" },
+      modelMapping: null,
+      source: { ...linergyDsBlocks[0].source, page: 3, pageLabel: "B-3" },
+      missingFields: [
+        "verified-distribution-model-mapping",
+        "distribution-pole-phase-assignment",
+      ],
+      readiness: "inventory-and-diagram-only",
+    };
+  }),
 ];
 
 export const linergyEarthBars = (
