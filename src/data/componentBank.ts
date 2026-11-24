@@ -157,6 +157,90 @@ export const ic60nBreakers = acti9Breakers("iC60N");
 // The iC60H order and terminal table is on p. 12; Icn is on p. 11.
 export const ic60hBreakers = acti9Breakers("iC60H");
 
+// Acti9 2017 p. 14: code 72 is present only in the K/Z columns.
+export const ic60lBreakers = [1, 2, 3, 4].flatMap((poles) =>
+  (
+    [
+      ["B", 93],
+      ["C", 94],
+      ["K", 95],
+      ["Z", 92],
+    ] as const
+  ).flatMap(([curve, code]) =>
+    [
+      0.5,
+      1,
+      ...(curve === "K" || curve === "Z" ? [1.6] : []),
+      2,
+      3,
+      4,
+      6,
+      10,
+      16,
+      20,
+      25,
+      32,
+      40,
+      50,
+      63,
+    ].map((ratedCurrentA) => {
+      const suffix =
+        ratedCurrentA === 0.5
+          ? "70"
+          : ratedCurrentA === 1.6
+            ? "72"
+            : String(ratedCurrentA).padStart(2, "0");
+      const model = `A9F${code}${poles}${suffix}`;
+      const icnApplies = ratedCurrentA <= 40;
+      return {
+        id: `schneider-electric:${model.toLowerCase()}`,
+        manufacturer: "Schneider Electric",
+        model,
+        orderCode: model,
+        category: "protection-devices" as const,
+        function: "miniature-circuit-breaker" as const,
+        connection: "ac" as const,
+        terminals: Array.from({ length: poles }, (_, pole) =>
+          ["top", "bottom"].map((side, terminal) => ({
+            id: `pole-${pole + 1}-${side}`,
+            group: String(pole * 2 + terminal + 1),
+            interface: "ac-line",
+            connector: "screw terminal",
+          })),
+        ).flat(),
+        ratings: {
+          ratedCurrentA,
+          poles,
+          curve,
+          family: "iC60L",
+          icnKA: icnApplies ? 15 : null,
+        },
+        conditions: {
+          frequencyHz: [50, 60],
+          icnVoltageV: icnApplies ? (poles === 1 ? 230 : 400) : null,
+          icnStandard: icnApplies ? "IEC/EN 60898-1" : null,
+          ...(poles === 1 && curve === "K" && ratedCurrentA >= 50
+            ? {
+                catalogueApprovalNote: "Catalogue footnote 3: without approval",
+              }
+            : {}),
+        },
+        modelMapping: null,
+        source: {
+          url: "https://download.se.com/files?p_Doc_Ref=Acti9_Catalogue_2017&p_File_Ext=.pdf",
+          revision: "Version 2.0, May 2017",
+          page: 14,
+        },
+        missingFields: [
+          "regional-availability",
+          "verified-protection-model-mapping",
+        ],
+        readiness: "inventory-and-diagram-only",
+      };
+    }),
+  ),
+);
+
 // Acti9 2017, printed p. 52. Null cells are unavailable in this table.
 const iidAcTable = [
   [2, 16, "A9R10216", null, null, null, null, null, null],
@@ -503,6 +587,7 @@ export const componentBank = [
   ...iemMeters,
   ...ictContactors,
   ...ic60hBreakers,
+  ...ic60lBreakers,
 ];
 
 export function componentBankCsv(

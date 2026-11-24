@@ -312,8 +312,9 @@ export function ManufacturerEquipmentCatalogue({
               <div>
                 <dt>Icn · IEC/EN 60898-1</dt>
                 <dd>
-                  {record.ratings.icnKA} kA · {record.conditions.icnVoltageV} V
-                  AC
+                  {record.ratings.icnKA === null
+                    ? t("Not available")
+                    : `${record.ratings.icnKA} kA · ${record.conditions.icnVoltageV} V AC`}
                 </dd>
               </div>
             </dl>
