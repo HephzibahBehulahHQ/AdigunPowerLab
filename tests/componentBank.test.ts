@@ -34,6 +34,7 @@ import {
   olflexClassic110HCables,
   olflexClassic110ChCables,
   olflexClassic115CyCables,
+  olflexClassic110CyBlackCables,
   olflexClassic130HCables,
   philipsDn145bDownlights,
   philipsDn145bPsuDownlights,
@@ -476,41 +477,49 @@ test("WEG NEMA exports retain nameplate ratings and separately sourced leads", (
   );
 });
 
-test("LAPP 115 CY exports preserve the braid and protective-earth variants", () => {
-  expect(olflexClassic115CyCables).toHaveLength(71);
-  for (const cable of olflexClassic115CyCables) {
-    expect(cable.ratings).toMatchObject({
-      nominalU0V: 300,
-      nominalUV: 500,
-      testVoltageV: 4000,
+test.each([
+  ["115-cy", olflexClassic115CyCables, 71, 300, 500, [3, 4, 5]],
+  ["110-cy-black", olflexClassic110CyBlackCables, 49, 600, 1000, [3, 4]],
+] as const)(
+  "LAPP %s exports preserve braid and protective-earth variants",
+  (batch, cables, count, nominalU0V, nominalUV, pages) => {
+    expect(cables).toHaveLength(count);
+    for (const cable of cables) {
+      expect(cable.ratings).toMatchObject({
+        nominalU0V,
+        nominalUV,
+        testVoltageV: 4000,
+      });
+      expect(
+        cable.terminals
+          .filter(({ group }) => group === "Shield")
+          .map(({ id }) => id),
+      ).toEqual(["a-shield", "b-shield"]);
+      expect(
+        cable.terminals
+          .filter(({ group }) => group === "PE")
+          .map(({ id }) => id),
+      ).toEqual(cable.ratings.hasPe ? ["a-pe", "b-pe"] : []);
+      expect(cable.terminals).toHaveLength(2 * (cable.ratings.coreCount + 1));
+      expect(pages).toContain(cable.source.page);
+    }
+    const file = (extension: string) =>
+      readFileSync(
+        new URL(
+          `../docs/component-bank-lapp-olflex-${batch}.${extension}`,
+          import.meta.url,
+        ),
+        "utf8",
+      );
+    expect(JSON.parse(file("json"))).toEqual({
+      schemaVersion: 1,
+      entries: cables,
     });
-    expect(
-      cable.terminals
-        .filter(({ group }) => group === "Shield")
-        .map(({ id }) => id),
-    ).toEqual(["a-shield", "b-shield"]);
-    expect(
-      cable.terminals.filter(({ group }) => group === "PE").map(({ id }) => id),
-    ).toEqual(cable.ratings.hasPe ? ["a-pe", "b-pe"] : []);
-    expect(cable.terminals).toHaveLength(2 * (cable.ratings.coreCount + 1));
-    expect([3, 4, 5]).toContain(cable.source.page);
-  }
-  const file = (extension: string) =>
-    readFileSync(
-      new URL(
-        `../docs/component-bank-lapp-olflex-115-cy.${extension}`,
-        import.meta.url,
-      ),
-      "utf8",
+    expect(file("csv").replaceAll("\r\n", "\n")).toBe(
+      componentBankCsv(cables).replaceAll("\r\n", "\n"),
     );
-  expect(JSON.parse(file("json"))).toEqual({
-    schemaVersion: 1,
-    entries: olflexClassic115CyCables,
-  });
-  expect(file("csv").replaceAll("\r\n", "\n")).toBe(
-    componentBankCsv(olflexClassic115CyCables).replaceAll("\r\n", "\n"),
-  );
-});
+  },
+);
 
 test("LAPP 130 H exports retain verified diameters and PE variants", () => {
   expect(olflexClassic130HCables).toHaveLength(85);
