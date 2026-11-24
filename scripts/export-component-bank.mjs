@@ -16,6 +16,7 @@ import {
   linergyDsBlocks,
   linergyEarthBars,
   abl6Transformers,
+  abt7pduTransformers,
 } from "../src/data/componentBank.ts";
 import { join } from "node:path";
 
@@ -33,6 +34,7 @@ const batches = {
   linergy: linergyDsBlocks,
   "linergy-tb": linergyEarthBars,
   abl6: abl6Transformers,
+  abt7pdu: abt7pduTransformers,
 };
 for (const [batch, entries] of Object.entries(batches)) {
   writeFileSync(

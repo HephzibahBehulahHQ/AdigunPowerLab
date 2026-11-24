@@ -1,0 +1,2167 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "schneider-electric:abt7pdu004b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU004B",
+      "orderCode": "ABT7PDU004B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 40,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "internal"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu006b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU006B",
+      "orderCode": "ABT7PDU006B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 63,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "internal"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu010b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU010B",
+      "orderCode": "ABT7PDU010B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 100,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "internal"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu016b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU016B",
+      "orderCode": "ABT7PDU016B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 160,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "internal"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu025b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU025B",
+      "orderCode": "ABT7PDU025B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 250,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "internal"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu032b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU032B",
+      "orderCode": "ABT7PDU032B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 320,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "internal"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu040b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU040B",
+      "orderCode": "ABT7PDU040B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 400,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "external"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu063b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU063B",
+      "orderCode": "ABT7PDU063B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 630,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "external"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu100b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU100B",
+      "orderCode": "ABT7PDU100B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 1000,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "external"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu160b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU160B",
+      "orderCode": "ABT7PDU160B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 1600,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "external"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu250b",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU250B",
+      "orderCode": "ABT7PDU250B",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 2500,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 24,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "external"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu002g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU002G",
+      "orderCode": "ABT7PDU002G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 25,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "internal"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu004g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU004G",
+      "orderCode": "ABT7PDU004G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 40,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "internal"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu006g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU006G",
+      "orderCode": "ABT7PDU006G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 63,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "internal"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu010g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU010G",
+      "orderCode": "ABT7PDU010G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 100,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "internal"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu016g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU016G",
+      "orderCode": "ABT7PDU016G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 160,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "internal"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu025g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU025G",
+      "orderCode": "ABT7PDU025G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 250,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "internal"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu032g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU032G",
+      "orderCode": "ABT7PDU032G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 320,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "internal"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu040g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU040G",
+      "orderCode": "ABT7PDU040G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 400,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "external"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu063g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU063G",
+      "orderCode": "ABT7PDU063G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 630,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "external"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu100g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU100G",
+      "orderCode": "ABT7PDU100G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 1000,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "external"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu160g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU160G",
+      "orderCode": "ABT7PDU160G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 1600,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "external"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:abt7pdu250g",
+      "manufacturer": "Schneider Electric",
+      "model": "ABT7PDU250G",
+      "orderCode": "ABT7PDU250G",
+      "category": "transformers",
+      "function": "single-phase-control-transformer",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "primary-1",
+          "group": "primary 400 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-2",
+          "group": "primary 230 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-3",
+          "group": "primary -15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-4",
+          "group": "primary 0 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "primary-5",
+          "group": "primary +15 V",
+          "interface": "transformer-primary",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "secondary-1-start",
+          "group": "secondary 1 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-1-end",
+          "group": "secondary 1 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-start",
+          "group": "secondary 2 start",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        },
+        {
+          "id": "secondary-2-end",
+          "group": "secondary 2 end",
+          "interface": "transformer-secondary",
+          "connector": "secondary winding connection"
+        }
+      ],
+      "ratings": {
+        "apparentVA": 2500,
+        "primaryV": [
+          230,
+          400
+        ],
+        "secondaryV": 115,
+        "secondaryWindings": 2
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "primaryTapAdjustmentV": 15,
+        "jumperPlacement": "external"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://iportal.se.com/Contents/docs/TRANSFORMERS%20PHASEO%20ABT7%2C%20ABL6%20-%20230%20V%20TO%20400%20V%20-%2025%20VA%20TO%202500%20VA.PDF",
+        "revision": "Phaseo ABT7/ABL6 transformer catalogue",
+        "page": 11
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-transformer-model-mapping",
+        "model-specific-bonding-terminal-review"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}

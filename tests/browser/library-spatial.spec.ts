@@ -316,6 +316,8 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   await search.fill("Schneider A9F74106");
   await expect(model).toHaveValue("schneider-electric:a9f74106");
   await catalogue.getByLabel("Equipment category").selectOption("");
+  await search.fill("ABT7PDU004B");
+  await expect(catalogue.getByText("2 × 24 V AC")).toBeVisible();
   await search.fill("ABL6TS25B");
   await expect(catalogue.getByText("250 VA")).toBeVisible();
   await expect(catalogue.getByText("24 V AC", { exact: true })).toBeVisible();

@@ -358,7 +358,12 @@ export function ManufacturerEquipmentCatalogue({
               </div>
               <div>
                 <dt>{t("Secondary voltage")}</dt>
-                <dd>{record.ratings.secondaryV} V AC</dd>
+                <dd>
+                  {"secondaryWindings" in record.ratings
+                    ? `${record.ratings.secondaryWindings} × `
+                    : ""}
+                  {record.ratings.secondaryV} V AC
+                </dd>
               </div>
             </dl>
           ) : record.function !== "miniature-circuit-breaker" ? (
