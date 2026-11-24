@@ -1647,7 +1647,8 @@ const olflexClassic110CyRows = [
 type MetricLappRow =
   | (typeof olflexClassic110CyRows)[number]
   | (typeof olflexClassic100750Rows)[number]
-  | (typeof olflexClassic100500Rows)[number];
+  | (typeof olflexClassic100500Rows)[number]
+  | (typeof olflexClassic110BlackRows)[number];
 
 function metricLappCables(
   rows: readonly MetricLappRow[],
@@ -1658,9 +1659,11 @@ function metricLappCables(
     nominalU0V: number;
     nominalUV: number;
     shielded: boolean;
+    numberedCores?: boolean;
   },
 ) {
   const revision = family.revision ?? "LAPP PN 0456 / 02_03.16 (2025-07-14)";
+  const numberedCores = family.numberedCores ?? family.shielded;
   return rows.map(
     ([
       orderCode,
@@ -1697,7 +1700,7 @@ function metricLappCables(
                 ? "cable-shield"
                 : group === "PE"
                   ? "cable-pe-core"
-                  : family.shielded
+                  : numberedCores
                     ? "cable-numbered-core"
                     : "cable-core",
             connector: group === "Shield" ? "braid end" : "conductor end",
@@ -1716,7 +1719,7 @@ function metricLappCables(
         },
         conditions: family.shielded
           ? { shield: "tinned-copper braid" }
-          : { coreIdentification: "colour-coded" },
+          : { coreIdentification: numberedCores ? "numbered" : "colour-coded" },
         modelMapping: null,
         source: {
           url: family.url,
@@ -1733,7 +1736,7 @@ function metricLappCables(
         missingFields: [
           "cable-ampacity-and-impedance",
           "verified-cable-model-mapping",
-          ...(family.shielded ? [] : ["article-core-colours"]),
+          ...(numberedCores ? [] : ["article-core-colours"]),
         ],
         readiness: "inventory-and-diagram-only",
       };
@@ -1914,6 +1917,84 @@ export const olflexClassic100500Cables = metricLappCables(
     nominalU0V: 300,
     nominalUV: 500,
     shielded: false,
+  },
+);
+
+const olflexClassic110BlackRows = [
+  ["1120232", 2, "X", 0.75, 8.3, 14.4, 81, 3],
+  ["1120233", 3, "G", 0.75, 8.7, 21.6, 93, 3],
+  ["1120234", 3, "X", 0.75, 8.7, 21.6, 93, 3],
+  ["1120235", 4, "G", 0.75, 9.2, 29, 108, 3],
+  ["1120237", 5, "G", 0.75, 9.9, 36, 126, 3],
+  ["1120241", 7, "G", 0.75, 10.7, 51, 162, 3],
+  ["1120248", 12, "G", 0.75, 13.4, 86, 236, 3],
+  ["1120251", 18, "G", 0.75, 15.4, 130, 334, 3],
+  ["1120259", 41, "G", 0.75, 21.6, 296, 713, 3],
+  ["1120266", 2, "X", 1, 8.6, 19.2, 98, 3],
+  ["1120267", 3, "G", 1, 9, 29, 112, 3],
+  ["1120268", 3, "X", 1, 9, 29, 112, 3],
+  ["1120269", 4, "G", 1, 9.6, 38.4, 131, 3],
+  ["1120270", 4, "X", 1, 9.6, 38.4, 131, 3],
+  ["1120271", 5, "G", 1, 10.4, 48, 152, 3],
+  ["1120274", 7, "G", 1, 11.1, 67, 196, 3],
+  ["1120280", 12, "G", 1, 14, 116, 286, 3],
+  ["1120284", 18, "G", 1, 16.1, 173, 419, 3],
+  ["1120290", 25, "G", 1, 18.6, 240, 572, 3],
+  ["1120294", 34, "G", 1, 21.3, 326, 764, 3],
+  ["1120298", 41, "G", 1, 23.2, 394, 891, 3],
+  ["1120306", 2, "X", 1.5, 9.6, 29, 123, 3],
+  ["1120307", 3, "G", 1.5, 10.1, 43, 165, 3],
+  ["1120308", 3, "X", 1.5, 10.1, 43, 144, 3],
+  ["1120309", 4, "G", 1.5, 10.8, 58, 170, 3],
+  ["1120311", 5, "G", 1.5, 11.7, 72, 199, 3],
+  ["1120314", 7, "G", 1.5, 12.6, 101, 261, 3],
+  ["1120320", 12, "G", 1.5, 16.1, 173, 399, 3],
+  ["1120322", 14, "G", 1.5, 17, 202, 448, 3],
+  ["1120324", 18, "G", 1.5, 18.8, 259, 547, 3],
+  ["1120328", 25, "G", 1.5, 21.7, 360, 770, 3],
+  ["1120330", 34, "G", 1.5, 24.9, 490, 996, 3],
+  ["1120333", 50, "G", 1.5, 29.8, 720, 1427, 3],
+  ["1120339", 2, "X", 2.5, 10.8, 48, 147, 4],
+  ["1120340", 3, "G", 2.5, 11.3, 72, 182, 4],
+  ["1120342", 4, "G", 2.5, 12.2, 96, 225, 4],
+  ["1120343", 4, "X", 2.5, 12.2, 96, 225, 4],
+  ["1120344", 5, "G", 2.5, 13.3, 120, 266, 4],
+  ["1120346", 7, "G", 2.5, 14.4, 168, 354, 4],
+  ["1120349", 12, "G", 2.5, 18.7, 288, 540, 4],
+  ["1120350", 14, "G", 2.5, 19.8, 336, 613, 4],
+  ["1120351", 18, "G", 2.5, 22, 432, 788, 4],
+  ["1120353", 25, "G", 2.5, 25.8, 600, 1094, 4],
+  ["1120360", 4, "G", 4, 13.8, 154, 324, 4],
+  ["1120361", 5, "G", 4, 15.1, 192, 385, 4],
+  ["1120362", 7, "G", 4, 16.4, 269, 513, 4],
+  ["1120366", 4, "G", 6, 15.1, 230, 442, 4],
+  ["1120367", 5, "G", 6, 16.8, 288, 526, 4],
+  ["1120368", 7, "G", 6, 18.2, 403, 705, 4],
+  ["1120370", 4, "G", 10, 18.7, 384, 707, 4],
+  ["1120371", 5, "G", 10, 20.7, 480, 881, 4],
+  ["1120374", 4, "G", 16, 21.3, 614, 1100, 4],
+  ["1120375", 5, "G", 16, 23.6, 768, 1350, 4],
+  ["1120376", 7, "G", 16, 26.2, 1075, 1800, 4],
+  ["1120378", 4, "G", 25, 26.2, 960, 1600, 4],
+  ["1120379", 5, "G", 25, 29, 1200, 2050, 4],
+  ["1120382", 4, "G", 35, 29.1, 1344, 2400, 4],
+  ["1120383", 5, "G", 35, 32.5, 1680, 2900, 4],
+  ["1120385", 4, "G", 50, 35.6, 1920, 3400, 4],
+  ["1120387", 4, "G", 70, 40.7, 2688, 5050, 4],
+  ["1120389", 4, "G", 95, 46.8, 3648, 6010, 4],
+  ["1120390", 4, "G", 120, 53.5, 4608, 7500, 4],
+] as const;
+
+export const olflexClassic110BlackCables = metricLappCables(
+  olflexClassic110BlackRows,
+  {
+    family: "ÖLFLEX CLASSIC 110 BLACK 0.6/1 kV",
+    url: "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/pvc-outer-sheath-and-numbered-cores/oelflex-classic-110-black-061-kv.html?format=pdf",
+    revision: "LAPP PN 0456 / 02_03.16 (2026-01-25)",
+    nominalU0V: 600,
+    nominalUV: 1000,
+    shielded: false,
+    numberedCores: true,
   },
 );
 
@@ -2417,6 +2498,7 @@ export const componentBank = [
   ...olflexClassic110CyCables,
   ...olflexClassic100750Cables,
   ...olflexClassic100500Cables,
+  ...olflexClassic110BlackCables,
   ...stamfordWinding311Alternators,
   ...spacialS3hdEnclosures,
   ...philipsDn145bDownlights,
