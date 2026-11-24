@@ -87,6 +87,15 @@ const categoryLabels = {
   "switching-and-transfer-equipment": "Switching and transfer equipment",
 } as const;
 
+const missingFieldLabels: Record<string, string> = {
+  "separate-order-code": "Separate order code",
+  "specific-connector-on-delivered-module": "Connector on the delivered module",
+  "regional-availability": "Regional availability",
+  "verified-protection-model-mapping":
+    "Verified protection calculation mapping",
+  "verified-switching-model-mapping": "Verified switching calculation mapping",
+};
+
 export function ManufacturerEquipmentCatalogue({
   project,
   change,
@@ -267,6 +276,50 @@ export function ManufacturerEquipmentCatalogue({
               </div>
             </dl>
           )}
+          <details>
+            <summary>{t("Source, terminals and model readiness")}</summary>
+            <dl className="detail-list">
+              <dt>{t("Source revision")}</dt>
+              <dd>
+                {record.source.revision} · {t("Page")} {record.source.page}
+              </dd>
+              <dt>{t("Model readiness")}</dt>
+              <dd>
+                {t(
+                  record.modelMapping
+                    ? "PV worksheet inputs reviewed"
+                    : "Inventory and diagram only",
+                )}
+              </dd>
+            </dl>
+            {record.modelMapping && (
+              <dl className="detail-list">
+                <dt>{t("DC nameplate power")}</dt>
+                <dd>{format.format(record.modelMapping.dcNameplateKW)} kW</dd>
+                <dt>{t("Power temperature coefficient")}</dt>
+                <dd>
+                  {format.format(
+                    record.modelMapping.powerTemperatureCoefficientPerC * 100,
+                  )}{" "}
+                  %/°C
+                </dd>
+              </dl>
+            )}
+            <h4>{t("Documented terminals")}</h4>
+            <ul>
+              {record.terminals.map(({ id, group, connector }) => (
+                <li key={id}>
+                  {group} · {connector}
+                </li>
+              ))}
+            </ul>
+            <h4>{t("Missing or unverified fields")}</h4>
+            <ul>
+              {record.missingFields.map((field) => (
+                <li key={field}>{t(missingFieldLabels[field] ?? field)}</li>
+              ))}
+            </ul>
+          </details>
           <div className="button-row">
             <button
               type="button"

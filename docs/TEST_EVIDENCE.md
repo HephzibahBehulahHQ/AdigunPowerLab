@@ -752,3 +752,6 @@ Type A expansion: TypeScript and six component-bank tests passed. Chromium showe
 Coverage generation, TypeScript, and seven component-bank tests passed. The coverage test reconciles all 20 category rows and readiness counts to runtime records.
 
 The iSW tranche passed TypeScript and eight component-bank checks, including rated current and voltage, terminal numbering, export parity and all-category coverage.
+
+Readiness inspection passed TypeScript, 28 focused tests and Chromium verification of visible worksheet readiness and the missing order-code field.
+- Readiness promotion: GitHub browser validation exposed a positional details selector after the new source panel. The version-history test now selects its own summary. Both affected Chromium scenarios passed locally.

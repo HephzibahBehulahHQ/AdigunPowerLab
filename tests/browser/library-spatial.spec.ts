@@ -64,7 +64,9 @@ test("library favorites, linked replacement review, version history and undo", a
   const initial = await exported(page);
   await route(page, "Equipment Library");
   const library = page.locator(".equipment-workspace");
-  const history = library.locator("details").first();
+  const history = library.locator("details").filter({
+    has: page.getByText("Equipment version history", { exact: true }),
+  });
   const detailLevel = page.getByRole("combobox", { name: "Detail level" });
   await expect(history).toHaveAttribute("open", "");
   await detailLevel.selectOption("simple");
@@ -317,6 +319,11 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   await search.fill("CS6.2-48TM-455H");
   await expect(model).toHaveValue("canadian-solar:cs6.2-48tm-455h");
   await expect(catalogue.getByText("455 W", { exact: true })).toBeVisible();
+  await catalogue.getByText("Source, terminals and model readiness").click();
+  await expect(
+    catalogue.getByText("PV worksheet inputs reviewed"),
+  ).toBeVisible();
+  await expect(catalogue.getByText("Separate order code")).toBeVisible();
   const pending = page.waitForEvent("download");
   await catalogue.getByRole("button", { name: "Export record JSON" }).click();
   expect((await pending).suggestedFilename()).toBe(
