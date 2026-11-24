@@ -18,6 +18,7 @@ import {
   victronAgmSuperCycle,
   apcSmvUps,
   victronVeDirect230,
+  victronVeDirect120,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -30,6 +31,30 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("Victron 120 V versions retain their own power table and GFCI article codes", () => {
+  expect(victronVeDirect120).toHaveLength(36);
+  const record = victronVeDirect120.find(
+    ({ model }) => model === "PIN242122530",
+  );
+  expect(record?.ratings).toMatchObject({
+    inputNominalV: 24,
+    outputNominalV: 120,
+    continuousW40C: 1100,
+  });
+  expect(record?.terminals[2].connector).toBe("GFCI");
+  const json = readFileSync(
+    new URL(
+      "../docs/component-bank-victron-vedirect-120.json",
+      import.meta.url,
+    ),
+    "utf8",
+  );
+  expect(JSON.parse(json)).toEqual({
+    schemaVersion: 1,
+    entries: victronVeDirect120,
+  });
+});
 
 test("Victron article generation preserves socket codes and temperature-conditioned power", () => {
   expect(victronVeDirect230).toHaveLength(72);
