@@ -833,3 +833,4 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - AS480 candidate: export generation, TypeScript and 28 component-bank tests passed. Browser and release verification pending.
 - Chromium verified the AS480 category, exact model, input and transient current display, four primary terminals and external-mounting derating in the exported record.
 - Chromalox voltage expansion: export generation, unique identity validation, TypeScript and 28 component-bank tests passed.
+- Chromalox variant regression verified all 90 records, 32 at 120 V and 24 at 480 V, including exact 480 V wire-lead identity and JSON parity. All 29 component-bank tests passed.
