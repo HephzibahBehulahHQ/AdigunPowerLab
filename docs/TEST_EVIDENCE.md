@@ -754,3 +754,4 @@ Coverage generation, TypeScript, and seven component-bank tests passed. The cove
 The iSW tranche passed TypeScript and eight component-bank checks, including rated current and voltage, terminal numbering, export parity and all-category coverage.
 
 Readiness inspection passed TypeScript, 28 focused tests and Chromium verification of visible worksheet readiness and the missing order-code field.
+- Readiness promotion: GitHub browser validation exposed a positional details selector after the new source panel. The version-history test now selects its own summary. Both affected Chromium scenarios passed locally.

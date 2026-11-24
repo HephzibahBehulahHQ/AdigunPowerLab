@@ -64,7 +64,9 @@ test("library favorites, linked replacement review, version history and undo", a
   const initial = await exported(page);
   await route(page, "Equipment Library");
   const library = page.locator(".equipment-workspace");
-  const history = library.locator("details").first();
+  const history = library.locator("details").filter({
+    has: page.getByText("Equipment version history", { exact: true }),
+  });
   const detailLevel = page.getByRole("combobox", { name: "Detail level" });
   await expect(history).toHaveAttribute("open", "");
   await detailLevel.selectOption("simple");
