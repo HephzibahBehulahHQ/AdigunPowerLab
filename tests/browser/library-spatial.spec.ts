@@ -422,6 +422,7 @@ test("sourced equipment keeps its edited quantity in the saved project BOM", asy
   const svg = await readFile(await (await svgDownload).path(), "utf8");
   expect(svg).toContain('stroke-dasharray="5 3"');
   expect(svg).toContain("1 · positive ↔ 2 · negative");
+  await expect(inspector).toContainText("Voc 72 V · Vmp 61.6 V · Imp 14.78 A");
   await inspector.getByLabel("From terminal").selectOption("negative");
   await inspector.getByLabel("To unit").fill("2");
   await inspector.getByLabel("To terminal").selectOption("negative");
