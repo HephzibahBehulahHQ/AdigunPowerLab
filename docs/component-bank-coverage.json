@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "distinctRecords": 1328,
+  "distinctRecords": 1331,
   "goalMinimum": 10000,
   "readiness": {
     "pv-worksheet-inputs-only": 14,
-    "inventory-and-diagram-only": 1314
+    "inventory-and-diagram-only": 1317
   },
   "categories": [
     {
@@ -118,8 +118,8 @@
     {
       "category": "earthing-and-bonding-equipment",
       "target": 100,
-      "records": 3,
-      "remaining": 97
+      "records": 6,
+      "remaining": 94
     },
     {
       "category": "enclosures-and-installation-hardware",

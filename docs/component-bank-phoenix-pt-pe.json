@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "phoenix-contact:3208139",
+      "manufacturer": "Phoenix Contact",
+      "model": "PT 1,5/S-PE",
+      "orderCode": "3208139",
+      "category": "earthing-and-bonding-equipment",
+      "function": "protective-earth-terminal-block",
+      "connection": "bond",
+      "terminals": [
+        {
+          "id": "clamp-1",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "push-in clamp"
+        },
+        {
+          "id": "clamp-2",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "push-in clamp"
+        },
+        {
+          "id": "rail-foot",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "conductive DIN-rail foot"
+        }
+      ],
+      "ratings": {
+        "crossSectionMm2": 1.5,
+        "ratedSurgeKV": 6
+      },
+      "conditions": {
+        "connectionStandard": "IEC 60947-7-2"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.phoenixcontact.com/en-de/products/ground-terminal-pt-15-s-pe-3208139?type=pdf",
+        "revision": "Phoenix Contact article data sheet (2026-11-09)",
+        "page": 2
+      },
+      "missingFields": [
+        "verified-bonding-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "phoenix-contact:3211822",
+      "manufacturer": "Phoenix Contact",
+      "model": "PT 6-PE",
+      "orderCode": "3211822",
+      "category": "earthing-and-bonding-equipment",
+      "function": "protective-earth-terminal-block",
+      "connection": "bond",
+      "terminals": [
+        {
+          "id": "clamp-1",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "push-in clamp"
+        },
+        {
+          "id": "clamp-2",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "push-in clamp"
+        },
+        {
+          "id": "rail-foot",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "conductive DIN-rail foot"
+        }
+      ],
+      "ratings": {
+        "crossSectionMm2": 6,
+        "ratedSurgeKV": 8
+      },
+      "conditions": {
+        "connectionStandard": "IEC 60947-7-2"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.phoenixcontact.com/en-gb/products/ground-terminal-block-pt-6-pe-3211822?type=pdf",
+        "revision": "Phoenix Contact article data sheet (2026-11-06)",
+        "page": 2
+      },
+      "missingFields": [
+        "verified-bonding-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "phoenix-contact:3212131",
+      "manufacturer": "Phoenix Contact",
+      "model": "PT 10-PE",
+      "orderCode": "3212131",
+      "category": "earthing-and-bonding-equipment",
+      "function": "protective-earth-terminal-block",
+      "connection": "bond",
+      "terminals": [
+        {
+          "id": "clamp-1",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "push-in clamp"
+        },
+        {
+          "id": "clamp-2",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "push-in clamp"
+        },
+        {
+          "id": "rail-foot",
+          "group": "pe",
+          "interface": "protective-bond",
+          "connector": "conductive DIN-rail foot"
+        }
+      ],
+      "ratings": {
+        "crossSectionMm2": 10,
+        "ratedSurgeKV": 8
+      },
+      "conditions": {
+        "connectionStandard": "IEC 60947-7-2"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.phoenixcontact.com/en-pc/products/ground-modular-terminal-block-pt-10-pe-3212131?type=pdf",
+        "revision": "Phoenix Contact article data sheet (2026-11-05)",
+        "page": 2
+      },
+      "missingFields": [
+        "verified-bonding-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}
