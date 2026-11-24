@@ -458,6 +458,17 @@ export function ManufacturerEquipmentCatalogue({
                 <dd>{format.format(record.conditions.dischargeCutoffV)} V</dd>
               </div>
             </dl>
+          ) : record.function === "gel-storage-battery" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>U</dt>
+                <dd>{record.ratings.nominalV} V DC</dd>
+              </div>
+              <div>
+                <dt>C20</dt>
+                <dd>{record.ratings.c20Ah} Ah</dd>
+              </div>
+            </dl>
           ) : record.function === "line-interactive-ups" ? (
             <dl className="pg-metrics">
               <div>

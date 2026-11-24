@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "distinctRecords": 1943,
+  "distinctRecords": 1950,
   "goalMinimum": 10000,
   "readiness": {
     "pv-worksheet-inputs-only": 14,
-    "inventory-and-diagram-only": 1929
+    "inventory-and-diagram-only": 1936
   },
   "categories": [
     {
@@ -40,8 +40,8 @@
     {
       "category": "batteries-and-storage-systems",
       "target": 600,
-      "records": 8,
-      "remaining": 592
+      "records": 15,
+      "remaining": 585
     },
     {
       "category": "ups-and-backup-systems",

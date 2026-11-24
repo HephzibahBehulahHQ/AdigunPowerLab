@@ -1321,6 +1321,67 @@ export const victronAgmSuperCycle = (
   readiness: "inventory-and-diagram-only",
 }));
 
+export const victronGelDeepCycle = (
+  [
+    ["BAT412550104", 60, 229, 138, 227, 20, 250, 70],
+    ["BAT412800104", 90, 350, 167, 183, 26, 360, 120],
+    ["BAT412101104", 110, 330, 171, 220, 33, 450, 150],
+    ["BAT412121104", 130, 410, 176, 227, 38, 500, 180],
+    ["BAT412151104", 165, 485, 172, 240, 48, 550, 200],
+    ["BAT412201104", 220, 522, 238, 240, 66, 600, 220],
+    ["BAT412126101", 265, 520, 268, 223, 75, 650, 250],
+  ] as const
+).map(
+  ([
+    model,
+    c20Ah,
+    lengthMm,
+    widthMm,
+    heightMm,
+    massKg,
+    ccaA,
+    reserveMinutes,
+  ]) => ({
+    id: `victron-energy:${model.toLowerCase()}`,
+    manufacturer: "Victron Energy",
+    model,
+    orderCode: model,
+    category: "batteries-and-storage-systems" as const,
+    function: "gel-storage-battery" as const,
+    connection: "dc-storage" as const,
+    terminals: ["positive", "negative"].map((polarity) => ({
+      id: polarity,
+      group: `dc-${polarity}`,
+      interface: `battery-${polarity}`,
+      connector: "copper terminal",
+    })),
+    ratings: {
+      nominalV: 12,
+      c20Ah,
+      lengthMm,
+      widthMm,
+      heightMm,
+      massKg,
+      ccaA,
+      reserveMinutes,
+    },
+    conditions: {
+      capacityTemperatureC: 25,
+      ccaTemperatureF: 0,
+      reserveTemperatureF: 80,
+      chemistry: "flat-plate GEL lead-acid",
+    },
+    modelMapping: null,
+    source: {
+      url: "https://www.victronenergy.com/upload/documents/Datasheet-GEL-and-AGM-Batteries-EN.pdf",
+      revision: "GEL and AGM Batteries EN, 265 Ah BAT412126101 table",
+      page: 4,
+    },
+    missingFields: ["verified-storage-model-mapping"],
+    readiness: "inventory-and-diagram-only",
+  }),
+);
+
 export const apcSmvUps = (
   [
     ["SMV750CAI", 750, 525, "IEC C14", 3],
@@ -3490,6 +3551,7 @@ export const componentBank = [
   ...abl6Transformers,
   ...abt7pduTransformers,
   ...victronAgmSuperCycle,
+  ...victronGelDeepCycle,
   ...apcSmvUps,
   ...victronVeDirect230,
   ...victronVeDirect120,
