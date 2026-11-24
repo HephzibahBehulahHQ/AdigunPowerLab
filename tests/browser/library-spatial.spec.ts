@@ -722,6 +722,20 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   expect(fourPole.entry.missingFields).toContain(
     "distribution-pole-phase-assignment",
   );
+  await search.fill("LGYN12515");
+  await expect(model).toHaveValue("schneider-electric:lgyn12515");
+  await expect(catalogue.getByText("125 A", { exact: true })).toBeVisible();
+  const neutralDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const neutralStrip = JSON.parse(
+    await readFile(await (await neutralDownload).path(), "utf8"),
+  );
+  expect(neutralStrip.entry.terminals).toHaveLength(15);
+  expect(neutralStrip.entry.terminals.at(-1)).toMatchObject({
+    id: "neutral-hole-15",
+    group: "neutral",
+    interface: "neutral-bus",
+  });
   await search.fill("RM17TG20");
   await expect(catalogue.getByText("208–440 V AC")).toBeVisible();
   await expect(catalogue.getByText("2 CO · 5 A")).toBeVisible();
