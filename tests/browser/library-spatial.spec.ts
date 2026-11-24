@@ -476,6 +476,26 @@ test("manufacturer catalogue searches and exports the exact model", async ({
       ({ connector }: { connector: string }) => connector,
     ),
   ).toEqual(["wire lead", "wire lead"]);
+  await catalogue
+    .getByLabel("Equipment category")
+    .selectOption("prime-movers-and-generation-auxiliaries");
+  await search.fill("STAMFORD AS480");
+  await expect(model).toHaveValue("stamford:as480");
+  await expect(
+    catalogue.getByText("100–264 V AC", { exact: true }),
+  ).toBeVisible();
+  await expect(
+    catalogue.getByText("7.5 A DC · 10 s", { exact: true }),
+  ).toBeVisible();
+  const avrDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const avr = JSON.parse(
+    await readFile(await (await avrDownload).path(), "utf8"),
+  );
+  expect(
+    avr.entry.terminals.map(({ group }: { group: string }) => group),
+  ).toEqual(["7", "8", "F1", "F2"]);
+  expect(avr.entry.conditions.externalMountingCurrentDeratePercent).toBe(20);
   await catalogue.getByLabel("Equipment category").selectOption("");
   await search.fill("PIN242122530");
   await expect(catalogue.getByText("24 V DC → 120 V AC")).toBeVisible();
