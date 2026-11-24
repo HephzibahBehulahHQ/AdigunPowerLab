@@ -426,6 +426,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "For LAPP CLASSIC 110 H cables, open the article page for dimensions and the technical pages for rated and test voltages.",
       "Select LAPP CLASSIC 110 CH article 10035069 to inspect both shield ends and the three numbered cores.",
       "Compare the nine winding leads of WEG 11416668 with the twelve leads of WEG 11166654 in the terminal list.",
+      "Compare Philips 911401806080 and 910500465901 to identify the AC input and any dimming terminals.",
       "For Phoenix Contact PT-PE blocks, the terminal list shows the wire clamps and the DIN-rail foot in one protective-earth group.",
       "Filter manufacturer equipment by category and use Previous records or Next records to browse large result sets.",
       "Search for an iC60N order code to inspect the breaker ratings and terminal groups. Breaker records are available for inventories and diagrams.",

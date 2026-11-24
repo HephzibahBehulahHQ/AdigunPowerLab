@@ -2102,6 +2102,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fún àwọn bulọọki PT-PE ti Phoenix Contact, àtòjọ ìsopọ̀ fi àwọn ibi tí a ti di okun àti ẹsẹ̀ DIN rail hàn nínú ẹgbẹ́ PE kan náà.",
       "For Phoenix Contact PT-PE blocks, di terminal list show di wire clamps and di DIN-rail foot for di same protective-earth group.",
     ],
+  "Compare Philips 911401806080 and 910500465901 to identify the AC input and any dimming terminals.":
+    [
+      "Vergleichen Sie Philips 911401806080 und 910500465901, um den AC-Eingang und vorhandene Dimmanschlüsse zu erkennen.",
+      "Fi Philips 911401806080 àti 910500465901 wé ara wọn láti mọ ibi ìwọlé AC àti àwọn ojú ìsopọ̀ fún dídín ìmọ́lẹ̀ kù.",
+      "Compare Philips 911401806080 and 910500465901 to find di AC input and any dimming terminals.",
+    ],
   "Compare the nine winding leads of WEG 11416668 with the twelve leads of WEG 11166654 in the terminal list.":
     [
       "Vergleichen Sie in der Anschlussliste die neun Wicklungsanschlüsse von WEG 11416668 mit den zwölf von WEG 11166654.",
