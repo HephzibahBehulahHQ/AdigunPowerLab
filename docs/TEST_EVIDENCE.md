@@ -874,5 +874,6 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - Chromium verified article 1136003, its 6.1 mm outer diameter and separate PE and shield pairs in the JSON download.
 - Catalogue export `--check` passed for 1,696 records. A temporary stale-manifest probe returned an error identifying the coverage file and left the tracked manifest unchanged.
 - LAPP CLASSIC 130 H: TypeScript and 42 component-bank tests passed. CSV and JSON match all 85 records. The regression verifies the three corrected diameters and G/X terminal differences.
+- Chromium on the production build verified article 1123115, its 9 mm diameter and a JSON download with all 14 numbered conductor ends and source page 4.
 - `node scripts/export-component-bank.mjs` verified each of the 1,624 catalogue records belongs to exactly one export batch. Regeneration produced no differences in the tracked exports.
 - Candidate d6e148e: generated individual exports for all 1,200 records and compared every CSV and JSON to its source record. All 2,400 files and the 1,200-ID index matched.
