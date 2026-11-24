@@ -200,6 +200,94 @@
         "verified-metering-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:metseem2214",
+      "manufacturer": "Schneider Electric",
+      "model": "METSEEM2214",
+      "orderCode": "METSEEM2214",
+      "category": "metering-and-power-quality",
+      "function": "direct-energy-meter",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "1",
+          "group": "L in",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "3",
+          "group": "L out",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "4",
+          "group": "N in",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "6",
+          "group": "N out",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "18",
+          "group": "S0 forward +",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "19",
+          "group": "S0 forward −",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "20",
+          "group": "S0 reverse +",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "21",
+          "group": "S0 reverse −",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "maxCurrentA": 100,
+        "voltageV": 230,
+        "accuracyClass": 1,
+        "pulsesPerKWh": null,
+        "pulseOutput": null
+      },
+      "conditions": {
+        "communication": null,
+        "tariffs": 1,
+        "marketRestriction": null
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api.rexel.fr/dam/media/content/1/73722897/8957737?format=DOCUMENTS",
+        "revision": "Schneider Electric JYT8368500-03",
+        "page": 1,
+        "supplemental": [
+          {
+            "url": "https://api.rexel.fr/dam/media/content/1/73722897/8957737?format=DOCUMENTS",
+            "revision": "Schneider Electric JYT8368500-03",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "verified-metering-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
     }
   ]
 }

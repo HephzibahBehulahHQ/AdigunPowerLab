@@ -1027,8 +1027,13 @@ test("iEM2400 exports preserve the model-specific bus and both pulse pairs", () 
   expect(iem24xxMeters.map(({ orderCode }) => orderCode)).toEqual([
     "A9MEM2435",
     "A9MEM2455",
+    "METSEEM2214",
   ]);
-  const [mbus, modbus] = iem24xxMeters;
+  const [mbus, modbus, pulseOnly] = iem24xxMeters;
+  expect(pulseOnly.conditions).toMatchObject({
+    communication: null,
+    tariffs: 1,
+  });
   expect(
     mbus.terminals
       .filter(({ interface: kind }) => kind === "m-bus")
@@ -1046,8 +1051,7 @@ test("iEM2400 exports preserve the model-specific bus and both pulse pairs", () 
       "3",
       "4",
       "6",
-      "10",
-      "11",
+      ...(meter.conditions.communication ? ["10", "11"] : []),
       "18",
       "19",
       "20",
@@ -1059,7 +1063,9 @@ test("iEM2400 exports preserve the model-specific bus and both pulse pairs", () 
       "S0 reverse +",
       "S0 reverse −",
     ]);
-    expect(meter.source.supplemental[0].page).toBe(10);
+    expect(meter.source.supplemental[0].page).toBe(
+      meter.conditions.communication ? 10 : 2,
+    );
   }
   const file = (extension: string) =>
     readFileSync(

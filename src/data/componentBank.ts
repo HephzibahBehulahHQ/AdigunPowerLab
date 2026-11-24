@@ -603,6 +603,7 @@ export const iem24xxMeters = (
   [
     ["A9MEM2435", "M-Bus", "m-bus"],
     ["A9MEM2455", "RS-485 Modbus", "rs485"],
+    ["METSEEM2214", null, null],
   ] as const
 ).map(([model, communication, communicationInterface]) => ({
   id: `schneider-electric:${model.toLowerCase()}`,
@@ -618,8 +619,12 @@ export const iem24xxMeters = (
       ["3", "L out", "ac-line"],
       ["4", "N in", "ac-neutral"],
       ["6", "N out", "ac-neutral"],
-      ["10", "A", communicationInterface],
-      ["11", "B", communicationInterface],
+      ...(communicationInterface
+        ? ([
+            ["10", "A", communicationInterface],
+            ["11", "B", communicationInterface],
+          ] as const)
+        : []),
       ["18", "S0 forward +", "pulse-output"],
       ["19", "S0 forward −", "pulse-output"],
       ["20", "S0 reverse +", "pulse-output"],
@@ -638,17 +643,29 @@ export const iem24xxMeters = (
     pulsesPerKWh: null,
     pulseOutput: null,
   },
-  conditions: { communication, tariffs: 2, marketRestriction: null },
+  conditions: {
+    communication,
+    tariffs: communication ? 2 : 1,
+    marketRestriction: null,
+  },
   modelMapping: null,
   source: {
-    url: "https://download.se.com/files?p_Doc_Ref=PLSED309005EN_Web",
-    revision: "PLSED309005EN_03 (2025-11-06)",
-    page: 49,
+    url: communication
+      ? "https://download.se.com/files?p_Doc_Ref=PLSED309005EN_Web"
+      : "https://api.rexel.fr/dam/media/content/1/73722897/8957737?format=DOCUMENTS",
+    revision: communication
+      ? "PLSED309005EN_03 (2025-11-06)"
+      : "Schneider Electric JYT8368500-03",
+    page: communication ? 49 : 1,
     supplemental: [
       {
-        url: "https://www.productinfo.schneider-electric.com/iem2435_iem2455/iem2435-iem2455-user-manual/iEM2435%20/%20iEM2455%20User%20Manual/English/7EN02-0468-00.pdf",
-        revision: "7EN02-0468-00",
-        page: 10,
+        url: communication
+          ? "https://www.productinfo.schneider-electric.com/iem2435_iem2455/iem2435-iem2455-user-manual/iEM2435%20/%20iEM2455%20User%20Manual/English/7EN02-0468-00.pdf"
+          : "https://api.rexel.fr/dam/media/content/1/73722897/8957737?format=DOCUMENTS",
+        revision: communication
+          ? "7EN02-0468-00"
+          : "Schneider Electric JYT8368500-03",
+        page: communication ? 10 : 2,
       },
     ],
   },
