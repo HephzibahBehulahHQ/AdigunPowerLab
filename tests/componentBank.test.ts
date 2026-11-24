@@ -22,6 +22,7 @@ import {
   evlinkHomeStations,
   altivar320CompactDrives,
   olflexClassic110Cables,
+  olflexClassic110CyCables,
   philipsDn145bDownlights,
   chromaloxStripHeaters,
   pvModules,
@@ -136,6 +137,50 @@ test("LAPP cable records pair both ends of every core and preserve PE variants",
     schemaVersion: 1,
     entries: olflexClassic110Cables,
   });
+});
+
+test("LAPP shielded cable exports preserve a braid independent of each core", () => {
+  expect(olflexClassic110CyCables).toHaveLength(86);
+  expect(
+    olflexClassic110CyCables.find(({ orderCode }) => orderCode === "1135628"),
+  ).toMatchObject({
+    source: { page: 3 },
+    ratings: {
+      coreCount: 5,
+      hasPe: true,
+      crossSectionMm2: 35,
+      outerDiameterMm: 33.2,
+    },
+  });
+  for (const cable of olflexClassic110CyCables) {
+    expect(
+      cable.terminals
+        .filter(({ interface: kind }) => kind === "cable-shield")
+        .map(({ id, group }) => [id, group]),
+    ).toEqual([
+      ["a-shield", "Shield"],
+      ["b-shield", "Shield"],
+    ]);
+    expect(cable.terminals.filter(({ group }) => group === "PE").length).toBe(
+      cable.ratings.hasPe ? 2 : 0,
+    );
+    expect(cable.terminals).toHaveLength(2 * (cable.ratings.coreCount + 1));
+  }
+  const exportFile = (extension: string) =>
+    readFileSync(
+      new URL(
+        `../docs/component-bank-lapp-olflex-110-cy.${extension}`,
+        import.meta.url,
+      ),
+      "utf8",
+    );
+  expect(JSON.parse(exportFile("json"))).toEqual({
+    schemaVersion: 1,
+    entries: olflexClassic110CyCables,
+  });
+  expect(exportFile("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(olflexClassic110CyCables).replaceAll("\r\n", "\n"),
+  );
 });
 
 test("Altivar compact records distinguish supply phases and continuous motor output", () => {

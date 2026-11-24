@@ -580,7 +580,11 @@ export function ManufacturerEquipmentCatalogue({
               </div>
               <div>
                 <dt>Ø</dt>
-                <dd>{format.format(record.ratings.outerDiameterIn)} in</dd>
+                <dd>
+                  {"outerDiameterMm" in record.ratings
+                    ? `${format.format(record.ratings.outerDiameterMm)} mm`
+                    : `${format.format(record.ratings.outerDiameterIn)} in`}
+                </dd>
               </div>
               <div>
                 <dt>U₀/U</dt>
