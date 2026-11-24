@@ -7,6 +7,7 @@ import {
   iidRccbs,
   iswSwitches,
   iemMeters,
+  ictContactors,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -15,6 +16,28 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("iCT retains utilization-category ratings and distinct coil terminals", () => {
+  expect(ictContactors).toHaveLength(8);
+  const model = ictContactors.find(({ model }) => model === "A9C20732");
+  expect(model?.ratings).toMatchObject({ ac7aA: 25, ac7bA: 8.5 });
+  expect(model?.terminals.map(({ group }) => group)).toEqual([
+    "1",
+    "2",
+    "3",
+    "4",
+    "A1",
+    "A2",
+  ]);
+  const exported = readFileSync(
+    new URL("../docs/component-bank-ict.json", import.meta.url),
+    "utf8",
+  );
+  expect(JSON.parse(exported)).toEqual({
+    schemaVersion: 1,
+    entries: ictContactors,
+  });
+});
 
 test("iEM records distinguish pulse outputs and the China-only orders", () => {
   expect(iemMeters).toHaveLength(4);

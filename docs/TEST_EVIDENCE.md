@@ -770,3 +770,5 @@ Archive verification: TypeScript, six archive unit tests and Chromium copy resto
 
 Generated and compared all 291 per-model CSV/JSON pairs and the ID index against the complete runtime catalogue. Diff check passed.
 - Export promotion ead01df: generated and compared all 291 per-model CSV/JSON pairs and their index against the catalogue. All matched.
+
+The iCT tranche passed TypeScript and 11 component-bank checks. Coverage includes exact AC-7a/AC-7b values, contact and coil markings, and JSON parity.

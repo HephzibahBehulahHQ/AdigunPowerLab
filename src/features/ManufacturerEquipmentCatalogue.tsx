@@ -266,6 +266,23 @@ export function ManufacturerEquipmentCatalogue({
                 </div>
               )}
             </dl>
+          ) : record.function === "modular-contactor" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>AC-7a</dt>
+                <dd>{format.format(record.ratings.ac7aA)} A</dd>
+              </div>
+              <div>
+                <dt>AC-7b</dt>
+                <dd>{format.format(record.ratings.ac7bA)} A</dd>
+              </div>
+              <div>
+                <dt>Uc</dt>
+                <dd>
+                  {record.ratings.coilMinV}–{record.ratings.coilMaxV} V AC
+                </dd>
+              </div>
+            </dl>
           ) : record.function !== "miniature-circuit-breaker" ? (
             <dl className="pg-metrics">
               <div>

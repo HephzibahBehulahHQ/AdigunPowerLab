@@ -3,6 +3,7 @@ import type { ProjectChange } from "../commands/projectCommands";
 import {
   catalogueRecord,
   equipmentConnectionErrors,
+  isWireTerminal,
 } from "../domain/equipmentConnections";
 import { newId } from "../domain/project";
 import type {
@@ -107,13 +108,11 @@ export function EquipmentWiring({
           </Field>
           <Field label={t("From terminal")}>
             <select name="fromTerminal">
-              {model?.terminals
-                .filter((terminal) => terminal.interface !== "pulse-output")
-                .map((terminal) => (
-                  <option key={terminal.id} value={terminal.id}>
-                    {terminal.group}
-                  </option>
-                ))}
+              {model?.terminals.filter(isWireTerminal).map((terminal) => (
+                <option key={terminal.id} value={terminal.id}>
+                  {terminal.group}
+                </option>
+              ))}
             </select>
           </Field>
           <Field label={t("Target equipment")}>
@@ -145,9 +144,7 @@ export function EquipmentWiring({
           <Field label={t("To terminal")}>
             <select key={target.id} name="toTerminal">
               {catalogueRecord(target)
-                ?.terminals.filter(
-                  (terminal) => terminal.interface !== "pulse-output",
-                )
+                ?.terminals.filter(isWireTerminal)
                 .map((terminal) => (
                   <option key={terminal.id} value={terminal.id}>
                     {terminal.group}
