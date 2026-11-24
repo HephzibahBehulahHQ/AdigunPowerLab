@@ -456,3 +456,5 @@ Use the **Metering and power quality** category to find iEM meters. Inspect the 
 Select **Model-derived bill of materials** and freeze the report to include the catalogue equipment wiring schedule when the project has saved terminal links.
 
 Newly added catalogue equipment keeps its source page and any documented order code in project and report exports.
+
+Dashed wires identify saved catalogue terminal links in the single-line diagram and its SVG and PDF exports.

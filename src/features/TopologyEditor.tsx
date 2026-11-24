@@ -20,6 +20,7 @@ import {
   autoLayoutPositions,
   buildDiagramSnapshot,
   diagramEdgePath,
+  diagramEdgeLabelPosition,
   diagramSVG,
   getDiagramSettings,
   type DiagramNode,
@@ -407,6 +408,7 @@ export function TopologyEditor({
               />
               {snapshot.edges.map((edge) => {
                 const to = snapshot.nodes.find((item) => item.id === edge.to)!;
+                const label = diagramEdgeLabelPosition(to, edge);
                 return (
                   <g key={edge.wireId ?? `${edge.from}-${edge.to}`}>
                     <title>{edge.label}</title>
@@ -414,6 +416,7 @@ export function TopologyEditor({
                       d={diagramEdgePath(snapshot, edge)}
                       stroke="#44657b"
                       strokeWidth="2"
+                      strokeDasharray={edge.wireId ? "5 3" : undefined}
                       fill="none"
                     />
                     {flow && !edge.wireId && (
@@ -428,9 +431,9 @@ export function TopologyEditor({
                     )}
                     {settings.showLabels && !edge.wireId && (
                       <text
-                        x={to.x - 8}
-                        y={to.y - 9}
-                        textAnchor="end"
+                        x={label.x}
+                        y={label.y}
+                        textAnchor={label.anchor}
                         fill="#93a3b9"
                         fontSize="10"
                       >
