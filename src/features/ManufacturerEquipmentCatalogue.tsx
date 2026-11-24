@@ -87,6 +87,8 @@ const categoryLabels = {
   "drives-and-starting-equipment": "Drives and starting equipment",
   "cables-and-conductors": "Cables and conductors",
   generators: "Generators",
+  "prime-movers-and-generation-auxiliaries":
+    "Prime movers and generation auxiliaries",
   "lighting-equipment": "Lighting equipment",
   "commercial-and-industrial-loads": "Commercial and industrial loads",
   "motors-and-motor-driven-equipment": "Motors and motor-driven equipment",
@@ -117,6 +119,8 @@ const missingFieldLabels: Record<string, string> = {
   "motor-terminal-diagram": "Documented motor terminal diagram",
   "verified-motor-model-mapping": "Verified motor calculation mapping",
   "verified-heater-model-mapping": "Verified heater calculation mapping",
+  "avr-auxiliary-terminals": "AVR auxiliary terminals",
+  "verified-avr-model-mapping": "Verified AVR calculation mapping",
   "enclosure-bonding-points": "Documented enclosure bonding points",
   "enclosure-thermal-model": "Verified enclosure thermal model",
   "verified-ups-model-mapping": "Verified UPS calculation mapping",
@@ -445,6 +449,26 @@ export function ManufacturerEquipmentCatalogue({
                 <dd>
                   {record.ratings.inputNominalV} V DC →{" "}
                   {record.ratings.outputNominalV} V AC
+                </dd>
+              </div>
+            </dl>
+          ) : record.function === "alternator-voltage-regulator" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>Ue</dt>
+                <dd>
+                  {record.ratings.inputMinVAc}–{record.ratings.inputMaxVAc} V AC
+                </dd>
+              </div>
+              <div>
+                <dt>Iₙ</dt>
+                <dd>{format.format(record.ratings.continuousOutputA)} A DC</dd>
+              </div>
+              <div>
+                <dt>Imax</dt>
+                <dd>
+                  {format.format(record.ratings.transientOutputA)} A DC ·{" "}
+                  {record.ratings.transientDurationS} s
                 </dd>
               </div>
             </dl>
