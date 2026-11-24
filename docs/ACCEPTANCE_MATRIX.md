@@ -452,6 +452,8 @@ The 85 CLASSIC 130 H articles preserve their source pages, 300/500 V rating and 
 
 Linergy LGY410028 preserves four separate pole groups with seven terminals each in CSV and JSON. Chromium verified the withstand display and all 28 exported terminals. Phase and neutral assignments and the calculation mapping remain pending.
 
+Linergy LGY412548, LGY412560 and LGY416048 preserve four groups of 12, 15 and 12 terminals respectively. Unit tests cover the terminal counts, diameters and rated currents. Phase assignment and calculation mapping remain pending.
+
 Individual file generation emits per-record CSV and JSON for all runtime entries, with a machine-readable ID index.
 
 Eight iCT contactors include contact topology, coil terminals, conditional AC-7a/AC-7b ratings and CSV/JSON.

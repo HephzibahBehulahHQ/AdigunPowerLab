@@ -877,5 +877,6 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - Chromium on the production build verified article 1123115, its 9 mm diameter and a JSON download with all 14 numbered conductor ends and source page 4.
 - Linergy LGY410028: TypeScript and all 43 component-bank tests passed. The regression verifies four isolated groups of seven screw connections, both hole diameters, withstand ratings and CSV/JSON parity.
 - Chromium verified LGY410028's 3 kA for 1 s display and JSON export of 28 terminals with the phase-assignment gap recorded.
+- Linergy batch candidate `7dc8b47`: `node node_modules/typescript/bin/tsc --noEmit` and all 46 tests in `tests/componentBank.test.ts` passed. The tests check each new model's per-pole connector counts, diameters, current, short-time withstand and source page, plus batch CSV/JSON parity.
 - `node scripts/export-component-bank.mjs` verified each of the 1,624 catalogue records belongs to exactly one export batch. Regeneration produced no differences in the tracked exports.
 - Candidate d6e148e: generated individual exports for all 1,200 records and compared every CSV and JSON to its source record. All 2,400 files and the 1,200-ID index matched.
