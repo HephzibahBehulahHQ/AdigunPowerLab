@@ -426,6 +426,8 @@ The 86 LAPP CLASSIC 110 CY entries retain their manufacturer article pages. CSV 
 
 The seven Phoenix Contact PT-PE articles retain their individual data-sheet pages and documented surge ratings. CSV and JSON preserve each clamp and the rail foot in one PE group. Chromium verified selection, ratings and export for articles 3212131 and 3211025. Bonding calculation mapping remains pending.
 
+The 94 LAPP CLASSIC 100 300/500 V articles retain leading-zero order codes, separate cross-section and diameter values, G/X terminal groups and exact manufacturer pages in CSV and JSON. Chromium verified article 00100424. Individual core colours, ampacity and cable model mapping remain pending.
+
 Individual file generation emits per-record CSV and JSON for all runtime entries, with a machine-readable ID index.
 
 Eight iCT contactors include contact topology, coil terminals, conditional AC-7a/AC-7b ratings and CSV/JSON.

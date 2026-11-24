@@ -421,6 +421,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "In Manufacturer equipment, search by maker or model and review or export the sourced record. PV modules can be applied in the PV worksheet.",
       "Open Source, terminals and model readiness to review source revision, documented terminal groups, calculation inputs and missing fields.",
       "For shielded cables, inspect the braid ends and any separate PE core in the terminal list.",
+      "Compare the voltage, cross-section and protective-earth core of exact LAPP cable articles before adding them to a diagram.",
       "For Phoenix Contact PT-PE blocks, the terminal list shows the wire clamps and the DIN-rail foot in one protective-earth group.",
       "Filter manufacturer equipment by category and use Previous records or Next records to browse large result sets.",
       "Search for an iC60N order code to inspect the breaker ratings and terminal groups. Breaker records are available for inventories and diagrams.",
