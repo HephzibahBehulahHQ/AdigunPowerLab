@@ -997,7 +997,7 @@ export const linergyNeutralBars = (
     .map((diameter, index) => ({
       id: `neutral-hole-${index + 1}`,
       group: "neutral",
-      interface: "neutral-bus",
+      interface: "ac-neutral",
       connector: `Ø ${diameter} mm screw terminal`,
     })),
   ratings: { ratedCurrentA, poles: 1 },

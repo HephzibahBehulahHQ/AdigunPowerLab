@@ -13,43 +13,43 @@
         {
           "id": "neutral-hole-1",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 7.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-2",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 7.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-3",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 5.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-4",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 5.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-5",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 5.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-6",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 5.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-7",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 5.5 mm screw terminal"
         }
       ],
@@ -81,73 +81,73 @@
         {
           "id": "neutral-hole-1",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 9 mm screw terminal"
         },
         {
           "id": "neutral-hole-2",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 7.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-3",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 7.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-4",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 7.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-5",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 7.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-6",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 7.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-7",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 7.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-8",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 7.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-9",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 6.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-10",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 6.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-11",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 6.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-12",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 6.5 mm screw terminal"
         }
       ],
@@ -179,91 +179,91 @@
         {
           "id": "neutral-hole-1",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 9.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-2",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 8.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-3",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 8.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-4",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 8.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-5",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 6.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-6",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 6.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-7",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 6.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-8",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 6.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-9",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 6.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-10",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 6.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-11",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 6.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-12",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 6.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-13",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 6.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-14",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 6.5 mm screw terminal"
         },
         {
           "id": "neutral-hole-15",
           "group": "neutral",
-          "interface": "neutral-bus",
+          "interface": "ac-neutral",
           "connector": "Ø 6.5 mm screw terminal"
         }
       ],

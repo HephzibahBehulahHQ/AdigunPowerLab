@@ -734,7 +734,7 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   expect(neutralStrip.entry.terminals.at(-1)).toMatchObject({
     id: "neutral-hole-15",
     group: "neutral",
-    interface: "neutral-bus",
+    interface: "ac-neutral",
   });
   await search.fill("RM17TG20");
   await expect(catalogue.getByText("208–440 V AC")).toBeVisible();

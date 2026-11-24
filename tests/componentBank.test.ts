@@ -1207,7 +1207,7 @@ test("Linergy neutral strips export one neutral node with every screw terminal",
     expect(
       strip.terminals.every(
         ({ group, interface: terminalInterface }) =>
-          group === "neutral" && terminalInterface === "neutral-bus",
+          group === "neutral" && terminalInterface === "ac-neutral",
       ),
     ).toBe(true);
     expect(strip.source.pageLabel).toBe("B-3");
@@ -1523,6 +1523,42 @@ test("iID records preserve the selective variants and support neutral-to-neutral
   ];
   const from = { instanceId: "rcd", unit: 1, terminalId: "neutral-bottom" };
   const to = { instanceId: "rcd", unit: 2, terminalId: "neutral-top" };
+  const strip = linergyNeutralBars[0];
+  const neutralStrip = {
+    id: "strip",
+    name: strip.model,
+    catalogueId: strip.id,
+    manufacturer: strip.manufacturer,
+    model: strip.model,
+    quantity: 1,
+    sourceUrl: strip.source.url,
+    sourceRevision: strip.source.revision,
+  };
+  const stripTerminal = {
+    instanceId: "strip",
+    unit: 1,
+    terminalId: "neutral-hole-1",
+  };
+  const equipment = [...instances, neutralStrip];
+  expect(
+    equipmentConnectionErrors(
+      [{ id: "strip-neutral", from, to: stripTerminal }],
+      equipment,
+    ),
+  ).toEqual([]);
+  expect(
+    equipmentConnectionErrors(
+      [
+        {
+          id: "strip-phase",
+          from: { ...from, terminalId: "pole-1-top" },
+          to: stripTerminal,
+          phase: "L1",
+        },
+      ],
+      equipment,
+    )[0],
+  ).toContain("incompatible");
   expect(
     equipmentConnectionErrors([{ id: "neutral", from, to }], instances),
   ).toEqual([]);
