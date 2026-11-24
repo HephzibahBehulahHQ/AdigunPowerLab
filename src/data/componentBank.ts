@@ -953,6 +953,60 @@ export const linergyDsFourPoleBlocks = [
   }),
 ];
 
+export const linergyNeutralBars = (
+  [
+    [
+      "LGYN1007",
+      100,
+      [
+        [7.5, 2],
+        [5.5, 5],
+      ],
+    ],
+    [
+      "LGYN12512",
+      125,
+      [
+        [9, 1],
+        [7.5, 7],
+        [6.5, 4],
+      ],
+    ],
+    [
+      "LGYN12515",
+      125,
+      [
+        [9.5, 1],
+        [8.5, 3],
+        [6.5, 11],
+      ],
+    ],
+  ] as const
+).map(([model, ratedCurrentA, holeSizes]) => ({
+  id: `schneider-electric:${model.toLowerCase()}`,
+  manufacturer: "Schneider Electric",
+  model,
+  orderCode: model,
+  category: "busbars-and-distribution-systems" as const,
+  function: "neutral-terminal-strip" as const,
+  connection: "ac" as const,
+  terminals: holeSizes
+    .flatMap(([diameter, count]) =>
+      Array.from({ length: count }, () => diameter),
+    )
+    .map((diameter, index) => ({
+      id: `neutral-hole-${index + 1}`,
+      group: "neutral",
+      interface: "neutral-bus",
+      connector: `Ø ${diameter} mm screw terminal`,
+    })),
+  ratings: { ratedCurrentA, poles: 1 },
+  modelMapping: null,
+  source: { ...linergyDsBlocks[0].source, page: 3, pageLabel: "B-3" },
+  missingFields: ["verified-distribution-model-mapping"],
+  readiness: "inventory-and-diagram-only",
+}));
+
 export const linergyEarthBars = (
   [
     ["LVS04200", 450, 40],
@@ -3227,6 +3281,7 @@ export const componentBank = [
   ...rm17Relays,
   ...linergyDsBlocks,
   ...linergyDsFourPoleBlocks,
+  ...linergyNeutralBars,
   ...linergyEarthBars,
   ...phoenixPtPeTerminals,
   ...abl6Transformers,

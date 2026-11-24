@@ -380,6 +380,13 @@ export function ManufacturerEquipmentCatalogue({
                 <dd>{format.format(record.ratings.icwKA)} kA · 1 s</dd>
               </div>
             </dl>
+          ) : record.function === "neutral-terminal-strip" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>Iₙ</dt>
+                <dd>{format.format(record.ratings.ratedCurrentA)} A</dd>
+              </div>
+            </dl>
           ) : record.function === "protective-earth-terminal-block" ? (
             <dl className="pg-metrics">
               <div>

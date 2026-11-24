@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "schneider-electric:lgyn1007",
+      "manufacturer": "Schneider Electric",
+      "model": "LGYN1007",
+      "orderCode": "LGYN1007",
+      "category": "busbars-and-distribution-systems",
+      "function": "neutral-terminal-strip",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "neutral-hole-1",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-2",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-3",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 5.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-4",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 5.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-5",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 5.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-6",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 5.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-7",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 5.5 mm screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 100,
+        "poles": 1
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=LVYED213001EN&p_File_name=LVYED213001EN_V7.0_Linergy_Catalog.pdf",
+        "revision": "LIN2100, Version 9.0, 25/09/2026",
+        "page": 3,
+        "pageLabel": "B-3"
+      },
+      "missingFields": [
+        "verified-distribution-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:lgyn12512",
+      "manufacturer": "Schneider Electric",
+      "model": "LGYN12512",
+      "orderCode": "LGYN12512",
+      "category": "busbars-and-distribution-systems",
+      "function": "neutral-terminal-strip",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "neutral-hole-1",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 9 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-2",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-3",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-4",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-5",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-6",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-7",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-8",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 7.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-9",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-10",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-11",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-12",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 6.5 mm screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 125,
+        "poles": 1
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=LVYED213001EN&p_File_name=LVYED213001EN_V7.0_Linergy_Catalog.pdf",
+        "revision": "LIN2100, Version 9.0, 25/09/2026",
+        "page": 3,
+        "pageLabel": "B-3"
+      },
+      "missingFields": [
+        "verified-distribution-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:lgyn12515",
+      "manufacturer": "Schneider Electric",
+      "model": "LGYN12515",
+      "orderCode": "LGYN12515",
+      "category": "busbars-and-distribution-systems",
+      "function": "neutral-terminal-strip",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "neutral-hole-1",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 9.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-2",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 8.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-3",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 8.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-4",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 8.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-5",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-6",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-7",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-8",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-9",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-10",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-11",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-12",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-13",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-14",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 6.5 mm screw terminal"
+        },
+        {
+          "id": "neutral-hole-15",
+          "group": "neutral",
+          "interface": "neutral-bus",
+          "connector": "Ø 6.5 mm screw terminal"
+        }
+      ],
+      "ratings": {
+        "ratedCurrentA": 125,
+        "poles": 1
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=LVYED213001EN&p_File_name=LVYED213001EN_V7.0_Linergy_Catalog.pdf",
+        "revision": "LIN2100, Version 9.0, 25/09/2026",
+        "page": 3,
+        "pageLabel": "B-3"
+      },
+      "missingFields": [
+        "verified-distribution-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}
