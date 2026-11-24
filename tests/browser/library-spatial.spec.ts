@@ -430,6 +430,10 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     ratings: { crossSectionMm2: 1, outerDiameterMm: 6, hasPe: true },
     source: { page: 4 },
   });
+  await search.fill("1120233");
+  await expect(model).toHaveValue("lapp:1120233");
+  await expect(catalogue.getByText("600/1000 V", { exact: true })).toBeVisible();
+  await expect(catalogue.getByText("8.7 mm", { exact: true })).toBeVisible();
   await catalogue.getByLabel("Equipment category").selectOption("generators");
   await search.fill("STAMFORD S1L2-Y1");
   await expect(model).toHaveValue("stamford:s1l2-y1-311");
