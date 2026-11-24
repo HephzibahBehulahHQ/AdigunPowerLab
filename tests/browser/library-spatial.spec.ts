@@ -686,6 +686,20 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     catalogue.getByText("5–35 V DC · 1–20 mA · 120 ms"),
   ).toBeVisible();
   await expect(catalogue.getByText("China only")).toBeVisible();
+  await search.fill("A9MEM2055");
+  await expect(model).toHaveValue("schneider-electric:a9mem2055");
+  await expect(catalogue.getByText("45 A", { exact: true })).toBeVisible();
+  const meterDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const meter = JSON.parse(
+    await readFile(await (await meterDownload).path(), "utf8"),
+  );
+  expect(meter.entry.terminals.slice(-4)).toMatchObject([
+    { id: "20", interface: "pulse-output" },
+    { id: "21", interface: "pulse-output" },
+    { id: "23", interface: "rs485" },
+    { id: "24", interface: "rs485" },
+  ]);
   await search.fill("no matching product");
   await expect(catalogue.getByRole("status")).toHaveText(
     "No matching equipment",
