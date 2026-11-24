@@ -362,7 +362,8 @@ export function ManufacturerEquipmentCatalogue({
                 </dd>
               </div>
             </dl>
-          ) : record.function === "single-pole-distribution-block" ? (
+          ) : record.function === "single-pole-distribution-block" ||
+            record.function === "four-pole-distribution-block" ? (
             <dl className="pg-metrics">
               <div>
                 <dt>Iₙ</dt>

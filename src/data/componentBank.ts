@@ -857,6 +857,35 @@ export const linergyDsBlocks = (
   readiness: "inventory-and-diagram-only",
 }));
 
+export const linergyDsFourPoleBlocks = [
+  {
+    id: "schneider-electric:lgy410028",
+    manufacturer: "Schneider Electric",
+    model: "LGY410028",
+    orderCode: "LGY410028",
+    category: "busbars-and-distribution-systems" as const,
+    function: "four-pole-distribution-block" as const,
+    connection: "ac" as const,
+    terminals: Array.from({ length: 4 }, (_, index) =>
+      Array.from({ length: 7 }, (_, hole) => ({
+        id: `pole-${index + 1}-hole-${hole + 1}`,
+        group: `pole-${index + 1}`,
+        interface: "distribution-pole",
+        connector: `Ø ${hole < 2 ? 7.5 : 5.5} mm screw terminal`,
+      })),
+    ).flat(),
+    ratings: { ratedCurrentA: 100, poles: 4, ipkKA: 24, icwKA: 3 },
+    conditions: { icwDurationSeconds: 1, icwStandard: "IEC/EN 60947-7-1" },
+    modelMapping: null,
+    source: linergyDsBlocks[0].source,
+    missingFields: [
+      "verified-distribution-model-mapping",
+      "distribution-pole-phase-assignment",
+    ],
+    readiness: "inventory-and-diagram-only",
+  },
+];
+
 export const linergyEarthBars = (
   [
     ["LVS04200", 450, 40],
@@ -3130,6 +3159,7 @@ export const componentBank = [
   ...ic60lBreakers,
   ...rm17Relays,
   ...linergyDsBlocks,
+  ...linergyDsFourPoleBlocks,
   ...linergyEarthBars,
   ...phoenixPtPeTerminals,
   ...abl6Transformers,

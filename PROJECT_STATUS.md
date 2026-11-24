@@ -551,3 +551,4 @@ iC60N 2b49aee published in Pages run 45285905960 and the public root returned HT
 - Schneider EM2214 adds the single-tariff pulse-only variant with eight documented terminals. The stacked catalogue has 1,625 records.
 - LAPP ÖLFLEX CLASSIC 115 CY adds all 71 articles from pages 3–5 of the manufacturer table, bringing the stacked catalogue to 1,696 records. The screened cables retain numbered core ends and a separate braid group.
 - LAPP ÖLFLEX CLASSIC 130 H adds all 85 published 300/500 V articles, bringing the stacked catalogue to 1,781 records. Three merged PDF text rows were resolved against the manufacturer table.
+- Linergy DS LGY410028 adds 28 screw connections in four electrically separate pole groups. Pole-to-phase and neutral assignments await verification. The stacked catalogue has 1,782 records.
