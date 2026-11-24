@@ -503,8 +503,15 @@ export function reportBlocks(
       if (strings.length) {
         heading("PV series string at STC");
         table(
-          ["Module sequence", "Voc (V)", "Vmp (V)", "Imp (A)"],
-          strings.map(({ units, vocV, vmpV, impA }) => [
+          [
+            "Module sequence",
+            "Voc (V)",
+            "Vmp (V)",
+            "Imp (A)",
+            "Isc (A)",
+            "Pmax (kW)",
+          ],
+          strings.map(({ units, vocV, vmpV, impA, iscA, dcNameplateKW }) => [
             units
               .map(
                 ({ instanceId, unit }) =>
@@ -514,8 +521,10 @@ export function reportBlocks(
             n(vocV, 2),
             n(vmpV, 2),
             n(impA, 2),
+            n(iscA, 2),
+            n(dcNameplateKW, 3),
           ]),
-          [104, 26, 26, 26],
+          [72, 22, 22, 22, 22, 22],
         );
         paragraph(
           "Uses nameplate values for identical modules in an isolated series chain.",

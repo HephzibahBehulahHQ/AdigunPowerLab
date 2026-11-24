@@ -131,6 +131,8 @@ test("catalogue PV series totals exclude branched and cyclic networks", () => {
   expect(string.vocV).toBeCloseTo(106.2);
   expect(string.vmpV).toBeCloseTo(90.6);
   expect(string.impA).toBeCloseTo(14.58);
+  expect(string.iscA).toBeCloseTo(15.88);
+  expect(string.dcNameplateKW).toBeCloseTo(1.32);
   project.equipmentTerminalConnections.push(wire(3, 1));
   expect(cataloguePvStrings(project)).toEqual([]);
   project.equipmentTerminalConnections = [wire(1, 2), wire(1, 3)];

@@ -429,3 +429,5 @@ Eight iCT contactors include contact topology, coil terminals, conditional AC-7a
 Identical-module PV series strings now map saved wiring to STC Voc, Vmp and Imp. Unsupported networks do not generate totals.
 
 Frozen BOM reports include the ordered PV series string and its Voc, Vmp and Imp where the topology supports the calculation.
+
+Identical-module PV string calculations include nameplate Pmax and Isc at STC.

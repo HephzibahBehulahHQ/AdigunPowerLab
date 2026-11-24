@@ -447,6 +447,8 @@ test("sourced equipment keeps its edited quantity in the saved project BOM", asy
   await expect(stringRow.getByRole("cell").nth(1)).toHaveText("72");
   await expect(stringRow.getByRole("cell").nth(2)).toHaveText("61.6");
   await expect(stringRow.getByRole("cell").nth(3)).toHaveText("14.78");
+  await expect(stringRow.getByRole("cell").nth(4)).toHaveText("16.09");
+  await expect(stringRow.getByRole("cell").nth(5)).toHaveText("0.91");
   await expect(preview).toContainText("· p. 2 ·");
   const download = page.waitForEvent("download");
   await page.getByRole("button", { name: "Export frozen report data" }).click();
