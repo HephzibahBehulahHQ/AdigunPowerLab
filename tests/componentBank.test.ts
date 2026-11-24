@@ -35,6 +35,7 @@ import {
   olflexClassic110ChCables,
   olflexClassic115CyCables,
   olflexClassic110CyBlackCables,
+  olflexClassic135ChCables,
   olflexClassic130HCables,
   philipsDn145bDownlights,
   philipsDn145bPsuDownlights,
@@ -480,6 +481,7 @@ test("WEG NEMA exports retain nameplate ratings and separately sourced leads", (
 test.each([
   ["115-cy", olflexClassic115CyCables, 71, 300, 500, [3, 4, 5]],
   ["110-cy-black", olflexClassic110CyBlackCables, 49, 600, 1000, [3, 4]],
+  ["135-ch", olflexClassic135ChCables, 73, 300, 500, [4, 5, 6]],
 ] as const)(
   "LAPP %s exports preserve braid and protective-earth variants",
   (batch, cables, count, nominalU0V, nominalUV, pages) => {
