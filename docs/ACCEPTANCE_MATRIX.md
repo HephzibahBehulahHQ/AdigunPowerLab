@@ -422,6 +422,8 @@ Diagram SVG and PDF distinguish terminal links and include wiring evidence. Brow
 
 Catalogue instances, source-page evidence and indexed terminal connections survive workspace backup and copy restore.
 
+The 86 LAPP CLASSIC 110 CY entries retain their manufacturer article pages. CSV and JSON preserve both ends of the shield in a separate node group from any PE core. Chromium verified the diameter and JSON export for article 1135628. Calculation mapping remains pending.
+
 Individual file generation emits per-record CSV and JSON for all runtime entries, with a machine-readable ID index.
 
 Eight iCT contactors include contact topology, coil terminals, conditional AC-7a/AC-7b ratings and CSV/JSON.

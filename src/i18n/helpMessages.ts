@@ -2096,6 +2096,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Ṣí Orísun, ebute àti ìmúrasílẹ̀ model láti ṣàyẹ̀wò àtúnṣe orísun, ẹgbẹ́ ebute, input ìṣírò àti àlàyé tó kù.",
       "Open Source, terminals and model readiness to check di source revision, terminal groups, calculation inputs and missing fields.",
     ],
+  "For shielded cables, inspect the braid ends and any separate PE core in the terminal list.":
+    [
+      "Prüfen Sie bei geschirmten Kabeln die Enden des Schirmgeflechts und einen gegebenenfalls vorhandenen separaten Schutzleiter in der Anschlussliste.",
+      "Fún àwọn kéébù tí ó ní ààbò ìdábòbò, ṣàyẹ̀wò àwọn òpin àwọ̀n ìdábòbò àti okùn PE tí ó wà lọ́tọ̀ nínú àtòjọ àwọn ojú ìsopọ̀.",
+      "For cable wey get shield, check both ends of di braided shield and any separate PE core for di terminal list.",
+    ],
   "Filter manufacturer equipment by category and use Previous records or Next records to browse large result sets.":
     [
       "Filtern Sie Herstellergeräte nach Kategorie und blättern Sie mit Vorherige Datensätze oder Nächste Datensätze durch umfangreiche Ergebnisse.",
