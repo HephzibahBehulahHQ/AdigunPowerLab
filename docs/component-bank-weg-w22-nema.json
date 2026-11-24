@@ -111,7 +111,80 @@
       "category": "motors-and-motor-driven-equipment",
       "function": "three-phase-induction-motor",
       "connection": "ac",
-      "terminals": [],
+      "terminals": [
+        {
+          "id": "t1",
+          "group": "T1",
+          "interface": "motor-winding-lead",
+          "connector": "winding lead"
+        },
+        {
+          "id": "t2",
+          "group": "T2",
+          "interface": "motor-winding-lead",
+          "connector": "winding lead"
+        },
+        {
+          "id": "t3",
+          "group": "T3",
+          "interface": "motor-winding-lead",
+          "connector": "winding lead"
+        },
+        {
+          "id": "t4",
+          "group": "T4",
+          "interface": "motor-winding-lead",
+          "connector": "winding lead"
+        },
+        {
+          "id": "t5",
+          "group": "T5",
+          "interface": "motor-winding-lead",
+          "connector": "winding lead"
+        },
+        {
+          "id": "t6",
+          "group": "T6",
+          "interface": "motor-winding-lead",
+          "connector": "winding lead"
+        },
+        {
+          "id": "t7",
+          "group": "T7",
+          "interface": "motor-winding-lead",
+          "connector": "winding lead"
+        },
+        {
+          "id": "t8",
+          "group": "T8",
+          "interface": "motor-winding-lead",
+          "connector": "winding lead"
+        },
+        {
+          "id": "t9",
+          "group": "T9",
+          "interface": "motor-winding-lead",
+          "connector": "winding lead"
+        },
+        {
+          "id": "t10",
+          "group": "T10",
+          "interface": "motor-winding-lead",
+          "connector": "winding lead"
+        },
+        {
+          "id": "t11",
+          "group": "T11",
+          "interface": "motor-winding-lead",
+          "connector": "winding lead"
+        },
+        {
+          "id": "t12",
+          "group": "T12",
+          "interface": "motor-winding-lead",
+          "connector": "winding lead"
+        }
+      ],
       "ratings": {
         "shaftOutputKW": 45,
         "poles": 4,
@@ -143,10 +216,16 @@
       "source": {
         "url": "https://static.weg.net/medias/downloadcenter/h28/h43/WEG-WMO-iom-explosive-atmospheres-electric-motors-50034162-manual-pt-en-es.pdf",
         "revision": "WEG 50034162, Figure 2.2",
-        "page": 16
+        "page": 16,
+        "supplemental": [
+          {
+            "url": "https://images.willeelectric.com/EclipseProductSpecs/02379253.pdf",
+            "revision": "WEG 11166654 data sheet, nameplate drawing",
+            "page": 4
+          }
+        ]
       },
       "missingFields": [
-        "motor-terminal-diagram",
         "verified-motor-model-mapping"
       ],
       "readiness": "inventory-and-diagram-only"

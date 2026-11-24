@@ -2414,7 +2414,7 @@ export const wegW22Motors = [
 export const wegW22NemaMotors = (
   [
     ["11416668", "00518ET3E184T-W22", 3.7, 1755, 12.9, 6.45, 0.8, 89.5, 9],
-    ["11166654", "06018ET3E364T-W22", 45, 1775, 137, 68.3, 0.87, 95, 0],
+    ["11166654", "06018ET3E364T-W22", 45, 1775, 137, 68.3, 0.87, 95, 12],
   ] as const
 ).map(
   ([
@@ -2470,11 +2470,19 @@ export const wegW22NemaMotors = (
       url: "https://static.weg.net/medias/downloadcenter/h28/h43/WEG-WMO-iom-explosive-atmospheres-electric-motors-50034162-manual-pt-en-es.pdf",
       revision: "WEG 50034162, Figure 2.2",
       page: 16,
+      ...(orderCode === "11166654"
+        ? {
+            supplemental: [
+              {
+                url: "https://images.willeelectric.com/EclipseProductSpecs/02379253.pdf",
+                revision: "WEG 11166654 data sheet, nameplate drawing",
+                page: 4,
+              },
+            ],
+          }
+        : {}),
     },
-    missingFields: [
-      ...(leadCount ? [] : ["motor-terminal-diagram"]),
-      "verified-motor-model-mapping",
-    ],
+    missingFields: ["verified-motor-model-mapping"],
     readiness: "inventory-and-diagram-only",
   }),
 );
