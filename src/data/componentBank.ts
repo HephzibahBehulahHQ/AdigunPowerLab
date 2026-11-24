@@ -1943,6 +1943,7 @@ type MetricLappRow =
   | (typeof olflexClassic110CyRows)[number]
   | (typeof olflexClassic110CyBlackRows)[number]
   | (typeof olflexClassic135ChRows)[number]
+  | (typeof olflexClassic135ChBlackRows)[number]
   | (typeof olflexClassic100750Rows)[number]
   | (typeof olflexClassic100500Rows)[number]
   | (typeof olflexClassic110BlackRows)[number]
@@ -2685,6 +2686,54 @@ export const olflexClassic135ChCables = metricLappCables(
     revision: "LAPP PN 0456 / 02_03.16 (2026-03-28)",
     nominalU0V: 300,
     nominalUV: 500,
+    shielded: true,
+  },
+);
+
+const olflexClassic135ChBlackRows = [
+  ["1123460", 2, "X", 1, 9.4, 39.5, 120, 4],
+  ["1123461", 3, "G", 1, 9.8, 51, 140, 4],
+  ["1123462", 4, "G", 1, 10.4, 62.8, 165, 4],
+  ["1123463", 5, "G", 1, 11.2, 76, 191, 4],
+  ["1123464", 7, "G", 1, 11.9, 97.2, 231, 4],
+  ["1123465", 12, "G", 1, 15, 169.1, 360, 4],
+  ["1123466", 18, "G", 1, 17.3, 238.2, 494, 4],
+  ["1123467", 25, "G", 1, 19.8, 315.5, 643, 4],
+  ["1123468", 2, "X", 1.5, 10.4, 53.2, 149, 4],
+  ["1123469", 3, "G", 1.5, 10.9, 69.5, 177, 4],
+  ["1123470", 4, "G", 1.5, 11.6, 86.5, 209, 4],
+  ["1123471", 5, "G", 1.5, 12.5, 104.3, 243, 4],
+  ["1123472", 7, "G", 1.5, 13.4, 136.5, 300, 4],
+  ["1123473", 12, "G", 1.5, 17.3, 238.3, 486, 4],
+  ["1123474", 18, "G", 1.5, 20.2, 355.4, 691, 4],
+  ["1123475", 25, "G", 1.5, 23.1, 475.1, 914, 4],
+  ["1123476", 2, "X", 2.5, 11.6, 79.4, 197, 4],
+  ["1123477", 3, "G", 2.5, 12.1, 106.1, 243, 4],
+  ["1123478", 4, "G", 2.5, 13, 134.3, 293, 4],
+  ["1123479", 5, "G", 2.5, 14.1, 158.3, 342, 4],
+  ["1123480", 7, "G", 2.5, 15.4, 225, 462, 4],
+  ["1123481", 12, "G", 2.5, 20.1, 383.6, 718, 4],
+  ["1123482", 18, "G", 2.5, 23.4, 548.9, 1011, 4],
+  ["1123483", 25, "G", 2.5, 27.4, 761.7, 1370, 4],
+  ["1123485", 4, "G", 4, 14.7, 211.9, 399, 4],
+  ["1123486", 5, "G", 4, 15.9, 250.3, 471, 4],
+  ["1123487", 3, "G", 6, 14.9, 232.1, 414, 4],
+  ["1123488", 4, "G", 6, 16.1, 298.5, 519, 4],
+  ["1123489", 5, "G", 6, 17.8, 356.1, 607, 4],
+  ["1123490", 4, "G", 10, 20.1, 490.6, 837, 4],
+  ["1123492", 4, "G", 16, 22.5, 735.1, 1157, 4],
+  ["1123493", 5, "G", 16, 25, 888.7, 1407, 4],
+  ["1123494", 4, "G", 25, 27.8, 1126.6, 1683, 4],
+] as const;
+
+export const olflexClassic135ChBlackCables = metricLappCables(
+  olflexClassic135ChBlackRows,
+  {
+    family: "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV",
+    url: "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+    revision: "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+    nominalU0V: 600,
+    nominalUV: 1000,
     shielded: true,
   },
 );
@@ -3456,6 +3505,7 @@ export const componentBank = [
   ...olflexClassic115CyCables,
   ...olflexClassic110CyBlackCables,
   ...olflexClassic135ChCables,
+  ...olflexClassic135ChBlackCables,
   ...olflexClassic130HCables,
   ...stamfordWinding311Alternators,
   ...spacialS3hdEnclosures,

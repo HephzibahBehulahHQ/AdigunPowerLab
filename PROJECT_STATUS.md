@@ -556,3 +556,4 @@ iC60N 2b49aee published in Pages run 45285905960 and the public root returned HT
 - Linergy LGYN1007, LGYN12512 and LGYN12515 add three neutral strips, each with a single neutral node and its own documented screw connections. The stacked catalogue has 1,788 records.
 - LAPP ÖLFLEX CLASSIC 110 CY BLACK 0.6/1 kV adds 49 manufacturer articles from pages 3–4, with numbered cores, PE where specified and separate braid ends. The stacked catalogue has 1,837 records.
 - LAPP ÖLFLEX CLASSIC 135 CH adds all 73 articles from pages 4–6 of the manufacturer table. The stacked catalogue has 1,910 records.
+- LAPP ÖLFLEX CLASSIC 135 CH BK 0.6/1 kV adds 33 screened cables from page 4 of the manufacturer table. The stacked catalogue has 1,943 records.

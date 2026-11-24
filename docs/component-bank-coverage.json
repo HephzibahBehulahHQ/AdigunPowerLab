@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "distinctRecords": 1910,
+  "distinctRecords": 1943,
   "goalMinimum": 10000,
   "readiness": {
     "pv-worksheet-inputs-only": 14,
-    "inventory-and-diagram-only": 1896
+    "inventory-and-diagram-only": 1929
   },
   "categories": [
     {
@@ -64,8 +64,8 @@
     {
       "category": "cables-and-conductors",
       "target": 1000,
-      "records": 828,
-      "remaining": 172
+      "records": 861,
+      "remaining": 139
     },
     {
       "category": "busbars-and-distribution-systems",

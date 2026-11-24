@@ -1,0 +1,5012 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "lapp:1123460",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 2X1",
+      "orderCode": "1123460",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 2,
+        "hasPe": false,
+        "crossSectionMm2": 1,
+        "outerDiameterMm": 9.4,
+        "copperKgPerKm": 39.5,
+        "weightKgPerKm": 120,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123461",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 3G1",
+      "orderCode": "1123461",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 3,
+        "hasPe": true,
+        "crossSectionMm2": 1,
+        "outerDiameterMm": 9.8,
+        "copperKgPerKm": 51,
+        "weightKgPerKm": 140,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123462",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 4G1",
+      "orderCode": "1123462",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 4,
+        "hasPe": true,
+        "crossSectionMm2": 1,
+        "outerDiameterMm": 10.4,
+        "copperKgPerKm": 62.8,
+        "weightKgPerKm": 165,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123463",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 5G1",
+      "orderCode": "1123463",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 5,
+        "hasPe": true,
+        "crossSectionMm2": 1,
+        "outerDiameterMm": 11.2,
+        "copperKgPerKm": 76,
+        "weightKgPerKm": 191,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123464",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 7G1",
+      "orderCode": "1123464",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 7,
+        "hasPe": true,
+        "crossSectionMm2": 1,
+        "outerDiameterMm": 11.9,
+        "copperKgPerKm": 97.2,
+        "weightKgPerKm": 231,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123465",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 12G1",
+      "orderCode": "1123465",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 12,
+        "hasPe": true,
+        "crossSectionMm2": 1,
+        "outerDiameterMm": 15,
+        "copperKgPerKm": 169.1,
+        "weightKgPerKm": 360,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123466",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 18G1",
+      "orderCode": "1123466",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 18,
+        "hasPe": true,
+        "crossSectionMm2": 1,
+        "outerDiameterMm": 17.3,
+        "copperKgPerKm": 238.2,
+        "weightKgPerKm": 494,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123467",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 25G1",
+      "orderCode": "1123467",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-18",
+          "group": "18",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-18",
+          "group": "18",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-19",
+          "group": "19",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-19",
+          "group": "19",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-20",
+          "group": "20",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-20",
+          "group": "20",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-21",
+          "group": "21",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-21",
+          "group": "21",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-22",
+          "group": "22",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-22",
+          "group": "22",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-23",
+          "group": "23",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-23",
+          "group": "23",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-24",
+          "group": "24",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-24",
+          "group": "24",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 25,
+        "hasPe": true,
+        "crossSectionMm2": 1,
+        "outerDiameterMm": 19.8,
+        "copperKgPerKm": 315.5,
+        "weightKgPerKm": 643,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123468",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 2X1.5",
+      "orderCode": "1123468",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 2,
+        "hasPe": false,
+        "crossSectionMm2": 1.5,
+        "outerDiameterMm": 10.4,
+        "copperKgPerKm": 53.2,
+        "weightKgPerKm": 149,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123469",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 3G1.5",
+      "orderCode": "1123469",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 3,
+        "hasPe": true,
+        "crossSectionMm2": 1.5,
+        "outerDiameterMm": 10.9,
+        "copperKgPerKm": 69.5,
+        "weightKgPerKm": 177,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123470",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 4G1.5",
+      "orderCode": "1123470",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 4,
+        "hasPe": true,
+        "crossSectionMm2": 1.5,
+        "outerDiameterMm": 11.6,
+        "copperKgPerKm": 86.5,
+        "weightKgPerKm": 209,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123471",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 5G1.5",
+      "orderCode": "1123471",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 5,
+        "hasPe": true,
+        "crossSectionMm2": 1.5,
+        "outerDiameterMm": 12.5,
+        "copperKgPerKm": 104.3,
+        "weightKgPerKm": 243,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123472",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 7G1.5",
+      "orderCode": "1123472",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 7,
+        "hasPe": true,
+        "crossSectionMm2": 1.5,
+        "outerDiameterMm": 13.4,
+        "copperKgPerKm": 136.5,
+        "weightKgPerKm": 300,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123473",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 12G1.5",
+      "orderCode": "1123473",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 12,
+        "hasPe": true,
+        "crossSectionMm2": 1.5,
+        "outerDiameterMm": 17.3,
+        "copperKgPerKm": 238.3,
+        "weightKgPerKm": 486,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123474",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 18G1.5",
+      "orderCode": "1123474",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 18,
+        "hasPe": true,
+        "crossSectionMm2": 1.5,
+        "outerDiameterMm": 20.2,
+        "copperKgPerKm": 355.4,
+        "weightKgPerKm": 691,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123475",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 25G1.5",
+      "orderCode": "1123475",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-18",
+          "group": "18",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-18",
+          "group": "18",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-19",
+          "group": "19",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-19",
+          "group": "19",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-20",
+          "group": "20",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-20",
+          "group": "20",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-21",
+          "group": "21",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-21",
+          "group": "21",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-22",
+          "group": "22",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-22",
+          "group": "22",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-23",
+          "group": "23",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-23",
+          "group": "23",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-24",
+          "group": "24",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-24",
+          "group": "24",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 25,
+        "hasPe": true,
+        "crossSectionMm2": 1.5,
+        "outerDiameterMm": 23.1,
+        "copperKgPerKm": 475.1,
+        "weightKgPerKm": 914,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123476",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 2X2.5",
+      "orderCode": "1123476",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 2,
+        "hasPe": false,
+        "crossSectionMm2": 2.5,
+        "outerDiameterMm": 11.6,
+        "copperKgPerKm": 79.4,
+        "weightKgPerKm": 197,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123477",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 3G2.5",
+      "orderCode": "1123477",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 3,
+        "hasPe": true,
+        "crossSectionMm2": 2.5,
+        "outerDiameterMm": 12.1,
+        "copperKgPerKm": 106.1,
+        "weightKgPerKm": 243,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123478",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 4G2.5",
+      "orderCode": "1123478",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 4,
+        "hasPe": true,
+        "crossSectionMm2": 2.5,
+        "outerDiameterMm": 13,
+        "copperKgPerKm": 134.3,
+        "weightKgPerKm": 293,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123479",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 5G2.5",
+      "orderCode": "1123479",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 5,
+        "hasPe": true,
+        "crossSectionMm2": 2.5,
+        "outerDiameterMm": 14.1,
+        "copperKgPerKm": 158.3,
+        "weightKgPerKm": 342,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123480",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 7G2.5",
+      "orderCode": "1123480",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 7,
+        "hasPe": true,
+        "crossSectionMm2": 2.5,
+        "outerDiameterMm": 15.4,
+        "copperKgPerKm": 225,
+        "weightKgPerKm": 462,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123481",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 12G2.5",
+      "orderCode": "1123481",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 12,
+        "hasPe": true,
+        "crossSectionMm2": 2.5,
+        "outerDiameterMm": 20.1,
+        "copperKgPerKm": 383.6,
+        "weightKgPerKm": 718,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123482",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 18G2.5",
+      "orderCode": "1123482",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 18,
+        "hasPe": true,
+        "crossSectionMm2": 2.5,
+        "outerDiameterMm": 23.4,
+        "copperKgPerKm": 548.9,
+        "weightKgPerKm": 1011,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123483",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 25G2.5",
+      "orderCode": "1123483",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-18",
+          "group": "18",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-18",
+          "group": "18",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-19",
+          "group": "19",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-19",
+          "group": "19",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-20",
+          "group": "20",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-20",
+          "group": "20",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-21",
+          "group": "21",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-21",
+          "group": "21",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-22",
+          "group": "22",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-22",
+          "group": "22",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-23",
+          "group": "23",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-23",
+          "group": "23",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-24",
+          "group": "24",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-24",
+          "group": "24",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 25,
+        "hasPe": true,
+        "crossSectionMm2": 2.5,
+        "outerDiameterMm": 27.4,
+        "copperKgPerKm": 761.7,
+        "weightKgPerKm": 1370,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123485",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 4G4",
+      "orderCode": "1123485",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 4,
+        "hasPe": true,
+        "crossSectionMm2": 4,
+        "outerDiameterMm": 14.7,
+        "copperKgPerKm": 211.9,
+        "weightKgPerKm": 399,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123486",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 5G4",
+      "orderCode": "1123486",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 5,
+        "hasPe": true,
+        "crossSectionMm2": 4,
+        "outerDiameterMm": 15.9,
+        "copperKgPerKm": 250.3,
+        "weightKgPerKm": 471,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123487",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 3G6",
+      "orderCode": "1123487",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 3,
+        "hasPe": true,
+        "crossSectionMm2": 6,
+        "outerDiameterMm": 14.9,
+        "copperKgPerKm": 232.1,
+        "weightKgPerKm": 414,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123488",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 4G6",
+      "orderCode": "1123488",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 4,
+        "hasPe": true,
+        "crossSectionMm2": 6,
+        "outerDiameterMm": 16.1,
+        "copperKgPerKm": 298.5,
+        "weightKgPerKm": 519,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123489",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 5G6",
+      "orderCode": "1123489",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 5,
+        "hasPe": true,
+        "crossSectionMm2": 6,
+        "outerDiameterMm": 17.8,
+        "copperKgPerKm": 356.1,
+        "weightKgPerKm": 607,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123490",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 4G10",
+      "orderCode": "1123490",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 4,
+        "hasPe": true,
+        "crossSectionMm2": 10,
+        "outerDiameterMm": 20.1,
+        "copperKgPerKm": 490.6,
+        "weightKgPerKm": 837,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123492",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 4G16",
+      "orderCode": "1123492",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 4,
+        "hasPe": true,
+        "crossSectionMm2": 16,
+        "outerDiameterMm": 22.5,
+        "copperKgPerKm": 735.1,
+        "weightKgPerKm": 1157,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123493",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 5G16",
+      "orderCode": "1123493",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 5,
+        "hasPe": true,
+        "crossSectionMm2": 16,
+        "outerDiameterMm": 25,
+        "copperKgPerKm": 888.7,
+        "weightKgPerKm": 1407,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1123494",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV 4G25",
+      "orderCode": "1123494",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        },
+        {
+          "id": "b-shield",
+          "group": "Shield",
+          "interface": "cable-shield",
+          "connector": "braid end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 4,
+        "hasPe": true,
+        "crossSectionMm2": 25,
+        "outerDiameterMm": 27.8,
+        "copperKgPerKm": 1126.6,
+        "weightKgPerKm": 1683,
+        "nominalU0V": 600,
+        "nominalUV": 1000,
+        "testVoltageV": 4000
+      },
+      "conditions": {
+        "shield": "tinned-copper braid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+        "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+        "page": 4,
+        "supplemental": [
+          {
+            "url": "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+            "revision": "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}
