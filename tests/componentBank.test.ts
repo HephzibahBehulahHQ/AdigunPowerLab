@@ -28,6 +28,7 @@ import {
   olflexClassic100500Cables,
   olflexClassic110BlackCables,
   olflexClassic110HCables,
+  olflexClassic110ChCables,
   philipsDn145bDownlights,
   chromaloxStripHeaters,
   pvModules,
@@ -345,6 +346,42 @@ test("LAPP 110 H exports preserve article and technical pages independently", ()
   });
   expect(file("csv").replaceAll("\r\n", "\n")).toBe(
     componentBankCsv(olflexClassic110HCables).replaceAll("\r\n", "\n"),
+  );
+});
+
+test("LAPP 110 CH exports distinguish shield braid from protective earth", () => {
+  expect(olflexClassic110ChCables).toHaveLength(57);
+  expect(
+    olflexClassic110ChCables.find(({ orderCode }) => orderCode === "10035069"),
+  ).toMatchObject({
+    ratings: { hasPe: false, outerDiameterMm: 9, crossSectionMm2: 1.5 },
+    source: { page: 5 },
+  });
+  for (const cable of olflexClassic110ChCables) {
+    expect(
+      cable.terminals
+        .filter(({ group }) => group === "Shield")
+        .map(({ id }) => id),
+    ).toEqual(["a-shield", "b-shield"]);
+    expect(
+      cable.terminals.filter(({ group }) => group === "PE").map(({ id }) => id),
+    ).toEqual(cable.ratings.hasPe ? ["a-pe", "b-pe"] : []);
+    expect(cable.terminals).toHaveLength(2 * (cable.ratings.coreCount + 1));
+  }
+  const file = (extension: string) =>
+    readFileSync(
+      new URL(
+        `../docs/component-bank-lapp-olflex-110-ch.${extension}`,
+        import.meta.url,
+      ),
+      "utf8",
+    );
+  expect(JSON.parse(file("json"))).toEqual({
+    schemaVersion: 1,
+    entries: olflexClassic110ChCables,
+  });
+  expect(file("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(olflexClassic110ChCables).replaceAll("\r\n", "\n"),
   );
 });
 
