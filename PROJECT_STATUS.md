@@ -534,3 +534,4 @@ iC60N 2b49aee published in Pages run 45285905960 and the public root returned HT
 - Chromalox voltage candidate: 56 additional 120 V and 480 V PCNs bring the stacked catalogue to 1094 distinct records. Unlisted combinations are omitted.
 - LAPP expansion: 106 additional manufacturer article codes bring the stacked catalogue to 1,200 records across 20 categories. The LAPP batch now has 143 records.
 - LAPP ÖLFLEX CLASSIC 110 CY adds 86 shielded articles from PDF pages 3–5 and models the braid independently of the protective conductor. The stacked candidate has 1,286 records. Cable calculation mapping remains open.
+- LAPP ÖLFLEX CLASSIC 100 450/750 V adds 42 colour-coded articles, taking the stacked candidate to 1,328 records. The terminal groups use positional identifiers and retain the G/X distinction. Article-specific colours and cable calculation mapping remain open.
