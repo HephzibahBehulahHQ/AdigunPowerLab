@@ -2102,6 +2102,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fún àwọn bulọọki PT-PE ti Phoenix Contact, àtòjọ ìsopọ̀ fi àwọn ibi tí a ti di okun àti ẹsẹ̀ DIN rail hàn nínú ẹgbẹ́ PE kan náà.",
       "For Phoenix Contact PT-PE blocks, di terminal list show di wire clamps and di DIN-rail foot for di same protective-earth group.",
     ],
+  "Compare the nine winding leads of WEG 11416668 with the twelve leads of WEG 11166654 in the terminal list.":
+    [
+      "Vergleichen Sie in der Anschlussliste die neun Wicklungsanschlüsse von WEG 11416668 mit den zwölf von WEG 11166654.",
+      "Nínú àtòjọ ojú ìsopọ̀, fi àwọn okùn yíyí mẹ́sàn-án ti WEG 11416668 wé àwọn méjìlá ti WEG 11166654.",
+      "For di terminal list, compare di nine winding leads for WEG 11416668 with di twelve for WEG 11166654.",
+    ],
   "Select LAPP CLASSIC 110 CH article 10035069 to inspect both shield ends and the three numbered cores.":
     [
       "Wählen Sie den LAPP CLASSIC 110 CH Artikel 10035069, um beide Schirmenden und die drei nummerierten Adern zu prüfen.",

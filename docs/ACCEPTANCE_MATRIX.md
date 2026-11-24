@@ -434,6 +434,8 @@ The 66 LAPP CLASSIC 110 H articles retain their article page and both technical 
 
 The 57 LAPP CLASSIC 110 CH articles preserve both braid ends in a shield group and retain the G/X protective-earth distinction in CSV and JSON. Chromium verified the shield ends and absence of a PE core for article 10035069. Cable calculation mapping remains pending.
 
+The WEG W22 NEMA articles preserve their nine- and twelve-lead inventories and exact nameplate ratings in CSV and JSON. Chromium verified article 11166654 and its supplemental terminal drawing reference. Motor calculation mapping remains pending.
+
 Individual file generation emits per-record CSV and JSON for all runtime entries, with a machine-readable ID index.
 
 Eight iCT contactors include contact topology, coil terminals, conditional AC-7a/AC-7b ratings and CSV/JSON.
