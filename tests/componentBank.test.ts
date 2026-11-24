@@ -10,6 +10,7 @@ import {
   iswSwitches,
   iemMeters,
   iem205xMeters,
+  iem24xxMeters,
   ictContactors,
   rm17Relays,
   linergyDsBlocks,
@@ -1019,6 +1020,58 @@ test("iEM205x exports distinguish the mains, S0 and RS-485 terminals", () => {
   });
   expect(file("csv").replaceAll("\r\n", "\n")).toBe(
     componentBankCsv(iem205xMeters).replaceAll("\r\n", "\n"),
+  );
+});
+
+test("iEM2400 exports preserve the model-specific bus and both pulse pairs", () => {
+  expect(iem24xxMeters.map(({ orderCode }) => orderCode)).toEqual([
+    "A9MEM2435",
+    "A9MEM2455",
+  ]);
+  const [mbus, modbus] = iem24xxMeters;
+  expect(
+    mbus.terminals
+      .filter(({ interface: kind }) => kind === "m-bus")
+      .map(({ id }) => id),
+  ).toEqual(["10", "11"]);
+  expect(
+    modbus.terminals
+      .filter(({ interface: kind }) => kind === "rs485")
+      .map(({ id }) => id),
+  ).toEqual(["10", "11"]);
+  for (const meter of iem24xxMeters) {
+    expect(meter.ratings).toMatchObject({ voltageV: 230, maxCurrentA: 100 });
+    expect(meter.terminals.map(({ id }) => id)).toEqual([
+      "1",
+      "3",
+      "4",
+      "6",
+      "10",
+      "11",
+      "18",
+      "19",
+      "20",
+      "21",
+    ]);
+    expect(meter.terminals.slice(-4).map(({ group }) => group)).toEqual([
+      "S0 forward +",
+      "S0 forward −",
+      "S0 reverse +",
+      "S0 reverse −",
+    ]);
+    expect(meter.source.supplemental[0].page).toBe(10);
+  }
+  const file = (extension: string) =>
+    readFileSync(
+      new URL(`../docs/component-bank-iem24xx.${extension}`, import.meta.url),
+      "utf8",
+    );
+  expect(JSON.parse(file("json"))).toEqual({
+    schemaVersion: 1,
+    entries: iem24xxMeters,
+  });
+  expect(file("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(iem24xxMeters).replaceAll("\r\n", "\n"),
   );
 });
 
