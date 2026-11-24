@@ -841,4 +841,5 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - Chromium against the local production build at `dfbf6be` passed exact order-code selection for 1135628, the 33.2 mm diameter display and JSON download of both braid ends and both protective-earth ends.
 - ÖLFLEX CLASSIC 100 450/750 V: TypeScript and all 31 component-bank tests passed. The regression covers leading-zero order codes, article pages, published voltage, G/X terminal differences and CSV/JSON parity for all 42 records.
 - Chromium on the production build found article `00100933`, displayed 450/750 V and downloaded the exact order code with six conductor ends and no PE core.
+- At `353204e`, the individual export run produced 1,328 indexed CSV/JSON pairs. A full read-back verified both files for every catalogue ID against the in-memory record and CSV serializer (2,656 exports plus the index).
 - Candidate d6e148e: generated individual exports for all 1,200 records and compared every CSV and JSON to its source record. All 2,400 files and the 1,200-ID index matched.
