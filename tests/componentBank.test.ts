@@ -14,6 +14,7 @@ import {
   ictContactors,
   rm17Relays,
   linergyDsBlocks,
+  linergyDsFourPoleBlocks,
   linergyEarthBars,
   phoenixPtPeTerminals,
   abl6Transformers,
@@ -1153,6 +1154,46 @@ test("iEM2400 exports preserve the model-specific bus and both pulse pairs", () 
   });
   expect(file("csv").replaceAll("\r\n", "\n")).toBe(
     componentBankCsv(iem24xxMeters).replaceAll("\r\n", "\n"),
+  );
+});
+
+test("Linergy LGY410028 exports four isolated groups of seven connections", () => {
+  const [block] = linergyDsFourPoleBlocks;
+  expect(block).toMatchObject({
+    orderCode: "LGY410028",
+    ratings: { poles: 4, ratedCurrentA: 100, ipkKA: 24, icwKA: 3 },
+    conditions: { icwDurationSeconds: 1 },
+  });
+  expect(block.terminals).toHaveLength(28);
+  expect(new Set(block.terminals.map(({ group }) => group))).toEqual(
+    new Set(["pole-1", "pole-2", "pole-3", "pole-4"]),
+  );
+  for (const pole of ["pole-1", "pole-2", "pole-3", "pole-4"]) {
+    const connectors = block.terminals
+      .filter(({ group }) => group === pole)
+      .map(({ connector }) => connector);
+    expect(
+      connectors.filter((label) => label === "Ø 7.5 mm screw terminal"),
+    ).toHaveLength(2);
+    expect(
+      connectors.filter((label) => label === "Ø 5.5 mm screw terminal"),
+    ).toHaveLength(5);
+  }
+  expect(block.missingFields).toContain("distribution-pole-phase-assignment");
+  const file = (extension: string) =>
+    readFileSync(
+      new URL(
+        `../docs/component-bank-linergy-four-pole.${extension}`,
+        import.meta.url,
+      ),
+      "utf8",
+    );
+  expect(JSON.parse(file("json"))).toEqual({
+    schemaVersion: 1,
+    entries: linergyDsFourPoleBlocks,
+  });
+  expect(file("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(linergyDsFourPoleBlocks).replaceAll("\r\n", "\n"),
   );
 });
 
