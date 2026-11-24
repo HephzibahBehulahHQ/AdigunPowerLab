@@ -884,6 +884,43 @@ export const abt7pduTransformers = (
   }),
 );
 
+export const victronAgmSuperCycle = (
+  [
+    ["BAT412015081", 13, 14, 15, "M5"],
+    ["BAT412025081", 22, 24, 25, "M5"],
+    ["BAT412038081", 34, 36, 38, "M5"],
+    ["BAT412060082", 52, 56, 60, "M6"],
+    ["BAT412110081", 82, 90, 100, "M6"],
+    ["BAT412112081", 105, 114, 125, "M8"],
+    ["BAT412117081", 145, 153, 170, "M8"],
+    ["BAT412123081", 200, 210, 230, "M8"],
+  ] as const
+).map(([model, c5Ah, c10Ah, c20Ah, insert]) => ({
+  id: `victron-energy:${model.toLowerCase()}`,
+  manufacturer: "Victron Energy",
+  model,
+  orderCode: model,
+  category: "batteries-and-storage-systems" as const,
+  function: "agm-storage-battery" as const,
+  connection: "dc-storage" as const,
+  terminals: ["positive", "negative"].map((polarity) => ({
+    id: polarity,
+    group: `dc-${polarity}`,
+    interface: `battery-${polarity}`,
+    connector: `${insert} insert`,
+  })),
+  ratings: { nominalV: 12, c5Ah, c10Ah, c20Ah },
+  conditions: { dischargeCutoffV: 10.8, chemistry: "AGM lead-acid" },
+  modelMapping: null,
+  source: {
+    url: "https://www.victronenergy.com/upload/documents/Datasheet-AGM-Super-Cycle-battery-EN.pdf",
+    revision: "AGM Super Cycle specifications, BAT412060082 table variant",
+    page: 1,
+  },
+  missingFields: ["verified-storage-model-mapping"],
+  readiness: "inventory-and-diagram-only",
+}));
+
 export const componentBank = [
   ...pvModules,
   ...ic60nBreakers,
@@ -898,6 +935,7 @@ export const componentBank = [
   ...linergyEarthBars,
   ...abl6Transformers,
   ...abt7pduTransformers,
+  ...victronAgmSuperCycle,
 ];
 
 export function componentBankCsv(
