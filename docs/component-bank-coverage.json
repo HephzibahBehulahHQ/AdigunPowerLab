@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "distinctRecords": 1618,
+  "distinctRecords": 1620,
   "goalMinimum": 10000,
   "readiness": {
     "pv-worksheet-inputs-only": 14,
-    "inventory-and-diagram-only": 1604
+    "inventory-and-diagram-only": 1606
   },
   "categories": [
     {
@@ -94,8 +94,8 @@
     {
       "category": "lighting-equipment",
       "target": 300,
-      "records": 6,
-      "remaining": 294
+      "records": 8,
+      "remaining": 292
     },
     {
       "category": "ev-charging-equipment",

@@ -116,18 +116,20 @@ test("Philips PSU variants preserve separate colour temperatures and two-pole in
     philipsDn145bPsuDownlights.map(({ orderCode, ratings }) => [
       orderCode,
       ratings.colorTemperatureK,
+      ratings.powerW,
+      ratings.luminousFluxLm,
     ]),
   ).toEqual([
-    ["911401805980", 3000],
-    ["911401806080", 4000],
+    ["911401805980", 3000, 11, 1100],
+    ["911401806080", 4000, 11, 1100],
+    ["911401805780", 3000, 6.5, 650],
+    ["911401805880", 4000, 6.5, 650],
   ]);
   for (const article of philipsDn145bPsuDownlights) {
     expect(article.terminals.map(({ group }) => group)).toEqual(["L", "N"]);
     expect(article.ratings).toMatchObject({
-      powerW: 11,
       inputMinV: 220,
       inputMaxV: 240,
-      luminousFluxLm: 1100,
     });
     expect(article.source.url).toContain(article.orderCode);
     expect(article.source.page).toBe(2);
