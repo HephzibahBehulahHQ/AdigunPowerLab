@@ -454,7 +454,7 @@ Linergy LGY410028 preserves four separate pole groups with seven terminals each 
 
 Linergy LGY412548, LGY412560 and LGY416048 preserve four groups of 12, 15 and 12 terminals respectively. Unit tests cover the terminal counts, diameters and rated currents. Phase assignment and calculation mapping remain pending.
 
-Linergy LGYN1007, LGYN12512 and LGYN12515 preserve 7, 12 and 15 screw connections on a single neutral node per strip in CSV and JSON. Calculation mapping remains pending.
+Linergy LGYN1007, LGYN12512 and LGYN12515 preserve 7, 12 and 15 screw connections on a single neutral node per strip in CSV and JSON. Project validation accepts links to other AC neutral terminals and rejects phase-to-neutral links. Calculation mapping remains pending.
 
 Individual file generation emits per-record CSV and JSON for all runtime entries, with a machine-readable ID index.
 
