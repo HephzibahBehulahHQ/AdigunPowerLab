@@ -103,7 +103,7 @@ test("Philips fact sheets retain variant-specific ratings and dates in both expo
 });
 
 test("LAPP cable records pair both ends of every core and preserve PE variants", () => {
-  expect(olflexClassic110Cables).toHaveLength(37);
+  expect(olflexClassic110Cables).toHaveLength(143);
   const grounded = olflexClassic110Cables.find(
     ({ orderCode }) => orderCode === "1119115",
   );
