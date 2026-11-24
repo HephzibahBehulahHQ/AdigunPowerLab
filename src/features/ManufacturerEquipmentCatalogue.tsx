@@ -144,6 +144,8 @@ const missingFieldLabels: Record<string, string> = {
   "contact-current-by-load-category": "Contact current by load category",
   "verified-distribution-model-mapping":
     "Verified distribution calculation mapping",
+  "distribution-pole-phase-assignment":
+    "Verified phase and neutral assignments",
 };
 
 export function ManufacturerEquipmentCatalogue({
