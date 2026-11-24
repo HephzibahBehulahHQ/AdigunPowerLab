@@ -460,7 +460,7 @@ Newly added catalogue equipment keeps its source page and any documented order c
 Dashed wires identify saved catalogue terminal links in the single-line diagram and its SVG and PDF exports.
 
 Repository maintainers can run
-ode scripts/export-component-bank.mjs --individual to generate one CSV and one JSON file per model. Open the printed output folder and use its index.json to find each model ID.
+Run `node scripts/export-component-bank.mjs --individual` to generate one CSV and one JSON file per model. Open the printed output folder and use `index.json` to find each model ID. Run `node scripts/export-component-bank.mjs --check` to verify the tracked batch exports and coverage manifest without writing files.
 
 Find iCT contactors in **Switching and transfer equipment**. Compare AC-7a, AC-7b and coil-voltage ratings and inspect A1 and A2 in the terminal details.
 
