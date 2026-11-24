@@ -885,5 +885,6 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - LAPP 110 CY BLACK candidate `90ff427` passed TypeScript and the catalogue export check. A dedicated regression verifies all 49 models, 600/1,000 V ratings, braid and PE terminal variants, source pages and batch export parity. All 48 Component Bank tests passed.
 - LAPP 135 CH passed TypeScript and all 49 Component Bank tests, including 73 articles, 300/500 V ratings, braid and PE variants, source pages and CSV/JSON parity.
 - LAPP 135 CH BK passed TypeScript and all 50 Component Bank tests, including the 33 new articles, 600/1,000 V ratings, braid and PE variants, source page and CSV/JSON parity.
+- Victron GEL candidate `ecfab40` passed TypeScript. The focused suite passed 51 tests, including the seven published C20 capacities, copper terminal identities, source page and CSV/JSON parity. The catalogue export check matched 1,950 records.
 - `node scripts/export-component-bank.mjs` verified each of the 1,624 catalogue records belongs to exactly one export batch. Regeneration produced no differences in the tracked exports.
 - Candidate d6e148e: generated individual exports for all 1,200 records and compared every CSV and JSON to its source record. All 2,400 files and the 1,200-ID index matched.

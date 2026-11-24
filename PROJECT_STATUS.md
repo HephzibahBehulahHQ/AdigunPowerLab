@@ -557,3 +557,4 @@ iC60N 2b49aee published in Pages run 45285905960 and the public root returned HT
 - LAPP ÖLFLEX CLASSIC 110 CY BLACK 0.6/1 kV adds 49 manufacturer articles from pages 3–4, with numbered cores, PE where specified and separate braid ends. The stacked catalogue has 1,837 records.
 - LAPP ÖLFLEX CLASSIC 135 CH adds all 73 articles from pages 4–6 of the manufacturer table. The stacked catalogue has 1,910 records.
 - LAPP ÖLFLEX CLASSIC 135 CH BK 0.6/1 kV adds 33 screened cables from page 4 of the manufacturer table. The stacked catalogue has 1,943 records.
+- Victron GEL Deep Cycle adds seven 12 V batteries from the manufacturer’s 60–265 Ah C20 table. The stacked catalogue has 1,950 records. Storage calculation mapping remains pending for these models.

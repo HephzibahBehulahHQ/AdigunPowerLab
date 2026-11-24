@@ -21,6 +21,7 @@ import {
   abl6Transformers,
   abt7pduTransformers,
   victronAgmSuperCycle,
+  victronGelDeepCycle,
   apcSmvUps,
   victronVeDirect230,
   victronVeDirect120,
@@ -785,6 +786,47 @@ test("Victron AGM retains discharge-rate capacity and exact insert variants", ()
     schemaVersion: 1,
     entries: victronAgmSuperCycle,
   });
+});
+
+test("Victron GEL exports retain published C20 capacities and copper poles", () => {
+  expect(victronGelDeepCycle.map(({ ratings }) => ratings.c20Ah)).toEqual([
+    60, 90, 110, 130, 165, 220, 265,
+  ]);
+  for (const battery of victronGelDeepCycle) {
+    expect(battery.ratings.nominalV).toBe(12);
+    expect(battery.conditions.capacityTemperatureC).toBe(25);
+    expect(battery.terminals).toEqual([
+      {
+        id: "positive",
+        group: "dc-positive",
+        interface: "battery-positive",
+        connector: "copper terminal",
+      },
+      {
+        id: "negative",
+        group: "dc-negative",
+        interface: "battery-negative",
+        connector: "copper terminal",
+      },
+    ]);
+    expect(battery.source.page).toBe(4);
+    expect(battery.modelMapping).toBeNull();
+  }
+  const file = (extension: string) =>
+    readFileSync(
+      new URL(
+        `../docs/component-bank-victron-gel.${extension}`,
+        import.meta.url,
+      ),
+      "utf8",
+    );
+  expect(JSON.parse(file("json"))).toEqual({
+    schemaVersion: 1,
+    entries: victronGelDeepCycle,
+  });
+  expect(file("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(victronGelDeepCycle).replaceAll("\r\n", "\n"),
+  );
 });
 
 test("AGM links allow series connection but reject indirect battery shorts", () => {
