@@ -950,6 +950,15 @@ test("iEM records distinguish pulse outputs and the China-only orders", () => {
   const general = iemMeters.find(({ model }) => model === "A9MEM2000");
   const china = iemMeters.find(({ model }) => model === "A9MEM2010C");
   expect(general?.ratings.pulsesPerKWh).toBeNull();
+  expect(general?.ratings.pulseOutput).toBeNull();
+  expect(china?.ratings.pulseOutput).toEqual({
+    voltageMinVdc: 5,
+    voltageMaxVdc: 35,
+    currentMinMa: 1,
+    currentMaxMa: 20,
+    pulseDurationMs: 120,
+  });
+  expect(china?.source.supplemental[0].page).toBe(1);
   expect(china?.conditions.marketRestriction).toBe("China only");
   expect(
     china?.terminals
