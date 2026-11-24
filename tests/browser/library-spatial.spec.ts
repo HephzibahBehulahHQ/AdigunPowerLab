@@ -532,6 +532,10 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     await readFile(await (await psuDownload).path(), "utf8"),
   );
   expect(psu.entry.conditions.control).toBe("On/Off");
+  await search.fill("911401805880");
+  await expect(model).toHaveValue("philips:911401805880");
+  await expect(catalogue.getByText("6.5 W", { exact: true })).toBeVisible();
+  await expect(catalogue.getByText("650 lm", { exact: true })).toBeVisible();
   expect(
     psu.entry.terminals.map(({ group }: { group: string }) => group),
   ).toEqual(["L", "N"]);
