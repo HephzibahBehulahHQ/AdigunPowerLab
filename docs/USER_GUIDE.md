@@ -469,3 +469,5 @@ Connect identical PV modules in an isolated series chain to see their standard-t
 The frozen BOM report lists module order, Voc, Vmp and Imp for supported PV strings at standard test conditions.
 
 PV string Pmax uses the wired module count multiplied by the published module nameplate power. Isc uses the published module current under standard test conditions.
+
+Find iC60H breakers by order code and check the Icn voltage shown for that model before using the rating.

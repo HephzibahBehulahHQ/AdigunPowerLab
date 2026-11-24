@@ -431,3 +431,5 @@ Identical-module PV series strings now map saved wiring to STC Voc, Vmp and Imp.
 Frozen BOM reports include the ordered PV series string and its Voc, Vmp and Imp where the topology supports the calculation.
 
 Identical-module PV string calculations include nameplate Pmax and Isc at STC.
+
+The iC60H tranche adds 180 B/C/D variants across 1P–4P, voltage-qualified IEC/EN 60898-1 breaking capacity and numbered terminals.

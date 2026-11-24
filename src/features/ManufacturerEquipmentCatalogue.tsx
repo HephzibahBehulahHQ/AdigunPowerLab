@@ -304,7 +304,7 @@ export function ManufacturerEquipmentCatalogue({
                 <dd>{format.format(record.ratings.ratedCurrentA)} A</dd>
               </div>
               <div>
-                <dt>iC60N</dt>
+                <dt>{record.ratings.family ?? "iC60N"}</dt>
                 <dd>
                   {record.ratings.poles}P · {record.ratings.curve}
                 </dd>
