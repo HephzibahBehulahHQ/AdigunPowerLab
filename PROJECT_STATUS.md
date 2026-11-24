@@ -473,3 +473,5 @@ Saved equipment merged as 761a601; main validation is run 45277538772. The readi
 PV terminal validation now rejects a closed conductor path joining the positive and negative terminals of the same installed module. This is a topology check; system voltage and fault-current calculations remain separate.
 
 Metering starts with four Schneider iEM order codes from S1B45381-03/1, bringing the candidate to 291 sourced records across four categories. S0 terminals are recorded for inspection; pulse circuit editing remains open.
+
+The report candidate includes a terminal wiring schedule with the model-derived BOM. It uses frozen instance names, indexed units, terminal IDs and stored phases.

@@ -443,6 +443,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "Enter report metadata, save it and choose the report sections. Complete any calendar, renewable or EV analyses needed for those sections.",
       "Choose Freeze report preview. Review the project revision, input evidence, assumptions and unresolved issues, then export PDF, print, snapshot JSON or report CSV.",
       "The model-derived BOM leaves unknown prices blank. Enter prices, labour, waste and contingency, review proposed bill changes and apply them explicitly; manual bill lines are preserved.",
+      "Include the model-derived bill of materials to report the saved catalogue equipment and its terminal links.",
     ],
     example:
       "If you edit a load after a simulation, rerun that analysis before including it in a new report. An older run is not evidence for changed inputs.",

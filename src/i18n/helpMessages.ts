@@ -1421,6 +1421,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Yan Di àwòrán ṣáájú ìròyìn mú. Ṣàyẹ̀wò àtúnṣe iṣẹ́, ẹ̀rí dátà ìwọlé, àfojúsùn àti ìṣòro tí kò tíì yanjú, kí o sì gbé PDF, ìtẹ̀jáde, JSON àwòrán ìgbà náà tàbí CSV ìròyìn jáde.",
       "Choose Freeze report preview. Review project revision, input evidence, assumptions and unresolved issues, then export PDF, print, snapshot JSON or report CSV.",
     ],
+  "Include the model-derived bill of materials to report the saved catalogue equipment and its terminal links.":
+    [
+      "Nehmen Sie die modellbasierte Stückliste auf, um gespeicherte Kataloggeräte und ihre Anschlüsse zu dokumentieren.",
+      "Fi àtòjọ ohun èlò model kún ìròyìn láti fi ohun èlò katalogi àti ìsopọ̀ ebute tí a fipamọ́ hàn.",
+      "Include di model bill of materials to report saved catalogue equipment and terminal links.",
+    ],
   "The model-derived BOM leaves unknown prices blank. Enter prices, labour, waste and contingency, review proposed bill changes and apply them explicitly; manual bill lines are preserved.":
     [
       "Die modellbasierte Stückliste lässt unbekannte Preise leer. Geben Sie Preise, Arbeit, Verschnitt und Reserve ein, prüfen Sie vorgeschlagene Belegänderungen und wenden Sie diese ausdrücklich an. Manuelle Belegpositionen bleiben erhalten.",
