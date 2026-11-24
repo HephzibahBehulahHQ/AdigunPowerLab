@@ -509,6 +509,7 @@ VE.Direct 120 V records show their own temperature-conditioned power ratings and
 - In **Cables and conductors**, compare LAPP **00100424** and **00102034**. Both are 300/500 V cables with three 1 mm² cores and a 6 mm outer diameter. The G article includes a PE core and the X article has three non-PE cores. Preserve leading zeros when searching by order code.
 - Compare LAPP CLASSIC 110 BLACK **1120233** and **1120234** to inspect two 600/1000 V articles with the same 8.7 mm outer diameter. The G article has a PE core and the X article has three numbered cores. Open the source and terminal panel or download either record to inspect its cable ends.
 - Select halogen-free LAPP CLASSIC 110 H **10019946** to inspect its four cores, 2.5 mm² cross-section and 9 mm diameter. The source panel links the article table on page 5 and the technical data on pages 2 and 3.
+- Select screened LAPP CLASSIC 110 CH **10035069** to inspect the three numbered cores and both braid ends. This X article has no PE core. Open the terminal list or download the JSON record to see the separate shield group.
 - Select **Generators** in the manufacturer catalogue to compare STAMFORD alternator continuous kVA by published temperature class. The source panel links the winding reference.
 - Select **Enclosures and installation hardware** to compare Schneider S3HD wall enclosures by external dimensions, ingress protection and impact protection.
 - Select **Lighting equipment** to inspect the Philips DN145B wattage, luminous flux, colour temperature and documented driver terminals.
