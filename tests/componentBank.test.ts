@@ -16,6 +16,7 @@ import {
   linergyDsBlocks,
   linergyDsFourPoleBlocks,
   linergyEarthBars,
+  linergyNeutralBars,
   phoenixPtPeTerminals,
   abl6Transformers,
   abt7pduTransformers,
@@ -1189,6 +1190,45 @@ test.each([
     }
   },
 );
+
+test("Linergy neutral strips export one neutral node with every screw terminal", () => {
+  expect(
+    linergyNeutralBars.map(({ model, ratings, terminals }) => [
+      model,
+      ratings.ratedCurrentA,
+      terminals.length,
+    ]),
+  ).toEqual([
+    ["LGYN1007", 100, 7],
+    ["LGYN12512", 125, 12],
+    ["LGYN12515", 125, 15],
+  ]);
+  for (const strip of linergyNeutralBars) {
+    expect(
+      strip.terminals.every(
+        ({ group, interface: terminalInterface }) =>
+          group === "neutral" && terminalInterface === "neutral-bus",
+      ),
+    ).toBe(true);
+    expect(strip.source.pageLabel).toBe("B-3");
+    expect(strip.modelMapping).toBeNull();
+  }
+  const file = (extension: string) =>
+    readFileSync(
+      new URL(
+        `../docs/component-bank-linergy-neutral-bars.${extension}`,
+        import.meta.url,
+      ),
+      "utf8",
+    );
+  expect(JSON.parse(file("json"))).toEqual({
+    schemaVersion: 1,
+    entries: linergyNeutralBars,
+  });
+  expect(file("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(linergyNeutralBars).replaceAll("\r\n", "\n"),
+  );
+});
 
 test("Linergy LGY410028 exports four isolated groups of seven connections", () => {
   const [block] = linergyDsFourPoleBlocks;

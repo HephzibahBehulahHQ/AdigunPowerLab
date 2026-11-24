@@ -553,3 +553,4 @@ iC60N 2b49aee published in Pages run 45285905960 and the public root returned HT
 - LAPP ÖLFLEX CLASSIC 130 H adds all 85 published 300/500 V articles, bringing the stacked catalogue to 1,781 records. Three merged PDF text rows were resolved against the manufacturer table.
 - Linergy DS LGY410028 adds 28 screw connections in four electrically separate pole groups. Pole-to-phase and neutral assignments await verification. The stacked catalogue has 1,782 records.
 - Linergy DS LGY412548, LGY412560 and LGY416048 add 156 screw connections across three models. The stacked catalogue has 1,785 records. These entries retain separate pole groups and explicitly flag phase assignment and calculation mapping for verification.
+- Linergy LGYN1007, LGYN12512 and LGYN12515 add three neutral strips, each with a single neutral node and its own documented screw connections. The stacked catalogue has 1,788 records.

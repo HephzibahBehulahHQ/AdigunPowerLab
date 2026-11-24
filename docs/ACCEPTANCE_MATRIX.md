@@ -454,6 +454,8 @@ Linergy LGY410028 preserves four separate pole groups with seven terminals each 
 
 Linergy LGY412548, LGY412560 and LGY416048 preserve four groups of 12, 15 and 12 terminals respectively. Unit tests cover the terminal counts, diameters and rated currents. Phase assignment and calculation mapping remain pending.
 
+Linergy LGYN1007, LGYN12512 and LGYN12515 preserve 7, 12 and 15 screw connections on a single neutral node per strip in CSV and JSON. Calculation mapping remains pending.
+
 Individual file generation emits per-record CSV and JSON for all runtime entries, with a machine-readable ID index.
 
 Eight iCT contactors include contact topology, coil terminals, conditional AC-7a/AC-7b ratings and CSV/JSON.
