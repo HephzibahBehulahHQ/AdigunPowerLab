@@ -514,6 +514,7 @@ VE.Direct 120 V records show their own temperature-conditioned power ratings and
 - In **Lighting equipment**, compare Philips **911401806080** with **910500465901**. The on/off PSU model has L and N inputs. The dimmable PSD-E model also has the DA/N and DA/Ls control terminals. Open the terminal list and compare the JSON exports.
 - Compare the 4000 K on/off models **911401805880** and **911401806080**. Their published ratings are 6.5 W and 650 lm, and 11 W and 1,100 lm, respectively. Use the exact article code when adding either model to an equipment list.
 - In **Metering and power quality**, compare **A9MEM2000** with **A9MEM2010**. The iEM2010 card shows 100 imp/kWh and the S0 ratings of 5–35 V DC, 1–20 mA and 120 ms. The terminal list identifies S0+ and S0− separately from the mains terminals.
+- Select **A9MEM2055** to compare S0 terminals **20/21** with Modbus RS-485 terminals **23/24**. Open the wiring source and download the JSON record to check the terminal numbers against the diagram.
 - Select **Generators** in the manufacturer catalogue to compare STAMFORD alternator continuous kVA by published temperature class. The source panel links the winding reference.
 - Select **Enclosures and installation hardware** to compare Schneider S3HD wall enclosures by external dimensions, ingress protection and impact protection.
 - Select **Lighting equipment** to inspect the Philips DN145B wattage, luminous flux, colour temperature and documented driver terminals.

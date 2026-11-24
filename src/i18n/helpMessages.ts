@@ -2102,6 +2102,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fún àwọn bulọọki PT-PE ti Phoenix Contact, àtòjọ ìsopọ̀ fi àwọn ibi tí a ti di okun àti ẹsẹ̀ DIN rail hàn nínú ẹgbẹ́ PE kan náà.",
       "For Phoenix Contact PT-PE blocks, di terminal list show di wire clamps and di DIN-rail foot for di same protective-earth group.",
     ],
+  "On the Schneider iEM2050 and iEM2055, compare the S0 pulse terminals 20 and 21 with the RS-485 terminals 23 and 24.":
+    [
+      "Vergleichen Sie bei Schneider iEM2050 und iEM2055 die S0-Impulsklemmen 20 und 21 mit den RS-485-Klemmen 23 und 24.",
+      "Lórí Schneider iEM2050 àti iEM2055, fi ojú ìsopọ̀ ìlù S0 20 àti 21 wé ojú ìsopọ̀ RS-485 23 àti 24.",
+      "For Schneider iEM2050 and iEM2055, compare di S0 pulse terminals 20 and 21 with di RS-485 terminals 23 and 24.",
+    ],
   "Compare iEM2000 and iEM2010 to identify the separate S0 terminals and pulse output ratings on the iEM2010.":
     [
       "Vergleichen Sie iEM2000 und iEM2010, um die separaten S0-Anschlüsse und die Nenndaten des Impulsausgangs beim iEM2010 zu erkennen.",
