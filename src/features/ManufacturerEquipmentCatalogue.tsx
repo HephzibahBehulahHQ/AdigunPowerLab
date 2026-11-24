@@ -115,6 +115,7 @@ const missingFieldLabels: Record<string, string> = {
   "verified-alternator-model-mapping":
     "Verified alternator calculation mapping",
   "verified-cable-model-mapping": "Verified cable calculation mapping",
+  "article-core-colours": "Article-specific core colours",
   "verified-lighting-model-mapping": "Verified lighting calculation mapping",
   "motor-terminal-diagram": "Documented motor terminal diagram",
   "verified-motor-model-mapping": "Verified motor calculation mapping",

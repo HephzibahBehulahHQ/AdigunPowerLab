@@ -1625,6 +1625,7 @@ function metricLappCables(
         missingFields: [
           "cable-ampacity-and-impedance",
           "verified-cable-model-mapping",
+          ...(family.shielded ? [] : ["article-core-colours"]),
         ],
         readiness: "inventory-and-diagram-only",
       };

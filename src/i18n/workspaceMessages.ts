@@ -82,6 +82,11 @@ export const workspaceMessages: Record<string, [string, string, string]> = {
     "Agbára ìṣàn àti ìdènà iná inú kéébù",
     "Cable ampacity and impedance",
   ],
+  "Article-specific core colours": [
+    "Aderfarben des jeweiligen Artikels",
+    "Àwọ̀ àwọn okùn inú kéébù fún àwòṣe yìí",
+    "Core colours for this exact cable model",
+  ],
   "Verified cable calculation mapping": [
     "Geprüfte Zuordnung zur Kabelberechnung",
     "Ìbámu ìṣírò kéébù tí a fìdí múlẹ̀",

@@ -213,6 +213,7 @@ test("LAPP 450/750 V exports preserve leading zeroes, PE variants and article pa
       cable.terminals.filter(({ group }) => group === "PE").map(({ id }) => id),
     ).toEqual(cable.ratings.hasPe ? ["a-pe", "b-pe"] : []);
     expect(cable.terminals.some(({ group }) => group === "Shield")).toBe(false);
+    expect(cable.missingFields).toContain("article-core-colours");
   }
   const exportFile = (extension: string) =>
     readFileSync(
