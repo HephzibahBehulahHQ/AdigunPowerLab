@@ -1,5 +1,25 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "Rated output": [
+    "Nennausgangsleistung",
+    "Agbára àbájáde tí a sọ",
+    "Rated output",
+  ],
+  "UPS and backup systems": [
+    "USV und Notstromsysteme",
+    "UPS àti ètò afẹ́yinti",
+    "UPS and backup systems",
+  ],
+  "Verified UPS calculation mapping": [
+    "Geprüfte Zuordnung zur USV-Berechnung",
+    "Ìbámu ìṣírò UPS tí a fìdí múlẹ̀",
+    "Verified UPS calculation mapping",
+  ],
+  "Battery and dry-contact pinouts": [
+    "Anschlussbelegung von Batterie und potentialfreiem Kontakt",
+    "Pinout bátìrì àti dry contact",
+    "Battery and dry-contact pinouts",
+  ],
   "Battery series nameplate estimate": [
     "Nennwerte der Batteriereihenschaltung",
     "Ìṣírò nameplate fún bátìrì lẹ́sẹẹsẹ",
