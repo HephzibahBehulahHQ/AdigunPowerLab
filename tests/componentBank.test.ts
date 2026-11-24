@@ -13,6 +13,7 @@ import {
   rm17Relays,
   linergyDsBlocks,
   linergyEarthBars,
+  phoenixPtPeTerminals,
   abl6Transformers,
   abt7pduTransformers,
   victronAgmSuperCycle,
@@ -229,6 +230,50 @@ test("LAPP 450/750 V exports preserve leading zeroes, PE variants and article pa
   });
   expect(exportFile("csv").replaceAll("\r\n", "\n")).toBe(
     componentBankCsv(olflexClassic100750Cables).replaceAll("\r\n", "\n"),
+  );
+});
+
+test("Phoenix Contact PE exports preserve both clamps and the conductive rail foot", () => {
+  expect(
+    phoenixPtPeTerminals.map(({ orderCode, ratings }) => [
+      orderCode,
+      ratings.crossSectionMm2,
+      ratings.ratedSurgeKV,
+    ]),
+  ).toEqual([
+    ["3208139", 1.5, 6],
+    ["3211822", 6, 8],
+    ["3212131", 10, 8],
+  ]);
+  for (const entry of phoenixPtPeTerminals) {
+    expect(entry.source.url).toContain(entry.orderCode);
+    expect(entry.source.page).toBe(2);
+    expect(entry.terminals.map(({ id }) => id)).toEqual([
+      "clamp-1",
+      "clamp-2",
+      "rail-foot",
+    ]);
+    expect(
+      entry.terminals.every(
+        ({ group, interface: kind }) =>
+          group === "pe" && kind === "protective-bond",
+      ),
+    ).toBe(true);
+  }
+  const exportFile = (extension: string) =>
+    readFileSync(
+      new URL(
+        `../docs/component-bank-phoenix-pt-pe.${extension}`,
+        import.meta.url,
+      ),
+      "utf8",
+    );
+  expect(JSON.parse(exportFile("json"))).toEqual({
+    schemaVersion: 1,
+    entries: phoenixPtPeTerminals,
+  });
+  expect(exportFile("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(phoenixPtPeTerminals).replaceAll("\r\n", "\n"),
   );
 });
 
