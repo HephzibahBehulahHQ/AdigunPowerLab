@@ -795,46 +795,59 @@ export const phoenixPtPeTerminals = (
       "2026-11-05",
       "en-pc/products/ground-modular-terminal-block-pt-10-pe-3212131",
     ],
+    [
+      "PT 2,5/S-QUATTRO-PE",
+      "3211025",
+      2.5,
+      6,
+      "2026-05-23",
+      "en-us/products/ground-terminal-block-pt-25s-quattro-pe-3211025",
+      4,
+    ],
   ] as const
-).map(([model, orderCode, crossSectionMm2, ratedSurgeKV, date, path]) => ({
-  id: `phoenix-contact:${orderCode}`,
-  manufacturer: "Phoenix Contact",
-  model,
-  orderCode,
-  category: "earthing-and-bonding-equipment" as const,
-  function: "protective-earth-terminal-block" as const,
-  connection: "bond" as const,
-  terminals: [
-    {
-      id: "clamp-1",
-      group: "pe",
-      interface: "protective-bond",
-      connector: "push-in clamp",
+).map(
+  ([
+    model,
+    orderCode,
+    crossSectionMm2,
+    ratedSurgeKV,
+    date,
+    path,
+    clampCount = 2,
+  ]) => ({
+    id: `phoenix-contact:${orderCode}`,
+    manufacturer: "Phoenix Contact",
+    model,
+    orderCode,
+    category: "earthing-and-bonding-equipment" as const,
+    function: "protective-earth-terminal-block" as const,
+    connection: "bond" as const,
+    terminals: [
+      ...Array.from({ length: clampCount }, (_, index) => ({
+        id: `clamp-${index + 1}`,
+        group: "pe",
+        interface: "protective-bond",
+        connector: "push-in clamp",
+      })),
+      {
+        id: "rail-foot",
+        group: "pe",
+        interface: "protective-bond",
+        connector: "conductive DIN-rail foot",
+      },
+    ],
+    ratings: { crossSectionMm2, ratedSurgeKV },
+    conditions: { connectionStandard: "IEC 60947-7-2" },
+    modelMapping: null,
+    source: {
+      url: `https://www.phoenixcontact.com/${path}?type=pdf`,
+      revision: `Phoenix Contact article data sheet (${date})`,
+      page: 2,
     },
-    {
-      id: "clamp-2",
-      group: "pe",
-      interface: "protective-bond",
-      connector: "push-in clamp",
-    },
-    {
-      id: "rail-foot",
-      group: "pe",
-      interface: "protective-bond",
-      connector: "conductive DIN-rail foot",
-    },
-  ],
-  ratings: { crossSectionMm2, ratedSurgeKV },
-  conditions: { connectionStandard: "IEC 60947-7-2" },
-  modelMapping: null,
-  source: {
-    url: `https://www.phoenixcontact.com/${path}?type=pdf`,
-    revision: `Phoenix Contact article data sheet (${date})`,
-    page: 2,
-  },
-  missingFields: ["verified-bonding-model-mapping"],
-  readiness: "inventory-and-diagram-only",
-}));
+    missingFields: ["verified-bonding-model-mapping"],
+    readiness: "inventory-and-diagram-only",
+  }),
+);
 
 // Phaseo selection table, single-secondary ABL6TS columns B–E.
 const abl6Ratings = [

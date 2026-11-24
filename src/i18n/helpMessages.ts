@@ -2096,11 +2096,11 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Ṣí Orísun, ebute àti ìmúrasílẹ̀ model láti ṣàyẹ̀wò àtúnṣe orísun, ẹgbẹ́ ebute, input ìṣírò àti àlàyé tó kù.",
       "Open Source, terminals and model readiness to check di source revision, terminal groups, calculation inputs and missing fields.",
     ],
-  "For Phoenix Contact PT-PE blocks, the terminal list shows two wire clamps and the DIN-rail foot in one protective-earth group.":
+  "For Phoenix Contact PT-PE blocks, the terminal list shows the wire clamps and the DIN-rail foot in one protective-earth group.":
     [
-      "Bei PT-PE-Klemmen von Phoenix Contact zeigt die Anschlussliste zwei Leiterklemmen und den Tragschienenfuß in derselben Schutzleitergruppe.",
-      "Fún àwọn bulọọki PT-PE ti Phoenix Contact, àtòjọ ìsopọ̀ fi ibi méjì tí a ti di okun àti ẹsẹ̀ DIN rail hàn nínú ẹgbẹ́ PE kan náà.",
-      "For Phoenix Contact PT-PE blocks, di terminal list show two wire clamps and di DIN-rail foot for di same protective-earth group.",
+      "Bei PT-PE-Klemmen von Phoenix Contact zeigt die Anschlussliste die Leiterklemmen und den Tragschienenfuß in derselben Schutzleitergruppe.",
+      "Fún àwọn bulọọki PT-PE ti Phoenix Contact, àtòjọ ìsopọ̀ fi àwọn ibi tí a ti di okun àti ẹsẹ̀ DIN rail hàn nínú ẹgbẹ́ PE kan náà.",
+      "For Phoenix Contact PT-PE blocks, di terminal list show di wire clamps and di DIN-rail foot for di same protective-earth group.",
     ],
   "For shielded cables, inspect the braid ends and any separate PE core in the terminal list.":
     [

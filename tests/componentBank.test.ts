@@ -233,7 +233,7 @@ test("LAPP 450/750 V exports preserve leading zeroes, PE variants and article pa
   );
 });
 
-test("Phoenix Contact PE exports preserve both clamps and the conductive rail foot", () => {
+test("Phoenix Contact PE exports preserve each clamp and the conductive rail foot", () => {
   expect(
     phoenixPtPeTerminals.map(({ orderCode, ratings }) => [
       orderCode,
@@ -246,6 +246,7 @@ test("Phoenix Contact PE exports preserve both clamps and the conductive rail fo
     ["3211766", 4, 8],
     ["3211822", 6, 8],
     ["3212131", 10, 8],
+    ["3211025", 2.5, 6],
   ]);
   for (const entry of phoenixPtPeTerminals) {
     expect(entry.source.url).toContain(entry.orderCode);
@@ -253,6 +254,7 @@ test("Phoenix Contact PE exports preserve both clamps and the conductive rail fo
     expect(entry.terminals.map(({ id }) => id)).toEqual([
       "clamp-1",
       "clamp-2",
+      ...(entry.orderCode === "3211025" ? ["clamp-3", "clamp-4"] : []),
       "rail-foot",
     ]);
     expect(

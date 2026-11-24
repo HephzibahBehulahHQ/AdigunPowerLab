@@ -845,4 +845,5 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - Phoenix Contact PT-PE: all 32 component-bank tests passed, including exact order codes, surge ratings, source pages, and CSV/JSON parity for the three records. The regression checks that both clamps and the DIN-rail foot share one protective-earth group.
 - Chromium against the production build found Phoenix Contact 3212131, displayed 10 mm² and 8 kV, and downloaded both clamps and the rail foot in the same PE group.
 - Added PT 2,5-PE and PT 4-PE using page 2 of each article data sheet. The order-code, rating, terminal and export assertions passed for all five PT-PE records. TypeScript passed.
+- PT 2,5/S-QUATTRO-PE article 3211025 uses the four clamp points and rail foot documented on page 2. The export parity test verifies all five contacts share PE.
 - Candidate d6e148e: generated individual exports for all 1,200 records and compared every CSV and JSON to its source record. All 2,400 files and the 1,200-ID index matched.
