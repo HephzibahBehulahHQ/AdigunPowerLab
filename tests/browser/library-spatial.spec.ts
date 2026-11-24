@@ -583,6 +583,21 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     ["clamp-2", "pe"],
     ["rail-foot", "pe"],
   ]);
+  await search.fill("3211025");
+  await expect(model).toHaveValue("phoenix-contact:3211025");
+  await expect(catalogue.getByText("2.5 mm²", { exact: true })).toBeVisible();
+  const quattroDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const quattro = JSON.parse(
+    await readFile(await (await quattroDownload).path(), "utf8"),
+  );
+  expect(quattro.entry.terminals.map(({ id }: { id: string }) => id)).toEqual([
+    "clamp-1",
+    "clamp-2",
+    "clamp-3",
+    "clamp-4",
+    "rail-foot",
+  ]);
   await search.fill("LGY112510");
   await expect(catalogue.getByText("4.2 kA · 1 s")).toBeVisible();
   await search.fill("RM17TG20");
