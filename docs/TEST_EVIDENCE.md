@@ -837,3 +837,4 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - Chromium verified that duplicate Chromalox model labels display their order codes, that the 480 V variant is selectable, and that its CSV has a distinct order-code filename.
 - LAPP expansion: PDF extraction matched every previous LAPP record; export validation, TypeScript and 29 component-bank tests passed.
 - Chromium verified exact LAPP 1119100 lookup, the 100-core PE display, and JSON export of 200 conductor ends including core 99 and both PE ends.
+- Candidate d6e148e: generated individual exports for all 1,200 records and compared every CSV and JSON to its source record. All 2,400 files and the 1,200-ID index matched.
