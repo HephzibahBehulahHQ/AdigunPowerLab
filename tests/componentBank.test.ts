@@ -236,6 +236,21 @@ test("LAPP 450/750 V exports preserve leading zeroes, PE variants and article pa
 
 test("LAPP 300/500 V separates cross-section and diameter in the merged PDF rows", () => {
   expect(olflexClassic100500Cables).toHaveLength(94);
+  const file = (extension: string) =>
+    readFileSync(
+      new URL(
+        `../docs/component-bank-lapp-olflex-100-500.${extension}`,
+        import.meta.url,
+      ),
+      "utf8",
+    );
+  expect(JSON.parse(file("json"))).toEqual({
+    schemaVersion: 1,
+    entries: olflexClassic100500Cables,
+  });
+  expect(file("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(olflexClassic100500Cables).replaceAll("\r\n", "\n"),
+  );
   for (const [code, diameter] of [
     ["00100424", 6],
     ["00102034", 6],
