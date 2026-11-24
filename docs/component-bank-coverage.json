@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "distinctRecords": 1614,
+  "distinctRecords": 1616,
   "goalMinimum": 10000,
   "readiness": {
     "pv-worksheet-inputs-only": 14,
-    "inventory-and-diagram-only": 1600
+    "inventory-and-diagram-only": 1602
   },
   "categories": [
     {
@@ -76,8 +76,8 @@
     {
       "category": "motors-and-motor-driven-equipment",
       "target": 700,
-      "records": 1,
-      "remaining": 699
+      "records": 3,
+      "remaining": 697
     },
     {
       "category": "drives-and-starting-equipment",

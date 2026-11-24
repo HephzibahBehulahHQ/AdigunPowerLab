@@ -2411,6 +2411,74 @@ export const wegW22Motors = [
   },
 ];
 
+export const wegW22NemaMotors = (
+  [
+    ["11416668", "00518ET3E184T-W22", 3.7, 1755, 12.9, 6.45, 0.8, 89.5, 9],
+    ["11166654", "06018ET3E364T-W22", 45, 1775, 137, 68.3, 0.87, 95, 0],
+  ] as const
+).map(
+  ([
+    orderCode,
+    model,
+    shaftOutputKW,
+    speedRpm,
+    lowCurrentA,
+    highCurrentA,
+    powerFactor,
+    efficiencyPercent,
+    leadCount,
+  ]) => ({
+    id: `weg:${orderCode}`,
+    manufacturer: "WEG",
+    model,
+    orderCode,
+    category: "motors-and-motor-driven-equipment" as const,
+    function: "three-phase-induction-motor" as const,
+    connection: "ac" as const,
+    terminals: Array.from({ length: leadCount }, (_, index) => {
+      const label = `T${index + 1}`;
+      return {
+        id: label.toLowerCase(),
+        group: label,
+        interface: "motor-winding-lead",
+        connector: "winding lead",
+      };
+    }),
+    ratings: {
+      shaftOutputKW,
+      poles: 4,
+      ingressProtection: "IP55",
+      operatingPoints: [
+        {
+          frequencyHz: 60,
+          lineVoltageV: [230, 460],
+          lineCurrentA: [lowCurrentA, highCurrentA],
+          speedRpm,
+          powerFactor,
+          efficiencyPercent,
+        },
+      ],
+    },
+    conditions: {
+      duty: "continuous",
+      phases: 3,
+      loadingPercent: 100,
+      supplyWaveform: "sinusoidal",
+    },
+    modelMapping: null,
+    source: {
+      url: "https://static.weg.net/medias/downloadcenter/h28/h43/WEG-WMO-iom-explosive-atmospheres-electric-motors-50034162-manual-pt-en-es.pdf",
+      revision: "WEG 50034162, Figure 2.2",
+      page: 16,
+    },
+    missingFields: [
+      ...(leadCount ? [] : ["motor-terminal-diagram"]),
+      "verified-motor-model-mapping",
+    ],
+    readiness: "inventory-and-diagram-only",
+  }),
+);
+
 // PCNs in NS/NSL order for each catalog voltage. Null marks an unlisted variant.
 const chromaloxStripHeaterRows = [
   ["1205", 500, 32, ["129250", "165462"], ["42199", "165470"], [null, null]],
@@ -2659,6 +2727,7 @@ export const componentBank = [
   ...spacialS3hdEnclosures,
   ...philipsDn145bDownlights,
   ...wegW22Motors,
+  ...wegW22NemaMotors,
   ...chromaloxStripHeaters,
   ...stamfordAs480Regulators,
 ];
