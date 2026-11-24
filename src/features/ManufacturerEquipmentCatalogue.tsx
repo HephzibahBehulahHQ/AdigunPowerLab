@@ -243,9 +243,10 @@ export function ManufacturerEquipmentCatalogue({
               value={record.id}
               onChange={(event) => setSelectedId(event.currentTarget.value)}
             >
-              {visible.map(({ id, manufacturer, model }) => (
+              {visible.map(({ id, manufacturer, model, orderCode }) => (
                 <option key={id} value={id}>
                   {manufacturer} {model}
+                  {orderCode && orderCode !== model ? ` · ${orderCode}` : ""}
                 </option>
               ))}
             </select>
@@ -753,7 +754,7 @@ export function ManufacturerEquipmentCatalogue({
               type="button"
               onClick={() =>
                 downloadFile(
-                  "component-bank-" + record.model + ".json",
+                  `component-bank-${record.orderCode ?? record.model}.json`,
                   JSON.stringify({ schemaVersion: 1, entry: record }, null, 2),
                   "application/json",
                 )
@@ -766,7 +767,7 @@ export function ManufacturerEquipmentCatalogue({
               type="button"
               onClick={() =>
                 downloadFile(
-                  `component-bank-${record.model}.csv`,
+                  `component-bank-${record.orderCode ?? record.model}.csv`,
                   componentBankCsv([record]),
                   "text/csv;charset=utf-8",
                 )
