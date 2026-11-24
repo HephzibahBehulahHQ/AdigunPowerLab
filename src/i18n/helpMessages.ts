@@ -2102,6 +2102,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fún àwọn bulọọki PT-PE ti Phoenix Contact, àtòjọ ìsopọ̀ fi àwọn ibi tí a ti di okun àti ẹsẹ̀ DIN rail hàn nínú ẹgbẹ́ PE kan náà.",
       "For Phoenix Contact PT-PE blocks, di terminal list show di wire clamps and di DIN-rail foot for di same protective-earth group.",
     ],
+  "Compare iEM2000 and iEM2010 to identify the separate S0 terminals and pulse output ratings on the iEM2010.":
+    [
+      "Vergleichen Sie iEM2000 und iEM2010, um die separaten S0-Anschlüsse und die Nenndaten des Impulsausgangs beim iEM2010 zu erkennen.",
+      "Fi iEM2000 àti iEM2010 wé ara wọn láti mọ àwọn ojú ìsopọ̀ S0 tó wà lọ́tọ̀ àti iye àyàn ìjáde ìlù lórí iEM2010.",
+      "Compare iEM2000 and iEM2010 to find di separate S0 terminals and pulse output ratings for iEM2010.",
+    ],
   "Compare Philips 911401806080 and 910500465901 to identify the AC input and any dimming terminals.":
     [
       "Vergleichen Sie Philips 911401806080 und 910500465901, um den AC-Eingang und vorhandene Dimmanschlüsse zu erkennen.",
