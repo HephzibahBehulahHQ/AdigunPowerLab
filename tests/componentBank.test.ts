@@ -31,6 +31,7 @@ import {
   olflexClassic110ChCables,
   philipsDn145bDownlights,
   chromaloxStripHeaters,
+  wegW22NemaMotors,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -382,6 +383,49 @@ test("LAPP 110 CH exports distinguish shield braid from protective earth", () =>
   });
   expect(file("csv").replaceAll("\r\n", "\n")).toBe(
     componentBankCsv(olflexClassic110ChCables).replaceAll("\r\n", "\n"),
+  );
+});
+
+test("WEG NEMA exports retain nameplate ratings and separately sourced leads", () => {
+  expect(
+    wegW22NemaMotors.map(({ orderCode, terminals }) => [
+      orderCode,
+      terminals.length,
+    ]),
+  ).toEqual([
+    ["11416668", 9],
+    ["11166654", 12],
+  ]);
+  const motor = wegW22NemaMotors.find(
+    ({ orderCode }) => orderCode === "11166654",
+  );
+  expect(motor).toMatchObject({
+    ratings: {
+      operatingPoints: [
+        { lineVoltageV: [230, 460], lineCurrentA: [137, 68.3] },
+      ],
+    },
+    source: { page: 16, supplemental: [{ page: 4 }] },
+  });
+  expect(motor?.terminals.at(-1)).toMatchObject({
+    id: "t12",
+    group: "T12",
+    interface: "motor-winding-lead",
+  });
+  const file = (extension: string) =>
+    readFileSync(
+      new URL(
+        `../docs/component-bank-weg-w22-nema.${extension}`,
+        import.meta.url,
+      ),
+      "utf8",
+    );
+  expect(JSON.parse(file("json"))).toEqual({
+    schemaVersion: 1,
+    entries: wegW22NemaMotors,
+  });
+  expect(file("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(wegW22NemaMotors).replaceAll("\r\n", "\n"),
   );
 });
 
