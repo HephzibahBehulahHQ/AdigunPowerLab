@@ -478,6 +478,17 @@ test("manufacturer catalogue searches and exports the exact model", async ({
       ({ connector }: { connector: string }) => connector,
     ),
   ).toEqual(["wire lead", "wire lead"]);
+  await search.fill("NSL-5403");
+  await expect(
+    model.getByRole("option", { name: /NSL-5403 · 165868/ }),
+  ).toBeAttached();
+  await model.selectOption("chromalox:165868");
+  await expect(catalogue.getByText("480 V", { exact: true })).toBeVisible();
+  const highVoltageDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record CSV" }).click();
+  expect((await highVoltageDownload).suggestedFilename()).toBe(
+    "component-bank-165868.csv",
+  );
   await catalogue
     .getByLabel("Equipment category")
     .selectOption("prime-movers-and-generation-auxiliaries");
