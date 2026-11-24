@@ -2102,6 +2102,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fún àwọn bulọọki PT-PE ti Phoenix Contact, àtòjọ ìsopọ̀ fi àwọn ibi tí a ti di okun àti ẹsẹ̀ DIN rail hàn nínú ẹgbẹ́ PE kan náà.",
       "For Phoenix Contact PT-PE blocks, di terminal list show di wire clamps and di DIN-rail foot for di same protective-earth group.",
     ],
+  "Export Linergy LGYN12515 as JSON and find all 15 screw connections in its single neutral group.":
+    [
+      "Exportieren Sie Linergy LGYN12515 als JSON und suchen Sie alle 15 Schraubanschlüsse in der gemeinsamen Neutralleitergruppe.",
+      "Ṣe àgbéjáde Linergy LGYN12515 gẹ́gẹ́ bí JSON kí o sì wá gbogbo ojú ìsopọ̀ skúrù mẹ́ẹ̀ẹ́dógún nínú ẹgbẹ́ neutral kan náà.",
+      "Export Linergy LGYN12515 as JSON and find all 15 screw connections for di same neutral group.",
+    ],
   "Select Linergy LGY410028 and use the terminal list to count seven connections in each of its four pole groups.":
     [
       "Wählen Sie Linergy LGY410028 und zählen Sie in der Anschlussliste sieben Anschlüsse in jeder der vier Polgruppen.",
