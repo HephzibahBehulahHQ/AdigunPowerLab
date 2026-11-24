@@ -1,0 +1,4109 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "victron-energy:pin121251110",
+      "manufacturer": "Victron Energy",
+      "model": "PIN121251110",
+      "orderCode": "PIN121251110",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "IEC-320"
+        }
+      ],
+      "ratings": {
+        "size": 250,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 250,
+        "continuousW40C": 200
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin241251110",
+      "manufacturer": "Victron Energy",
+      "model": "PIN241251110",
+      "orderCode": "PIN241251110",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "IEC-320"
+        }
+      ],
+      "ratings": {
+        "size": 250,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 250,
+        "continuousW40C": 200
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin481251110",
+      "manufacturer": "Victron Energy",
+      "model": "PIN481251110",
+      "orderCode": "PIN481251110",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "IEC-320"
+        }
+      ],
+      "ratings": {
+        "size": 250,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 250,
+        "continuousW40C": 200
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin121251210",
+      "manufacturer": "Victron Energy",
+      "model": "PIN121251210",
+      "orderCode": "PIN121251210",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "Schuko (CEE 7/4)"
+        }
+      ],
+      "ratings": {
+        "size": 250,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 250,
+        "continuousW40C": 200
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin241251210",
+      "manufacturer": "Victron Energy",
+      "model": "PIN241251210",
+      "orderCode": "PIN241251210",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "Schuko (CEE 7/4)"
+        }
+      ],
+      "ratings": {
+        "size": 250,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 250,
+        "continuousW40C": 200
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin481251210",
+      "manufacturer": "Victron Energy",
+      "model": "PIN481251210",
+      "orderCode": "PIN481251210",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "Schuko (CEE 7/4)"
+        }
+      ],
+      "ratings": {
+        "size": 250,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 250,
+        "continuousW40C": 200
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin121251310",
+      "manufacturer": "Victron Energy",
+      "model": "PIN121251310",
+      "orderCode": "PIN121251310",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "AU/NZ (AS/NZS 3112)"
+        }
+      ],
+      "ratings": {
+        "size": 250,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 250,
+        "continuousW40C": 200
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin241251310",
+      "manufacturer": "Victron Energy",
+      "model": "PIN241251310",
+      "orderCode": "PIN241251310",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "AU/NZ (AS/NZS 3112)"
+        }
+      ],
+      "ratings": {
+        "size": 250,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 250,
+        "continuousW40C": 200
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin481251310",
+      "manufacturer": "Victron Energy",
+      "model": "PIN481251310",
+      "orderCode": "PIN481251310",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "AU/NZ (AS/NZS 3112)"
+        }
+      ],
+      "ratings": {
+        "size": 250,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 250,
+        "continuousW40C": 200
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin121251410",
+      "manufacturer": "Victron Energy",
+      "model": "PIN121251410",
+      "orderCode": "PIN121251410",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "UK (BS 1363)"
+        }
+      ],
+      "ratings": {
+        "size": 250,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 250,
+        "continuousW40C": 200
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin241251410",
+      "manufacturer": "Victron Energy",
+      "model": "PIN241251410",
+      "orderCode": "PIN241251410",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "UK (BS 1363)"
+        }
+      ],
+      "ratings": {
+        "size": 250,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 250,
+        "continuousW40C": 200
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin481251410",
+      "manufacturer": "Victron Energy",
+      "model": "PIN481251410",
+      "orderCode": "PIN481251410",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "UK (BS 1363)"
+        }
+      ],
+      "ratings": {
+        "size": 250,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 250,
+        "continuousW40C": 200
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin121371110",
+      "manufacturer": "Victron Energy",
+      "model": "PIN121371110",
+      "orderCode": "PIN121371110",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "IEC-320"
+        }
+      ],
+      "ratings": {
+        "size": 375,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 375,
+        "continuousW40C": 300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin241371110",
+      "manufacturer": "Victron Energy",
+      "model": "PIN241371110",
+      "orderCode": "PIN241371110",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "IEC-320"
+        }
+      ],
+      "ratings": {
+        "size": 375,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 375,
+        "continuousW40C": 300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin481371110",
+      "manufacturer": "Victron Energy",
+      "model": "PIN481371110",
+      "orderCode": "PIN481371110",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "IEC-320"
+        }
+      ],
+      "ratings": {
+        "size": 375,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 375,
+        "continuousW40C": 300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin121371210",
+      "manufacturer": "Victron Energy",
+      "model": "PIN121371210",
+      "orderCode": "PIN121371210",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "Schuko (CEE 7/4)"
+        }
+      ],
+      "ratings": {
+        "size": 375,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 375,
+        "continuousW40C": 300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin241371210",
+      "manufacturer": "Victron Energy",
+      "model": "PIN241371210",
+      "orderCode": "PIN241371210",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "Schuko (CEE 7/4)"
+        }
+      ],
+      "ratings": {
+        "size": 375,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 375,
+        "continuousW40C": 300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin481371210",
+      "manufacturer": "Victron Energy",
+      "model": "PIN481371210",
+      "orderCode": "PIN481371210",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "Schuko (CEE 7/4)"
+        }
+      ],
+      "ratings": {
+        "size": 375,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 375,
+        "continuousW40C": 300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin121371310",
+      "manufacturer": "Victron Energy",
+      "model": "PIN121371310",
+      "orderCode": "PIN121371310",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "AU/NZ (AS/NZS 3112)"
+        }
+      ],
+      "ratings": {
+        "size": 375,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 375,
+        "continuousW40C": 300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin241371310",
+      "manufacturer": "Victron Energy",
+      "model": "PIN241371310",
+      "orderCode": "PIN241371310",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "AU/NZ (AS/NZS 3112)"
+        }
+      ],
+      "ratings": {
+        "size": 375,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 375,
+        "continuousW40C": 300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin481371310",
+      "manufacturer": "Victron Energy",
+      "model": "PIN481371310",
+      "orderCode": "PIN481371310",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "AU/NZ (AS/NZS 3112)"
+        }
+      ],
+      "ratings": {
+        "size": 375,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 375,
+        "continuousW40C": 300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin121371410",
+      "manufacturer": "Victron Energy",
+      "model": "PIN121371410",
+      "orderCode": "PIN121371410",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "UK (BS 1363)"
+        }
+      ],
+      "ratings": {
+        "size": 375,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 375,
+        "continuousW40C": 300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin241371410",
+      "manufacturer": "Victron Energy",
+      "model": "PIN241371410",
+      "orderCode": "PIN241371410",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "UK (BS 1363)"
+        }
+      ],
+      "ratings": {
+        "size": 375,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 375,
+        "continuousW40C": 300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin481371410",
+      "manufacturer": "Victron Energy",
+      "model": "PIN481371410",
+      "orderCode": "PIN481371410",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "UK (BS 1363)"
+        }
+      ],
+      "ratings": {
+        "size": 375,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 375,
+        "continuousW40C": 300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin121501110",
+      "manufacturer": "Victron Energy",
+      "model": "PIN121501110",
+      "orderCode": "PIN121501110",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "IEC-320"
+        }
+      ],
+      "ratings": {
+        "size": 500,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 450,
+        "continuousW40C": 380
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin241501110",
+      "manufacturer": "Victron Energy",
+      "model": "PIN241501110",
+      "orderCode": "PIN241501110",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "IEC-320"
+        }
+      ],
+      "ratings": {
+        "size": 500,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 450,
+        "continuousW40C": 380
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin481501110",
+      "manufacturer": "Victron Energy",
+      "model": "PIN481501110",
+      "orderCode": "PIN481501110",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "IEC-320"
+        }
+      ],
+      "ratings": {
+        "size": 500,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 450,
+        "continuousW40C": 380
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin121501210",
+      "manufacturer": "Victron Energy",
+      "model": "PIN121501210",
+      "orderCode": "PIN121501210",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "Schuko (CEE 7/4)"
+        }
+      ],
+      "ratings": {
+        "size": 500,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 450,
+        "continuousW40C": 380
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin241501210",
+      "manufacturer": "Victron Energy",
+      "model": "PIN241501210",
+      "orderCode": "PIN241501210",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "Schuko (CEE 7/4)"
+        }
+      ],
+      "ratings": {
+        "size": 500,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 450,
+        "continuousW40C": 380
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin481501210",
+      "manufacturer": "Victron Energy",
+      "model": "PIN481501210",
+      "orderCode": "PIN481501210",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "Schuko (CEE 7/4)"
+        }
+      ],
+      "ratings": {
+        "size": 500,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 450,
+        "continuousW40C": 380
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin121501310",
+      "manufacturer": "Victron Energy",
+      "model": "PIN121501310",
+      "orderCode": "PIN121501310",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "AU/NZ (AS/NZS 3112)"
+        }
+      ],
+      "ratings": {
+        "size": 500,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 450,
+        "continuousW40C": 380
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin241501310",
+      "manufacturer": "Victron Energy",
+      "model": "PIN241501310",
+      "orderCode": "PIN241501310",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "AU/NZ (AS/NZS 3112)"
+        }
+      ],
+      "ratings": {
+        "size": 500,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 450,
+        "continuousW40C": 380
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin481501310",
+      "manufacturer": "Victron Energy",
+      "model": "PIN481501310",
+      "orderCode": "PIN481501310",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "AU/NZ (AS/NZS 3112)"
+        }
+      ],
+      "ratings": {
+        "size": 500,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 450,
+        "continuousW40C": 380
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin121501410",
+      "manufacturer": "Victron Energy",
+      "model": "PIN121501410",
+      "orderCode": "PIN121501410",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "UK (BS 1363)"
+        }
+      ],
+      "ratings": {
+        "size": 500,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 450,
+        "continuousW40C": 380
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin241501410",
+      "manufacturer": "Victron Energy",
+      "model": "PIN241501410",
+      "orderCode": "PIN241501410",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "UK (BS 1363)"
+        }
+      ],
+      "ratings": {
+        "size": 500,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 450,
+        "continuousW40C": 380
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin481501410",
+      "manufacturer": "Victron Energy",
+      "model": "PIN481501410",
+      "orderCode": "PIN481501410",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "UK (BS 1363)"
+        }
+      ],
+      "ratings": {
+        "size": 500,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 450,
+        "continuousW40C": 380
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin121801110",
+      "manufacturer": "Victron Energy",
+      "model": "PIN121801110",
+      "orderCode": "PIN121801110",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "IEC-320"
+        }
+      ],
+      "ratings": {
+        "size": 800,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 800,
+        "continuousW40C": 650
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin241801110",
+      "manufacturer": "Victron Energy",
+      "model": "PIN241801110",
+      "orderCode": "PIN241801110",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "IEC-320"
+        }
+      ],
+      "ratings": {
+        "size": 800,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 800,
+        "continuousW40C": 650
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin481801110",
+      "manufacturer": "Victron Energy",
+      "model": "PIN481801110",
+      "orderCode": "PIN481801110",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "IEC-320"
+        }
+      ],
+      "ratings": {
+        "size": 800,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 800,
+        "continuousW40C": 650
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin121801210",
+      "manufacturer": "Victron Energy",
+      "model": "PIN121801210",
+      "orderCode": "PIN121801210",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "Schuko (CEE 7/4)"
+        }
+      ],
+      "ratings": {
+        "size": 800,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 800,
+        "continuousW40C": 650
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin241801210",
+      "manufacturer": "Victron Energy",
+      "model": "PIN241801210",
+      "orderCode": "PIN241801210",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "Schuko (CEE 7/4)"
+        }
+      ],
+      "ratings": {
+        "size": 800,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 800,
+        "continuousW40C": 650
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin481801210",
+      "manufacturer": "Victron Energy",
+      "model": "PIN481801210",
+      "orderCode": "PIN481801210",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "Schuko (CEE 7/4)"
+        }
+      ],
+      "ratings": {
+        "size": 800,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 800,
+        "continuousW40C": 650
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin121801310",
+      "manufacturer": "Victron Energy",
+      "model": "PIN121801310",
+      "orderCode": "PIN121801310",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "AU/NZ (AS/NZS 3112)"
+        }
+      ],
+      "ratings": {
+        "size": 800,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 800,
+        "continuousW40C": 650
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin241801310",
+      "manufacturer": "Victron Energy",
+      "model": "PIN241801310",
+      "orderCode": "PIN241801310",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "AU/NZ (AS/NZS 3112)"
+        }
+      ],
+      "ratings": {
+        "size": 800,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 800,
+        "continuousW40C": 650
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin481801310",
+      "manufacturer": "Victron Energy",
+      "model": "PIN481801310",
+      "orderCode": "PIN481801310",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "AU/NZ (AS/NZS 3112)"
+        }
+      ],
+      "ratings": {
+        "size": 800,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 800,
+        "continuousW40C": 650
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin121801410",
+      "manufacturer": "Victron Energy",
+      "model": "PIN121801410",
+      "orderCode": "PIN121801410",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "UK (BS 1363)"
+        }
+      ],
+      "ratings": {
+        "size": 800,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 800,
+        "continuousW40C": 650
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin241801410",
+      "manufacturer": "Victron Energy",
+      "model": "PIN241801410",
+      "orderCode": "PIN241801410",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "UK (BS 1363)"
+        }
+      ],
+      "ratings": {
+        "size": 800,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 800,
+        "continuousW40C": 650
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin481801410",
+      "manufacturer": "Victron Energy",
+      "model": "PIN481801410",
+      "orderCode": "PIN481801410",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "UK (BS 1363)"
+        }
+      ],
+      "ratings": {
+        "size": 800,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 800,
+        "continuousW40C": 650
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin122121110",
+      "manufacturer": "Victron Energy",
+      "model": "PIN122121110",
+      "orderCode": "PIN122121110",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "IEC-320"
+        }
+      ],
+      "ratings": {
+        "size": 1200,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 1150,
+        "continuousW40C": 1000
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin242121110",
+      "manufacturer": "Victron Energy",
+      "model": "PIN242121110",
+      "orderCode": "PIN242121110",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "IEC-320"
+        }
+      ],
+      "ratings": {
+        "size": 1200,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 1150,
+        "continuousW40C": 1000
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin482121110",
+      "manufacturer": "Victron Energy",
+      "model": "PIN482121110",
+      "orderCode": "PIN482121110",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "IEC-320"
+        }
+      ],
+      "ratings": {
+        "size": 1200,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 1150,
+        "continuousW40C": 1000
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin122121210",
+      "manufacturer": "Victron Energy",
+      "model": "PIN122121210",
+      "orderCode": "PIN122121210",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "Schuko (CEE 7/4)"
+        }
+      ],
+      "ratings": {
+        "size": 1200,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 1150,
+        "continuousW40C": 1000
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin242121210",
+      "manufacturer": "Victron Energy",
+      "model": "PIN242121210",
+      "orderCode": "PIN242121210",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "Schuko (CEE 7/4)"
+        }
+      ],
+      "ratings": {
+        "size": 1200,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 1150,
+        "continuousW40C": 1000
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin482121210",
+      "manufacturer": "Victron Energy",
+      "model": "PIN482121210",
+      "orderCode": "PIN482121210",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "Schuko (CEE 7/4)"
+        }
+      ],
+      "ratings": {
+        "size": 1200,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 1150,
+        "continuousW40C": 1000
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin122121310",
+      "manufacturer": "Victron Energy",
+      "model": "PIN122121310",
+      "orderCode": "PIN122121310",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "AU/NZ (AS/NZS 3112)"
+        }
+      ],
+      "ratings": {
+        "size": 1200,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 1150,
+        "continuousW40C": 1000
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin242121310",
+      "manufacturer": "Victron Energy",
+      "model": "PIN242121310",
+      "orderCode": "PIN242121310",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "AU/NZ (AS/NZS 3112)"
+        }
+      ],
+      "ratings": {
+        "size": 1200,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 1150,
+        "continuousW40C": 1000
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin482121310",
+      "manufacturer": "Victron Energy",
+      "model": "PIN482121310",
+      "orderCode": "PIN482121310",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "AU/NZ (AS/NZS 3112)"
+        }
+      ],
+      "ratings": {
+        "size": 1200,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 1150,
+        "continuousW40C": 1000
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin122121410",
+      "manufacturer": "Victron Energy",
+      "model": "PIN122121410",
+      "orderCode": "PIN122121410",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "UK (BS 1363)"
+        }
+      ],
+      "ratings": {
+        "size": 1200,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 1150,
+        "continuousW40C": 1000
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin242121410",
+      "manufacturer": "Victron Energy",
+      "model": "PIN242121410",
+      "orderCode": "PIN242121410",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "UK (BS 1363)"
+        }
+      ],
+      "ratings": {
+        "size": 1200,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 1150,
+        "continuousW40C": 1000
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin482121410",
+      "manufacturer": "Victron Energy",
+      "model": "PIN482121410",
+      "orderCode": "PIN482121410",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "UK (BS 1363)"
+        }
+      ],
+      "ratings": {
+        "size": 1200,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 1150,
+        "continuousW40C": 1000
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin122161100",
+      "manufacturer": "Victron Energy",
+      "model": "PIN122161100",
+      "orderCode": "PIN122161100",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "IEC-320"
+        }
+      ],
+      "ratings": {
+        "size": 1600,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 1450,
+        "continuousW40C": 1300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin242161100",
+      "manufacturer": "Victron Energy",
+      "model": "PIN242161100",
+      "orderCode": "PIN242161100",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "IEC-320"
+        }
+      ],
+      "ratings": {
+        "size": 1600,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 1450,
+        "continuousW40C": 1300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin482161100",
+      "manufacturer": "Victron Energy",
+      "model": "PIN482161100",
+      "orderCode": "PIN482161100",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "IEC-320"
+        }
+      ],
+      "ratings": {
+        "size": 1600,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 1450,
+        "continuousW40C": 1300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin122161200",
+      "manufacturer": "Victron Energy",
+      "model": "PIN122161200",
+      "orderCode": "PIN122161200",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "Schuko (CEE 7/4)"
+        }
+      ],
+      "ratings": {
+        "size": 1600,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 1450,
+        "continuousW40C": 1300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin242161200",
+      "manufacturer": "Victron Energy",
+      "model": "PIN242161200",
+      "orderCode": "PIN242161200",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "Schuko (CEE 7/4)"
+        }
+      ],
+      "ratings": {
+        "size": 1600,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 1450,
+        "continuousW40C": 1300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin482161200",
+      "manufacturer": "Victron Energy",
+      "model": "PIN482161200",
+      "orderCode": "PIN482161200",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "Schuko (CEE 7/4)"
+        }
+      ],
+      "ratings": {
+        "size": 1600,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 1450,
+        "continuousW40C": 1300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin122161300",
+      "manufacturer": "Victron Energy",
+      "model": "PIN122161300",
+      "orderCode": "PIN122161300",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "AU/NZ (AS/NZS 3112)"
+        }
+      ],
+      "ratings": {
+        "size": 1600,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 1450,
+        "continuousW40C": 1300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin242161300",
+      "manufacturer": "Victron Energy",
+      "model": "PIN242161300",
+      "orderCode": "PIN242161300",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "AU/NZ (AS/NZS 3112)"
+        }
+      ],
+      "ratings": {
+        "size": 1600,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 1450,
+        "continuousW40C": 1300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin482161300",
+      "manufacturer": "Victron Energy",
+      "model": "PIN482161300",
+      "orderCode": "PIN482161300",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "AU/NZ (AS/NZS 3112)"
+        }
+      ],
+      "ratings": {
+        "size": 1600,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 1450,
+        "continuousW40C": 1300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin122161400",
+      "manufacturer": "Victron Energy",
+      "model": "PIN122161400",
+      "orderCode": "PIN122161400",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "UK (BS 1363)"
+        }
+      ],
+      "ratings": {
+        "size": 1600,
+        "inputNominalV": 12,
+        "outputNominalV": 230,
+        "continuousW25C": 1450,
+        "continuousW40C": 1300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          9.2,
+          17
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin242161400",
+      "manufacturer": "Victron Energy",
+      "model": "PIN242161400",
+      "orderCode": "PIN242161400",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "UK (BS 1363)"
+        }
+      ],
+      "ratings": {
+        "size": 1600,
+        "inputNominalV": 24,
+        "outputNominalV": 230,
+        "continuousW25C": 1450,
+        "continuousW40C": 1300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          18.4,
+          34
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:pin482161400",
+      "manufacturer": "Victron Energy",
+      "model": "PIN482161400",
+      "orderCode": "PIN482161400",
+      "category": "inverters-and-conversion-equipment",
+      "function": "standalone-dc-ac-inverter",
+      "connection": "dc-ac",
+      "terminals": [
+        {
+          "id": "dc-positive",
+          "group": "DC +",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "dc-negative",
+          "group": "DC −",
+          "interface": "inverter-dc-input",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "ac-outlet",
+          "group": "AC output",
+          "interface": "inverter-ac-output",
+          "connector": "UK (BS 1363)"
+        }
+      ],
+      "ratings": {
+        "size": 1600,
+        "inputNominalV": 48,
+        "outputNominalV": 230,
+        "continuousW25C": 1450,
+        "continuousW40C": 1300
+      },
+      "conditions": {
+        "outputFrequencyHz": [
+          50,
+          60
+        ],
+        "inputRangeV": [
+          36.8,
+          62
+        ]
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-Inverter-VE.Direct-250W-1600W-230V-EN.pdf",
+        "revision": "VE.Direct 230 V datasheet, PINxx1251X10 article generation",
+        "page": 2
+      },
+      "missingFields": [
+        "regional-availability",
+        "verified-inverter-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}

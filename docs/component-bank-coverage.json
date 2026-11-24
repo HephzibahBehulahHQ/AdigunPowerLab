@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "distinctRecords": 798,
+  "distinctRecords": 870,
   "goalMinimum": 10000,
   "readiness": {
     "pv-worksheet-inputs-only": 14,
-    "inventory-and-diagram-only": 784
+    "inventory-and-diagram-only": 856
   },
   "categories": [
     {
@@ -34,8 +34,8 @@
     {
       "category": "inverters-and-conversion-equipment",
       "target": 800,
-      "records": 0,
-      "remaining": 800
+      "records": 72,
+      "remaining": 728
     },
     {
       "category": "batteries-and-storage-systems",

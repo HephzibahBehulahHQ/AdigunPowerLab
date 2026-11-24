@@ -17,6 +17,7 @@ import {
   abt7pduTransformers,
   victronAgmSuperCycle,
   apcSmvUps,
+  victronVeDirect230,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -29,6 +30,33 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("Victron article generation preserves socket codes and temperature-conditioned power", () => {
+  expect(victronVeDirect230).toHaveLength(72);
+  const record = victronVeDirect230.find(
+    ({ model }) => model === "PIN241501210",
+  );
+  expect(record?.ratings).toMatchObject({
+    inputNominalV: 24,
+    continuousW25C: 450,
+    continuousW40C: 380,
+  });
+  expect(record?.terminals[2].connector).toBe("Schuko (CEE 7/4)");
+  expect(victronVeDirect230.some(({ model }) => model === "PIN482161400")).toBe(
+    true,
+  );
+  const json = readFileSync(
+    new URL(
+      "../docs/component-bank-victron-vedirect-230.json",
+      import.meta.url,
+    ),
+    "utf8",
+  );
+  expect(JSON.parse(json)).toEqual({
+    schemaVersion: 1,
+    entries: victronVeDirect230,
+  });
+});
 
 test("APC SMV variants retain inlet and outlet differences", () => {
   expect(apcSmvUps).toHaveLength(5);
