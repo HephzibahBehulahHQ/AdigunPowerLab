@@ -2102,6 +2102,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fún àwọn bulọọki PT-PE ti Phoenix Contact, àtòjọ ìsopọ̀ fi àwọn ibi tí a ti di okun àti ẹsẹ̀ DIN rail hàn nínú ẹgbẹ́ PE kan náà.",
       "For Phoenix Contact PT-PE blocks, di terminal list show di wire clamps and di DIN-rail foot for di same protective-earth group.",
     ],
+  "Compare LAPP CLASSIC 115 CY articles 1136003 and 1136753 to find the shared braid and the protective-earth core on the G article.":
+    [
+      "Vergleichen Sie die LAPP CLASSIC 115 CY Artikel 1136003 und 1136753. Beide haben ein Schirmgeflecht, und der G-Artikel hat einen Schutzleiter.",
+      "Fi àwòṣe LAPP CLASSIC 115 CY 1136003 àti 1136753 wé ara wọn. Méjèèjì ní ìdábòbò oníhun, àwòṣe G sì ní okùn PE.",
+      "Compare LAPP CLASSIC 115 CY articles 1136003 and 1136753. Both get braided shield, and di G article get PE core.",
+    ],
   "Select EM2214 to inspect both pulse pairs on the single-tariff model.": [
     "Wählen Sie EM2214, um beide Impulsklemmenpaare des Eintarifzählers zu prüfen.",
     "Yan EM2214 láti ṣàyẹ̀wò tọkọtaya ìlù méjèèjì lórí àwòṣe alátaríìfù kan.",

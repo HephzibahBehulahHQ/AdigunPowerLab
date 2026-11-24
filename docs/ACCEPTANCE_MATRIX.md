@@ -446,6 +446,8 @@ The Schneider iEM2435 and iEM2455 records preserve their distinct bus interfaces
 
 The EM2214 record preserves eight terminals, both pulse pairs and its single-tariff configuration in CSV and JSON. Chromium verified the meter rating and exact terminal inventory.
 
+The 71 CLASSIC 115 CY articles preserve article-specific dimensions, voltage ratings, shield braid and the G/X protective-earth distinction in CSV and JSON. Chromium verified the diameter and separate terminal pairs for article 1136003.
+
 Individual file generation emits per-record CSV and JSON for all runtime entries, with a machine-readable ID index.
 
 Eight iCT contactors include contact topology, coil terminals, conditional AC-7a/AC-7b ratings and CSV/JSON.
