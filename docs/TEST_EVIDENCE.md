@@ -864,4 +864,5 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - Chromium on the production build found Philips 911401805880 and verified the 6.5 W and 650 lm displays.
 - Candidate `47ab076` passed all 489 local Vitest tests across 37 files with two workers. Its catalogue manifest contains 1,620 records.
 - Schneider iEM2010: TypeScript, the production build, nine translation tests and a catalogue Chromium test passed. Chromium verified the S0 display at 5–35 V DC, 1–20 mA and 120 ms for A9MEM2010C.
+- Schneider iEM2050/iEM2055: all 39 component-bank tests passed. The regression verifies all eight physical terminal numbers and interfaces, the wiring source page, and CSV/JSON parity for both articles.
 - Candidate d6e148e: generated individual exports for all 1,200 records and compared every CSV and JSON to its source record. All 2,400 files and the 1,200-ID index matched.

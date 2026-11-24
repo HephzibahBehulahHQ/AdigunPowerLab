@@ -9,6 +9,7 @@ import {
   iidRccbs,
   iswSwitches,
   iemMeters,
+  iem205xMeters,
   ictContactors,
   rm17Relays,
   linergyDsBlocks,
@@ -979,6 +980,45 @@ test("iEM records distinguish pulse outputs and the China-only orders", () => {
   );
   expect(csv.replaceAll("\r\n", "\n")).toBe(
     componentBankCsv(iemMeters).replaceAll("\r\n", "\n"),
+  );
+});
+
+test("iEM205x exports distinguish the mains, S0 and RS-485 terminals", () => {
+  expect(iem205xMeters.map(({ orderCode }) => orderCode)).toEqual([
+    "A9MEM2050",
+    "A9MEM2055",
+  ]);
+  for (const meter of iem205xMeters) {
+    expect(meter.ratings).toMatchObject({
+      maxCurrentA: 45,
+      voltageV: 230,
+      accuracyClass: 1,
+    });
+    expect(
+      meter.terminals.map(({ id, interface: kind }) => [id, kind]),
+    ).toEqual([
+      ["1", "ac-line"],
+      ["3", "ac-line"],
+      ["4", "ac-neutral"],
+      ["6", "ac-neutral"],
+      ["20", "pulse-output"],
+      ["21", "pulse-output"],
+      ["23", "rs485"],
+      ["24", "rs485"],
+    ]);
+    expect(meter.source.supplemental.map(({ page }) => page)).toEqual([10]);
+  }
+  const file = (extension: string) =>
+    readFileSync(
+      new URL(`../docs/component-bank-iem205x.${extension}`, import.meta.url),
+      "utf8",
+    );
+  expect(JSON.parse(file("json"))).toEqual({
+    schemaVersion: 1,
+    entries: iem205xMeters,
+  });
+  expect(file("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(iem205xMeters).replaceAll("\r\n", "\n"),
   );
 });
 
