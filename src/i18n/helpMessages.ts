@@ -2102,6 +2102,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fún àwọn bulọọki PT-PE ti Phoenix Contact, àtòjọ ìsopọ̀ fi àwọn ibi tí a ti di okun àti ẹsẹ̀ DIN rail hàn nínú ẹgbẹ́ PE kan náà.",
       "For Phoenix Contact PT-PE blocks, di terminal list show di wire clamps and di DIN-rail foot for di same protective-earth group.",
     ],
+  "Select Linergy LGY410028 and use the terminal list to count seven connections in each of its four pole groups.":
+    [
+      "Wählen Sie Linergy LGY410028 und zählen Sie in der Anschlussliste sieben Anschlüsse in jeder der vier Polgruppen.",
+      "Yan Linergy LGY410028 kí o sì ka ojú ìsopọ̀ méje nínú ọkọọkan àwọn ẹgbẹ́ póòlù mẹ́rin.",
+      "Select Linergy LGY410028 and use di terminal list to count seven connections for each of di four pole groups.",
+    ],
   "Compare CLASSIC 130 H articles 1123114 and 1123115 in the terminal list to see how the protective-earth core changes the seven-core cable.":
     [
       "Vergleichen Sie die Anschlusslisten der CLASSIC 130 H Artikel 1123114 und 1123115, um den Unterschied beim Schutzleiter des siebenadrigen Kabels zu sehen.",
