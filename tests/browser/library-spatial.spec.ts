@@ -434,12 +434,18 @@ test("sourced equipment keeps its edited quantity in the saved project BOM", asy
   await expect(preview).toContainText("Catalogue equipment wiring schedule");
   await expect(preview).toContainText("Roof array [1] · positive");
   await expect(preview).toContainText("Roof array [2] · negative");
+  await expect(preview).toContainText("· p. 2 ·");
   const download = page.waitForEvent("download");
   await page.getByRole("button", { name: "Export frozen report data" }).click();
   const exported = JSON.parse(
     await readFile(await (await download).path(), "utf8"),
   );
   expect(exported.project.equipmentTerminalConnections).toHaveLength(1);
+  expect(exported.project.catalogueEquipment[0]).toMatchObject({
+    sourcePage: 2,
+    model: "CS6.2-48TM-455H",
+    quantity: 24,
+  });
   await page.goto("/#/diagram");
   await page.getByRole("button", { name: "equipment: Roof array" }).click();
   await inspector.getByRole("button", { name: "Disconnect" }).click();

@@ -1269,6 +1269,14 @@ export function validateProjectImport(input: unknown): {
           row.sourceUrl.length > 2048 ||
           !URL.canParse(row.sourceUrl) ||
           new URL(row.sourceUrl).protocol !== "https:" ||
+          (row.sourcePage !== undefined &&
+            (typeof row.sourcePage !== "number" ||
+              !Number.isSafeInteger(row.sourcePage) ||
+              row.sourcePage < 1)) ||
+          (row.orderCode !== undefined &&
+            (typeof row.orderCode !== "string" ||
+              !row.orderCode.trim() ||
+              row.orderCode.length > 256)) ||
           typeof row.quantity !== "number" ||
           !Number.isInteger(row.quantity) ||
           row.quantity < 1 ||
