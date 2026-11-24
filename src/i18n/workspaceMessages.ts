@@ -1,5 +1,16 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "China only": ["Nur China", "China nìkan", "China only"],
+  "Metering and power quality": [
+    "Messtechnik und Netzqualität",
+    "Ìwọ̀n àti dídára agbára",
+    "Metering and power quality",
+  ],
+  "Verified metering calculation mapping": [
+    "Geprüfte Zuordnung zur Messberechnung",
+    "Ìbámu ìṣírò ìwọ̀n tí a fìdí múlẹ̀",
+    "Verified metering calculation mapping",
+  ],
   "Source, terminals and model readiness": [
     "Quelle, Anschlüsse und Modellstatus",
     "Orísun, ebute àti ìmúrasílẹ̀ model",

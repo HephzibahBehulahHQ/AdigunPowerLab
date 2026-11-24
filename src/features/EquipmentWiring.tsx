@@ -107,11 +107,13 @@ export function EquipmentWiring({
           </Field>
           <Field label={t("From terminal")}>
             <select name="fromTerminal">
-              {catalogueRecord(instance)?.terminals.map((terminal) => (
-                <option key={terminal.id} value={terminal.id}>
-                  {terminal.group}
-                </option>
-              ))}
+              {model?.terminals
+                .filter((terminal) => terminal.interface !== "pulse-output")
+                .map((terminal) => (
+                  <option key={terminal.id} value={terminal.id}>
+                    {terminal.group}
+                  </option>
+                ))}
             </select>
           </Field>
           <Field label={t("Target equipment")}>
@@ -142,11 +144,15 @@ export function EquipmentWiring({
           </Field>
           <Field label={t("To terminal")}>
             <select key={target.id} name="toTerminal">
-              {catalogueRecord(target)?.terminals.map((terminal) => (
-                <option key={terminal.id} value={terminal.id}>
-                  {terminal.group}
-                </option>
-              ))}
+              {catalogueRecord(target)
+                ?.terminals.filter(
+                  (terminal) => terminal.interface !== "pulse-output",
+                )
+                .map((terminal) => (
+                  <option key={terminal.id} value={terminal.id}>
+                    {terminal.group}
+                  </option>
+                ))}
             </select>
           </Field>
         </div>

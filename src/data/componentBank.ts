@@ -355,11 +355,83 @@ export const iswSwitches = iswTable.map(
   },
 );
 
+export const iemMeters = [
+  "A9MEM2000",
+  "A9MEM2000C",
+  "A9MEM2010",
+  "A9MEM2010C",
+].map((model) => {
+  const pulseOutput = model.startsWith("A9MEM2010");
+  return {
+    id: `schneider-electric:${model.toLowerCase()}`,
+    manufacturer: "Schneider Electric",
+    model,
+    orderCode: model,
+    category: "metering-and-power-quality" as const,
+    function: "direct-energy-meter" as const,
+    connection: "ac" as const,
+    terminals: [
+      {
+        id: "pole-1-top",
+        group: "L",
+        interface: "ac-line",
+        connector: "screw terminal",
+      },
+      {
+        id: "pole-1-bottom",
+        group: "L′",
+        interface: "ac-line",
+        connector: "screw terminal",
+      },
+      {
+        id: "neutral-top",
+        group: "N",
+        interface: "ac-neutral",
+        connector: "screw terminal",
+      },
+      {
+        id: "neutral-bottom",
+        group: "N′",
+        interface: "ac-neutral",
+        connector: "screw terminal",
+      },
+      ...(pulseOutput
+        ? ["+", "−"].map((sign) => ({
+            id: sign === "+" ? "pulse-positive" : "pulse-negative",
+            group: `S0${sign}`,
+            interface: "pulse-output",
+            connector: "screw terminal",
+          }))
+        : []),
+    ],
+    ratings: {
+      maxCurrentA: 40,
+      voltageV: 230,
+      voltageTolerancePercent: 20,
+      accuracyClass: 1,
+      pulsesPerKWh: pulseOutput ? 100 : null,
+    },
+    conditions: {
+      frequencyHz: { min: 45, max: 65 },
+      marketRestriction: model.endsWith("C") ? "China only" : null,
+    },
+    modelMapping: null,
+    source: {
+      url: "https://download.se.com/files?p_Doc_Ref=S1B45381&p_File_Name=S1B45381-03.pdf&p_enDocType=Instruction+sheet",
+      revision: "S1B45381-03/1, September 2022",
+      page: 2,
+    },
+    missingFields: ["verified-metering-model-mapping"],
+    readiness: "inventory-and-diagram-only",
+  };
+});
+
 export const componentBank = [
   ...pvModules,
   ...ic60nBreakers,
   ...iidRccbs,
   ...iswSwitches,
+  ...iemMeters,
 ];
 
 export function componentBankCsv(

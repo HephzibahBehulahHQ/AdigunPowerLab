@@ -757,3 +757,5 @@ Readiness inspection passed TypeScript, 28 focused tests and Chromium verificati
 - Readiness promotion: GitHub browser validation exposed a positional details selector after the new source panel. The version-history test now selects its own summary. Both affected Chromium scenarios passed locally.
 
 PV topology passed TypeScript, 29 focused tests and Chromium rejection of an indirect short after saving and reopening the project.
+
+The iEM catalogue tranche passed TypeScript, ten focused tests and Chromium verification of the 100 imp/kWh and China-only entries.

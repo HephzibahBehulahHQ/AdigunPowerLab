@@ -1,0 +1,265 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "schneider-electric:a9mem2000",
+      "manufacturer": "Schneider Electric",
+      "model": "A9MEM2000",
+      "orderCode": "A9MEM2000",
+      "category": "metering-and-power-quality",
+      "function": "direct-energy-meter",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "L",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "L′",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N′",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "maxCurrentA": 40,
+        "voltageV": 230,
+        "voltageTolerancePercent": 20,
+        "accuracyClass": 1,
+        "pulsesPerKWh": null
+      },
+      "conditions": {
+        "frequencyHz": {
+          "min": 45,
+          "max": 65
+        },
+        "marketRestriction": null
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=S1B45381&p_File_Name=S1B45381-03.pdf&p_enDocType=Instruction+sheet",
+        "revision": "S1B45381-03/1, September 2022",
+        "page": 2
+      },
+      "missingFields": [
+        "verified-metering-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9mem2000c",
+      "manufacturer": "Schneider Electric",
+      "model": "A9MEM2000C",
+      "orderCode": "A9MEM2000C",
+      "category": "metering-and-power-quality",
+      "function": "direct-energy-meter",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "L",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "L′",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N′",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "maxCurrentA": 40,
+        "voltageV": 230,
+        "voltageTolerancePercent": 20,
+        "accuracyClass": 1,
+        "pulsesPerKWh": null
+      },
+      "conditions": {
+        "frequencyHz": {
+          "min": 45,
+          "max": 65
+        },
+        "marketRestriction": "China only"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=S1B45381&p_File_Name=S1B45381-03.pdf&p_enDocType=Instruction+sheet",
+        "revision": "S1B45381-03/1, September 2022",
+        "page": 2
+      },
+      "missingFields": [
+        "verified-metering-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9mem2010",
+      "manufacturer": "Schneider Electric",
+      "model": "A9MEM2010",
+      "orderCode": "A9MEM2010",
+      "category": "metering-and-power-quality",
+      "function": "direct-energy-meter",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "L",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "L′",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N′",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pulse-positive",
+          "group": "S0+",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pulse-negative",
+          "group": "S0−",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "maxCurrentA": 40,
+        "voltageV": 230,
+        "voltageTolerancePercent": 20,
+        "accuracyClass": 1,
+        "pulsesPerKWh": 100
+      },
+      "conditions": {
+        "frequencyHz": {
+          "min": 45,
+          "max": 65
+        },
+        "marketRestriction": null
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=S1B45381&p_File_Name=S1B45381-03.pdf&p_enDocType=Instruction+sheet",
+        "revision": "S1B45381-03/1, September 2022",
+        "page": 2
+      },
+      "missingFields": [
+        "verified-metering-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9mem2010c",
+      "manufacturer": "Schneider Electric",
+      "model": "A9MEM2010C",
+      "orderCode": "A9MEM2010C",
+      "category": "metering-and-power-quality",
+      "function": "direct-energy-meter",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "pole-1-top",
+          "group": "L",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pole-1-bottom",
+          "group": "L′",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-top",
+          "group": "N",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "neutral-bottom",
+          "group": "N′",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pulse-positive",
+          "group": "S0+",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "pulse-negative",
+          "group": "S0−",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "maxCurrentA": 40,
+        "voltageV": 230,
+        "voltageTolerancePercent": 20,
+        "accuracyClass": 1,
+        "pulsesPerKWh": 100
+      },
+      "conditions": {
+        "frequencyHz": {
+          "min": 45,
+          "max": 65
+        },
+        "marketRestriction": "China only"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=S1B45381&p_File_Name=S1B45381-03.pdf&p_enDocType=Instruction+sheet",
+        "revision": "S1B45381-03/1, September 2022",
+        "page": 2
+      },
+      "missingFields": [
+        "verified-metering-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}
