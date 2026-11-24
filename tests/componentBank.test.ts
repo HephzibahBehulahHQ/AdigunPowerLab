@@ -32,6 +32,7 @@ import {
   olflexClassic110HCables,
   olflexClassic110ChCables,
   olflexClassic115CyCables,
+  olflexClassic130HCables,
   philipsDn145bDownlights,
   philipsDn145bPsuDownlights,
   chromaloxStripHeaters,
@@ -506,6 +507,43 @@ test("LAPP 115 CY exports preserve the braid and protective-earth variants", () 
   });
   expect(file("csv").replaceAll("\r\n", "\n")).toBe(
     componentBankCsv(olflexClassic115CyCables).replaceAll("\r\n", "\n"),
+  );
+});
+
+test("LAPP 130 H exports retain verified diameters and PE variants", () => {
+  expect(olflexClassic130HCables).toHaveLength(85);
+  for (const [orderCode, crossSectionMm2, hasPe] of [
+    ["1123114", 1.5, true],
+    ["1123115", 1.5, false],
+    ["1123142", 2.5, true],
+  ]) {
+    expect(
+      olflexClassic130HCables.find((cable) => cable.orderCode === orderCode),
+    ).toMatchObject({
+      ratings: { outerDiameterMm: 9, crossSectionMm2, hasPe },
+      source: { page: 4 },
+    });
+  }
+  for (const cable of olflexClassic130HCables) {
+    expect(cable.terminals).toHaveLength(2 * cable.ratings.coreCount);
+    expect(
+      cable.terminals.filter(({ group }) => group === "PE").map(({ id }) => id),
+    ).toEqual(cable.ratings.hasPe ? ["a-pe", "b-pe"] : []);
+  }
+  const file = (extension: string) =>
+    readFileSync(
+      new URL(
+        `../docs/component-bank-lapp-olflex-130-h.${extension}`,
+        import.meta.url,
+      ),
+      "utf8",
+    );
+  expect(JSON.parse(file("json"))).toEqual({
+    schemaVersion: 1,
+    entries: olflexClassic130HCables,
+  });
+  expect(file("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(olflexClassic130HCables).replaceAll("\r\n", "\n"),
   );
 });
 
