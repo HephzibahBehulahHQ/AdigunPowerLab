@@ -550,3 +550,4 @@ iC60N 2b49aee published in Pages run 45285905960 and the public root returned HT
 - Schneider iEM2435 and iEM2455 add two 230 V, 100 A meters with model-specific M-Bus or RS-485 terminals, separate forward/reverse pulse pairs and linked wiring diagrams. The stacked catalogue has 1,624 records.
 - Schneider EM2214 adds the single-tariff pulse-only variant with eight documented terminals. The stacked catalogue has 1,625 records.
 - LAPP ÖLFLEX CLASSIC 115 CY adds all 71 articles from pages 3–5 of the manufacturer table, bringing the stacked catalogue to 1,696 records. The screened cables retain numbered core ends and a separate braid group.
+- LAPP ÖLFLEX CLASSIC 130 H adds all 85 published 300/500 V articles, bringing the stacked catalogue to 1,781 records. Three merged PDF text rows were resolved against the manufacturer table.
