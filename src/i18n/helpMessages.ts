@@ -2592,4 +2592,10 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Di footage show dem moving new turbine runner enter Fort Randall powerhouse during repair. E show equipment handling, no be generator wey dey run.",
     ],
   "Play video": ["Video abspielen", "Fídíò ṣiṣẹ́", "Play video"],
+  "Find Victron BAT412550104 in the catalogue, inspect its two copper terminals, and export the record to check its 60 Ah C20 rating at 25 °C.":
+    [
+      "Suchen Sie Victron BAT412550104 im Katalog, prüfen Sie die beiden Kupferanschlüsse und exportieren Sie den Datensatz, um die C20-Kapazität von 60 Ah bei 25 °C zu überprüfen.",
+      "Wá Victron BAT412550104 nínú àkójọ, ṣàyẹ̀wò ojú ìsopọ̀ bàbà méjì rẹ̀, kí o sì ṣe àgbéjáde àkọsílẹ̀ láti ṣàyẹ̀wò ìwọ̀n C20 60 Ah ní 25 °C.",
+      "Find Victron BAT412550104 for di catalogue, check di two copper terminals, and export di record to check di 60 Ah C20 rating for 25 °C.",
+    ],
 };

@@ -521,6 +521,7 @@ VE.Direct 120 V records show their own temperature-conditioned power ratings and
 - Compare CLASSIC 130 H **1123114** and **1123115**. Both have seven 1.5 mm² cores and a 9 mm outer diameter. Open the two terminal lists to find the PE pair on 1123114 and the seventh numbered core on 1123115.
 - In **Busbars and distribution systems**, select **LGY410028**. Inspect the four pole groups and count two 7.5 mm and five 5.5 mm screw connections per pole. The record flags phase and neutral assignments for verification.
 - Select **LGYN12515** in the same category and export its JSON. Find the 15 screw connections under the single `neutral` group. The record shows 125 A and links to the manufacturer's terminal table.
+- In **Batteries and storage systems**, select **BAT412550104**. Examine the two copper terminals and download the record. Use the rating and test conditions to confirm 60 Ah at C20 and 25 °C.
 - Select **Generators** in the manufacturer catalogue to compare STAMFORD alternator continuous kVA by published temperature class. The source panel links the winding reference.
 - Select **Enclosures and installation hardware** to compare Schneider S3HD wall enclosures by external dimensions, ingress protection and impact protection.
 - Select **Lighting equipment** to inspect the Philips DN145B wattage, luminous flux, colour temperature and documented driver terminals.

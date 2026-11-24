@@ -468,6 +468,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "Include the model-derived bill of materials to report the saved catalogue equipment and its terminal links.",
       "For supported PV series strings, the frozen bill-of-materials report also lists the module order and standard-test-condition values.",
       "Supported battery series chains appear with their nominal voltage, C20 capacity and nameplate energy in the frozen bill-of-materials report.",
+      "Find Victron BAT412550104 in the catalogue, inspect its two copper terminals, and export the record to check its 60 Ah C20 rating at 25 °C.",
     ],
     example:
       "If you edit a load after a simulation, rerun that analysis before including it in a new report. An older run is not evidence for changed inputs.",
