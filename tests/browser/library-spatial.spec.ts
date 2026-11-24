@@ -414,6 +414,14 @@ test("sourced equipment keeps its edited quantity in the saved project BOM", asy
   await expect(
     inspector.getByRole("button", { name: "Disconnect" }),
   ).toBeVisible();
+  await inspector.getByLabel("From terminal").selectOption("negative");
+  await inspector.getByLabel("To unit").fill("2");
+  await inspector.getByLabel("To terminal").selectOption("negative");
+  await inspector.getByRole("button", { name: "Connect", exact: true }).click();
+  await expect(inspector.getByRole("alert")).toBeVisible();
+  await expect(
+    inspector.getByRole("button", { name: "Disconnect" }),
+  ).toHaveCount(1);
   await inspector.getByRole("button", { name: "Disconnect" }).click();
   await expect(
     inspector.getByRole("button", { name: "Disconnect" }),
