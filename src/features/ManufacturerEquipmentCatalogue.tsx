@@ -85,6 +85,7 @@ const categoryLabels = {
   "inverters-and-conversion-equipment": "Inverters and conversion equipment",
   "ev-charging-equipment": "EV charging equipment",
   "drives-and-starting-equipment": "Drives and starting equipment",
+  "cables-and-conductors": "Cables and conductors",
   "ups-and-backup-systems": "UPS and backup systems",
   "batteries-and-storage-systems": "Batteries and storage systems",
   transformers: "Transformers",
@@ -102,6 +103,8 @@ const missingFieldLabels: Record<string, string> = {
   "verified-evse-model-mapping": "Verified EV charger calculation mapping",
   "verified-drive-model-mapping": "Verified drive calculation mapping",
   "drive-auxiliary-terminals": "Drive auxiliary terminals",
+  "cable-ampacity-and-impedance": "Cable ampacity and impedance",
+  "verified-cable-model-mapping": "Verified cable calculation mapping",
   "verified-ups-model-mapping": "Verified UPS calculation mapping",
   "battery-and-dry-contact-pinouts": "Battery and dry-contact pinouts",
   "verified-storage-model-mapping": "Verified storage calculation mapping",
@@ -141,10 +144,12 @@ export function ManufacturerEquipmentCatalogue({
   const [selectedId, setSelectedId] = useState("");
   const terms = query.trim().toLowerCase().split(/\s+/);
   const matches = componentBank.filter(
-    ({ manufacturer, model, category: key }) =>
+    ({ manufacturer, model, orderCode, category: key }) =>
       (!category || category === key) &&
       terms.every((term) =>
-        `${manufacturer} ${model}`.toLowerCase().includes(term),
+        `${manufacturer} ${model} ${orderCode ?? ""}`
+          .toLowerCase()
+          .includes(term),
       ),
   );
   const start = page * pageSize;
@@ -426,6 +431,30 @@ export function ManufacturerEquipmentCatalogue({
                 <dd>
                   {record.ratings.inputNominalV} V DC →{" "}
                   {record.ratings.outputNominalV} V AC
+                </dd>
+              </div>
+            </dl>
+          ) : record.function === "multicore-control-cable" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>{t("Cable cores")}</dt>
+                <dd>
+                  {record.ratings.coreCount}
+                  {record.ratings.hasPe ? " · PE" : ""}
+                </dd>
+              </div>
+              <div>
+                <dt>A</dt>
+                <dd>{format.format(record.ratings.crossSectionMm2)} mm²</dd>
+              </div>
+              <div>
+                <dt>Ø</dt>
+                <dd>{format.format(record.ratings.outerDiameterIn)} in</dd>
+              </div>
+              <div>
+                <dt>U₀/U</dt>
+                <dd>
+                  {record.ratings.nominalU0V}/{record.ratings.nominalUV} V
                 </dd>
               </div>
             </dl>

@@ -1,5 +1,21 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "Cables and conductors": [
+    "Kabel und Leiter",
+    "Kéébù àti adarí iná",
+    "Cables and conductors",
+  ],
+  "Cable cores": ["Kabeladern", "Àwọn okùn inú kéébù", "Cable cores"],
+  "Cable ampacity and impedance": [
+    "Strombelastbarkeit und Impedanz des Kabels",
+    "Agbára ìṣàn àti ìdènà iná inú kéébù",
+    "Cable ampacity and impedance",
+  ],
+  "Verified cable calculation mapping": [
+    "Geprüfte Zuordnung zur Kabelberechnung",
+    "Ìbámu ìṣírò kéébù tí a fìdí múlẹ̀",
+    "Verified cable calculation mapping",
+  ],
   "Supplemental manufacturer document": [
     "Ergänzendes Herstellerdokument",
     "Ìwé àfikún láti ọ̀dọ̀ olùṣe ẹ̀rọ",

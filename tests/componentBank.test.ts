@@ -21,6 +21,7 @@ import {
   victronVeDirect120,
   evlinkHomeStations,
   altivar320CompactDrives,
+  olflexClassic110Cables,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -33,6 +34,42 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("LAPP cable records pair both ends of every core and preserve PE variants", () => {
+  expect(olflexClassic110Cables).toHaveLength(37);
+  const grounded = olflexClassic110Cables.find(
+    ({ orderCode }) => orderCode === "1119115",
+  );
+  const ungrounded = olflexClassic110Cables.find(
+    ({ orderCode }) => orderCode === "1119117",
+  );
+  expect(
+    grounded?.terminals
+      .filter(({ group }) => group === "PE")
+      .map(({ id }) => id),
+  ).toEqual(["a-pe", "b-pe"]);
+  expect(ungrounded?.terminals.some(({ group }) => group === "PE")).toBe(false);
+  for (const cable of olflexClassic110Cables) {
+    expect(cable.ratings).toMatchObject({
+      nominalU0V: 300,
+      nominalUV: 500,
+      coreToCoreTestVAc: 4000,
+    });
+    expect(cable.conditions.electricalReferenceTemperatureC).toBe(20);
+    expect(cable.terminals).toHaveLength(cable.ratings.coreCount * 2);
+    expect(new Set(cable.terminals.map(({ group }) => group)).size).toBe(
+      cable.ratings.coreCount,
+    );
+  }
+  const json = readFileSync(
+    new URL("../docs/component-bank-lapp-olflex-110.json", import.meta.url),
+    "utf8",
+  );
+  expect(JSON.parse(json)).toEqual({
+    schemaVersion: 1,
+    entries: olflexClassic110Cables,
+  });
+});
 
 test("Altivar compact records distinguish supply phases and continuous motor output", () => {
   expect(altivar320CompactDrives).toHaveLength(20);

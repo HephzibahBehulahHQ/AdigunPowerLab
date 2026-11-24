@@ -1,0 +1,6754 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "lapp:1119003",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 3G0,5",
+      "orderCode": "1119003",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 3,
+        "crossSectionMm2": 0.5,
+        "outerDiameterIn": 0.201,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119004",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 4G0,5",
+      "orderCode": "1119004",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 4,
+        "crossSectionMm2": 0.5,
+        "outerDiameterIn": 0.224,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119005",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 5G0,5",
+      "orderCode": "1119005",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 5,
+        "crossSectionMm2": 0.5,
+        "outerDiameterIn": 0.244,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119007",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 7G0,5",
+      "orderCode": "1119007",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 7,
+        "crossSectionMm2": 0.5,
+        "outerDiameterIn": 0.264,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119010",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 10G0,5",
+      "orderCode": "1119010",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 10,
+        "crossSectionMm2": 0.5,
+        "outerDiameterIn": 0.339,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119012",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 12G0,5",
+      "orderCode": "1119012",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 12,
+        "crossSectionMm2": 0.5,
+        "outerDiameterIn": 0.35,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119014",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 14G0,5",
+      "orderCode": "1119014",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 14,
+        "crossSectionMm2": 0.5,
+        "outerDiameterIn": 0.374,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119018",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 18G0,5",
+      "orderCode": "1119018",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 18,
+        "crossSectionMm2": 0.5,
+        "outerDiameterIn": 0.413,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119021",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 21G0,5",
+      "orderCode": "1119021",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-18",
+          "group": "18",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-18",
+          "group": "18",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-19",
+          "group": "19",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-19",
+          "group": "19",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-20",
+          "group": "20",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-20",
+          "group": "20",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 21,
+        "crossSectionMm2": 0.5,
+        "outerDiameterIn": 0.461,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119025",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 25G0,5",
+      "orderCode": "1119025",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-18",
+          "group": "18",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-18",
+          "group": "18",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-19",
+          "group": "19",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-19",
+          "group": "19",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-20",
+          "group": "20",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-20",
+          "group": "20",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-21",
+          "group": "21",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-21",
+          "group": "21",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-22",
+          "group": "22",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-22",
+          "group": "22",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-23",
+          "group": "23",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-23",
+          "group": "23",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-24",
+          "group": "24",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-24",
+          "group": "24",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 25,
+        "crossSectionMm2": 0.5,
+        "outerDiameterIn": 0.488,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119103",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 3G0,75",
+      "orderCode": "1119103",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 3,
+        "crossSectionMm2": 0.75,
+        "outerDiameterIn": 0.224,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119104",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 4G0,75",
+      "orderCode": "1119104",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 4,
+        "crossSectionMm2": 0.75,
+        "outerDiameterIn": 0.244,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119105",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 5G0,75",
+      "orderCode": "1119105",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 5,
+        "crossSectionMm2": 0.75,
+        "outerDiameterIn": 0.264,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119107",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 7G0,75",
+      "orderCode": "1119107",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 7,
+        "crossSectionMm2": 0.75,
+        "outerDiameterIn": 0.287,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119109",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 9G0,75",
+      "orderCode": "1119109",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 9,
+        "crossSectionMm2": 0.75,
+        "outerDiameterIn": 0.37,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119110",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 10G0,75",
+      "orderCode": "1119110",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 10,
+        "crossSectionMm2": 0.75,
+        "outerDiameterIn": 0.378,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119112",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 12G0,75",
+      "orderCode": "1119112",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 12,
+        "crossSectionMm2": 0.75,
+        "outerDiameterIn": 0.39,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119115",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 15G0,75",
+      "orderCode": "1119115",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 15,
+        "crossSectionMm2": 0.75,
+        "outerDiameterIn": 0.429,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119116",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 16G0,75",
+      "orderCode": "1119116",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 16,
+        "crossSectionMm2": 0.75,
+        "outerDiameterIn": 0.437,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119117",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 15X0,75",
+      "orderCode": "1119117",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 15,
+        "crossSectionMm2": 0.75,
+        "outerDiameterIn": 0.429,
+        "hasPe": false,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119118",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 18G0,75",
+      "orderCode": "1119118",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 18,
+        "crossSectionMm2": 0.75,
+        "outerDiameterIn": 0.461,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119121",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 21G0,75",
+      "orderCode": "1119121",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-18",
+          "group": "18",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-18",
+          "group": "18",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-19",
+          "group": "19",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-19",
+          "group": "19",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-20",
+          "group": "20",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-20",
+          "group": "20",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 21,
+        "crossSectionMm2": 0.75,
+        "outerDiameterIn": 0.512,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 6,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119125",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 25G0,75",
+      "orderCode": "1119125",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-18",
+          "group": "18",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-18",
+          "group": "18",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-19",
+          "group": "19",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-19",
+          "group": "19",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-20",
+          "group": "20",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-20",
+          "group": "20",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-21",
+          "group": "21",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-21",
+          "group": "21",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-22",
+          "group": "22",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-22",
+          "group": "22",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-23",
+          "group": "23",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-23",
+          "group": "23",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-24",
+          "group": "24",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-24",
+          "group": "24",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 25,
+        "crossSectionMm2": 0.75,
+        "outerDiameterIn": 0.543,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119203",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 3G1",
+      "orderCode": "1119203",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 3,
+        "crossSectionMm2": 1,
+        "outerDiameterIn": 0.236,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119204",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 4G1",
+      "orderCode": "1119204",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 4,
+        "crossSectionMm2": 1,
+        "outerDiameterIn": 0.256,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119205",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 5G1",
+      "orderCode": "1119205",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 5,
+        "crossSectionMm2": 1,
+        "outerDiameterIn": 0.28,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119206",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 6G1",
+      "orderCode": "1119206",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 6,
+        "crossSectionMm2": 1,
+        "outerDiameterIn": 0.315,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119207",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 7G1",
+      "orderCode": "1119207",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 7,
+        "crossSectionMm2": 1,
+        "outerDiameterIn": 0.315,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119208",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 8G1",
+      "orderCode": "1119208",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 8,
+        "crossSectionMm2": 1,
+        "outerDiameterIn": 0.374,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119209",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 9G1",
+      "orderCode": "1119209",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 9,
+        "crossSectionMm2": 1,
+        "outerDiameterIn": 0.394,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119210",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 10G1",
+      "orderCode": "1119210",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 10,
+        "crossSectionMm2": 1,
+        "outerDiameterIn": 0.402,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119212",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 12G1",
+      "orderCode": "1119212",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 12,
+        "crossSectionMm2": 1,
+        "outerDiameterIn": 0.413,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119214",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 14G1",
+      "orderCode": "1119214",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 14,
+        "crossSectionMm2": 1,
+        "outerDiameterIn": 0.441,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119216",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 16G1",
+      "orderCode": "1119216",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 16,
+        "crossSectionMm2": 1,
+        "outerDiameterIn": 0.465,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119218",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 18G1",
+      "orderCode": "1119218",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 18,
+        "crossSectionMm2": 1,
+        "outerDiameterIn": 0.5,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119220",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 20G1",
+      "orderCode": "1119220",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-18",
+          "group": "18",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-18",
+          "group": "18",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-19",
+          "group": "19",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-19",
+          "group": "19",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 20,
+        "crossSectionMm2": 1,
+        "outerDiameterIn": 0.528,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "lapp:1119225",
+      "manufacturer": "LAPP",
+      "model": "ÖLFLEX CLASSIC 110 25G1",
+      "orderCode": "1119225",
+      "category": "cables-and-conductors",
+      "function": "multicore-control-cable",
+      "connection": "passive",
+      "terminals": [
+        {
+          "id": "a-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-1",
+          "group": "1",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-2",
+          "group": "2",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-3",
+          "group": "3",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-4",
+          "group": "4",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-5",
+          "group": "5",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-6",
+          "group": "6",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-7",
+          "group": "7",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-8",
+          "group": "8",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-9",
+          "group": "9",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-10",
+          "group": "10",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-11",
+          "group": "11",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-12",
+          "group": "12",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-13",
+          "group": "13",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-14",
+          "group": "14",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-15",
+          "group": "15",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-16",
+          "group": "16",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-17",
+          "group": "17",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-18",
+          "group": "18",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-18",
+          "group": "18",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-19",
+          "group": "19",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-19",
+          "group": "19",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-20",
+          "group": "20",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-20",
+          "group": "20",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-21",
+          "group": "21",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-21",
+          "group": "21",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-22",
+          "group": "22",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-22",
+          "group": "22",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-23",
+          "group": "23",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-23",
+          "group": "23",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-24",
+          "group": "24",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-24",
+          "group": "24",
+          "interface": "cable-numbered-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "a-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        },
+        {
+          "id": "b-pe",
+          "group": "PE",
+          "interface": "cable-pe-core",
+          "connector": "conductor end"
+        }
+      ],
+      "ratings": {
+        "coreCount": 25,
+        "crossSectionMm2": 1,
+        "outerDiameterIn": 0.579,
+        "hasPe": true,
+        "nominalU0V": 300,
+        "nominalUV": 500,
+        "coreToCoreTestVAc": 4000
+      },
+      "conditions": {
+        "electricalReferenceTemperatureC": 20
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api-shop.lapp.com/occ/v2/us/products/export/specification-sheet-file/1119110?curr=USD&lang=en_US",
+        "revision": "LAPP article information (2026-11-09)",
+        "page": 7,
+        "supplemental": [
+          {
+            "url": "https://dam-media.lapp.com/8/890/89092/e1ef96b290e041bbaf3de1e47b051875.pdf",
+            "revision": "DB1119752EN v12 (2023-03-03)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "cable-ampacity-and-impedance",
+        "verified-cable-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}
