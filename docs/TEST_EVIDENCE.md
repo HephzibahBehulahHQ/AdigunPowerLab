@@ -826,3 +826,5 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - Chromium verified Philips lighting category and exact order code, 1000 lm at 3000 K, and JSON export of all four documented terminals with fact-sheet provenance.
 - All three additional Philips PDFs were read directly. Export generation, TypeScript and 27 component-bank tests passed.
 - Philips regression: all four order codes preserve variant-specific ratings and fact-sheet dates, with exact JSON/CSV parity. All 28 component-bank tests passed.
+- WEG candidate: export generation, TypeScript and 28 component-bank tests passed. Browser and release verification pending.
+- Chromium passed the WEG category, exact order-code lookup, 230/400 V operating-point display and JSON export of all four points with the terminal-diagram gap.

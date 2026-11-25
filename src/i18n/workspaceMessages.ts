@@ -1,5 +1,20 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "Motors and motor-driven equipment": [
+    "Motoren und motorbetriebene Geräte",
+    "Mọ́tò àti ohun èlò tí mọ́tò ń darí",
+    "Motors and motor-driven equipment",
+  ],
+  "Documented motor terminal diagram": [
+    "Dokumentierter Motorklemmenplan",
+    "Àwòrán ebute mọ́tò tí a kọ sílẹ̀",
+    "Documented motor terminal diagram",
+  ],
+  "Verified motor calculation mapping": [
+    "Geprüfte Zuordnung zur Motorberechnung",
+    "Ìbámu ìṣírò mọ́tò tí a fìdí múlẹ̀",
+    "Verified motor calculation mapping",
+  ],
   "Lighting equipment": [
     "Beleuchtungstechnik",
     "Ohun èlò ìmọ́lẹ̀",

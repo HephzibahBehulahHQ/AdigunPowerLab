@@ -439,6 +439,25 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     revision: "Philips fact sheet (2026-10-30)",
   });
   await catalogue.getByLabel("Equipment category").selectOption("");
+  await catalogue
+    .getByLabel("Equipment category")
+    .selectOption("motors-and-motor-driven-equipment");
+  await search.fill("15833976");
+  await expect(model).toHaveValue("weg:15833976");
+  await expect(catalogue.getByText("230/400 V · 50 Hz")).toBeVisible();
+  await expect(catalogue.getByText("2.92/1.68 A · 1,435 rpm")).toBeVisible();
+  const motorDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const motor = JSON.parse(
+    await readFile(await (await motorDownload).path(), "utf8"),
+  );
+  expect(motor.entry.ratings.operatingPoints).toHaveLength(4);
+  expect(motor.entry.ratings.operatingPoints[1]).toMatchObject({
+    powerFactor: 0.78,
+    efficiencyPercent: 82.5,
+  });
+  expect(motor.entry.missingFields).toContain("motor-terminal-diagram");
+  await catalogue.getByLabel("Equipment category").selectOption("");
   await search.fill("PIN242122530");
   await expect(catalogue.getByText("24 V DC → 120 V AC")).toBeVisible();
   await search.fill("PIN241501210");
