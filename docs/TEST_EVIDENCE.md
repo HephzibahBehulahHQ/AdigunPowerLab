@@ -849,4 +849,6 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - The local production build and Chromium catalogue regression passed for 3211025, including its 2.5 mm² display and all five exported contacts.
 - LAPP CLASSIC 100 300/500 V: TypeScript and all 33 component-bank tests passed. The tests verify CSV/JSON parity for all 94 records and check the four page-4 rows whose text extraction joined cross-section and diameter.
 - Chromium against the production build selected 00100424 and verified its 300/500 V and 6 mm display, and the exact order code, 1 mm² cross-section, PE core and source page in the JSON download.
+- LAPP CLASSIC 110 BLACK: TypeScript and 34 component-bank tests passed. The regression checks numbered and PE core ends, nominal and test voltage, source revision, and CSV/JSON parity for all 62 articles.
+- Chromium on the production build verified exact order-code selection for 1120233 and its 600/1000 V and 8.7 mm displays.
 - Candidate d6e148e: generated individual exports for all 1,200 records and compared every CSV and JSON to its source record. All 2,400 files and the 1,200-ID index matched.

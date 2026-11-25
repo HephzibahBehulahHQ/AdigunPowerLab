@@ -2102,6 +2102,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fún àwọn bulọọki PT-PE ti Phoenix Contact, àtòjọ ìsopọ̀ fi àwọn ibi tí a ti di okun àti ẹsẹ̀ DIN rail hàn nínú ẹgbẹ́ PE kan náà.",
       "For Phoenix Contact PT-PE blocks, di terminal list show di wire clamps and di DIN-rail foot for di same protective-earth group.",
     ],
+  "In the LAPP CLASSIC 110 BLACK range, compare the numbered core ends and any PE pair before placing the cable in a diagram.":
+    [
+      "Vergleichen Sie bei LAPP CLASSIC 110 BLACK die nummerierten Aderenden und gegebenenfalls die PE-Enden, bevor Sie das Kabel in ein Diagramm übernehmen.",
+      "Nínú ẹbí LAPP CLASSIC 110 BLACK, fi àwọn òpin okùn tí a fi nọ́mbà sí àti òpin méjì ti PE, bí ó bá wà, wé ara wọn kí o tó fi kéébù sínú àwòrán ìsopọ̀.",
+      "For LAPP CLASSIC 110 BLACK, compare di numbered core ends and any PE pair before you put di cable for diagram.",
+    ],
   "Compare the voltage, cross-section and protective-earth core of exact LAPP cable articles before adding them to a diagram.":
     [
       "Vergleichen Sie Spannung, Leiterquerschnitt und Schutzleiter der jeweiligen LAPP-Kabelartikel, bevor Sie diese in ein Diagramm übernehmen.",

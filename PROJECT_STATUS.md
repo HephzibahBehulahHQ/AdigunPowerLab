@@ -539,3 +539,4 @@ iC60N 2b49aee published in Pages run 45285905960 and the public root returned HT
 - Phoenix Contact QUATTRO-PE adds a four-clamp order code with an independent DIN-rail contact in the same PE group. The stacked catalogue has 1,334 records.
 - The 8 kV QUATTRO-PE article 3209594 brings the stacked catalogue to 1,335 records. Its order code, surge rating and source remain distinct from the 6 kV compact article.
 - The 300/500 V LAPP CLASSIC 100 candidate adds all 94 article rows, bringing the stacked catalogue to 1,429 records. The structured manufacturer table resolved four merged text columns.
+- The LAPP CLASSIC 110 BLACK 600/1000 V candidate adds all 62 published rows with numbered cores and G/X protective-earth distinctions, bringing the stacked catalogue to 1,491 records. Ampacity and cable calculation mapping remain open.

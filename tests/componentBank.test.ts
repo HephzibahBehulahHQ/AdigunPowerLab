@@ -26,6 +26,7 @@ import {
   olflexClassic110CyCables,
   olflexClassic100750Cables,
   olflexClassic100500Cables,
+  olflexClassic110BlackCables,
   philipsDn145bDownlights,
   chromaloxStripHeaters,
   pvModules,
@@ -264,6 +265,47 @@ test("LAPP 300/500 V separates cross-section and diameter in the merged PDF rows
       source: { page: 4 },
     });
   }
+});
+
+test("LAPP 600/1000 V exports preserve numbered cores and optional PE", () => {
+  expect(olflexClassic110BlackCables).toHaveLength(62);
+  for (const record of olflexClassic110BlackCables) {
+    expect(record.ratings).toMatchObject({
+      nominalU0V: 600,
+      nominalUV: 1000,
+      testVoltageV: 4000,
+    });
+    expect(record.conditions.coreIdentification).toBe("numbered");
+    expect(record.source.revision).toContain("2026-01-25");
+    expect(
+      record.terminals.filter(
+        ({ interface: kind }) => kind === "cable-numbered-core",
+      ),
+    ).toHaveLength(
+      2 * (record.ratings.coreCount - Number(record.ratings.hasPe)),
+    );
+    expect(
+      record.terminals
+        .filter(({ group }) => group === "PE")
+        .map(({ id }) => id),
+    ).toEqual(record.ratings.hasPe ? ["a-pe", "b-pe"] : []);
+    expect(record.terminals).toHaveLength(2 * record.ratings.coreCount);
+  }
+  const file = (extension: string) =>
+    readFileSync(
+      new URL(
+        `../docs/component-bank-lapp-olflex-110-black.${extension}`,
+        import.meta.url,
+      ),
+      "utf8",
+    );
+  expect(JSON.parse(file("json"))).toEqual({
+    schemaVersion: 1,
+    entries: olflexClassic110BlackCables,
+  });
+  expect(file("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(olflexClassic110BlackCables).replaceAll("\r\n", "\n"),
+  );
 });
 
 test("Phoenix Contact PE exports preserve each clamp and the conductive rail foot", () => {
