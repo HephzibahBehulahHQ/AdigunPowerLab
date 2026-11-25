@@ -419,6 +419,25 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   );
   expect(enclosure.entry.source.pageLabel).toBe("4, 16");
   expect(enclosure.entry.missingFields).toContain("enclosure-bonding-points");
+  await catalogue
+    .getByLabel("Equipment category")
+    .selectOption("lighting-equipment");
+  await search.fill("910500465901");
+  await expect(model).toHaveValue("philips:910500465901");
+  await expect(catalogue.getByText("1,000 lm", { exact: true })).toBeVisible();
+  await expect(catalogue.getByText("3,000 K", { exact: true })).toBeVisible();
+  const lightingDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const lighting = JSON.parse(
+    await readFile(await (await lightingDownload).path(), "utf8"),
+  );
+  expect(
+    lighting.entry.terminals.map(({ group }: { group: string }) => group),
+  ).toEqual(["L", "N", "DA/N", "DA/Ls"]);
+  expect(lighting.entry.source).toMatchObject({
+    page: 2,
+    revision: "Philips fact sheet (2026-10-30)",
+  });
   await catalogue.getByLabel("Equipment category").selectOption("");
   await search.fill("PIN242122530");
   await expect(catalogue.getByText("24 V DC → 120 V AC")).toBeVisible();

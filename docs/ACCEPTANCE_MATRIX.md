@@ -466,3 +466,4 @@ VE.Direct 120 V preserves exact NEMA and GFCI article-code generations and tempe
 - LAPP cable electrical provenance now includes nominal and test voltage at the published reference temperature. Ampacity and impedance are still required for calculation readiness.
 - Generators: 13 S0/S1 winding 311 alternators have published 400/415 V, 50 Hz continuous ratings in both temperature classes, 12 stator leads and catalog exports.
 - Enclosures: ten S3HD order codes, external dimensions and published IP66 / IK10 ratings with CSV and JSON exports.
+- Lighting equipment now includes one DN145B order code with current fact-sheet ratings and separate terminal provenance. Catalogue and exports are verified locally.
