@@ -30,6 +30,7 @@ import {
   olflexClassic110HCables,
   olflexClassic110ChCables,
   philipsDn145bDownlights,
+  philipsDn145bPsuDownlights,
   chromaloxStripHeaters,
   wegW22NemaMotors,
   pvModules,
@@ -107,6 +108,46 @@ test("Philips fact sheets retain variant-specific ratings and dates in both expo
   });
   expect(csv.replaceAll("\r\n", "\n")).toBe(
     componentBankCsv(philipsDn145bDownlights).replaceAll("\r\n", "\n"),
+  );
+});
+
+test("Philips PSU variants preserve separate colour temperatures and two-pole inputs", () => {
+  expect(
+    philipsDn145bPsuDownlights.map(({ orderCode, ratings }) => [
+      orderCode,
+      ratings.colorTemperatureK,
+      ratings.powerW,
+      ratings.luminousFluxLm,
+    ]),
+  ).toEqual([
+    ["911401805980", 3000, 11, 1100],
+    ["911401806080", 4000, 11, 1100],
+    ["911401805780", 3000, 6.5, 650],
+    ["911401805880", 4000, 6.5, 650],
+  ]);
+  for (const article of philipsDn145bPsuDownlights) {
+    expect(article.terminals.map(({ group }) => group)).toEqual(["L", "N"]);
+    expect(article.ratings).toMatchObject({
+      inputMinV: 220,
+      inputMaxV: 240,
+    });
+    expect(article.source.url).toContain(article.orderCode);
+    expect(article.source.page).toBe(2);
+  }
+  const file = (extension: string) =>
+    readFileSync(
+      new URL(
+        `../docs/component-bank-philips-dn145b-psu.${extension}`,
+        import.meta.url,
+      ),
+      "utf8",
+    );
+  expect(JSON.parse(file("json"))).toEqual({
+    schemaVersion: 1,
+    entries: philipsDn145bPsuDownlights,
+  });
+  expect(file("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(philipsDn145bPsuDownlights).replaceAll("\r\n", "\n"),
   );
 });
 

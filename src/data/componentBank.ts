@@ -2345,6 +2345,89 @@ export const philipsDn145bDownlights = philipsDn145bRows.map(
   }),
 );
 
+export const philipsDn145bPsuDownlights = (
+  [
+    ["911401805980", "33947499", "830", 3000],
+    ["911401806080", "33948199", "840", 4000],
+    [
+      "911401805780",
+      "33945099",
+      "830",
+      3000,
+      "https://www.assets.signify.com/is/content/Signify/911401805780_EU.de_DE.PROF.FP",
+      "2025-09-15",
+    ],
+    [
+      "911401805880",
+      "33946799",
+      "840",
+      4000,
+      "https://www.assets.lighting.philips.com/is/content/PhilipsLighting/fp911401805880-pss-de_de",
+      "2023-10-11",
+    ],
+  ] as const
+).map(
+  ([
+    orderCode,
+    shortOrderCode,
+    colourCode,
+    colorTemperatureK,
+    led6Source,
+    date = "2023-04-15",
+  ]) => {
+    const url =
+      led6Source ??
+      `https://www.assets.lighting.philips.com/is/content/PhilipsLighting/fp${orderCode}-pss-en_gb`;
+    const revision = `Philips fact sheet (${date})`;
+    return {
+      id: `philips:${orderCode}`,
+      manufacturer: "Philips",
+      model: `DN145B ${led6Source ? "LED6S" : "LED10S"}/${colourCode} PSU II WH`,
+      orderCode,
+      category: "lighting-equipment" as const,
+      function: "recessed-led-downlight" as const,
+      connection: "ac" as const,
+      terminals: ["L", "N"].map((group) => ({
+        id: group.toLowerCase(),
+        group,
+        interface: "luminaire-ac-input",
+        connector: "two-pole connection unit",
+      })),
+      ratings: {
+        inputMinV: 220,
+        inputMaxV: 240,
+        powerW: led6Source ? 6.5 : 11,
+        luminousFluxLm: led6Source ? 650 : 1100,
+        colorTemperatureK,
+        powerFactor: 0.9,
+        inrushCurrentA: led6Source ? 17.4 : 10.1,
+        inrushDurationMs: led6Source ? 0.0016 : 0.0022,
+      },
+      conditions: {
+        frequencyHz: [50, 60],
+        control: "On/Off",
+        protectionClass: "II",
+        shortOrderCode,
+      },
+      modelMapping: null,
+      source: {
+        url,
+        revision,
+        page: 2,
+        supplemental: [
+          {
+            url,
+            revision,
+            page: 1,
+          },
+        ],
+      },
+      missingFields: ["verified-lighting-model-mapping"],
+      readiness: "inventory-and-diagram-only",
+    };
+  },
+);
+
 export const wegW22Motors = [
   {
     id: "weg:15833976",
@@ -2734,6 +2817,7 @@ export const componentBank = [
   ...stamfordWinding311Alternators,
   ...spacialS3hdEnclosures,
   ...philipsDn145bDownlights,
+  ...philipsDn145bPsuDownlights,
   ...wegW22Motors,
   ...wegW22NemaMotors,
   ...chromaloxStripHeaters,

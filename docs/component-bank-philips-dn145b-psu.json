@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "philips:911401805980",
+      "manufacturer": "Philips",
+      "model": "DN145B LED10S/830 PSU II WH",
+      "orderCode": "911401805980",
+      "category": "lighting-equipment",
+      "function": "recessed-led-downlight",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l",
+          "group": "L",
+          "interface": "luminaire-ac-input",
+          "connector": "two-pole connection unit"
+        },
+        {
+          "id": "n",
+          "group": "N",
+          "interface": "luminaire-ac-input",
+          "connector": "two-pole connection unit"
+        }
+      ],
+      "ratings": {
+        "inputMinV": 220,
+        "inputMaxV": 240,
+        "powerW": 11,
+        "luminousFluxLm": 1100,
+        "colorTemperatureK": 3000,
+        "powerFactor": 0.9,
+        "inrushCurrentA": 10.1,
+        "inrushDurationMs": 0.0022
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "control": "On/Off",
+        "protectionClass": "II",
+        "shortOrderCode": "33947499"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.assets.lighting.philips.com/is/content/PhilipsLighting/fp911401805980-pss-en_gb",
+        "revision": "Philips fact sheet (2023-04-15)",
+        "page": 2,
+        "supplemental": [
+          {
+            "url": "https://www.assets.lighting.philips.com/is/content/PhilipsLighting/fp911401805980-pss-en_gb",
+            "revision": "Philips fact sheet (2023-04-15)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "verified-lighting-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "philips:911401806080",
+      "manufacturer": "Philips",
+      "model": "DN145B LED10S/840 PSU II WH",
+      "orderCode": "911401806080",
+      "category": "lighting-equipment",
+      "function": "recessed-led-downlight",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l",
+          "group": "L",
+          "interface": "luminaire-ac-input",
+          "connector": "two-pole connection unit"
+        },
+        {
+          "id": "n",
+          "group": "N",
+          "interface": "luminaire-ac-input",
+          "connector": "two-pole connection unit"
+        }
+      ],
+      "ratings": {
+        "inputMinV": 220,
+        "inputMaxV": 240,
+        "powerW": 11,
+        "luminousFluxLm": 1100,
+        "colorTemperatureK": 4000,
+        "powerFactor": 0.9,
+        "inrushCurrentA": 10.1,
+        "inrushDurationMs": 0.0022
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "control": "On/Off",
+        "protectionClass": "II",
+        "shortOrderCode": "33948199"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.assets.lighting.philips.com/is/content/PhilipsLighting/fp911401806080-pss-en_gb",
+        "revision": "Philips fact sheet (2023-04-15)",
+        "page": 2,
+        "supplemental": [
+          {
+            "url": "https://www.assets.lighting.philips.com/is/content/PhilipsLighting/fp911401806080-pss-en_gb",
+            "revision": "Philips fact sheet (2023-04-15)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "verified-lighting-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "philips:911401805780",
+      "manufacturer": "Philips",
+      "model": "DN145B LED6S/830 PSU II WH",
+      "orderCode": "911401805780",
+      "category": "lighting-equipment",
+      "function": "recessed-led-downlight",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l",
+          "group": "L",
+          "interface": "luminaire-ac-input",
+          "connector": "two-pole connection unit"
+        },
+        {
+          "id": "n",
+          "group": "N",
+          "interface": "luminaire-ac-input",
+          "connector": "two-pole connection unit"
+        }
+      ],
+      "ratings": {
+        "inputMinV": 220,
+        "inputMaxV": 240,
+        "powerW": 6.5,
+        "luminousFluxLm": 650,
+        "colorTemperatureK": 3000,
+        "powerFactor": 0.9,
+        "inrushCurrentA": 17.4,
+        "inrushDurationMs": 0.0016
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "control": "On/Off",
+        "protectionClass": "II",
+        "shortOrderCode": "33945099"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.assets.signify.com/is/content/Signify/911401805780_EU.de_DE.PROF.FP",
+        "revision": "Philips fact sheet (2025-09-15)",
+        "page": 2,
+        "supplemental": [
+          {
+            "url": "https://www.assets.signify.com/is/content/Signify/911401805780_EU.de_DE.PROF.FP",
+            "revision": "Philips fact sheet (2025-09-15)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "verified-lighting-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "philips:911401805880",
+      "manufacturer": "Philips",
+      "model": "DN145B LED6S/840 PSU II WH",
+      "orderCode": "911401805880",
+      "category": "lighting-equipment",
+      "function": "recessed-led-downlight",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "l",
+          "group": "L",
+          "interface": "luminaire-ac-input",
+          "connector": "two-pole connection unit"
+        },
+        {
+          "id": "n",
+          "group": "N",
+          "interface": "luminaire-ac-input",
+          "connector": "two-pole connection unit"
+        }
+      ],
+      "ratings": {
+        "inputMinV": 220,
+        "inputMaxV": 240,
+        "powerW": 6.5,
+        "luminousFluxLm": 650,
+        "colorTemperatureK": 4000,
+        "powerFactor": 0.9,
+        "inrushCurrentA": 17.4,
+        "inrushDurationMs": 0.0016
+      },
+      "conditions": {
+        "frequencyHz": [
+          50,
+          60
+        ],
+        "control": "On/Off",
+        "protectionClass": "II",
+        "shortOrderCode": "33946799"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.assets.lighting.philips.com/is/content/PhilipsLighting/fp911401805880-pss-de_de",
+        "revision": "Philips fact sheet (2023-10-11)",
+        "page": 2,
+        "supplemental": [
+          {
+            "url": "https://www.assets.lighting.philips.com/is/content/PhilipsLighting/fp911401805880-pss-de_de",
+            "revision": "Philips fact sheet (2023-10-11)",
+            "page": 1
+          }
+        ]
+      },
+      "missingFields": [
+        "verified-lighting-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}
