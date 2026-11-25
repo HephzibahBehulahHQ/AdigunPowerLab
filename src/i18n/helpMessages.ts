@@ -2102,6 +2102,12 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fún àwọn bulọọki PT-PE ti Phoenix Contact, àtòjọ ìsopọ̀ fi àwọn ibi tí a ti di okun àti ẹsẹ̀ DIN rail hàn nínú ẹgbẹ́ PE kan náà.",
       "For Phoenix Contact PT-PE blocks, di terminal list show di wire clamps and di DIN-rail foot for di same protective-earth group.",
     ],
+  "Compare the voltage, cross-section and protective-earth core of exact LAPP cable articles before adding them to a diagram.":
+    [
+      "Vergleichen Sie Spannung, Leiterquerschnitt und Schutzleiter der jeweiligen LAPP-Kabelartikel, bevor Sie diese in ein Diagramm übernehmen.",
+      "Fi fóltéèjì, ìwọ̀n agbègbè abala okùn àti okùn PE àwọn àwòṣe kéébù LAPP wé ara wọn kí o tó fi wọ́n sínú àwòrán ìsopọ̀.",
+      "Compare voltage, conductor size and PE core for di exact LAPP cable models before you add dem to a diagram.",
+    ],
   "For shielded cables, inspect the braid ends and any separate PE core in the terminal list.":
     [
       "Prüfen Sie bei geschirmten Kabeln die Enden des Schirmgeflechts und einen gegebenenfalls vorhandenen separaten Schutzleiter in der Anschlussliste.",

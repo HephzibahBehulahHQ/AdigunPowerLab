@@ -25,6 +25,7 @@ import {
   olflexClassic110Cables,
   olflexClassic110CyCables,
   olflexClassic100750Cables,
+  olflexClassic100500Cables,
   philipsDn145bDownlights,
   chromaloxStripHeaters,
   pvModules,
@@ -231,6 +232,38 @@ test("LAPP 450/750 V exports preserve leading zeroes, PE variants and article pa
   expect(exportFile("csv").replaceAll("\r\n", "\n")).toBe(
     componentBankCsv(olflexClassic100750Cables).replaceAll("\r\n", "\n"),
   );
+});
+
+test("LAPP 300/500 V separates cross-section and diameter in the merged PDF rows", () => {
+  expect(olflexClassic100500Cables).toHaveLength(94);
+  const file = (extension: string) =>
+    readFileSync(
+      new URL(
+        `../docs/component-bank-lapp-olflex-100-500.${extension}`,
+        import.meta.url,
+      ),
+      "utf8",
+    );
+  expect(JSON.parse(file("json"))).toEqual({
+    schemaVersion: 1,
+    entries: olflexClassic100500Cables,
+  });
+  expect(file("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(olflexClassic100500Cables).replaceAll("\r\n", "\n"),
+  );
+  for (const [code, diameter] of [
+    ["00100424", 6],
+    ["00102034", 6],
+    ["0010045", 8],
+    ["0010046", 8],
+  ]) {
+    expect(
+      olflexClassic100500Cables.find(({ orderCode }) => orderCode === code),
+    ).toMatchObject({
+      ratings: { crossSectionMm2: 1, outerDiameterMm: diameter },
+      source: { page: 4 },
+    });
+  }
 });
 
 test("Phoenix Contact PE exports preserve each clamp and the conductive rail foot", () => {

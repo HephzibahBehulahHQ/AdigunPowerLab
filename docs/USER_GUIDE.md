@@ -506,6 +506,7 @@ VE.Direct 120 V records show their own temperature-conditioned power ratings and
 - Search for a LAPP CLASSIC 110 CY order code, such as **1135628**, to inspect the cable diameter in millimetres. The terminal list and record export include two braid ends and a separate pair of PE ends where the article has a PE core.
 - Search for **3212131** under **Earthing and bonding equipment** to view the Phoenix Contact PT 10-PE ratings and open its data sheet. The terminal list and record export show both wire clamps and the conductive DIN-rail foot in the same PE group.
 - Compare with **3211025** to inspect four push-in clamps and the DIN-rail foot in the same PE group.
+- In **Cables and conductors**, compare LAPP **00100424** and **00102034**. Both are 300/500 V cables with three 1 mm² cores and a 6 mm outer diameter. The G article includes a PE core and the X article has three non-PE cores. Preserve leading zeros when searching by order code.
 - Select **Generators** in the manufacturer catalogue to compare STAMFORD alternator continuous kVA by published temperature class. The source panel links the winding reference.
 - Select **Enclosures and installation hardware** to compare Schneider S3HD wall enclosures by external dimensions, ingress protection and impact protection.
 - Select **Lighting equipment** to inspect the Philips DN145B wattage, luminous flux, colour temperature and documented driver terminals.
