@@ -23,6 +23,7 @@ import {
   altivar320CompactDrives,
   olflexClassic110Cables,
   olflexClassic110CyCables,
+  olflexClassic100750Cables,
   philipsDn145bDownlights,
   chromaloxStripHeaters,
   pvModules,
@@ -180,6 +181,54 @@ test("LAPP shielded cable exports preserve a braid independent of each core", ()
   });
   expect(exportFile("csv").replaceAll("\r\n", "\n")).toBe(
     componentBankCsv(olflexClassic110CyCables).replaceAll("\r\n", "\n"),
+  );
+});
+
+test("LAPP 450/750 V exports preserve leading zeroes, PE variants and article pages", () => {
+  expect(olflexClassic100750Cables).toHaveLength(42);
+  const grounded = olflexClassic100750Cables.find(
+    ({ orderCode }) => orderCode === "0010087",
+  );
+  const ungrounded = olflexClassic100750Cables.find(
+    ({ orderCode }) => orderCode === "00100933",
+  );
+  expect(grounded).toMatchObject({
+    id: "lapp:0010087",
+    source: { page: 3 },
+    ratings: { hasPe: true, outerDiameterMm: 9.6 },
+  });
+  expect(ungrounded).toMatchObject({
+    id: "lapp:00100933",
+    source: { page: 3 },
+    ratings: { hasPe: false },
+  });
+  for (const cable of olflexClassic100750Cables) {
+    expect(cable.ratings).toMatchObject({
+      nominalU0V: 450,
+      nominalUV: 750,
+      testVoltageV: 4000,
+    });
+    expect(cable.terminals).toHaveLength(2 * cable.ratings.coreCount);
+    expect(
+      cable.terminals.filter(({ group }) => group === "PE").map(({ id }) => id),
+    ).toEqual(cable.ratings.hasPe ? ["a-pe", "b-pe"] : []);
+    expect(cable.terminals.some(({ group }) => group === "Shield")).toBe(false);
+    expect(cable.missingFields).toContain("article-core-colours");
+  }
+  const exportFile = (extension: string) =>
+    readFileSync(
+      new URL(
+        `../docs/component-bank-lapp-olflex-100-750.${extension}`,
+        import.meta.url,
+      ),
+      "utf8",
+    );
+  expect(JSON.parse(exportFile("json"))).toEqual({
+    schemaVersion: 1,
+    entries: olflexClassic100750Cables,
+  });
+  expect(exportFile("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(olflexClassic100750Cables).replaceAll("\r\n", "\n"),
   );
 });
 

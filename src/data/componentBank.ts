@@ -1539,77 +1539,164 @@ const olflexClassic110CyRows = [
   ["1135625", 4, "G", 35, 30.2, 1543, 2210, 5],
 ] as const;
 
-export const olflexClassic110CyCables = olflexClassic110CyRows.map(
-  ([
-    orderCode,
-    coreCount,
-    designation,
-    crossSectionMm2,
-    outerDiameterMm,
-    copperKgPerKm,
-    weightKgPerKm,
-    page,
-  ]) => {
-    const hasPe = designation === "G";
-    const conductors = [
-      ...Array.from({ length: coreCount - Number(hasPe) }, (_, index) =>
-        String(index + 1),
-      ),
-      ...(hasPe ? ["PE"] : []),
-      "Shield",
-    ];
-    return {
-      id: `lapp:${orderCode}`,
-      manufacturer: "LAPP",
-      model: `ÖLFLEX CLASSIC 110 CY ${coreCount}${designation}${crossSectionMm2}`,
+type MetricLappRow =
+  | (typeof olflexClassic110CyRows)[number]
+  | (typeof olflexClassic100750Rows)[number];
+
+function metricLappCables(
+  rows: readonly MetricLappRow[],
+  family: {
+    family: string;
+    url: string;
+    nominalU0V: number;
+    nominalUV: number;
+    shielded: boolean;
+  },
+) {
+  return rows.map(
+    ([
       orderCode,
-      category: "cables-and-conductors" as const,
-      function: "multicore-control-cable" as const,
-      connection: "passive" as const,
-      terminals: conductors.flatMap((group) =>
-        ["a", "b"].map((end) => ({
-          id: `${end}-${group.toLowerCase()}`,
-          group,
-          interface:
-            group === "Shield"
-              ? "cable-shield"
-              : group === "PE"
-                ? "cable-pe-core"
-                : "cable-numbered-core",
-          connector: group === "Shield" ? "braid end" : "conductor end",
-        })),
-      ),
-      ratings: {
-        coreCount,
-        hasPe,
-        crossSectionMm2,
-        outerDiameterMm,
-        copperKgPerKm,
-        weightKgPerKm,
-        nominalU0V: 300,
-        nominalUV: 500,
-        testVoltageV: 4000,
-      },
-      conditions: { shield: "tinned-copper braid" },
-      modelMapping: null,
-      source: {
-        url: olflexClassic110CySource,
-        revision: "LAPP PN 0456 / 02_03.16 (2025-07-14)",
-        page,
-        supplemental: [
-          {
-            url: olflexClassic110CySource,
-            revision: "LAPP PN 0456 / 02_03.16 (2025-07-14)",
-            page: 2,
-          },
+      coreCount,
+      designation,
+      crossSectionMm2,
+      outerDiameterMm,
+      copperKgPerKm,
+      weightKgPerKm,
+      page,
+    ]) => {
+      const hasPe = designation === "G";
+      const conductors = [
+        ...Array.from({ length: coreCount - Number(hasPe) }, (_, index) =>
+          String(index + 1),
+        ),
+        ...(hasPe ? ["PE"] : []),
+        ...(family.shielded ? ["Shield"] : []),
+      ];
+      return {
+        id: `lapp:${orderCode}`,
+        manufacturer: "LAPP",
+        model: `${family.family} ${coreCount}${designation}${crossSectionMm2}`,
+        orderCode,
+        category: "cables-and-conductors" as const,
+        function: "multicore-control-cable" as const,
+        connection: "passive" as const,
+        terminals: conductors.flatMap((group) =>
+          ["a", "b"].map((end) => ({
+            id: `${end}-${group.toLowerCase()}`,
+            group,
+            interface:
+              group === "Shield"
+                ? "cable-shield"
+                : group === "PE"
+                  ? "cable-pe-core"
+                  : family.shielded
+                    ? "cable-numbered-core"
+                    : "cable-core",
+            connector: group === "Shield" ? "braid end" : "conductor end",
+          })),
+        ),
+        ratings: {
+          coreCount,
+          hasPe,
+          crossSectionMm2,
+          outerDiameterMm,
+          copperKgPerKm,
+          weightKgPerKm,
+          nominalU0V: family.nominalU0V,
+          nominalUV: family.nominalUV,
+          testVoltageV: 4000,
+        },
+        conditions: family.shielded
+          ? { shield: "tinned-copper braid" }
+          : { coreIdentification: "colour-coded" },
+        modelMapping: null,
+        source: {
+          url: family.url,
+          revision: "LAPP PN 0456 / 02_03.16 (2025-07-14)",
+          page,
+          supplemental: [
+            {
+              url: family.url,
+              revision: "LAPP PN 0456 / 02_03.16 (2025-07-14)",
+              page: 2,
+            },
+          ],
+        },
+        missingFields: [
+          "cable-ampacity-and-impedance",
+          "verified-cable-model-mapping",
+          ...(family.shielded ? [] : ["article-core-colours"]),
         ],
-      },
-      missingFields: [
-        "cable-ampacity-and-impedance",
-        "verified-cable-model-mapping",
-      ],
-      readiness: "inventory-and-diagram-only",
-    };
+        readiness: "inventory-and-diagram-only",
+      };
+    },
+  );
+}
+
+export const olflexClassic110CyCables = metricLappCables(
+  olflexClassic110CyRows,
+  {
+    family: "ÖLFLEX CLASSIC 110 CY",
+    url: olflexClassic110CySource,
+    nominalU0V: 300,
+    nominalUV: 500,
+    shielded: true,
+  },
+);
+
+const olflexClassic100750Rows = [
+  ["0010086", 2, "X", 2.5, 8.9, 48, 128, 3],
+  ["0010087", 3, "G", 2.5, 9.6, 72, 162, 3],
+  ["00100933", 3, "X", 2.5, 9.6, 72, 162, 3],
+  ["00100883", 4, "G", 2.5, 10.7, 96, 203, 3],
+  ["00100893", 5, "G", 2.5, 11.8, 120, 242, 3],
+  ["0010091", 7, "G", 2.5, 13.1, 168, 321, 3],
+  ["0010092", 8, "G", 2.5, 15.8, 192, 385, 3],
+  ["0010100", 2, "X", 4, 10.4, 76.8, 187, 3],
+  ["0010210", 3, "G", 4, 11.2, 115.2, 244, 3],
+  ["00101013", 4, "G", 4, 12.5, 154, 297, 3],
+  ["00101023", 5, "G", 4, 13.7, 192, 355, 3],
+  ["0010103", 7, "G", 4, 15.2, 269, 471, 3],
+  ["0010105", 3, "G", 6, 12.6, 173, 318, 3],
+  ["00101063", 4, "G", 6, 13.8, 230, 394, 3],
+  ["00101073", 5, "G", 6, 15.6, 288, 489, 3],
+  ["0010108", 7, "G", 6, 17.3, 403, 651, 3],
+  ["0010301", 3, "G", 10, 15.9, 288, 516, 3],
+  ["00101093", 4, "G", 10, 17.6, 384, 650, 3],
+  ["00101103", 5, "G", 10, 19.7, 480, 792, 3],
+  ["0010111", 7, "G", 10, 21.7, 672, 1058, 3],
+  ["0010302", 3, "G", 16, 18.3, 461, 728, 3],
+  ["00101123", 4, "G", 16, 20.4, 614, 1087, 3],
+  ["00101133", 5, "G", 16, 22.8, 768, 1118, 3],
+  ["0010303", 3, "G", 25, 23, 720, 1388, 3],
+  ["00101153", 4, "G", 25, 25.4, 960, 1582, 3],
+  ["00101163", 5, "G", 25, 28.5, 1200, 1771, 3],
+  ["0010304", 3, "G", 35, 25.6, 1008, 1766, 3],
+  ["00101173", 4, "G", 35, 28.5, 1344, 2106, 3],
+  ["00101183", 5, "G", 35, 31.9, 1680, 2635, 3],
+  ["0010305", 3, "G", 50, 31, 1440, 2556, 3],
+  ["00101193", 4, "G", 50, 34.5, 1920, 2943, 3],
+  ["00103133", 5, "G", 50, 38.6, 2400, 3936, 3],
+  ["0010306", 3, "G", 70, 35.3, 2016, 3182, 3],
+  ["00101203", 4, "G", 70, 39.4, 2688, 4092, 4],
+  ["00103143", 5, "G", 70, 44.1, 3360, 4800, 4],
+  ["0010307", 3, "G", 95, 41.3, 2736, 4675, 4],
+  ["00101213", 4, "G", 95, 45.8, 3648, 5290, 4],
+  ["00103153", 5, "G", 95, 51.6, 4560, 5600, 4],
+  ["0010308", 3, "G", 120, 47.6, 3456, 5626, 4],
+  ["00103093", 4, "G", 120, 53.1, 4608, 6994, 4],
+  ["00103113", 4, "G", 150, 57.4, 5760, 7500, 4],
+  ["00103123", 4, "G", 185, 62.8, 7104, 8300, 4],
+] as const;
+
+export const olflexClassic100750Cables = metricLappCables(
+  olflexClassic100750Rows,
+  {
+    family: "ÖLFLEX CLASSIC 100 450/750 V",
+    url: "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/pvc-outer-sheath-and-coloured-cores/oelflex-classic-100-450750-v.html?format=pdf",
+    nominalU0V: 450,
+    nominalUV: 750,
+    shielded: false,
   },
 );
 
@@ -2110,6 +2197,7 @@ export const componentBank = [
   ...altivar320CompactDrives,
   ...olflexClassic110Cables,
   ...olflexClassic110CyCables,
+  ...olflexClassic100750Cables,
   ...stamfordWinding311Alternators,
   ...spacialS3hdEnclosures,
   ...philipsDn145bDownlights,
