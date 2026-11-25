@@ -544,6 +544,61 @@ export const iemMeters = [
   };
 });
 
+export const iem205xMeters = ["A9MEM2050", "A9MEM2055"].map((model) => ({
+  id: `schneider-electric:${model.toLowerCase()}`,
+  manufacturer: "Schneider Electric",
+  model,
+  orderCode: model,
+  category: "metering-and-power-quality" as const,
+  function: "direct-energy-meter" as const,
+  connection: "ac" as const,
+  terminals: (
+    [
+      ["1", "L in", "ac-line"],
+      ["3", "L out", "ac-line"],
+      ["4", "N in", "ac-neutral"],
+      ["6", "N out", "ac-neutral"],
+      ["20", "S0+", "pulse-output"],
+      ["21", "S0−", "pulse-output"],
+      ["23", "D1/+", "rs485"],
+      ["24", "D0/−", "rs485"],
+    ] as const
+  ).map(([id, group, kind]) => ({
+    id,
+    group,
+    interface: kind,
+    connector: "screw terminal",
+  })),
+  ratings: {
+    maxCurrentA: 45,
+    voltageV: 230,
+    accuracyClass: 1,
+    pulsesPerKWh: null,
+    pulseOutput: null,
+  },
+  conditions: {
+    frequencyHz: [50, 60],
+    communication: "RS-485 Modbus",
+    tariffs: 2,
+    marketRestriction: null,
+  },
+  modelMapping: null,
+  source: {
+    url: "https://download.se.com/files?p_Doc_Ref=PLSED309005EN_Web",
+    revision: "PLSED309005EN_03 (2025-11-06)",
+    page: 49,
+    supplemental: [
+      {
+        url: "https://productinfo.se.com/iem2050_iem2055/iem2050_iem2055-user-manual/iEM2050_iEM2055%20User%20Manual/English/PHA6516400-06.pdf",
+        revision: "PHA6516400-06",
+        page: 10,
+      },
+    ],
+  },
+  missingFields: ["verified-metering-model-mapping"],
+  readiness: "inventory-and-diagram-only",
+}));
+
 // CA909006E p. 74: normally open contactors with documented terminal diagrams.
 export const ictContactors = (
   [
@@ -2808,6 +2863,7 @@ export const componentBank = [
   ...iidRccbs,
   ...iswSwitches,
   ...iemMeters,
+  ...iem205xMeters,
   ...ictContactors,
   ...ic60hBreakers,
   ...ic60lBreakers,
