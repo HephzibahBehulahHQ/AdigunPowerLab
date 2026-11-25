@@ -1,5 +1,20 @@
 /** Exact interface strings; entered project names and source quotations are never translated. */
 export const workspaceMessages: Record<string, [string, string, string]> = {
+  "Prime movers and generation auxiliaries": [
+    "Antriebsmaschinen und Generatorhilfseinrichtungen",
+    "Ẹ̀rọ amúṣiṣẹ́ àti ohun èlò àfikún amúnáwá",
+    "Prime movers and generation auxiliaries",
+  ],
+  "AVR auxiliary terminals": [
+    "AVR-Hilfsanschlüsse",
+    "Àwọn ebute àfikún AVR",
+    "AVR auxiliary terminals",
+  ],
+  "Verified AVR calculation mapping": [
+    "Geprüfte Zuordnung zur AVR-Berechnung",
+    "Ìbámu ìṣírò AVR tí a fìdí múlẹ̀",
+    "Verified AVR calculation mapping",
+  ],
   "Commercial and industrial loads": [
     "Gewerbliche und industrielle Lasten",
     "Ẹrù iná ilé-iṣẹ́ àti òwò",

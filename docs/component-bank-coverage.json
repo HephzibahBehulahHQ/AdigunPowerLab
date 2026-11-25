@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "distinctRecords": 1037,
+  "distinctRecords": 1038,
   "goalMinimum": 10000,
   "readiness": {
     "pv-worksheet-inputs-only": 14,
-    "inventory-and-diagram-only": 1023
+    "inventory-and-diagram-only": 1024
   },
   "categories": [
     {
@@ -22,8 +22,8 @@
     {
       "category": "prime-movers-and-generation-auxiliaries",
       "target": 200,
-      "records": 0,
-      "remaining": 200
+      "records": 1,
+      "remaining": 199
     },
     {
       "category": "solar-and-wind-equipment",
