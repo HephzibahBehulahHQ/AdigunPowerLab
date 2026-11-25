@@ -23,6 +23,7 @@ import {
   altivar320CompactDrives,
   olflexClassic110Cables,
   philipsDn145bDownlights,
+  chromaloxStripHeaters,
   pvModules,
 } from "../src/data/componentBank";
 import { createProject, validateProjectImport } from "../src/domain/project";
@@ -35,6 +36,39 @@ import {
   calculatePvPerformance,
   DEFAULT_PV_PERFORMANCE_INPUTS,
 } from "../src/engine/pvPerformance";
+
+test("Chromalox exports preserve distinct voltage PCNs and connector styles", () => {
+  expect(chromaloxStripHeaters).toHaveLength(90);
+  expect(
+    chromaloxStripHeaters.filter(
+      ({ ratings }) => ratings.ratedVoltageV === 120,
+    ),
+  ).toHaveLength(32);
+  expect(
+    chromaloxStripHeaters.filter(
+      ({ ratings }) => ratings.ratedVoltageV === 480,
+    ),
+  ).toHaveLength(24);
+  const highVoltage = chromaloxStripHeaters.find(
+    ({ orderCode }) => orderCode === "165868",
+  );
+  expect(highVoltage).toMatchObject({
+    model: "NSL-5403",
+    ratings: { powerW: 3000, ratedVoltageV: 480 },
+  });
+  expect(highVoltage?.terminals.map(({ connector }) => connector)).toEqual([
+    "wire lead",
+    "wire lead",
+  ]);
+  const json = readFileSync(
+    new URL("../docs/component-bank-chromalox-ns-nsl.json", import.meta.url),
+    "utf8",
+  );
+  expect(JSON.parse(json)).toEqual({
+    schemaVersion: 1,
+    entries: chromaloxStripHeaters,
+  });
+});
 
 test("Philips fact sheets retain variant-specific ratings and dates in both exports", () => {
   expect(

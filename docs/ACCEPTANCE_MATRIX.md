@@ -470,3 +470,4 @@ VE.Direct 120 V preserves exact NEMA and GFCI article-code generations and tempe
 - Motors: WEG 15833976 includes four published voltage and frequency operating points with corresponding full-load current, speed, power factor and efficiency.
 - Industrial loads: 34 Chromalox NS and NSL 240 V order codes retain wattage, watt density, and terminal-block versus lead-wire variants.
 - Generation auxiliaries: a source-backed STAMFORD AS480 record documents AC input, continuous and transient field output and the main sensing and exciter terminals.
+- Chromalox NS/NSL coverage now includes all 90 published PCNs in the 120 V, 240 V and 480 V columns of the cited table.

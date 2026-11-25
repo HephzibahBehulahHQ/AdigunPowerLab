@@ -2,6 +2,92 @@
   "schemaVersion": 1,
   "entries": [
     {
+      "id": "chromalox:129250",
+      "manufacturer": "Chromalox",
+      "model": "NS-1205",
+      "orderCode": "129250",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 500,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165462",
+      "manufacturer": "Chromalox",
+      "model": "NSL-1205",
+      "orderCode": "165462",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 500,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
       "id": "chromalox:42199",
       "manufacturer": "Chromalox",
       "model": "NS-1205",
@@ -70,6 +156,92 @@
         "powerW": 500,
         "ratedVoltageV": 240,
         "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:142201",
+      "manufacturer": "Chromalox",
+      "model": "NS-1405",
+      "orderCode": "142201",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 500,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 28,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165489",
+      "manufacturer": "Chromalox",
+      "model": "NSL-1405",
+      "orderCode": "165489",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 500,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 28,
         "maxSheathTemperatureF": 1500
       },
       "conditions": {
@@ -174,6 +346,92 @@
       "readiness": "inventory-and-diagram-only"
     },
     {
+      "id": "chromalox:142210",
+      "manufacturer": "Chromalox",
+      "model": "NS-1505",
+      "orderCode": "142210",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 500,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 24,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165550",
+      "manufacturer": "Chromalox",
+      "model": "NSL-1505",
+      "orderCode": "165550",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 500,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 24,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
       "id": "chromalox:42228",
       "manufacturer": "Chromalox",
       "model": "NS-1505",
@@ -242,6 +500,92 @@
         "powerW": 500,
         "ratedVoltageV": 240,
         "wattsPerSquareInch": 24,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:142236",
+      "manufacturer": "Chromalox",
+      "model": "NS-1807",
+      "orderCode": "142236",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 750,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 30,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165526",
+      "manufacturer": "Chromalox",
+      "model": "NSL-1807",
+      "orderCode": "165526",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 750,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 30,
         "maxSheathTemperatureF": 1500
       },
       "conditions": {
@@ -346,6 +690,92 @@
       "readiness": "inventory-and-diagram-only"
     },
     {
+      "id": "chromalox:142252",
+      "manufacturer": "Chromalox",
+      "model": "NS-1801",
+      "orderCode": "142252",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 1000,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 38,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165534",
+      "manufacturer": "Chromalox",
+      "model": "NSL-1801",
+      "orderCode": "165534",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 1000,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 38,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
       "id": "chromalox:42260",
       "manufacturer": "Chromalox",
       "model": "NS-1801",
@@ -414,6 +844,135 @@
         "powerW": 1000,
         "ratedVoltageV": 240,
         "wattsPerSquareInch": 38,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165876",
+      "manufacturer": "Chromalox",
+      "model": "NSL-1801",
+      "orderCode": "165876",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 1000,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 38,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:142287",
+      "manufacturer": "Chromalox",
+      "model": "NS-1901",
+      "orderCode": "142287",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 1000,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 36,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165569",
+      "manufacturer": "Chromalox",
+      "model": "NSL-1901",
+      "orderCode": "165569",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 1000,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 36,
         "maxSheathTemperatureF": 1500
       },
       "conditions": {
@@ -518,6 +1077,178 @@
       "readiness": "inventory-and-diagram-only"
     },
     {
+      "id": "chromalox:42295",
+      "manufacturer": "Chromalox",
+      "model": "NS-1901",
+      "orderCode": "42295",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 1000,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 36,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165585",
+      "manufacturer": "Chromalox",
+      "model": "NSL-1901",
+      "orderCode": "165585",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 1000,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 36,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:142308",
+      "manufacturer": "Chromalox",
+      "model": "NS-2001",
+      "orderCode": "142308",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 1100,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 35,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165593",
+      "manufacturer": "Chromalox",
+      "model": "NSL-2001",
+      "orderCode": "165593",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 1100,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 35,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
       "id": "chromalox:42316",
       "manufacturer": "Chromalox",
       "model": "NS-2001",
@@ -604,6 +1335,135 @@
       "readiness": "inventory-and-diagram-only"
     },
     {
+      "id": "chromalox:165614",
+      "manufacturer": "Chromalox",
+      "model": "NSL-2001",
+      "orderCode": "165614",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 1100,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 35,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:142332",
+      "manufacturer": "Chromalox",
+      "model": "NS-2401",
+      "orderCode": "142332",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 1200,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 34,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165622",
+      "manufacturer": "Chromalox",
+      "model": "NSL-2401",
+      "orderCode": "165622",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 1200,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 34,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
       "id": "chromalox:42340",
       "manufacturer": "Chromalox",
       "model": "NS-2401",
@@ -671,6 +1531,178 @@
       "ratings": {
         "powerW": 1200,
         "ratedVoltageV": 240,
+        "wattsPerSquareInch": 34,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:42359",
+      "manufacturer": "Chromalox",
+      "model": "NS-2401",
+      "orderCode": "42359",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 1200,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 34,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165630",
+      "manufacturer": "Chromalox",
+      "model": "NSL-2401",
+      "orderCode": "165630",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 1200,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 34,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:142367",
+      "manufacturer": "Chromalox",
+      "model": "NS-2501",
+      "orderCode": "142367",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 1300,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 34,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165649",
+      "manufacturer": "Chromalox",
+      "model": "NSL-2501",
+      "orderCode": "165649",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 1300,
+        "ratedVoltageV": 120,
         "wattsPerSquareInch": 34,
         "maxSheathTemperatureF": 1500
       },
@@ -776,6 +1808,178 @@
       "readiness": "inventory-and-diagram-only"
     },
     {
+      "id": "chromalox:42383",
+      "manufacturer": "Chromalox",
+      "model": "NS-2501",
+      "orderCode": "42383",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 1300,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 34,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165665",
+      "manufacturer": "Chromalox",
+      "model": "NSL-2501",
+      "orderCode": "165665",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 1300,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 34,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:142391",
+      "manufacturer": "Chromalox",
+      "model": "NS-2601",
+      "orderCode": "142391",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 1400,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 34,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165673",
+      "manufacturer": "Chromalox",
+      "model": "NSL-2601",
+      "orderCode": "165673",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 1400,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 34,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
       "id": "chromalox:29285",
       "manufacturer": "Chromalox",
       "model": "NS-2601",
@@ -844,6 +2048,178 @@
         "powerW": 1400,
         "ratedVoltageV": 240,
         "wattsPerSquareInch": 34,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:42404",
+      "manufacturer": "Chromalox",
+      "model": "NS-2601",
+      "orderCode": "42404",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 1400,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 34,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165681",
+      "manufacturer": "Chromalox",
+      "model": "NSL-2601",
+      "orderCode": "165681",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 1400,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 34,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:142412",
+      "manufacturer": "Chromalox",
+      "model": "NS-3015",
+      "orderCode": "142412",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 1500,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165690",
+      "manufacturer": "Chromalox",
+      "model": "NSL-3015",
+      "orderCode": "165690",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 1500,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 32,
         "maxSheathTemperatureF": 1500
       },
       "conditions": {
@@ -948,6 +2324,178 @@
       "readiness": "inventory-and-diagram-only"
     },
     {
+      "id": "chromalox:42439",
+      "manufacturer": "Chromalox",
+      "model": "NS-3015",
+      "orderCode": "42439",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 1500,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165710",
+      "manufacturer": "Chromalox",
+      "model": "NSL-3015",
+      "orderCode": "165710",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 1500,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:142447",
+      "manufacturer": "Chromalox",
+      "model": "NS-3301",
+      "orderCode": "142447",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 1500,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 28,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165729",
+      "manufacturer": "Chromalox",
+      "model": "NSL-3301",
+      "orderCode": "165729",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 1500,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 28,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
       "id": "chromalox:42455",
       "manufacturer": "Chromalox",
       "model": "NS-3301",
@@ -1034,6 +2582,178 @@
       "readiness": "inventory-and-diagram-only"
     },
     {
+      "id": "chromalox:42463",
+      "manufacturer": "Chromalox",
+      "model": "NS-3301",
+      "orderCode": "42463",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 1500,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 28,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165737",
+      "manufacturer": "Chromalox",
+      "model": "NSL-3301",
+      "orderCode": "165737",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 1500,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 28,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:142471",
+      "manufacturer": "Chromalox",
+      "model": "NS-3601",
+      "orderCode": "142471",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 1850,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165745",
+      "manufacturer": "Chromalox",
+      "model": "NSL-3601",
+      "orderCode": "165745",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 1850,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
       "id": "chromalox:42480",
       "manufacturer": "Chromalox",
       "model": "NS-3601",
@@ -1101,6 +2821,178 @@
       "ratings": {
         "powerW": 1850,
         "ratedVoltageV": 240,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:42498",
+      "manufacturer": "Chromalox",
+      "model": "NS-3601",
+      "orderCode": "42498",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 1850,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165753",
+      "manufacturer": "Chromalox",
+      "model": "NSL-3601",
+      "orderCode": "165753",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 1850,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:142500",
+      "manufacturer": "Chromalox",
+      "model": "NS-3802",
+      "orderCode": "142500",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 2000,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165761",
+      "manufacturer": "Chromalox",
+      "model": "NSL-3802",
+      "orderCode": "165761",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 2000,
+        "ratedVoltageV": 120,
         "wattsPerSquareInch": 32,
         "maxSheathTemperatureF": 1500
       },
@@ -1206,6 +3098,178 @@
       "readiness": "inventory-and-diagram-only"
     },
     {
+      "id": "chromalox:42527",
+      "manufacturer": "Chromalox",
+      "model": "NS-3802",
+      "orderCode": "42527",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 2000,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165788",
+      "manufacturer": "Chromalox",
+      "model": "NSL-3802",
+      "orderCode": "165788",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 2000,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:142535",
+      "manufacturer": "Chromalox",
+      "model": "NS-4302",
+      "orderCode": "142535",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 2100,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165796",
+      "manufacturer": "Chromalox",
+      "model": "NSL-4302",
+      "orderCode": "165796",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 2100,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
       "id": "chromalox:42543",
       "manufacturer": "Chromalox",
       "model": "NS-4302",
@@ -1273,6 +3337,178 @@
       "ratings": {
         "powerW": 2100,
         "ratedVoltageV": 240,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:42551",
+      "manufacturer": "Chromalox",
+      "model": "NS-4302",
+      "orderCode": "42551",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 2100,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165817",
+      "manufacturer": "Chromalox",
+      "model": "NSL-4302",
+      "orderCode": "165817",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 2100,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:142560",
+      "manufacturer": "Chromalox",
+      "model": "NS-4827",
+      "orderCode": "142560",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 2700,
+        "ratedVoltageV": 120,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165825",
+      "manufacturer": "Chromalox",
+      "model": "NSL-4827",
+      "orderCode": "165825",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 2700,
+        "ratedVoltageV": 120,
         "wattsPerSquareInch": 32,
         "maxSheathTemperatureF": 1500
       },
@@ -1378,6 +3614,92 @@
       "readiness": "inventory-and-diagram-only"
     },
     {
+      "id": "chromalox:42586",
+      "manufacturer": "Chromalox",
+      "model": "NS-4827",
+      "orderCode": "42586",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 2700,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165841",
+      "manufacturer": "Chromalox",
+      "model": "NSL-4827",
+      "orderCode": "165841",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 2700,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 32,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
       "id": "chromalox:42594",
       "manufacturer": "Chromalox",
       "model": "NS-5403",
@@ -1445,6 +3767,92 @@
       "ratings": {
         "powerW": 3000,
         "ratedVoltageV": 240,
+        "wattsPerSquareInch": 34,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:42607",
+      "manufacturer": "Chromalox",
+      "model": "NS-5403",
+      "orderCode": "42607",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "terminal block"
+        }
+      ],
+      "ratings": {
+        "powerW": 3000,
+        "ratedVoltageV": 480,
+        "wattsPerSquareInch": 34,
+        "maxSheathTemperatureF": 1500
+      },
+      "conditions": {
+        "sheath": "INCOLOY",
+        "connectorPosition": "one end"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://content.chromalox.com/-/media/chromalox/documents/product-pdfs/mod/mod-ns-nsl.ashx?hash=1AA75C97D1725328187A941FFA2EF3BE&rev=42411d2bccb147af8d04529c3a494434",
+        "revision": "Chromalox NS & NSL catalog (42411d2bccb147af8d04529c3a494434)",
+        "page": 1
+      },
+      "missingFields": [
+        "verified-heater-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "chromalox:165868",
+      "manufacturer": "Chromalox",
+      "model": "NSL-5403",
+      "orderCode": "165868",
+      "category": "commercial-and-industrial-loads",
+      "function": "resistive-strip-heater",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "terminal-1",
+          "group": "1",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        },
+        {
+          "id": "terminal-2",
+          "group": "2",
+          "interface": "heater-element-end",
+          "connector": "wire lead"
+        }
+      ],
+      "ratings": {
+        "powerW": 3000,
+        "ratedVoltageV": 480,
         "wattsPerSquareInch": 34,
         "maxSheathTemperatureF": 1500
       },
