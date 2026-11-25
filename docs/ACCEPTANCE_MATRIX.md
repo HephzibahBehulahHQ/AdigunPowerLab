@@ -430,6 +430,8 @@ The 94 LAPP CLASSIC 100 300/500 V articles retain leading-zero order codes, sepa
 
 The 62 LAPP CLASSIC 110 BLACK 600/1000 V articles retain the source pages, nominal voltages and G/X terminal groups in CSV and JSON. Chromium verified article 1120233. Ampacity and cable calculation mapping remain pending.
 
+The 66 LAPP CLASSIC 110 H articles retain their article page and both technical pages in CSV and JSON. Chromium verified the dimensions and JSON provenance for 10019946. Ampacity and cable calculation mapping remain pending.
+
 Individual file generation emits per-record CSV and JSON for all runtime entries, with a machine-readable ID index.
 
 Eight iCT contactors include contact topology, coil terminals, conditional AC-7a/AC-7b ratings and CSV/JSON.

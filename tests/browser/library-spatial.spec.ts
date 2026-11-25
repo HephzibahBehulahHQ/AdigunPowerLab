@@ -436,6 +436,19 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     catalogue.getByText("600/1000 V", { exact: true }),
   ).toBeVisible();
   await expect(catalogue.getByText("8.7 mm", { exact: true })).toBeVisible();
+  await search.fill("10019946");
+  await expect(model).toHaveValue("lapp:10019946");
+  await expect(catalogue.getByText("2.5 mm²", { exact: true })).toBeVisible();
+  await expect(catalogue.getByText("9 mm", { exact: true })).toBeVisible();
+  const halogenFreeDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const halogenFree = JSON.parse(
+    await readFile(await (await halogenFreeDownload).path(), "utf8"),
+  );
+  expect(halogenFree.entry.source).toMatchObject({
+    page: 5,
+    supplemental: [{ page: 2 }, { page: 3 }],
+  });
   await catalogue.getByLabel("Equipment category").selectOption("generators");
   await search.fill("STAMFORD S1L2-Y1");
   await expect(model).toHaveValue("stamford:s1l2-y1-311");

@@ -27,6 +27,7 @@ import {
   olflexClassic100750Cables,
   olflexClassic100500Cables,
   olflexClassic110BlackCables,
+  olflexClassic110HCables,
   philipsDn145bDownlights,
   chromaloxStripHeaters,
   pvModules,
@@ -305,6 +306,45 @@ test("LAPP 600/1000 V exports preserve numbered cores and optional PE", () => {
   });
   expect(file("csv").replaceAll("\r\n", "\n")).toBe(
     componentBankCsv(olflexClassic110BlackCables).replaceAll("\r\n", "\n"),
+  );
+});
+
+test("LAPP 110 H exports preserve article and technical pages independently", () => {
+  expect(olflexClassic110HCables).toHaveLength(66);
+  for (const cable of olflexClassic110HCables) {
+    expect(cable.ratings).toMatchObject({
+      nominalU0V: 300,
+      nominalUV: 500,
+      testVoltageV: 4000,
+    });
+    expect(cable.source.supplemental.map(({ page }) => page)).toEqual([2, 3]);
+    expect([4, 5]).toContain(cable.source.page);
+  }
+  for (const [orderCode, crossSectionMm2] of [
+    ["10019934", 1.5],
+    ["10019946", 2.5],
+  ]) {
+    expect(
+      olflexClassic110HCables.find((cable) => cable.orderCode === orderCode),
+    ).toMatchObject({
+      ratings: { crossSectionMm2, outerDiameterMm: 9 },
+      source: { page: 5 },
+    });
+  }
+  const file = (extension: string) =>
+    readFileSync(
+      new URL(
+        `../docs/component-bank-lapp-olflex-110-h.${extension}`,
+        import.meta.url,
+      ),
+      "utf8",
+    );
+  expect(JSON.parse(file("json"))).toEqual({
+    schemaVersion: 1,
+    entries: olflexClassic110HCables,
+  });
+  expect(file("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(olflexClassic110HCables).replaceAll("\r\n", "\n"),
   );
 });
 

@@ -540,3 +540,4 @@ iC60N 2b49aee published in Pages run 45285905960 and the public root returned HT
 - The 8 kV QUATTRO-PE article 3209594 brings the stacked catalogue to 1,335 records. Its order code, surge rating and source remain distinct from the 6 kV compact article.
 - The 300/500 V LAPP CLASSIC 100 candidate adds all 94 article rows, bringing the stacked catalogue to 1,429 records. The structured manufacturer table resolved four merged text columns.
 - The LAPP CLASSIC 110 BLACK 600/1000 V candidate adds all 62 published rows with numbered cores and G/X protective-earth distinctions, bringing the stacked catalogue to 1,491 records. Ampacity and cable calculation mapping remain open.
+- The LAPP CLASSIC 110 H batch adds 66 halogen-free 300/500 V articles, taking the stacked catalogue to 1,557 records. The structured manufacturer table resolved two merged diameter columns, and the records link both technical-data pages.
