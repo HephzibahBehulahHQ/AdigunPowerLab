@@ -2,6 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./styles.css";
+import { mountProductAccount } from "./product-account.js";
 class Boundary extends React.Component<
   { children: React.ReactNode },
   { error: string }
@@ -37,6 +38,7 @@ createRoot(document.getElementById("root")!).render(
     <App />
   </Boundary>,
 );
+if (import.meta.env.VITE_PRODUCT_ACCOUNTS === "true") mountProductAccount();
 if (import.meta.env.PROD && "serviceWorker" in navigator) {
   navigator.serviceWorker.register("./sw.js").catch(() => {});
 }
