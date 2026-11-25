@@ -429,6 +429,8 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "Compare Philips 911401806080 and 910500465901 to identify the AC input and any dimming terminals.",
       "Compare iEM2000 and iEM2010 to identify the separate S0 terminals and pulse output ratings on the iEM2010.",
       "On the Schneider iEM2050 and iEM2055, compare the S0 pulse terminals 20 and 21 with the RS-485 terminals 23 and 24.",
+      "Compare iEM2435 and iEM2455 to identify which bus uses terminals 10 and 11 and where the forward and reverse pulse pairs sit.",
+      "Select EM2214 to inspect both pulse pairs on the single-tariff model.",
       "For Phoenix Contact PT-PE blocks, the terminal list shows the wire clamps and the DIN-rail foot in one protective-earth group.",
       "Filter manufacturer equipment by category and use Previous records or Next records to browse large result sets.",
       "Search for an iC60N order code to inspect the breaker ratings and terminal groups. Breaker records are available for inventories and diagrams.",

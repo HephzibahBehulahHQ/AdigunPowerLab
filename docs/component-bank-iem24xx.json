@@ -1,0 +1,293 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "schneider-electric:a9mem2435",
+      "manufacturer": "Schneider Electric",
+      "model": "A9MEM2435",
+      "orderCode": "A9MEM2435",
+      "category": "metering-and-power-quality",
+      "function": "direct-energy-meter",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "1",
+          "group": "L in",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "3",
+          "group": "L out",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "4",
+          "group": "N in",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "6",
+          "group": "N out",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "10",
+          "group": "A",
+          "interface": "m-bus",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "11",
+          "group": "B",
+          "interface": "m-bus",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "18",
+          "group": "S0 forward +",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "19",
+          "group": "S0 forward −",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "20",
+          "group": "S0 reverse +",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "21",
+          "group": "S0 reverse −",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "maxCurrentA": 100,
+        "voltageV": 230,
+        "accuracyClass": 1,
+        "pulsesPerKWh": null,
+        "pulseOutput": null
+      },
+      "conditions": {
+        "communication": "M-Bus",
+        "tariffs": 2,
+        "marketRestriction": null
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=PLSED309005EN_Web",
+        "revision": "PLSED309005EN_03 (2025-11-06)",
+        "page": 49,
+        "supplemental": [
+          {
+            "url": "https://www.productinfo.schneider-electric.com/iem2435_iem2455/iem2435-iem2455-user-manual/iEM2435%20/%20iEM2455%20User%20Manual/English/7EN02-0468-00.pdf",
+            "revision": "7EN02-0468-00",
+            "page": 10
+          }
+        ]
+      },
+      "missingFields": [
+        "verified-metering-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:a9mem2455",
+      "manufacturer": "Schneider Electric",
+      "model": "A9MEM2455",
+      "orderCode": "A9MEM2455",
+      "category": "metering-and-power-quality",
+      "function": "direct-energy-meter",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "1",
+          "group": "L in",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "3",
+          "group": "L out",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "4",
+          "group": "N in",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "6",
+          "group": "N out",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "10",
+          "group": "A",
+          "interface": "rs485",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "11",
+          "group": "B",
+          "interface": "rs485",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "18",
+          "group": "S0 forward +",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "19",
+          "group": "S0 forward −",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "20",
+          "group": "S0 reverse +",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "21",
+          "group": "S0 reverse −",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "maxCurrentA": 100,
+        "voltageV": 230,
+        "accuracyClass": 1,
+        "pulsesPerKWh": null,
+        "pulseOutput": null
+      },
+      "conditions": {
+        "communication": "RS-485 Modbus",
+        "tariffs": 2,
+        "marketRestriction": null
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://download.se.com/files?p_Doc_Ref=PLSED309005EN_Web",
+        "revision": "PLSED309005EN_03 (2025-11-06)",
+        "page": 49,
+        "supplemental": [
+          {
+            "url": "https://www.productinfo.schneider-electric.com/iem2435_iem2455/iem2435-iem2455-user-manual/iEM2435%20/%20iEM2455%20User%20Manual/English/7EN02-0468-00.pdf",
+            "revision": "7EN02-0468-00",
+            "page": 10
+          }
+        ]
+      },
+      "missingFields": [
+        "verified-metering-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "schneider-electric:metseem2214",
+      "manufacturer": "Schneider Electric",
+      "model": "METSEEM2214",
+      "orderCode": "METSEEM2214",
+      "category": "metering-and-power-quality",
+      "function": "direct-energy-meter",
+      "connection": "ac",
+      "terminals": [
+        {
+          "id": "1",
+          "group": "L in",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "3",
+          "group": "L out",
+          "interface": "ac-line",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "4",
+          "group": "N in",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "6",
+          "group": "N out",
+          "interface": "ac-neutral",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "18",
+          "group": "S0 forward +",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "19",
+          "group": "S0 forward −",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "20",
+          "group": "S0 reverse +",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        },
+        {
+          "id": "21",
+          "group": "S0 reverse −",
+          "interface": "pulse-output",
+          "connector": "screw terminal"
+        }
+      ],
+      "ratings": {
+        "maxCurrentA": 100,
+        "voltageV": 230,
+        "accuracyClass": 1,
+        "pulsesPerKWh": null,
+        "pulseOutput": null
+      },
+      "conditions": {
+        "communication": null,
+        "tariffs": 1,
+        "marketRestriction": null
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://api.rexel.fr/dam/media/content/1/73722897/8957737?format=DOCUMENTS",
+        "revision": "Schneider Electric JYT8368500-03",
+        "page": 1,
+        "supplemental": [
+          {
+            "url": "https://api.rexel.fr/dam/media/content/1/73722897/8957737?format=DOCUMENTS",
+            "revision": "Schneider Electric JYT8368500-03",
+            "page": 2
+          }
+        ]
+      },
+      "missingFields": [
+        "verified-metering-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}

@@ -2102,6 +2102,17 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fún àwọn bulọọki PT-PE ti Phoenix Contact, àtòjọ ìsopọ̀ fi àwọn ibi tí a ti di okun àti ẹsẹ̀ DIN rail hàn nínú ẹgbẹ́ PE kan náà.",
       "For Phoenix Contact PT-PE blocks, di terminal list show di wire clamps and di DIN-rail foot for di same protective-earth group.",
     ],
+  "Select EM2214 to inspect both pulse pairs on the single-tariff model.": [
+    "Wählen Sie EM2214, um beide Impulsklemmenpaare des Eintarifzählers zu prüfen.",
+    "Yan EM2214 láti ṣàyẹ̀wò tọkọtaya ìlù méjèèjì lórí àwòṣe alátaríìfù kan.",
+    "Select EM2214 to check both pulse pairs for di single-tariff model.",
+  ],
+  "Compare iEM2435 and iEM2455 to identify which bus uses terminals 10 and 11 and where the forward and reverse pulse pairs sit.":
+    [
+      "Vergleichen Sie iEM2435 und iEM2455, um den Bus an den Klemmen 10 und 11 sowie die Impulsklemmenpaare für beide Energierichtungen zu erkennen.",
+      "Fi iEM2435 àti iEM2455 wé ara wọn láti mọ bọ́ọ̀sì tó ń lo ojú ìsopọ̀ 10 àti 11 àti ibi tí àwọn tọkọtaya ìlù iwájú àti ẹ̀yìn wà.",
+      "Compare iEM2435 and iEM2455 to see which bus use terminals 10 and 11 and where di forward and reverse pulse pairs dey.",
+    ],
   "On the Schneider iEM2050 and iEM2055, compare the S0 pulse terminals 20 and 21 with the RS-485 terminals 23 and 24.":
     [
       "Vergleichen Sie bei Schneider iEM2050 und iEM2055 die S0-Impulsklemmen 20 und 21 mit den RS-485-Klemmen 23 und 24.",

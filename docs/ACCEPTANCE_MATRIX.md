@@ -442,6 +442,10 @@ The two Schneider iEM2010 pulse-output variants preserve S0 voltage, current and
 
 The Schneider iEM2050 and iEM2055 records preserve all eight numbered mains, S0 and RS-485 terminals and the wiring diagram page in CSV and JSON. Chromium verified the iEM2055 rating and exported signal terminals. Metering calculation mapping remains pending.
 
+The Schneider iEM2435 and iEM2455 records preserve their distinct bus interfaces and both directional pulse pairs in CSV and JSON. Chromium verified the iEM2455 rating and exported signal terminals. Metering calculation mapping remains pending.
+
+The EM2214 record preserves eight terminals, both pulse pairs and its single-tariff configuration in CSV and JSON. Chromium verified the meter rating and exact terminal inventory.
+
 Individual file generation emits per-record CSV and JSON for all runtime entries, with a machine-readable ID index.
 
 Eight iCT contactors include contact topology, coil terminals, conditional AC-7a/AC-7b ratings and CSV/JSON.

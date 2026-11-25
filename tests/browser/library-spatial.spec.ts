@@ -700,6 +700,37 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     { id: "23", interface: "rs485" },
     { id: "24", interface: "rs485" },
   ]);
+  await search.fill("A9MEM2455");
+  await expect(model).toHaveValue("schneider-electric:a9mem2455");
+  await expect(catalogue.getByText("100 A", { exact: true })).toBeVisible();
+  const directionalDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const directional = JSON.parse(
+    await readFile(await (await directionalDownload).path(), "utf8"),
+  );
+  expect(directional.entry.terminals.slice(-6)).toMatchObject([
+    { id: "10", interface: "rs485" },
+    { id: "11", interface: "rs485" },
+    { id: "18", group: "S0 forward +" },
+    { id: "19", group: "S0 forward −" },
+    { id: "20", group: "S0 reverse +" },
+    { id: "21", group: "S0 reverse −" },
+  ]);
+  await search.fill("METSEEM2214");
+  await expect(model).toHaveValue("schneider-electric:metseem2214");
+  await expect(catalogue.getByText("100 A", { exact: true })).toBeVisible();
+  const pulseOnlyDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const pulseOnly = JSON.parse(
+    await readFile(await (await pulseOnlyDownload).path(), "utf8"),
+  );
+  expect(pulseOnly.entry.conditions).toMatchObject({
+    communication: null,
+    tariffs: 1,
+  });
+  expect(pulseOnly.entry.terminals.map(({ id }: { id: string }) => id)).toEqual(
+    ["1", "3", "4", "6", "18", "19", "20", "21"],
+  );
   await search.fill("no matching product");
   await expect(catalogue.getByRole("status")).toHaveText(
     "No matching equipment",

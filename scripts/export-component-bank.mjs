@@ -18,6 +18,7 @@ import {
   iswSwitches,
   iemMeters,
   iem205xMeters,
+  iem24xxMeters,
   ictContactors,
   rm17Relays,
   linergyDsBlocks,
@@ -66,6 +67,7 @@ const batches = {
   isw: iswSwitches,
   iem: iemMeters,
   iem205x: iem205xMeters,
+  iem24xx: iem24xxMeters,
   ict: ictContactors,
   rm17: rm17Relays,
   linergy: linergyDsBlocks,
@@ -95,6 +97,22 @@ const batches = {
   "chromalox-ns-nsl": chromaloxStripHeaters,
   "stamford-as480": stamfordAs480Regulators,
 };
+const unexported = new Set(componentBank);
+for (const [batch, entries] of Object.entries(batches)) {
+  for (const entry of entries) {
+    if (!unexported.delete(entry)) {
+      throw new Error(
+        `Batch ${batch} has a duplicate or unknown record: ${entry.id}`,
+      );
+    }
+  }
+}
+if (unexported.size > 0) {
+  throw new Error(
+    `Batch exports omit: ${[...unexported].map(({ id }) => id).join(", ")}`,
+  );
+}
+
 for (const [batch, entries] of Object.entries(batches)) {
   writeCatalogueDocument(
     new URL(`../docs/component-bank-${batch}.json`, import.meta.url),
