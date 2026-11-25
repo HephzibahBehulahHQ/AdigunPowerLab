@@ -424,6 +424,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "Compare the voltage, cross-section and protective-earth core of exact LAPP cable articles before adding them to a diagram.",
       "In the LAPP CLASSIC 110 BLACK range, compare the numbered core ends and any PE pair before placing the cable in a diagram.",
       "For LAPP CLASSIC 110 H cables, open the article page for dimensions and the technical pages for rated and test voltages.",
+      "Select LAPP CLASSIC 110 CH article 10035069 to inspect both shield ends and the three numbered cores.",
       "For Phoenix Contact PT-PE blocks, the terminal list shows the wire clamps and the DIN-rail foot in one protective-earth group.",
       "Filter manufacturer equipment by category and use Previous records or Next records to browse large result sets.",
       "Search for an iC60N order code to inspect the breaker ratings and terminal groups. Breaker records are available for inventories and diagrams.",
