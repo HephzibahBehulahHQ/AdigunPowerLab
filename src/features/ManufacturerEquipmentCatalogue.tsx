@@ -691,8 +691,8 @@ export function ManufacturerEquipmentCatalogue({
                   : record.source.page}
               </dd>
               {"supplemental" in record.source &&
-                record.source.supplemental.map((document) => (
-                  <Fragment key={document.url}>
+                record.source.supplemental?.map((document) => (
+                  <Fragment key={`${document.url}#${document.page}`}>
                     <dt>{t("Supplemental manufacturer document")}</dt>
                     <dd>
                       <a href={document.url} target="_blank" rel="noreferrer">

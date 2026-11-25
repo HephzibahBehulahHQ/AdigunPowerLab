@@ -530,6 +530,21 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   await expect(model).toHaveValue("weg:15833976");
   await expect(catalogue.getByText("230/400 V · 50 Hz")).toBeVisible();
   await expect(catalogue.getByText("2.92/1.68 A · 1,435 rpm")).toBeVisible();
+  await search.fill("11166654");
+  await expect(model).toHaveValue("weg:11166654");
+  await expect(catalogue.getByText("230/460 V · 60 Hz")).toBeVisible();
+  const nemaDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const nema = JSON.parse(
+    await readFile(await (await nemaDownload).path(), "utf8"),
+  );
+  expect(nema.entry.terminals).toHaveLength(12);
+  expect(nema.entry.terminals.at(-1)).toMatchObject({
+    id: "t12",
+    group: "T12",
+  });
+  expect(nema.entry.source.supplemental[0].page).toBe(4);
+  await search.fill("15833976");
   const motorDownload = page.waitForEvent("download");
   await catalogue.getByRole("button", { name: "Export record JSON" }).click();
   const motor = JSON.parse(

@@ -41,6 +41,7 @@ import {
   spacialS3hdEnclosures,
   philipsDn145bDownlights,
   wegW22Motors,
+  wegW22NemaMotors,
   chromaloxStripHeaters,
   stamfordAs480Regulators,
 } from "../src/data/componentBank.ts";
@@ -86,6 +87,7 @@ const batches = {
   "spacial-s3hd": spacialS3hdEnclosures,
   "philips-dn145b": philipsDn145bDownlights,
   "weg-w22": wegW22Motors,
+  "weg-w22-nema": wegW22NemaMotors,
   "chromalox-ns-nsl": chromaloxStripHeaters,
   "stamford-as480": stamfordAs480Regulators,
 };
