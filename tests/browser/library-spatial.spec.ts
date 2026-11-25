@@ -457,6 +457,27 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     efficiencyPercent: 82.5,
   });
   expect(motor.entry.missingFields).toContain("motor-terminal-diagram");
+  await catalogue
+    .getByLabel("Equipment category")
+    .selectOption("commercial-and-industrial-loads");
+  await search.fill("165850");
+  await expect(model).toHaveValue("chromalox:165850");
+  await expect(catalogue.getByText("3,000 W", { exact: true })).toBeVisible();
+  await expect(catalogue.getByText("240 V", { exact: true })).toBeVisible();
+  const heaterDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const heater = JSON.parse(
+    await readFile(await (await heaterDownload).path(), "utf8"),
+  );
+  expect(heater.entry).toMatchObject({
+    model: "NSL-5403",
+    orderCode: "165850",
+  });
+  expect(
+    heater.entry.terminals.map(
+      ({ connector }: { connector: string }) => connector,
+    ),
+  ).toEqual(["wire lead", "wire lead"]);
   await catalogue.getByLabel("Equipment category").selectOption("");
   await search.fill("PIN242122530");
   await expect(catalogue.getByText("24 V DC → 120 V AC")).toBeVisible();

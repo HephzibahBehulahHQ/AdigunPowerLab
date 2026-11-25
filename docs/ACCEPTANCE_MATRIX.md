@@ -468,3 +468,4 @@ VE.Direct 120 V preserves exact NEMA and GFCI article-code generations and tempe
 - Enclosures: ten S3HD order codes, external dimensions and published IP66 / IK10 ratings with CSV and JSON exports.
 - Lighting equipment now includes one DN145B order code with current fact-sheet ratings and separate terminal provenance. Catalogue and exports are verified locally.
 - Motors: WEG 15833976 includes four published voltage and frequency operating points with corresponding full-load current, speed, power factor and efficiency.
+- Industrial loads: 34 Chromalox NS and NSL 240 V order codes retain wattage, watt density, and terminal-block versus lead-wire variants.
