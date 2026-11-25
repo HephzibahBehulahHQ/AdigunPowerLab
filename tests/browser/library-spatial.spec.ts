@@ -475,6 +475,19 @@ test("manufacturer catalogue searches and exports the exact model", async ({
     { id: "a-shield", group: "Shield" },
     { id: "b-shield", group: "Shield" },
   ]);
+  await search.fill("1123115");
+  await expect(model).toHaveValue("lapp:1123115");
+  await expect(catalogue.getByText("9 mm", { exact: true })).toBeVisible();
+  const classic130Download = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const classic130 = JSON.parse(
+    await readFile(await (await classic130Download).path(), "utf8"),
+  );
+  expect(classic130.entry).toMatchObject({
+    ratings: { hasPe: false, coreCount: 7, crossSectionMm2: 1.5 },
+    source: { page: 4 },
+  });
+  expect(classic130.entry.terminals).toHaveLength(14);
   await catalogue.getByLabel("Equipment category").selectOption("generators");
   await search.fill("STAMFORD S1L2-Y1");
   await expect(model).toHaveValue("stamford:s1l2-y1-311");
