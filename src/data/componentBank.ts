@@ -753,6 +753,111 @@ export const linergyEarthBars = (
   readiness: "inventory-and-diagram-only",
 }));
 
+export const phoenixPtPeTerminals = (
+  [
+    [
+      "PT 1,5/S-PE",
+      "3208139",
+      1.5,
+      6,
+      "2026-11-09",
+      "en-de/products/ground-terminal-pt-15-s-pe-3208139",
+    ],
+    [
+      "PT 2,5-PE",
+      "3209536",
+      2.5,
+      6,
+      "2026-06-04",
+      "en-us/products/ground-terminal-block-pt-25-pe-3209536",
+    ],
+    [
+      "PT 4-PE",
+      "3211766",
+      4,
+      8,
+      "2026-11-10",
+      "en-de/products/ground-terminal-pt-4-pe-3211766",
+    ],
+    [
+      "PT 6-PE",
+      "3211822",
+      6,
+      8,
+      "2026-11-06",
+      "en-gb/products/ground-terminal-block-pt-6-pe-3211822",
+    ],
+    [
+      "PT 10-PE",
+      "3212131",
+      10,
+      8,
+      "2026-11-05",
+      "en-pc/products/ground-modular-terminal-block-pt-10-pe-3212131",
+    ],
+    [
+      "PT 2,5/S-QUATTRO-PE",
+      "3211025",
+      2.5,
+      6,
+      "2026-05-23",
+      "en-us/products/ground-terminal-block-pt-25s-quattro-pe-3211025",
+      4,
+    ],
+    [
+      "PT 2,5-QUATTRO-PE",
+      "3209594",
+      2.5,
+      8,
+      "2026-10-13",
+      "en-de/products/ground-terminal-pt-25-quattro-pe-3209594",
+      4,
+    ],
+  ] as const
+).map(
+  ([
+    model,
+    orderCode,
+    crossSectionMm2,
+    ratedSurgeKV,
+    date,
+    path,
+    clampCount = 2,
+  ]) => ({
+    id: `phoenix-contact:${orderCode}`,
+    manufacturer: "Phoenix Contact",
+    model,
+    orderCode,
+    category: "earthing-and-bonding-equipment" as const,
+    function: "protective-earth-terminal-block" as const,
+    connection: "bond" as const,
+    terminals: [
+      ...Array.from({ length: clampCount }, (_, index) => ({
+        id: `clamp-${index + 1}`,
+        group: "pe",
+        interface: "protective-bond",
+        connector: "push-in clamp",
+      })),
+      {
+        id: "rail-foot",
+        group: "pe",
+        interface: "protective-bond",
+        connector: "conductive DIN-rail foot",
+      },
+    ],
+    ratings: { crossSectionMm2, ratedSurgeKV },
+    conditions: { connectionStandard: "IEC 60947-7-2" },
+    modelMapping: null,
+    source: {
+      url: `https://www.phoenixcontact.com/${path}?type=pdf`,
+      revision: `Phoenix Contact article data sheet (${date})`,
+      page: 2,
+    },
+    missingFields: ["verified-bonding-model-mapping"],
+    readiness: "inventory-and-diagram-only",
+  }),
+);
+
 // Phaseo selection table, single-secondary ABL6TS columns B–E.
 const abl6Ratings = [
   [25, "02"],
@@ -2187,6 +2292,7 @@ export const componentBank = [
   ...rm17Relays,
   ...linergyDsBlocks,
   ...linergyEarthBars,
+  ...phoenixPtPeTerminals,
   ...abl6Transformers,
   ...abt7pduTransformers,
   ...victronAgmSuperCycle,

@@ -365,6 +365,21 @@ export function ManufacturerEquipmentCatalogue({
                 <dd>{format.format(record.ratings.icwKA)} kA · 1 s</dd>
               </div>
             </dl>
+          ) : record.function === "protective-earth-terminal-block" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>A</dt>
+                <dd>{format.format(record.ratings.crossSectionMm2)} mm²</dd>
+              </div>
+              <div>
+                <dt>Uimp</dt>
+                <dd>{format.format(record.ratings.ratedSurgeKV)} kV</dd>
+              </div>
+              <div>
+                <dt>{t("Documented terminals")}</dt>
+                <dd>{record.terminals.length}</dd>
+              </div>
+            </dl>
           ) : record.function === "protective-earth-bar" ? (
             <dl className="pg-metrics">
               <div>
