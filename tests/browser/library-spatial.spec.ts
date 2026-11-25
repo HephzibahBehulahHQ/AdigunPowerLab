@@ -682,6 +682,9 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   await expect(catalogue.getByText("2 CO · 5 A")).toBeVisible();
   await search.fill("A9MEM2010C");
   await expect(catalogue.getByText("100 imp/kWh")).toBeVisible();
+  await expect(
+    catalogue.getByText("5–35 V DC · 1–20 mA · 120 ms"),
+  ).toBeVisible();
   await expect(catalogue.getByText("China only")).toBeVisible();
   await search.fill("no matching product");
   await expect(catalogue.getByRole("status")).toHaveText(

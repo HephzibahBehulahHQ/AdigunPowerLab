@@ -512,6 +512,15 @@ export const iemMeters = [
       voltageTolerancePercent: 20,
       accuracyClass: 1,
       pulsesPerKWh: pulseOutput ? 100 : null,
+      pulseOutput: pulseOutput
+        ? {
+            voltageMinVdc: 5,
+            voltageMaxVdc: 35,
+            currentMinMa: 1,
+            currentMaxMa: 20,
+            pulseDurationMs: 120,
+          }
+        : null,
     },
     conditions: {
       frequencyHz: { min: 45, max: 65 },
@@ -522,6 +531,13 @@ export const iemMeters = [
       url: "https://download.se.com/files?p_Doc_Ref=S1B45381&p_File_Name=S1B45381-03.pdf&p_enDocType=Instruction+sheet",
       revision: "S1B45381-03/1, September 2022",
       page: 2,
+      supplemental: [
+        {
+          url: "https://download.se.com/files?p_Doc_Ref=S1B45381&p_File_Name=S1B45381-03.pdf&p_enDocType=Instruction+sheet",
+          revision: "S1B45381-03/1, September 2022",
+          page: 1,
+        },
+      ],
     },
     missingFields: ["verified-metering-model-mapping"],
     readiness: "inventory-and-diagram-only",

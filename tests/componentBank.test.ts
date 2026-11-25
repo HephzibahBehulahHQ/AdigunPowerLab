@@ -950,6 +950,15 @@ test("iEM records distinguish pulse outputs and the China-only orders", () => {
   const general = iemMeters.find(({ model }) => model === "A9MEM2000");
   const china = iemMeters.find(({ model }) => model === "A9MEM2010C");
   expect(general?.ratings.pulsesPerKWh).toBeNull();
+  expect(general?.ratings.pulseOutput).toBeNull();
+  expect(china?.ratings.pulseOutput).toEqual({
+    voltageMinVdc: 5,
+    voltageMaxVdc: 35,
+    currentMinMa: 1,
+    currentMaxMa: 20,
+    pulseDurationMs: 120,
+  });
+  expect(china?.source.supplemental[0].page).toBe(1);
   expect(china?.conditions.marketRestriction).toBe("China only");
   expect(
     china?.terminals
@@ -964,6 +973,13 @@ test("iEM records distinguish pulse outputs and the China-only orders", () => {
     schemaVersion: 1,
     entries: iemMeters,
   });
+  const csv = readFileSync(
+    new URL("../docs/component-bank-iem.csv", import.meta.url),
+    "utf8",
+  );
+  expect(csv.replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(iemMeters).replaceAll("\r\n", "\n"),
+  );
 });
 
 test("PV validation follows conductor nodes across multiple wires", () => {

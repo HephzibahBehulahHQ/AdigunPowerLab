@@ -40,7 +40,8 @@
         "voltageV": 230,
         "voltageTolerancePercent": 20,
         "accuracyClass": 1,
-        "pulsesPerKWh": null
+        "pulsesPerKWh": null,
+        "pulseOutput": null
       },
       "conditions": {
         "frequencyHz": {
@@ -53,7 +54,14 @@
       "source": {
         "url": "https://download.se.com/files?p_Doc_Ref=S1B45381&p_File_Name=S1B45381-03.pdf&p_enDocType=Instruction+sheet",
         "revision": "S1B45381-03/1, September 2022",
-        "page": 2
+        "page": 2,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=S1B45381&p_File_Name=S1B45381-03.pdf&p_enDocType=Instruction+sheet",
+            "revision": "S1B45381-03/1, September 2022",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
         "verified-metering-model-mapping"
@@ -99,7 +107,8 @@
         "voltageV": 230,
         "voltageTolerancePercent": 20,
         "accuracyClass": 1,
-        "pulsesPerKWh": null
+        "pulsesPerKWh": null,
+        "pulseOutput": null
       },
       "conditions": {
         "frequencyHz": {
@@ -112,7 +121,14 @@
       "source": {
         "url": "https://download.se.com/files?p_Doc_Ref=S1B45381&p_File_Name=S1B45381-03.pdf&p_enDocType=Instruction+sheet",
         "revision": "S1B45381-03/1, September 2022",
-        "page": 2
+        "page": 2,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=S1B45381&p_File_Name=S1B45381-03.pdf&p_enDocType=Instruction+sheet",
+            "revision": "S1B45381-03/1, September 2022",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
         "verified-metering-model-mapping"
@@ -170,7 +186,14 @@
         "voltageV": 230,
         "voltageTolerancePercent": 20,
         "accuracyClass": 1,
-        "pulsesPerKWh": 100
+        "pulsesPerKWh": 100,
+        "pulseOutput": {
+          "voltageMinVdc": 5,
+          "voltageMaxVdc": 35,
+          "currentMinMa": 1,
+          "currentMaxMa": 20,
+          "pulseDurationMs": 120
+        }
       },
       "conditions": {
         "frequencyHz": {
@@ -183,7 +206,14 @@
       "source": {
         "url": "https://download.se.com/files?p_Doc_Ref=S1B45381&p_File_Name=S1B45381-03.pdf&p_enDocType=Instruction+sheet",
         "revision": "S1B45381-03/1, September 2022",
-        "page": 2
+        "page": 2,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=S1B45381&p_File_Name=S1B45381-03.pdf&p_enDocType=Instruction+sheet",
+            "revision": "S1B45381-03/1, September 2022",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
         "verified-metering-model-mapping"
@@ -241,7 +271,14 @@
         "voltageV": 230,
         "voltageTolerancePercent": 20,
         "accuracyClass": 1,
-        "pulsesPerKWh": 100
+        "pulsesPerKWh": 100,
+        "pulseOutput": {
+          "voltageMinVdc": 5,
+          "voltageMaxVdc": 35,
+          "currentMinMa": 1,
+          "currentMaxMa": 20,
+          "pulseDurationMs": 120
+        }
       },
       "conditions": {
         "frequencyHz": {
@@ -254,7 +291,14 @@
       "source": {
         "url": "https://download.se.com/files?p_Doc_Ref=S1B45381&p_File_Name=S1B45381-03.pdf&p_enDocType=Instruction+sheet",
         "revision": "S1B45381-03/1, September 2022",
-        "page": 2
+        "page": 2,
+        "supplemental": [
+          {
+            "url": "https://download.se.com/files?p_Doc_Ref=S1B45381&p_File_Name=S1B45381-03.pdf&p_enDocType=Instruction+sheet",
+            "revision": "S1B45381-03/1, September 2022",
+            "page": 1
+          }
+        ]
       },
       "missingFields": [
         "verified-metering-model-mapping"

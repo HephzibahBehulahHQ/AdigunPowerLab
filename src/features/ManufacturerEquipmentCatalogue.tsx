@@ -310,6 +310,18 @@ export function ManufacturerEquipmentCatalogue({
                   <dd>{record.ratings.pulsesPerKWh} imp/kWh</dd>
                 </div>
               )}
+              {record.ratings.pulseOutput && (
+                <div>
+                  <dt>{t("Pulse output ratings")}</dt>
+                  <dd>
+                    {record.ratings.pulseOutput.voltageMinVdc}–
+                    {record.ratings.pulseOutput.voltageMaxVdc} V DC ·{" "}
+                    {record.ratings.pulseOutput.currentMinMa}–
+                    {record.ratings.pulseOutput.currentMaxMa} mA ·{" "}
+                    {record.ratings.pulseOutput.pulseDurationMs} ms
+                  </dd>
+                </div>
+              )}
               {record.conditions.marketRestriction && (
                 <div>
                   <dt>{t("Regional availability")}</dt>

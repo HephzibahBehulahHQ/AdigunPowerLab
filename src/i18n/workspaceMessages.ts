@@ -82,6 +82,11 @@ export const workspaceMessages: Record<string, [string, string, string]> = {
     "Agbára ìṣàn àti ìdènà iná inú kéébù",
     "Cable ampacity and impedance",
   ],
+  "Pulse output ratings": [
+    "Nenndaten des Impulsausgangs",
+    "Àwọn iye àyàn fún ìjáde ìlù",
+    "Pulse output ratings",
+  ],
   "Article-specific core colours": [
     "Aderfarben des jeweiligen Artikels",
     "Àwọ̀ àwọn okùn inú kéébù fún àwòṣe yìí",

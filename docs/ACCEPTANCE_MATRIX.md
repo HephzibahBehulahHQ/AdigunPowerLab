@@ -438,6 +438,8 @@ The WEG W22 NEMA articles preserve their nine- and twelve-lead inventories and e
 
 The four Philips DN145B PSU records preserve the 6.5 W and 11 W ratings, 3000 K and 4000 K identities, and L/N terminals in CSV and JSON. Chromium verified the 11 W, 4000 K article, its luminous flux, the on/off control and both AC terminals. Lighting calculation mapping remains pending.
 
+The two Schneider iEM2010 pulse-output variants preserve S0 voltage, current and duration in the catalogue and exports. Chromium verified the values on A9MEM2010C. The two iEM2000 variants have no S0 terminal pair or pulse ratings.
+
 Individual file generation emits per-record CSV and JSON for all runtime entries, with a machine-readable ID index.
 
 Eight iCT contactors include contact topology, coil terminals, conditional AC-7a/AC-7b ratings and CSV/JSON.
