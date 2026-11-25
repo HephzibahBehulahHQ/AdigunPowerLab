@@ -389,6 +389,22 @@ test("manufacturer catalogue searches and exports the exact model", async ({
   expect(
     highCore.entry.terminals.slice(-4).map(({ id }: { id: string }) => id),
   ).toEqual(["a-99", "b-99", "a-pe", "b-pe"]);
+  await search.fill("1135628");
+  await expect(model).toHaveValue("lapp:1135628");
+  await expect(catalogue.getByText("33.2 mm", { exact: true })).toBeVisible();
+  const shieldedDownload = page.waitForEvent("download");
+  await catalogue.getByRole("button", { name: "Export record JSON" }).click();
+  const shielded = JSON.parse(
+    await readFile(await (await shieldedDownload).path(), "utf8"),
+  );
+  expect(shielded.entry.terminals).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({ id: "a-shield", group: "Shield" }),
+      expect.objectContaining({ id: "b-shield", group: "Shield" }),
+      expect.objectContaining({ id: "a-pe", group: "PE" }),
+      expect.objectContaining({ id: "b-pe", group: "PE" }),
+    ]),
+  );
   await catalogue.getByLabel("Equipment category").selectOption("generators");
   await search.fill("STAMFORD S1L2-Y1");
   await expect(model).toHaveValue("stamford:s1l2-y1-311");

@@ -503,6 +503,7 @@ VE.Direct 120 V records show their own temperature-conditioned power ratings and
 - Expand **Source, terminals and model readiness** to open supplemental manufacturer documents when the catalogue includes separate terminal or installation evidence.
 - Select **Cables and conductors** to compare LAPP cable articles by cross-section, core count and PE. Each core has two documented ends. These records are available for inventory and diagrams.
 - LAPP cable cards show nominal U₀/U. The record export includes core-to-core test voltage, and the source panel links the manufacturer family datasheet.
+- Search for a LAPP CLASSIC 110 CY order code, such as **1135628**, to inspect the cable diameter in millimetres. The terminal list and record export include two braid ends and a separate pair of PE ends where the article has a PE core.
 - Select **Generators** in the manufacturer catalogue to compare STAMFORD alternator continuous kVA by published temperature class. The source panel links the winding reference.
 - Select **Enclosures and installation hardware** to compare Schneider S3HD wall enclosures by external dimensions, ingress protection and impact protection.
 - Select **Lighting equipment** to inspect the Philips DN145B wattage, luminous flux, colour temperature and documented driver terminals.

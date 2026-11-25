@@ -837,4 +837,6 @@ TypeScript, 24 catalogue tests and Chromium 24 V DC to 120 V AC lookup passed.
 - Chromium verified that duplicate Chromalox model labels display their order codes, that the 480 V variant is selectable, and that its CSV has a distinct order-code filename.
 - LAPP expansion: PDF extraction matched every previous LAPP record; export validation, TypeScript and 29 component-bank tests passed.
 - Chromium verified exact LAPP 1119100 lookup, the 100-core PE display, and JSON export of 200 conductor ends including core 99 and both PE ends.
+- ÖLFLEX CLASSIC 110 CY: extracted 86 article rows from pages 3–5. All 30 component-bank tests passed, including braid and PE terminal separation and CSV/JSON parity for the entire shielded batch. TypeScript passed after the catalogue was updated to display the manufacturer’s diameter units.
+- Chromium against the local production build at `dfbf6be` passed exact order-code selection for 1135628, the 33.2 mm diameter display and JSON download of both braid ends and both protective-earth ends.
 - Candidate d6e148e: generated individual exports for all 1,200 records and compared every CSV and JSON to its source record. All 2,400 files and the 1,200-ID index matched.
