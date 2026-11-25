@@ -39,6 +39,7 @@ import {
   olflexClassic110BlackCables,
   olflexClassic110HCables,
   olflexClassic110ChCables,
+  olflexClassic115CyCables,
   stamfordWinding311Alternators,
   spacialS3hdEnclosures,
   philipsDn145bDownlights,
@@ -51,11 +52,21 @@ import {
 import { join } from "node:path";
 
 const serialize = (data) => JSON.stringify(data, null, 2) + "\n";
+const checkOnly = process.argv.includes("--check");
+const exportIndividual = process.argv.includes("--individual");
+if (checkOnly && exportIndividual) {
+  throw new Error("Use --check and --individual in separate runs.");
+}
+const staleDocuments = [];
 function writeCatalogueDocument(path, contents) {
   const existing = existsSync(path) ? readFileSync(path, "utf8") : "";
   const normalizeNewlines = (value) => value.replaceAll("\r\n", "\n");
   if (normalizeNewlines(existing) !== normalizeNewlines(contents)) {
-    writeFileSync(path, contents);
+    if (checkOnly) {
+      staleDocuments.push(fileURLToPath(path));
+    } else {
+      writeFileSync(path, contents);
+    }
   }
 }
 const batches = {
@@ -88,6 +99,7 @@ const batches = {
   "lapp-olflex-110-black": olflexClassic110BlackCables,
   "lapp-olflex-110-h": olflexClassic110HCables,
   "lapp-olflex-110-ch": olflexClassic110ChCables,
+  "lapp-olflex-115-cy": olflexClassic115CyCables,
   "stamford-winding-311": stamfordWinding311Alternators,
   "spacial-s3hd": spacialS3hdEnclosures,
   "philips-dn145b": philipsDn145bDownlights,
@@ -128,7 +140,16 @@ writeCatalogueDocument(
   serialize(coverage),
 );
 
-if (process.argv.includes("--individual")) {
+if (staleDocuments.length > 0) {
+  throw new Error(
+    `Regenerate the stale catalogue exports:\n${staleDocuments.join("\n")}`,
+  );
+}
+if (checkOnly) {
+  console.log(`Catalogue exports match all ${componentBank.length} records.`);
+}
+
+if (exportIndividual) {
   const destination = fileURLToPath(
     new URL("../output/component-bank/", import.meta.url),
   );

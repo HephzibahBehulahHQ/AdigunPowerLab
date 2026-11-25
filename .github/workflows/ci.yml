@@ -17,6 +17,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
+      - name: Verify tracked component bank exports
+        run: node scripts/export-component-bank.mjs --check
       - run: npm test
       - run: npm run build
       - run: npx playwright install --with-deps chromium

@@ -460,7 +460,7 @@ Newly added catalogue equipment keeps its source page and any documented order c
 Dashed wires identify saved catalogue terminal links in the single-line diagram and its SVG and PDF exports.
 
 Repository maintainers can run
-ode scripts/export-component-bank.mjs --individual to generate one CSV and one JSON file per model. Open the printed output folder and use its index.json to find each model ID.
+Run `node scripts/export-component-bank.mjs --individual` to generate one CSV and one JSON file per model. Open the printed output folder and use `index.json` to find each model ID. Run `node scripts/export-component-bank.mjs --check` to verify the tracked batch exports and coverage manifest without writing files.
 
 Find iCT contactors in **Switching and transfer equipment**. Compare AC-7a, AC-7b and coil-voltage ratings and inspect A1 and A2 in the terminal details.
 
@@ -517,6 +517,7 @@ VE.Direct 120 V records show their own temperature-conditioned power ratings and
 - Select **A9MEM2055** to compare S0 terminals **20/21** with Modbus RS-485 terminals **23/24**. Open the wiring source and download the JSON record to check the terminal numbers against the diagram.
 - Compare **A9MEM2435** and **A9MEM2455**. Terminals **10/11** serve M-Bus on the former and RS-485 Modbus on the latter. In each record, find the forward pulse pair **18/19** and the reverse pair **20/21**.
 - Select **METSEEM2214** to inspect the single-tariff model. It has the same two pulse pairs and no communications terminals.
+- In **Cables and conductors**, compare LAPP CLASSIC 115 CY **1136003** and **1136753**. Both have a 6.1 mm outer diameter and two shield ends. Article 1136003 also has two ends for its PE core. Check the terminal list and record export.
 - Select **Generators** in the manufacturer catalogue to compare STAMFORD alternator continuous kVA by published temperature class. The source panel links the winding reference.
 - Select **Enclosures and installation hardware** to compare Schneider S3HD wall enclosures by external dimensions, ingress protection and impact protection.
 - Select **Lighting equipment** to inspect the Philips DN145B wattage, luminous flux, colour temperature and documented driver terminals.
