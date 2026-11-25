@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "distinctRecords": 1781,
+  "distinctRecords": 1950,
   "goalMinimum": 10000,
   "readiness": {
     "pv-worksheet-inputs-only": 14,
-    "inventory-and-diagram-only": 1767
+    "inventory-and-diagram-only": 1936
   },
   "categories": [
     {
@@ -40,8 +40,8 @@
     {
       "category": "batteries-and-storage-systems",
       "target": 600,
-      "records": 8,
-      "remaining": 592
+      "records": 15,
+      "remaining": 585
     },
     {
       "category": "ups-and-backup-systems",
@@ -64,14 +64,14 @@
     {
       "category": "cables-and-conductors",
       "target": 1000,
-      "records": 706,
-      "remaining": 294
+      "records": 861,
+      "remaining": 139
     },
     {
       "category": "busbars-and-distribution-systems",
       "target": 400,
-      "records": 3,
-      "remaining": 397
+      "records": 10,
+      "remaining": 390
     },
     {
       "category": "motors-and-motor-driven-equipment",

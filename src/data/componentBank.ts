@@ -857,6 +857,156 @@ export const linergyDsBlocks = (
   readiness: "inventory-and-diagram-only",
 }));
 
+export const linergyDsFourPoleBlocks = [
+  {
+    id: "schneider-electric:lgy410028",
+    manufacturer: "Schneider Electric",
+    model: "LGY410028",
+    orderCode: "LGY410028",
+    category: "busbars-and-distribution-systems" as const,
+    function: "four-pole-distribution-block" as const,
+    connection: "ac" as const,
+    terminals: Array.from({ length: 4 }, (_, index) =>
+      Array.from({ length: 7 }, (_, hole) => ({
+        id: `pole-${index + 1}-hole-${hole + 1}`,
+        group: `pole-${index + 1}`,
+        interface: "distribution-pole",
+        connector: `Ø ${hole < 2 ? 7.5 : 5.5} mm screw terminal`,
+      })),
+    ).flat(),
+    ratings: { ratedCurrentA: 100, poles: 4, ipkKA: 24, icwKA: 3 },
+    conditions: { icwDurationSeconds: 1, icwStandard: "IEC/EN 60947-7-1" },
+    modelMapping: null,
+    source: linergyDsBlocks[0].source,
+    missingFields: [
+      "verified-distribution-model-mapping",
+      "distribution-pole-phase-assignment",
+    ],
+    readiness: "inventory-and-diagram-only",
+  },
+  ...(
+    [
+      [
+        "LGY412548",
+        26,
+        125,
+        4.2,
+        [
+          [9, 1],
+          [7.5, 7],
+          [6.5, 4],
+        ],
+      ],
+      [
+        "LGY412560",
+        28,
+        125,
+        4.2,
+        [
+          [9.5, 1],
+          [8.5, 3],
+          [6.5, 11],
+        ],
+      ],
+      [
+        "LGY416048",
+        36,
+        160,
+        8.4,
+        [
+          [12, 1],
+          [9, 3],
+          [7.5, 8],
+        ],
+      ],
+    ] as const
+  ).map(([model, ipkKA, ratedCurrentA, icwKA, holeSizes]) => {
+    const diameters = holeSizes.flatMap(([diameter, count]) =>
+      Array.from({ length: count }, () => diameter),
+    );
+    return {
+      id: `schneider-electric:${model.toLowerCase()}`,
+      manufacturer: "Schneider Electric",
+      model,
+      orderCode: model,
+      category: "busbars-and-distribution-systems" as const,
+      function: "four-pole-distribution-block" as const,
+      connection: "ac" as const,
+      terminals: Array.from({ length: 4 }, (_, index) =>
+        diameters.map((diameter, hole) => ({
+          id: `pole-${index + 1}-hole-${hole + 1}`,
+          group: `pole-${index + 1}`,
+          interface: "distribution-pole",
+          connector: `Ø ${diameter} mm screw terminal`,
+        })),
+      ).flat(),
+      ratings: { ratedCurrentA, poles: 4, ipkKA, icwKA },
+      conditions: { icwDurationSeconds: 1, icwStandard: "IEC/EN 60947-7-1" },
+      modelMapping: null,
+      source: { ...linergyDsBlocks[0].source, page: 3, pageLabel: "B-3" },
+      missingFields: [
+        "verified-distribution-model-mapping",
+        "distribution-pole-phase-assignment",
+      ],
+      readiness: "inventory-and-diagram-only",
+    };
+  }),
+];
+
+export const linergyNeutralBars = (
+  [
+    [
+      "LGYN1007",
+      100,
+      [
+        [7.5, 2],
+        [5.5, 5],
+      ],
+    ],
+    [
+      "LGYN12512",
+      125,
+      [
+        [9, 1],
+        [7.5, 7],
+        [6.5, 4],
+      ],
+    ],
+    [
+      "LGYN12515",
+      125,
+      [
+        [9.5, 1],
+        [8.5, 3],
+        [6.5, 11],
+      ],
+    ],
+  ] as const
+).map(([model, ratedCurrentA, holeSizes]) => ({
+  id: `schneider-electric:${model.toLowerCase()}`,
+  manufacturer: "Schneider Electric",
+  model,
+  orderCode: model,
+  category: "busbars-and-distribution-systems" as const,
+  function: "neutral-terminal-strip" as const,
+  connection: "ac" as const,
+  terminals: holeSizes
+    .flatMap(([diameter, count]) =>
+      Array.from({ length: count }, () => diameter),
+    )
+    .map((diameter, index) => ({
+      id: `neutral-hole-${index + 1}`,
+      group: "neutral",
+      interface: "ac-neutral",
+      connector: `Ø ${diameter} mm screw terminal`,
+    })),
+  ratings: { ratedCurrentA, poles: 1 },
+  modelMapping: null,
+  source: { ...linergyDsBlocks[0].source, page: 3, pageLabel: "B-3" },
+  missingFields: ["verified-distribution-model-mapping"],
+  readiness: "inventory-and-diagram-only",
+}));
+
 export const linergyEarthBars = (
   [
     ["LVS04200", 450, 40],
@@ -1170,6 +1320,67 @@ export const victronAgmSuperCycle = (
   missingFields: ["verified-storage-model-mapping"],
   readiness: "inventory-and-diagram-only",
 }));
+
+export const victronGelDeepCycle = (
+  [
+    ["BAT412550104", 60, 229, 138, 227, 20, 250, 70],
+    ["BAT412800104", 90, 350, 167, 183, 26, 360, 120],
+    ["BAT412101104", 110, 330, 171, 220, 33, 450, 150],
+    ["BAT412121104", 130, 410, 176, 227, 38, 500, 180],
+    ["BAT412151104", 165, 485, 172, 240, 48, 550, 200],
+    ["BAT412201104", 220, 522, 238, 240, 66, 600, 220],
+    ["BAT412126101", 265, 520, 268, 223, 75, 650, 250],
+  ] as const
+).map(
+  ([
+    model,
+    c20Ah,
+    lengthMm,
+    widthMm,
+    heightMm,
+    massKg,
+    ccaA,
+    reserveMinutes,
+  ]) => ({
+    id: `victron-energy:${model.toLowerCase()}`,
+    manufacturer: "Victron Energy",
+    model,
+    orderCode: model,
+    category: "batteries-and-storage-systems" as const,
+    function: "gel-storage-battery" as const,
+    connection: "dc-storage" as const,
+    terminals: ["positive", "negative"].map((polarity) => ({
+      id: polarity,
+      group: `dc-${polarity}`,
+      interface: `battery-${polarity}`,
+      connector: "copper terminal",
+    })),
+    ratings: {
+      nominalV: 12,
+      c20Ah,
+      lengthMm,
+      widthMm,
+      heightMm,
+      massKg,
+      ccaA,
+      reserveMinutes,
+    },
+    conditions: {
+      capacityTemperatureC: 25,
+      ccaTemperatureF: 0,
+      reserveTemperatureF: 80,
+      chemistry: "flat-plate GEL lead-acid",
+    },
+    modelMapping: null,
+    source: {
+      url: "https://www.victronenergy.com/upload/documents/Datasheet-GEL-and-AGM-Batteries-EN.pdf",
+      revision: "GEL and AGM Batteries EN, 265 Ah BAT412126101 table",
+      page: 4,
+    },
+    missingFields: ["verified-storage-model-mapping"],
+    readiness: "inventory-and-diagram-only",
+  }),
+);
 
 export const apcSmvUps = (
   [
@@ -1791,6 +2002,9 @@ const olflexClassic110CyRows = [
 
 type MetricLappRow =
   | (typeof olflexClassic110CyRows)[number]
+  | (typeof olflexClassic110CyBlackRows)[number]
+  | (typeof olflexClassic135ChRows)[number]
+  | (typeof olflexClassic135ChBlackRows)[number]
   | (typeof olflexClassic100750Rows)[number]
   | (typeof olflexClassic100500Rows)[number]
   | (typeof olflexClassic110BlackRows)[number]
@@ -2381,6 +2595,206 @@ export const olflexClassic115CyCables = metricLappCables(
     revision: "LAPP PN 0456 / 02_03.16 (2026-01-25)",
     nominalU0V: 300,
     nominalUV: 500,
+    shielded: true,
+  },
+);
+
+const olflexClassic110CyBlackRows = [
+  ["1121232", 2, "X", 0.75, 10.5, 46, 150, 3],
+  ["1121233", 3, "G", 0.75, 10.9, 56, 180, 3],
+  ["1121235", 4, "G", 0.75, 11.4, 67, 214, 3],
+  ["1121236", 4, "X", 0.75, 11.4, 67, 214, 3],
+  ["1121237", 5, "G", 0.75, 12.1, 78, 272, 3],
+  ["1121241", 7, "G", 0.75, 12.9, 97, 242, 3],
+  ["1121247", 12, "G", 0.75, 15.8, 168, 464, 3],
+  ["1121251", 18, "G", 0.75, 18, 229, 616, 3],
+  ["1121254", 25, "G", 0.75, 20.7, 296, 762, 3],
+  ["1121266", 2, "X", 1, 10.8, 52, 160, 3],
+  ["1121267", 3, "G", 1, 11.2, 66, 182, 3],
+  ["1121268", 3, "X", 1, 11.2, 66, 182, 3],
+  ["1121269", 4, "G", 1, 11.8, 79, 210, 3],
+  ["1121270", 4, "X", 1, 11.8, 79, 210, 3],
+  ["1121271", 5, "G", 1, 12.6, 93, 252, 3],
+  ["1121274", 7, "G", 1, 13.3, 117, 335, 3],
+  ["1121280", 12, "G", 1, 16.4, 204, 522, 3],
+  ["1121284", 18, "G", 1, 18.7, 280, 687, 3],
+  ["1121290", 25, "G", 1, 21.6, 369, 884, 3],
+  ["1121306", 2, "X", 1.5, 11.8, 69, 243, 3],
+  ["1121307", 3, "G", 1.5, 12.3, 87, 273, 3],
+  ["1121308", 3, "X", 1.5, 12.3, 87, 273, 3],
+  ["1121309", 4, "G", 1.5, 13, 102, 290, 3],
+  ["1121310", 4, "X", 1.5, 13, 102, 290, 3],
+  ["1121311", 5, "G", 1.5, 13.9, 125, 352, 3],
+  ["1121314", 7, "G", 1.5, 15, 180, 448, 3],
+  ["1121320", 12, "G", 1.5, 18.7, 281, 690, 3],
+  ["1121324", 18, "G", 1.5, 21.8, 391, 938, 3],
+  ["1121328", 25, "G", 1.5, 25.1, 518, 1180, 3],
+  ["1121340", 3, "G", 2.5, 13.5, 123, 315, 3],
+  ["1121342", 4, "G", 2.5, 14.6, 168, 349, 3],
+  ["1121344", 5, "G", 2.5, 15.7, 204, 515, 3],
+  ["1121346", 7, "G", 2.5, 17, 265, 619, 3],
+  ["1121349", 12, "G", 2.5, 21.7, 421, 936, 4],
+  ["1121360", 4, "G", 4, 16.2, 238, 587, 4],
+  ["1121361", 5, "G", 4, 17.7, 302, 689, 4],
+  ["1121362", 7, "G", 4, 19, 396, 828, 4],
+  ["1121367", 4, "G", 6, 17.7, 318, 715, 4],
+  ["1121368", 5, "G", 6, 19.2, 419, 862, 4],
+  ["1121372", 4, "G", 10, 21.7, 574, 875, 4],
+  ["1121373", 5, "G", 10, 23, 612, 1037, 4],
+  ["1121377", 4, "G", 16, 24.3, 809, 1400, 4],
+  ["1121378", 5, "G", 16, 26.7, 935, 1600, 4],
+  ["1121381", 4, "G", 25, 29.8, 1165, 2179, 4],
+  ["1121385", 4, "G", 35, 32.7, 1683, 2893, 4],
+  ["1121388", 4, "G", 50, 39.6, 2368, 4094, 4],
+  ["1121391", 4, "G", 70, 44.5, 3261, 5467, 4],
+  ["1121394", 4, "G", 95, 51, 4055, 5849, 4],
+  ["1121397", 4, "G", 120, 58.1, 5225, 7509, 4],
+] as const;
+
+export const olflexClassic110CyBlackCables = metricLappCables(
+  olflexClassic110CyBlackRows,
+  {
+    family: "ÖLFLEX CLASSIC 110 CY BLACK 0,6/1 kV",
+    url: "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/pvc-outer-sheath-and-numbered-cores/oelflex-classic-110-cy-black-061-kv.html?format=pdf",
+    revision: "LAPP PN 0456 / 02_03.16 (2026-01-25)",
+    nominalU0V: 600,
+    nominalUV: 1000,
+    shielded: true,
+  },
+);
+
+const olflexClassic135ChRows = [
+  ["1123200", 2, "X", 0.5, 5.9, 36, 51, 4],
+  ["1123201", 3, "G", 0.5, 6.2, 43, 61, 4],
+  ["1123202", 3, "X", 0.5, 6.2, 43, 61, 4],
+  ["1123203", 4, "G", 0.5, 6.6, 49, 72, 4],
+  ["1123204", 4, "X", 0.5, 6.6, 49, 72, 4],
+  ["1123205", 5, "G", 0.5, 7.1, 57, 85, 4],
+  ["1123206", 5, "X", 0.5, 7.1, 57, 85, 4],
+  ["1123208", 7, "G", 0.5, 7.7, 69, 103, 4],
+  ["1123209", 7, "X", 0.5, 7.7, 69, 103, 4],
+  ["1123213", 12, "G", 0.5, 10.1, 104, 165, 4],
+  ["1123217", 18, "G", 0.5, 11.8, 141, 236, 4],
+  ["1123220", 25, "G", 0.5, 13.7, 224, 324, 4],
+  ["1123232", 2, "X", 0.75, 6.3, 43, 60, 4],
+  ["1123233", 3, "G", 0.75, 6.6, 52, 77, 4],
+  ["1123234", 3, "X", 0.75, 6.6, 52, 77, 4],
+  ["1123235", 4, "G", 0.75, 7.1, 61, 87, 4],
+  ["1123236", 4, "X", 0.75, 7.1, 61, 87, 4],
+  ["1123237", 5, "G", 0.75, 7.9, 72, 106, 4],
+  ["1123238", 5, "X", 0.75, 7.9, 72, 106, 4],
+  ["1123241", 7, "G", 0.75, 8.5, 89, 129, 4],
+  ["1123242", 7, "X", 0.75, 8.5, 89, 129, 4],
+  ["1123247", 12, "G", 0.75, 11.1, 138, 211, 4],
+  ["1123248", 12, "X", 0.75, 11.1, 138, 211, 4],
+  ["1123251", 18, "G", 0.75, 13, 211, 307, 4],
+  ["1123254", 25, "G", 0.75, 15.1, 280, 413, 4],
+  ["1123266", 2, "X", 1, 6.6, 51, 79, 4],
+  ["1123267", 3, "G", 1, 6.9, 62, 88, 4],
+  ["1123268", 3, "X", 1, 6.9, 62, 88, 4],
+  ["1123269", 4, "G", 1, 7.4, 74, 106, 4],
+  ["1123270", 4, "X", 1, 7.4, 74, 106, 4],
+  ["1123271", 5, "G", 1, 8.3, 88, 124, 4],
+  ["1123272", 5, "X", 1, 8.3, 88, 124, 4],
+  ["1123274", 7, "G", 1, 8.9, 112, 155, 4],
+  ["1123275", 7, "X", 1, 8.9, 112, 155, 5],
+  ["1123280", 12, "G", 1, 11.7, 185, 250, 5],
+  ["1123281", 12, "X", 1, 11.7, 185, 250, 5],
+  ["1123284", 18, "G", 1, 14.1, 268, 368, 5],
+  ["1123290", 25, "G", 1, 16.2, 354, 493, 5],
+  ["1123291", 25, "X", 1, 16.2, 354, 493, 5],
+  ["1123306", 2, "X", 1.5, 7.2, 65, 91, 5],
+  ["1123307", 3, "G", 1.5, 7.6, 82, 112, 5],
+  ["1123308", 3, "X", 1.5, 7.6, 82, 112, 5],
+  ["1123309", 4, "G", 1.5, 8.4, 100, 141, 5],
+  ["1123310", 4, "X", 1.5, 8.4, 100, 141, 5],
+  ["1123311", 5, "G", 1.5, 9.1, 119, 161, 5],
+  ["1123312", 5, "X", 1.5, 9.1, 119, 161, 5],
+  ["1123314", 7, "G", 1.5, 10, 154, 206, 5],
+  ["1123315", 7, "X", 1.5, 10, 154, 206, 5],
+  ["1123320", 12, "G", 1.5, 13.4, 268, 355, 5],
+  ["1123324", 18, "G", 1.5, 15.8, 373, 517, 5],
+  ["1123328", 25, "G", 1.5, 18.2, 530, 705, 5],
+  ["1123339", 2, "X", 2.5, 8.6, 96, 128, 5],
+  ["1123340", 3, "G", 2.5, 9.1, 118, 157, 5],
+  ["1123342", 4, "G", 2.5, 10, 147, 201, 5],
+  ["1123344", 5, "G", 2.5, 11.1, 176, 248, 5],
+  ["1123346", 7, "G", 2.5, 12, 253, 313, 5],
+  ["1123349", 12, "G", 2.5, 16.3, 385, 524, 5],
+  ["1123359", 3, "G", 4, 10.6, 178, 231, 5],
+  ["1123360", 4, "G", 4, 11.8, 248, 291, 5],
+  ["1123361", 5, "G", 4, 13.3, 269, 361, 5],
+  ["1123362", 7, "G", 4, 14.6, 371, 468, 5],
+  ["1123366", 3, "G", 6, 12.7, 240, 318, 5],
+  ["1123367", 4, "G", 6, 14.2, 343, 437, 5],
+  ["1123368", 5, "G", 6, 15.5, 441, 510, 5],
+  ["1123369", 7, "G", 6, 17, 510, 662, 5],
+  ["1123372", 4, "G", 10, 17.2, 495, 685, 5],
+  ["1123373", 5, "G", 10, 19.5, 592, 824, 5],
+  ["1123374", 7, "G", 10, 21.4, 820, 1067, 6],
+  ["1123377", 4, "G", 16, 20.2, 736, 1036, 6],
+  ["1123378", 5, "G", 16, 22.6, 895, 1285, 6],
+  ["1123381", 4, "G", 25, 25.1, 1129, 1663, 6],
+  ["1123382", 5, "G", 25, 28, 1400, 1976, 6],
+  ["1123385", 4, "G", 35, 28.2, 1546, 2052, 6],
+] as const;
+
+export const olflexClassic135ChCables = metricLappCables(
+  olflexClassic135ChRows,
+  {
+    family: "ÖLFLEX CLASSIC 135 CH",
+    url: "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch.html?format=pdf&",
+    revision: "LAPP PN 0456 / 02_03.16 (2026-03-28)",
+    nominalU0V: 300,
+    nominalUV: 500,
+    shielded: true,
+  },
+);
+
+const olflexClassic135ChBlackRows = [
+  ["1123460", 2, "X", 1, 9.4, 39.5, 120, 4],
+  ["1123461", 3, "G", 1, 9.8, 51, 140, 4],
+  ["1123462", 4, "G", 1, 10.4, 62.8, 165, 4],
+  ["1123463", 5, "G", 1, 11.2, 76, 191, 4],
+  ["1123464", 7, "G", 1, 11.9, 97.2, 231, 4],
+  ["1123465", 12, "G", 1, 15, 169.1, 360, 4],
+  ["1123466", 18, "G", 1, 17.3, 238.2, 494, 4],
+  ["1123467", 25, "G", 1, 19.8, 315.5, 643, 4],
+  ["1123468", 2, "X", 1.5, 10.4, 53.2, 149, 4],
+  ["1123469", 3, "G", 1.5, 10.9, 69.5, 177, 4],
+  ["1123470", 4, "G", 1.5, 11.6, 86.5, 209, 4],
+  ["1123471", 5, "G", 1.5, 12.5, 104.3, 243, 4],
+  ["1123472", 7, "G", 1.5, 13.4, 136.5, 300, 4],
+  ["1123473", 12, "G", 1.5, 17.3, 238.3, 486, 4],
+  ["1123474", 18, "G", 1.5, 20.2, 355.4, 691, 4],
+  ["1123475", 25, "G", 1.5, 23.1, 475.1, 914, 4],
+  ["1123476", 2, "X", 2.5, 11.6, 79.4, 197, 4],
+  ["1123477", 3, "G", 2.5, 12.1, 106.1, 243, 4],
+  ["1123478", 4, "G", 2.5, 13, 134.3, 293, 4],
+  ["1123479", 5, "G", 2.5, 14.1, 158.3, 342, 4],
+  ["1123480", 7, "G", 2.5, 15.4, 225, 462, 4],
+  ["1123481", 12, "G", 2.5, 20.1, 383.6, 718, 4],
+  ["1123482", 18, "G", 2.5, 23.4, 548.9, 1011, 4],
+  ["1123483", 25, "G", 2.5, 27.4, 761.7, 1370, 4],
+  ["1123485", 4, "G", 4, 14.7, 211.9, 399, 4],
+  ["1123486", 5, "G", 4, 15.9, 250.3, 471, 4],
+  ["1123487", 3, "G", 6, 14.9, 232.1, 414, 4],
+  ["1123488", 4, "G", 6, 16.1, 298.5, 519, 4],
+  ["1123489", 5, "G", 6, 17.8, 356.1, 607, 4],
+  ["1123490", 4, "G", 10, 20.1, 490.6, 837, 4],
+  ["1123492", 4, "G", 16, 22.5, 735.1, 1157, 4],
+  ["1123493", 5, "G", 16, 25, 888.7, 1407, 4],
+  ["1123494", 4, "G", 25, 27.8, 1126.6, 1683, 4],
+] as const;
+
+export const olflexClassic135ChBlackCables = metricLappCables(
+  olflexClassic135ChBlackRows,
+  {
+    family: "ÖLFLEX CLASSIC 135 CH BK 0,6/1 kV",
+    url: "https://products.lappgroup.com/online-catalogue/power-and-control-cables/various-applications/halogen-free-oelflex/oelflex-classic-135-ch-bk-061-kv.html?format=pdf",
+    revision: "LAPP PN 0456 / 02_03.16 (2026-01-26)",
+    nominalU0V: 600,
+    nominalUV: 1000,
     shielded: true,
   },
 );
@@ -3130,11 +3544,14 @@ export const componentBank = [
   ...ic60lBreakers,
   ...rm17Relays,
   ...linergyDsBlocks,
+  ...linergyDsFourPoleBlocks,
+  ...linergyNeutralBars,
   ...linergyEarthBars,
   ...phoenixPtPeTerminals,
   ...abl6Transformers,
   ...abt7pduTransformers,
   ...victronAgmSuperCycle,
+  ...victronGelDeepCycle,
   ...apcSmvUps,
   ...victronVeDirect230,
   ...victronVeDirect120,
@@ -3148,6 +3565,9 @@ export const componentBank = [
   ...olflexClassic110HCables,
   ...olflexClassic110ChCables,
   ...olflexClassic115CyCables,
+  ...olflexClassic110CyBlackCables,
+  ...olflexClassic135ChCables,
+  ...olflexClassic135ChBlackCables,
   ...olflexClassic130HCables,
   ...stamfordWinding311Alternators,
   ...spacialS3hdEnclosures,

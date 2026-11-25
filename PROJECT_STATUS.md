@@ -551,3 +551,10 @@ iC60N 2b49aee published in Pages run 45285905960 and the public root returned HT
 - Schneider EM2214 adds the single-tariff pulse-only variant with eight documented terminals. The stacked catalogue has 1,625 records.
 - LAPP ÖLFLEX CLASSIC 115 CY adds all 71 articles from pages 3–5 of the manufacturer table, bringing the stacked catalogue to 1,696 records. The screened cables retain numbered core ends and a separate braid group.
 - LAPP ÖLFLEX CLASSIC 130 H adds all 85 published 300/500 V articles, bringing the stacked catalogue to 1,781 records. Three merged PDF text rows were resolved against the manufacturer table.
+- Linergy DS LGY410028 adds 28 screw connections in four electrically separate pole groups. Pole-to-phase and neutral assignments await verification. The stacked catalogue has 1,782 records.
+- Linergy DS LGY412548, LGY412560 and LGY416048 add 156 screw connections across three models. The stacked catalogue has 1,785 records. These entries retain separate pole groups and explicitly flag phase assignment and calculation mapping for verification.
+- Linergy LGYN1007, LGYN12512 and LGYN12515 add three neutral strips, each with a single neutral node and its own documented screw connections. The stacked catalogue has 1,788 records.
+- LAPP ÖLFLEX CLASSIC 110 CY BLACK 0.6/1 kV adds 49 manufacturer articles from pages 3–4, with numbered cores, PE where specified and separate braid ends. The stacked catalogue has 1,837 records.
+- LAPP ÖLFLEX CLASSIC 135 CH adds all 73 articles from pages 4–6 of the manufacturer table. The stacked catalogue has 1,910 records.
+- LAPP ÖLFLEX CLASSIC 135 CH BK 0.6/1 kV adds 33 screened cables from page 4 of the manufacturer table. The stacked catalogue has 1,943 records.
+- Victron GEL Deep Cycle adds seven 12 V batteries from the manufacturer’s 60–265 Ah C20 table. The stacked catalogue has 1,950 records. Storage calculation mapping remains pending for these models.

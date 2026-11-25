@@ -433,6 +433,8 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "Select EM2214 to inspect both pulse pairs on the single-tariff model.",
       "Compare LAPP CLASSIC 115 CY articles 1136003 and 1136753 to find the shared braid and the protective-earth core on the G article.",
       "Compare CLASSIC 130 H articles 1123114 and 1123115 in the terminal list to see how the protective-earth core changes the seven-core cable.",
+      "Select Linergy LGY410028 and use the terminal list to count seven connections in each of its four pole groups.",
+      "Export Linergy LGYN12515 as JSON and find all 15 screw connections in its single neutral group.",
       "For Phoenix Contact PT-PE blocks, the terminal list shows the wire clamps and the DIN-rail foot in one protective-earth group.",
       "Filter manufacturer equipment by category and use Previous records or Next records to browse large result sets.",
       "Search for an iC60N order code to inspect the breaker ratings and terminal groups. Breaker records are available for inventories and diagrams.",
@@ -466,6 +468,7 @@ const workflows: Omit<HelpTopic, "kind" | "category">[] = [
       "Include the model-derived bill of materials to report the saved catalogue equipment and its terminal links.",
       "For supported PV series strings, the frozen bill-of-materials report also lists the module order and standard-test-condition values.",
       "Supported battery series chains appear with their nominal voltage, C20 capacity and nameplate energy in the frozen bill-of-materials report.",
+      "Find Victron BAT412550104 in the catalogue, inspect its two copper terminals, and export the record to check its 60 Ah C20 rating at 25 °C.",
     ],
     example:
       "If you edit a load after a simulation, rerun that analysis before including it in a new report. An older run is not evidence for changed inputs.",

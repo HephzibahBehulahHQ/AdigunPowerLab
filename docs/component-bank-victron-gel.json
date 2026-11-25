@@ -1,0 +1,348 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "victron-energy:bat412550104",
+      "manufacturer": "Victron Energy",
+      "model": "BAT412550104",
+      "orderCode": "BAT412550104",
+      "category": "batteries-and-storage-systems",
+      "function": "gel-storage-battery",
+      "connection": "dc-storage",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "battery-positive",
+          "connector": "copper terminal"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "battery-negative",
+          "connector": "copper terminal"
+        }
+      ],
+      "ratings": {
+        "nominalV": 12,
+        "c20Ah": 60,
+        "lengthMm": 229,
+        "widthMm": 138,
+        "heightMm": 227,
+        "massKg": 20,
+        "ccaA": 250,
+        "reserveMinutes": 70
+      },
+      "conditions": {
+        "capacityTemperatureC": 25,
+        "ccaTemperatureF": 0,
+        "reserveTemperatureF": 80,
+        "chemistry": "flat-plate GEL lead-acid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-GEL-and-AGM-Batteries-EN.pdf",
+        "revision": "GEL and AGM Batteries EN, 265 Ah BAT412126101 table",
+        "page": 4
+      },
+      "missingFields": [
+        "verified-storage-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:bat412800104",
+      "manufacturer": "Victron Energy",
+      "model": "BAT412800104",
+      "orderCode": "BAT412800104",
+      "category": "batteries-and-storage-systems",
+      "function": "gel-storage-battery",
+      "connection": "dc-storage",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "battery-positive",
+          "connector": "copper terminal"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "battery-negative",
+          "connector": "copper terminal"
+        }
+      ],
+      "ratings": {
+        "nominalV": 12,
+        "c20Ah": 90,
+        "lengthMm": 350,
+        "widthMm": 167,
+        "heightMm": 183,
+        "massKg": 26,
+        "ccaA": 360,
+        "reserveMinutes": 120
+      },
+      "conditions": {
+        "capacityTemperatureC": 25,
+        "ccaTemperatureF": 0,
+        "reserveTemperatureF": 80,
+        "chemistry": "flat-plate GEL lead-acid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-GEL-and-AGM-Batteries-EN.pdf",
+        "revision": "GEL and AGM Batteries EN, 265 Ah BAT412126101 table",
+        "page": 4
+      },
+      "missingFields": [
+        "verified-storage-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:bat412101104",
+      "manufacturer": "Victron Energy",
+      "model": "BAT412101104",
+      "orderCode": "BAT412101104",
+      "category": "batteries-and-storage-systems",
+      "function": "gel-storage-battery",
+      "connection": "dc-storage",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "battery-positive",
+          "connector": "copper terminal"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "battery-negative",
+          "connector": "copper terminal"
+        }
+      ],
+      "ratings": {
+        "nominalV": 12,
+        "c20Ah": 110,
+        "lengthMm": 330,
+        "widthMm": 171,
+        "heightMm": 220,
+        "massKg": 33,
+        "ccaA": 450,
+        "reserveMinutes": 150
+      },
+      "conditions": {
+        "capacityTemperatureC": 25,
+        "ccaTemperatureF": 0,
+        "reserveTemperatureF": 80,
+        "chemistry": "flat-plate GEL lead-acid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-GEL-and-AGM-Batteries-EN.pdf",
+        "revision": "GEL and AGM Batteries EN, 265 Ah BAT412126101 table",
+        "page": 4
+      },
+      "missingFields": [
+        "verified-storage-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:bat412121104",
+      "manufacturer": "Victron Energy",
+      "model": "BAT412121104",
+      "orderCode": "BAT412121104",
+      "category": "batteries-and-storage-systems",
+      "function": "gel-storage-battery",
+      "connection": "dc-storage",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "battery-positive",
+          "connector": "copper terminal"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "battery-negative",
+          "connector": "copper terminal"
+        }
+      ],
+      "ratings": {
+        "nominalV": 12,
+        "c20Ah": 130,
+        "lengthMm": 410,
+        "widthMm": 176,
+        "heightMm": 227,
+        "massKg": 38,
+        "ccaA": 500,
+        "reserveMinutes": 180
+      },
+      "conditions": {
+        "capacityTemperatureC": 25,
+        "ccaTemperatureF": 0,
+        "reserveTemperatureF": 80,
+        "chemistry": "flat-plate GEL lead-acid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-GEL-and-AGM-Batteries-EN.pdf",
+        "revision": "GEL and AGM Batteries EN, 265 Ah BAT412126101 table",
+        "page": 4
+      },
+      "missingFields": [
+        "verified-storage-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:bat412151104",
+      "manufacturer": "Victron Energy",
+      "model": "BAT412151104",
+      "orderCode": "BAT412151104",
+      "category": "batteries-and-storage-systems",
+      "function": "gel-storage-battery",
+      "connection": "dc-storage",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "battery-positive",
+          "connector": "copper terminal"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "battery-negative",
+          "connector": "copper terminal"
+        }
+      ],
+      "ratings": {
+        "nominalV": 12,
+        "c20Ah": 165,
+        "lengthMm": 485,
+        "widthMm": 172,
+        "heightMm": 240,
+        "massKg": 48,
+        "ccaA": 550,
+        "reserveMinutes": 200
+      },
+      "conditions": {
+        "capacityTemperatureC": 25,
+        "ccaTemperatureF": 0,
+        "reserveTemperatureF": 80,
+        "chemistry": "flat-plate GEL lead-acid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-GEL-and-AGM-Batteries-EN.pdf",
+        "revision": "GEL and AGM Batteries EN, 265 Ah BAT412126101 table",
+        "page": 4
+      },
+      "missingFields": [
+        "verified-storage-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:bat412201104",
+      "manufacturer": "Victron Energy",
+      "model": "BAT412201104",
+      "orderCode": "BAT412201104",
+      "category": "batteries-and-storage-systems",
+      "function": "gel-storage-battery",
+      "connection": "dc-storage",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "battery-positive",
+          "connector": "copper terminal"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "battery-negative",
+          "connector": "copper terminal"
+        }
+      ],
+      "ratings": {
+        "nominalV": 12,
+        "c20Ah": 220,
+        "lengthMm": 522,
+        "widthMm": 238,
+        "heightMm": 240,
+        "massKg": 66,
+        "ccaA": 600,
+        "reserveMinutes": 220
+      },
+      "conditions": {
+        "capacityTemperatureC": 25,
+        "ccaTemperatureF": 0,
+        "reserveTemperatureF": 80,
+        "chemistry": "flat-plate GEL lead-acid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-GEL-and-AGM-Batteries-EN.pdf",
+        "revision": "GEL and AGM Batteries EN, 265 Ah BAT412126101 table",
+        "page": 4
+      },
+      "missingFields": [
+        "verified-storage-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    },
+    {
+      "id": "victron-energy:bat412126101",
+      "manufacturer": "Victron Energy",
+      "model": "BAT412126101",
+      "orderCode": "BAT412126101",
+      "category": "batteries-and-storage-systems",
+      "function": "gel-storage-battery",
+      "connection": "dc-storage",
+      "terminals": [
+        {
+          "id": "positive",
+          "group": "dc-positive",
+          "interface": "battery-positive",
+          "connector": "copper terminal"
+        },
+        {
+          "id": "negative",
+          "group": "dc-negative",
+          "interface": "battery-negative",
+          "connector": "copper terminal"
+        }
+      ],
+      "ratings": {
+        "nominalV": 12,
+        "c20Ah": 265,
+        "lengthMm": 520,
+        "widthMm": 268,
+        "heightMm": 223,
+        "massKg": 75,
+        "ccaA": 650,
+        "reserveMinutes": 250
+      },
+      "conditions": {
+        "capacityTemperatureC": 25,
+        "ccaTemperatureF": 0,
+        "reserveTemperatureF": 80,
+        "chemistry": "flat-plate GEL lead-acid"
+      },
+      "modelMapping": null,
+      "source": {
+        "url": "https://www.victronenergy.com/upload/documents/Datasheet-GEL-and-AGM-Batteries-EN.pdf",
+        "revision": "GEL and AGM Batteries EN, 265 Ah BAT412126101 table",
+        "page": 4
+      },
+      "missingFields": [
+        "verified-storage-model-mapping"
+      ],
+      "readiness": "inventory-and-diagram-only"
+    }
+  ]
+}

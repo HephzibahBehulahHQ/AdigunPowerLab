@@ -208,6 +208,11 @@ export const workspaceMessages: Record<string, [string, string, string]> = {
     "Busbar àti ètò pínpín",
     "Busbars and distribution systems",
   ],
+  "Verified phase and neutral assignments": [
+    "Bestätigte Zuordnung von Phasen und Neutralleiter",
+    "Ìpín àwọn fáàsì àti okùn neutral tí a ti fìdí múlẹ̀",
+    "Confirmed phase and neutral assignments",
+  ],
   "Verified distribution calculation mapping": [
     "Geprüfte Zuordnung zur Verteilungsberechnung",
     "Ìbámu ìṣírò pínpín tí a fìdí múlẹ̀",

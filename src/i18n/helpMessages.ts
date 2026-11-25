@@ -2102,6 +2102,18 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Fún àwọn bulọọki PT-PE ti Phoenix Contact, àtòjọ ìsopọ̀ fi àwọn ibi tí a ti di okun àti ẹsẹ̀ DIN rail hàn nínú ẹgbẹ́ PE kan náà.",
       "For Phoenix Contact PT-PE blocks, di terminal list show di wire clamps and di DIN-rail foot for di same protective-earth group.",
     ],
+  "Export Linergy LGYN12515 as JSON and find all 15 screw connections in its single neutral group.":
+    [
+      "Exportieren Sie Linergy LGYN12515 als JSON und suchen Sie alle 15 Schraubanschlüsse in der gemeinsamen Neutralleitergruppe.",
+      "Ṣe àgbéjáde Linergy LGYN12515 gẹ́gẹ́ bí JSON kí o sì wá gbogbo ojú ìsopọ̀ skúrù mẹ́ẹ̀ẹ́dógún nínú ẹgbẹ́ neutral kan náà.",
+      "Export Linergy LGYN12515 as JSON and find all 15 screw connections for di same neutral group.",
+    ],
+  "Select Linergy LGY410028 and use the terminal list to count seven connections in each of its four pole groups.":
+    [
+      "Wählen Sie Linergy LGY410028 und zählen Sie in der Anschlussliste sieben Anschlüsse in jeder der vier Polgruppen.",
+      "Yan Linergy LGY410028 kí o sì ka ojú ìsopọ̀ méje nínú ọkọọkan àwọn ẹgbẹ́ póòlù mẹ́rin.",
+      "Select Linergy LGY410028 and use di terminal list to count seven connections for each of di four pole groups.",
+    ],
   "Compare CLASSIC 130 H articles 1123114 and 1123115 in the terminal list to see how the protective-earth core changes the seven-core cable.":
     [
       "Vergleichen Sie die Anschlusslisten der CLASSIC 130 H Artikel 1123114 und 1123115, um den Unterschied beim Schutzleiter des siebenadrigen Kabels zu sehen.",
@@ -2580,4 +2592,10 @@ export const helpMessages: Record<string, [string, string, string]> = {
       "Di footage show dem moving new turbine runner enter Fort Randall powerhouse during repair. E show equipment handling, no be generator wey dey run.",
     ],
   "Play video": ["Video abspielen", "Fídíò ṣiṣẹ́", "Play video"],
+  "Find Victron BAT412550104 in the catalogue, inspect its two copper terminals, and export the record to check its 60 Ah C20 rating at 25 °C.":
+    [
+      "Suchen Sie Victron BAT412550104 im Katalog, prüfen Sie die beiden Kupferanschlüsse und exportieren Sie den Datensatz, um die C20-Kapazität von 60 Ah bei 25 °C zu überprüfen.",
+      "Wá Victron BAT412550104 nínú àkójọ, ṣàyẹ̀wò ojú ìsopọ̀ bàbà méjì rẹ̀, kí o sì ṣe àgbéjáde àkọsílẹ̀ láti ṣàyẹ̀wò ìwọ̀n C20 60 Ah ní 25 °C.",
+      "Find Victron BAT412550104 for di catalogue, check di two copper terminals, and export di record to check di 60 Ah C20 rating for 25 °C.",
+    ],
 };

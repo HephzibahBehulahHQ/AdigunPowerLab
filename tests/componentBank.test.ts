@@ -14,11 +14,14 @@ import {
   ictContactors,
   rm17Relays,
   linergyDsBlocks,
+  linergyDsFourPoleBlocks,
   linergyEarthBars,
+  linergyNeutralBars,
   phoenixPtPeTerminals,
   abl6Transformers,
   abt7pduTransformers,
   victronAgmSuperCycle,
+  victronGelDeepCycle,
   apcSmvUps,
   victronVeDirect230,
   victronVeDirect120,
@@ -32,6 +35,9 @@ import {
   olflexClassic110HCables,
   olflexClassic110ChCables,
   olflexClassic115CyCables,
+  olflexClassic110CyBlackCables,
+  olflexClassic135ChCables,
+  olflexClassic135ChBlackCables,
   olflexClassic130HCables,
   philipsDn145bDownlights,
   philipsDn145bPsuDownlights,
@@ -474,41 +480,51 @@ test("WEG NEMA exports retain nameplate ratings and separately sourced leads", (
   );
 });
 
-test("LAPP 115 CY exports preserve the braid and protective-earth variants", () => {
-  expect(olflexClassic115CyCables).toHaveLength(71);
-  for (const cable of olflexClassic115CyCables) {
-    expect(cable.ratings).toMatchObject({
-      nominalU0V: 300,
-      nominalUV: 500,
-      testVoltageV: 4000,
+test.each([
+  ["115-cy", olflexClassic115CyCables, 71, 300, 500, [3, 4, 5]],
+  ["110-cy-black", olflexClassic110CyBlackCables, 49, 600, 1000, [3, 4]],
+  ["135-ch", olflexClassic135ChCables, 73, 300, 500, [4, 5, 6]],
+  ["135-ch-black", olflexClassic135ChBlackCables, 33, 600, 1000, [4]],
+] as const)(
+  "LAPP %s exports preserve braid and protective-earth variants",
+  (batch, cables, count, nominalU0V, nominalUV, pages) => {
+    expect(cables).toHaveLength(count);
+    for (const cable of cables) {
+      expect(cable.ratings).toMatchObject({
+        nominalU0V,
+        nominalUV,
+        testVoltageV: 4000,
+      });
+      expect(
+        cable.terminals
+          .filter(({ group }) => group === "Shield")
+          .map(({ id }) => id),
+      ).toEqual(["a-shield", "b-shield"]);
+      expect(
+        cable.terminals
+          .filter(({ group }) => group === "PE")
+          .map(({ id }) => id),
+      ).toEqual(cable.ratings.hasPe ? ["a-pe", "b-pe"] : []);
+      expect(cable.terminals).toHaveLength(2 * (cable.ratings.coreCount + 1));
+      expect(pages).toContain(cable.source.page);
+    }
+    const file = (extension: string) =>
+      readFileSync(
+        new URL(
+          `../docs/component-bank-lapp-olflex-${batch}.${extension}`,
+          import.meta.url,
+        ),
+        "utf8",
+      );
+    expect(JSON.parse(file("json"))).toEqual({
+      schemaVersion: 1,
+      entries: cables,
     });
-    expect(
-      cable.terminals
-        .filter(({ group }) => group === "Shield")
-        .map(({ id }) => id),
-    ).toEqual(["a-shield", "b-shield"]);
-    expect(
-      cable.terminals.filter(({ group }) => group === "PE").map(({ id }) => id),
-    ).toEqual(cable.ratings.hasPe ? ["a-pe", "b-pe"] : []);
-    expect(cable.terminals).toHaveLength(2 * (cable.ratings.coreCount + 1));
-    expect([3, 4, 5]).toContain(cable.source.page);
-  }
-  const file = (extension: string) =>
-    readFileSync(
-      new URL(
-        `../docs/component-bank-lapp-olflex-115-cy.${extension}`,
-        import.meta.url,
-      ),
-      "utf8",
+    expect(file("csv").replaceAll("\r\n", "\n")).toBe(
+      componentBankCsv(cables).replaceAll("\r\n", "\n"),
     );
-  expect(JSON.parse(file("json"))).toEqual({
-    schemaVersion: 1,
-    entries: olflexClassic115CyCables,
-  });
-  expect(file("csv").replaceAll("\r\n", "\n")).toBe(
-    componentBankCsv(olflexClassic115CyCables).replaceAll("\r\n", "\n"),
-  );
-});
+  },
+);
 
 test("LAPP 130 H exports retain verified diameters and PE variants", () => {
   expect(olflexClassic130HCables).toHaveLength(85);
@@ -770,6 +786,47 @@ test("Victron AGM retains discharge-rate capacity and exact insert variants", ()
     schemaVersion: 1,
     entries: victronAgmSuperCycle,
   });
+});
+
+test("Victron GEL exports retain published C20 capacities and copper poles", () => {
+  expect(victronGelDeepCycle.map(({ ratings }) => ratings.c20Ah)).toEqual([
+    60, 90, 110, 130, 165, 220, 265,
+  ]);
+  for (const battery of victronGelDeepCycle) {
+    expect(battery.ratings.nominalV).toBe(12);
+    expect(battery.conditions.capacityTemperatureC).toBe(25);
+    expect(battery.terminals).toEqual([
+      {
+        id: "positive",
+        group: "dc-positive",
+        interface: "battery-positive",
+        connector: "copper terminal",
+      },
+      {
+        id: "negative",
+        group: "dc-negative",
+        interface: "battery-negative",
+        connector: "copper terminal",
+      },
+    ]);
+    expect(battery.source.page).toBe(4);
+    expect(battery.modelMapping).toBeNull();
+  }
+  const file = (extension: string) =>
+    readFileSync(
+      new URL(
+        `../docs/component-bank-victron-gel.${extension}`,
+        import.meta.url,
+      ),
+      "utf8",
+    );
+  expect(JSON.parse(file("json"))).toEqual({
+    schemaVersion: 1,
+    entries: victronGelDeepCycle,
+  });
+  expect(file("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(victronGelDeepCycle).replaceAll("\r\n", "\n"),
+  );
 });
 
 test("AGM links allow series connection but reject indirect battery shorts", () => {
@@ -1156,6 +1213,118 @@ test("iEM2400 exports preserve the model-specific bus and both pulse pairs", () 
   );
 });
 
+test.each([
+  ["LGY412548", 125, 4.2, { 9: 1, 7.5: 7, 6.5: 4 }],
+  ["LGY412560", 125, 4.2, { 9.5: 1, 8.5: 3, 6.5: 11 }],
+  ["LGY416048", 160, 8.4, { 12: 1, 9: 3, 7.5: 8 }],
+] as const)(
+  "%s preserves the documented screw holes per pole",
+  (model, ratedCurrentA, icwKA, sizes) => {
+    const block = linergyDsFourPoleBlocks.find(
+      (entry) => entry.model === model,
+    )!;
+    expect(block.ratings).toMatchObject({ ratedCurrentA, icwKA, poles: 4 });
+    expect(block.source.pageLabel).toBe("B-3");
+    expect(new Set(block.terminals.map(({ id }) => id)).size).toBe(
+      block.terminals.length,
+    );
+    for (const pole of [1, 2, 3, 4]) {
+      const terminals = block.terminals.filter(
+        ({ group }) => group === `pole-${pole}`,
+      );
+      expect(terminals).toHaveLength(
+        Object.values(sizes).reduce((sum: number, count) => sum + count, 0),
+      );
+      for (const [diameter, count] of Object.entries(sizes)) {
+        expect(
+          terminals.filter(
+            ({ connector }) => connector === `Ø ${diameter} mm screw terminal`,
+          ),
+        ).toHaveLength(count);
+      }
+    }
+  },
+);
+
+test("Linergy neutral strips export one neutral node with every screw terminal", () => {
+  expect(
+    linergyNeutralBars.map(({ model, ratings, terminals }) => [
+      model,
+      ratings.ratedCurrentA,
+      terminals.length,
+    ]),
+  ).toEqual([
+    ["LGYN1007", 100, 7],
+    ["LGYN12512", 125, 12],
+    ["LGYN12515", 125, 15],
+  ]);
+  for (const strip of linergyNeutralBars) {
+    expect(
+      strip.terminals.every(
+        ({ group, interface: terminalInterface }) =>
+          group === "neutral" && terminalInterface === "ac-neutral",
+      ),
+    ).toBe(true);
+    expect(strip.source.pageLabel).toBe("B-3");
+    expect(strip.modelMapping).toBeNull();
+  }
+  const file = (extension: string) =>
+    readFileSync(
+      new URL(
+        `../docs/component-bank-linergy-neutral-bars.${extension}`,
+        import.meta.url,
+      ),
+      "utf8",
+    );
+  expect(JSON.parse(file("json"))).toEqual({
+    schemaVersion: 1,
+    entries: linergyNeutralBars,
+  });
+  expect(file("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(linergyNeutralBars).replaceAll("\r\n", "\n"),
+  );
+});
+
+test("Linergy LGY410028 exports four isolated groups of seven connections", () => {
+  const [block] = linergyDsFourPoleBlocks;
+  expect(block).toMatchObject({
+    orderCode: "LGY410028",
+    ratings: { poles: 4, ratedCurrentA: 100, ipkKA: 24, icwKA: 3 },
+    conditions: { icwDurationSeconds: 1 },
+  });
+  expect(block.terminals).toHaveLength(28);
+  expect(new Set(block.terminals.map(({ group }) => group))).toEqual(
+    new Set(["pole-1", "pole-2", "pole-3", "pole-4"]),
+  );
+  for (const pole of ["pole-1", "pole-2", "pole-3", "pole-4"]) {
+    const connectors = block.terminals
+      .filter(({ group }) => group === pole)
+      .map(({ connector }) => connector);
+    expect(
+      connectors.filter((label) => label === "Ø 7.5 mm screw terminal"),
+    ).toHaveLength(2);
+    expect(
+      connectors.filter((label) => label === "Ø 5.5 mm screw terminal"),
+    ).toHaveLength(5);
+  }
+  expect(block.missingFields).toContain("distribution-pole-phase-assignment");
+  const file = (extension: string) =>
+    readFileSync(
+      new URL(
+        `../docs/component-bank-linergy-four-pole.${extension}`,
+        import.meta.url,
+      ),
+      "utf8",
+    );
+  expect(JSON.parse(file("json"))).toEqual({
+    schemaVersion: 1,
+    entries: linergyDsFourPoleBlocks,
+  });
+  expect(file("csv").replaceAll("\r\n", "\n")).toBe(
+    componentBankCsv(linergyDsFourPoleBlocks).replaceAll("\r\n", "\n"),
+  );
+});
+
 test("PV validation follows conductor nodes across multiple wires", () => {
   const model = pvModules[0];
   const instances = [
@@ -1409,6 +1578,42 @@ test("iID records preserve the selective variants and support neutral-to-neutral
   ];
   const from = { instanceId: "rcd", unit: 1, terminalId: "neutral-bottom" };
   const to = { instanceId: "rcd", unit: 2, terminalId: "neutral-top" };
+  const strip = linergyNeutralBars[0];
+  const neutralStrip = {
+    id: "strip",
+    name: strip.model,
+    catalogueId: strip.id,
+    manufacturer: strip.manufacturer,
+    model: strip.model,
+    quantity: 1,
+    sourceUrl: strip.source.url,
+    sourceRevision: strip.source.revision,
+  };
+  const stripTerminal = {
+    instanceId: "strip",
+    unit: 1,
+    terminalId: "neutral-hole-1",
+  };
+  const equipment = [...instances, neutralStrip];
+  expect(
+    equipmentConnectionErrors(
+      [{ id: "strip-neutral", from, to: stripTerminal }],
+      equipment,
+    ),
+  ).toEqual([]);
+  expect(
+    equipmentConnectionErrors(
+      [
+        {
+          id: "strip-phase",
+          from: { ...from, terminalId: "pole-1-top" },
+          to: stripTerminal,
+          phase: "L1",
+        },
+      ],
+      equipment,
+    )[0],
+  ).toContain("incompatible");
   expect(
     equipmentConnectionErrors([{ id: "neutral", from, to }], instances),
   ).toEqual([]);

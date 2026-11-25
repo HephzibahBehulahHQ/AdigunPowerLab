@@ -144,6 +144,8 @@ const missingFieldLabels: Record<string, string> = {
   "contact-current-by-load-category": "Contact current by load category",
   "verified-distribution-model-mapping":
     "Verified distribution calculation mapping",
+  "distribution-pole-phase-assignment":
+    "Verified phase and neutral assignments",
 };
 
 export function ManufacturerEquipmentCatalogue({
@@ -362,7 +364,8 @@ export function ManufacturerEquipmentCatalogue({
                 </dd>
               </div>
             </dl>
-          ) : record.function === "single-pole-distribution-block" ? (
+          ) : record.function === "single-pole-distribution-block" ||
+            record.function === "four-pole-distribution-block" ? (
             <dl className="pg-metrics">
               <div>
                 <dt>Iₙ</dt>
@@ -375,6 +378,13 @@ export function ManufacturerEquipmentCatalogue({
               <div>
                 <dt>Icw</dt>
                 <dd>{format.format(record.ratings.icwKA)} kA · 1 s</dd>
+              </div>
+            </dl>
+          ) : record.function === "neutral-terminal-strip" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>Iₙ</dt>
+                <dd>{format.format(record.ratings.ratedCurrentA)} A</dd>
               </div>
             </dl>
           ) : record.function === "protective-earth-terminal-block" ? (
@@ -446,6 +456,17 @@ export function ManufacturerEquipmentCatalogue({
               <div>
                 <dt>{t("Discharge cutoff")}</dt>
                 <dd>{format.format(record.conditions.dischargeCutoffV)} V</dd>
+              </div>
+            </dl>
+          ) : record.function === "gel-storage-battery" ? (
+            <dl className="pg-metrics">
+              <div>
+                <dt>U</dt>
+                <dd>{record.ratings.nominalV} V DC</dd>
+              </div>
+              <div>
+                <dt>C20</dt>
+                <dd>{record.ratings.c20Ah} Ah</dd>
               </div>
             </dl>
           ) : record.function === "line-interactive-ups" ? (
